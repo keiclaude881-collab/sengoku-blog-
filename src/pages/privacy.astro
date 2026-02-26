@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const today = new Date().toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout
+  title="プライバシーポリシー | 戦略の系譜"
+  description="戦略の系譜のプライバシーポリシーです。"
+>
+  <div class="container">
+    <header class="page-header">
+      <h1>プライバシーポリシー</h1>
+      <p>最終更新：{today}</p>
+    </header>
+
+    <div class="prose privacy-content">
+      <h2>個人情報の取り扱いについて</h2>
+      <p>
+        本サイト「戦略の系譜」（以下「当サイト」）は、ユーザーのプライバシーを尊重し、個人情報の保護に努めます。
+      </p>
+
+      <h2>アクセス解析ツールについて</h2>
+      <p>
+        当サイトでは、Googleによるアクセス解析ツール「Google Analytics（GA4）」を使用しています。
+        このツールはCookieを使用してデータを収集しますが、個人を特定する情報は含まれません。
+        Cookieの無効化によりデータ収集を拒否することが可能です。
+      </p>
+
+      <h2>アフィリエイトプログラムについて</h2>
+      <p>
+        当サイトはAmazonアソシエイトプログラムに参加しており、紹介商品の購入により収益を得る場合があります。
+        アフィリエイトリンクには <code>rel="nofollow sponsored"</code> を付与しています。
+      </p>
+
+      <h2>免責事項</h2>
+      <p>
+        当サイトの情報は可能な限り正確を期していますが、内容の正確性・完全性を保証するものではありません。
+        当サイトの情報を利用したことにより生じた損害について、一切の責任を負いません。
+      </p>
+
+      <h2>お問い合わせ</h2>
+      <p>
+        当サイトに関するお問い合わせは、各記事のコメント欄またはSNSにてご連絡ください。
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .privacy-content {
+    max-width: 720px;
+    padding: var(--sp-md) 0 var(--sp-xl);
+  }
+</style>

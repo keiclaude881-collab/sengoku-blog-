@@ -1,177 +1,116 @@
-/* 和風カラーパレット */
+/* ── CSS 変数 ── */
 :root {
-  --color-sumi: #1a1a1a;       /* 墨色 */
-  --color-ake: #c0392b;        /* 朱色 */
-  --color-kogane: #c9a84c;     /* 金色 */
-  --color-washi: #f5f0e8;      /* 和紙色（背景） */
-  --color-nezumi: #6b6b6b;     /* 鼠色（テキスト補助） */
-  --color-shiro: #ffffff;
-  --color-hana: #f9f5ee;       /* 花色（カード背景） */
-  --color-border: #d4c9b0;
+  /* COLOR */
+  --sumi:       #2C2416;
+  --washi:      #F5F0E8;
+  --washi-dark: #EDE6D6;
+  --gold:       #C8A96E;
+  --gold-light: #E8C98A;
+  --red-seal:   #8B2020;
+  --gray-mid:   #8A7F6E;
+  --gray-light: #C4B89A;
+  --border:     #D6CCB8;
 
-  --font-serif: 'Noto Serif JP', 'Yu Mincho', '游明朝', serif;
-  --font-sans: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  /* FONT */
+  --font-serif: "Shippori Mincho", "Noto Serif JP", serif;
+  --font-sans:  "Noto Sans JP", sans-serif;
+  --font-mono:  "Courier New", monospace;
 
-  --max-width: 900px;
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-2xl: 3rem;
+  /* SPACING */
+  --sp-xs: 0.4rem;
+  --sp-sm: 0.8rem;
+  --sp-md: 1.6rem;
+  --sp-lg: 3.2rem;
+  --sp-xl: 6.4rem;
+
+  /* LAYOUT */
+  --max-width:  1200px;
+  --nav-height: 64px;
 }
 
-/* リセット */
+/* ── リセット ── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html {
-  font-size: 16px;
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-  font-family: var(--font-sans);
-  background-color: var(--color-washi);
-  color: var(--color-sumi);
-  line-height: 1.8;
+  background: var(--washi);
+  color: var(--sumi);
+  font-family: var(--font-serif);
+  overflow-x: hidden;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+/* 和紙テクスチャオーバーレイ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("/images/noise.svg");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.04;
 }
 
-a {
-  color: var(--color-ake);
-  text-decoration: none;
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* ── フェードインアニメーション ── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
-  line-height: 1.4;
-}
-
-/* コンテナ */
+/* ── レイアウトユーティリティ ── */
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 var(--spacing-md);
+  padding: 0 var(--sp-md);
 }
 
-/* ユーティリティ */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+main {
+  flex: 1;
+  padding-top: var(--nav-height);
+  position: relative;
+  z-index: 1;
 }
 
-/* 記事本文スタイル */
-.prose {
-  font-size: 1.0625rem;
-  line-height: 1.9;
+/* ── コンテナ内セクション共通 ── */
+.section {
+  padding: var(--sp-xl) 0;
 }
 
-.prose h2 {
-  font-size: 1.5rem;
-  margin-top: var(--spacing-2xl);
-  margin-bottom: var(--spacing-md);
-  padding-bottom: var(--spacing-sm);
-  border-bottom: 2px solid var(--color-kogane);
-  color: var(--color-sumi);
+.section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--sp-lg);
 }
 
-.prose h3 {
-  font-size: 1.25rem;
-  margin-top: var(--spacing-xl);
-  margin-bottom: var(--spacing-sm);
-  padding-left: var(--spacing-sm);
-  border-left: 4px solid var(--color-ake);
-  color: var(--color-sumi);
-}
-
-.prose p {
-  margin-bottom: var(--spacing-md);
-}
-
-.prose ul, .prose ol {
-  margin-bottom: var(--spacing-md);
-  padding-left: var(--spacing-xl);
-}
-
-.prose li {
-  margin-bottom: var(--spacing-xs);
-}
-
-.prose blockquote {
-  border-left: 4px solid var(--color-kogane);
-  padding: var(--spacing-sm) var(--spacing-md);
-  margin: var(--spacing-lg) 0;
-  background: var(--color-hana);
-  font-style: italic;
-  color: var(--color-nezumi);
-}
-
-.prose strong {
-  color: var(--color-ake);
-  font-weight: 700;
-}
-
-.prose table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: var(--spacing-lg) 0;
-  font-size: 0.9375rem;
-}
-
-.prose th, .prose td {
-  border: 1px solid var(--color-border);
-  padding: var(--spacing-sm) var(--spacing-md);
-  text-align: left;
-}
-
-.prose th {
-  background: var(--color-sumi);
-  color: var(--color-shiro);
+.section-title {
   font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--sumi);
 }
 
-.prose tr:nth-child(even) {
-  background: var(--color-hana);
+.section-more {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  color: var(--gray-mid);
+  transition: color 0.3s;
 }
-
-/* レスポンシブ */
-@media (max-width: 640px) {
-  :root {
-    --spacing-xl: 1.5rem;
-    --spacing-2xl: 2rem;
-  }
-
-  .prose h2 {
-    font-size: 1.25rem;
-  }
-
-  .prose h3 {
-    font-size: 1.125rem;
-  }
-
-  .prose table {
-    font-size: 0.875rem;
-  }
-}
+.section-more:hover { color: var(--gold); }

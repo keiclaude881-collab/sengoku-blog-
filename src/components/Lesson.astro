@@ -1,0 +1,29 @@
+---
+interface Props {
+  lesson: string;
+}
+const { lesson } = Astro.props;
+---
+
+<div class="lesson-box">
+  <span class="lesson-prefix">💡 現代への教訓：</span>{lesson}
+</div>
+
+<style>
+  .lesson-box {
+    padding: 0.8rem 1rem;
+    background: rgba(200, 169, 110, 0.08);
+    border-left: 2px solid var(--gold);
+    font-size: 0.78rem;
+    line-height: 1.8;
+    font-style: italic;
+    color: var(--gray-mid);
+    margin: 1.2rem 0;
+  }
+  .lesson-prefix {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--gold);
+    margin-right: 0.3em;
+  }
+</style>

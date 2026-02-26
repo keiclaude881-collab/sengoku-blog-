@@ -1,0 +1,39 @@
+---
+interface Props {
+  category: "battle" | "leader" | "strategy" | "books";
+}
+const { category } = Astro.props;
+
+const map = {
+  battle:   { label: "合戦分析",      icon: "⚔",  href: "/category/battle/" },
+  leader:   { label: "武将の思想",    icon: "🏯", href: "/category/leader/" },
+  strategy: { label: "兵法・現代応用", icon: "📜", href: "/category/strategy/" },
+  books:    { label: "書籍レビュー",   icon: "📚", href: "/category/books/" },
+};
+const { label, icon, href } = map[category];
+---
+
+<a href={href} class="category-badge">
+  <span class="badge-icon" aria-hidden="true">{icon}</span>
+  <span class="badge-label">{label}</span>
+</a>
+
+<style>
+  .category-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .category-badge:hover {
+    color: var(--gold-light);
+  }
+  .badge-icon { font-size: 0.75rem; }
+</style>

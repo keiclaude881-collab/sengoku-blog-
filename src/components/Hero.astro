@@ -1,0 +1,258 @@
+---
+---
+
+<section class="hero" aria-label="ヒーー">
+  <!-- 左カラム -->
+  <div class="hero-left">
+    <p class="hero-eyebrow">History × Modern Strategy</p>
+
+    <h1 class="hero-title">
+      歴史の戦略を、<br />現代の武器に。
+    </h1>
+
+    <p class="hero-subtitle">— 戦国・兵法から学ぶビジネス思考</p>
+
+    <p class="hero-desc">
+      関ヶ原の調略、孫子の情報戦、信長の破壊的イノベーション——数百年前の知恵は、現代の交渉・組織・意思決定に驚くほど直結している。
+    </p>
+
+    <div class="hero-cta">
+      <a href="/blog/" class="btn btn-primary">記事を読む</a>
+      <a href="/about/" class="btn btn-secondary">コンセプトを知る</a>
+    </div>
+  </div>
+
+  <!-- 右カラム -->
+  <div class="hero-right" aria-hidden="true">
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="stat-value">450+</span>
+        <span class="stat-label">Years of Strategy</span>
+        <span class="stat-desc">戦国から江戸まで、時代を超えた戦略の記録</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-value">現代</span>
+        <span class="stat-label">Application Focus</span>
+        <span class="stat-desc">ビジネス・交渉・リーダーシップへの応用を解説</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-value">実践</span>
+        <span class="stat-label">Actionable Insight</span>
+        <span class="stat-desc">読んで終わりでなく、明日から使える視点を提供</span>
+      </div>
+    </div>
+
+    <div class="seal">謀略</div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+  }
+
+  /* 左カラム */
+  .hero-left {
+    padding: 8rem 4rem 4rem 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.6rem;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 300;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+  }
+  .hero-eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.8rem, 5vw, 4.4rem);
+    font-weight: 800;
+    color: var(--sumi);
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-serif);
+    font-size: clamp(1.0rem, 2vw, 1.4rem);
+    color: var(--gold);
+    letter-spacing: 0.08em;
+  }
+
+  .hero-desc {
+    font-family: var(--font-serif);
+    font-size: 0.92rem;
+    font-weight: 300;
+    line-height: 2;
+    color: var(--gray-mid);
+    border-left: 2px solid var(--gold-light);
+    padding-left: 1.2rem;
+    max-width: 400px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.8rem;
+  }
+
+  /* ボタン（global.cssのbtn classを使用） */
+  .btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    transition: all 0.35s;
+    text-decoration: none;
+  }
+  .btn-primary {
+    background: var(--sumi);
+    color: var(--washi);
+    border: 1px solid var(--sumi);
+  }
+  .btn-primary:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--sumi);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--gray-mid);
+    border: 1px solid var(--gray-light);
+  }
+  .btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  /* 右カラム */
+  .hero-right {
+    background: var(--sumi);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 3rem;
+  }
+
+  .hero-right::before {
+    content: "戦";
+    font-family: var(--font-serif);
+    font-size: 28vw;
+    font-weight: 800;
+    color: rgba(200, 169, 110, 0.06);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .hero-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-stat {
+    border-left: 1px solid rgba(200, 169, 110, 0.2);
+    padding-left: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .stat-value {
+    font-family: var(--font-serif);
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    color: rgba(200, 169, 110, 0.5);
+    text-transform: uppercase;
+  }
+
+  .stat-desc {
+    font-family: var(--font-serif);
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: rgba(245, 240, 232, 0.4);
+    line-height: 1.7;
+  }
+
+  /* 朱印モチーフ */
+  .seal {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 3rem;
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--red-seal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-8deg);
+    font-family: var(--font-serif);
+    font-size: 0.9rem;
+    color: var(--red-seal);
+    z-index: 1;
+  }
+
+  /* レスポンシブ */
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+    .hero-left {
+      padding: 6rem 2rem 3rem;
+    }
+    .hero-right {
+      min-height: 50vh;
+      padding: 3rem 2rem;
+    }
+    .hero-right::before {
+      font-size: 50vw;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-left {
+      padding: 5rem 1.2rem 2.4rem;
+      gap: 1.2rem;
+    }
+  }
+</style>

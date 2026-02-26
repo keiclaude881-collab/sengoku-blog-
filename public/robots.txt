@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /drafts/
 
 Sitemap: https://sengoku-blog.vercel.app/sitemap-index.xml

@@ -1,0 +1,80 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ArticleCard from "../../components/ArticleCard.astro";
+
+type Cat = "battle" | "leader" | "strategy" | "books";
+
+export async function getStaticPaths() {
+  const cats: Cat[] = ["battle", "leader", "strategy", "books"];
+  return cats.map(cat => ({ params: { cat } }));
+}
+
+const { cat } = Astro.params as { cat: Cat };
+
+const posts = (await getCollection(cat))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const labelMap: Record<Cat, string> = {
+  battle:   "合戦分析",
+  leader:   "武将の思想",
+  strategy: "兵法・現代応用",
+  books:    "書籍レビュー",
+};
+const label = labelMap[cat];
+
+function slug(id: string) {
+  return `${cat}/${id.replace(/\.mdx?$/, '')}`;
+}
+---
+
+<BaseLayout
+  title={`${label} — カテゴリ別記事一覧 | 戦略の系譜`}
+  description={`「${label}」カテゴリの記事一覧。${posts.length}本の記事を掲載中。`}
+>
+  <div class="container">
+    <nav class="breadcrumb" aria-label="パンくず">
+      <a href="/">ホーム</a>
+      <span>›</span>
+      <a href="/blog/">記事一覧</a>
+      <span>›</span>
+      <span aria-current="page">{label}</span>
+    </nav>
+
+    <header class="page-header">
+      <h1>{label}</h1>
+      <p>{posts.length} 記事</p>
+    </header>
+
+    {posts.length > 0 ? (
+      <ul class="article-grid" role="list">
+        {posts.map(post => (
+          <li>
+            <ArticleCard
+              title={post.data.title}
+              description={post.data.description}
+              date={post.data.date}
+              category={post.data.category}
+              tags={post.data.tags}
+              readingTime={post.data.readingTime}
+              lesson={post.data.lesson}
+              slug={slug(post.id)}
+            />
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="empty">このカテゴリの記事はまもなく公開されます。</p>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .empty {
+    color: var(--gray-light);
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    padding: var(--sp-xl);
+    text-align: center;
+  }
+</style>

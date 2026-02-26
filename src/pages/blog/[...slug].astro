@@ -1,27 +1,47 @@
 ---
-import { getCollection, render } from 'astro:content';
-import PostLayout from '../../layouts/PostLayout.astro';
+import { getCollection, render } from "astro:content";
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+import Lesson from "../../components/Lesson.astro";
+import BookCard from "../../components/BookCard.astro";
+
+type CollectionName = "battle" | "leader" | "strategy" | "books";
+const collectionNames: CollectionName[] = ["battle", "leader", "strategy", "books"];
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts');
-  return posts.map((post) => ({
-    params: { slug: post.id.replace(/\.md$/, '') },
+  const allPosts = (await Promise.all(
+    (["battle", "leader", "strategy", "books"] as const).map(c => getCollection(c))
+  )).flat();
+
+  return allPosts.map(post => ({
+    params: { slug: `${post.collection}/${post.id.replace(/\.mdx?$/, '')}` },
     props: { post },
   }));
 }
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+// 関連記事（同カテゴリ最新3件）
+const related = (await getCollection(post.collection as CollectionName))
+  .filter(p => p.id !== post.id)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+
+function relSlug(col: string, id: string) {
+  return `${col}/${id.replace(/\.mdx?$/, '')}`;
+}
 ---
 
-<PostLayout
+<ArticleLayout
   title={post.data.title}
   description={post.data.description}
   date={post.data.date}
   category={post.data.category}
   tags={post.data.tags}
-  thumbnail={post.data.thumbnail}
-  affiliate={post.data.affiliate}
+  readingTime={post.data.readingTime}
+  ogImage={post.data.ogImage}
+  lesson={post.data.lesson}
+  affiliateBooks={post.data.affiliateBooks}
 >
-  <Content />
-</PostLayout>
+  <Content components={{ Lesson, BookCard }} />
+</ArticleLayout>

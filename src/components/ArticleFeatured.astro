@@ -1,0 +1,156 @@
+---
+import CategoryBadge from './CategoryBadge.astro';
+import Lesson from './Lesson.astro';
+
+interface Props {
+  title:       string;
+  description: string;
+  date:        Date;
+  category:    "battle" | "leader" | "strategy" | "books";
+  tags:        string[];
+  readingTime: number;
+  lesson?:     string;
+  slug:        string;
+}
+const { title, description, date, category, tags, readingTime, lesson, slug } = Astro.props;
+const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<article class="featured">
+  <div class="featured-inner">
+    <div class="featured-label">
+      <span class="label">— Featured Article</span>
+    </div>
+
+    <div class="featured-meta">
+      <CategoryBadge category={category} />
+      <time class="meta-text" datetime={date.toISOString()}>{formattedDate}</time>
+      <span class="meta-text">{readingTime} min read</span>
+    </div>
+
+    <h2 class="featured-title">
+      <a href={`/blog/${slug}/`}>{title}</a>
+    </h2>
+
+    {lesson && <Lesson lesson={lesson} />}
+
+    <p class="featured-desc">{description}</p>
+
+    {tags.length > 0 && (
+      <ul class="tag-list" aria-label="タグ">
+        {tags.map(tag => <li class="tag">#{tag}</li>)}
+      </ul>
+    )}
+
+    <a href={`/blog/${slug}/`} class="featured-cta">
+      記事を読む <span aria-hidden="true">→</span>
+    </a>
+  </div>
+
+  <div class="featured-deco" aria-hidden="true">
+    <span class="deco-char">戦</span>
+  </div>
+</article>
+
+<style>
+  .featured {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    background: var(--sumi);
+    color: var(--washi);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1px;
+  }
+
+  .featured-inner {
+    padding: 3.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .featured-label {
+    margin-bottom: 0.4rem;
+  }
+  .label {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    color: rgba(200, 169, 110, 0.7);
+    text-transform: uppercase;
+  }
+
+  .featured-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .featured-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    line-height: 1.45;
+    letter-spacing: 0.04em;
+  }
+  .featured-title a {
+    color: var(--washi);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .featured-title a:hover { color: var(--gold); }
+
+  .featured-desc {
+    font-family: var(--font-serif);
+    font-size: 0.88rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: rgba(245, 240, 232, 0.65);
+    max-width: 560px;
+  }
+
+  .featured-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-decoration: none;
+    margin-top: 0.8rem;
+    transition: gap 0.3s, color 0.3s;
+  }
+  .featured-cta:hover { gap: 0.9rem; color: var(--gold-light); }
+
+  /* 装飾エリア */
+  .featured-deco {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .deco-char {
+    font-family: var(--font-serif);
+    font-size: 16rem;
+    font-weight: 800;
+    color: rgba(200, 169, 110, 0.07);
+    line-height: 1;
+    user-select: none;
+  }
+
+  @media (max-width: 768px) {
+    .featured {
+      grid-template-columns: 1fr;
+    }
+    .featured-deco { display: none; }
+    .featured-inner { padding: 2rem 1.6rem; }
+  }
+</style>

@@ -1,0 +1,110 @@
+---
+const links = [
+  { label: "合戦と戦略",   href: "/category/battle/" },
+  { label: "武将の思想",   href: "/category/leader/" },
+  { label: "現代応用",     href: "/category/strategy/" },
+  { label: "おすすめ書籍", href: "/books/" },
+  { label: "記事一覧",     href: "/blog/" },
+];
+const path = Astro.url.pathname;
+---
+
+<nav class="site-nav" aria-label="メインナビゲーション">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      戦略の<span class="logo-accent">系譜</span>
+    </a>
+
+    <ul class="nav-links" role="list">
+      {links.map(({ label, href }) => (
+        <li>
+          <a
+            href={href}
+            class:list={["nav-link", { active: path.startsWith(href) }]}
+          >
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<script>
+  const nav = document.querySelector('.site-nav') as HTMLElement;
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+</script>
+
+<style>
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: var(--nav-height);
+    background: rgba(245, 240, 232, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200, 169, 110, 0.25);
+    transition: background 0.3s;
+  }
+  .site-nav.scrolled {
+    background: rgba(245, 240, 232, 0.98);
+  }
+
+  .nav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 3rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: var(--font-serif);
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    color: var(--sumi);
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .logo-accent { color: var(--gold); }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .nav-link {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    color: var(--gray-mid);
+    text-decoration: none;
+    transition: color 0.3s;
+    white-space: nowrap;
+  }
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--sumi);
+  }
+
+  @media (max-width: 768px) {
+    .nav-inner { padding: 0 1.2rem; }
+    .nav-links { gap: 1.2rem; }
+    .nav-link { font-size: 0.7rem; letter-spacing: 0.1em; }
+  }
+
+  @media (max-width: 540px) {
+    .nav-links { gap: 0.8rem; }
+    .nav-link { letter-spacing: 0; }
+  }
+</style>

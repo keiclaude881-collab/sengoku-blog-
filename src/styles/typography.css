@@ -1,0 +1,139 @@
+/* ── タイポグラフィ ── */
+
+/* 記事本文 */
+.prose {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 2.2;
+  color: var(--sumi);
+}
+
+.prose h2 {
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-top: 3.5rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.prose h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin-top: 2.4rem;
+  margin-bottom: 0.8rem;
+  padding-left: 0.8rem;
+  border-left: 2px solid var(--gold);
+}
+
+.prose p {
+  margin-bottom: 1.4rem;
+}
+
+.prose ul, .prose ol {
+  padding-left: 1.6rem;
+  margin-bottom: 1.4rem;
+}
+
+.prose li {
+  margin-bottom: 0.4rem;
+}
+
+.prose strong {
+  font-weight: 700;
+  color: var(--sumi);
+}
+
+.prose em {
+  font-style: italic;
+  color: var(--gray-mid);
+}
+
+.prose blockquote {
+  border-left: 2px solid var(--gold-light);
+  padding: 0.8rem 1.2rem;
+  margin: 2rem 0;
+  color: var(--gray-mid);
+  font-style: italic;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.88rem;
+}
+
+.prose th {
+  background: var(--sumi);
+  color: var(--washi);
+  font-family: var(--font-serif);
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  text-align: left;
+  letter-spacing: 0.04em;
+}
+
+.prose td {
+  border: 1px solid var(--border);
+  padding: 0.6rem 1rem;
+}
+
+.prose tr:nth-child(even) td {
+  background: var(--washi-dark);
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--washi-dark);
+  padding: 0.1em 0.4em;
+  border-radius: 2px;
+}
+
+.prose pre {
+  background: var(--sumi);
+  color: var(--washi);
+  padding: 1.5rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 2rem 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.prose pre code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* ラベル・タグ共通 */
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ナビリンク共通 */
+.nav-text {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+}
+
+/* 日付・メタ情報 */
+.meta-text {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--gray-light);
+}

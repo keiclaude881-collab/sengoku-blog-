@@ -1,0 +1,240 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import CategoryBadge from '../components/CategoryBadge.astro';
+import Lesson from '../components/Lesson.astro';
+import BookCard from '../components/BookCard.astro';
+import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
+
+interface AffiliateBook {
+  title:  string;
+  asin:   string;
+  reason: string;
+  image?: string;
+}
+
+interface Props {
+  title:          string;
+  description:    string;
+  date:           Date;
+  category:       "battle" | "leader" | "strategy" | "books";
+  tags:           string[];
+  readingTime:    number;
+  ogImage?:       string;
+  lesson?:        string;
+  affiliateBooks?: AffiliateBook[];
+}
+const { title, description, date, category, tags, readingTime, ogImage, lesson, affiliateBooks } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+const iso = date.toISOString();
+
+const catLabel: Record<string, string> = {
+  battle: "合戦分析", leader: "武将の思想", strategy: "兵法・現代応用", books: "書籍レビュー"
+};
+
+const twitterShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(`https://sengoku-blog.vercel.app/blog/${category}/`)}`;
+const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComponent(`https://sengoku-blog.vercel.app/blog/${category}/`)}`;
+---
+
+<BaseLayout
+  title={`${title} | 戦略の系譜`}
+  description={description}
+  ogImage={ogImage}
+  type="article"
+  publishedAt={iso}
+>
+  <article class="article-page">
+    <div class="container">
+
+      <!-- パンくずリスト -->
+      <nav class="breadcrumb" aria-label="パンくず">
+        <a href="/">ホーム</a>
+        <span aria-hidden="true">›</span>
+        <a href="/blog/">記事一覧</a>
+        <span aria-hidden="true">›</span>
+        <a href={`/category/${category}/`}>{catLabel[category]}</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">{title}</span>
+      </nav>
+
+      <!-- 記事ヘッダー -->
+      <header class="article-header">
+        <div class="article-meta">
+          <CategoryBadge category={category} />
+          <time datetime={iso} class="meta-text">{formattedDate}</time>
+          <span class="meta-text">{readingTime} min read</span>
+        </div>
+        <h1 class="article-title">{title}</h1>
+        <p class="article-lead">{description}</p>
+        {tags.length > 0 && (
+          <ul class="tag-list" aria-label="タグ">
+            {tags.map(tag => <li class="tag">#{tag}</li>)}
+          </ul>
+        )}
+      </header>
+
+      <!-- 本文 -->
+      <div class="prose article-body">
+        <slot />
+      </div>
+
+      <!-- SNSシェア -->
+      <div class="share-buttons">
+        <a href={twitterShareUrl} target="_blank" rel="noopener noreferrer" class="share-btn">
+          𝕏 シェア
+        </a>
+        <a href={hatenaBsUrl} target="_blank" rel="noopener noreferrer" class="share-btn">
+          B! はてブ
+        </a>
+      </div>
+
+      <!-- 書籍アフィリエイト -->
+      {affiliateBooks && affiliateBooks.length > 0 && (
+        <section class="affiliate-zone" aria-label="関連書籍">
+          <AffiliateDisclosure />
+          <h2 class="affiliate-heading">この戦略を深く学ぶ、一冊。</h2>
+          <div class="book-grid-article">
+            {affiliateBooks.slice(0, 3).map(book => (
+              <BookCard
+                title={book.title}
+                asin={book.asin}
+                reason={book.reason}
+                image={book.image}
+              />
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- 戻るリンク -->
+      <nav class="article-nav">
+        <a href="/blog/" class="back-link">← 記事一覧に戻る</a>
+      </nav>
+    </div>
+  </article>
+
+  <!-- JSON-LD 構造化データ -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "datePublished": iso,
+    "dateModified": iso,
+    "author": { "@type": "Person", "name": "戦略の系譜" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "戦略の系譜",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://sengoku-blog.vercel.app/favicon.svg"
+      }
+    },
+    "description": description,
+    "image": ogImage ? `https://sengoku-blog.vercel.app${ogImage}` : "https://sengoku-blog.vercel.app/images/default-ogp.svg"
+  })} />
+</BaseLayout>
+
+<style>
+  .article-page {
+    padding: var(--sp-lg) 0 var(--sp-xl);
+  }
+
+  .article-header {
+    padding: var(--sp-lg) 0 var(--sp-md);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: var(--sp-lg);
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  .article-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    line-height: 1.35;
+    margin-bottom: 1.2rem;
+  }
+
+  .article-lead {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 2;
+    color: var(--gray-mid);
+    border-left: 2px solid var(--gold-light);
+    padding-left: 1.2rem;
+    max-width: 680px;
+    margin-bottom: 1rem;
+  }
+
+  .article-body {
+    max-width: 720px;
+    margin-bottom: var(--sp-lg);
+  }
+
+  .affiliate-zone {
+    background: var(--sumi);
+    padding: var(--sp-lg) var(--sp-lg);
+    position: relative;
+    overflow: hidden;
+    margin: var(--sp-lg) 0;
+  }
+
+  .affiliate-zone::before {
+    content: "読";
+    font-family: var(--font-serif);
+    font-size: 30rem;
+    font-weight: 800;
+    color: rgba(200, 169, 110, 0.04);
+    position: absolute;
+    right: -4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .affiliate-heading {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--washi);
+    letter-spacing: 0.04em;
+    margin: 1rem 0 1.6rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .book-grid-article {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+  }
+
+  .article-nav {
+    padding-top: var(--sp-md);
+    border-top: 1px solid var(--border);
+    margin-top: var(--sp-lg);
+  }
+
+  .back-link {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: var(--gray-mid);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .back-link:hover { color: var(--gold); }
+</style>

@@ -1,0 +1,123 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BookCard from "../../components/BookCard.astro";
+import AffiliateDisclosure from "../../components/AffiliateDisclosure.astro";
+
+const sections = [
+  {
+    title: "兵法・古典",
+    books: [
+      { title: "孫子の兵法 現代語訳・解説版", asin: "4569841821", reason: "情報戦の原典。競合分析の基礎が凝縮されている" },
+      { title: "五輪書（宮本武蔵）岩波文庫", asin: "4003321715", reason: "個の強さとは何か。武蔵の戦略哲学を学ぶ" },
+      { title: "葉隠 武士道という生き方", asin: "4569676162", reason: "覚悟と決断の哲学。リーダーシップの原点" },
+    ],
+  },
+  {
+    title: "戦国武将に学ぶ",
+    books: [
+      { title: "信長の経営学", asin: "4569635539", reason: "破壊的イノベーターとしての信長の経営思想" },
+      { title: "家康の決断 天下人の経営学", asin: "4569837875", reason: "長期戦略と組織マネジメントの極意" },
+      { title: "戦国武将の危機管理", asin: "4827210470", reason: "逆境での意思決定。現代のリスクマネジメントへ" },
+    ],
+  },
+  {
+    title: "現代経営・戦略",
+    books: [
+      { title: "戦略の本質", asin: "4532352428", reason: "日本の合戦を経営戦略の視点で再解釈した名著" },
+      { title: "失敗の本質", asin: "4122018331", reason: "なぜ日本軍は負けたのか。組織論の古典" },
+      { title: "競争の戦略（マイケル・ポーター）", asin: "4478371415", reason: "業界分析フレームワークの原点" },
+    ],
+  },
+  {
+    title: "思考・交渉・リーダーシップ",
+    books: [
+      { title: "ハーバード流交渉術", asin: "4153130014", reason: "孫子の「彼を知り己を知れば」の現代版実践書" },
+      { title: "影響力の武器", asin: "4414304027", reason: "心理戦の基礎。調略・説得の現代的分析" },
+      { title: "ビジョナリーカンパニー", asin: "4822740315", reason: "長続きする組織の秘密。徳川幕府の組織論と重なる" },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="おすすめ書籍 | 戦略の系譜"
+  description="歴史×現代ビジネスを深く学ぶための厳選書籍リスト。兵法・古典から現代経営まで。"
+>
+  <div class="container">
+    <header class="page-header">
+      <h1>この戦略を深く学ぶ、一冊。</h1>
+      <p>歴史×現代ビジネスを深く学ぶための、厳選書籍リスト。</p>
+    </header>
+
+    <AffiliateDisclosure />
+
+    {sections.map(section => (
+      <section class="book-section">
+        <h2 class="book-section-title">{section.title}</h2>
+        <div class="book-grid">
+          {section.books.map(b => (
+            <BookCard title={b.title} asin={b.asin} reason={b.reason} />
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+
+  <div class="footer-disclosure container">
+    <AffiliateDisclosure />
+  </div>
+</BaseLayout>
+
+<style>
+  .book-section {
+    margin-bottom: var(--sp-xl);
+    background: var(--sumi);
+    padding: var(--sp-lg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .book-section::before {
+    content: attr(data-deco);
+    font-family: var(--font-serif);
+    font-size: 30rem;
+    font-weight: 800;
+    color: rgba(200, 169, 110, 0.04);
+    position: absolute;
+    right: -4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .book-section-title {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--washi);
+    letter-spacing: 0.05em;
+    margin-bottom: 1.6rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(200, 169, 110, 0.2);
+    position: relative;
+    z-index: 1;
+  }
+
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    max-width: 900px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-disclosure {
+    padding-bottom: var(--sp-md);
+  }
+
+  @media (max-width: 600px) {
+    .book-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
