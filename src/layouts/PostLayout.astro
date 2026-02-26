@@ -1,0 +1,237 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import AffiliateBox from '../components/AffiliateBox.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  category: string;
+  tags: string[];
+  thumbnail?: string;
+  affiliate?: {
+    title: string;
+    url: string;
+    image?: string;
+  };
+}
+
+const { title, description, date, category, tags, thumbnail, affiliate } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('ja-JP', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+const isoDate = date.toISOString();
+---
+
+<BaseLayout title={title} description={description} ogImage={thumbnail}>
+  <article class="container">
+    <!-- パンくずリスト -->
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <a href="/">ホーム</a>
+      <span aria-hidden="true">›</span>
+      <a href="/blog/">記事一覧</a>
+      <span aria-hidden="true">›</span>
+      <a href={`/category/${category}/`}>{category}</a>
+    </nav>
+
+    <!-- 記事ヘッダー -->
+    <header class="post-header">
+      <div class="post-meta">
+        <a href={`/category/${category}/`} class="category-badge">{category}</a>
+        <time datetime={isoDate} class="post-date">{formattedDate}</time>
+      </div>
+      <h1 class="post-title">{title}</h1>
+      <p class="post-description">{description}</p>
+      {tags.length > 0 && (
+        <ul class="tag-list" aria-label="タグ">
+          {tags.map((tag) => (
+            <li class="tag">#{tag}</li>
+          ))}
+        </ul>
+      )}
+    </header>
+
+    <!-- サムネイル -->
+    {thumbnail && (
+      <div class="post-thumbnail">
+        <img src={thumbnail} alt={title} width="900" height="500" />
+      </div>
+    )}
+
+    <!-- 本文 -->
+    <div class="prose post-body">
+      <slot />
+    </div>
+
+    <!-- アフィリエイトBOX -->
+    {affiliate && (
+      <AffiliateBox
+        title={affiliate.title}
+        url={affiliate.url}
+        image={affiliate.image}
+      />
+    )}
+
+    <!-- タグフッター -->
+    {tags.length > 0 && (
+      <footer class="post-footer">
+        <div class="tag-section">
+          <span class="tag-label">タグ：</span>
+          <ul class="tag-list" aria-label="タグ">
+            {tags.map((tag) => (
+              <li class="tag">#{tag}</li>
+            ))}
+          </ul>
+        </div>
+      </footer>
+    )}
+
+    <!-- ナビゲーション -->
+    <nav class="post-nav">
+      <a href="/blog/" class="back-link">← 記事一覧に戻る</a>
+    </nav>
+  </article>
+</BaseLayout>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-nezumi);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+  }
+
+  .breadcrumb a {
+    color: var(--color-nezumi);
+  }
+
+  .breadcrumb a:hover {
+    color: var(--color-ake);
+  }
+
+  .post-header {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .category-badge {
+    display: inline-block;
+    background: var(--color-ake);
+    color: var(--color-shiro);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    padding: 0.2em 0.75em;
+    border-radius: 2px;
+    text-decoration: none;
+  }
+
+  .category-badge:hover {
+    background: #a93226;
+    text-decoration: none;
+  }
+
+  .post-date {
+    font-size: 0.875rem;
+    color: var(--color-nezumi);
+  }
+
+  .post-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    line-height: 1.35;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-sumi);
+  }
+
+  .post-description {
+    font-size: 1.0625rem;
+    color: var(--color-nezumi);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--color-hana);
+    border-left: 4px solid var(--color-kogane);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .tag-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    font-size: 0.8125rem;
+    color: var(--color-nezumi);
+    background: var(--color-hana);
+    border: 1px solid var(--color-border);
+    padding: 0.2em 0.6em;
+    border-radius: 2px;
+  }
+
+  .post-thumbnail {
+    margin-bottom: var(--spacing-xl);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .post-thumbnail img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .post-body {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .post-footer {
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-border);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .tag-section {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .tag-label {
+    font-size: 0.875rem;
+    color: var(--color-nezumi);
+  }
+
+  .post-nav {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--color-ake);
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+  }
+</style>

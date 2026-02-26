@@ -1,0 +1,149 @@
+---
+interface Props {
+  title: string;
+  url: string;
+  image?: string;
+  description?: string;
+}
+
+const {
+  title,
+  url,
+  image,
+  description = 'この本で合戦・武将の知識をさらに深めましょう。',
+} = Astro.props;
+---
+
+<aside class="affiliate-box" aria-label="関連書籍・商品">
+  <div class="affiliate-header">
+    <span class="affiliate-icon" aria-hidden="true">📚</span>
+    <span class="affiliate-label">関連書籍・おすすめ商品</span>
+  </div>
+
+  <a href={url} class="affiliate-link" target="_blank" rel="noopener noreferrer nofollow">
+    {image && (
+      <div class="affiliate-image">
+        <img src={image} alt={title} width="120" height="160" loading="lazy" />
+      </div>
+    )}
+    <div class="affiliate-content">
+      <p class="affiliate-title">{title}</p>
+      <p class="affiliate-desc">{description}</p>
+      <span class="affiliate-cta">Amazonで詳細を見る →</span>
+    </div>
+  </a>
+
+  <p class="affiliate-disclosure">
+    ※ 本リンクはアフィリエイトリンクです。購入いただくと当サイトに収益が発生します。
+  </p>
+</aside>
+
+<style>
+  .affiliate-box {
+    margin: var(--spacing-2xl) 0;
+    border: 2px solid var(--color-kogane);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--color-hana);
+  }
+
+  .affiliate-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--color-kogane);
+    padding: 0.5em var(--spacing-md);
+  }
+
+  .affiliate-icon {
+    font-size: 1rem;
+  }
+
+  .affiliate-label {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-sumi);
+    letter-spacing: 0.05em;
+  }
+
+  .affiliate-link {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.15s;
+  }
+
+  .affiliate-link:hover {
+    background: #ede8df;
+    text-decoration: none;
+  }
+
+  .affiliate-image {
+    flex-shrink: 0;
+  }
+
+  .affiliate-image img {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+    border: 1px solid var(--color-border);
+  }
+
+  .affiliate-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .affiliate-title {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-sumi);
+    line-height: 1.5;
+  }
+
+  .affiliate-desc {
+    font-size: 0.875rem;
+    color: var(--color-nezumi);
+    line-height: 1.6;
+  }
+
+  .affiliate-cta {
+    display: inline-block;
+    background: #ff9900;
+    color: var(--color-sumi);
+    font-size: 0.875rem;
+    font-weight: 700;
+    padding: 0.4em 1em;
+    border-radius: 3px;
+    margin-top: 0.25rem;
+    width: fit-content;
+    transition: opacity 0.15s;
+  }
+
+  .affiliate-link:hover .affiliate-cta {
+    opacity: 0.85;
+  }
+
+  .affiliate-disclosure {
+    padding: 0.4em var(--spacing-md);
+    font-size: 0.75rem;
+    color: var(--color-nezumi);
+    border-top: 1px solid var(--color-border);
+    background: rgba(0, 0, 0, 0.02);
+  }
+
+  @media (max-width: 480px) {
+    .affiliate-link {
+      flex-direction: column;
+    }
+
+    .affiliate-image img {
+      width: 80px;
+    }
+  }
+</style>

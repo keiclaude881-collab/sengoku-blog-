@@ -1,0 +1,140 @@
+---
+const navLinks = [
+  { label: '記事一覧', href: '/blog/' },
+  { label: '合戦', href: '/category/合戦/' },
+  { label: '武将', href: '/category/武将/' },
+  { label: '戦略', href: '/category/戦略/' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="site-logo" aria-label="戦国合戦史 トップへ">
+      <span class="logo-mark" aria-hidden="true">⚔</span>
+      <span class="logo-text">戦国合戦史</span>
+      <span class="logo-sub">日本史・武将ブログ</span>
+    </a>
+
+    <nav class="site-nav" aria-label="メインナビゲーション">
+      <ul class="nav-list">
+        {navLinks.map(({ label, href }) => (
+          <li>
+            <a
+              href={href}
+              class:list={['nav-link', { active: currentPath.startsWith(href) }]}
+              aria-current={currentPath.startsWith(href) ? 'page' : undefined}
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background: var(--color-sumi);
+    border-bottom: 3px solid var(--color-kogane);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+  }
+
+  .site-logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--color-shiro);
+    flex-shrink: 0;
+  }
+
+  .site-logo:hover {
+    text-decoration: none;
+    opacity: 0.9;
+  }
+
+  .logo-mark {
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--color-kogane);
+  }
+
+  .logo-text {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-shiro);
+  }
+
+  .logo-sub {
+    font-size: 0.6875rem;
+    color: var(--color-nezumi);
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+
+  .site-nav {
+    display: flex;
+  }
+
+  .nav-list {
+    list-style: none;
+    display: flex;
+    gap: var(--spacing-xs);
+  }
+
+  .nav-link {
+    display: block;
+    color: #d0ccc4;
+    font-size: 0.9375rem;
+    padding: 0.4em 0.75em;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: color 0.15s, background 0.15s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--color-kogane);
+    background: rgba(201, 168, 76, 0.1);
+    text-decoration: none;
+  }
+
+  @media (max-width: 580px) {
+    .header-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-sm);
+    }
+
+    .logo-sub {
+      display: none;
+    }
+
+    .nav-list {
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      font-size: 0.875rem;
+      padding: 0.35em 0.6em;
+    }
+  }
+</style>

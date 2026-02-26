@@ -1,0 +1,150 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo">⚔ 戦国合戦史</a>
+      <p class="footer-desc">
+        日本史・戦国時代の合戦と武将を深掘りするブログ。<br />
+        歴史の転換点となった名勝負の真相に迫ります。
+      </p>
+    </div>
+
+    <nav class="footer-nav" aria-label="フッターナビゲーション">
+      <div class="footer-nav-group">
+        <h3 class="footer-nav-title">カテゴリ</h3>
+        <ul>
+          <li><a href="/category/合戦/">合戦</a></li>
+          <li><a href="/category/武将/">武将</a></li>
+          <li><a href="/category/戦略/">戦略</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-group">
+        <h3 class="footer-nav-title">サイト情報</h3>
+        <ul>
+          <li><a href="/blog/">記事一覧</a></li>
+          <li><a href="/sitemap-index.xml">サイトマップ</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="footer-copy">
+        &copy; {currentYear} 戦国合戦史. All rights reserved.
+      </p>
+      <p class="footer-affiliate-notice">
+        本サイトはアフィリエイトプログラムに参加しています。
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-sumi);
+    color: #d0ccc4;
+    margin-top: auto;
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--spacing-2xl);
+    padding-top: var(--spacing-2xl);
+    padding-bottom: var(--spacing-2xl);
+  }
+
+  .footer-logo {
+    display: inline-block;
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    color: var(--color-kogane);
+    text-decoration: none;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .footer-logo:hover {
+    text-decoration: none;
+    opacity: 0.85;
+  }
+
+  .footer-desc {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: #a09990;
+    max-width: 360px;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: var(--spacing-2xl);
+  }
+
+  .footer-nav-group h3 {
+    font-family: var(--font-serif);
+    font-size: 0.875rem;
+    color: var(--color-kogane);
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-nav-group ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .footer-nav-group a {
+    font-size: 0.875rem;
+    color: #a09990;
+    text-decoration: none;
+  }
+
+  .footer-nav-group a:hover {
+    color: var(--color-shiro);
+    text-decoration: none;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #2e2e2e;
+    padding: var(--spacing-md) 0;
+  }
+
+  .footer-bottom .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .footer-copy {
+    font-size: 0.8125rem;
+    color: #6b6b6b;
+  }
+
+  .footer-affiliate-notice {
+    font-size: 0.75rem;
+    color: #6b6b6b;
+  }
+
+  @media (max-width: 640px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-nav {
+      gap: var(--spacing-xl);
+    }
+
+    .footer-bottom .container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

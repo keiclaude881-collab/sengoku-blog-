@@ -1,0 +1,308 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+
+const allPosts = await getCollection('posts');
+const latestPosts = allPosts
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 6);
+---
+
+<BaseLayout title="ホーム">
+  <!-- ヒーローセクション -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-badge" aria-hidden="true">⚔ 日本史・戦国ブログ</div>
+      <h1 class="hero-title">戦国の世を生きた<br />武将たちの知謀と合戦</h1>
+      <p class="hero-lead">
+        関ヶ原・川中島・桶狭間…歴史の転換点となった名合戦と、<br class="pc-only" />
+        時代を動かした武将たちの戦略を徹底解説します。
+      </p>
+      <div class="hero-actions">
+        <a href="/blog/" class="btn-primary">記事一覧を見る</a>
+        <a href="/category/合戦/" class="btn-secondary">合戦を読む</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 新着記事 -->
+  <section class="latest-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="section-title-mark" aria-hidden="true">新着</span>
+          最新記事
+        </h2>
+        <a href="/blog/" class="section-more">すべての記事 →</a>
+      </div>
+
+      {latestPosts.length > 0 ? (
+        <ul class="article-grid" role="list">
+          {latestPosts.map((post) => (
+            <li>
+              <ArticleCard
+                title={post.data.title}
+                description={post.data.description}
+                date={post.data.date}
+                category={post.data.category}
+                tags={post.data.tags}
+                thumbnail={post.data.thumbnail}
+                slug={post.id.replace(/\.md$/, '')}
+              />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="empty-message">記事はまもなく公開されます。</p>
+      )}
+    </div>
+  </section>
+
+  <!-- カテゴリバナー -->
+  <section class="category-section">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="section-title-mark" aria-hidden="true">分野</span>
+        カテゴリ
+      </h2>
+      <ul class="category-grid" role="list">
+        <li>
+          <a href="/category/合戦/" class="category-card">
+            <span class="category-icon" aria-hidden="true">⚔️</span>
+            <span class="category-name">合戦</span>
+            <span class="category-desc">各地の名合戦を詳説</span>
+          </a>
+        </li>
+        <li>
+          <a href="/category/武将/" class="category-card">
+            <span class="category-icon" aria-hidden="true">🏯</span>
+            <span class="category-name">武将</span>
+            <span class="category-desc">英傑たちの生涯と思想</span>
+          </a>
+        </li>
+        <li>
+          <a href="/category/戦略/" class="category-card">
+            <span class="category-icon" aria-hidden="true">📜</span>
+            <span class="category-name">戦略</span>
+            <span class="category-desc">兵法・外交・情報戦</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ヒーロー */
+  .hero {
+    background: var(--color-sumi);
+    background-image:
+      linear-gradient(135deg, rgba(192, 57, 43, 0.15) 0%, transparent 50%),
+      linear-gradient(225deg, rgba(201, 168, 76, 0.1) 0%, transparent 60%);
+    color: var(--color-shiro);
+    padding: var(--spacing-2xl) 0 3rem;
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .hero-inner {
+    max-width: 680px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-size: 0.8125rem;
+    color: var(--color-kogane);
+    border: 1px solid var(--color-kogane);
+    padding: 0.3em 1em;
+    border-radius: 2px;
+    margin-bottom: var(--spacing-md);
+    letter-spacing: 0.1em;
+  }
+
+  .hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 5vw, 2.75rem);
+    line-height: 1.35;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-shiro);
+  }
+
+  .hero-lead {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #c0bbb5;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--color-ake);
+    color: var(--color-shiro);
+    font-weight: 700;
+    padding: 0.7em 1.75em;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.15s;
+    font-size: 0.9375rem;
+  }
+
+  .btn-primary:hover {
+    background: #a93226;
+    text-decoration: none;
+  }
+
+  .btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: var(--color-kogane);
+    border: 1px solid var(--color-kogane);
+    font-weight: 700;
+    padding: 0.7em 1.75em;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+    font-size: 0.9375rem;
+  }
+
+  .btn-secondary:hover {
+    background: var(--color-kogane);
+    color: var(--color-sumi);
+    text-decoration: none;
+  }
+
+  /* セクション共通 */
+  .latest-section {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: 1.375rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .section-title-mark {
+    display: inline-block;
+    background: var(--color-ake);
+    color: var(--color-shiro);
+    font-size: 0.75rem;
+    padding: 0.2em 0.5em;
+    border-radius: 2px;
+  }
+
+  .section-more {
+    font-size: 0.875rem;
+    color: var(--color-ake);
+    text-decoration: none;
+  }
+
+  .section-more:hover {
+    text-decoration: underline;
+  }
+
+  /* 記事グリッド */
+  .article-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .empty-message {
+    color: var(--color-nezumi);
+    text-align: center;
+    padding: var(--spacing-xl);
+  }
+
+  /* カテゴリ */
+  .category-section {
+    background: var(--color-hana);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--spacing-xl) 0;
+    margin-top: var(--spacing-xl);
+  }
+
+  .category-section .section-title {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .category-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  .category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-lg) var(--spacing-md);
+    background: var(--color-shiro);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .category-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+
+  .category-icon {
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .category-name {
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-sumi);
+  }
+
+  .category-desc {
+    font-size: 0.8125rem;
+    color: var(--color-nezumi);
+  }
+
+  .pc-only {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .pc-only {
+      display: inline;
+    }
+  }
+
+  @media (max-width: 580px) {
+    .category-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

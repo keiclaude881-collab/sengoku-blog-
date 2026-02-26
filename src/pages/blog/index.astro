@@ -1,0 +1,113 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+const allPosts = await getCollection('posts');
+const posts = allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+// カテゴリ一覧
+const categories = [...new Set(posts.map((p) => p.data.category))];
+---
+
+<BaseLayout
+  title="記事一覧"
+  description="日本史・戦国時代の合戦・武将・戦略に関する全記事一覧。"
+>
+  <div class="container">
+    <header class="page-header">
+      <h1 class="page-title">記事一覧</h1>
+      <p class="page-desc">全 {posts.length} 記事</p>
+    </header>
+
+    <!-- カテゴリフィルタ -->
+    {categories.length > 0 && (
+      <nav class="filter-nav" aria-label="カテゴリフィルタ">
+        <a href="/blog/" class="filter-btn active">すべて</a>
+        {categories.map((cat) => (
+          <a href={`/category/${cat}/`} class="filter-btn">{cat}</a>
+        ))}
+      </nav>
+    )}
+
+    {posts.length > 0 ? (
+      <ul class="article-grid" role="list">
+        {posts.map((post) => (
+          <li>
+            <ArticleCard
+              title={post.data.title}
+              description={post.data.description}
+              date={post.data.date}
+              category={post.data.category}
+              tags={post.data.tags}
+              thumbnail={post.data.thumbnail}
+              slug={post.id.replace(/\.md$/, '')}
+            />
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="empty">記事はまもなく公開されます。</p>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .page-header {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .page-title {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    color: var(--color-sumi);
+    margin-bottom: 0.25rem;
+  }
+
+  .page-desc {
+    font-size: 0.9375rem;
+    color: var(--color-nezumi);
+  }
+
+  .filter-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .filter-btn {
+    display: inline-block;
+    padding: 0.35em 0.9em;
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+    font-size: 0.875rem;
+    color: var(--color-nezumi);
+    text-decoration: none;
+    background: var(--color-shiro);
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    background: var(--color-ake);
+    color: var(--color-shiro);
+    border-color: var(--color-ake);
+    text-decoration: none;
+  }
+
+  .article-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .empty {
+    text-align: center;
+    color: var(--color-nezumi);
+    padding: var(--spacing-2xl);
+  }
+</style>
