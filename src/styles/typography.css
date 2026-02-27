@@ -4,7 +4,7 @@
 .prose {
   font-family: var(--font-serif);
   font-size: 0.95rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 2.2;
   color: var(--sumi);
 }
@@ -132,8 +132,8 @@
 /* 日付・メタ情報 */
 .meta-text {
   font-family: var(--font-sans);
-  font-size: 0.68rem;
-  font-weight: 300;
-  letter-spacing: 0.1em;
-  color: var(--gray-light);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--gray-mid);
 }
