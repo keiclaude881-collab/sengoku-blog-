@@ -2,7 +2,6 @@
 ---
 
 <section class="hero" aria-label="ヒーロー">
-  <!-- 左カラム -->
   <div class="hero-left">
     <p class="hero-eyebrow">History × Modern Strategy</p>
 
@@ -10,249 +9,263 @@
       歴史の戦略を、<br />現代の武器に。
     </h1>
 
-    <p class="hero-subtitle">— 戦国・兵法から学ぶビジネス思考</p>
-
-    <p class="hero-desc">
-      関ヶ原の調略、孫子の情報戦、信長の破壊的イノベーション——数百年前の知恵は、現代の交渉・組織・意思決定に驚くほど直結している。
+    <p class="hero-lead">
+      関ヶ原の調略、孫子の情報戦、信長の破壊的イノベーション——<br />
+      数百年前の知恵は、現代の交渉・組織・意思決定に驚くほど直結している。
     </p>
 
     <div class="hero-cta">
-      <a href="/blog/" class="btn btn-primary">記事を読む</a>
-      <a href="/about/" class="btn btn-secondary">コンセプトを知る</a>
+      <a href="/blog/" class="hero-btn-primary">記事を読む →</a>
+      <a href="/books/" class="hero-btn-secondary">おすすめ書籍</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="stat-num">2</span>
+        <span class="stat-label">記事公開中</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-num">4</span>
+        <span class="stat-label">カテゴリ</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-num">450+</span>
+        <span class="stat-label">年の戦略史</span>
+      </div>
     </div>
   </div>
 
-  <!-- 右カラム -->
   <div class="hero-right" aria-hidden="true">
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <span class="stat-value">450+</span>
-        <span class="stat-label">Years of Strategy</span>
-        <span class="stat-desc">戦国から江戸まで、時代を超えた戦略の記録</span>
-      </div>
-      <div class="hero-stat">
-        <span class="stat-value">現代</span>
-        <span class="stat-label">Application Focus</span>
-        <span class="stat-desc">ビジネス・交渉・リーダーシップへの応用を解説</span>
-      </div>
-      <div class="hero-stat">
-        <span class="stat-value">実践</span>
-        <span class="stat-label">Actionable Insight</span>
-        <span class="stat-desc">読んで終わりでなく、明日から使える視点を提供</span>
-      </div>
+    <div class="hero-feature-card">
+      <p class="feature-label">注目カテゴリ</p>
+      <ul class="feature-list">
+        <li><span class="feat-icon">⚔</span> 合戦と戦略 — 関ヶ原・川中島を読み解く</li>
+        <li><span class="feat-icon">🏯</span> 武将の思想 — 信長・家康の決断力</li>
+        <li><span class="feat-icon">📜</span> 兵法現代応用 — 孫子をビジネスへ</li>
+        <li><span class="feat-icon">📚</span> 書籍レビュー — 厳選アフィリエイト</li>
+      </ul>
     </div>
-
-    <div class="seal">謀略</div>
+    <div class="hero-deco" aria-hidden="true">戦</div>
   </div>
 </section>
 
 <style>
   .hero {
-    min-height: 100vh;
+    min-height: calc(100vh - var(--nav-height));
     display: grid;
     grid-template-columns: 1fr 1fr;
     overflow: hidden;
+    padding-top: var(--nav-height);
   }
 
   /* 左カラム */
   .hero-left {
-    padding: 8rem 4rem 4rem 6rem;
+    padding: 5rem 4rem 4rem 6rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 1.6rem;
+    gap: 2rem;
+    background: var(--bg);
   }
 
   .hero-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    color: var(--orange);
+    text-transform: uppercase;
     display: flex;
     align-items: center;
-    gap: 0.8rem;
-    font-family: var(--font-sans);
-    font-size: 0.7rem;
-    font-weight: 400;
-    letter-spacing: 0.35em;
-    color: var(--red);
+    gap: 0.75rem;
   }
   .hero-eyebrow::before {
     content: "";
     display: inline-block;
-    width: 2rem;
-    height: 1px;
-    background: var(--red);
+    width: 2.5rem;
+    height: 2px;
+    background: var(--orange);
   }
 
   .hero-title {
     font-family: var(--font-serif);
-    font-size: clamp(2.8rem, 5vw, 4.4rem);
+    font-size: clamp(2.6rem, 4.5vw, 4rem);
     font-weight: 800;
     color: var(--text);
-    letter-spacing: 0.04em;
-    line-height: 1.3;
+    letter-spacing: 0.03em;
+    line-height: 1.25;
   }
 
-  .hero-subtitle {
+  .hero-lead {
     font-family: var(--font-serif);
-    font-size: clamp(1.0rem, 2vw, 1.4rem);
-    color: var(--text-mid);
-    letter-spacing: 0.08em;
-  }
-
-  .hero-desc {
-    font-family: var(--font-serif);
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     font-weight: 400;
     line-height: 2;
-    color: var(--text);
-    border-left: 2px solid var(--border-mid);
-    padding-left: 1.2rem;
-    max-width: 400px;
+    color: var(--text-mid);
+    max-width: 420px;
   }
 
   .hero-cta {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-    margin-top: 0.8rem;
   }
 
-  /* ボタン */
-  .btn {
+  .hero-btn-primary {
     display: inline-block;
-    padding: 0.9rem 2rem;
+    padding: 0.9rem 2.2rem;
+    background: var(--orange);
+    color: #fff;
     font-family: var(--font-sans);
-    font-size: 0.8rem;
-    font-weight: 400;
-    letter-spacing: 0.15em;
-    cursor: pointer;
-    transition: all 0.35s;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border-radius: 3px;
+    transition: background 0.2s, transform 0.2s;
     text-decoration: none;
   }
-  .btn-primary {
-    background: var(--text);
-    color: var(--bg);
-    border: 1px solid var(--text);
+  .hero-btn-primary:hover {
+    background: var(--orange-dark);
+    transform: translateY(-1px);
   }
-  .btn-primary:hover {
-    background: var(--red);
-    border-color: var(--red);
-    color: var(--bg);
-  }
-  .btn-secondary {
+
+  .hero-btn-secondary {
+    display: inline-block;
+    padding: 0.9rem 2rem;
     background: transparent;
-    color: var(--text-mid);
-    border: 1px solid var(--border-mid);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    border: 2px solid var(--border-mid);
+    border-radius: 3px;
+    transition: border-color 0.2s, color 0.2s;
+    text-decoration: none;
   }
-  .btn-secondary:hover {
-    border-color: var(--red);
-    color: var(--red);
+  .hero-btn-secondary:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+  }
+
+  /* スタッツ */
+  .hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .stat-num {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--orange);
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--text-sub);
+    letter-spacing: 0.05em;
   }
 
   /* 右カラム */
   .hero-right {
-    background: var(--bg-dark);
+    background: var(--bg-navy);
     position: relative;
     overflow: hidden;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
     padding: 4rem 3rem;
   }
 
-  .hero-right::before {
-    content: "戦";
-    font-family: var(--font-serif);
-    font-size: 28vw;
-    font-weight: 800;
-    color: rgba(192, 57, 43, 0.08);
+  .hero-deco {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    pointer-events: none;
+    font-family: var(--font-serif);
+    font-size: 28vw;
+    font-weight: 800;
+    color: rgba(232, 85, 45, 0.07);
     line-height: 1;
+    pointer-events: none;
+    user-select: none;
   }
 
-  .hero-stats {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  .hero-feature-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    padding: 2.4rem;
     position: relative;
     z-index: 1;
+    width: 100%;
+    max-width: 380px;
   }
 
-  .hero-stat {
-    border-left: 1px solid rgba(192, 57, 43, 0.35);
-    padding-left: 1.6rem;
+  .feature-label {
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1.6rem;
+  }
+
+  .feature-list {
+    list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
+    gap: 1.2rem;
   }
 
-  .stat-value {
-    font-family: var(--font-serif);
-    font-size: 2.4rem;
-    font-weight: 800;
-    color: var(--red);
-    line-height: 1;
-  }
-
-  .stat-label {
+  .feature-list li {
     font-family: var(--font-sans);
-    font-size: 0.7rem;
+    font-size: 0.88rem;
     font-weight: 400;
-    letter-spacing: 0.2em;
-    color: rgba(255, 255, 255, 0.45);
-    text-transform: uppercase;
-  }
-
-  .stat-desc {
-    font-family: var(--font-serif);
-    font-size: 0.82rem;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.7;
-  }
-
-  /* 朱印モチーフ */
-  .seal {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 3rem;
-    width: 60px;
-    height: 60px;
-    border: 2px solid var(--red);
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.6;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: rotate(-8deg);
-    font-family: var(--font-serif);
-    font-size: 0.9rem;
-    color: var(--red);
-    z-index: 1;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .feat-icon {
+    flex-shrink: 0;
+    font-size: 1rem;
+    margin-top: 0.05em;
   }
 
   /* レスポンシブ */
-  @media (max-width: 900px) {
+  @media (max-width: 960px) {
     .hero {
       grid-template-columns: 1fr;
       min-height: auto;
     }
     .hero-left {
-      padding: 6rem 2rem 3rem;
+      padding: 4rem 2rem 3rem;
     }
     .hero-right {
-      min-height: 50vh;
+      min-height: 40vh;
       padding: 3rem 2rem;
     }
-    .hero-right::before {
-      font-size: 50vw;
-    }
+    .hero-deco { font-size: 50vw; }
   }
 
   @media (max-width: 480px) {
     .hero-left {
-      padding: 5rem 1.2rem 2.4rem;
-      gap: 1.2rem;
+      padding: 3rem 1.2rem 2.5rem;
+      gap: 1.5rem;
     }
+    .hero-stats { gap: 1.5rem; }
   }
 </style>

@@ -17,54 +17,72 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
 ---
 
 <article class="featured">
-  <div class="featured-inner">
-    <div class="featured-label">
-      <span class="label">— Featured Article</span>
-    </div>
-
-    <div class="featured-meta">
-      <CategoryBadge category={category} />
-      <time class="meta-text" datetime={date.toISOString()}>{formattedDate}</time>
-      <span class="meta-text">{readingTime} min read</span>
-    </div>
-
-    <h2 class="featured-title">
-      <a href={`/blog/${slug}/`}>{title}</a>
-    </h2>
-
-    {lesson && <Lesson lesson={lesson} />}
-
-    <p class="featured-desc">{description}</p>
-
-    {tags.length > 0 && (
-      <ul class="tag-list" aria-label="タグ">
-        {tags.map(tag => <li class="tag">#{tag}</li>)}
-      </ul>
-    )}
-
-    <a href={`/blog/${slug}/`} class="featured-cta">
-      記事を読む <span aria-hidden="true">→</span>
-    </a>
+  <div class="featured-label-bar">
+    <span class="featured-badge">★ FEATURED</span>
   </div>
 
-  <div class="featured-deco" aria-hidden="true">
-    <span class="deco-char">戦</span>
+  <div class="featured-body">
+    <div class="featured-content">
+      <div class="featured-meta">
+        <CategoryBadge category={category} />
+        <time class="featured-date" datetime={date.toISOString()}>{formattedDate}</time>
+        <span class="featured-time">{readingTime} min read</span>
+      </div>
+
+      <h2 class="featured-title">
+        <a href={`/blog/${slug}/`}>{title}</a>
+      </h2>
+
+      {lesson && <Lesson lesson={lesson} />}
+
+      <p class="featured-desc">{description}</p>
+
+      {tags.length > 0 && (
+        <ul class="tag-list" aria-label="タグ">
+          {tags.map(tag => <li class="tag">#{tag}</li>)}
+        </ul>
+      )}
+
+      <a href={`/blog/${slug}/`} class="featured-cta">
+        記事全文を読む <span aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <div class="featured-deco" aria-hidden="true">
+      <span class="deco-num">01</span>
+      <span class="deco-char">戦</span>
+    </div>
   </div>
 </article>
 
 <style>
   .featured {
-    display: grid;
-    grid-template-columns: 1fr 280px;
-    background: var(--bg-dark);
-    color: var(--bg);
-    position: relative;
+    background: var(--bg-navy);
+    border-radius: 6px;
     overflow: hidden;
-    margin-bottom: 1px;
+    margin-bottom: 1.5rem;
   }
 
-  .featured-inner {
-    padding: 3.2rem;
+  .featured-label-bar {
+    background: var(--orange);
+    padding: 0.4rem 1.8rem;
+  }
+  .featured-badge {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: #fff;
+  }
+
+  .featured-body {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    position: relative;
+  }
+
+  .featured-content {
+    padding: 2.8rem 2.4rem;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
@@ -72,80 +90,75 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
     z-index: 1;
   }
 
-  .featured-label {
-    margin-bottom: 0.4rem;
-  }
-  .label {
-    font-family: var(--font-sans);
-    font-size: 0.7rem;
-    font-weight: 300;
-    letter-spacing: 0.3em;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-  }
-
   .featured-meta {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.8rem;
     flex-wrap: wrap;
   }
-
-  /* CategoryBadge and meta-text override for dark bg */
-  .featured-meta :global(.category-badge) { color: var(--red); }
-  .featured-meta :global(.meta-text) { color: rgba(255, 255, 255, 0.55); }
+  .featured-date, .featured-time {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
 
   .featured-title {
     font-family: var(--font-serif);
     font-size: clamp(1.4rem, 3vw, 2rem);
     font-weight: 700;
-    line-height: 1.45;
-    letter-spacing: 0.04em;
+    line-height: 1.4;
+    letter-spacing: 0.03em;
   }
   .featured-title a {
-    color: var(--bg);
+    color: #fff;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.2s;
   }
-  .featured-title a:hover { color: var(--red); }
+  .featured-title a:hover { color: var(--orange); }
 
   .featured-desc {
     font-family: var(--font-serif);
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     font-weight: 400;
-    line-height: 1.9;
-    color: rgba(255, 255, 255, 0.82);
-    max-width: 560px;
+    line-height: 1.95;
+    color: rgba(255, 255, 255, 0.78);
+    max-width: 540px;
   }
 
   .featured-cta {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    padding: 0.75rem 1.8rem;
+    background: var(--orange);
+    color: #fff;
     font-family: var(--font-sans);
-    font-size: 0.78rem;
-    font-weight: 300;
-    letter-spacing: 0.2em;
-    color: var(--red);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border-radius: 3px;
     text-decoration: none;
-    margin-top: 0.8rem;
-    transition: gap 0.3s;
+    align-self: flex-start;
+    margin-top: 0.5rem;
+    transition: background 0.2s;
   }
-  .featured-cta:hover { gap: 0.9rem; }
+  .featured-cta:hover { background: var(--orange-dark); }
 
-  /* タグ override for dark bg */
+  /* tag/lesson overrides for dark bg */
   .featured :global(.tag) {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.06);
     border-color: rgba(255, 255, 255, 0.15);
   }
-
-  /* Lesson override for dark bg */
   .featured :global(.lesson-box) {
-    background: rgba(192, 57, 43, 0.15);
+    background: rgba(247, 163, 37, 0.12);
+    border-color: var(--amber);
+  }
+  .featured :global(.lesson-text) {
     color: rgba(255, 255, 255, 0.75);
   }
 
-  /* 装飾エリア */
+  /* 装飾 */
   .featured-deco {
     display: flex;
     align-items: center;
@@ -153,20 +166,28 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
     position: relative;
     overflow: hidden;
   }
+  .deco-num {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: rgba(232, 85, 45, 0.4);
+  }
   .deco-char {
     font-family: var(--font-serif);
-    font-size: 16rem;
+    font-size: 14rem;
     font-weight: 800;
-    color: rgba(192, 57, 43, 0.1);
+    color: rgba(232, 85, 45, 0.08);
     line-height: 1;
     user-select: none;
   }
 
   @media (max-width: 768px) {
-    .featured {
-      grid-template-columns: 1fr;
-    }
+    .featured-body { grid-template-columns: 1fr; }
     .featured-deco { display: none; }
-    .featured-inner { padding: 2rem 1.6rem; }
+    .featured-content { padding: 2rem 1.6rem; }
   }
 </style>

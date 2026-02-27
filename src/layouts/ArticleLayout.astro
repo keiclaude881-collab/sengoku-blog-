@@ -46,7 +46,7 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
   <article class="article-page">
     <div class="container">
 
-      <!-- パンくずリスト -->
+      <!-- パンくず -->
       <nav class="breadcrumb" aria-label="パンくず">
         <a href="/">ホーム</a>
         <span aria-hidden="true">›</span>
@@ -62,7 +62,7 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
         <div class="article-meta">
           <CategoryBadge category={category} />
           <time datetime={iso} class="meta-text">{formattedDate}</time>
-          <span class="meta-text">{readingTime} min read</span>
+          <span class="meta-text">📖 {readingTime} min read</span>
         </div>
         <h1 class="article-title">{title}</h1>
         <p class="article-lead">{description}</p>
@@ -74,8 +74,10 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
       </header>
 
       <!-- 本文 -->
-      <div class="prose article-body">
-        <slot />
+      <div class="article-layout">
+        <div class="prose article-body">
+          <slot />
+        </div>
       </div>
 
       <!-- SNSシェア -->
@@ -91,8 +93,10 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
       <!-- 書籍アフィリエイト -->
       {affiliateBooks && affiliateBooks.length > 0 && (
         <section class="affiliate-zone" aria-label="関連書籍">
-          <AffiliateDisclosure />
-          <h2 class="affiliate-heading">この戦略を深く学ぶ、一冊。</h2>
+          <div class="affiliate-header">
+            <h2 class="affiliate-heading">この戦略を深く学ぶ、一冊。</h2>
+            <AffiliateDisclosure />
+          </div>
           <div class="book-grid-article">
             {affiliateBooks.slice(0, 3).map(book => (
               <BookCard
@@ -113,7 +117,6 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
     </div>
   </article>
 
-  <!-- JSON-LD 構造化データ -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Article",
@@ -124,10 +127,7 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
     "publisher": {
       "@type": "Organization",
       "name": "戦略の系譜",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://sengoku-blog.vercel.app/favicon.svg"
-      }
+      "logo": { "@type": "ImageObject", "url": "https://sengoku-blog.vercel.app/favicon.svg" }
     },
     "description": description,
     "image": ogImage ? `https://sengoku-blog.vercel.app${ogImage}` : "https://sengoku-blog.vercel.app/images/default-ogp.svg"
@@ -140,81 +140,93 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
   }
 
   .article-header {
-    padding: var(--sp-lg) 0 var(--sp-md);
-    border-bottom: 1px solid var(--border);
+    padding: var(--sp-md) 0 var(--sp-md);
+    border-bottom: 2px solid var(--orange);
     margin-bottom: var(--sp-lg);
   }
 
   .article-meta {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
     margin-bottom: 1.2rem;
     flex-wrap: wrap;
   }
 
   .article-title {
     font-family: var(--font-serif);
-    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-size: clamp(1.7rem, 4vw, 2.5rem);
     font-weight: 800;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
     line-height: 1.35;
+    color: var(--text);
     margin-bottom: 1.2rem;
   }
 
   .article-lead {
     font-family: var(--font-serif);
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 400;
     line-height: 2;
     color: var(--text-mid);
-    border-left: 2px solid var(--border-mid);
+    border-left: 3px solid var(--amber);
     padding-left: 1.2rem;
     max-width: 680px;
     margin-bottom: 1rem;
+    background: rgba(247, 163, 37, 0.05);
+    padding: 0.8rem 1.2rem;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
   .article-body {
-    max-width: 720px;
+    max-width: 740px;
     margin-bottom: var(--sp-lg);
   }
 
+  /* 書籍アフィリエイトゾーン */
   .affiliate-zone {
-    background: var(--bg-dark);
-    padding: var(--sp-lg) var(--sp-lg);
+    background: var(--bg-navy);
+    border-radius: 6px;
+    padding: var(--sp-lg);
+    margin: var(--sp-lg) 0;
     position: relative;
     overflow: hidden;
-    margin: var(--sp-lg) 0;
   }
-
-  .affiliate-zone::before {
+  .affiliate-zone::after {
     content: "読";
     font-family: var(--font-serif);
-    font-size: 30rem;
+    font-size: 20rem;
     font-weight: 800;
-    color: rgba(192, 57, 43, 0.05);
+    color: rgba(232, 85, 45, 0.05);
     position: absolute;
-    right: -4rem;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
+    right: -2rem;
+    bottom: -2rem;
     line-height: 1;
+    pointer-events: none;
+    user-select: none;
   }
 
-  /* AffiliateDisclosure override for dark bg */
-  .affiliate-zone :global(.affiliate-disclosure) {
-    color: rgba(255, 255, 255, 0.4);
+  .affiliate-header {
+    margin-bottom: 1.8rem;
+    position: relative;
+    z-index: 1;
   }
 
   .affiliate-heading {
     font-family: var(--font-serif);
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     font-weight: 700;
-    color: var(--bg);
-    letter-spacing: 0.04em;
-    margin: 1rem 0 1.6rem;
-    position: relative;
-    z-index: 1;
+    color: #fff;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.5rem;
+  }
+
+  .affiliate-zone :global(.affiliate-disclosure) {
+    color: rgba(255, 255, 255, 0.38);
   }
 
   .book-grid-article {
@@ -234,12 +246,12 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
 
   .back-link {
     font-family: var(--font-sans);
-    font-size: 0.8rem;
-    font-weight: 400;
-    letter-spacing: 0.15em;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
     color: var(--text-mid);
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.2s;
   }
-  .back-link:hover { color: var(--red); }
+  .back-link:hover { color: var(--orange); }
 </style>

@@ -70,36 +70,36 @@ const sections = [
 
 <style>
   .book-section {
-    margin-bottom: var(--sp-xl);
-    background: var(--bg-dark);
+    margin-bottom: var(--sp-lg);
+    background: var(--bg-navy);
     padding: var(--sp-lg);
+    border-radius: 6px;
     position: relative;
     overflow: hidden;
   }
-
-  .book-section::before {
+  .book-section::after {
     content: attr(data-deco);
     font-family: var(--font-serif);
-    font-size: 30rem;
+    font-size: 20rem;
     font-weight: 800;
-    color: rgba(192, 57, 43, 0.05);
+    color: rgba(232, 85, 45, 0.05);
     position: absolute;
-    right: -4rem;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
+    right: -2rem;
+    bottom: -2rem;
     line-height: 1;
+    pointer-events: none;
+    user-select: none;
   }
 
   .book-section-title {
     font-family: var(--font-serif);
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    color: var(--bg);
-    letter-spacing: 0.05em;
+    color: #fff;
+    letter-spacing: 0.04em;
     margin-bottom: 1.6rem;
     padding-bottom: 0.8rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(232, 85, 45, 0.35);
     position: relative;
     z-index: 1;
   }
@@ -115,6 +115,7 @@ const sections = [
 
   .footer-disclosure {
     padding-bottom: var(--sp-md);
+    margin-top: var(--sp-md);
   }
 
   @media (max-width: 600px) {

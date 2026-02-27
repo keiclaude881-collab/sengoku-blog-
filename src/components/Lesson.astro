@@ -6,24 +6,33 @@ const { lesson } = Astro.props;
 ---
 
 <div class="lesson-box">
-  <span class="lesson-prefix">💡 現代への教訓：</span>{lesson}
+  <span class="lesson-prefix">💡 現代への教訓</span>
+  <p class="lesson-text">{lesson}</p>
 </div>
 
 <style>
   .lesson-box {
-    padding: 0.8rem 1rem;
-    background: rgba(192, 57, 43, 0.05);
-    border-left: 2px solid var(--red);
-    font-size: 0.78rem;
-    line-height: 1.8;
-    font-style: italic;
-    color: var(--text-mid);
+    padding: 1rem 1.2rem;
+    background: rgba(247, 163, 37, 0.08);
+    border-left: 3px solid var(--amber);
+    border-radius: 0 4px 4px 0;
     margin: 1.2rem 0;
   }
   .lesson-prefix {
-    font-style: normal;
-    font-weight: 600;
-    color: var(--red);
-    margin-right: 0.3em;
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--amber);
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+  }
+  .lesson-text {
+    font-family: var(--font-serif);
+    font-size: 0.9rem;
+    line-height: 1.85;
+    color: var(--text-mid);
+    margin: 0;
   }
 </style>

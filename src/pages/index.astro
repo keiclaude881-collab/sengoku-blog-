@@ -33,18 +33,7 @@ const featuredBooks = [
   title="戦略の系譜 | 歴史の戦略を、現代の武器に。"
   description="戦国・兵法の知恵を現代のビジネス・交渉・リーダーシップに応用する日本史×戦略思考ブログ。"
 >
-  <!-- ヒーロー -->
   <Hero />
-
-  <!-- コンセプト -->
-  <section class="concept section fade-in">
-    <div class="container">
-      <p class="concept-text">
-        「歴史は繰り返す」——しかしそれは、同じ失敗を犯し続けることを意味しない。<br />
-        先人たちの戦略を学び、現代の文脈に翻訳することで、あなたの思考は鋭くなる。
-      </p>
-    </div>
-  </section>
 
   <!-- 最新記事 -->
   {allArticles.length > 0 && (
@@ -90,12 +79,38 @@ const featuredBooks = [
     </section>
   )}
 
+  <!-- カテゴリ -->
+  <section class="cat-section section fade-in">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">カテゴリ</h2>
+      </div>
+      <ul class="cat-grid" role="list">
+        {[
+          { cat: "battle",   icon: "⚔", label: "合戦分析",      desc: "各地の名合戦の戦術・戦略を徹底解説" },
+          { cat: "leader",   icon: "🏯", label: "武将の思想",    desc: "英傑たちのリーダーシップと思考法" },
+          { cat: "strategy", icon: "📜", label: "兵法・現代応用", desc: "孫子・五輪書の現代ビジネスへの応用" },
+          { cat: "books",    icon: "📚", label: "書籍レビュー",   desc: "歴史×戦略で厳選した推薦図書" },
+        ].map(({ cat, icon, label, desc }) => (
+          <li>
+            <a href={`/category/${cat}/`} class="cat-card">
+              <span class="cat-icon" aria-hidden="true">{icon}</span>
+              <span class="cat-name">{label}</span>
+              <span class="cat-desc">{desc}</span>
+              <span class="cat-arrow">→</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
   <!-- 書籍アフィリエイトゾーン -->
   <section class="books-zone" aria-label="おすすめ書籍">
-    <div class="books-zone-inner container">
+    <div class="container">
       <div class="section-header books-header">
         <h2 class="section-title books-title">この戦略を深く学ぶ、一冊。</h2>
-        <a href="/books/" class="section-more books-more">すべて見る →</a>
+        <a href="/books/" class="books-more">すべて見る →</a>
       </div>
       <AffiliateDisclosure />
       <div class="book-grid">
@@ -105,115 +120,46 @@ const featuredBooks = [
       </div>
     </div>
   </section>
-
-  <!-- カテゴリ -->
-  <section class="section fade-in">
-    <div class="container">
-      <h2 class="section-title" style="margin-bottom: var(--sp-md);">カテゴリ</h2>
-      <ul class="cat-grid" role="list">
-        {[
-          { cat: "battle",   icon: "⚔", label: "合戦分析",      desc: "各地の名合戦の戦術・戦略を徹底解説" },
-          { cat: "leader",   icon: "🏯", label: "武将の思想",    desc: "英傑たちのリーダーシップと思考法" },
-          { cat: "strategy", icon: "📜", label: "兵法・現代応用", desc: "孫子・五輪書の現代ビジネスへの応用" },
-        ].map(({ cat, icon, label, desc }) => (
-          <li>
-            <a href={`/category/${cat}/`} class="cat-card">
-              <span class="cat-icon" aria-hidden="true">{icon}</span>
-              <span class="cat-name">{label}</span>
-              <span class="cat-desc">{desc}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
 </BaseLayout>
 
 <style>
-  .concept {
-    background: var(--bg-sub);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    text-align: center;
-  }
-  .concept-text {
-    font-family: var(--font-serif);
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
-    font-weight: 400;
-    line-height: 2.2;
-    color: var(--text-mid);
-    max-width: 680px;
-    margin: 0 auto;
-  }
-
-  .books-zone {
-    background: var(--bg-dark);
-    padding: var(--sp-xl) 0;
-    position: relative;
-    overflow: hidden;
-  }
-  .books-zone::before {
-    content: "読";
-    font-family: var(--font-serif);
-    font-size: 30rem;
-    font-weight: 800;
-    color: rgba(192, 57, 43, 0.05);
-    position: absolute;
-    right: -4rem;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-    line-height: 1;
-  }
-  .books-zone-inner { position: relative; z-index: 1; }
-
-  /* Override section-header colors for dark bg */
-  .books-header { border-bottom-color: rgba(255, 255, 255, 0.1); }
-  .books-title { color: var(--bg); }
-  .books-more { color: rgba(255, 255, 255, 0.45); }
-  .books-more:hover { color: var(--red); }
-
-  /* AffiliateDisclosure override for dark bg */
-  .books-zone :global(.affiliate-disclosure) {
-    color: rgba(255, 255, 255, 0.35);
-  }
-
-  .book-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-    margin-top: 1.6rem;
-  }
+  .cat-section { background: var(--bg-sub); }
 
   .cat-grid {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
   }
 
   .cat-card {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0.6rem;
-    padding: 2.4rem 1.6rem;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1.8rem 1.4rem;
     background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
     text-decoration: none;
     color: inherit;
-    transition: background 0.3s;
+    transition: box-shadow 0.25s, border-color 0.25s, transform 0.25s;
+    position: relative;
   }
-  .cat-card:hover { background: var(--bg-sub); }
+  .cat-card:hover {
+    box-shadow: 0 4px 16px rgba(15, 39, 68, 0.1);
+    border-color: var(--orange);
+    transform: translateY(-2px);
+  }
+  .cat-card:hover .cat-arrow { color: var(--orange); }
 
-  .cat-icon { font-size: 2rem; line-height: 1; }
+  .cat-icon { font-size: 1.8rem; line-height: 1; }
   .cat-name {
     font-family: var(--font-serif);
-    font-size: 1.05rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.03em;
   }
   .cat-desc {
     font-family: var(--font-sans);
@@ -221,13 +167,71 @@ const featuredBooks = [
     font-weight: 400;
     color: var(--text-mid);
     line-height: 1.6;
+    flex: 1;
+  }
+  .cat-arrow {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-sub);
+    transition: color 0.2s;
+    margin-top: auto;
   }
 
+  /* 書籍ゾーン */
+  .books-zone {
+    background: var(--bg-navy);
+    padding: var(--sp-xl) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .books-zone::before {
+    content: "読";
+    font-family: var(--font-serif);
+    font-size: 40rem;
+    font-weight: 800;
+    color: rgba(232, 85, 45, 0.04);
+    position: absolute;
+    right: -6rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .books-header { border-bottom-color: rgba(255, 255, 255, 0.12); }
+  .books-title { color: #fff; }
+  .books-more {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--orange);
+    transition: color 0.2s;
+  }
+  .books-more:hover { color: var(--amber); }
+
+  .books-zone :global(.affiliate-disclosure) {
+    color: rgba(255, 255, 255, 0.35);
+    margin-bottom: 1.5rem;
+  }
+
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .cat-grid { grid-template-columns: repeat(2, 1fr); }
+  }
   @media (max-width: 768px) {
+    .cat-grid { grid-template-columns: repeat(2, 1fr); }
     .book-grid { grid-template-columns: repeat(2, 1fr); }
-    .cat-grid  { grid-template-columns: 1fr; }
   }
   @media (max-width: 480px) {
+    .cat-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
     .book-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
   }
 </style>

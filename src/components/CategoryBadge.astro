@@ -13,7 +13,7 @@ const map = {
 const { label, icon, href } = map[category];
 ---
 
-<a href={href} class="category-badge">
+<a href={href} class="category-badge" data-cat={category}>
   <span class="badge-icon" aria-hidden="true">{icon}</span>
   <span class="badge-label">{label}</span>
 </a>
@@ -24,16 +24,22 @@ const { label, icon, href } = map[category];
     align-items: center;
     gap: 0.3rem;
     font-family: var(--font-sans);
-    font-size: 0.65rem;
-    font-weight: 400;
-    letter-spacing: 0.25em;
-    color: var(--red);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    padding: 0.22em 0.7em;
+    border-radius: 2px;
+    color: var(--orange);
+    background: rgba(232, 85, 45, 0.08);
+    border: 1px solid rgba(232, 85, 45, 0.25);
     text-transform: uppercase;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: background 0.2s, border-color 0.2s;
+    white-space: nowrap;
   }
   .category-badge:hover {
-    color: var(--red-dark);
+    background: rgba(232, 85, 45, 0.15);
+    border-color: rgba(232, 85, 45, 0.5);
   }
-  .badge-icon { font-size: 0.75rem; }
+  .badge-icon { font-size: 0.78rem; }
 </style>
