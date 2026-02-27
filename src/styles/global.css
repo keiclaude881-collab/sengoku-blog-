@@ -1,21 +1,21 @@
 /* ── CSS 変数 ── */
 :root {
   /* COLOR */
-  --bg:           #FFFFFF;
-  --bg-sub:       #F5F7FA;
-  --bg-navy:      #0F2744;
-  --bg-navy-mid:  #162F52;
+  --bg:           #FDFAF5;
+  --bg-sub:       #F5EFE6;
+  --bg-navy:      #1E0B0B;
+  --bg-navy-mid:  #2C1212;
 
-  --text:         #0F2744;
-  --text-mid:     #4A5568;
-  --text-sub:     #718096;
+  --text:         #1A0A0A;
+  --text-mid:     #5C3A3A;
+  --text-sub:     #8A6A6A;
 
-  --orange:       #E8552D;
-  --orange-dark:  #C44020;
-  --amber:        #F7A325;
+  --orange:       #B91C1C;
+  --orange-dark:  #991414;
+  --amber:        #D4A017;
 
-  --border:       #E2E8F0;
-  --border-mid:   #CBD5E0;
+  --border:       #E8DDD0;
+  --border-mid:   #D4C5B0;
 
   /* FONT */
   --font-serif: "Shippori Mincho", "Noto Serif JP", serif;
