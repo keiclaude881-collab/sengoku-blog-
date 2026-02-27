@@ -93,9 +93,9 @@ const featuredBooks = [
   <!-- 書籍アフィリエイトゾーン -->
   <section class="books-zone" aria-label="おすすめ書籍">
     <div class="books-zone-inner container">
-      <div class="section-header">
-        <h2 class="section-title" style="color: var(--washi);">この戦略を深く学ぶ、一冊。</h2>
-        <a href="/books/" class="section-more" style="color: rgba(200,169,110,0.7);">すべて見る →</a>
+      <div class="section-header books-header">
+        <h2 class="section-title books-title">この戦略を深く学ぶ、一冊。</h2>
+        <a href="/books/" class="section-more books-more">すべて見る →</a>
       </div>
       <AffiliateDisclosure />
       <div class="book-grid">
@@ -131,7 +131,7 @@ const featuredBooks = [
 
 <style>
   .concept {
-    background: var(--washi-dark);
+    background: var(--bg-sub);
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     text-align: center;
@@ -139,15 +139,15 @@ const featuredBooks = [
   .concept-text {
     font-family: var(--font-serif);
     font-size: clamp(0.9rem, 2vw, 1.1rem);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 2.2;
-    color: var(--gray-mid);
+    color: var(--text-mid);
     max-width: 680px;
     margin: 0 auto;
   }
 
   .books-zone {
-    background: var(--sumi);
+    background: var(--bg-dark);
     padding: var(--sp-xl) 0;
     position: relative;
     overflow: hidden;
@@ -157,7 +157,7 @@ const featuredBooks = [
     font-family: var(--font-serif);
     font-size: 30rem;
     font-weight: 800;
-    color: rgba(200, 169, 110, 0.04);
+    color: rgba(192, 57, 43, 0.05);
     position: absolute;
     right: -4rem;
     top: 50%;
@@ -166,6 +166,17 @@ const featuredBooks = [
     line-height: 1;
   }
   .books-zone-inner { position: relative; z-index: 1; }
+
+  /* Override section-header colors for dark bg */
+  .books-header { border-bottom-color: rgba(255, 255, 255, 0.1); }
+  .books-title { color: var(--bg); }
+  .books-more { color: rgba(255, 255, 255, 0.45); }
+  .books-more:hover { color: var(--red); }
+
+  /* AffiliateDisclosure override for dark bg */
+  .books-zone :global(.affiliate-disclosure) {
+    color: rgba(255, 255, 255, 0.35);
+  }
 
   .book-grid {
     display: grid;
@@ -190,12 +201,12 @@ const featuredBooks = [
     text-align: center;
     gap: 0.6rem;
     padding: 2.4rem 1.6rem;
-    background: var(--washi);
+    background: var(--bg);
     text-decoration: none;
     color: inherit;
     transition: background 0.3s;
   }
-  .cat-card:hover { background: var(--washi-dark); }
+  .cat-card:hover { background: var(--bg-sub); }
 
   .cat-icon { font-size: 2rem; line-height: 1; }
   .cat-name {
@@ -207,8 +218,8 @@ const featuredBooks = [
   .cat-desc {
     font-family: var(--font-sans);
     font-size: 0.75rem;
-    font-weight: 300;
-    color: var(--gray-mid);
+    font-weight: 400;
+    color: var(--text-mid);
     line-height: 1.6;
   }
 

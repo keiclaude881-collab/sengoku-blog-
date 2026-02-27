@@ -85,13 +85,14 @@ const path = Astro.url.pathname;
     left: 0;
     right: 0;
     z-index: 100;
-    background: rgba(245, 240, 232, 0.95);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(200, 169, 110, 0.25);
-    transition: background 0.3s;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s, box-shadow 0.3s;
   }
   .site-nav.scrolled {
-    background: rgba(245, 240, 232, 0.99);
+    background: rgba(255, 255, 255, 0.99);
+    box-shadow: 0 1px 0 var(--border);
   }
 
   .nav-inner {
@@ -110,11 +111,11 @@ const path = Astro.url.pathname;
     font-weight: 800;
     font-size: 1.05rem;
     letter-spacing: 0.1em;
-    color: var(--sumi);
+    color: var(--text);
     text-decoration: none;
     flex-shrink: 0;
   }
-  .logo-accent { color: var(--gold); }
+  .logo-accent { color: var(--red); }
 
   /* ── PC ナビ ── */
   .nav-links {
@@ -129,14 +130,18 @@ const path = Astro.url.pathname;
     font-size: 0.8rem;
     font-weight: 400;
     letter-spacing: 0.1em;
-    color: var(--gray-mid);
+    color: var(--text-mid);
     text-decoration: none;
     transition: color 0.25s;
     white-space: nowrap;
   }
   .nav-link:hover,
   .nav-link.active {
-    color: var(--sumi);
+    color: var(--text);
+  }
+  .nav-link.active {
+    border-bottom: 1px solid var(--red);
+    padding-bottom: 2px;
   }
 
   /* ── ハンバーガー ── */
@@ -157,7 +162,7 @@ const path = Astro.url.pathname;
     display: block;
     width: 100%;
     height: 1.5px;
-    background: var(--sumi);
+    background: var(--text);
     transition: transform 0.3s, opacity 0.3s;
     transform-origin: center;
   }
@@ -173,8 +178,8 @@ const path = Astro.url.pathname;
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.35s ease, padding 0.35s ease;
-    background: rgba(245, 240, 232, 0.99);
-    border-top: 1px solid rgba(200, 169, 110, 0.15);
+    background: var(--bg);
+    border-top: 1px solid var(--border);
   }
 
   .mobile-menu ul {
@@ -189,15 +194,15 @@ const path = Astro.url.pathname;
     font-size: 0.9rem;
     font-weight: 400;
     letter-spacing: 0.08em;
-    color: var(--gray-mid);
+    color: var(--text-mid);
     text-decoration: none;
-    border-bottom: 1px solid rgba(214, 204, 184, 0.4);
+    border-bottom: 1px solid var(--border);
     transition: background 0.2s, color 0.2s;
   }
   .mobile-link:hover,
   .mobile-link.active {
-    background: var(--washi-dark);
-    color: var(--sumi);
+    background: var(--bg-sub);
+    color: var(--text);
   }
 
   /* ── レスポンシブ ── */

@@ -43,7 +43,7 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
 
 <style>
   .article-card {
-    background: var(--washi);
+    background: var(--bg);
     position: relative;
     transition: background 0.3s;
   }
@@ -54,13 +54,13 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
     left: 0;
     right: 0;
     height: 2px;
-    background: var(--gold);
+    background: var(--red);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.4s;
   }
   .article-card:hover {
-    background: var(--washi-dark);
+    background: var(--bg-sub);
   }
   .article-card:hover::after {
     transform: scaleX(1);
@@ -88,18 +88,18 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
     line-height: 1.6;
   }
   .card-title a {
-    color: var(--sumi);
+    color: var(--text);
     text-decoration: none;
     transition: color 0.3s;
   }
-  .card-title a:hover { color: var(--gold); }
+  .card-title a:hover { color: var(--red); }
 
   .card-desc {
     font-family: var(--font-serif);
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.85;
-    color: var(--sumi);
+    color: var(--text);
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;

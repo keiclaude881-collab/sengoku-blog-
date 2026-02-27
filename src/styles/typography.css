@@ -6,7 +6,7 @@
   font-size: 0.95rem;
   font-weight: 400;
   line-height: 2.2;
-  color: var(--sumi);
+  color: var(--text);
 }
 
 .prose h2 {
@@ -26,7 +26,7 @@
   margin-top: 2.4rem;
   margin-bottom: 0.8rem;
   padding-left: 0.8rem;
-  border-left: 2px solid var(--gold);
+  border-left: 2px solid var(--red);
 }
 
 .prose p {
@@ -44,19 +44,19 @@
 
 .prose strong {
   font-weight: 700;
-  color: var(--sumi);
+  color: var(--text);
 }
 
 .prose em {
   font-style: italic;
-  color: var(--gray-mid);
+  color: var(--text-mid);
 }
 
 .prose blockquote {
-  border-left: 2px solid var(--gold-light);
+  border-left: 2px solid var(--border-mid);
   padding: 0.8rem 1.2rem;
   margin: 2rem 0;
-  color: var(--gray-mid);
+  color: var(--text-mid);
   font-style: italic;
 }
 
@@ -68,8 +68,8 @@
 }
 
 .prose th {
-  background: var(--sumi);
-  color: var(--washi);
+  background: var(--text);
+  color: var(--bg);
   font-family: var(--font-serif);
   font-weight: 600;
   padding: 0.6rem 1rem;
@@ -83,20 +83,20 @@
 }
 
 .prose tr:nth-child(even) td {
-  background: var(--washi-dark);
+  background: var(--bg-sub);
 }
 
 .prose code {
   font-family: var(--font-mono);
   font-size: 0.85em;
-  background: var(--washi-dark);
+  background: var(--bg-sub);
   padding: 0.1em 0.4em;
   border-radius: 2px;
 }
 
 .prose pre {
-  background: var(--sumi);
-  color: var(--washi);
+  background: var(--bg-dark);
+  color: var(--bg);
   padding: 1.5rem;
   border-radius: 4px;
   overflow-x: auto;
@@ -118,7 +118,7 @@
   font-weight: 300;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--red);
 }
 
 /* ナビリンク共通 */
@@ -135,5 +135,5 @@
   font-size: 0.72rem;
   font-weight: 400;
   letter-spacing: 0.08em;
-  color: var(--gray-mid);
+  color: var(--text-mid);
 }

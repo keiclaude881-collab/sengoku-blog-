@@ -1,7 +1,7 @@
 ---
 ---
 
-<section class="hero" aria-label="ヒーー">
+<section class="hero" aria-label="ヒーロー">
   <!-- 左カラム -->
   <div class="hero-left">
     <p class="hero-eyebrow">History × Modern Strategy</p>
@@ -69,23 +69,23 @@
     gap: 0.8rem;
     font-family: var(--font-sans);
     font-size: 0.7rem;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 0.35em;
-    color: var(--gold);
+    color: var(--red);
   }
   .hero-eyebrow::before {
     content: "";
     display: inline-block;
     width: 2rem;
     height: 1px;
-    background: var(--gold);
+    background: var(--red);
   }
 
   .hero-title {
     font-family: var(--font-serif);
     font-size: clamp(2.8rem, 5vw, 4.4rem);
     font-weight: 800;
-    color: var(--sumi);
+    color: var(--text);
     letter-spacing: 0.04em;
     line-height: 1.3;
   }
@@ -93,7 +93,7 @@
   .hero-subtitle {
     font-family: var(--font-serif);
     font-size: clamp(1.0rem, 2vw, 1.4rem);
-    color: var(--gold);
+    color: var(--text-mid);
     letter-spacing: 0.08em;
   }
 
@@ -102,8 +102,8 @@
     font-size: 0.92rem;
     font-weight: 400;
     line-height: 2;
-    color: var(--sumi);
-    border-left: 2px solid var(--gold-light);
+    color: var(--text);
+    border-left: 2px solid var(--border-mid);
     padding-left: 1.2rem;
     max-width: 400px;
   }
@@ -115,41 +115,41 @@
     margin-top: 0.8rem;
   }
 
-  /* ボタン（global.cssのbtn classを使用） */
+  /* ボタン */
   .btn {
     display: inline-block;
     padding: 0.9rem 2rem;
     font-family: var(--font-sans);
     font-size: 0.8rem;
-    font-weight: 300;
-    letter-spacing: 0.2em;
+    font-weight: 400;
+    letter-spacing: 0.15em;
     cursor: pointer;
     transition: all 0.35s;
     text-decoration: none;
   }
   .btn-primary {
-    background: var(--sumi);
-    color: var(--washi);
-    border: 1px solid var(--sumi);
+    background: var(--text);
+    color: var(--bg);
+    border: 1px solid var(--text);
   }
   .btn-primary:hover {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: var(--sumi);
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--bg);
   }
   .btn-secondary {
     background: transparent;
-    color: var(--gray-mid);
-    border: 1px solid var(--gray-light);
+    color: var(--text-mid);
+    border: 1px solid var(--border-mid);
   }
   .btn-secondary:hover {
-    border-color: var(--gold);
-    color: var(--gold);
+    border-color: var(--red);
+    color: var(--red);
   }
 
   /* 右カラム */
   .hero-right {
-    background: var(--sumi);
+    background: var(--bg-dark);
     position: relative;
     overflow: hidden;
     display: flex;
@@ -163,7 +163,7 @@
     font-family: var(--font-serif);
     font-size: 28vw;
     font-weight: 800;
-    color: rgba(200, 169, 110, 0.06);
+    color: rgba(192, 57, 43, 0.08);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -181,7 +181,7 @@
   }
 
   .hero-stat {
-    border-left: 1px solid rgba(200, 169, 110, 0.2);
+    border-left: 1px solid rgba(192, 57, 43, 0.35);
     padding-left: 1.6rem;
     display: flex;
     flex-direction: column;
@@ -192,7 +192,7 @@
     font-family: var(--font-serif);
     font-size: 2.4rem;
     font-weight: 800;
-    color: var(--gold);
+    color: var(--red);
     line-height: 1;
   }
 
@@ -201,7 +201,7 @@
     font-size: 0.7rem;
     font-weight: 400;
     letter-spacing: 0.2em;
-    color: rgba(200, 169, 110, 0.8);
+    color: rgba(255, 255, 255, 0.45);
     text-transform: uppercase;
   }
 
@@ -209,7 +209,7 @@
     font-family: var(--font-serif);
     font-size: 0.82rem;
     font-weight: 400;
-    color: rgba(245, 240, 232, 0.75);
+    color: rgba(255, 255, 255, 0.7);
     line-height: 1.7;
   }
 
@@ -220,14 +220,14 @@
     left: 3rem;
     width: 60px;
     height: 60px;
-    border: 2px solid var(--red-seal);
+    border: 2px solid var(--red);
     display: flex;
     align-items: center;
     justify-content: center;
     transform: rotate(-8deg);
     font-family: var(--font-serif);
     font-size: 0.9rem;
-    color: var(--red-seal);
+    color: var(--red);
     z-index: 1;
   }
 

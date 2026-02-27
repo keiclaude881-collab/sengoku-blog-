@@ -56,8 +56,8 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
   .featured {
     display: grid;
     grid-template-columns: 1fr 280px;
-    background: var(--sumi);
-    color: var(--washi);
+    background: var(--bg-dark);
+    color: var(--bg);
     position: relative;
     overflow: hidden;
     margin-bottom: 1px;
@@ -80,7 +80,7 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
     font-size: 0.7rem;
     font-weight: 300;
     letter-spacing: 0.3em;
-    color: rgba(200, 169, 110, 0.7);
+    color: rgba(255, 255, 255, 0.5);
     text-transform: uppercase;
   }
 
@@ -91,6 +91,10 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
     flex-wrap: wrap;
   }
 
+  /* CategoryBadge and meta-text override for dark bg */
+  .featured-meta :global(.category-badge) { color: var(--red); }
+  .featured-meta :global(.meta-text) { color: rgba(255, 255, 255, 0.55); }
+
   .featured-title {
     font-family: var(--font-serif);
     font-size: clamp(1.4rem, 3vw, 2rem);
@@ -99,18 +103,18 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
     letter-spacing: 0.04em;
   }
   .featured-title a {
-    color: var(--washi);
+    color: var(--bg);
     text-decoration: none;
     transition: color 0.3s;
   }
-  .featured-title a:hover { color: var(--gold); }
+  .featured-title a:hover { color: var(--red); }
 
   .featured-desc {
     font-family: var(--font-serif);
     font-size: 0.88rem;
     font-weight: 400;
     line-height: 1.9;
-    color: rgba(245, 240, 232, 0.88);
+    color: rgba(255, 255, 255, 0.82);
     max-width: 560px;
   }
 
@@ -122,12 +126,24 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
     font-size: 0.78rem;
     font-weight: 300;
     letter-spacing: 0.2em;
-    color: var(--gold);
+    color: var(--red);
     text-decoration: none;
     margin-top: 0.8rem;
-    transition: gap 0.3s, color 0.3s;
+    transition: gap 0.3s;
   }
-  .featured-cta:hover { gap: 0.9rem; color: var(--gold-light); }
+  .featured-cta:hover { gap: 0.9rem; }
+
+  /* タグ override for dark bg */
+  .featured :global(.tag) {
+    color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  /* Lesson override for dark bg */
+  .featured :global(.lesson-box) {
+    background: rgba(192, 57, 43, 0.15);
+    color: rgba(255, 255, 255, 0.75);
+  }
 
   /* 装飾エリア */
   .featured-deco {
@@ -141,7 +157,7 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
     font-family: var(--font-serif);
     font-size: 16rem;
     font-weight: 800;
-    color: rgba(200, 169, 110, 0.07);
+    color: rgba(192, 57, 43, 0.1);
     line-height: 1;
     user-select: none;
   }

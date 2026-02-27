@@ -14,24 +14,24 @@
 }
 
 .btn-primary {
-  background: var(--sumi);
-  color: var(--washi);
-  border: 1px solid var(--sumi);
+  background: var(--text);
+  color: var(--bg);
+  border: 1px solid var(--text);
 }
 .btn-primary:hover {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--sumi);
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--bg);
 }
 
 .btn-secondary {
   background: transparent;
-  color: var(--gray-mid);
-  border: 1px solid var(--gray-light);
+  color: var(--text-mid);
+  border: 1px solid var(--border-mid);
 }
 .btn-secondary:hover {
-  border-color: var(--gold);
-  color: var(--gold);
+  border-color: var(--red);
+  color: var(--red);
 }
 
 /* パンくず */
@@ -42,13 +42,13 @@
   font-family: var(--font-sans);
   font-size: 0.72rem;
   letter-spacing: 0.1em;
-  color: var(--gray-light);
+  color: var(--text-sub);
   margin-bottom: var(--sp-md);
   flex-wrap: wrap;
 }
-.breadcrumb a { color: var(--gray-light); transition: color 0.3s; }
-.breadcrumb a:hover { color: var(--gold); }
-.breadcrumb span[aria-current="page"] { color: var(--gray-mid); }
+.breadcrumb a { color: var(--text-sub); transition: color 0.3s; }
+.breadcrumb a:hover { color: var(--red); }
+.breadcrumb span[aria-current="page"] { color: var(--text-mid); }
 
 /* グリッド */
 .article-grid {
@@ -78,14 +78,14 @@
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   border: 1px solid var(--border);
-  background: var(--washi);
-  color: var(--gray-mid);
+  background: var(--bg);
+  color: var(--text-mid);
   transition: all 0.3s;
   cursor: pointer;
 }
 .share-btn:hover {
-  border-color: var(--gold);
-  color: var(--gold);
+  border-color: var(--red);
+  color: var(--red);
 }
 
 /* タグ */
@@ -100,7 +100,7 @@
   font-size: 0.68rem;
   font-weight: 300;
   letter-spacing: 0.15em;
-  color: var(--gray-light);
+  color: var(--text-sub);
   border: 1px solid var(--border);
   padding: 0.15em 0.6em;
 }
@@ -120,7 +120,7 @@
 .page-header p {
   font-family: var(--font-sans);
   font-size: 0.82rem;
-  color: var(--gray-mid);
+  color: var(--text-mid);
   margin-top: 0.6rem;
   letter-spacing: 0.08em;
 }

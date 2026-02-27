@@ -1,15 +1,16 @@
 /* ── CSS 変数 ── */
 :root {
   /* COLOR */
-  --sumi:       #2C2416;
-  --washi:      #F5F0E8;
-  --washi-dark: #EDE6D6;
-  --gold:       #C8A96E;
-  --gold-light: #E8C98A;
-  --red-seal:   #8B2020;
-  --gray-mid:   #4A4035;
-  --gray-light: #6B5E50;
-  --border:     #D6CCB8;
+  --bg:         #FFFFFF;
+  --bg-sub:     #F7F5F2;
+  --bg-dark:    #111111;
+  --text:       #111111;
+  --text-mid:   #555555;
+  --text-sub:   #888888;
+  --red:        #C0392B;
+  --red-dark:   #922B21;
+  --border:     #E5E5E5;
+  --border-mid: #CCCCCC;
 
   /* FONT */
   --font-serif: "Shippori Mincho", "Noto Serif JP", serif;
@@ -25,7 +26,7 @@
 
   /* LAYOUT */
   --max-width:  1200px;
-  --nav-height: 64px;
+  --nav-height: 60px;
 }
 
 /* ── リセット ── */
@@ -38,8 +39,8 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--washi);
-  color: var(--sumi);
+  background: var(--bg);
+  color: var(--text);
   font-family: var(--font-serif);
   overflow-x: hidden;
   min-height: 100vh;
@@ -47,46 +48,33 @@ body {
   flex-direction: column;
 }
 
-/* 和紙テクスチャオーバーレイ */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: url("/images/noise.svg");
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.04;
-}
-
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; height: auto; display: block; }
 
-/* ── フェードインアニメーション ── */
+/* ── フェードイン ── */
 .fade-in {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* ── レイアウトユーティリティ ── */
+/* ── レイアウト ── */
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 var(--sp-md);
+  padding: 0 2rem;
 }
 
 main {
   flex: 1;
   padding-top: var(--nav-height);
-  position: relative;
-  z-index: 1;
 }
 
-/* ── コンテナ内セクション共通 ── */
+/* ── セクション共通 ── */
 .section {
   padding: var(--sp-xl) 0;
 }
@@ -96,21 +84,24 @@ main {
   align-items: baseline;
   justify-content: space-between;
   margin-bottom: var(--sp-lg);
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--text);
 }
 
 .section-title {
   font-family: var(--font-serif);
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-size: clamp(1.4rem, 3vw, 2rem);
   font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--sumi);
+  letter-spacing: 0.03em;
+  color: var(--text);
 }
 
 .section-more {
   font-family: var(--font-sans);
-  font-size: 0.78rem;
-  letter-spacing: 0.2em;
-  color: var(--gray-mid);
-  transition: color 0.3s;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--text-sub);
+  transition: color 0.2s;
 }
-.section-more:hover { color: var(--gold); }
+.section-more:hover { color: var(--red); }
