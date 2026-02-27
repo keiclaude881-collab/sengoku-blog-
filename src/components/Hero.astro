@@ -2,270 +2,247 @@
 ---
 
 <section class="hero" aria-label="ヒーロー">
-  <div class="hero-left">
-    <p class="hero-eyebrow">History × Modern Strategy</p>
+  <div class="hero-bg-char" aria-hidden="true">戦</div>
 
-    <h1 class="hero-title">
-      歴史の戦略を、<br />現代の武器に。
-    </h1>
+  <div class="hero-inner container">
+    <div class="hero-content">
+      <p class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        SENGOKU × MODERN STRATEGY
+      </p>
 
-    <p class="hero-lead">
-      関ヶ原の調略、孫子の情報戦、信長の破壊的イノベーション——<br />
-      数百年前の知恵は、現代の交渉・組織・意思決定に驚くほど直結している。
-    </p>
+      <h1 class="hero-title">
+        戦国武将の判断が、<br>
+        <em>あなたの正解</em>になる。
+      </h1>
 
-    <div class="hero-cta">
-      <a href="/blog/" class="hero-btn-primary">記事を読む →</a>
-      <a href="/books/" class="hero-btn-secondary">おすすめ書籍</a>
-    </div>
+      <p class="hero-body">
+        命がかかった合戦室で磨かれた戦略は、<br class="br-pc">
+        現代の会議・交渉・組織にそのまま使える。<br class="br-pc">
+        500年前の知恵を、今日の武器に変える。
+      </p>
 
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <span class="stat-num">2</span>
-        <span class="stat-label">記事公開中</span>
-      </div>
-      <div class="hero-stat">
-        <span class="stat-num">4</span>
-        <span class="stat-label">カテゴリ</span>
-      </div>
-      <div class="hero-stat">
-        <span class="stat-num">450+</span>
-        <span class="stat-label">年の戦略史</span>
+      <div class="hero-cta">
+        <a href="/blog/" class="cta-primary">記事を読む →</a>
+        <a href="/books/" class="cta-secondary">おすすめ書籍</a>
       </div>
     </div>
-  </div>
 
-  <div class="hero-right" aria-hidden="true">
-    <div class="hero-feature-card">
-      <p class="feature-label">注目カテゴリ</p>
-      <ul class="feature-list">
-        <li><span class="feat-icon">⚔</span> 合戦と戦略 — 関ヶ原・川中島を読み解く</li>
-        <li><span class="feat-icon">🏯</span> 武将の思想 — 信長・家康の決断力</li>
-        <li><span class="feat-icon">📜</span> 兵法現代応用 — 孫子をビジネスへ</li>
-        <li><span class="feat-icon">📚</span> 書籍レビュー — 厳選アフィリエイト</li>
-      </ul>
+    <div class="hero-numbers" aria-hidden="true">
+      <div class="hero-num">
+        <span class="num-val">01</span>
+        <span class="num-label">合戦×ビジネス</span>
+      </div>
+      <div class="hero-num">
+        <span class="num-val">02</span>
+        <span class="num-label">武将×リーダーシップ</span>
+      </div>
+      <div class="hero-num">
+        <span class="num-val">03</span>
+        <span class="num-label">兵法×現代戦略</span>
+      </div>
     </div>
-    <div class="hero-deco" aria-hidden="true">戦</div>
   </div>
 </section>
 
 <style>
   .hero {
-    min-height: calc(100vh - var(--nav-height));
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    background: var(--bg-navy);
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    position: relative;
     overflow: hidden;
-    padding-top: var(--nav-height);
   }
 
-  /* 左カラム */
-  .hero-left {
-    padding: 5rem 4rem 4rem 6rem;
+  .hero-bg-char {
+    position: absolute;
+    right: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-serif);
+    font-size: clamp(16rem, 35vw, 32rem);
+    font-weight: 800;
+    color: rgba(185, 28, 28, 0.07);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: -0.05em;
+  }
+
+  .hero-inner {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 4rem;
+    padding-top: calc(var(--nav-height) + 4rem);
+    padding-bottom: 5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-content {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 2rem;
-    background: var(--bg);
+    gap: 2.4rem;
+    max-width: 660px;
   }
 
   .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     font-family: var(--font-sans);
     font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.3em;
     color: var(--orange);
     text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
   }
-  .hero-eyebrow::before {
-    content: "";
+  .eyebrow-line {
     display: inline-block;
-    width: 2.5rem;
+    width: 3rem;
     height: 2px;
     background: var(--orange);
+    flex-shrink: 0;
   }
 
   .hero-title {
     font-family: var(--font-serif);
-    font-size: clamp(2.6rem, 4.5vw, 4rem);
+    font-size: clamp(2.8rem, 5.5vw, 5rem);
     font-weight: 800;
-    color: var(--text);
-    letter-spacing: 0.03em;
-    line-height: 1.25;
+    color: #fff;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+  }
+  .hero-title em {
+    font-style: normal;
+    color: var(--orange);
+    position: relative;
+  }
+  .hero-title em::after {
+    content: "";
+    position: absolute;
+    bottom: 0.05em;
+    left: 0;
+    right: 0;
+    height: 0.06em;
+    background: var(--orange);
+    opacity: 0.4;
   }
 
-  .hero-lead {
+  .hero-body {
     font-family: var(--font-serif);
-    font-size: 0.95rem;
+    font-size: clamp(0.9rem, 1.5vw, 1.05rem);
     font-weight: 400;
-    line-height: 2;
-    color: var(--text-mid);
-    max-width: 420px;
+    line-height: 2.1;
+    color: rgba(255, 255, 255, 0.7);
+    border-left: 2px solid rgba(185, 28, 28, 0.5);
+    padding-left: 1.2rem;
   }
 
   .hero-cta {
     display: flex;
-    gap: 1rem;
+    align-items: center;
+    gap: 1.2rem;
     flex-wrap: wrap;
   }
 
-  .hero-btn-primary {
-    display: inline-block;
-    padding: 0.9rem 2.2rem;
+  .cta-primary {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2.4rem;
     background: var(--orange);
     color: #fff;
     font-family: var(--font-sans);
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    border-radius: 3px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    border-radius: 2px;
     transition: background 0.2s, transform 0.2s;
     text-decoration: none;
   }
-  .hero-btn-primary:hover {
+  .cta-primary:hover {
     background: var(--orange-dark);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
   }
 
-  .hero-btn-secondary {
-    display: inline-block;
-    padding: 0.9rem 2rem;
+  .cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
     background: transparent;
-    color: var(--text);
+    color: rgba(255, 255, 255, 0.75);
     font-family: var(--font-sans);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 500;
-    letter-spacing: 0.05em;
-    border: 2px solid var(--border-mid);
-    border-radius: 3px;
+    letter-spacing: 0.06em;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 2px;
     transition: border-color 0.2s, color 0.2s;
     text-decoration: none;
   }
-  .hero-btn-secondary:hover {
+  .cta-secondary:hover {
     border-color: var(--orange);
     color: var(--orange);
   }
 
-  /* スタッツ */
-  .hero-stats {
-    display: flex;
-    gap: 2.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
-  }
-  .hero-stat {
+  /* 右サイドの番号リスト */
+  .hero-numbers {
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
-  }
-  .stat-num {
-    font-family: var(--font-serif);
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--orange);
-    line-height: 1;
-  }
-  .stat-label {
-    font-family: var(--font-sans);
-    font-size: 0.7rem;
-    font-weight: 500;
-    color: var(--text-sub);
-    letter-spacing: 0.05em;
-  }
-
-  /* 右カラム */
-  .hero-right {
-    background: var(--bg-navy);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4rem 3rem;
-  }
-
-  .hero-deco {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: var(--font-serif);
-    font-size: 28vw;
-    font-weight: 800;
-    color: rgba(185, 28, 28, 0.07);
-    line-height: 1;
-    pointer-events: none;
-    user-select: none;
-  }
-
-  .hero-feature-card {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 6px;
-    padding: 2.4rem;
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    max-width: 380px;
-  }
-
-  .feature-label {
-    font-family: var(--font-sans);
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 1.6rem;
-  }
-
-  .feature-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-
-  .feature-list li {
-    font-family: var(--font-sans);
-    font-size: 0.88rem;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.82);
-    line-height: 1.6;
-    display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
-  }
-
-  .feat-icon {
+    gap: 2rem;
     flex-shrink: 0;
-    font-size: 1rem;
-    margin-top: 0.05em;
   }
 
-  /* レスポンシブ */
-  @media (max-width: 960px) {
-    .hero {
-      grid-template-columns: 1fr;
-      min-height: auto;
+  .hero-num {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    border-left: 1px solid rgba(185, 28, 28, 0.3);
+    padding-left: 1.2rem;
+  }
+
+  .num-val {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: rgba(185, 28, 28, 0.5);
+    line-height: 1;
+  }
+
+  .num-label {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 900px) {
+    .hero { min-height: auto; }
+    .hero-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3rem;
+      padding-top: calc(var(--nav-height) + 3rem);
+      padding-bottom: 4rem;
     }
-    .hero-left {
-      padding: 4rem 2rem 3rem;
+    .hero-numbers {
+      flex-direction: row;
+      gap: 2rem;
     }
-    .hero-right {
-      min-height: 40vh;
-      padding: 3rem 2rem;
-    }
-    .hero-deco { font-size: 50vw; }
   }
 
   @media (max-width: 480px) {
-    .hero-left {
-      padding: 3rem 1.2rem 2.5rem;
-      gap: 1.5rem;
+    .hero-inner {
+      padding-top: calc(var(--nav-height) + 2rem);
+      padding-bottom: 3rem;
     }
-    .hero-stats { gap: 1.5rem; }
+    .hero-numbers { gap: 1.2rem; }
+    .num-val { font-size: 1.6rem; }
+    .br-pc { display: none; }
   }
 </style>

@@ -1,6 +1,5 @@
 ---
 import CategoryBadge from './CategoryBadge.astro';
-import Lesson from './Lesson.astro';
 
 interface Props {
   title:       string;
@@ -18,29 +17,27 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
 ---
 
 <article class="article-card">
-  <a href={`/blog/${slug}/`} class="card-link" tabindex="-1" aria-hidden="true"></a>
   <div class="card-inner">
     <div class="card-meta">
       <CategoryBadge category={category} />
-      <time class="meta-text" datetime={date.toISOString()}>{formattedDate}</time>
-      <span class="meta-text read-time">{readingTime} min</span>
+      <time class="meta-date" datetime={date.toISOString()}>{formattedDate}</time>
     </div>
 
     <h3 class="card-title">
       <a href={`/blog/${slug}/`}>{title}</a>
     </h3>
 
-    {lesson && <Lesson lesson={lesson} />}
+    {lesson && (
+      <p class="card-lesson">
+        <span class="lesson-mark">→</span>{lesson}
+      </p>
+    )}
 
     <p class="card-desc">{description}</p>
 
     <div class="card-footer">
-      {tags.length > 0 && (
-        <ul class="tag-list" aria-label="タグ">
-          {tags.slice(0, 3).map(tag => <li class="tag">#{tag}</li>)}
-        </ul>
-      )}
-      <span class="card-read-link">続きを読む →</span>
+      <span class="read-time">📖 {readingTime} min</span>
+      <a href={`/blog/${slug}/`} class="read-link">続きを読む →</a>
     </div>
   </div>
 </article>
@@ -48,46 +45,23 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
 <style>
   .article-card {
     background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    position: relative;
-    transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+    border-radius: 4px;
     overflow: hidden;
+    border-top: 3px solid var(--border);
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
   }
   .article-card:hover {
-    box-shadow: 0 6px 24px rgba(26, 10, 10, 0.1);
-    transform: translateY(-2px);
-    border-color: var(--orange);
-  }
-  .article-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--orange);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s;
-  }
-  .article-card:hover::before { transform: scaleX(1); }
-
-  /* invisible full-card link layer */
-  .card-link {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
+    border-top-color: var(--orange);
+    box-shadow: 0 8px 32px rgba(26, 10, 10, 0.1);
+    transform: translateY(-3px);
   }
 
   .card-inner {
     padding: 1.8rem;
     display: flex;
     flex-direction: column;
-    gap: 0.9rem;
+    gap: 1rem;
     height: 100%;
-    position: relative;
-    z-index: 1;
   }
 
   .card-meta {
@@ -97,11 +71,19 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
     flex-wrap: wrap;
   }
 
+  .meta-date {
+    font-family: var(--font-sans);
+    font-size: 0.73rem;
+    color: var(--text-sub);
+    letter-spacing: 0.05em;
+  }
+
   .card-title {
     font-family: var(--font-serif);
-    font-size: 1.1rem;
+    font-size: 1.18rem;
     font-weight: 700;
     line-height: 1.55;
+    letter-spacing: 0.02em;
   }
   .card-title a {
     color: var(--text);
@@ -110,9 +92,27 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
   }
   .card-title a:hover { color: var(--orange); }
 
+  .card-lesson {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--orange);
+    line-height: 1.6;
+    padding: 0.5rem 0.8rem;
+    background: rgba(185, 28, 28, 0.06);
+    border-radius: 2px;
+    display: flex;
+    gap: 0.4rem;
+    align-items: flex-start;
+  }
+  .lesson-mark {
+    flex-shrink: 0;
+    font-weight: 700;
+  }
+
   .card-desc {
     font-family: var(--font-serif);
-    font-size: 0.88rem;
+    font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.9;
     color: var(--text-mid);
@@ -127,23 +127,24 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.5rem;
-    margin-top: auto;
-    padding-top: 0.8rem;
+    padding-top: 1rem;
     border-top: 1px solid var(--border);
-  }
-
-  .card-read-link {
-    font-family: var(--font-sans);
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--orange);
-    letter-spacing: 0.04em;
-    white-space: nowrap;
-    flex-shrink: 0;
+    margin-top: auto;
   }
 
   .read-time {
-    margin-left: auto;
+    font-family: var(--font-sans);
+    font-size: 0.73rem;
+    color: var(--text-sub);
+  }
+
+  .read-link {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--orange);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: gap 0.2s;
   }
 </style>

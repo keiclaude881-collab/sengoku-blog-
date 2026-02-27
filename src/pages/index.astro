@@ -30,17 +30,42 @@ const featuredBooks = [
 ---
 
 <BaseLayout
-  title="戦略の系譜 | 歴史の戦略を、現代の武器に。"
-  description="戦国・兵法の知恵を現代のビジネス・交渉・リーダーシップに応用する日本史×戦略思考ブログ。"
+  title="戦略の系譜 | 戦国武将の判断が、あなたの正解になる。"
+  description="合戦・武将・兵法から学ぶ現代ビジネス戦略ブログ。関ヶ原、川中島、信長・家康の判断を現代語に翻訳する。"
 >
+  <!-- ヒーロー -->
   <Hero />
 
-  <!-- 最新記事 -->
+  <!-- WHYストリップ：なぜ歴史から学ぶのか -->
+  <section class="why-strip">
+    <div class="container">
+      <p class="why-lead">なぜ、500年前の戦略が今も通用するのか？</p>
+      <div class="why-grid">
+        <div class="why-card">
+          <span class="why-icon">⚔</span>
+          <h3>合戦は「最高の意思決定実験室」だった</h3>
+          <p>命がかかった状況での判断は、経営の極限状態と同じ構造をしている。</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon">🎯</span>
+          <h3>勝者の共通点は「再現可能」なパターンだ</h3>
+          <p>信長の破壊的イノベーション、家康の長期戦略——成功には必ず法則がある。</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon">📖</span>
+          <h3>一冊の本より、一つの合戦から学べる</h3>
+          <p>孫子の兵法も、実は合戦という実例から生まれた理論。歴史は最良のケーススタディだ。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 記事セクション -->
   {allArticles.length > 0 && (
-    <section class="section">
+    <section class="section articles-section">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">最新記事</h2>
+          <h2 class="section-title">注目記事</h2>
           <a href="/blog/" class="section-more">すべて見る →</a>
         </div>
 
@@ -80,24 +105,51 @@ const featuredBooks = [
   )}
 
   <!-- カテゴリ -->
-  <section class="cat-section section fade-in">
+  <section class="cat-section section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">カテゴリ</h2>
+        <h2 class="section-title">どの視点から切り込む？</h2>
       </div>
       <ul class="cat-grid" role="list">
         {[
-          { cat: "battle",   icon: "⚔", label: "合戦分析",      desc: "各地の名合戦の戦術・戦略を徹底解説" },
-          { cat: "leader",   icon: "🏯", label: "武将の思想",    desc: "英傑たちのリーダーシップと思考法" },
-          { cat: "strategy", icon: "📜", label: "兵法・現代応用", desc: "孫子・五輪書の現代ビジネスへの応用" },
-          { cat: "books",    icon: "📚", label: "書籍レビュー",   desc: "歴史×戦略で厳選した推薦図書" },
-        ].map(({ cat, icon, label, desc }) => (
+          {
+            cat: "battle",
+            icon: "⚔",
+            label: "合戦分析",
+            hook: "なぜあの戦いは、その結末になったのか",
+            desc: "関ヶ原・川中島・桶狭間を現代の視点で解剖する",
+          },
+          {
+            cat: "leader",
+            icon: "🏯",
+            label: "武将の思想",
+            hook: "信長はなぜ、既存の秩序を壊せたのか",
+            desc: "英傑たちのリーダーシップと意思決定の深層",
+          },
+          {
+            cat: "strategy",
+            icon: "📜",
+            label: "兵法・現代応用",
+            hook: "孫子の言葉は、会議室でも使えるか",
+            desc: "古典兵法をビジネス・交渉・組織論に翻訳する",
+          },
+          {
+            cat: "books",
+            icon: "📚",
+            label: "書籍レビュー",
+            hook: "この一冊が、あなたの思考を変える",
+            desc: "歴史×戦略で厳選した推薦図書をレビュー",
+          },
+        ].map(({ cat, icon, label, hook, desc }) => (
           <li>
             <a href={`/category/${cat}/`} class="cat-card">
-              <span class="cat-icon" aria-hidden="true">{icon}</span>
-              <span class="cat-name">{label}</span>
-              <span class="cat-desc">{desc}</span>
-              <span class="cat-arrow">→</span>
+              <div class="cat-header">
+                <span class="cat-icon" aria-hidden="true">{icon}</span>
+                <span class="cat-name">{label}</span>
+              </div>
+              <p class="cat-hook">{hook}</p>
+              <p class="cat-desc">{desc}</p>
+              <span class="cat-link">記事一覧 →</span>
             </a>
           </li>
         ))}
@@ -105,13 +157,15 @@ const featuredBooks = [
     </div>
   </section>
 
-  <!-- 書籍アフィリエイトゾーン -->
+  <!-- 書籍アフィリエイト -->
   <section class="books-zone" aria-label="おすすめ書籍">
-    <div class="container">
+    <div class="books-deco" aria-hidden="true">読</div>
+    <div class="container books-inner">
       <div class="section-header books-header">
-        <h2 class="section-title books-title">この戦略を深く学ぶ、一冊。</h2>
+        <h2 class="section-title books-title">戦略を深める、厳選の一冊。</h2>
         <a href="/books/" class="books-more">すべて見る →</a>
       </div>
+      <p class="books-lead">記事を読んで「もっと深く知りたい」と思ったら、この本から始めよう。</p>
       <AffiliateDisclosure />
       <div class="book-grid">
         {featuredBooks.map(b => (
@@ -123,6 +177,68 @@ const featuredBooks = [
 </BaseLayout>
 
 <style>
+  /* ── WHYストリップ ── */
+  .why-strip {
+    background: var(--bg-sub);
+    padding: var(--sp-lg) 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 3px solid var(--orange);
+  }
+
+  .why-lead {
+    font-family: var(--font-serif);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 700;
+    color: var(--text);
+    text-align: center;
+    margin-bottom: 2.4rem;
+    letter-spacing: 0.02em;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .why-card {
+    background: var(--bg);
+    padding: 1.8rem;
+    border-radius: 4px;
+    border-top: 3px solid transparent;
+    transition: border-color 0.25s;
+  }
+  .why-card:hover { border-top-color: var(--orange); }
+
+  .why-icon {
+    display: block;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .why-card h3 {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 0.7rem;
+    letter-spacing: 0.02em;
+  }
+
+  .why-card p {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: var(--text-mid);
+    line-height: 1.75;
+  }
+
+  /* ── 記事セクション ── */
+  .articles-section { background: var(--bg); }
+
+  /* ── カテゴリ ── */
   .cat-section { background: var(--bg-sub); }
 
   .cat-grid {
@@ -135,84 +251,113 @@ const featuredBooks = [
   .cat-card {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
+    gap: 0.6rem;
     padding: 1.8rem 1.4rem;
     background: var(--bg);
     border: 1px solid var(--border);
-    border-radius: 6px;
+    border-radius: 4px;
     text-decoration: none;
     color: inherit;
     transition: box-shadow 0.25s, border-color 0.25s, transform 0.25s;
-    position: relative;
+    height: 100%;
   }
   .cat-card:hover {
-    box-shadow: 0 4px 16px rgba(26, 10, 10, 0.1);
+    box-shadow: 0 4px 20px rgba(26, 10, 10, 0.09);
     border-color: var(--orange);
     transform: translateY(-2px);
   }
-  .cat-card:hover .cat-arrow { color: var(--orange); }
+  .cat-card:hover .cat-link { color: var(--orange-dark); }
 
-  .cat-icon { font-size: 1.8rem; line-height: 1; }
+  .cat-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .cat-icon { font-size: 1.5rem; line-height: 1; }
+
   .cat-name {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--orange);
+    text-transform: uppercase;
+  }
+
+  .cat-hook {
     font-family: var(--font-serif);
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
     color: var(--text);
-    letter-spacing: 0.03em;
-  }
-  .cat-desc {
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
-    font-weight: 400;
-    color: var(--text-mid);
-    line-height: 1.6;
-    flex: 1;
-  }
-  .cat-arrow {
-    font-family: var(--font-sans);
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--text-sub);
-    transition: color 0.2s;
-    margin-top: auto;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
   }
 
-  /* 書籍ゾーン */
+  .cat-desc {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--text-mid);
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  .cat-link {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--orange);
+    margin-top: auto;
+    transition: color 0.2s;
+  }
+
+  /* ── 書籍ゾーン ── */
   .books-zone {
     background: var(--bg-navy);
     padding: var(--sp-xl) 0;
     position: relative;
     overflow: hidden;
   }
-  .books-zone::before {
-    content: "読";
+
+  .books-deco {
+    position: absolute;
+    right: -3rem;
+    top: 50%;
+    transform: translateY(-50%);
     font-family: var(--font-serif);
     font-size: 40rem;
     font-weight: 800;
-    color: rgba(185, 28, 28, 0.04);
-    position: absolute;
-    right: -6rem;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
+    color: rgba(185, 28, 28, 0.05);
     line-height: 1;
+    pointer-events: none;
     user-select: none;
   }
 
-  .books-header { border-bottom-color: rgba(255, 255, 255, 0.12); }
+  .books-inner { position: relative; z-index: 1; }
+
+  .books-header { border-bottom-color: rgba(255,255,255,0.1); }
   .books-title { color: #fff; }
   .books-more {
     font-family: var(--font-sans);
-    font-size: 0.8rem;
-    font-weight: 500;
+    font-size: 0.82rem;
+    font-weight: 600;
     color: var(--orange);
     transition: color 0.2s;
   }
   .books-more:hover { color: var(--amber); }
 
+  .books-lead {
+    font-family: var(--font-serif);
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 0.5rem;
+    line-height: 1.8;
+  }
+
   .books-zone :global(.affiliate-disclosure) {
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(255,255,255,0.3);
     margin-bottom: 1.5rem;
   }
 
@@ -223,15 +368,19 @@ const featuredBooks = [
     margin-top: 1.5rem;
   }
 
+  /* レスポンシブ */
   @media (max-width: 1024px) {
-    .cat-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: repeat(3, 1fr); }
+    .cat-grid  { grid-template-columns: repeat(2, 1fr); }
+    .book-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 768px) {
-    .cat-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid  { grid-template-columns: 1fr; }
+    .cat-grid  { grid-template-columns: repeat(2, 1fr); }
     .book-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 480px) {
-    .cat-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .cat-grid  { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
     .book-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
   }
 </style>
