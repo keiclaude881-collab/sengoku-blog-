@@ -2,9 +2,9 @@
 ---
 
 <section class="hero" aria-label="ヒーロー">
-  <div class="hero-bg-char" aria-hidden="true">戦</div>
-
   <div class="hero-inner container">
+
+    <!-- 左：テキスト＋CTA -->
     <div class="hero-content">
       <p class="hero-eyebrow">
         <span class="eyebrow-line"></span>
@@ -24,69 +24,59 @@
 
       <div class="hero-cta">
         <a href="/blog/" class="cta-primary">記事を読む →</a>
-        <a href="/books/" class="cta-secondary">おすすめ書籍</a>
+        <a href="/books/" class="cta-ghost">おすすめ書籍</a>
       </div>
     </div>
 
-    <div class="hero-numbers" aria-hidden="true">
-      <div class="hero-num">
-        <span class="num-val">01</span>
-        <span class="num-label">合戦×ビジネス</span>
-      </div>
-      <div class="hero-num">
-        <span class="num-val">02</span>
-        <span class="num-label">武将×リーダーシップ</span>
-      </div>
-      <div class="hero-num">
-        <span class="num-val">03</span>
-        <span class="num-label">兵法×現代戦略</span>
+    <!-- 右：ダーク藍パネル＋スタッツ -->
+    <div class="hero-panel" aria-hidden="true">
+      <span class="panel-deco">戦</span>
+      <div class="panel-stats">
+        <div class="stat">
+          <span class="stat-num font-italic">01</span>
+          <span class="stat-label">合戦×ビジネス</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num font-italic">02</span>
+          <span class="stat-label">武将×リーダーシップ</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num font-italic">03</span>
+          <span class="stat-label">兵法×現代戦略</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num font-italic">04</span>
+          <span class="stat-label">書籍レビュー</span>
+        </div>
       </div>
     </div>
+
   </div>
 </section>
 
 <style>
   .hero {
-    background: var(--bg-navy);
-    min-height: 88vh;
+    background: var(--bg);
+    min-height: 90vh;
     display: flex;
     align-items: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-bg-char {
-    position: absolute;
-    right: -2rem;
-    top: 50%;
-    transform: translateY(-50%);
-    font-family: var(--font-serif);
-    font-size: clamp(16rem, 35vw, 32rem);
-    font-weight: 800;
-    color: rgba(185, 28, 28, 0.07);
-    line-height: 1;
-    pointer-events: none;
-    user-select: none;
-    letter-spacing: -0.05em;
   }
 
   .hero-inner {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 360px;
     gap: 4rem;
+    align-items: center;
     padding-top: calc(var(--nav-height) + 4rem);
     padding-bottom: 5rem;
-    position: relative;
-    z-index: 1;
   }
 
+  /* ── 左：コンテンツ ── */
   .hero-content {
-    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
-    max-width: 660px;
+    max-width: 620px;
   }
 
   .hero-eyebrow {
@@ -94,155 +84,168 @@
     align-items: center;
     gap: 1rem;
     font-family: var(--font-sans);
-    font-size: 0.72rem;
-    font-weight: 600;
+    font-size: 0.7rem;
+    font-weight: 500;
     letter-spacing: 0.3em;
-    color: var(--orange);
+    color: var(--gold);
     text-transform: uppercase;
   }
   .eyebrow-line {
     display: inline-block;
-    width: 3rem;
-    height: 2px;
-    background: var(--orange);
+    width: 2.5rem;
+    height: 1px;
+    background: var(--gold);
     flex-shrink: 0;
   }
 
   .hero-title {
     font-family: var(--font-serif);
-    font-size: clamp(2.8rem, 5.5vw, 5rem);
-    font-weight: 800;
-    color: #fff;
-    line-height: 1.2;
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.25;
     letter-spacing: 0.02em;
   }
   .hero-title em {
     font-style: normal;
-    color: var(--orange);
-    position: relative;
-  }
-  .hero-title em::after {
-    content: "";
-    position: absolute;
-    bottom: 0.05em;
-    left: 0;
-    right: 0;
-    height: 0.06em;
-    background: var(--orange);
-    opacity: 0.4;
+    color: var(--gold);
+    border-bottom: 2px solid var(--gold-light);
   }
 
   .hero-body {
     font-family: var(--font-serif);
-    font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+    font-size: clamp(0.9rem, 1.4vw, 1rem);
     font-weight: 400;
     line-height: 2.1;
-    color: rgba(255, 255, 255, 0.7);
-    border-left: 2px solid rgba(185, 28, 28, 0.5);
+    color: var(--ink2);
+    border-left: 2px solid var(--gold-light);
     padding-left: 1.2rem;
   }
 
   .hero-cta {
     display: flex;
     align-items: center;
-    gap: 1.2rem;
+    gap: 1rem;
     flex-wrap: wrap;
   }
 
   .cta-primary {
     display: inline-flex;
     align-items: center;
-    padding: 1rem 2.4rem;
-    background: var(--orange);
+    padding: 0.9rem 2.4rem;
+    background: var(--ink);
     color: #fff;
-    font-family: var(--font-sans);
-    font-size: 0.92rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    border-radius: 2px;
-    transition: background 0.2s, transform 0.2s;
-    text-decoration: none;
-  }
-  .cta-primary:hover {
-    background: var(--orange-dark);
-    transform: translateY(-2px);
-  }
-
-  .cta-secondary {
-    display: inline-flex;
-    align-items: center;
-    padding: 1rem 2rem;
-    background: transparent;
-    color: rgba(255, 255, 255, 0.75);
     font-family: var(--font-sans);
     font-size: 0.88rem;
     font-weight: 500;
-    letter-spacing: 0.06em;
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    letter-spacing: 0.08em;
     border-radius: 2px;
-    transition: border-color 0.2s, color 0.2s;
     text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
   }
-  .cta-secondary:hover {
-    border-color: var(--orange);
-    color: var(--orange);
+  .cta-primary:hover {
+    background: var(--accent);
+    transform: translateY(-1px);
   }
 
-  /* 右サイドの番号リスト */
-  .hero-numbers {
+  .cta-ghost {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.9rem 2rem;
+    background: transparent;
+    color: var(--ink2);
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .cta-ghost:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  /* ── 右：ダーク藍パネル ── */
+  .hero-panel {
+    background: var(--accent);
+    border-radius: 4px;
+    padding: 3rem 2.4rem;
+    position: relative;
+    overflow: hidden;
+    height: 420px;
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    flex-shrink: 0;
+    align-items: flex-end;
   }
 
-  .hero-num {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    border-left: 1px solid rgba(185, 28, 28, 0.3);
-    padding-left: 1.2rem;
-  }
-
-  .num-val {
+  .panel-deco {
+    position: absolute;
+    top: -1rem;
+    right: -1.5rem;
     font-family: var(--font-serif);
-    font-size: 2.2rem;
+    font-size: 14rem;
     font-weight: 800;
-    color: rgba(185, 28, 28, 0.5);
+    color: rgba(255, 255, 255, 0.05);
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .panel-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.8rem 1.5rem;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .stat-num {
+    font-family: var(--font-italic);
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--gold);
     line-height: 1;
   }
 
-  .num-label {
+  .stat-label {
     font-family: var(--font-sans);
     font-size: 0.72rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.45);
-    letter-spacing: 0.08em;
-    white-space: nowrap;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 0.06em;
   }
 
+  /* ── レスポンシブ ── */
   @media (max-width: 900px) {
-    .hero { min-height: auto; }
     .hero-inner {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 3rem;
+      grid-template-columns: 1fr;
       padding-top: calc(var(--nav-height) + 3rem);
       padding-bottom: 4rem;
     }
-    .hero-numbers {
-      flex-direction: row;
-      gap: 2rem;
+    .hero-panel {
+      height: auto;
+      padding: 2rem;
     }
+    .panel-deco { font-size: 8rem; }
   }
 
   @media (max-width: 480px) {
     .hero-inner {
       padding-top: calc(var(--nav-height) + 2rem);
       padding-bottom: 3rem;
+      gap: 2.5rem;
     }
-    .hero-numbers { gap: 1.2rem; }
-    .num-val { font-size: 1.6rem; }
+    .hero-panel { display: none; }
     .br-pc { display: none; }
   }
 </style>

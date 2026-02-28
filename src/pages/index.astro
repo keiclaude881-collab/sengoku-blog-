@@ -10,12 +10,12 @@ import AffiliateDisclosure from "../components/AffiliateDisclosure.astro";
 const allArticles = (await Promise.all([
   getCollection("battle"),
   getCollection("leader"),
-  getCollection("strategy"),
-  getCollection("books"),
+  getCollection("strategy").catch(() => []),
+  getCollection("books").catch(() => []),
 ])).flat().sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 const featured = allArticles.find(a => a.data.featured) ?? allArticles[0];
-const recent   = allArticles.filter(a => a.id !== featured?.id).slice(0, 4);
+const recent   = allArticles.filter(a => a.id !== featured?.id).slice(0, 3);
 
 function slug(col: string, id: string) {
   return `${col}/${id.replace(/\.mdx?$/, '')}`;
@@ -27,6 +27,19 @@ const featuredBooks = [
   { title: "戦略の本質", asin: "4532352428", reason: "日本の合戦を経営戦略の視点で再解釈した名著" },
   { title: "失敗の本質", asin: "4122018331", reason: "なぜ日本軍は負けたのか。組織論の古典" },
 ];
+
+const marqueeItems = [
+  "関ヶ原の決断",
+  "孫子の兵法",
+  "信長のイノベーション",
+  "家康の忍耐戦略",
+  "桶狭間の奇襲",
+  "武田信玄の人事",
+  "五輪書の哲学",
+  "ナポレオンの速戦",
+  "戦略的情報収集",
+  "謀攻篇の現代応用",
+];
 ---
 
 <BaseLayout
@@ -36,31 +49,68 @@ const featuredBooks = [
   <!-- ヒーロー -->
   <Hero />
 
-  <!-- WHYストリップ：なぜ歴史から学ぶのか -->
-  <section class="why-strip">
-    <div class="container">
-      <p class="why-lead">なぜ、500年前の戦略が今も通用するのか？</p>
-      <div class="why-grid">
-        <div class="why-card">
-          <span class="why-icon">⚔</span>
-          <h3>合戦は「最高の意思決定実験室」だった</h3>
-          <p>命がかかった状況での判断は、経営の極限状態と同じ構造をしている。</p>
-        </div>
-        <div class="why-card">
-          <span class="why-icon">🎯</span>
-          <h3>勝者の共通点は「再現可能」なパターンだ</h3>
-          <p>信長の破壊的イノベーション、家康の長期戦略——成功には必ず法則がある。</p>
-        </div>
-        <div class="why-card">
-          <span class="why-icon">📖</span>
-          <h3>一冊の本より、一つの合戦から学べる</h3>
-          <p>孫子の兵法も、実は合戦という実例から生まれた理論。歴史は最良のケーススタディだ。</p>
+  <!-- マーキー帯 -->
+  <div class="marquee-band" aria-hidden="true">
+    <div class="marquee-track">
+      {[...marqueeItems, ...marqueeItems].map(item => (
+        <span class="marquee-item">
+          <span class="marquee-dot">✦</span>
+          {item}
+        </span>
+      ))}
+    </div>
+  </div>
+
+  <!-- イントロバンド -->
+  <section class="intro-band">
+    <div class="container intro-inner">
+      <span class="intro-label" aria-hidden="true">Philosophy</span>
+      <blockquote class="intro-quote">
+        <p class="quote-jp">「戦わずして人の兵を屈するは、善の善なる者なり。」</p>
+        <p class="quote-en font-italic">— Sun Tzu, The Art of War</p>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- メルマガ登録 -->
+  <section class="email-section">
+    <div class="container email-inner">
+      <div class="email-left">
+        <h2 class="email-heading">週1回、武将の戦略Tipsを届ける。</h2>
+        <ul class="email-benefits">
+          <li><span class="benefit-check">✓</span> 歴史×ビジネスの深掘りコラム（週1回）</li>
+          <li><span class="benefit-check">✓</span> 登録者限定の図解・チェックリスト</li>
+          <li><span class="benefit-check">✓</span> 新着記事の先行通知</li>
+        </ul>
+        <p class="email-note">無料・いつでも解除可能</p>
+      </div>
+      <div class="email-right">
+        <form class="email-form" id="newsletter-form">
+          <label class="form-label" for="email-input">メールアドレス</label>
+          <div class="form-row">
+            <input
+              type="email"
+              id="email-input"
+              name="email"
+              placeholder="your@email.com"
+              required
+              class="form-input"
+            />
+            <button type="submit" class="form-btn">登録する →</button>
+          </div>
+          <p class="form-privacy">
+            <a href="/privacy/">プライバシーポリシー</a>に同意のうえご登録ください。
+          </p>
+        </form>
+        <div class="email-thanks" id="email-thanks" hidden>
+          <p class="thanks-icon">✓</p>
+          <p class="thanks-text">ご登録ありがとうございます。<br>確認メールをお送りします。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 記事セクション -->
+  <!-- 注目記事 -->
   {allArticles.length > 0 && (
     <section class="section articles-section">
       <div class="container">
@@ -105,7 +155,7 @@ const featuredBooks = [
   )}
 
   <!-- カテゴリ -->
-  <section class="cat-section section">
+  <section class="categories-section section">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">どの視点から切り込む？</h2>
@@ -114,40 +164,33 @@ const featuredBooks = [
         {[
           {
             cat: "battle",
-            icon: "⚔",
-            label: "合戦分析",
+            label: "合戦と戦略",
             hook: "なぜあの戦いは、その結末になったのか",
             desc: "関ヶ原・川中島・桶狭間を現代の視点で解剖する",
           },
           {
             cat: "leader",
-            icon: "🏯",
             label: "武将の思想",
             hook: "信長はなぜ、既存の秩序を壊せたのか",
             desc: "英傑たちのリーダーシップと意思決定の深層",
           },
           {
             cat: "strategy",
-            icon: "📜",
             label: "兵法・現代応用",
             hook: "孫子の言葉は、会議室でも使えるか",
             desc: "古典兵法をビジネス・交渉・組織論に翻訳する",
           },
           {
             cat: "books",
-            icon: "📚",
             label: "書籍レビュー",
             hook: "この一冊が、あなたの思考を変える",
             desc: "歴史×戦略で厳選した推薦図書をレビュー",
           },
-        ].map(({ cat, icon, label, hook, desc }) => (
+        ].map(({ cat, label, hook, desc }) => (
           <li>
             <a href={`/category/${cat}/`} class="cat-card">
-              <div class="cat-header">
-                <span class="cat-icon" aria-hidden="true">{icon}</span>
-                <span class="cat-name">{label}</span>
-              </div>
-              <p class="cat-hook">{hook}</p>
+              <span class="cat-name">{label}</span>
+              <h3 class="cat-hook">{hook}</h3>
               <p class="cat-desc">{desc}</p>
               <span class="cat-link">記事一覧 →</span>
             </a>
@@ -157,9 +200,8 @@ const featuredBooks = [
     </div>
   </section>
 
-  <!-- 書籍アフィリエイト -->
-  <section class="books-zone" aria-label="おすすめ書籍">
-    <div class="books-deco" aria-hidden="true">読</div>
+  <!-- 書籍セクション -->
+  <section class="books-section" aria-label="おすすめ書籍">
     <div class="container books-inner">
       <div class="section-header books-header">
         <h2 class="section-title books-title">戦略を深める、厳選の一冊。</h2>
@@ -174,193 +216,358 @@ const featuredBooks = [
       </div>
     </div>
   </section>
+
+  <!-- Audibleバナー -->
+  <section class="audible-banner">
+    <div class="container banner-inner">
+      <div class="banner-text">
+        <span class="banner-tag audible-tag">Audible</span>
+        <h3 class="banner-heading audible-heading">通勤中に孫子・五輪書を聴く。</h3>
+        <p class="banner-body audible-body">移動時間が「戦略の学習時間」に変わる。30日間無料で体験できる。</p>
+      </div>
+      <a
+        href="https://www.amazon.co.jp/audible"
+        target="_blank"
+        rel="nofollow sponsored noopener"
+        class="banner-cta audible-cta"
+      >
+        30日間 無料体験 →
+      </a>
+    </div>
+  </section>
+
+  <!-- noteバナー -->
+  <section class="note-banner">
+    <div class="container banner-inner">
+      <div class="banner-text">
+        <span class="banner-tag note-tag">note</span>
+        <h3 class="banner-heading note-heading">図解・チェックリストをPDFで。</h3>
+        <p class="banner-body note-body">記事の深掘り版。戦国×ビジネスの思考フレームをまとめたPDFを販売中。</p>
+      </div>
+      <a
+        href="https://note.com/"
+        target="_blank"
+        rel="noopener"
+        class="banner-cta note-cta"
+      >
+        noteで購入する →
+      </a>
+    </div>
+  </section>
+
 </BaseLayout>
 
-<style>
-  /* ── WHYストリップ ── */
-  .why-strip {
-    background: var(--bg-sub);
-    padding: var(--sp-lg) 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 3px solid var(--orange);
+<!-- スティッキーCTAバー -->
+<div class="sticky-cta" id="sticky-cta" aria-label="常設CTA">
+  <div class="sticky-inner">
+    <div class="sticky-items">
+      <a href="#newsletter-form" class="sticky-btn sticky-btn-primary">
+        📩 メルマガ登録（無料）
+      </a>
+      <a
+        href="https://www.amazon.co.jp/audible"
+        target="_blank"
+        rel="nofollow sponsored noopener"
+        class="sticky-btn sticky-btn-secondary"
+      >
+        🎧 Audible 30日間無料
+      </a>
+    </div>
+    <button class="sticky-close" id="sticky-close" aria-label="閉じる">✕</button>
+  </div>
+</div>
+
+<script>
+  // メルマガフォーム（モック）
+  const form = document.getElementById('newsletter-form') as HTMLFormElement | null;
+  const thanks = document.getElementById('email-thanks') as HTMLElement | null;
+  if (form && thanks) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      form.hidden = true;
+      thanks.hidden = false;
+    });
   }
 
-  .why-lead {
+  // スティッキーCTA
+  const stickyCta = document.getElementById('sticky-cta') as HTMLElement | null;
+  const stickyClose = document.getElementById('sticky-close') as HTMLElement | null;
+  let ctaClosed = false;
+
+  if (stickyCta && stickyClose) {
+    window.addEventListener('scroll', () => {
+      if (ctaClosed) return;
+      stickyCta.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+
+    stickyClose.addEventListener('click', () => {
+      ctaClosed = true;
+      stickyCta.classList.remove('visible');
+    });
+  }
+</script>
+
+<style>
+  /* ── マーキー ── */
+  .marquee-band {
+    background: var(--gold);
+    padding: 0.7rem 0;
+    overflow: hidden;
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 28s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .marquee-track:hover { animation-play-state: paused; }
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 2rem;
     font-family: var(--font-serif);
-    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #fff;
+    white-space: nowrap;
+  }
+  .marquee-dot { font-size: 0.45rem; opacity: 0.7; }
+
+  /* ── イントロバンド ── */
+  .intro-band {
+    background: var(--accent);
+    padding: 5rem 0;
+  }
+  .intro-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+  .intro-label {
+    writing-mode: vertical-rl;
+    font-family: var(--font-italic);
+    font-size: 0.72rem;
+    font-style: italic;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    opacity: 0.7;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+  }
+  .quote-jp {
+    font-family: var(--font-serif);
+    font-size: clamp(1.15rem, 2.5vw, 1.7rem);
     font-weight: 700;
-    color: var(--text);
-    text-align: center;
-    margin-bottom: 2.4rem;
+    color: #fff;
+    line-height: 1.65;
+    letter-spacing: 0.04em;
+    margin-bottom: 1rem;
+  }
+  .quote-en {
+    font-family: var(--font-italic);
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── メルマガ ── */
+  .email-section {
+    background: var(--bg2);
+    padding: var(--sp-xl) 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .email-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .email-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
     letter-spacing: 0.02em;
   }
-
-  .why-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+  .email-benefits {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.2rem;
   }
-
-  .why-card {
-    background: var(--bg);
-    padding: 1.8rem;
-    border-radius: 4px;
-    border-top: 3px solid transparent;
-    transition: border-color 0.25s;
+  .email-benefits li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    color: var(--ink2);
+    line-height: 1.5;
   }
-  .why-card:hover { border-top-color: var(--orange); }
-
-  .why-icon {
+  .benefit-check { color: var(--gold); font-weight: 700; flex-shrink: 0; }
+  .email-note {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--ink3);
+  }
+  .form-label {
     display: block;
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    line-height: 1;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--ink2);
+    margin-bottom: 0.6rem;
   }
-
-  .why-card h3 {
+  .form-row {
+    display: flex;
+    margin-bottom: 0.75rem;
+  }
+  .form-input {
+    flex: 1;
+    padding: 0.85rem 1.2rem;
+    border: 1px solid var(--rule);
+    border-right: none;
+    border-radius: 2px 0 0 2px;
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    color: var(--ink);
+    background: var(--bg);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-input:focus { border-color: var(--gold); }
+  .form-btn {
+    padding: 0.85rem 1.6rem;
+    background: var(--ink);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    border: none;
+    border-radius: 0 2px 2px 0;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .form-btn:hover { background: var(--accent); }
+  .form-privacy {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    color: var(--ink3);
+  }
+  .form-privacy a { color: var(--gold); text-decoration: underline; }
+  .email-thanks {
+    text-align: center;
+    padding: 2.5rem;
+    background: var(--bg);
+    border: 1px solid var(--gold-light);
+    border-radius: 4px;
+  }
+  .thanks-icon { font-size: 2rem; color: var(--gold); margin-bottom: 0.75rem; }
+  .thanks-text {
     font-family: var(--font-serif);
     font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--text);
-    line-height: 1.5;
-    margin-bottom: 0.7rem;
-    letter-spacing: 0.02em;
+    line-height: 1.8;
+    color: var(--ink2);
   }
 
-  .why-card p {
-    font-family: var(--font-sans);
-    font-size: 0.82rem;
-    font-weight: 400;
-    color: var(--text-mid);
-    line-height: 1.75;
-  }
-
-  /* ── 記事セクション ── */
+  /* ── 記事・カテゴリ ── */
   .articles-section { background: var(--bg); }
-
-  /* ── カテゴリ ── */
-  .cat-section { background: var(--bg-sub); }
+  .categories-section { background: var(--bg2); }
 
   .cat-grid {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    gap: 1px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--rule);
   }
-
   .cat-card {
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
-    padding: 1.8rem 1.4rem;
+    padding: 2rem 1.6rem;
     background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 4px;
     text-decoration: none;
     color: inherit;
-    transition: box-shadow 0.25s, border-color 0.25s, transform 0.25s;
+    transition: background 0.25s;
     height: 100%;
   }
-  .cat-card:hover {
-    box-shadow: 0 4px 20px rgba(26, 10, 10, 0.09);
-    border-color: var(--orange);
-    transform: translateY(-2px);
-  }
-  .cat-card:hover .cat-link { color: var(--orange-dark); }
-
-  .cat-header {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    margin-bottom: 0.3rem;
-  }
-
-  .cat-icon { font-size: 1.5rem; line-height: 1; }
+  .cat-card:hover { background: var(--ink); }
+  .cat-card:hover .cat-name { color: var(--gold); }
+  .cat-card:hover .cat-hook,
+  .cat-card:hover .cat-link { color: #fff; }
+  .cat-card:hover .cat-desc { color: rgba(255,255,255,0.5); }
 
   .cat-name {
     font-family: var(--font-sans);
-    font-size: 0.72rem;
+    font-size: 0.63rem;
     font-weight: 700;
-    letter-spacing: 0.15em;
-    color: var(--orange);
+    letter-spacing: 0.2em;
+    color: var(--gold);
     text-transform: uppercase;
+    transition: color 0.25s;
   }
-
   .cat-hook {
     font-family: var(--font-serif);
     font-size: 0.95rem;
     font-weight: 700;
-    color: var(--text);
-    line-height: 1.5;
-    letter-spacing: 0.01em;
+    color: var(--ink);
+    line-height: 1.55;
+    transition: color 0.25s;
   }
-
   .cat-desc {
     font-family: var(--font-sans);
     font-size: 0.78rem;
-    font-weight: 400;
-    color: var(--text-mid);
+    color: var(--ink3);
     line-height: 1.65;
     flex: 1;
+    transition: color 0.25s;
   }
-
   .cat-link {
     font-family: var(--font-sans);
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: var(--orange);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--gold);
     margin-top: auto;
-    transition: color 0.2s;
+    transition: color 0.25s;
   }
 
-  /* ── 書籍ゾーン ── */
-  .books-zone {
-    background: var(--bg-navy);
+  /* ── 書籍セクション ── */
+  .books-section {
+    background: var(--ink);
     padding: var(--sp-xl) 0;
-    position: relative;
-    overflow: hidden;
   }
-
-  .books-deco {
-    position: absolute;
-    right: -3rem;
-    top: 50%;
-    transform: translateY(-50%);
-    font-family: var(--font-serif);
-    font-size: 40rem;
-    font-weight: 800;
-    color: rgba(185, 28, 28, 0.05);
-    line-height: 1;
-    pointer-events: none;
-    user-select: none;
-  }
-
-  .books-inner { position: relative; z-index: 1; }
-
-  .books-header { border-bottom-color: rgba(255,255,255,0.1); }
+  .books-header { border-bottom-color: rgba(255,255,255,0.08); }
   .books-title { color: #fff; }
-  .books-more {
-    font-family: var(--font-sans);
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--orange);
-    transition: color 0.2s;
-  }
-  .books-more:hover { color: var(--amber); }
-
+  .books-more { font-family: var(--font-sans); font-size: 0.82rem; color: var(--gold); transition: color 0.2s; }
+  .books-more:hover { color: var(--gold-light); }
   .books-lead {
     font-family: var(--font-serif);
     font-size: 0.9rem;
-    color: rgba(255,255,255,0.55);
+    color: rgba(255,255,255,0.45);
     margin-bottom: 0.5rem;
     line-height: 1.8;
   }
-
-  .books-zone :global(.affiliate-disclosure) {
-    color: rgba(255,255,255,0.3);
+  .books-section :global(.affiliate-disclosure) {
+    color: rgba(255,255,255,0.25);
     margin-bottom: 1.5rem;
   }
-
   .book-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -368,19 +575,136 @@ const featuredBooks = [
     margin-top: 1.5rem;
   }
 
-  /* レスポンシブ */
+  /* ── バナー共通 ── */
+  .banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .banner-tag {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    padding: 0.2em 0.8em;
+    border-radius: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+  .banner-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.4rem;
+  }
+  .banner-body {
+    font-family: var(--font-sans);
+    font-size: 0.84rem;
+    line-height: 1.7;
+  }
+  .banner-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.9rem 2rem;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    border-radius: 2px;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: opacity 0.2s, transform 0.2s;
+    white-space: nowrap;
+  }
+  .banner-cta:hover { opacity: 0.85; transform: translateY(-1px); }
+
+  .audible-banner { background: var(--accent); }
+  .audible-tag { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.75); }
+  .audible-heading { color: #fff; }
+  .audible-body { color: rgba(255,255,255,0.55); }
+  .audible-cta { background: var(--gold); color: #fff; }
+
+  .note-banner { background: var(--bg2); border-top: 1px solid var(--rule); }
+  .note-tag { background: var(--gold-light); color: var(--gold-dark); }
+  .note-heading { color: var(--ink); }
+  .note-body { color: var(--ink2); }
+  .note-cta { background: var(--ink); color: #fff; }
+
+  /* ── スティッキーCTA ── */
+  .sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    transform: translateY(100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .sticky-cta.visible { transform: translateY(0); }
+  .sticky-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--ink);
+    border-top: 2px solid var(--gold);
+    padding: 0.9rem 1.5rem;
+    gap: 1rem;
+  }
+  .sticky-items { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .sticky-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1.4rem;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+  .sticky-btn:hover { opacity: 0.85; }
+  .sticky-btn-primary { background: var(--gold); color: #fff; }
+  .sticky-btn-secondary { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.15); }
+  .sticky-close {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.35);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    flex-shrink: 0;
+    transition: color 0.2s;
+    line-height: 1;
+  }
+  .sticky-close:hover { color: rgba(255,255,255,0.7); }
+
+  /* ── レスポンシブ ── */
   @media (max-width: 1024px) {
-    .why-grid { grid-template-columns: repeat(3, 1fr); }
     .cat-grid  { grid-template-columns: repeat(2, 1fr); }
     .book-grid { grid-template-columns: repeat(2, 1fr); }
+    .email-inner { gap: 3rem; }
   }
   @media (max-width: 768px) {
-    .why-grid  { grid-template-columns: 1fr; }
-    .cat-grid  { grid-template-columns: repeat(2, 1fr); }
+    .email-inner { grid-template-columns: 1fr; gap: 2.4rem; }
     .book-grid { grid-template-columns: repeat(2, 1fr); }
+    .banner-inner { flex-direction: column; align-items: flex-start; }
+    .sticky-btn-secondary { display: none; }
   }
   @media (max-width: 480px) {
-    .cat-grid  { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-    .book-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+    .cat-grid { grid-template-columns: 1fr; }
+    .book-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .form-row { flex-direction: column; }
+    .form-input { border-right: 1px solid var(--rule); border-bottom: none; border-radius: 2px 2px 0 0; }
+    .form-btn { border-radius: 0 0 2px 2px; }
+    .intro-label { display: none; }
   }
 </style>

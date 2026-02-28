@@ -4,8 +4,8 @@ const cols = [
   {
     title: "カテゴリ",
     links: [
-      { label: "合戦と戦略", href: "/category/battle/" },
-      { label: "武将の思想", href: "/category/leader/" },
+      { label: "合戦と戦略",   href: "/category/battle/" },
+      { label: "武将の思想",   href: "/category/leader/" },
       { label: "兵法・現代応用", href: "/category/strategy/" },
       { label: "書籍レビュー", href: "/category/books/" },
     ],
@@ -13,8 +13,8 @@ const cols = [
   {
     title: "サイト情報",
     links: [
-      { label: "記事一覧", href: "/blog/" },
-      { label: "おすすめ書籍", href: "/books/" },
+      { label: "記事一覧",           href: "/blog/" },
+      { label: "おすすめ書籍",       href: "/books/" },
       { label: "このブログについて", href: "/about/" },
       { label: "プライバシーポリシー", href: "/privacy/" },
     ],
@@ -23,29 +23,31 @@ const cols = [
 ---
 
 <footer class="site-footer">
-  <div class="footer-inner container">
-    <div class="footer-brand">
-      <a href="/" class="footer-logo">
-        戦略の<span>系譜</span>
-      </a>
-      <p class="footer-tagline">歴史の戦略を、現代の武器に。</p>
-      <p class="footer-desc">
-        戦国・兵法の知恵を現代のビジネス・交渉・リーダーシップに応用する、日本史×戦略思考ブログ。
-      </p>
-    </div>
+  <div class="footer-top">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo">
+          戦略の<em>系譜</em>
+        </a>
+        <p class="footer-tagline">歴史の戦略を、現代の武器に。</p>
+        <p class="footer-desc">
+          戦国・兵法の知恵を現代のビジネス・交渉・リーダーシップに応用する、日本史×戦略思考ブログ。
+        </p>
+      </div>
 
-    <nav class="footer-nav" aria-label="フッターナビ">
-      {cols.map(col => (
-        <div class="footer-col">
-          <h3 class="footer-col-title">{col.title}</h3>
-          <ul>
-            {col.links.map(({ label, href }) => (
-              <li><a href={href}>{label}</a></li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </nav>
+      <nav class="footer-nav" aria-label="フッターナビ">
+        {cols.map(col => (
+          <div class="footer-col">
+            <h3 class="footer-col-title">{col.title}</h3>
+            <ul>
+              {col.links.map(({ label, href }) => (
+                <li><a href={href}>{label}</a></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </nav>
+    </div>
   </div>
 
   <div class="footer-bottom">
@@ -60,10 +62,8 @@ const cols = [
 
 <style>
   .site-footer {
-    background: var(--bg-navy);
-    color: rgba(255, 255, 255, 0.85);
-    position: relative;
-    z-index: 1;
+    background: var(--bg2);
+    border-top: 1px solid var(--rule);
     margin-top: auto;
   }
 
@@ -78,20 +78,23 @@ const cols = [
   .footer-logo {
     display: inline-block;
     font-family: var(--font-serif);
-    font-size: 1.2rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--ink);
     margin-bottom: 0.8rem;
     text-decoration: none;
   }
-  .footer-logo span { color: var(--orange); }
+  .footer-logo em {
+    font-style: normal;
+    color: var(--gold);
+  }
 
   .footer-tagline {
     font-family: var(--font-sans);
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 500;
-    color: var(--orange);
+    color: var(--gold);
     letter-spacing: 0.06em;
     margin-bottom: 0.8rem;
   }
@@ -101,7 +104,7 @@ const cols = [
     font-size: 0.8rem;
     font-weight: 400;
     line-height: 1.85;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--ink3);
     max-width: 360px;
   }
 
@@ -113,11 +116,11 @@ const cols = [
 
   .footer-col-title {
     font-family: var(--font-sans);
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--gold);
     margin-bottom: 1rem;
   }
 
@@ -132,16 +135,17 @@ const cols = [
     font-family: var(--font-sans);
     font-size: 0.82rem;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.55);
+    color: var(--ink2);
     text-decoration: none;
     transition: color 0.2s;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.02em;
   }
-  .footer-col a:hover { color: #fff; }
+  .footer-col a:hover { color: var(--ink); }
 
   .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid var(--rule);
     padding: 1.2rem 0;
+    background: var(--bg2);
   }
 
   .footer-bottom-inner {
@@ -156,7 +160,7 @@ const cols = [
     font-family: var(--font-sans);
     font-size: 0.72rem;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.3);
+    color: var(--ink3);
     letter-spacing: 0.04em;
   }
 

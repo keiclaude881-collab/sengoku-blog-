@@ -1,9 +1,10 @@
 ---
 const navLinks = [
-  { label: '記事一覧', href: '/blog/' },
-  { label: '合戦', href: '/category/合戦/' },
-  { label: '武将', href: '/category/武将/' },
-  { label: '戦略', href: '/category/戦略/' },
+  { label: '記事一覧',     href: '/blog/' },
+  { label: '合戦と戦略',   href: '/category/battle/' },
+  { label: '武将の思想',   href: '/category/leader/' },
+  { label: '兵法・現代応用', href: '/category/strategy/' },
+  { label: '書籍レビュー', href: '/category/books/' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -11,10 +12,8 @@ const currentPath = Astro.url.pathname;
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="/" class="site-logo" aria-label="戦国合戦史 トップへ">
-      <span class="logo-mark" aria-hidden="true">⚔</span>
-      <span class="logo-text">戦国合戦史</span>
-      <span class="logo-sub">日本史・武将ブログ</span>
+    <a href="/" class="site-logo" aria-label="戦略の系譜 トップへ">
+      <span class="logo-text">戦略の<em>系譜</em></span>
     </a>
 
     <nav class="site-nav" aria-label="メインナビゲーション">
@@ -32,109 +31,100 @@ const currentPath = Astro.url.pathname;
         ))}
       </ul>
     </nav>
+
+    <a href="/blog/" class="header-cta">記事を読む</a>
   </div>
 </header>
 
 <style>
   .site-header {
-    background: var(--color-sumi);
-    border-bottom: 3px solid var(--color-kogane);
-    position: sticky;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
+    height: var(--nav-height);
   }
 
   .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--spacing-md);
-    padding-top: var(--spacing-md);
-    padding-bottom: var(--spacing-md);
+    height: 100%;
+    gap: 2rem;
   }
 
   .site-logo {
-    display: flex;
-    align-items: baseline;
-    gap: 0.5rem;
+    display: inline-block;
     text-decoration: none;
-    color: var(--color-shiro);
     flex-shrink: 0;
-  }
-
-  .site-logo:hover {
-    text-decoration: none;
-    opacity: 0.9;
-  }
-
-  .logo-mark {
-    font-size: 1.5rem;
-    line-height: 1;
-    color: var(--color-kogane);
   }
 
   .logo-text {
     font-family: var(--font-serif);
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 700;
-    letter-spacing: 0.05em;
-    color: var(--color-shiro);
+    letter-spacing: 0.1em;
+    color: var(--ink);
   }
-
-  .logo-sub {
-    font-size: 0.6875rem;
-    color: var(--color-nezumi);
-    letter-spacing: 0.03em;
-    white-space: nowrap;
+  .logo-text em {
+    font-style: normal;
+    color: var(--gold);
   }
 
   .site-nav {
+    flex: 1;
     display: flex;
+    justify-content: center;
   }
 
   .nav-list {
     list-style: none;
     display: flex;
-    gap: var(--spacing-xs);
+    gap: 0.2rem;
   }
 
   .nav-link {
     display: block;
-    color: #d0ccc4;
-    font-size: 0.9375rem;
+    color: var(--ink2);
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
     padding: 0.4em 0.75em;
     border-radius: 2px;
     text-decoration: none;
-    transition: color 0.15s, background 0.15s;
+    transition: color 0.15s;
     white-space: nowrap;
   }
+  .nav-link:hover { color: var(--ink); }
+  .nav-link.active { color: var(--gold); font-weight: 500; }
 
-  .nav-link:hover,
-  .nav-link.active {
-    color: var(--color-kogane);
-    background: rgba(201, 168, 76, 0.1);
+  .header-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1.4rem;
+    background: var(--ink);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    border-radius: 2px;
     text-decoration: none;
+    transition: background 0.2s;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .header-cta:hover { background: var(--accent); }
+
+  @media (max-width: 900px) {
+    .site-nav { display: none; }
   }
 
-  @media (max-width: 580px) {
-    .header-inner {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: var(--spacing-sm);
-    }
-
-    .logo-sub {
-      display: none;
-    }
-
-    .nav-list {
-      gap: 0;
-      flex-wrap: wrap;
-    }
-
-    .nav-link {
-      font-size: 0.875rem;
-      padding: 0.35em 0.6em;
-    }
+  @media (max-width: 480px) {
+    .header-cta { display: none; }
   }
 </style>

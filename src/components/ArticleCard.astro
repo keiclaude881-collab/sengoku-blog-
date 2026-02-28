@@ -17,6 +17,7 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
 ---
 
 <article class="article-card">
+  <a href={`/blog/${slug}/`} class="card-link" tabindex="-1" aria-hidden="true"></a>
   <div class="card-inner">
     <div class="card-meta">
       <CategoryBadge category={category} />
@@ -36,8 +37,8 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
     <p class="card-desc">{description}</p>
 
     <div class="card-footer">
-      <span class="read-time">📖 {readingTime} min</span>
-      <a href={`/blog/${slug}/`} class="read-link">続きを読む →</a>
+      <span class="read-time">{readingTime} min read</span>
+      <span class="read-link">続きを読む →</span>
     </div>
   </div>
 </article>
@@ -45,14 +46,16 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
 <style>
   .article-card {
     background: var(--bg);
+    border: 1px solid var(--rule);
     border-radius: 4px;
     overflow: hidden;
-    border-top: 3px solid var(--border);
-    transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    position: relative;
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s, background 0.25s;
   }
   .article-card:hover {
-    border-top-color: var(--orange);
-    box-shadow: 0 8px 32px rgba(26, 10, 10, 0.1);
+    border-color: var(--ink);
+    background: var(--ink);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     transform: translateY(-3px);
   }
 
@@ -74,77 +77,81 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
   .meta-date {
     font-family: var(--font-sans);
     font-size: 0.73rem;
-    color: var(--text-sub);
+    color: var(--ink3);
     letter-spacing: 0.05em;
+    transition: color 0.25s;
   }
+  .article-card:hover .meta-date { color: rgba(255,255,255,0.4); }
 
   .card-title {
     font-family: var(--font-serif);
-    font-size: 1.18rem;
+    font-size: 1.1rem;
     font-weight: 700;
     line-height: 1.55;
     letter-spacing: 0.02em;
   }
   .card-title a {
-    color: var(--text);
+    color: var(--ink);
     text-decoration: none;
     transition: color 0.2s;
   }
-  .card-title a:hover { color: var(--orange); }
+  .article-card:hover .card-title a { color: #fff; }
 
   .card-lesson {
     font-family: var(--font-sans);
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--orange);
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--gold);
     line-height: 1.6;
-    padding: 0.5rem 0.8rem;
-    background: rgba(185, 28, 28, 0.06);
-    border-radius: 2px;
     display: flex;
     gap: 0.4rem;
     align-items: flex-start;
+    transition: color 0.25s;
   }
-  .lesson-mark {
-    flex-shrink: 0;
-    font-weight: 700;
-  }
+  .article-card:hover .card-lesson { color: var(--gold-light); }
+  .lesson-mark { flex-shrink: 0; }
 
   .card-desc {
     font-family: var(--font-serif);
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.9;
-    color: var(--text-mid);
+    color: var(--ink2);
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     flex: 1;
+    transition: color 0.25s;
   }
+  .article-card:hover .card-desc { color: rgba(255,255,255,0.6); }
 
   .card-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-top: 1rem;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--rule);
     margin-top: auto;
+    transition: border-color 0.25s;
   }
+  .article-card:hover .card-footer { border-top-color: rgba(255,255,255,0.1); }
 
   .read-time {
     font-family: var(--font-sans);
-    font-size: 0.73rem;
-    color: var(--text-sub);
+    font-size: 0.72rem;
+    color: var(--ink3);
+    transition: color 0.25s;
   }
+  .article-card:hover .read-time { color: rgba(255,255,255,0.3); }
 
   .read-link {
     font-family: var(--font-sans);
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--orange);
-    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--gold);
     letter-spacing: 0.03em;
-    transition: gap 0.2s;
+    transition: color 0.25s;
   }
+  .article-card:hover .read-link { color: var(--gold-light); }
 </style>

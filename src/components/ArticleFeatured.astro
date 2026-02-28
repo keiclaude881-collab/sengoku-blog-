@@ -25,7 +25,7 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
       <div class="featured-meta">
         <CategoryBadge category={category} />
         <time datetime={date.toISOString()}>{formattedDate}</time>
-        <span>📖 {readingTime} min read</span>
+        <span>{readingTime} min read</span>
       </div>
 
       <h2 class="featured-title">
@@ -54,16 +54,15 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
 
 <style>
   .featured {
-    background: var(--bg-navy);
+    background: var(--accent);
     border-radius: 4px;
     overflow: hidden;
     margin-bottom: 1.5rem;
-    position: relative;
   }
 
   .featured-label {
-    background: var(--orange);
-    padding: 0.45rem 1.6rem;
+    background: var(--gold);
+    padding: 0.4rem 1.4rem;
     display: inline-block;
   }
   .label-text {
@@ -76,7 +75,7 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
 
   .featured-body {
     display: grid;
-    grid-template-columns: 1fr 220px;
+    grid-template-columns: 1fr 200px;
   }
 
   .featured-content {
@@ -93,14 +92,14 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
     flex-wrap: wrap;
     font-family: var(--font-sans);
     font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.45);
+    color: rgba(255, 255, 255, 0.4);
   }
 
   .featured-title {
     font-family: var(--font-serif);
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
-    font-weight: 800;
-    line-height: 1.35;
+    font-size: clamp(1.4rem, 2.8vw, 2rem);
+    font-weight: 700;
+    line-height: 1.4;
     letter-spacing: 0.02em;
   }
   .featured-title a {
@@ -108,37 +107,36 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
     text-decoration: none;
     transition: color 0.2s;
   }
-  .featured-title a:hover { color: var(--orange); }
+  .featured-title a:hover { color: var(--gold); }
 
   .featured-lesson {
-    background: rgba(185, 28, 28, 0.15);
-    border-left: 3px solid var(--orange);
+    background: rgba(255, 255, 255, 0.06);
+    border-left: 3px solid var(--gold);
     padding: 1rem 1.2rem;
-    border-radius: 0 2px 2px 0;
   }
   .featured-lesson-label {
     display: block;
     font-family: var(--font-sans);
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.15em;
-    color: var(--orange);
-    margin-bottom: 0.5rem;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
     text-transform: uppercase;
   }
   .featured-lesson p {
     font-family: var(--font-serif);
     font-size: 0.9rem;
     line-height: 1.8;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.75);
     margin: 0;
   }
 
   .featured-desc {
     font-family: var(--font-serif);
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     line-height: 2;
-    color: rgba(255, 255, 255, 0.65);
+    color: rgba(255, 255, 255, 0.6);
     max-width: 520px;
   }
 
@@ -146,39 +144,34 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    padding: 0.85rem 2rem;
-    background: var(--orange);
+    padding: 0.8rem 1.8rem;
+    background: var(--gold);
     color: #fff;
     font-family: var(--font-sans);
-    font-size: 0.88rem;
-    font-weight: 700;
+    font-size: 0.85rem;
+    font-weight: 500;
     letter-spacing: 0.05em;
     border-radius: 2px;
     text-decoration: none;
     align-self: flex-start;
     transition: background 0.2s, gap 0.2s;
   }
-  .featured-cta:hover {
-    background: var(--orange-dark);
-    gap: 0.9rem;
-  }
+  .featured-cta:hover { background: var(--gold-dark); gap: 0.9rem; }
   .cta-arrow { transition: transform 0.2s; }
   .featured-cta:hover .cta-arrow { transform: translateX(3px); }
 
-  /* 右装飾 */
   .featured-side {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
     overflow: hidden;
-    background: rgba(185, 28, 28, 0.04);
+    background: rgba(255, 255, 255, 0.03);
   }
   .side-char {
     font-family: var(--font-serif);
-    font-size: 15rem;
+    font-size: 13rem;
     font-weight: 800;
-    color: rgba(185, 28, 28, 0.1);
+    color: rgba(255, 255, 255, 0.05);
     line-height: 1;
     user-select: none;
   }

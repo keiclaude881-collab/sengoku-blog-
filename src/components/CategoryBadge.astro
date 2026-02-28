@@ -1,45 +1,44 @@
 ---
 interface Props {
-  category: "battle" | "leader" | "strategy" | "books";
+  category: "battle" | "leader" | "strategy" | "books" | "media";
 }
 const { category } = Astro.props;
 
 const map = {
-  battle:   { label: "合戦分析",      icon: "⚔",  href: "/category/battle/" },
-  leader:   { label: "武将の思想",    icon: "🏯", href: "/category/leader/" },
-  strategy: { label: "兵法・現代応用", icon: "📜", href: "/category/strategy/" },
-  books:    { label: "書籍レビュー",   icon: "📚", href: "/category/books/" },
+  battle:   { label: "合戦と戦略",     href: "/category/battle/" },
+  leader:   { label: "武将の思想",     href: "/category/leader/" },
+  strategy: { label: "兵法・現代応用", href: "/category/strategy/" },
+  books:    { label: "書籍レビュー",   href: "/category/books/" },
+  media:    { label: "映像・音声",     href: "/category/media/" },
 };
-const { label, icon, href } = map[category];
+const { label, href } = map[category];
 ---
 
 <a href={href} class="category-badge" data-cat={category}>
-  <span class="badge-icon" aria-hidden="true">{icon}</span>
-  <span class="badge-label">{label}</span>
+  {label}
 </a>
 
 <style>
   .category-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.3rem;
     font-family: var(--font-sans);
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    padding: 0.22em 0.7em;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    padding: 0.2em 0.75em;
     border-radius: 2px;
-    color: var(--orange);
-    background: rgba(185, 28, 28, 0.08);
-    border: 1px solid rgba(185, 28, 28, 0.25);
+    color: var(--gold);
+    background: transparent;
+    border: 1px solid var(--gold-light);
     text-transform: uppercase;
     text-decoration: none;
-    transition: background 0.2s, border-color 0.2s;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
     white-space: nowrap;
   }
   .category-badge:hover {
-    background: rgba(185, 28, 28, 0.15);
-    border-color: rgba(185, 28, 28, 0.5);
+    background: var(--gold);
+    border-color: var(--gold);
+    color: #fff;
   }
-  .badge-icon { font-size: 0.78rem; }
 </style>
