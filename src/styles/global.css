@@ -6,24 +6,24 @@
   --ink:         #111111;
   --ink2:        #444444;
   --ink3:        #999999;
-  --gold:        #B8963E;
-  --gold-light:  #E8D5A0;
-  --gold-dark:   #96762E;
-  --accent:      #2D4A5A;  /* ダーク藍 */
+  --gold:        #3B8C6E;   /* エバーグリーン */
+  --gold-light:  #C8E8D8;  /* 薄緑 */
+  --gold-dark:   #2A6B50;  /* 深緑 */
+  --accent:      #1E4A35;  /* ダークエバーグリーン */
   --rule:        rgba(0, 0, 0, 0.09);
 
   /* 後方互換エイリアス（既存コンポーネントが参照） */
   --bg-sub:      #F4F4F4;
-  --bg-navy:     #2D4A5A;
-  --bg-navy-mid: #3A607A;
+  --bg-navy:     #1E4A35;
+  --bg-navy-mid: #2A6B50;
   --text:        #111111;
   --text-mid:    #444444;
   --text-sub:    #999999;
   --border:      rgba(0, 0, 0, 0.09);
   --border-mid:  rgba(0, 0, 0, 0.15);
-  --orange:      #B8963E;
-  --orange-dark: #96762E;
-  --amber:       #E8D5A0;
+  --orange:      #3B8C6E;
+  --orange-dark: #2A6B50;
+  --amber:       #C8E8D8;
 
   /* FONT */
   --font-serif:  "Shippori Mincho", "Noto Serif JP", serif;
