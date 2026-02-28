@@ -6,7 +6,7 @@ interface Props {
   image?: string;
 }
 const { title, asin, reason, image } = Astro.props;
-const associateId = import.meta.env.AMAZON_ASSOCIATE_ID ?? 'sengoku-blog-22';
+const associateId = import.meta.env.AMAZON_ASSOCIATE_ID ?? 'sengokublog20-22';
 const affiliateUrl = `https://www.amazon.co.jp/dp/${asin}/?tag=${associateId}`;
 
 const placeholderChars = ['兵', '謀', '戦', '策', '智', '将', '武', '覇', '道', '義'];
