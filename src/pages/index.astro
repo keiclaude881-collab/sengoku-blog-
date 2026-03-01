@@ -7,6 +7,8 @@ import ArticleCard from "../components/ArticleCard.astro";
 import BookCard from "../components/BookCard.astro";
 import AffiliateDisclosure from "../components/AffiliateDisclosure.astro";
 
+const formspreeId = import.meta.env.FORMSPREE_ID ?? '';
+
 const allArticles = (await Promise.all([
   getCollection("battle"),
   getCollection("leader"),
@@ -85,7 +87,11 @@ const marqueeItems = [
         <p class="email-note">無料・いつでも解除可能</p>
       </div>
       <div class="email-right">
-        <form class="email-form" id="newsletter-form">
+        <form
+          class="email-form"
+          id="newsletter-form"
+          data-formspree-id={formspreeId}
+        >
           <label class="form-label" for="email-input">メールアドレス</label>
           <div class="form-row">
             <input
@@ -278,14 +284,29 @@ const marqueeItems = [
 </div>
 
 <script>
-  // メルマガフォーム（モック）
+  // メルマガフォーム（Formspree）
   const form = document.getElementById('newsletter-form') as HTMLFormElement | null;
   const thanks = document.getElementById('email-thanks') as HTMLElement | null;
   if (form && thanks) {
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', async e => {
       e.preventDefault();
-      form.hidden = true;
-      thanks.hidden = false;
+      const formspreeId = form.dataset.formspreeId;
+      if (formspreeId) {
+        try {
+          const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(form),
+          });
+          if (res.ok) {
+            form.hidden = true;
+            thanks.hidden = false;
+          }
+        } catch {}
+      } else {
+        form.hidden = true;
+        thanks.hidden = false;
+      }
     });
   }
 
