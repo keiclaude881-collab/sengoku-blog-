@@ -55,11 +55,11 @@
 }
 
 .prose blockquote {
-  border-left: 3px solid var(--amber);
+  border-left: 3px solid var(--gold);
   padding: 0.8rem 1.2rem;
   margin: 2rem 0;
   background: var(--bg-sub);
-  color: var(--text-mid);
+  color: var(--text);
   font-style: italic;
 }
 

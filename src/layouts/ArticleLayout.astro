@@ -21,19 +21,26 @@ interface RelatedArticle {
   description: string;
 }
 
-interface Props {
-  title:           string;
-  description:     string;
-  date:            Date;
-  category:        "battle" | "leader" | "strategy" | "books";
-  tags:            string[];
-  readingTime:     number;
-  ogImage?:        string;
-  lesson?:         string;
-  affiliateBooks?: AffiliateBook[];
-  relatedArticles?: RelatedArticle[];
+interface TocHeading {
+  depth: number;
+  slug:  string;
+  text:  string;
 }
-const { title, description, date, category, tags, readingTime, ogImage, lesson, affiliateBooks, relatedArticles } = Astro.props;
+
+interface Props {
+  title:            string;
+  description:      string;
+  date:             Date;
+  category:         "battle" | "leader" | "strategy" | "books";
+  tags:             string[];
+  readingTime:      number;
+  ogImage?:         string;
+  lesson?:          string;
+  affiliateBooks?:  AffiliateBook[];
+  relatedArticles?: RelatedArticle[];
+  tocHeadings?:     TocHeading[];
+}
+const { title, description, date, category, tags, readingTime, ogImage, lesson, affiliateBooks, relatedArticles, tocHeadings } = Astro.props;
 
 const catLabel: Record<string, string> = {
   battle: "合戦分析", leader: "武将の思想", strategy: "兵法・現代応用", books: "書籍レビュー"
@@ -83,6 +90,23 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
           </ul>
         )}
       </header>
+
+      <!-- 目次 -->
+      {tocHeadings && tocHeadings.length >= 3 && (
+        <nav class="toc" aria-label="目次">
+          <p class="toc-title">目次</p>
+          <ol class="toc-list">
+            {tocHeadings.map((h, i) => (
+              <li class="toc-item">
+                <a href={`#${h.slug}`} class="toc-link">
+                  <span class="toc-num">{String(i + 1).padStart(2, '0')}</span>
+                  {h.text}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      )}
 
       <!-- 本文 -->
       <div class="article-layout">
@@ -215,6 +239,50 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
   .article-body {
     max-width: 740px;
     margin-bottom: var(--sp-lg);
+  }
+
+  /* 目次 */
+  .toc {
+    background: var(--bg-navy);
+    border-radius: 6px;
+    padding: 1.6rem 1.8rem;
+    margin-bottom: var(--sp-lg);
+    max-width: 640px;
+  }
+  .toc-title {
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .toc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .toc-link {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    font-family: var(--font-serif);
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    line-height: 1.5;
+    transition: color 0.2s;
+  }
+  .toc-link:hover { color: #fff; }
+  .toc-num {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--orange);
+    flex-shrink: 0;
+    letter-spacing: 0.05em;
   }
 
   /* 書籍アフィリエイトゾーン */
