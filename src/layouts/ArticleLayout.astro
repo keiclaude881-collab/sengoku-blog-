@@ -4,6 +4,8 @@ import CategoryBadge from '../components/CategoryBadge.astro';
 import Lesson from '../components/Lesson.astro';
 import BookCard from '../components/BookCard.astro';
 import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
+import AdUnit from '../components/AdUnit.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
 
 interface AffiliateBook {
   title:  string;
@@ -31,6 +33,7 @@ interface Props {
   title:            string;
   description:      string;
   date:             Date;
+  updatedAt?:       Date;
   category:         "battle" | "leader" | "strategy" | "books";
   tags:             string[];
   readingTime:      number;
@@ -40,7 +43,7 @@ interface Props {
   relatedArticles?: RelatedArticle[];
   tocHeadings?:     TocHeading[];
 }
-const { title, description, date, category, tags, readingTime, ogImage, lesson, affiliateBooks, relatedArticles, tocHeadings } = Astro.props;
+const { title, description, date, updatedAt, category, tags, readingTime, ogImage, lesson, affiliateBooks, relatedArticles, tocHeadings } = Astro.props;
 
 const catLabel: Record<string, string> = {
   battle: "合戦分析", leader: "武将の思想", strategy: "兵法・現代応用", books: "書籍レビュー"
@@ -48,6 +51,10 @@ const catLabel: Record<string, string> = {
 
 const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
 const iso = date.toISOString();
+const isoUpdated = updatedAt ? updatedAt.toISOString() : iso;
+const formattedUpdated = updatedAt
+  ? updatedAt.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })
+  : null;
 
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const twitterShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(pageUrl)}`;
@@ -80,6 +87,9 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
         <div class="article-meta">
           <CategoryBadge category={category} />
           <time datetime={iso} class="meta-text">{formattedDate}</time>
+          {formattedUpdated && (
+            <time datetime={isoUpdated} class="meta-text meta-updated">更新: {formattedUpdated}</time>
+          )}
           <span class="meta-text">📖 {readingTime} min read</span>
         </div>
         <h1 class="article-title">{title}</h1>
@@ -115,6 +125,9 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
         </div>
       </div>
 
+      <!-- 記事内広告 -->
+      <AdUnit slot="XXXXXXXXXX" />
+
       <!-- SNSシェア -->
       <div class="share-buttons">
         <a href={twitterShareUrl} target="_blank" rel="noopener noreferrer" class="share-btn">
@@ -144,6 +157,9 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
           </div>
         </section>
       )}
+
+      <!-- メール登録 -->
+      <NewsletterForm />
 
       <!-- 関連記事 -->
       {relatedArticles && relatedArticles.length > 0 && (
@@ -176,7 +192,7 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
     "@type": "Article",
     "headline": title,
     "datePublished": iso,
-    "dateModified": iso,
+    "dateModified": isoUpdated,
     "author": { "@type": "Person", "name": "戦略の系譜" },
     "publisher": {
       "@type": "Organization",
@@ -185,6 +201,17 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
     },
     "description": description,
     "image": ogImage ? `https://sengoku-blog.vercel.app${ogImage}` : "https://sengoku-blog.vercel.app/images/default-ogp.svg"
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "ホーム",     "item": "https://sengoku-blog.vercel.app/" },
+      { "@type": "ListItem", "position": 2, "name": "記事一覧",   "item": "https://sengoku-blog.vercel.app/blog/" },
+      { "@type": "ListItem", "position": 3, "name": catLabel[category], "item": `https://sengoku-blog.vercel.app/category/${category}/` },
+      { "@type": "ListItem", "position": 4, "name": title,        "item": pageUrl },
+    ]
   })} />
 </BaseLayout>
 

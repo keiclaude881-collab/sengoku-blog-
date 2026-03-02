@@ -1,0 +1,30 @@
+---
+interface Props {
+  slot: string;
+  format?: "auto" | "rectangle" | "horizontal";
+}
+const { slot, format = "auto" } = Astro.props;
+const pubId = import.meta.env.ADSENSE_PUB_ID ?? "";
+---
+
+{pubId && (
+  <div class="ad-unit" aria-label="広告">
+    <ins
+      class="adsbygoogle"
+      style="display:block"
+      data-ad-client={pubId}
+      data-ad-slot={slot}
+      data-ad-format={format}
+      data-full-width-responsive="true"
+    />
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+)}
+
+<style>
+  .ad-unit {
+    margin: var(--sp-lg) 0;
+    text-align: center;
+    min-height: 90px;
+  }
+</style>

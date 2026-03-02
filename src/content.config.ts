@@ -3,6 +3,7 @@ import { defineCollection, z } from "astro:content";
 const articleSchema = z.object({
   title:       z.string(),
   date:        z.coerce.date(),
+  updatedAt:   z.coerce.date().optional(),
   category:    z.enum(["battle", "leader", "strategy", "books"]),
   tags:        z.array(z.string()).default([]),
   description: z.string().max(120),
