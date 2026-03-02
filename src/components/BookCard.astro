@@ -8,6 +8,7 @@ interface Props {
 const { title, asin, reason, image } = Astro.props;
 const associateId = import.meta.env.AMAZON_ASSOCIATE_ID ?? 'sengokublog20-22';
 const affiliateUrl = `https://www.amazon.co.jp/dp/${asin}/?tag=${associateId}`;
+const coverUrl = image ?? `https://images-na.ssl-images-amazon.com/images/P/${asin}.09.LZZZZZZZ.jpg`;
 
 const placeholderChars = ['兵', '謀', '戦', '策', '智', '将', '武', '覇', '道', '義'];
 const placeholder = placeholderChars[parseInt(asin.slice(-1), 10)] ?? '書';
@@ -22,10 +23,15 @@ const placeholder = placeholderChars[parseInt(asin.slice(-1), 10)] ?? '書';
     aria-label={`${title} - Amazonで見る`}
   >
     <div class="book-cover">
-      {image
-        ? <img src={image} alt={title} width="120" height="180" loading="lazy" />
-        : <span class="cover-placeholder" aria-hidden="true">{placeholder}</span>
-      }
+      <img
+        src={coverUrl}
+        alt={title}
+        width="120"
+        height="180"
+        loading="lazy"
+        onerror="this.style.display='none';this.nextElementSibling.style.display=''"
+      />
+      <span class="cover-placeholder" aria-hidden="true" style="display:none">{placeholder}</span>
     </div>
 
     <div class="book-info">
