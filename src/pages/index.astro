@@ -206,6 +206,49 @@ const marqueeItems = [
     </div>
   </section>
 
+  <!-- 悩み別おすすめ -->
+  <section class="needs-section section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">何を学びたい？</h2>
+        <p class="needs-sub">テーマから記事を探す</p>
+      </div>
+      <ul class="needs-grid" role="list">
+        {[
+          {
+            tag: "リーダーシップ",
+            label: "人を動かしたい",
+            desc: "信長・家康・武田信玄のリーダーシップから、現代の組織論を学ぶ",
+          },
+          {
+            tag: "意思決定",
+            label: "判断力を鍛えたい",
+            desc: "合戦の瞬間に磨かれた決断の技術。不確実な局面での思考法",
+          },
+          {
+            tag: "ビジネス戦略",
+            label: "競争に勝ちたい",
+            desc: "孫子・ポーター・ランチェスターを横断した実践的な戦略思考",
+          },
+          {
+            tag: "組織論",
+            label: "チームを強くしたい",
+            desc: "武田の人材育成、徳川の組織設計。チームビルディングの原点",
+          },
+        ].map(({ tag, label, desc }) => (
+          <li>
+            <a href={`/blog/?tag=${encodeURIComponent(tag)}`} class="needs-card" data-tag={tag}>
+              <span class="needs-tag">#{tag}</span>
+              <h3 class="needs-label">{label}</h3>
+              <p class="needs-desc">{desc}</p>
+              <span class="needs-cta">記事を読む →</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
   <!-- 書籍セクション -->
   <section class="books-section" aria-label="おすすめ書籍">
     <div class="container books-inner">
@@ -569,6 +612,75 @@ const marqueeItems = [
     transition: color 0.25s;
   }
 
+  /* ── 悩み別おすすめ ── */
+  .needs-section { background: var(--bg); }
+  .needs-sub {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    color: var(--ink3);
+    margin-top: 0.3rem;
+  }
+  .needs-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1.6rem;
+  }
+  .needs-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.8rem 1.5rem;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--bg);
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+    transition: background 0.22s, border-color 0.22s, transform 0.22s;
+  }
+  .needs-card:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-3px);
+  }
+  .needs-tag {
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    transition: color 0.22s;
+  }
+  .needs-label {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.4;
+    transition: color 0.22s;
+  }
+  .needs-card:hover .needs-label { color: #fff; }
+  .needs-desc {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: var(--ink3);
+    flex: 1;
+    transition: color 0.22s;
+  }
+  .needs-card:hover .needs-desc { color: rgba(255,255,255,0.55); }
+  .needs-cta {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--gold);
+    margin-top: auto;
+    transition: color 0.22s;
+  }
+  .needs-card:hover .needs-cta { color: var(--gold-light); }
+
   /* ── 書籍セクション ── */
   .books-section {
     background: #2A5C43;   /* ミディアムグリーン（黒より明るめ） */
@@ -710,8 +822,9 @@ const marqueeItems = [
 
   /* ── レスポンシブ ── */
   @media (max-width: 1024px) {
-    .cat-grid  { grid-template-columns: repeat(2, 1fr); }
-    .book-grid { grid-template-columns: repeat(2, 1fr); }
+    .cat-grid   { grid-template-columns: repeat(2, 1fr); }
+    .needs-grid { grid-template-columns: repeat(2, 1fr); }
+    .book-grid  { grid-template-columns: repeat(2, 1fr); }
     .email-inner { gap: 3rem; }
   }
   @media (max-width: 768px) {

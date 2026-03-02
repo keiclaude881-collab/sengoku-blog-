@@ -30,6 +30,15 @@ const related = (await getCollection(post.collection as CollectionName))
 function relSlug(col: string, id: string) {
   return `${col}/${id.replace(/\.mdx?$/, '')}`;
 }
+
+const relatedArticles = related.map(p => ({
+  title:       p.data.title,
+  slug:        relSlug(p.collection, p.id),
+  category:    p.data.category,
+  date:        p.data.date,
+  readingTime: p.data.readingTime,
+  description: p.data.description,
+}));
 ---
 
 <ArticleLayout
@@ -42,6 +51,7 @@ function relSlug(col: string, id: string) {
   ogImage={post.data.ogImage}
   lesson={post.data.lesson}
   affiliateBooks={post.data.affiliateBooks}
+  relatedArticles={relatedArticles}
 >
   <Content components={{ Lesson, BookCard }} />
 </ArticleLayout>

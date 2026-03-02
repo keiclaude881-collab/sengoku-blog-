@@ -12,28 +12,39 @@ interface AffiliateBook {
   image?: string;
 }
 
-interface Props {
-  title:          string;
-  description:    string;
-  date:           Date;
-  category:       "battle" | "leader" | "strategy" | "books";
-  tags:           string[];
-  readingTime:    number;
-  ogImage?:       string;
-  lesson?:        string;
-  affiliateBooks?: AffiliateBook[];
+interface RelatedArticle {
+  title:       string;
+  slug:        string;
+  category:    string;
+  date:        Date;
+  readingTime: number;
+  description: string;
 }
-const { title, description, date, category, tags, readingTime, ogImage, lesson, affiliateBooks } = Astro.props;
 
-const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
-const iso = date.toISOString();
+interface Props {
+  title:           string;
+  description:     string;
+  date:            Date;
+  category:        "battle" | "leader" | "strategy" | "books";
+  tags:            string[];
+  readingTime:     number;
+  ogImage?:        string;
+  lesson?:         string;
+  affiliateBooks?: AffiliateBook[];
+  relatedArticles?: RelatedArticle[];
+}
+const { title, description, date, category, tags, readingTime, ogImage, lesson, affiliateBooks, relatedArticles } = Astro.props;
 
 const catLabel: Record<string, string> = {
   battle: "合戦分析", leader: "武将の思想", strategy: "兵法・現代応用", books: "書籍レビュー"
 };
 
-const twitterShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(`https://sengoku-blog.vercel.app/blog/${category}/`)}`;
-const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComponent(`https://sengoku-blog.vercel.app/blog/${category}/`)}`;
+const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+const iso = date.toISOString();
+
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const twitterShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(pageUrl)}`;
+const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComponent(pageUrl)}`;
 ---
 
 <BaseLayout
@@ -107,6 +118,25 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
               />
             ))}
           </div>
+        </section>
+      )}
+
+      <!-- 関連記事 -->
+      {relatedArticles && relatedArticles.length > 0 && (
+        <section class="related-section" aria-label="関連記事">
+          <h2 class="related-heading">関連記事</h2>
+          <ul class="related-grid" role="list">
+            {relatedArticles.map(r => (
+              <li>
+                <a href={`/blog/${r.slug}/`} class="related-card">
+                  <span class="related-cat">{catLabel[r.category] ?? r.category}</span>
+                  <p class="related-title">{r.title}</p>
+                  <p class="related-desc">{r.description}</p>
+                  <span class="related-meta">{r.readingTime} min read</span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </section>
       )}
 
@@ -236,6 +266,80 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
     position: relative;
     z-index: 1;
     max-width: 720px;
+  }
+
+  /* 関連記事 */
+  .related-section {
+    margin: var(--sp-lg) 0 var(--sp-md);
+    padding-top: var(--sp-lg);
+    border-top: 1px solid var(--border);
+  }
+  .related-heading {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--text-mid);
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+  .related-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .related-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.2rem;
+    background: var(--bg-navy);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 4px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s, transform 0.2s;
+    height: 100%;
+  }
+  .related-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-2px);
+  }
+  .related-cat {
+    font-family: var(--font-sans);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--amber);
+    text-transform: uppercase;
+  }
+  .related-title {
+    font-family: var(--font-serif);
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.55;
+    color: #fff;
+    flex: 1;
+  }
+  .related-desc {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.45);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .related-meta {
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.3);
+    margin-top: auto;
+  }
+  @media (max-width: 640px) {
+    .related-grid { grid-template-columns: 1fr; }
   }
 
   .article-nav {

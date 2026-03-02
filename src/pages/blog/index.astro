@@ -13,6 +13,18 @@ const allPosts = (await Promise.all([
 function slug(col: string, id: string) {
   return `${col}/${id.replace(/\.mdx?$/, '')}`;
 }
+
+// よく使われるタグを抽出（上位表示用）
+const tagCount: Record<string, number> = {};
+for (const post of allPosts) {
+  for (const tag of post.data.tags) {
+    tagCount[tag] = (tagCount[tag] ?? 0) + 1;
+  }
+}
+const popularTags = Object.entries(tagCount)
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 12)
+  .map(([tag]) => tag);
 ---
 
 <BaseLayout
@@ -25,10 +37,18 @@ function slug(col: string, id: string) {
       <p>全 {allPosts.length} 記事</p>
     </header>
 
+    <!-- タグフィルター -->
+    <div class="tag-filter" role="group" aria-label="タグで絞り込む">
+      <button class="tag-btn active" data-tag="all">すべて</button>
+      {popularTags.map(tag => (
+        <button class="tag-btn" data-tag={tag}>#{tag}</button>
+      ))}
+    </div>
+
     {allPosts.length > 0 ? (
-      <ul class="article-grid" role="list">
+      <ul class="article-grid" role="list" id="article-list">
         {allPosts.map(post => (
-          <li>
+          <li data-tags={post.data.tags.join(',')}>
             <ArticleCard
               title={post.data.title}
               description={post.data.description}
@@ -45,13 +65,78 @@ function slug(col: string, id: string) {
     ) : (
       <p class="empty">記事はまもなく公開されます。</p>
     )}
+
+    <p class="no-result" id="no-result" hidden>該当する記事が見つかりませんでした。</p>
   </div>
 </BaseLayout>
 
+<script>
+  const buttons  = document.querySelectorAll<HTMLButtonElement>('.tag-btn');
+  const items    = document.querySelectorAll<HTMLLIElement>('#article-list > li');
+  const noResult = document.getElementById('no-result') as HTMLElement;
+
+  function applyTag(tag: string) {
+    buttons.forEach(b => {
+      b.classList.toggle('active', b.dataset.tag === tag || (tag === 'all' && b.dataset.tag === 'all'));
+    });
+    let visible = 0;
+    items.forEach(li => {
+      const tags = li.dataset.tags ?? '';
+      const show = tag === 'all' || tags.split(',').includes(tag);
+      li.hidden = !show;
+      if (show) visible++;
+    });
+    noResult.hidden = visible > 0;
+  }
+
+  // URLパラメータから初期タグを読み込む（トップページの「何を学びたい？」から遷移時）
+  const initialTag = new URLSearchParams(location.search).get('tag') ?? 'all';
+  applyTag(initialTag);
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => applyTag(btn.dataset.tag ?? 'all'));
+  });
+</script>
+
 <style>
+  .tag-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2.4rem;
+  }
+  .tag-btn {
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    background: transparent;
+    color: var(--ink2);
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
+  }
+  .tag-btn:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+  .tag-btn.active {
+    background: var(--ink);
+    color: #fff;
+    border-color: var(--ink);
+  }
+  .no-result {
+    text-align: center;
+    padding: var(--sp-xl) 0;
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    color: var(--ink3);
+  }
   .empty {
     text-align: center;
-    color: var(--gray-light);
+    color: var(--ink3);
     padding: var(--sp-xl);
     font-family: var(--font-sans);
     font-size: 0.85rem;
