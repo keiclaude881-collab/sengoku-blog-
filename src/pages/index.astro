@@ -135,6 +135,7 @@ const marqueeItems = [
             readingTime={featured.data.readingTime}
             lesson={featured.data.lesson}
             slug={slug(featured.collection, featured.id)}
+            ogImage={featured.data.ogImage}
           />
         )}
 
@@ -151,6 +152,7 @@ const marqueeItems = [
                   readingTime={post.data.readingTime}
                   lesson={post.data.lesson}
                   slug={slug(post.collection, post.id)}
+                  ogImage={post.data.ogImage}
                 />
               </li>
             ))}
