@@ -10,12 +10,8 @@ interface Props {
   readingTime: number;
   lesson?:     string;
   slug:        string;
-  ogImage?:    string;
 }
-const { title, description, date, category, tags, readingTime, lesson, slug, ogImage } = Astro.props;
-
-const catChar: Record<string, string> = { battle: "戦", leader: "将", strategy: "謀", books: "読" };
-const thumbChar = catChar[category] ?? "策";
+const { title, description, date, category, tags, readingTime, lesson, slug } = Astro.props;
 const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 
@@ -50,11 +46,8 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
       </a>
     </div>
 
-    <div class={`featured-side featured-side--${category}`} aria-hidden="true">
-      {ogImage
-        ? <img src={ogImage} alt={title} />
-        : <span class="side-char">{thumbChar}</span>
-      }
+    <div class="featured-side" aria-hidden="true">
+      <span class="side-char">戦</span>
     </div>
   </div>
 </article>
@@ -172,22 +165,13 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    position: relative;
-  }
-  .featured-side--battle   { background: linear-gradient(160deg, #6b1a1a 0%, #1a1a2e 100%); }
-  .featured-side--leader   { background: linear-gradient(160deg, #6b4a0f 0%, #1a1a2e 100%); }
-  .featured-side--strategy { background: linear-gradient(160deg, #0f2a4a 0%, #1a1a2e 100%); }
-  .featured-side--books    { background: linear-gradient(160deg, #0f3d23 0%, #1a1a2e 100%); }
-  .featured-side img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    background: rgba(255, 255, 255, 0.03);
   }
   .side-char {
     font-family: var(--font-serif);
     font-size: 13rem;
     font-weight: 800;
-    color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.05);
     line-height: 1;
     user-select: none;
   }
