@@ -1,6 +1,6 @@
 ---
 interface Props {
-  category: "battle" | "leader" | "strategy" | "books" | "media";
+  category: "battle" | "leader" | "strategy" | "books" | "media" | "movie" | "whatif";
 }
 const { category } = Astro.props;
 
@@ -10,6 +10,8 @@ const map = {
   strategy: { label: "兵法・現代応用", href: "/category/strategy/" },
   books:    { label: "書籍レビュー",   href: "/category/books/" },
   media:    { label: "映像・音声",     href: "/category/media/" },
+  movie:    { label: "映画・SF",       href: "/category/movie/" },
+  whatif:   { label: "歴史のIF",       href: "/category/whatif/" },
 };
 const { label, href } = map[category];
 ---

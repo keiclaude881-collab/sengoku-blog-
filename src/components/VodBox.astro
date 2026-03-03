@@ -1,0 +1,155 @@
+---
+interface Props {
+  title:       string;
+  url:         string;
+  service:     "unext" | "amazon" | "hulu" | "netflix" | "disneyplus";
+  description?: string;
+}
+
+const {
+  title,
+  url,
+  service,
+  description = 'この作品を今すぐ視聴できます。',
+} = Astro.props;
+
+const serviceInfo: Record<string, { name: string; badge: string; color: string; cta: string }> = {
+  unext:      { name: "U-NEXT",        badge: "U",  color: "#0045ff", cta: "U-NEXTで観る →" },
+  amazon:     { name: "Prime Video",   badge: "P",  color: "#00a8e0", cta: "Prime Videoで観る →" },
+  hulu:       { name: "Hulu",          badge: "H",  color: "#3dbb3d", cta: "Huluで観る →" },
+  netflix:    { name: "Netflix",       badge: "N",  color: "#e50914", cta: "Netflixで観る →" },
+  disneyplus: { name: "Disney+",      badge: "D+", color: "#113ccf", cta: "Disney+で観る →" },
+};
+
+const { name, badge, color, cta } = serviceInfo[service];
+---
+
+<aside class="vod-box" aria-label={`${name}で視聴`}>
+  <div class="vod-header" style={`background: ${color}`}>
+    <span class="vod-badge">{badge}</span>
+    <span class="vod-service-name">{name}で視聴できます</span>
+  </div>
+
+  <div class="vod-body">
+    <div class="vod-content">
+      <p class="vod-title">{title}</p>
+      <p class="vod-desc">{description}</p>
+    </div>
+    <a href={url} class="vod-cta" target="_blank" rel="noopener noreferrer nofollow" style={`background: ${color}`}>
+      {cta}
+    </a>
+  </div>
+
+  <p class="vod-disclosure">
+    ※ 本リンクはアフィリエイトリンクです。ご登録いただくと当サイトに収益が発生します。
+  </p>
+</aside>
+
+<style>
+  .vod-box {
+    margin: var(--spacing-2xl, 2rem) 0;
+    border: 2px solid var(--rule, #ddd);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .vod-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6em 1rem;
+  }
+
+  .vod-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  .vod-service-name {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.04em;
+  }
+
+  .vod-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg, #fff);
+    flex-wrap: wrap;
+  }
+
+  .vod-content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .vod-title {
+    font-family: var(--font-serif, serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink, #111);
+    line-height: 1.5;
+  }
+
+  .vod-desc {
+    font-size: 0.82rem;
+    color: var(--ink3, #888);
+    line-height: 1.6;
+  }
+
+  .vod-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6em 1.4em;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-radius: 3px;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: opacity 0.15s;
+  }
+
+  .vod-cta:hover {
+    opacity: 0.85;
+    text-decoration: none;
+  }
+
+  .vod-disclosure {
+    padding: 0.4em 1rem;
+    font-size: 0.72rem;
+    color: var(--ink3, #888);
+    border-top: 1px solid var(--rule, #ddd);
+    background: rgba(0, 0, 0, 0.02);
+  }
+
+  @media (max-width: 480px) {
+    .vod-body {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .vod-cta {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

@@ -8,6 +8,8 @@ const allPosts = (await Promise.all([
   getCollection("leader"),
   getCollection("strategy"),
   getCollection("books"),
+  getCollection("movie"),
+  getCollection("whatif"),
 ])).flat().sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 function slug(col: string, id: string) {
@@ -28,8 +30,8 @@ const popularTags = Object.entries(tagCount)
 ---
 
 <BaseLayout
-  title="記事一覧 | 戦略の系譜"
-  description="戦国・兵法・武将の戦略を現代ビジネスに応用する記事の一覧。"
+  title="記事一覧 | 決断の系譜"
+  description="古今東西の英傑の決断・合戦・映画・歴史IFまで。戦略と選択を深掘りする全記事一覧。"
 >
   <div class="container">
     <header class="page-header">

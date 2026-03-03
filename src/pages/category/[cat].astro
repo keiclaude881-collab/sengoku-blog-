@@ -3,10 +3,10 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticleCard from "../../components/ArticleCard.astro";
 
-type Cat = "battle" | "leader" | "strategy" | "books";
+type Cat = "battle" | "leader" | "strategy" | "books" | "movie" | "whatif";
 
 export async function getStaticPaths() {
-  const cats: Cat[] = ["battle", "leader", "strategy", "books"];
+  const cats: Cat[] = ["battle", "leader", "strategy", "books", "movie", "whatif"];
   return cats.map(cat => ({ params: { cat } }));
 }
 
@@ -26,7 +26,7 @@ const meta: Record<Cat, { label: string; deco: string; hook: string; desc: strin
     label: "武将の思想",
     deco:  "将",
     hook:  "英傑たちは、いかにして人を動かしたのか",
-    desc:  "信長・家康・武田信玄・チンギス・ハン——時代を超えたリーダーたちの意思決定・組織論・人心掌握術を現代のマネジメントに翻訳する。",
+    desc:  "信長・家康・武田信玄・チンギス・ハン・王翦——時代と国境を越えたリーダーたちの意思決定・組織論・人心掌握術を現代のマネジメントに翻訳する。",
   },
   strategy: {
     label: "兵法・現代応用",
@@ -40,6 +40,18 @@ const meta: Record<Cat, { label: string; deco: string; hook: string; desc: strin
     hook:  "この一冊が、あなたの思考を変える",
     desc:  "歴史×戦略×ビジネスの交差点で厳選した推薦図書をレビュー。孫子から現代経営まで、深く学ぶための一冊を見つけよう。",
   },
+  movie: {
+    label: "映画・SF",
+    deco:  "映",
+    hook:  "スクリーンが描く、人間の決断と戦略",
+    desc:  "歴史映画・戦争映画・SF——スクリーンに刻まれた意思決定の物語を深掘りする。作品解説・戦略分析・史実との比較、そして配信情報も。",
+  },
+  whatif: {
+    label: "歴史のIF",
+    deco:  "IF",
+    hook:  "あの選択が違っていたら、歴史はどう変わったか",
+    desc:  "関ヶ原で西軍が勝っていたら？ナポレオンがワーテルローで違う戦略を取っていたら？「もしも」の歴史を思考実験で検証する反実仮想シリーズ。",
+  },
 };
 
 const { label, deco, hook, desc } = meta[cat];
@@ -50,7 +62,7 @@ function slug(id: string) {
 ---
 
 <BaseLayout
-  title={`${label} — ${hook} | 戦略の系譜`}
+  title={`${label} — ${hook} | 決断の系譜`}
   description={desc}
 >
   <!-- カテゴリヒーロー -->
@@ -109,6 +121,8 @@ function slug(id: string) {
   .cat-hero--leader   { background: linear-gradient(135deg, #2A6B50 0%, #111111 100%); }
   .cat-hero--strategy { background: linear-gradient(135deg, #1E4A35 0%, #0a0a0a 100%); }
   .cat-hero--books    { background: linear-gradient(135deg, #1a3a2a 0%, #111111 100%); }
+  .cat-hero--movie    { background: linear-gradient(135deg, #1a1a4a 0%, #0a0a1a 100%); }
+  .cat-hero--whatif   { background: linear-gradient(135deg, #3a1a1a 0%, #111111 100%); }
 
   .cat-hero-inner {
     display: flex;

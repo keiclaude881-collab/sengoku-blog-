@@ -14,6 +14,8 @@ const allArticles = (await Promise.all([
   getCollection("leader"),
   getCollection("strategy").catch(() => []),
   getCollection("books").catch(() => []),
+  getCollection("movie").catch(() => []),
+  getCollection("whatif").catch(() => []),
 ])).flat().sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 const featured = allArticles.find(a => a.data.featured) ?? allArticles[0];
@@ -45,8 +47,8 @@ const marqueeItems = [
 ---
 
 <BaseLayout
-  title="戦略の系譜 | 戦国武将の判断が、あなたの正解になる。"
-  description="合戦・武将・兵法から学ぶ現代ビジネス戦略ブログ。関ヶ原、川中島、信長・家康の判断を現代語に翻訳する。"
+  title="決断の系譜 | 歴史の選択が、未来を変える。"
+  description="古今東西の英傑の決断・合戦・映画・SF・歴史IFまで。戦略と選択を深掘りする歴史×エンタメブログ。"
 >
   <!-- ヒーロー -->
   <Hero />
