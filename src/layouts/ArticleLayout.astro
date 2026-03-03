@@ -34,7 +34,7 @@ interface Props {
   description:      string;
   date:             Date;
   updatedAt?:       Date;
-  category:         "battle" | "leader" | "strategy" | "books";
+  category:         "battle" | "leader" | "strategy" | "books" | "movie" | "whatif";
   tags:             string[];
   readingTime:      number;
   ogImage?:         string;
@@ -46,7 +46,8 @@ interface Props {
 const { title, description, date, updatedAt, category, tags, readingTime, ogImage, lesson, affiliateBooks, relatedArticles, tocHeadings } = Astro.props;
 
 const catLabel: Record<string, string> = {
-  battle: "合戦分析", leader: "武将の思想", strategy: "兵法・現代応用", books: "書籍レビュー"
+  battle: "合戦分析", leader: "武将の思想", strategy: "兵法・現代応用", books: "書籍レビュー",
+  movie: "映画・SF", whatif: "歴史のIF",
 };
 
 const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -62,7 +63,7 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
 ---
 
 <BaseLayout
-  title={`${title} | 戦略の系譜`}
+  title={`${title} | 決断の系譜`}
   description={description}
   ogImage={ogImage}
   type="article"
@@ -193,10 +194,10 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
     "headline": title,
     "datePublished": iso,
     "dateModified": isoUpdated,
-    "author": { "@type": "Person", "name": "戦略の系譜" },
+    "author": { "@type": "Person", "name": "決断の系譜" },
     "publisher": {
       "@type": "Organization",
-      "name": "戦略の系譜",
+      "name": "決断の系譜",
       "logo": { "@type": "ImageObject", "url": "https://sengoku-blog.vercel.app/favicon.svg" }
     },
     "description": description,

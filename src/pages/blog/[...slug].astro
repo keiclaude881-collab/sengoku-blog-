@@ -4,12 +4,12 @@ import ArticleLayout from "../../layouts/ArticleLayout.astro";
 import Lesson from "../../components/Lesson.astro";
 import BookCard from "../../components/BookCard.astro";
 
-type CollectionName = "battle" | "leader" | "strategy" | "books";
-const collectionNames: CollectionName[] = ["battle", "leader", "strategy", "books"];
+type CollectionName = "battle" | "leader" | "strategy" | "books" | "movie" | "whatif";
+const collectionNames: CollectionName[] = ["battle", "leader", "strategy", "books", "movie", "whatif"];
 
 export async function getStaticPaths() {
   const allPosts = (await Promise.all(
-    (["battle", "leader", "strategy", "books"] as const).map(c => getCollection(c))
+    (["battle", "leader", "strategy", "books", "movie", "whatif"] as const).map(c => getCollection(c))
   )).flat();
 
   return allPosts.map(post => ({
