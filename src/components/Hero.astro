@@ -56,7 +56,9 @@
 
 <style>
   .hero {
-    background: var(--bg);
+    background:
+      linear-gradient(to right, rgba(5,12,5,0.82) 0%, rgba(5,12,5,0.55) 55%, rgba(5,12,5,0.25) 100%),
+      url('/images/header-bg.jpg') center center / cover no-repeat;
     min-height: 90vh;
     display: flex;
     align-items: center;
@@ -102,7 +104,7 @@
     font-family: var(--font-serif);
     font-size: clamp(2.4rem, 5vw, 4.2rem);
     font-weight: 700;
-    color: var(--ink);
+    color: #fff;
     line-height: 1.25;
     letter-spacing: 0.02em;
   }
@@ -117,7 +119,7 @@
     font-size: clamp(0.9rem, 1.4vw, 1rem);
     font-weight: 400;
     line-height: 2.1;
-    color: var(--ink2);
+    color: rgba(255,255,255,0.8);
     border-left: 2px solid var(--gold-light);
     padding-left: 1.2rem;
   }
@@ -168,9 +170,10 @@
     color: var(--gold);
   }
 
-  /* ── 右：ダーク藍パネル ── */
+  /* ── 右：半透明パネル ── */
   .hero-panel {
-    background: var(--accent);
+    background: rgba(10, 25, 10, 0.55);
+    border: 1px solid rgba(201, 168, 76, 0.2);
     border-radius: 4px;
     padding: 3rem 2.4rem;
     position: relative;
@@ -178,6 +181,7 @@
     height: 420px;
     display: flex;
     align-items: flex-end;
+    backdrop-filter: blur(4px);
   }
 
   .panel-deco {
