@@ -9,7 +9,7 @@ interface Props {
 const {
   title,
   description,
-  ogImage = "/images/default-ogp.svg",
+  ogImage = "/images/cat-ogp.svg",
   type = "website",
   publishedAt,
 } = Astro.props;
@@ -23,7 +23,8 @@ const ga4Id = import.meta.env.GA4_MEASUREMENT_ID ?? "G-XXXXXXXXXX";
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalURL} />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/jpeg" href="/images/cat-icon.jpg" />
+<link rel="apple-touch-icon" href="/images/cat-icon.jpg" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 
 <!-- Google Fonts -->

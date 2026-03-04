@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f0a" />
+      <stop offset="100%" style="stop-color:#101a10" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#c9a84c" />
+      <stop offset="100%" style="stop-color:#e8c96d" />
+    </linearGradient>
+    <linearGradient id="green" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2A6B50" />
+      <stop offset="100%" style="stop-color:#3d9e76" />
+    </linearGradient>
+    <clipPath id="catClip">
+      <circle cx="200" cy="315" r="220" />
+    </clipPath>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <!-- 猫アイコン（左側） -->
+  <image href="/images/cat-icon.jpg" x="-100" y="55" width="540" height="540" clip-path="url(#catClip)" opacity="0.95" />
+
+  <!-- 猫の右側にグラデーションフェード -->
+  <rect x="300" y="0" width="200" height="630" fill="url(#bg)" opacity="0.7" />
+
+  <!-- 縦の区切りライン -->
+  <rect x="480" y="60" width="2" height="510" fill="url(#gold)" opacity="0.4" />
+
+  <!-- 上の横ライン -->
+  <rect x="500" y="60" width="640" height="2" fill="url(#gold)" opacity="0.4" />
+
+  <!-- 下の横ライン -->
+  <rect x="500" y="568" width="640" height="2" fill="url(#gold)" opacity="0.4" />
+
+  <!-- 右端の縦ライン -->
+  <rect x="1136" y="60" width="3" height="510" fill="url(#gold)" opacity="0.3" />
+
+  <!-- サイトタイトル -->
+  <text x="840" y="240" font-family="serif" font-size="76" font-weight="bold"
+        fill="url(#gold)" text-anchor="middle" letter-spacing="16">決断の系譜</text>
+
+  <!-- 区切り線 -->
+  <rect x="580" y="275" width="520" height="1" fill="url(#green)" opacity="0.8" />
+
+  <!-- サブタイトル -->
+  <text x="840" y="330" font-family="serif" font-size="24"
+        fill="#d4c5a0" text-anchor="middle" letter-spacing="4" opacity="0.9">歴史の選択が、未来を変える。</text>
+
+  <!-- ドメイン -->
+  <text x="840" y="530" font-family="monospace" font-size="18"
+        fill="#6a6a6a" text-anchor="middle" letter-spacing="2">sengoku-blog.vercel.app</text>
+</svg>
