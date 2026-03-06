@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f0a" />
+      <stop offset="100%" style="stop-color:#1a2a1a" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#c9a84c" />
+      <stop offset="100%" style="stop-color:#e8c96d" />
+    </linearGradient>
+    <linearGradient id="green" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2A6B50" />
+      <stop offset="100%" style="stop-color:#3d9e76" />
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="400" height="400" fill="url(#bg)" />
+
+  <!-- 外枠の円 -->
+  <circle cx="200" cy="200" r="185" fill="none" stroke="url(#gold)" stroke-width="2" opacity="0.6" />
+
+  <!-- 内側の細い円 -->
+  <circle cx="200" cy="200" r="170" fill="none" stroke="url(#green)" stroke-width="1" opacity="0.4" />
+
+  <!-- 左の縦ライン -->
+  <rect x="36" y="80" width="3" height="240" fill="url(#gold)" opacity="0.7" />
+
+  <!-- 右の縦ライン -->
+  <rect x="361" y="80" width="3" height="240" fill="url(#gold)" opacity="0.3" />
+
+  <!-- メインの漢字「決」 -->
+  <text x="200" y="230" font-family="serif" font-size="160" font-weight="bold"
+        fill="url(#gold)" text-anchor="middle" opacity="0.95">決</text>
+
+  <!-- 下のサブテキスト -->
+  <text x="200" y="295" font-family="serif" font-size="22"
+        fill="#8ab89a" text-anchor="middle" letter-spacing="8" opacity="0.9">断の系譜</text>
+
+  <!-- 上の細い横ライン -->
+  <rect x="100" y="110" width="200" height="1" fill="url(#gold)" opacity="0.3" />
+
+  <!-- 下の細い横ライン -->
+  <rect x="100" y="310" width="200" height="1" fill="url(#gold)" opacity="0.3" />
+</svg>

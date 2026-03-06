@@ -1,5 +1,4 @@
 ---
-const formspreeId = import.meta.env.FORMSPREE_ID ?? "";
 ---
 
 <section class="newsletter" aria-label="メールマガジン登録">
@@ -10,33 +9,17 @@ const formspreeId = import.meta.env.FORMSPREE_ID ?? "";
       新着記事・武将の名言・ビジネス応用コラムをまとめてお届けします。
     </p>
 
-    {formspreeId ? (
-      <form
-        class="newsletter-form"
-        action={`https://formspree.io/f/${formspreeId}`}
-        method="POST"
-      >
-        <input type="hidden" name="_subject" value="戦略の系譜 メルマガ登録" />
-        <div class="newsletter-row">
-          <label for="nl-email" class="sr-only">メールアドレス</label>
-          <input
-            id="nl-email"
-            type="email"
-            name="email"
-            placeholder="your@email.com"
-            required
-            class="newsletter-input"
-            autocomplete="email"
-          />
-          <button type="submit" class="newsletter-btn">登録する</button>
-        </div>
-        <p class="newsletter-note">
-          スパムはしません。いつでも解除できます。
-        </p>
-      </form>
-    ) : (
-      <p class="newsletter-unavailable">現在準備中です。</p>
-    )}
+    <div class="substack-embed">
+      <iframe
+        src="https://ketsudankeifu.substack.com/embed"
+        width="100%"
+        height="200"
+        style="border:none; background: transparent;"
+        frameborder="0"
+        scrolling="no"
+        title="Substackメールマガジン登録"
+      ></iframe>
+    </div>
   </div>
 </section>
 
@@ -92,64 +75,7 @@ const formspreeId = import.meta.env.FORMSPREE_ID ?? "";
     color: rgba(255, 255, 255, 0.6);
     margin-bottom: 1.5rem;
   }
-  .newsletter-row {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-  }
-  .newsletter-input {
-    flex: 1;
-    min-width: 200px;
-    padding: 0.65rem 1rem;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 4px;
-    color: #fff;
-    font-family: var(--font-sans);
-    font-size: 0.9rem;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  .newsletter-input::placeholder {
-    color: rgba(255, 255, 255, 0.35);
-  }
-  .newsletter-input:focus {
-    border-color: var(--orange, #c2410c);
-  }
-  .newsletter-btn {
-    padding: 0.65rem 1.5rem;
-    background: var(--orange, #c2410c);
-    color: #fff;
-    font-family: var(--font-sans);
-    font-size: 0.875rem;
-    font-weight: 700;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    letter-spacing: 0.05em;
-    transition: background 0.2s;
-    white-space: nowrap;
-  }
-  .newsletter-btn:hover {
-    background: var(--orange-dark, #9a3412);
-  }
-  .newsletter-note {
-    margin-top: 0.75rem;
-    font-family: var(--font-sans);
-    font-size: 0.72rem;
-    color: rgba(255, 255, 255, 0.3);
-  }
-  .newsletter-unavailable {
-    font-family: var(--font-sans);
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.4);
-  }
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    white-space: nowrap;
+  .substack-embed {
+    margin-top: 0.5rem;
   }
 </style>

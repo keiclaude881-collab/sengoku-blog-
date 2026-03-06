@@ -69,16 +69,16 @@ const QUERIES = {
   nobunaga:            'castle fire dramatic japan warrior night',
   'richard-lionheart': 'richard lionheart crusade medieval castle',
   saladin:             'crusades jerusalem medieval castle warrior',
-  sanada:              'sanada brave red armor samurai warrior',
+  sanada:              'red samurai warrior armor japan',
   scipio:              'scipio africanus rome general ancient',
-  shingen:             'takeda shingen samurai tiger warrior japan',
-  'takeda-katsuyori':  'samurai defeated warrior japan battle field',
-  'takenaka-hanbei':   'samurai strategist adviser intelligent warrior',
+  shingen:             'samurai general warrior japan helmet',
+  'takeda-katsuyori':  'samurai battlefield defeat japan warrior',
+  'takenaka-hanbei':   'castle advisor japan samurai strategy',
   'tokugawa-yoshinobu':'japan shogun meiji restoration samurai sword',
   'wang-jian':         'qin dynasty china general ancient conquest',
   wellington:          'duke wellington british general waterloo',
-  'yamamoto-isoroku':  'yamamoto admiral japan navy pacific ocean',
-  'zhuge-liang':       'zhuge liang china strategist wise ancient',
+  'yamamoto-isoroku':  'admiral navy japan pacific warship ocean',
+  'zhuge-liang':       'ancient china adviser wise strategist war',
 
   // strategy
   blitzkrieg:          'tank blitzkrieg germany speed lightning attack',
@@ -175,21 +175,33 @@ function hasInlineImages(body) {
 }
 
 function insertImagesInBody(body, img1, img2) {
-  const SEP = '\n\n---\n\n';
-  const parts = body.split(SEP);
+  if (!img1 && !img2) return body;
 
-  if (parts.length < 2) return body;
+  // ## ヘッダーの位置を見つけて挿入
+  const headingPattern = /\n(## .+)/g;
+  const matches = [...body.matchAll(headingPattern)];
 
-  const out = [];
-  for (let i = 0; i < parts.length; i++) {
-    out.push(parts[i]);
-    if (i < parts.length - 1) {
-      out.push(SEP);
-      if (i === 0 && img1) out.push(`![](${img1})\n\n`);
-      if (i === 2 && img2) out.push(`![](${img2})\n\n`);
-    }
+  if (matches.length < 2) return body; // セクションが少なすぎる
+
+  let result = body;
+  let offset = 0;
+
+  // 2番目のセクション前に img1 を挿入
+  if (img1 && matches[1]) {
+    const pos = matches[1].index + offset;
+    const insertion = `\n\n![](${img1})\n`;
+    result = result.slice(0, pos) + insertion + result.slice(pos);
+    offset += insertion.length;
   }
-  return out.join('');
+
+  // 4番目のセクション前に img2 を挿入（存在する場合）
+  if (img2 && matches[3]) {
+    const pos = matches[3].index + offset;
+    const insertion = `\n\n![](${img2})\n`;
+    result = result.slice(0, pos) + insertion + result.slice(pos);
+  }
+
+  return result;
 }
 
 // ──────────────────────────────────────────
@@ -224,8 +236,8 @@ async function main() {
       const frontmatter = content.slice(0, fmEnd + 3);
       const body        = content.slice(fmEnd + 3);
 
-      // 既に本文画像があればスキップ
-      if (hasInlineImages(body)) {
+      // 既にogImage(Unsplash)があればスキップ
+      if (frontmatter.includes('ogImage:') && frontmatter.includes('unsplash.com')) {
         console.log(`  ⏭️  ${file} (スキップ)`);
         skipped++;
         continue;
