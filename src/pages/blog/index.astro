@@ -60,6 +60,7 @@ const popularTags = Object.entries(tagCount)
               readingTime={post.data.readingTime}
               lesson={post.data.lesson}
               slug={slug(post.collection, post.id)}
+              ogImage={post.data.ogImage}
             />
           </li>
         ))}
