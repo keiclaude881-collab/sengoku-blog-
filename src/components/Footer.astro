@@ -35,6 +35,14 @@ const cols = [
         <p class="footer-desc">
           古今東西の英傑たちの決断を深掘りする歴史×戦略ブログ。戦国から世界史、映画・SF、そして「あの時、もし違う選択をしていたら」まで。
         </p>
+        <div class="footer-social">
+          <a href="https://note.com/ketsudan_keifu" target="_blank" rel="noopener noreferrer" class="social-btn">
+            note
+          </a>
+          <a href="https://substack.com/@kettsudan_keifu" target="_blank" rel="noopener noreferrer" class="social-btn">
+            Substack
+          </a>
+        </div>
       </div>
 
       <nav class="footer-nav" aria-label="フッターナビ">
@@ -108,6 +116,28 @@ const cols = [
     line-height: 1.85;
     color: var(--ink3);
     max-width: 360px;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 1.2rem;
+  }
+  .social-btn {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--ink2);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 0.35rem 0.8rem;
+    text-decoration: none;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .social-btn:hover {
+    color: var(--gold);
+    border-color: var(--gold);
   }
 
   .footer-nav {
