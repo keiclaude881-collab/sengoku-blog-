@@ -1,124 +1,405 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import BookCard from "../../components/BookCard.astro";
 import AffiliateDisclosure from "../../components/AffiliateDisclosure.astro";
+import { getCollection } from "astro:content";
 
-const sections = [
-  {
-    title: "兵法・古典",
-    books: [
-      { title: "孫子の兵法（知的生きかた文庫）", asin: "4837900186", reason: "情報戦の原典。競合分析の基礎が凝縮されている" },
-      { title: "五輪書（岩波文庫）", asin: "4003300211", reason: "個の強さとは何か。武蔵の戦略哲学を学ぶ" },
-      { title: "葉隠 武士道という生き方", asin: "483797872X", reason: "覚悟と決断の哲学。リーダーシップの原点" },
-    ],
-  },
-  {
-    title: "戦国武将に学ぶ",
-    books: [
-      { title: "信長研究の最前線", asin: "4022620307", reason: "破壊的イノベーターとしての信長の経営思想" },
-      { title: "家康の決断 天下取りに隠された７つの布石", asin: "4863102585", reason: "長期戦略と組織マネジメントの極意" },
-      { title: "戦国大変 決断を迫られた武将たち", asin: "4847073193", reason: "逆境での意思決定。現代のリスクマネジメントへ" },
-    ],
-  },
-  {
-    title: "現代経営・戦略",
-    books: [
-      { title: "戦略の本質", asin: "4532194628", reason: "日本の合戦を経営戦略の視点で再解釈した名著" },
-      { title: "失敗の本質", asin: "4122018331", reason: "なぜ日本軍は負けたのか。組織論の古典" },
-      { title: "競争の戦略", asin: "4478371520", reason: "業界分析フレームワークの原点" },
-    ],
-  },
-  {
-    title: "思考・交渉・リーダーシップ",
-    books: [
-      { title: "ハーバード流交渉術 必ず「望む結果」を引き出せる！", asin: "4837957323", reason: "孫子の「彼を知り己を知れば」の現代版実践書" },
-      { title: "影響力の武器[第三版]", asin: "4414304229", reason: "心理戦の基礎。調略・説得の現代的分析" },
-      { title: "ビジョナリーカンパニー", asin: "4822740315", reason: "長続きする組織の秘密。徳川幕府の組織論と重なる" },
-    ],
-  },
-];
+const COLLECTIONS = ["battle", "leader", "strategy", "books", "movie", "whatif"] as const;
+const allEntries = (await Promise.all(COLLECTIONS.map((c) => getCollection(c)))).flat();
+
+const COLLECTION_LABEL: Record<string, string> = {
+  battle:   "合戦",
+  leader:   "武将",
+  strategy: "戦略",
+  books:    "書評",
+  movie:    "映画",
+  whatif:   "if",
+};
+
+type ArticleRef = { title: string; url: string; collection: string };
+type BookData   = { title: string; asin: string; reason: string; articles: ArticleRef[] };
+
+const bookMap = new Map<string, BookData>();
+
+for (const entry of allEntries) {
+  const affiliateBooks = entry.data.affiliateBooks ?? [];
+  const slug = entry.id.replace(/\.mdx?$/, "");
+  const url  = `/${entry.collection}/${slug}`;
+
+  for (const book of affiliateBooks) {
+    if (!bookMap.has(book.asin)) {
+      bookMap.set(book.asin, { title: book.title, asin: book.asin, reason: book.reason, articles: [] });
+    }
+    const rec = bookMap.get(book.asin)!;
+    if (!rec.articles.find((a) => a.url === url)) {
+      rec.articles.push({ title: entry.data.title, url, collection: entry.collection });
+    }
+    // Prefer longer reason text
+    if (book.reason.length > rec.reason.length) rec.reason = book.reason;
+  }
+}
+
+const books = [...bookMap.values()].sort((a, b) => b.articles.length - a.articles.length);
+const totalBooks   = books.length;
+const totalCitations = allEntries.reduce((s, e) => s + (e.data.affiliateBooks?.length ?? 0), 0);
+const totalArticles  = allEntries.length;
+
+const associateId = import.meta.env.AMAZON_ASSOCIATE_ID ?? "sengokublog20-22";
+
+function coverUrl(asin: string) {
+  return `https://images-na.ssl-images-amazon.com/images/P/${asin}.09.LZZZZZZZ.jpg`;
+}
+function amazonUrl(asin: string) {
+  return `https://www.amazon.co.jp/dp/${asin}/?tag=${associateId}`;
+}
+function badge(count: number) {
+  if (count >= 20) return { label: "殿堂", cls: "badge-hall" };
+  if (count >= 10) return { label: "定番", cls: "badge-classic" };
+  if (count >=  5) return { label: "人気", cls: "badge-pop" };
+  return null;
+}
+
+const placeholders = ["兵", "謀", "戦", "策", "智", "将", "武", "覇", "道", "義"];
+function placeholder(asin: string) {
+  return placeholders[parseInt(asin.slice(-1), 10)] ?? "書";
+}
+
+function truncate(s: string, n: number) {
+  return s.length > n ? s.slice(0, n) + "…" : s;
+}
 ---
 
 <BaseLayout
-  title="おすすめ書籍 | 戦略の系譜"
-  description="歴史×現代ビジネスを深く学ぶための厳選書籍リスト。兵法・古典から現代経営まで。"
+  title="戦略の図書館 | 決断の系譜"
+  description={`全${totalArticles}記事が推薦する${totalBooks}冊。合戦・武将・兵法から現代経営まで、記事横断の書籍一覧。`}
 >
   <div class="container">
-    <header class="page-header">
-      <h1>この戦略を深く学ぶ、一冊。</h1>
-      <p>歴史×現代ビジネスを深く学ぶための、厳選書籍リスト。</p>
+
+    <header class="lib-header">
+      <p class="lib-eyebrow">LIBRARY</p>
+      <h1 class="lib-title">戦略の図書館</h1>
+      <p class="lib-sub">全記事の推薦書籍を一冊も漏らさず。</p>
+      <div class="lib-stats">
+        <span class="stat"><strong>{totalBooks}</strong> 冊</span>
+        <span class="stat-sep">·</span>
+        <span class="stat"><strong>{totalCitations}</strong> 推薦</span>
+        <span class="stat-sep">·</span>
+        <span class="stat"><strong>{totalArticles}</strong> 記事</span>
+      </div>
     </header>
 
     <AffiliateDisclosure />
 
-    {sections.map(section => (
-      <section class="book-section">
-        <h2 class="book-section-title">{section.title}</h2>
-        <div class="book-grid">
-          {section.books.map(b => (
-            <BookCard title={b.title} asin={b.asin} reason={b.reason} />
-          ))}
-        </div>
-      </section>
-    ))}
-  </div>
+    <div class="books-grid">
+      {books.map((book) => {
+        const b = badge(book.articles.length);
+        const showArticles = book.articles.length > 0;
+        return (
+          <div class="lib-card">
+            {b && <span class={`badge ${b.cls}`}>{b.label}</span>}
+            <a
+              href={amazonUrl(book.asin)}
+              target="_blank"
+              rel="nofollow sponsored noopener"
+              class="cover-link"
+              aria-label={`${book.title} - Amazonで見る`}
+            >
+              <div class="cover-wrap">
+                <img
+                  src={coverUrl(book.asin)}
+                  alt={book.title}
+                  width="120"
+                  height="180"
+                  loading="lazy"
+                  onerror={`this.style.display='none';this.nextElementSibling.style.display='flex'`}
+                />
+                <span class="cover-placeholder" style="display:none">{placeholder(book.asin)}</span>
+              </div>
+            </a>
 
-  <div class="footer-disclosure container">
-    <AffiliateDisclosure />
+            <div class="card-body">
+              <p class="card-title">{truncate(book.title, 30)}</p>
+              <p class="cite-count">
+                <span class="cite-num">{book.articles.length}</span>
+                <span class="cite-label">記事で推薦</span>
+              </p>
+              <p class="card-reason">{truncate(book.reason, 40)}</p>
+
+              {showArticles && (
+                <details class="article-list">
+                  <summary>この本が登場する記事 ({book.articles.length})</summary>
+                  <ul>
+                    {book.articles.map((a) => (
+                      <li>
+                        <span class="col-tag">{COLLECTION_LABEL[a.collection] ?? a.collection}</span>
+                        <a href={a.url}>{truncate(a.title, 28)}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              )}
+
+              <a
+                href={amazonUrl(book.asin)}
+                target="_blank"
+                rel="nofollow sponsored noopener"
+                class="amazon-btn"
+              >
+                Amazonで見る →
+              </a>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <div class="footer-disclosure">
+      <AffiliateDisclosure />
+    </div>
   </div>
 </BaseLayout>
 
 <style>
-  .book-section {
-    margin-bottom: var(--sp-lg);
-    background: var(--bg-navy);
-    padding: var(--sp-lg);
-    border-radius: 6px;
-    position: relative;
-    overflow: hidden;
+  /* ── Page header ── */
+  .lib-header {
+    text-align: center;
+    padding: var(--sp-lg) 0 var(--sp-md);
   }
-  .book-section::after {
-    content: attr(data-deco);
-    font-family: var(--font-serif);
-    font-size: 20rem;
-    font-weight: 800;
-    color: rgba(185, 28, 28, 0.05);
-    position: absolute;
-    right: -2rem;
-    bottom: -2rem;
-    line-height: 1;
-    pointer-events: none;
-    user-select: none;
+  .lib-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: var(--amber, #d4a017);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
   }
-
-  .book-section-title {
+  .lib-title {
     font-family: var(--font-serif);
-    font-size: 1.25rem;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
     font-weight: 700;
     color: #fff;
+    margin-bottom: 0.4rem;
     letter-spacing: 0.04em;
-    margin-bottom: 1.6rem;
-    padding-bottom: 0.8rem;
-    border-bottom: 1px solid rgba(185, 28, 28, 0.35);
-    position: relative;
-    z-index: 1;
   }
+  .lib-sub {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 1rem;
+  }
+  .lib-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .lib-stats strong {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--orange, #c2410c);
+  }
+  .stat-sep { color: rgba(255,255,255,0.25); }
 
-  .book-grid {
+  /* ── Grid ── */
+  .books-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 1rem;
-    max-width: 900px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .footer-disclosure {
-    padding-bottom: var(--sp-md);
+    gap: 1.25rem;
     margin-top: var(--sp-md);
   }
 
-  @media (max-width: 600px) {
-    .book-grid { grid-template-columns: repeat(2, 1fr); }
+  /* ── Card ── */
+  .lib-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .lib-card:hover {
+    border-color: var(--orange, #c2410c);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Badges */
+  .badge {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 2;
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+  .badge-hall    { background: #b91c1c; color: #fff; }
+  .badge-classic { background: var(--amber, #d4a017); color: #1a1200; }
+  .badge-pop     { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); }
+
+  /* Cover */
+  .cover-link { display: block; flex-shrink: 0; }
+  .cover-wrap {
+    aspect-ratio: 2/3;
+    background: rgba(255, 255, 255, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .cover-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.2s;
+  }
+  .lib-card:hover .cover-wrap img { opacity: 0.9; }
+  .cover-placeholder {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+  }
+
+  /* Card body */
+  .card-body {
+    padding: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+  }
+  .card-title {
+    font-family: var(--font-serif);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .cite-count {
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+    margin: 0;
+  }
+  .cite-num {
+    font-family: var(--font-sans);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--orange, #c2410c);
+    line-height: 1;
+  }
+  .cite-label {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.45);
+  }
+  .card-reason {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.65;
+    margin: 0;
+    flex: 1;
+  }
+
+  /* Article list */
+  .article-list {
+    margin-top: 0.25rem;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+  }
+  .article-list summary {
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.45);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0;
+    user-select: none;
+    transition: color 0.15s;
+  }
+  .article-list summary::-webkit-details-marker { display: none; }
+  .article-list summary::before {
+    content: "▶";
+    font-size: 0.55rem;
+    transition: transform 0.15s;
+    display: inline-block;
+  }
+  .article-list[open] summary::before { transform: rotate(90deg); }
+  .article-list summary:hover { color: rgba(255, 255, 255, 0.75); }
+  .article-list ul {
+    margin: 0.4rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .article-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    line-height: 1.5;
+  }
+  .col-tag {
+    font-size: 0.6rem;
+    font-weight: 700;
+    background: rgba(185, 28, 28, 0.25);
+    color: rgba(255, 100, 100, 0.85);
+    padding: 0.05rem 0.3rem;
+    border-radius: 2px;
+    flex-shrink: 0;
+    letter-spacing: 0.04em;
+  }
+  .article-list a {
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .article-list a:hover { color: var(--amber, #d4a017); text-decoration: underline; }
+
+  /* Amazon CTA */
+  .amazon-btn {
+    display: block;
+    text-align: center;
+    padding: 0.5rem;
+    background: var(--orange, #c2410c);
+    border-radius: 3px;
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: background 0.2s;
+    margin-top: auto;
+  }
+  .amazon-btn:hover { background: #9a3412; }
+
+  .footer-disclosure { margin-top: var(--sp-lg); }
+
+  @media (max-width: 480px) {
+    .books-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
   }
 </style>
