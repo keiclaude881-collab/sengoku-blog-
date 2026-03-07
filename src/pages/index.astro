@@ -92,7 +92,9 @@ const marqueeItems = [
         <form
           class="email-form"
           id="newsletter-form"
-          data-formspree-id={formspreeId}
+          action="https://ketsudankeifu.substack.com/subscribe"
+          method="get"
+          target="_blank"
         >
           <label class="form-label" for="email-input">メールアドレス</label>
           <div class="form-row">
@@ -334,29 +336,11 @@ const marqueeItems = [
   const form = document.getElementById('newsletter-form') as HTMLFormElement | null;
   const thanks = document.getElementById('email-thanks') as HTMLElement | null;
   if (form && thanks) {
-    form.addEventListener('submit', async e => {
-      e.preventDefault();
-      const emailInput = form.querySelector('input[type="email"]') as HTMLInputElement;
-      const email = emailInput?.value?.trim();
-      if (!email) return;
-      try {
-        const res = await fetch('https://substackapi.com/api/subscribe', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, domain: 'ketsudankeifu.substack.com' }),
-        });
-        if (res.ok) {
-          form.hidden = true;
-          thanks.hidden = false;
-        } else {
-          // フォールバック：Substackページへ誘導
-          window.open(`https://ketsudankeifu.substack.com/subscribe?email=${encodeURIComponent(email)}`, '_blank');
-          form.hidden = true;
-          thanks.hidden = false;
-        }
-      } catch {
-        window.open('https://ketsudankeifu.substack.com/subscribe', '_blank');
-      }
+    form.addEventListener('submit', () => {
+      setTimeout(() => {
+        form.hidden = true;
+        thanks.hidden = false;
+      }, 100);
     });
   }
 
