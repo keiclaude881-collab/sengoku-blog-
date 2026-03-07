@@ -83,7 +83,7 @@ const marqueeItems = [
         <h2 class="email-heading">週1回、武将の戦略Tipsを届ける。</h2>
         <ul class="email-benefits">
           <li><span class="benefit-check">✓</span> 歴史×ビジネスの深掘りコラム（週1回）</li>
-          <li><span class="benefit-check">✓</span> 登録者限定の図解・チェックリスト</li>
+          <li><span class="benefit-check">✓</span> 登録者限定の深掘りコラム</li>
           <li><span class="benefit-check">✓</span> 新着記事の先行通知</li>
         </ul>
         <p class="email-note">無料・いつでも解除可能</p>
@@ -293,8 +293,8 @@ const marqueeItems = [
     <div class="container banner-inner">
       <div class="banner-text">
         <span class="banner-tag note-tag">note</span>
-        <h3 class="banner-heading note-heading">図解・チェックリストをPDFで。</h3>
-        <p class="banner-body note-body">記事の深掘り版。戦国×ビジネスの思考フレームをまとめたPDFを販売中。</p>
+        <h3 class="banner-heading note-heading">記事の深掘り・思考フレームをnoteで。</h3>
+        <p class="banner-body note-body">歴史×ビジネスの戦略思考を深掘りしたコンテンツを発信中。</p>
       </div>
       <a
         href="https://note.com/"
@@ -330,28 +330,32 @@ const marqueeItems = [
 </div>
 
 <script>
-  // メルマガフォーム（Formspree）
+  // メルマガフォーム（Substack）
   const form = document.getElementById('newsletter-form') as HTMLFormElement | null;
   const thanks = document.getElementById('email-thanks') as HTMLElement | null;
   if (form && thanks) {
     form.addEventListener('submit', async e => {
       e.preventDefault();
-      const formspreeId = form.dataset.formspreeId;
-      if (formspreeId) {
-        try {
-          const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
-            method: 'POST',
-            headers: { 'Accept': 'application/json' },
-            body: new FormData(form),
-          });
-          if (res.ok) {
-            form.hidden = true;
-            thanks.hidden = false;
-          }
-        } catch {}
-      } else {
-        form.hidden = true;
-        thanks.hidden = false;
+      const emailInput = form.querySelector('input[type="email"]') as HTMLInputElement;
+      const email = emailInput?.value?.trim();
+      if (!email) return;
+      try {
+        const res = await fetch('https://substackapi.com/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, domain: 'ketsudankeifu.substack.com' }),
+        });
+        if (res.ok) {
+          form.hidden = true;
+          thanks.hidden = false;
+        } else {
+          // フォールバック：Substackページへ誘導
+          window.open(`https://ketsudankeifu.substack.com/subscribe?email=${encodeURIComponent(email)}`, '_blank');
+          form.hidden = true;
+          thanks.hidden = false;
+        }
+      } catch {
+        window.open('https://ketsudankeifu.substack.com/subscribe', '_blank');
       }
     });
   }

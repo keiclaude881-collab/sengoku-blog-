@@ -14,7 +14,7 @@ const bookMap = new Map<string, BookData>();
 for (const entry of allEntries) {
   const affiliateBooks = entry.data.affiliateBooks ?? [];
   const slug = entry.id.replace(/\.mdx?$/, "");
-  const url  = `/${entry.collection}/${slug}`;
+  const url  = `/blog/${entry.collection}/${slug}`;
 
   for (const book of affiliateBooks) {
     if (!bookMap.has(book.asin)) {
@@ -283,12 +283,12 @@ function placeholder(asin: string) {
   .ref-label {
     font-family: var(--font-sans);
     font-size: 0.75rem;
-    color: var(--ink3);
+    color: var(--ink2);
     line-height: 1.6;
     margin: 0;
   }
   .ref-link {
-    color: var(--ink3);
+    color: var(--ink2);
     text-decoration: underline;
     text-underline-offset: 2px;
     transition: color 0.15s;
