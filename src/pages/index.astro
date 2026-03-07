@@ -94,7 +94,6 @@ const marqueeItems = [
           id="newsletter-form"
           action="https://ketsudankeifu.substack.com/subscribe"
           method="get"
-          target="_blank"
         >
           <label class="form-label" for="email-input">メールアドレス</label>
           <div class="form-row">
@@ -336,12 +335,6 @@ const marqueeItems = [
   const form = document.getElementById('newsletter-form') as HTMLFormElement | null;
   const thanks = document.getElementById('email-thanks') as HTMLElement | null;
   if (form && thanks) {
-    form.addEventListener('submit', () => {
-      setTimeout(() => {
-        form.hidden = true;
-        thanks.hidden = false;
-      }, 100);
-    });
   }
 
   // スティッキーCTA
