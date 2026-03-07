@@ -6,15 +6,6 @@ import { getCollection } from "astro:content";
 const COLLECTIONS = ["battle", "leader", "strategy", "books", "movie", "whatif"] as const;
 const allEntries = (await Promise.all(COLLECTIONS.map((c) => getCollection(c)))).flat();
 
-const COLLECTION_LABEL: Record<string, string> = {
-  battle:   "合戦",
-  leader:   "武将",
-  strategy: "戦略",
-  books:    "書評",
-  movie:    "映画",
-  whatif:   "if",
-};
-
 type ArticleRef = { title: string; url: string; collection: string };
 type BookData   = { title: string; asin: string; reason: string; articles: ArticleRef[] };
 
@@ -33,15 +24,13 @@ for (const entry of allEntries) {
     if (!rec.articles.find((a) => a.url === url)) {
       rec.articles.push({ title: entry.data.title, url, collection: entry.collection });
     }
-    // Prefer longer reason text
     if (book.reason.length > rec.reason.length) rec.reason = book.reason;
   }
 }
 
 const books = [...bookMap.values()].sort((a, b) => b.articles.length - a.articles.length);
-const totalBooks   = books.length;
-const totalCitations = allEntries.reduce((s, e) => s + (e.data.affiliateBooks?.length ?? 0), 0);
-const totalArticles  = allEntries.length;
+const totalBooks    = books.length;
+const totalArticles = allEntries.length;
 
 const associateId = import.meta.env.AMAZON_ASSOCIATE_ID ?? "sengokublog20-22";
 
@@ -51,106 +40,106 @@ function coverUrl(asin: string) {
 function amazonUrl(asin: string) {
   return `https://www.amazon.co.jp/dp/${asin}/?tag=${associateId}`;
 }
-function badge(count: number) {
-  if (count >= 20) return { label: "殿堂", cls: "badge-hall" };
-  if (count >= 10) return { label: "定番", cls: "badge-classic" };
-  if (count >=  5) return { label: "人気", cls: "badge-pop" };
-  return null;
+function rakutenUrl(title: string) {
+  return `https://books.rakuten.co.jp/search/?sitem=${encodeURIComponent(title)}`;
+}
+
+// 書評記事（booksコレクション）を優先リンクとして取得
+function reviewLink(articles: ArticleRef[]) {
+  return articles.find((a) => a.collection === "books") ?? null;
 }
 
 const placeholders = ["兵", "謀", "戦", "策", "智", "将", "武", "覇", "道", "義"];
 function placeholder(asin: string) {
   return placeholders[parseInt(asin.slice(-1), 10)] ?? "書";
 }
-
-function truncate(s: string, n: number) {
-  return s.length > n ? s.slice(0, n) + "…" : s;
-}
 ---
 
 <BaseLayout
   title="戦略の図書館 | 決断の系譜"
-  description={`全${totalArticles}記事が推薦する${totalBooks}冊。合戦・武将・兵法から現代経営まで、記事横断の書籍一覧。`}
+  description={`全${totalArticles}記事で紹介した${totalBooks}冊を、内容紹介つきで一覧。歴史・戦略・リーダーシップの本棚。`}
 >
   <div class="container">
 
     <header class="lib-header">
       <p class="lib-eyebrow">LIBRARY</p>
       <h1 class="lib-title">戦略の図書館</h1>
-      <p class="lib-sub">全記事の推薦書籍を一冊も漏らさず。</p>
+      <p class="lib-sub">全記事で紹介した本を、内容紹介つきでまとめました。<br>気になる本は、書評記事もあわせてどうぞ。</p>
       <div class="lib-stats">
-        <span class="stat"><strong>{totalBooks}</strong> 冊</span>
+        <span class="stat"><strong>{totalBooks}</strong>冊掲載</span>
         <span class="stat-sep">·</span>
-        <span class="stat"><strong>{totalCitations}</strong> 推薦</span>
-        <span class="stat-sep">·</span>
-        <span class="stat"><strong>{totalArticles}</strong> 記事</span>
+        <span class="stat"><strong>{totalArticles}</strong>記事から厳選</span>
       </div>
     </header>
 
     <AffiliateDisclosure />
 
-    <div class="books-grid">
+    <ul class="books-list">
       {books.map((book) => {
-        const b = badge(book.articles.length);
-        const showArticles = book.articles.length > 0;
+        const review = reviewLink(book.articles);
+        const otherArticles = book.articles.filter((a) => a.collection !== "books");
         return (
-          <div class="lib-card">
-            {b && <span class={`badge ${b.cls}`}>{b.label}</span>}
-            <a
-              href={amazonUrl(book.asin)}
-              target="_blank"
-              rel="nofollow sponsored noopener"
-              class="cover-link"
-              aria-label={`${book.title} - Amazonで見る`}
-            >
-              <div class="cover-wrap">
-                <img
-                  src={coverUrl(book.asin)}
-                  alt={book.title}
-                  width="120"
-                  height="180"
-                  loading="lazy"
-                  onerror={`this.style.display='none';this.nextElementSibling.style.display='flex'`}
-                />
-                <span class="cover-placeholder" style="display:none">{placeholder(book.asin)}</span>
-              </div>
-            </a>
+          <li class="book-item">
+            <div class="book-cover">
+              <img
+                src={coverUrl(book.asin)}
+                alt={book.title}
+                width="80"
+                height="120"
+                loading="lazy"
+                onerror={`this.style.display='none';this.nextElementSibling.style.display='flex'`}
+              />
+              <span class="cover-ph" style="display:none">{placeholder(book.asin)}</span>
+            </div>
 
-            <div class="card-body">
-              <p class="card-title">{truncate(book.title, 30)}</p>
-              <p class="cite-count">
-                <span class="cite-num">{book.articles.length}</span>
-                <span class="cite-label">記事で推薦</span>
-              </p>
-              <p class="card-reason">{truncate(book.reason, 40)}</p>
+            <div class="book-body">
+              <p class="book-title">{book.title}</p>
+              <p class="book-reason">{book.reason}</p>
 
-              {showArticles && (
-                <details class="article-list">
-                  <summary>この本が登場する記事 ({book.articles.length})</summary>
-                  <ul>
-                    {book.articles.map((a) => (
-                      <li>
-                        <span class="col-tag">{COLLECTION_LABEL[a.collection] ?? a.collection}</span>
-                        <a href={a.url}>{truncate(a.title, 28)}</a>
-                      </li>
-                    ))}
-                  </ul>
-                </details>
+              {review && (
+                <a href={review.url} class="review-link">
+                  書評を読む →
+                </a>
               )}
 
-              <a
-                href={amazonUrl(book.asin)}
-                target="_blank"
-                rel="nofollow sponsored noopener"
-                class="amazon-btn"
-              >
-                Amazonで見る →
-              </a>
+              {!review && otherArticles.length > 0 && (
+                <p class="ref-label">
+                  登場記事：
+                  {otherArticles.slice(0, 2).map((a, i) => (
+                    <span>
+                      {i > 0 && "、"}
+                      <a href={a.url} class="ref-link">{a.title}</a>
+                    </span>
+                  ))}
+                  {otherArticles.length > 2 && <span>ほか</span>}
+                </p>
+              )}
+
+              <div class="buy-links">
+                <span class="buy-label">購入：</span>
+                <a
+                  href={amazonUrl(book.asin)}
+                  target="_blank"
+                  rel="nofollow sponsored noopener"
+                  class="buy-link"
+                >
+                  Amazon
+                </a>
+                <span class="buy-sep">|</span>
+                <a
+                  href={rakutenUrl(book.title)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="buy-link"
+                >
+                  楽天ブックス
+                </a>
+              </div>
             </div>
-          </div>
+          </li>
         );
       })}
-    </div>
+    </ul>
 
     <div class="footer-disclosure">
       <AffiliateDisclosure />
@@ -159,7 +148,7 @@ function truncate(s: string, n: number) {
 </BaseLayout>
 
 <style>
-  /* ── Page header ── */
+  /* ── Header ── */
   .lib-header {
     text-align: center;
     padding: var(--sp-lg) 0 var(--sp-md);
@@ -169,7 +158,7 @@ function truncate(s: string, n: number) {
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.25em;
-    color: var(--amber, #d4a017);
+    color: var(--gold);
     text-transform: uppercase;
     margin-bottom: 0.5rem;
   }
@@ -177,14 +166,15 @@ function truncate(s: string, n: number) {
     font-family: var(--font-serif);
     font-size: clamp(1.6rem, 4vw, 2.4rem);
     font-weight: 700;
-    color: #fff;
-    margin-bottom: 0.4rem;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
     letter-spacing: 0.04em;
   }
   .lib-sub {
     font-family: var(--font-sans);
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.55);
+    color: var(--ink3);
+    line-height: 1.8;
     margin-bottom: 1rem;
   }
   .lib-stats {
@@ -192,214 +182,153 @@ function truncate(s: string, n: number) {
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    flex-wrap: wrap;
     font-family: var(--font-sans);
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    color: var(--ink3);
   }
   .lib-stats strong {
-    font-size: 1.2rem;
     font-weight: 700;
-    color: var(--orange, #c2410c);
+    color: var(--ink);
   }
-  .stat-sep { color: rgba(255,255,255,0.25); }
+  .stat-sep { color: var(--ink3); }
 
-  /* ── Grid ── */
-  .books-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 1.25rem;
-    margin-top: var(--sp-md);
-  }
-
-  /* ── Card ── */
-  .lib-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
+  /* ── List ── */
+  .books-list {
+    list-style: none;
     display: flex;
     flex-direction: column;
     gap: 0;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-  }
-  .lib-card:hover {
-    border-color: var(--orange, #c2410c);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    margin-top: var(--sp-md);
+    border-top: 1px solid var(--rule);
   }
 
-  /* Badges */
-  .badge {
-    position: absolute;
-    top: 0.5rem;
-    left: 0.5rem;
-    z-index: 2;
-    font-family: var(--font-sans);
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    padding: 0.15rem 0.4rem;
-    border-radius: 3px;
-    text-transform: uppercase;
-    pointer-events: none;
-  }
-  .badge-hall    { background: #b91c1c; color: #fff; }
-  .badge-classic { background: var(--amber, #d4a017); color: #1a1200; }
-  .badge-pop     { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); }
-
-  /* Cover */
-  .cover-link { display: block; flex-shrink: 0; }
-  .cover-wrap {
-    aspect-ratio: 2/3;
-    background: rgba(255, 255, 255, 0.04);
+  /* ── Item ── */
+  .book-item {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    gap: 1.2rem;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: flex-start;
   }
-  .cover-wrap img {
-    width: 100%;
-    height: 100%;
+
+  /* ── Cover ── */
+  .book-cover {
+    flex-shrink: 0;
+    width: 72px;
+  }
+  .book-cover img {
+    width: 72px;
+    height: 108px;
     object-fit: cover;
-    transition: opacity 0.2s;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    display: block;
   }
-  .lib-card:hover .cover-wrap img { opacity: 0.9; }
-  .cover-placeholder {
+  .cover-ph {
+    width: 72px;
+    height: 108px;
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
     font-family: var(--font-serif);
-    font-size: 3rem;
+    font-size: 1.8rem;
     font-weight: 800;
-    color: rgba(255, 255, 255, 0.2);
+    color: var(--ink3);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
-    user-select: none;
   }
 
-  /* Card body */
-  .card-body {
-    padding: 0.9rem;
+  /* ── Body ── */
+  .book-body {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    flex: 1;
+    gap: 0.45rem;
   }
-  .card-title {
+  .book-title {
     font-family: var(--font-serif);
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ink);
     line-height: 1.55;
     margin: 0;
   }
-  .cite-count {
-    display: flex;
-    align-items: baseline;
-    gap: 0.25rem;
+  .book-reason {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    color: var(--ink2);
+    line-height: 1.75;
     margin: 0;
   }
-  .cite-num {
+
+  /* ── Review link ── */
+  .review-link {
+    display: inline-block;
     font-family: var(--font-sans);
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--orange, #c2410c);
-    line-height: 1;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold-light);
+    padding-bottom: 1px;
+    transition: border-color 0.15s;
+    width: fit-content;
   }
-  .cite-label {
-    font-family: var(--font-sans);
-    font-size: 0.7rem;
-    color: rgba(255, 255, 255, 0.45);
+  .review-link:hover {
+    border-color: var(--gold);
   }
-  .card-reason {
+
+  /* ── Reference articles ── */
+  .ref-label {
     font-family: var(--font-sans);
     font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.6);
-    line-height: 1.65;
+    color: var(--ink3);
+    line-height: 1.6;
     margin: 0;
-    flex: 1;
   }
+  .ref-link {
+    color: var(--ink3);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.15s;
+  }
+  .ref-link:hover { color: var(--ink); }
 
-  /* Article list */
-  .article-list {
-    margin-top: 0.25rem;
-    font-family: var(--font-sans);
-    font-size: 0.72rem;
-  }
-  .article-list summary {
-    cursor: pointer;
-    color: rgba(255, 255, 255, 0.45);
-    list-style: none;
+  /* ── Buy links ── */
+  .buy-links {
     display: flex;
     align-items: center;
-    gap: 0.3rem;
-    padding: 0.3rem 0;
-    user-select: none;
-    transition: color 0.15s;
+    gap: 0.4rem;
+    margin-top: 0.2rem;
   }
-  .article-list summary::-webkit-details-marker { display: none; }
-  .article-list summary::before {
-    content: "▶";
-    font-size: 0.55rem;
-    transition: transform 0.15s;
-    display: inline-block;
-  }
-  .article-list[open] summary::before { transform: rotate(90deg); }
-  .article-list summary:hover { color: rgba(255, 255, 255, 0.75); }
-  .article-list ul {
-    margin: 0.4rem 0 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-  .article-list li {
-    display: flex;
-    align-items: baseline;
-    gap: 0.35rem;
-    line-height: 1.5;
-  }
-  .col-tag {
-    font-size: 0.6rem;
-    font-weight: 700;
-    background: rgba(185, 28, 28, 0.25);
-    color: rgba(255, 100, 100, 0.85);
-    padding: 0.05rem 0.3rem;
-    border-radius: 2px;
-    flex-shrink: 0;
-    letter-spacing: 0.04em;
-  }
-  .article-list a {
-    color: rgba(255, 255, 255, 0.55);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-  .article-list a:hover { color: var(--amber, #d4a017); text-decoration: underline; }
-
-  /* Amazon CTA */
-  .amazon-btn {
-    display: block;
-    text-align: center;
-    padding: 0.5rem;
-    background: var(--orange, #c2410c);
-    border-radius: 3px;
-    color: #fff;
+  .buy-label {
     font-family: var(--font-sans);
     font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-decoration: none;
-    transition: background 0.2s;
-    margin-top: auto;
+    color: var(--ink3);
   }
-  .amazon-btn:hover { background: #9a3412; }
+  .buy-link {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--ink2);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.15s;
+  }
+  .buy-link:hover { color: var(--ink); }
+  .buy-sep {
+    font-size: 0.65rem;
+    color: var(--ink3);
+  }
 
   .footer-disclosure { margin-top: var(--sp-lg); }
 
   @media (max-width: 480px) {
-    .books-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    .book-cover { width: 60px; }
+    .book-cover img { width: 60px; height: 90px; }
+    .cover-ph { width: 60px; height: 90px; font-size: 1.4rem; }
+    .book-title { font-size: 0.88rem; }
+    .book-reason { font-size: 0.78rem; }
   }
 </style>
