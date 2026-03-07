@@ -15,7 +15,6 @@ const {
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ga4Id = import.meta.env.GA4_MEASUREMENT_ID ?? "G-XXXXXXXXXX";
 ---
 
 <meta charset="UTF-8" />
@@ -57,11 +56,3 @@ const ga4Id = import.meta.env.GA4_MEASUREMENT_ID ?? "G-XXXXXXXXXX";
 <!-- Google AdSense (Auto Ads) -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5559642874605766" crossorigin="anonymous"></script>
 
-<!-- Google Analytics (GA4) -->
-<script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}></script>
-<script define:vars={{ ga4Id }}>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', ga4Id);
-</script>
