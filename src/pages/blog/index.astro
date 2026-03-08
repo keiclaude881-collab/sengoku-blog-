@@ -27,6 +27,16 @@ const popularTags = Object.entries(tagCount)
   .sort((a, b) => b[1] - a[1])
   .slice(0, 12)
   .map(([tag]) => tag);
+
+const categoryLabels: Record<string, string> = {
+  battle:   "合戦",
+  leader:   "英傑",
+  strategy: "戦略",
+  books:    "書評",
+  movie:    "映画",
+  whatif:   "歴史IF",
+};
+const categories = Object.keys(categoryLabels);
 ---
 
 <BaseLayout
@@ -36,12 +46,20 @@ const popularTags = Object.entries(tagCount)
   <div class="container">
     <header class="page-header">
       <h1>記事一覧</h1>
-      <p>全 {allPosts.length} 記事</p>
+      <p>全 <span id="article-count">{allPosts.length}</span> 記事</p>
     </header>
+
+    <!-- カテゴリフィルター -->
+    <div class="category-filter" role="group" aria-label="カテゴリで絞り込む">
+      <button class="cat-btn active" data-cat="all">すべて</button>
+      {categories.map(cat => (
+        <button class="cat-btn" data-cat={cat}>{categoryLabels[cat]}</button>
+      ))}
+    </div>
 
     <!-- タグフィルター -->
     <div class="tag-filter" role="group" aria-label="タグで絞り込む">
-      <button class="tag-btn active" data-tag="all">すべて</button>
+      <button class="tag-btn active" data-tag="all">すべてのタグ</button>
       {popularTags.map(tag => (
         <button class="tag-btn" data-tag={tag}>#{tag}</button>
       ))}
@@ -50,7 +68,7 @@ const popularTags = Object.entries(tagCount)
     {allPosts.length > 0 ? (
       <ul class="article-grid" role="list" id="article-list">
         {allPosts.map(post => (
-          <li data-tags={post.data.tags.join(',')}>
+          <li data-tags={post.data.tags.join(',')} data-cat={post.collection}>
             <ArticleCard
               title={post.data.title}
               description={post.data.description}
@@ -74,34 +92,79 @@ const popularTags = Object.entries(tagCount)
 </BaseLayout>
 
 <script>
-  const buttons  = document.querySelectorAll<HTMLButtonElement>('.tag-btn');
+  const tagBtns  = document.querySelectorAll<HTMLButtonElement>('.tag-btn');
+  const catBtns  = document.querySelectorAll<HTMLButtonElement>('.cat-btn');
   const items    = document.querySelectorAll<HTMLLIElement>('#article-list > li');
   const noResult = document.getElementById('no-result') as HTMLElement;
+  const countEl  = document.getElementById('article-count') as HTMLElement;
 
-  function applyTag(tag: string) {
-    buttons.forEach(b => {
-      b.classList.toggle('active', b.dataset.tag === tag || (tag === 'all' && b.dataset.tag === 'all'));
-    });
+  let activeTag = 'all';
+  let activeCat = 'all';
+
+  function applyFilters() {
     let visible = 0;
     items.forEach(li => {
       const tags = li.dataset.tags ?? '';
-      const show = tag === 'all' || tags.split(',').includes(tag);
+      const cat  = li.dataset.cat ?? '';
+      const tagMatch = activeTag === 'all' || tags.split(',').includes(activeTag);
+      const catMatch = activeCat === 'all' || cat === activeCat;
+      const show = tagMatch && catMatch;
       li.hidden = !show;
       if (show) visible++;
     });
     noResult.hidden = visible > 0;
+    if (countEl) countEl.textContent = String(visible);
   }
 
-  // URLパラメータから初期タグを読み込む（トップページの「何を学びたい？」から遷移時）
-  const initialTag = new URLSearchParams(location.search).get('tag') ?? 'all';
-  applyTag(initialTag);
+  function setTag(tag: string) {
+    activeTag = tag;
+    tagBtns.forEach(b => b.classList.toggle('active', b.dataset.tag === tag));
+    applyFilters();
+  }
 
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => applyTag(btn.dataset.tag ?? 'all'));
-  });
+  function setCat(cat: string) {
+    activeCat = cat;
+    catBtns.forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+    applyFilters();
+  }
+
+  // URLパラメータから初期タグを読み込む
+  const initialTag = new URLSearchParams(location.search).get('tag') ?? 'all';
+  setTag(initialTag);
+
+  tagBtns.forEach(btn => btn.addEventListener('click', () => setTag(btn.dataset.tag ?? 'all')));
+  catBtns.forEach(btn => btn.addEventListener('click', () => setCat(btn.dataset.cat ?? 'all')));
 </script>
 
 <style>
+  .category-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .cat-btn {
+    padding: 0.45rem 1.1rem;
+    border: 2px solid var(--rule);
+    border-radius: 2px;
+    background: transparent;
+    color: var(--ink2);
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
+  }
+  .cat-btn:hover {
+    border-color: var(--accent, #8b0000);
+    color: var(--accent, #8b0000);
+  }
+  .cat-btn.active {
+    background: var(--accent, #8b0000);
+    color: #fff;
+    border-color: var(--accent, #8b0000);
+  }
   .tag-filter {
     display: flex;
     flex-wrap: wrap;
