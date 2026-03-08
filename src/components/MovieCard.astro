@@ -5,16 +5,20 @@ interface Props {
   lesson?:     string;
   slug:        string;
   ogImage?:    string;
+  youtubeId?:  string;
   tags:        string[];
 }
 
-const { title, description, lesson, slug, ogImage, tags } = Astro.props;
+const { title, description, lesson, slug, ogImage, youtubeId, tags } = Astro.props;
+const thumb = youtubeId
+  ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`
+  : ogImage;
 ---
 
 <a href={`/blog/${slug}/`} class="movie-card">
   <div class="movie-thumb">
-    {ogImage
-      ? <img src={ogImage} alt="" loading="lazy" />
+    {thumb
+      ? <img src={thumb} alt="" loading="lazy" />
       : <div class="movie-thumb-placeholder"></div>
     }
     <div class="movie-overlay">
