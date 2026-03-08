@@ -47,9 +47,7 @@ interface Props {
 }
 const { title, description, date, updatedAt, category, tags, readingTime, ogImage, lesson, youtubeId, affiliateBooks, relatedArticles, tocHeadings } = Astro.props;
 
-const eyecatch = youtubeId
-  ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`
-  : ogImage;
+const eyecatch = youtubeId ? null : ogImage;
 
 const catLabel: Record<string, string> = {
   battle: "合戦分析", leader: "武将の思想", strategy: "兵法・現代応用", books: "書籍レビュー",

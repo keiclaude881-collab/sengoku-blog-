@@ -10,9 +10,7 @@ interface Props {
 }
 
 const { title, description, lesson, slug, ogImage, youtubeId, tags } = Astro.props;
-const thumb = youtubeId
-  ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`
-  : ogImage;
+const thumb = ogImage;
 ---
 
 <a href={`/blog/${slug}/`} class="movie-card">
