@@ -1,0 +1,197 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import MovieCard from "../../components/MovieCard.astro";
+
+const movies = (await getCollection("movie"))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+function slug(id: string) {
+  return `movie/${id.replace(/\.mdx?$/, "")}`;
+}
+
+const services = [
+  { name: "U-NEXT",  color: "#0045ff", abbr: "U" },
+  { name: "Hulu",    color: "#3dbb3d", abbr: "H" },
+  { name: "Netflix", color: "#e50914", abbr: "N" },
+  { name: "Disney+", color: "#113ccf", abbr: "D+" },
+];
+---
+
+<BaseLayout
+  title="映画と戦略 | 決断の系譜"
+  description={`歴史映画・戦争映画・SFから学ぶ戦略論。U-NEXT・Hulu・Netflix・Disney+で観られる${movies.length}作品をビジネス視点で分析。`}
+  ogImage="https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=1080"
+>
+  <!-- ヒーロー -->
+  <section class="cinema-hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <span class="hero-label">CINEMA &amp; STRATEGY</span>
+      <h1 class="hero-heading">映画で学ぶ<br />戦略の本質</h1>
+      <p class="hero-sub">スクリーンの向こうに、リーダーシップと意思決定の本質がある。<br />歴史映画・戦争映画・SFを戦略の視点で読み解く。</p>
+
+      <!-- 対応サービス -->
+      <div class="service-row" aria-label="対応ストリーミングサービス">
+        {services.map(s => (
+          <span class="service-badge" style={`background: ${s.color}`}>
+            <span class="service-abbr">{s.abbr}</span>
+            <span class="service-name">{s.name}</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 作品一覧 -->
+  <section class="movies-section">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">全{movies.length}作品</h2>
+        <p class="section-sub">各記事の末尾に視聴リンクあり</p>
+      </div>
+
+      <ul class="movie-grid" role="list">
+        {movies.map(m => (
+          <li>
+            <MovieCard
+              title={m.data.title}
+              description={m.data.description}
+              lesson={m.data.lesson}
+              slug={slug(m.id)}
+              ogImage={m.data.ogImage}
+              tags={m.data.tags}
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ── ヒーロー ── */
+  .cinema-hero {
+    position: relative;
+    background: #0d0f14;
+    padding: calc(var(--nav-height) + 4rem) 0 4rem;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 60% 40%, rgba(232, 184, 75, 0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 80% at 20% 80%, rgba(30, 74, 53, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+
+  .hero-label {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #e8b84b;
+    text-transform: uppercase;
+  }
+
+  .hero-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    color: #f0eee8;
+    line-height: 1.3;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-sub {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: #8a8f9e;
+    line-height: 1.8;
+    max-width: 520px;
+  }
+
+  .service-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+  }
+
+  .service-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35em 0.9em 0.35em 0.5em;
+    border-radius: 3px;
+  }
+  .service-abbr {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    background: rgba(255,255,255,0.18);
+    border-radius: 2px;
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0;
+  }
+  .service-name {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── 作品一覧 ── */
+  .movies-section {
+    background: #10131a;
+    padding: 4rem 0 6rem;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #f0eee8;
+  }
+
+  .section-sub {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: #5a5f6e;
+  }
+
+  .movie-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.6rem;
+  }
+
+  @media (max-width: 480px) {
+    .cinema-hero { padding-top: calc(var(--nav-height) + 2.5rem); }
+    .movie-grid  { grid-template-columns: 1fr; gap: 1.2rem; }
+    .section-head { flex-direction: column; gap: 0.2rem; }
+  }
+</style>

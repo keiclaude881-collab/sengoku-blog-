@@ -3,6 +3,7 @@ const links = [
   { label: "合戦と戦略",   href: "/category/battle/" },
   { label: "武将の思想",   href: "/category/leader/" },
   { label: "現代応用",     href: "/category/strategy/" },
+  { label: "映画",         href: "/movies/", cinema: true },
   { label: "おすすめ書籍", href: "/books/" },
   { label: "記事一覧",     href: "/blog/" },
 ];
@@ -16,11 +17,11 @@ const path = Astro.url.pathname;
     </a>
 
     <ul class="nav-links" role="list">
-      {links.map(({ label, href }) => (
+      {links.map(({ label, href, cinema }) => (
         <li>
           <a
             href={href}
-            class:list={["nav-link", { active: path.startsWith(href) }]}
+            class:list={["nav-link", { active: path.startsWith(href), "nav-link--cinema": cinema }]}
           >
             {label}
           </a>
@@ -37,9 +38,9 @@ const path = Astro.url.pathname;
 
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <ul role="list">
-      {links.map(({ label, href }) => (
+      {links.map(({ label, href, cinema }) => (
         <li>
-          <a href={href} class:list={["mobile-link", { active: path.startsWith(href) }]}>
+          <a href={href} class:list={["mobile-link", { active: path.startsWith(href), "mobile-link--cinema": cinema }]}>
             {label}
           </a>
         </li>
@@ -138,6 +139,17 @@ const path = Astro.url.pathname;
     color: var(--orange);
     font-weight: 600;
   }
+  .nav-link--cinema {
+    color: #e8b84b;
+    font-weight: 600;
+  }
+  .nav-link--cinema:hover {
+    background: rgba(232, 184, 75, 0.1);
+    color: #e8b84b;
+  }
+  .nav-link--cinema.active {
+    color: #e8b84b;
+  }
 
   /* ── ハンバーガー ── */
   .nav-toggle {
@@ -193,6 +205,14 @@ const path = Astro.url.pathname;
   .mobile-link.active {
     background: var(--bg-sub);
     color: var(--orange);
+  }
+  .mobile-link--cinema {
+    color: #e8b84b;
+  }
+  .mobile-link--cinema:hover,
+  .mobile-link--cinema.active {
+    background: rgba(232, 184, 75, 0.08);
+    color: #e8b84b;
   }
 
   @media (max-width: 720px) {
