@@ -108,8 +108,8 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
         )}
       </header>
 
-      <!-- アイキャッチ画像 -->
-      {eyecatch && (
+      <!-- アイキャッチ画像（YouTubeサムネがある記事は非表示） -->
+      {eyecatch && !youtubeId && (
         <div class="article-eyecatch">
           <img src={eyecatch} alt={title} class="article-eyecatch-img" loading="eager" />
         </div>
