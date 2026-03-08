@@ -7,6 +7,7 @@ import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
 import AdUnit from '../components/AdUnit.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
 import YouTubeEmbed from '../components/YouTubeEmbed.astro';
+import VodBox from '../components/VodBox.astro';
 
 interface AffiliateBook {
   title:  string;
@@ -41,11 +42,13 @@ interface Props {
   ogImage?:         string;
   lesson?:          string;
   youtubeId?:       string;
+  vodService?:      "unext" | "hulu" | "netflix" | "disneyplus" | "amazon";
+  vodUrl?:          string;
   affiliateBooks?:  AffiliateBook[];
   relatedArticles?: RelatedArticle[];
   tocHeadings?:     TocHeading[];
 }
-const { title, description, date, updatedAt, category, tags, readingTime, ogImage, lesson, youtubeId, affiliateBooks, relatedArticles, tocHeadings } = Astro.props;
+const { title, description, date, updatedAt, category, tags, readingTime, ogImage, lesson, youtubeId, vodService, vodUrl, affiliateBooks, relatedArticles, tocHeadings } = Astro.props;
 
 const eyecatch = youtubeId ? null : ogImage;
 
@@ -154,6 +157,11 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
           B! はてブ
         </a>
       </div>
+
+      <!-- VOD視聴リンク -->
+      {vodUrl && vodService && (
+        <VodBox title={title} url={vodUrl} service={vodService} />
+      )}
 
       <!-- 書籍アフィリエイト -->
       {affiliateBooks && affiliateBooks.length > 0 && (
