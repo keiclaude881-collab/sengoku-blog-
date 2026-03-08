@@ -11,6 +11,7 @@ const articleSchema = z.object({
   readingTime: z.number(),
   featured:    z.boolean().default(false),
   lesson:      z.string().optional(),
+  youtubeId:   z.string().optional(),
   affiliateBooks: z.array(z.object({
     title:  z.string(),
     asin:   z.string(),
