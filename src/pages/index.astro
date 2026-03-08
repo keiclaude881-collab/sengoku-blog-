@@ -210,6 +210,24 @@ const marqueeItems = [
     </div>
   </section>
 
+  <!-- 映画コーナーバナー -->
+  <section class="cinema-banner">
+    <div class="container cinema-inner">
+      <div class="cinema-text">
+        <span class="cinema-label">CINEMA &amp; STRATEGY</span>
+        <h2 class="cinema-heading">映画で学ぶ、戦略の本質。</h2>
+        <p class="cinema-body">七人の侍からスター・ウォーズまで。U-NEXT・Hulu・Netflix・Disney+で観られる作品を戦略の視点で読み解く特設コーナー。</p>
+        <div class="cinema-services" aria-hidden="true">
+          <span class="cs-badge" style="background:#0045ff">U</span>
+          <span class="cs-badge" style="background:#3dbb3d">H</span>
+          <span class="cs-badge" style="background:#e50914">N</span>
+          <span class="cs-badge" style="background:#113ccf">D+</span>
+        </div>
+      </div>
+      <a href="/movies/" class="cinema-cta">映画コーナーへ →</a>
+    </div>
+  </section>
+
   <!-- 悩み別おすすめ -->
   <section class="needs-section section">
     <div class="container">
@@ -691,6 +709,80 @@ const marqueeItems = [
     gap: 1.2rem;
     margin-top: 1.5rem;
   }
+
+  /* ── 映画コーナーバナー ── */
+  .cinema-banner {
+    background: #0d0f14;
+    padding: 3.5rem 0;
+  }
+  .cinema-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .cinema-text { flex: 1; min-width: 260px; }
+  .cinema-label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #e8b84b;
+    margin-bottom: 0.8rem;
+  }
+  .cinema-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-weight: 700;
+    color: #f0eee8;
+    line-height: 1.35;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.04em;
+  }
+  .cinema-body {
+    font-family: var(--font-sans);
+    font-size: 0.84rem;
+    color: #6a6f7e;
+    line-height: 1.75;
+    max-width: 440px;
+    margin-bottom: 1rem;
+  }
+  .cinema-services {
+    display: flex;
+    gap: 0.45rem;
+  }
+  .cs-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 3px;
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0;
+  }
+  .cinema-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2.2rem;
+    background: #e8b84b;
+    color: #0d0f14;
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-radius: 2px;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .cinema-cta:hover { opacity: 0.88; transform: translateY(-2px); }
 
   /* ── バナー共通 ── */
   .banner-inner {
