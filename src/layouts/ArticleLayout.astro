@@ -76,7 +76,7 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
   type="article"
   publishedAt={iso}
 >
-  <article class="article-page">
+  <article class="article-page" data-category={category}>
     <div class="container">
 
       <!-- パンくず -->
@@ -243,6 +243,18 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
 <style>
   .article-page {
     padding: var(--sp-lg) 0 var(--sp-xl);
+  }
+
+  /* 映画記事：シネマゴールドに上書き */
+  .article-page[data-category="movie"] {
+    --orange:      #e8b84b;
+    --orange-dark: #c99a30;
+    --amber:       #e8b84b;
+    --gold:        #e8b84b;
+    --gold-light:  rgba(232, 184, 75, 0.15);
+    --gold-dark:   #c99a30;
+    --bg-navy:     #13161d;
+    --bg-navy-mid: #1a1e28;
   }
 
   .article-header {
