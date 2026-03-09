@@ -116,11 +116,6 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
         </div>
       )}
 
-      <!-- 予告編（映画記事のみ） -->
-      {youtubeId && (
-        <YouTubeEmbed id={youtubeId} title={`${title} — 公式予告編`} />
-      )}
-
       <!-- 目次 -->
       {tocHeadings && tocHeadings.length >= 3 && (
         <nav class="toc" aria-label="目次">
@@ -157,6 +152,11 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
           B! はてブ
         </a>
       </div>
+
+      <!-- 予告編 -->
+      {youtubeId && (
+        <YouTubeEmbed id={youtubeId} title={`${title} — 公式予告編`} />
+      )}
 
       <!-- VOD視聴リンク -->
       {vodUrl && vodService && (
