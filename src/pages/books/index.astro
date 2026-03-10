@@ -7,7 +7,7 @@ const COLLECTIONS = ["battle", "leader", "strategy", "books", "movie", "whatif"]
 const allEntries = (await Promise.all(COLLECTIONS.map((c) => getCollection(c)))).flat();
 
 type ArticleRef = { title: string; url: string; collection: string };
-type BookData   = { title: string; asin: string; reason: string; articles: ArticleRef[] };
+type BookData   = { title: string; asin: string; reason: string; image?: string; articles: ArticleRef[] };
 
 const bookMap = new Map<string, BookData>();
 
@@ -18,13 +18,14 @@ for (const entry of allEntries) {
 
   for (const book of affiliateBooks) {
     if (!bookMap.has(book.asin)) {
-      bookMap.set(book.asin, { title: book.title, asin: book.asin, reason: book.reason, articles: [] });
+      bookMap.set(book.asin, { title: book.title, asin: book.asin, reason: book.reason, image: book.image, articles: [] });
     }
     const rec = bookMap.get(book.asin)!;
     if (!rec.articles.find((a) => a.url === url)) {
       rec.articles.push({ title: entry.data.title, url, collection: entry.collection });
     }
     if (book.reason.length > rec.reason.length) rec.reason = book.reason;
+    if (!rec.image && book.image) rec.image = book.image;
   }
 }
 
@@ -34,8 +35,8 @@ const totalArticles = allEntries.length;
 
 const associateId = import.meta.env.AMAZON_ASSOCIATE_ID ?? "sengokublog20-22";
 
-function coverUrl(asin: string) {
-  return `https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg`;
+function coverUrl(asin: string, image?: string) {
+  return image ?? `https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg`;
 }
 function amazonUrl(asin: string) {
   return `https://www.amazon.co.jp/dp/${asin}/?tag=${associateId}`;
@@ -82,7 +83,7 @@ function placeholder(asin: string) {
           <li class="book-item">
             <div class="book-cover">
               <img
-                src={coverUrl(book.asin)}
+                src={coverUrl(book.asin, book.image)}
                 alt={book.title}
                 width="80"
                 height="120"
