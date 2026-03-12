@@ -1,10 +1,10 @@
 ---
 interface Props {
-  category: "battle" | "leader" | "strategy" | "books" | "media" | "movie" | "whatif";
+  category: "battle" | "leader" | "strategy" | "books" | "media" | "movie" | "whatif" | "anime" | "business" | "sports";
 }
 const { category } = Astro.props;
 
-const map = {
+const map: Record<string, { label: string; href: string }> = {
   battle:   { label: "合戦と戦略",     href: "/category/battle/" },
   leader:   { label: "武将の思想",     href: "/category/leader/" },
   strategy: { label: "兵法・現代応用", href: "/category/strategy/" },
@@ -12,8 +12,11 @@ const map = {
   media:    { label: "映像・音声",     href: "/category/media/" },
   movie:    { label: "映画・SF",       href: "/category/movie/" },
   whatif:   { label: "歴史のIF",       href: "/category/whatif/" },
+  anime:    { label: "アニメ戦略論",   href: "/category/anime/" },
+  business: { label: "ビジネス戦略",   href: "/category/business/" },
+  sports:   { label: "スポーツ戦略",   href: "/category/sports/" },
 };
-const { label, href } = map[category];
+const { label, href } = map[category] ?? { label: category, href: `/category/${category}/` };
 ---
 
 <a href={href} class="category-badge" data-cat={category}>

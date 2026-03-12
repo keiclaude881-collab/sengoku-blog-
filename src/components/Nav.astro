@@ -1,11 +1,18 @@
 ---
 const links = [
+  { label: "記事一覧",   href: "/blog/" },
+  { label: "映画",       href: "/movies/", cinema: true },
+  { label: "書籍",       href: "/books/" },
+];
+
+const dropdownLinks = [
   { label: "合戦と戦略",   href: "/category/battle/" },
   { label: "武将の思想",   href: "/category/leader/" },
-  { label: "現代応用",     href: "/category/strategy/" },
-  { label: "映画",         href: "/movies/", cinema: true },
-  { label: "おすすめ書籍", href: "/books/" },
-  { label: "記事一覧",     href: "/blog/" },
+  { label: "兵法・現代応用", href: "/category/strategy/" },
+  { label: "歴史IF",       href: "/category/whatif/" },
+  { label: "アニメ戦略論", href: "/category/anime/" },
+  { label: "ビジネス戦略", href: "/category/business/" },
+  { label: "スポーツ戦略", href: "/category/sports/" },
 ];
 const path = Astro.url.pathname;
 ---
@@ -17,6 +24,21 @@ const path = Astro.url.pathname;
     </a>
 
     <ul class="nav-links" role="list">
+      <!-- カテゴリドロップダウン -->
+      <li class="nav-dropdown-wrap">
+        <button class="nav-link nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
+          カテゴリ <span class="dropdown-arrow">▾</span>
+        </button>
+        <ul class="nav-dropdown" role="list">
+          {dropdownLinks.map(({ label, href }) => (
+            <li>
+              <a href={href} class:list={["dropdown-link", { active: path.startsWith(href) }]}>
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </li>
       {links.map(({ label, href, cinema }) => (
         <li>
           <a
@@ -38,6 +60,13 @@ const path = Astro.url.pathname;
 
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <ul role="list">
+      {dropdownLinks.map(({ label, href }) => (
+        <li>
+          <a href={href} class:list={["mobile-link", { active: path.startsWith(href) }]}>
+            {label}
+          </a>
+        </li>
+      ))}
       {links.map(({ label, href, cinema }) => (
         <li>
           <a href={href} class:list={["mobile-link", { active: path.startsWith(href), "mobile-link--cinema": cinema }]}>
@@ -70,6 +99,20 @@ const path = Astro.url.pathname;
       toggle.setAttribute('aria-expanded', 'false');
       menu.setAttribute('aria-hidden', 'true');
     });
+  });
+
+  // ドロップダウン
+  const dropBtn = document.querySelector('.nav-dropdown-btn') as HTMLButtonElement | null;
+  const dropWrap = document.querySelector('.nav-dropdown-wrap') as HTMLElement | null;
+  dropBtn?.addEventListener('click', () => {
+    const isOpen = dropWrap?.classList.toggle('open');
+    dropBtn.setAttribute('aria-expanded', String(!!isOpen));
+  });
+  document.addEventListener('click', (e) => {
+    if (!dropWrap?.contains(e.target as Node)) {
+      dropWrap?.classList.remove('open');
+      dropBtn?.setAttribute('aria-expanded', 'false');
+    }
   });
 </script>
 
@@ -151,6 +194,61 @@ const path = Astro.url.pathname;
     color: #e8b84b;
   }
 
+  /* ── ドロップダウン ── */
+  .nav-dropdown-wrap {
+    position: relative;
+  }
+  .nav-dropdown-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .dropdown-arrow {
+    font-size: 0.65rem;
+    transition: transform 0.2s;
+  }
+  .nav-dropdown-wrap.open .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+  .nav-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    min-width: 180px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    list-style: none;
+    z-index: 200;
+    overflow: hidden;
+  }
+  .nav-dropdown-wrap.open .nav-dropdown {
+    display: block;
+  }
+  .dropdown-link {
+    display: block;
+    padding: 0.65rem 1.1rem;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: var(--text-mid);
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+    border-bottom: 1px solid var(--border);
+  }
+  .dropdown-link:last-child { border-bottom: none; }
+  .dropdown-link:hover,
+  .dropdown-link.active {
+    background: var(--bg-sub);
+    color: var(--orange);
+  }
+
   /* ── ハンバーガー ── */
   .nav-toggle {
     display: none;
@@ -220,7 +318,7 @@ const path = Astro.url.pathname;
     .nav-toggle { display: flex; }
     .mobile-menu { display: block; }
   }
-  .menu-open .mobile-menu { max-height: 360px; }
+  .menu-open .mobile-menu { max-height: 640px; }
 
   @media (max-width: 480px) {
     .nav-inner { padding: 0 1.2rem; }

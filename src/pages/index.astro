@@ -16,6 +16,9 @@ const allArticles = (await Promise.all([
   getCollection("books").catch(() => []),
   getCollection("movie").catch(() => []),
   getCollection("whatif").catch(() => []),
+  getCollection("anime").catch(() => []),
+  getCollection("business").catch(() => []),
+  getCollection("sports").catch(() => []),
 ])).flat().sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 const featured = allArticles.find(a => a.data.featured) ?? allArticles[0];
@@ -195,6 +198,36 @@ const marqueeItems = [
             label: "書籍レビュー",
             hook: "この一冊が、あなたの思考を変える",
             desc: "歴史×戦略で厳選した推薦図書をレビュー",
+          },
+          {
+            cat: "movie",
+            label: "映画で読む戦略",
+            hook: "七人の侍は、なぜ今も色褪せないのか",
+            desc: "名作映画を戦略・リーダーシップの視点で読み解く",
+          },
+          {
+            cat: "whatif",
+            label: "歴史IF",
+            hook: "もし本能寺がなかったら、日本はどうなったか",
+            desc: "歴史の分岐点を問い直す思考実験",
+          },
+          {
+            cat: "anime",
+            label: "アニメ戦略論",
+            hook: "エルウィン団長はなぜ部下を死地に送れたのか",
+            desc: "アニメ・漫画の名場面を戦略・組織論で読む",
+          },
+          {
+            cat: "business",
+            label: "ビジネス戦略",
+            hook: "ベゾスが孫子から盗んだ「負けない構造」とは",
+            desc: "現代企業の戦略を歴史・兵法の言葉で再解釈する",
+          },
+          {
+            cat: "sports",
+            label: "スポーツ戦略",
+            hook: "野村克也のID野球は、なぜ孫子と同じなのか",
+            desc: "スポーツの戦術・采配を戦略思考で深掘りする",
           },
         ].map(({ cat, label, hook, desc }) => (
           <li>
@@ -556,7 +589,7 @@ const marqueeItems = [
   .cat-grid {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1px;
     border: 1px solid var(--rule);
     border-radius: 4px;
@@ -898,12 +931,13 @@ const marqueeItems = [
 
   /* ── レスポンシブ ── */
   @media (max-width: 1024px) {
-    .cat-grid   { grid-template-columns: repeat(2, 1fr); }
+    .cat-grid   { grid-template-columns: repeat(3, 1fr); }
     .needs-grid { grid-template-columns: repeat(2, 1fr); }
     .book-grid  { grid-template-columns: repeat(2, 1fr); }
     .email-inner { gap: 3rem; }
   }
   @media (max-width: 768px) {
+    .cat-grid   { grid-template-columns: repeat(2, 1fr); }
     .email-inner { grid-template-columns: 1fr; gap: 2.4rem; }
     .book-grid { grid-template-columns: repeat(2, 1fr); }
     .banner-inner { flex-direction: column; align-items: flex-start; }
