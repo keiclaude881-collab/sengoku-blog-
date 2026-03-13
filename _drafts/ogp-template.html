@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1280px;
+    height: 630px;
+    overflow: hidden;
+    font-family: 'Noto Serif JP', 'YuMincho', '游明朝', serif;
+  }
+
+  .card {
+    width: 1280px;
+    height: 630px;
+    background: #0e2218;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 背景グラデーション */
+  .bg-grad {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 900px 600px at 20% 110%, #1E4A35 0%, transparent 70%),
+      radial-gradient(ellipse 600px 400px at 90% -10%, #1a3d28 0%, transparent 60%);
+  }
+
+  /* 大きな漢字の透かし */
+  .kanji-bg {
+    position: absolute;
+    right: -30px;
+    bottom: -60px;
+    font-size: 480px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.03);
+    line-height: 1;
+    user-select: none;
+    letter-spacing: -20px;
+  }
+
+  /* 左の金ライン */
+  .left-line {
+    position: absolute;
+    left: 64px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent 0%, #C9A84C 25%, #C9A84C 75%, transparent 100%);
+  }
+
+  /* 上部の細いゴールドライン */
+  .top-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, transparent 0%, #C9A84C 20%, #C9A84C 80%, transparent 100%);
+  }
+
+  /* 下部の細いゴールドライン */
+  .bottom-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, transparent 0%, #C9A84C 20%, #C9A84C 80%, transparent 100%);
+  }
+
+  /* 右上の装飾ドット */
+  .dot-pattern {
+    position: absolute;
+    top: 40px;
+    right: 80px;
+    width: 120px;
+    height: 120px;
+    background-image: radial-gradient(circle, rgba(201,168,76,0.25) 1.5px, transparent 1.5px);
+    background-size: 18px 18px;
+  }
+
+  /* 斜線の装飾 */
+  .slash-deco {
+    position: absolute;
+    top: 50px;
+    left: 100px;
+    font-family: 'Georgia', serif;
+    font-size: 11px;
+    font-style: italic;
+    letter-spacing: 0.35em;
+    color: rgba(201,168,76,0.55);
+    text-transform: uppercase;
+  }
+
+  /* コンテンツエリア */
+  .content {
+    position: absolute;
+    left: 108px;
+    top: 100px;
+    right: 200px;
+    bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  /* カテゴリラベル */
+  .label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: #C9A84C;
+    text-transform: uppercase;
+  }
+
+  /* タイトル（プレースホルダー） */
+  .title {
+    font-size: 52px;
+    font-weight: 700;
+    color: #f5f0e8;
+    line-height: 1.4;
+    letter-spacing: 0.03em;
+  }
+  .title .highlight {
+    color: #C9A84C;
+    border-bottom: 2px solid rgba(201,168,76,0.4);
+  }
+
+  /* サブタイトル */
+  .subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+    border-left: 2px solid rgba(201,168,76,0.5);
+    padding-left: 16px;
+  }
+
+  /* 右下のブランド名 */
+  .brand {
+    position: absolute;
+    right: 72px;
+    bottom: 36px;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: rgba(201,168,76,0.7);
+  }
+
+  /* 左下のドット */
+  .corner-deco {
+    position: absolute;
+    left: 64px;
+    bottom: 32px;
+    font-family: sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.2);
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="bg-grad"></div>
+  <div class="kanji-bg">戦</div>
+
+  <div class="top-line"></div>
+  <div class="bottom-line"></div>
+  <div class="left-line"></div>
+  <div class="dot-pattern"></div>
+
+  <div class="slash-deco">STRATEGY × DECISION</div>
+
+  <div class="content">
+    <span class="label">ここにカテゴリ（例：ビジネス戦略）</span>
+    <h1 class="title">
+      ここにタイトルを<br>
+      入れてください
+    </h1>
+    <p class="subtitle">サブタイトルや一言キャッチをここに</p>
+  </div>
+
+  <div class="brand">決断の系譜</div>
+  <div class="corner-deco">KETSUDANKEIFU.SUBSTACK.COM</div>
+</div>
+</body>
+</html>
