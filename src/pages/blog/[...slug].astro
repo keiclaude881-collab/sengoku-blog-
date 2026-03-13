@@ -3,9 +3,9 @@ import { getCollection, render } from "astro:content";
 import ArticleLayout from "../../layouts/ArticleLayout.astro";
 import Lesson from "../../components/Lesson.astro";
 import BookCard from "../../components/BookCard.astro";
+import { CATEGORY_TO_ARC, ARC_INFO, type CategoryName } from "../../utils/arcMap";
 
-type CollectionName = "battle" | "leader" | "strategy" | "books" | "movie" | "whatif" | "anime" | "business" | "sports";
-const collectionNames: CollectionName[] = ["battle", "leader", "strategy", "books", "movie", "whatif", "anime", "business", "sports"];
+type CollectionName = CategoryName;
 
 export async function getStaticPaths() {
   const allPosts = (await Promise.all(
@@ -22,9 +22,14 @@ const { post } = Astro.props;
 const { Content, headings } = await render(post);
 const tocHeadings = headings.filter(h => h.depth === 2);
 
-// 関連記事（同カテゴリ最新3件）
-const related = (await getCollection(post.collection as CollectionName))
-  .filter(p => p.id !== post.id)
+// 関連記事：同章(arc)の他カテゴリ含む最新3件、なければ同カテゴリ
+const arcSlug = CATEGORY_TO_ARC[post.collection as CollectionName];
+const arcCategories = arcSlug ? ARC_INFO[arcSlug].categories : [post.collection as CollectionName];
+
+const related = (await Promise.all(
+  arcCategories.map(cat => getCollection(cat as CollectionName))
+)).flat()
+  .filter(p => !(p.collection === post.collection && p.id === post.id))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
 

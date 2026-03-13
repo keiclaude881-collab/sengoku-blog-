@@ -1,0 +1,377 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ArticleCard from "../../components/ArticleCard.astro";
+import { ARC_INFO, ARC_ORDER, NEXT_ARC, CAT_LABEL, type ArcSlug, type CategoryName } from "../../utils/arcMap";
+
+export async function getStaticPaths() {
+  return ARC_ORDER.map(arc => ({ params: { arc } }));
+}
+
+const { arc } = Astro.params as { arc: ArcSlug };
+const info = ARC_INFO[arc];
+
+// このアークの全カテゴリから記事を取得
+const allPosts = (await Promise.all(
+  info.categories.map(cat => getCollection(cat as CategoryName))
+)).flat().sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+function slug(col: string, id: string) {
+  return `${col}/${id.replace(/\.mdx?$/, "")}`;
+}
+
+const nextArcSlug = NEXT_ARC[arc];
+const nextArc = nextArcSlug ? ARC_INFO[nextArcSlug] : null;
+---
+
+<BaseLayout
+  title={`${info.chapter}「${info.title}」| 決断の系譜`}
+  description={info.description}
+>
+  <!-- Arc Hero -->
+  <div class="arc-hero" style={`background: ${info.gradient};`}>
+    <div class="container arc-hero-inner">
+      <div class="arc-hero-content">
+        <p class="arc-eyebrow">CHAPTER</p>
+        <div class="arc-chapter-label" style={`color: ${info.color};`}>{info.chapter}</div>
+        <h1 class="arc-title">「{info.title}」</h1>
+        <p class="arc-tagline">{info.tagline}</p>
+        <p class="arc-desc">{info.description}</p>
+        <div class="arc-meta">
+          <span class="arc-count">{allPosts.length} 記事</span>
+          <div class="arc-cats">
+            {info.categories.map(cat => (
+              <a href={`/category/${cat}/`} class="arc-cat-badge" style={`border-color: ${info.color}40; color: ${info.color};`}>
+                {CAT_LABEL[cat]}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div class="arc-deco" aria-hidden="true">{info.deco}</div>
+    </div>
+
+    <!-- Chapter nav -->
+    <div class="arc-chapter-nav">
+      <div class="container arc-chapter-nav-inner">
+        {ARC_ORDER.map(a => (
+          <a
+            href={`/arc/${a}/`}
+            class:list={["arc-chapter-btn", { active: a === arc }]}
+            style={a === arc ? `border-color: ${info.color}; color: ${info.color};` : ""}
+          >
+            <span class="arc-chapter-btn-num">{ARC_INFO[a].chapter}</span>
+            <span class="arc-chapter-btn-title">{ARC_INFO[a].title}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="container arc-body">
+
+    <!-- 記事グリッド -->
+    {allPosts.length > 0 ? (
+      <section>
+        <ul class="article-grid" role="list">
+          {allPosts.map(post => (
+            <li>
+              <ArticleCard
+                title={post.data.title}
+                description={post.data.description}
+                date={post.data.date}
+                category={post.data.category as CategoryName}
+                tags={post.data.tags}
+                readingTime={post.data.readingTime}
+                lesson={post.data.lesson}
+                slug={slug(post.collection, post.id)}
+                ogImage={post.data.ogImage}
+              />
+            </li>
+          ))}
+        </ul>
+      </section>
+    ) : (
+      <p class="empty">この章の記事はまもなく公開されます。</p>
+    )}
+
+    <!-- 次の章への誘い -->
+    {nextArc && (
+      <section class="next-arc">
+        <p class="next-arc-label">NEXT CHAPTER</p>
+        <a href={`/arc/${nextArc.slug}/`} class="next-arc-card">
+          <div class="next-arc-text">
+            <span class="next-arc-chapter">{nextArc.chapter}</span>
+            <h2 class="next-arc-title">「{nextArc.title}」</h2>
+            <p class="next-arc-tagline">{nextArc.tagline}</p>
+          </div>
+          <span class="next-arc-arrow">→</span>
+        </a>
+      </section>
+    )}
+
+  </div>
+</BaseLayout>
+
+<style>
+  .arc-hero {
+    padding: calc(var(--nav-height) + 3rem) 0 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .arc-hero-inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-bottom: 3rem;
+  }
+
+  .arc-hero-content {
+    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .arc-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .arc-chapter-label {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .arc-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .arc-tagline {
+    font-family: var(--font-serif);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 400;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    border-left: 2px solid rgba(255,255,255,0.2);
+    padding-left: 1rem;
+    margin: 0;
+  }
+
+  .arc-desc {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    line-height: 1.95;
+    color: rgba(255,255,255,0.45);
+    max-width: 580px;
+    margin: 0;
+  }
+
+  .arc-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .arc-count {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.5);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 2px;
+    padding: 0.25em 0.8em;
+  }
+
+  .arc-cats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .arc-cat-badge {
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 0.2em 0.7em;
+    border: 1px solid;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .arc-cat-badge:hover { opacity: 0.75; }
+
+  .arc-deco {
+    font-family: var(--font-serif);
+    font-size: clamp(10rem, 22vw, 20rem);
+    font-weight: 800;
+    color: rgba(255,255,255,0.03);
+    line-height: 1;
+    user-select: none;
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  /* Chapter nav bar */
+  .arc-chapter-nav {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(4px);
+  }
+
+  .arc-chapter-nav-inner {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+
+  .arc-chapter-btn {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1.6rem;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: background 0.2s;
+    flex-shrink: 0;
+  }
+  .arc-chapter-btn:hover {
+    background: rgba(255,255,255,0.04);
+  }
+  .arc-chapter-btn.active {
+    border-bottom-color: currentColor;
+  }
+
+  .arc-chapter-btn-num {
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+  }
+  .arc-chapter-btn.active .arc-chapter-btn-num { color: inherit; }
+
+  .arc-chapter-btn-title {
+    font-family: var(--font-serif);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.55);
+  }
+  .arc-chapter-btn.active .arc-chapter-btn-title { color: #fff; }
+
+  /* Body */
+  .arc-body {
+    padding-top: var(--sp-xl);
+    padding-bottom: var(--sp-xl);
+  }
+
+  .empty {
+    color: var(--text-mid);
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    padding: var(--sp-xl);
+    text-align: center;
+  }
+
+  /* Next arc */
+  .next-arc {
+    margin-top: var(--sp-xl);
+    padding-top: var(--sp-xl);
+    border-top: 1px solid var(--border);
+  }
+
+  .next-arc-label {
+    font-family: var(--font-sans);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--text-mid);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .next-arc-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem;
+    background: var(--bg-navy, #13161d);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 6px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .next-arc-card:hover {
+    border-color: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+  }
+
+  .next-arc-chapter {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--amber, #d4a017);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .next-arc-title {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 0.5rem;
+    letter-spacing: 0.03em;
+  }
+
+  .next-arc-tagline {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    margin: 0;
+  }
+
+  .next-arc-arrow {
+    font-size: 2rem;
+    color: rgba(255,255,255,0.2);
+    flex-shrink: 0;
+    transition: color 0.2s, transform 0.2s;
+  }
+  .next-arc-card:hover .next-arc-arrow {
+    color: rgba(255,255,255,0.6);
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 768px) {
+    .arc-deco { display: none; }
+    .arc-hero-inner { padding-bottom: 2rem; }
+    .next-arc-card { flex-direction: column; align-items: flex-start; }
+    .next-arc-arrow { display: none; }
+  }
+</style>

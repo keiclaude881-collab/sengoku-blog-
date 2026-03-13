@@ -1,21 +1,12 @@
 ---
-const links = [
-  { label: "はじめての方へ", href: "/start/", start: true },
-  { label: "記事一覧",   href: "/blog/" },
-  { label: "映画",       href: "/movies/", cinema: true },
-  { label: "書籍",       href: "/books/" },
-];
+import { ARC_INFO, ARC_ORDER, CAT_LABEL } from "../utils/arcMap";
 
-const dropdownLinks = [
-  { label: "合戦と戦略",   href: "/category/battle/" },
-  { label: "武将の思想",   href: "/category/leader/" },
-  { label: "兵法・現代応用", href: "/category/strategy/" },
-  { label: "歴史IF",       href: "/category/whatif/" },
-  { label: "アニメ戦略論", href: "/category/anime/" },
-  { label: "ビジネス戦略", href: "/category/business/" },
-  { label: "スポーツ戦略", href: "/category/sports/" },
-];
 const path = Astro.url.pathname;
+
+const chapters = ARC_ORDER.map(slug => ({
+  ...ARC_INFO[slug],
+  href: `/arc/${slug}/`,
+}));
 ---
 
 <nav class="site-nav" aria-label="メインナビゲーション">
@@ -25,31 +16,51 @@ const path = Astro.url.pathname;
     </a>
 
     <ul class="nav-links" role="list">
-      <!-- カテゴリドロップダウン -->
-      <li class="nav-dropdown-wrap">
-        <button class="nav-link nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
-          カテゴリ <span class="dropdown-arrow">▾</span>
-        </button>
-        <ul class="nav-dropdown" role="list">
-          {dropdownLinks.map(({ label, href }) => (
-            <li>
-              <a href={href} class:list={["dropdown-link", { active: path.startsWith(href) }]}>
-                {label}
-              </a>
-            </li>
-          ))}
-        </ul>
+      <li>
+        <a href="/start/" class:list={["nav-link nav-link--start", { active: path === "/start/" }]}>
+          はじめての方へ
+        </a>
       </li>
-      {links.map(({ label, href, cinema, start }) => (
-        <li>
-          <a
-            href={href}
-            class:list={["nav-link", { active: path.startsWith(href), "nav-link--cinema": cinema, "nav-link--start": start }]}
+
+      {chapters.map(ch => (
+        <li class="nav-dropdown-wrap" data-arc={ch.slug}>
+          <button
+            class:list={["nav-link nav-dropdown-btn nav-link--chapter", { active: path.startsWith(`/arc/${ch.slug}`) }]}
+            aria-expanded="false"
+            aria-haspopup="true"
+            style={path.startsWith(`/arc/${ch.slug}`) ? `color: ${ch.color};` : ""}
           >
-            {label}
-          </a>
+            <span class="chapter-num">{ch.chapter}</span>
+            <span class="chapter-title">{ch.title}</span>
+            <span class="dropdown-arrow">▾</span>
+          </button>
+          <div class="nav-dropdown nav-dropdown--chapter">
+            <a href={ch.href} class="dropdown-chapter-header" style={`border-left-color: ${ch.color};`}>
+              <span class="dch-chapter">{ch.chapter}</span>
+              <span class="dch-title">「{ch.title}」</span>
+              <span class="dch-tagline">{ch.tagline}</span>
+            </a>
+            <ul role="list">
+              {ch.categories.map(cat => (
+                <li>
+                  <a
+                    href={`/category/${cat}/`}
+                    class:list={["dropdown-link", { active: path.startsWith(`/category/${cat}/`) }]}
+                  >
+                    {CAT_LABEL[cat]}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </li>
       ))}
+
+      <li>
+        <a href="/books/" class:list={["nav-link", { active: path.startsWith("/books/") }]}>
+          書籍
+        </a>
+      </li>
     </ul>
 
     <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu">
@@ -61,20 +72,24 @@ const path = Astro.url.pathname;
 
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <ul role="list">
-      {dropdownLinks.map(({ label, href }) => (
-        <li>
-          <a href={href} class:list={["mobile-link", { active: path.startsWith(href) }]}>
-            {label}
-          </a>
-        </li>
+      <li><a href="/start/" class:list={["mobile-link mobile-link--start", { active: path === "/start/" }]}>はじめての方へ</a></li>
+      {chapters.map(ch => (
+        <>
+          <li class="mobile-chapter-header">
+            <a href={ch.href} class:list={["mobile-chapter-link", { active: path.startsWith(`/arc/${ch.slug}`) }]} style={`border-left-color: ${ch.color};`}>
+              <span>{ch.chapter}「{ch.title}」</span>
+            </a>
+          </li>
+          {ch.categories.map(cat => (
+            <li>
+              <a href={`/category/${cat}/`} class:list={["mobile-link mobile-link--sub", { active: path.startsWith(`/category/${cat}/`) }]}>
+                {CAT_LABEL[cat]}
+              </a>
+            </li>
+          ))}
+        </>
       ))}
-      {links.map(({ label, href, cinema, start }) => (
-        <li>
-          <a href={href} class:list={["mobile-link", { active: path.startsWith(href), "mobile-link--cinema": cinema, "mobile-link--start": start }]}>
-            {label}
-          </a>
-        </li>
-      ))}
+      <li><a href="/books/" class:list={["mobile-link", { active: path.startsWith("/books/") }]}>書籍レビュー</a></li>
     </ul>
   </div>
 </nav>
@@ -102,19 +117,30 @@ const path = Astro.url.pathname;
     });
   });
 
-  // ドロップダウン
-  const dropBtn = document.querySelector('.nav-dropdown-btn') as HTMLButtonElement | null;
-  const dropWrap = document.querySelector('.nav-dropdown-wrap') as HTMLElement | null;
-  dropBtn?.addEventListener('click', () => {
-    const isOpen = dropWrap?.classList.toggle('open');
-    dropBtn.setAttribute('aria-expanded', String(!!isOpen));
+  // 複数ドロップダウン対応
+  const dropWraps = document.querySelectorAll('.nav-dropdown-wrap') as NodeListOf<HTMLElement>;
+
+  function closeAll(except?: HTMLElement) {
+    dropWraps.forEach(wrap => {
+      if (wrap !== except) {
+        wrap.classList.remove('open');
+        const btn = wrap.querySelector('.nav-dropdown-btn') as HTMLButtonElement | null;
+        btn?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  dropWraps.forEach(wrap => {
+    const btn = wrap.querySelector('.nav-dropdown-btn') as HTMLButtonElement | null;
+    btn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = wrap.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(isOpen));
+      if (isOpen) closeAll(wrap);
+    });
   });
-  document.addEventListener('click', (e) => {
-    if (!dropWrap?.contains(e.target as Node)) {
-      dropWrap?.classList.remove('open');
-      dropBtn?.setAttribute('aria-expanded', 'false');
-    }
-  });
+
+  document.addEventListener('click', () => closeAll());
 </script>
 
 <style>
@@ -203,6 +229,71 @@ const path = Astro.url.pathname;
   .nav-link--start:hover {
     background: rgba(192, 57, 43, 0.07);
     color: var(--orange, #c0392b);
+  }
+
+  /* Chapter nav buttons */
+  .nav-link--chapter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0.3rem 0.75rem;
+    height: var(--nav-height);
+    justify-content: center;
+  }
+  .chapter-num {
+    font-family: var(--font-sans);
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--text-mid);
+    line-height: 1;
+    display: block;
+  }
+  .chapter-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.2;
+    display: block;
+  }
+
+  /* Chapter dropdown */
+  .nav-dropdown--chapter {
+    min-width: 220px;
+  }
+  .dropdown-chapter-header {
+    display: block;
+    padding: 1rem 1.2rem;
+    border-left: 3px solid var(--amber, #d4a017);
+    background: rgba(255,255,255,0.02);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+  .dropdown-chapter-header:hover { background: rgba(255,255,255,0.05); }
+  .dch-chapter {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--text-mid);
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+  .dch-title {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+  }
+  .dch-tagline {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    color: var(--text-mid);
+    line-height: 1.5;
   }
 
   /* ── ドロップダウン ── */
@@ -315,13 +406,29 @@ const path = Astro.url.pathname;
     background: var(--bg-sub);
     color: var(--orange);
   }
-  .mobile-link--cinema {
-    color: #e8b84b;
+  .mobile-link--start {
+    color: var(--orange, #c0392b);
+    font-weight: 600;
   }
-  .mobile-link--cinema:hover,
-  .mobile-link--cinema.active {
-    background: rgba(232, 184, 75, 0.08);
-    color: #e8b84b;
+  .mobile-chapter-header {}
+  .mobile-chapter-link {
+    display: block;
+    padding: 0.75rem 2rem;
+    font-family: var(--font-serif);
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-sub, #f5f4f0);
+    transition: background 0.15s;
+  }
+  .mobile-chapter-link:hover,
+  .mobile-chapter-link.active { opacity: 0.85; }
+  .mobile-link--sub {
+    padding-left: 3rem;
+    font-size: 0.82rem;
   }
 
   @media (max-width: 720px) {

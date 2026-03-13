@@ -8,6 +8,7 @@ import AdUnit from '../components/AdUnit.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
 import YouTubeEmbed from '../components/YouTubeEmbed.astro';
 import VodBox from '../components/VodBox.astro';
+import { CATEGORY_TO_ARC, ARC_INFO, NEXT_ARC, type CategoryName } from '../utils/arcMap';
 
 interface AffiliateBook {
   title:  string;
@@ -36,7 +37,7 @@ interface Props {
   description:      string;
   date:             Date;
   updatedAt?:       Date;
-  category:         "battle" | "leader" | "strategy" | "books" | "movie" | "whatif";
+  category:         CategoryName;
   tags:             string[];
   readingTime:      number;
   ogImage?:         string;
@@ -52,9 +53,16 @@ const { title, description, date, updatedAt, category, tags, readingTime, ogImag
 
 const eyecatch = youtubeId ? null : ogImage;
 
+// Arc info
+const arcSlug = CATEGORY_TO_ARC[category];
+const arc = arcSlug ? ARC_INFO[arcSlug] : null;
+const nextArcSlug = arcSlug ? NEXT_ARC[arcSlug] : undefined;
+const nextArc = nextArcSlug ? ARC_INFO[nextArcSlug] : null;
+
 const catLabel: Record<string, string> = {
-  battle: "合戦分析", leader: "武将の思想", strategy: "兵法・現代応用", books: "書籍レビュー",
-  movie: "映画・SF", whatif: "歴史のIF",
+  battle: "合戦と戦略", leader: "武将の思想", strategy: "兵法・知恵", books: "書籍レビュー",
+  movie: "映画の知恵", whatif: "歴史IF", anime: "アニメの知恵",
+  business: "ビジネス戦略", sports: "スポーツ戦略",
 };
 
 const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -74,6 +82,32 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
   type="article"
   publishedAt={iso}
 >
+  <!-- 章バナー -->
+  {arc && (
+    <div class="arc-banner" style={`background: ${arc.gradient}; border-bottom: 1px solid ${arc.color}30;`}>
+      <div class="container arc-banner-inner">
+        <a href={`/arc/${arc.slug}/`} class="arc-banner-link">
+          <span class="arc-banner-chapter" style={`color: ${arc.color};`}>{arc.chapter}</span>
+          <span class="arc-banner-title">「{arc.title}」</span>
+          <span class="arc-banner-tagline">{arc.tagline}</span>
+        </a>
+        <div class="arc-banner-nav">
+          {[1,2,3].map((n, i) => {
+            const slugs = ["rekishi","gendai","monogatari"] as const;
+            const s = slugs[i];
+            const a = ARC_INFO[s];
+            const isCurrent = s === arcSlug;
+            return (
+              <a href={`/arc/${s}/`} class:list={["arc-dot", { active: isCurrent }]} style={isCurrent ? `background:${arc.color}; border-color:${arc.color};` : ""} title={a.title}>
+                {n}
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  )}
+
   <article class="article-page" data-category={category}>
     <div class="container">
 
@@ -193,6 +227,23 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
         </section>
       )}
 
+      <!-- 章ナビゲーション -->
+      {arc && (
+        <section class="arc-nav-section">
+          <p class="arc-nav-label">この記事は<strong style={`color:${arc.color}`}>{arc.chapter}「{arc.title}」</strong>の一部です</p>
+          <div class="arc-nav-actions">
+            <a href={`/arc/${arc.slug}/`} class="arc-nav-btn arc-nav-btn--primary" style={`border-color:${arc.color}; color:${arc.color};`}>
+              {arc.chapter}の記事をすべて読む →
+            </a>
+            {nextArc && (
+              <a href={`/arc/${nextArc.slug}/`} class="arc-nav-btn">
+                {nextArc.chapter}「{nextArc.title}」へ →
+              </a>
+            )}
+          </div>
+        </section>
+      )}
+
       <!-- 戻るリンク -->
       <nav class="article-nav">
         <a href="/blog/" class="back-link">← 記事一覧に戻る</a>
@@ -229,6 +280,111 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 </BaseLayout>
 
 <style>
+  /* Arc banner */
+  .arc-banner {
+    padding: 0.6rem 0;
+  }
+  .arc-banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .arc-banner-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    flex-wrap: wrap;
+  }
+  .arc-banner-chapter {
+    font-family: var(--font-sans);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .arc-banner-title {
+    font-family: var(--font-serif);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.85);
+    flex-shrink: 0;
+  }
+  .arc-banner-tagline {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.4);
+  }
+  .arc-banner-nav {
+    display: flex;
+    gap: 0.35rem;
+    flex-shrink: 0;
+  }
+  .arc-dot {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: transparent;
+    color: rgba(255,255,255,0.4);
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .arc-dot.active { color: #fff; }
+  .arc-dot:not(.active):hover { border-color: rgba(255,255,255,0.5); color: rgba(255,255,255,0.7); }
+  @media (max-width: 640px) {
+    .arc-banner-tagline { display: none; }
+  }
+
+  /* Arc nav section */
+  .arc-nav-section {
+    padding: 1.6rem;
+    background: var(--bg-navy, #13161d);
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.07);
+    margin: var(--sp-lg) 0 var(--sp-md);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .arc-nav-label {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+    margin: 0;
+  }
+  .arc-nav-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .arc-nav-btn {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 3px;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.55);
+    transition: all 0.2s;
+  }
+  .arc-nav-btn:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
+  .arc-nav-btn--primary {
+    font-weight: 700;
+  }
+  .arc-nav-btn--primary:hover {
+    color: #fff;
+  }
+
   .article-page {
     padding: var(--sp-lg) 0 var(--sp-xl);
   }
