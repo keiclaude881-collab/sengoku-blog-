@@ -1,0 +1,85 @@
+---
+interface Props {
+  speaker?: string;
+  text: string;
+  type?: "narrator" | "question" | "answer";
+}
+const { speaker, text, type = "narrator" } = Astro.props;
+---
+
+<div class:list={["fukidashi", `fukidashi--${type}`]}>
+  {speaker && <span class="fukidashi-speaker">{speaker}</span>}
+  <p class="fukidashi-text">{text}</p>
+</div>
+
+<style>
+  .fukidashi {
+    position: relative;
+    padding: 1rem 1.3rem;
+    border-radius: 8px;
+    margin: 1.4rem 0;
+    font-family: var(--font-serif);
+    font-size: 0.93rem;
+    line-height: 1.9;
+  }
+
+  /* 吹き出し三角（左下） */
+  .fukidashi::before {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+  }
+
+  /* narrator: 金色ベース */
+  .fukidashi--narrator {
+    background: rgba(212, 160, 23, 0.08);
+    border-left: 3px solid var(--amber, #d4a017);
+    color: var(--text, #1a1a1a);
+  }
+  .fukidashi--narrator::before {
+    border-top: 10px solid rgba(212, 160, 23, 0.15);
+  }
+
+  /* question: 薄青 */
+  .fukidashi--question {
+    background: rgba(59, 130, 246, 0.07);
+    border-left: 3px solid #3b82f6;
+    color: var(--text, #1a1a1a);
+  }
+  .fukidashi--question::before {
+    border-top: 10px solid rgba(59, 130, 246, 0.1);
+  }
+
+  /* answer: 深緑 */
+  .fukidashi--answer {
+    background: rgba(22, 101, 52, 0.07);
+    border-left: 3px solid #16a34a;
+    color: var(--text, #1a1a1a);
+  }
+  .fukidashi--answer::before {
+    border-top: 10px solid rgba(22, 101, 52, 0.1);
+  }
+
+  .fukidashi-speaker {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--amber, #d4a017);
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+  }
+
+  .fukidashi--question .fukidashi-speaker { color: #3b82f6; }
+  .fukidashi--answer  .fukidashi-speaker { color: #16a34a; }
+
+  .fukidashi-text {
+    margin: 0;
+  }
+</style>

@@ -65,7 +65,6 @@ const formattedUpdated = updatedAt
   : null;
 
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
-const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComponent(pageUrl)}`;
 ---
 
 <BaseLayout
@@ -141,13 +140,6 @@ const hatenaBsUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComp
 
       <!-- 記事内広告（AdSenseスロットID設定後に有効化） -->
       {/* <AdUnit slot="XXXXXXXXXX" /> */}
-
-      <!-- SNSシェア -->
-      <div class="share-buttons">
-        <a href={hatenaBsUrl} target="_blank" rel="noopener noreferrer" class="share-btn">
-          B! はてブ
-        </a>
-      </div>
 
       <!-- 予告編 -->
       {youtubeId && (

@@ -1,5 +1,6 @@
 ---
 const links = [
+  { label: "はじめての方へ", href: "/start/", start: true },
   { label: "記事一覧",   href: "/blog/" },
   { label: "映画",       href: "/movies/", cinema: true },
   { label: "書籍",       href: "/books/" },
@@ -39,11 +40,11 @@ const path = Astro.url.pathname;
           ))}
         </ul>
       </li>
-      {links.map(({ label, href, cinema }) => (
+      {links.map(({ label, href, cinema, start }) => (
         <li>
           <a
             href={href}
-            class:list={["nav-link", { active: path.startsWith(href), "nav-link--cinema": cinema }]}
+            class:list={["nav-link", { active: path.startsWith(href), "nav-link--cinema": cinema, "nav-link--start": start }]}
           >
             {label}
           </a>
@@ -67,9 +68,9 @@ const path = Astro.url.pathname;
           </a>
         </li>
       ))}
-      {links.map(({ label, href, cinema }) => (
+      {links.map(({ label, href, cinema, start }) => (
         <li>
-          <a href={href} class:list={["mobile-link", { active: path.startsWith(href), "mobile-link--cinema": cinema }]}>
+          <a href={href} class:list={["mobile-link", { active: path.startsWith(href), "mobile-link--cinema": cinema, "mobile-link--start": start }]}>
             {label}
           </a>
         </li>
@@ -192,6 +193,16 @@ const path = Astro.url.pathname;
   }
   .nav-link--cinema.active {
     color: #e8b84b;
+  }
+  .nav-link--start {
+    color: var(--orange, #c0392b);
+    font-weight: 600;
+    border: 1px solid rgba(192, 57, 43, 0.3);
+    border-radius: 3px;
+  }
+  .nav-link--start:hover {
+    background: rgba(192, 57, 43, 0.07);
+    color: var(--orange, #c0392b);
   }
 
   /* ── ドロップダウン ── */
