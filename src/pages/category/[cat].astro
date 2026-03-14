@@ -3,10 +3,10 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticleCard from "../../components/ArticleCard.astro";
 
-type Cat = "battle" | "leader" | "strategy" | "books" | "movie" | "whatif" | "anime" | "business" | "sports";
+type Cat = "battle" | "leader" | "strategy" | "books" | "movie" | "whatif" | "anime" | "business" | "sports" | "novel";
 
 export async function getStaticPaths() {
-  const cats: Cat[] = ["battle", "leader", "strategy", "books", "movie", "whatif", "anime", "business", "sports"];
+  const cats: Cat[] = ["battle", "leader", "strategy", "books", "movie", "whatif", "anime", "business", "sports", "novel"];
   return cats.map(cat => ({ params: { cat } }));
 }
 
@@ -69,6 +69,12 @@ const meta: Record<Cat, { label: string; deco: string; hook: string; desc: strin
     deco:  "闘",
     hook:  "土壇場で諦めなかった人たちの共通点",
     desc:  "スポーツの名勝負が教える、粘り方と潔い撤退の作法。勝負師たちの覚悟が、日常の「もう一歩」を引き出してくれる。",
+  },
+  novel: {
+    label: "小説・物語",
+    deco:  "語",
+    hook:  "物語の中の決断が、今日の自分に重なる",
+    desc:  "御子柴礼司、ハーミオーニー、ハリー——フィクションの登場人物たちは、歴史の英傑と同じ構造の選択をしている。小説・Audibleで楽しめる物語の戦略論。",
   },
 };
 

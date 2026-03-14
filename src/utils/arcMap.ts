@@ -2,7 +2,7 @@ export type ArcSlug = "rekishi" | "gendai" | "monogatari";
 export type CategoryName =
   | "battle" | "leader" | "strategy" | "whatif"
   | "business" | "sports"
-  | "anime" | "movie"
+  | "anime" | "movie" | "novel"
   | "books";
 
 export const CATEGORY_TO_ARC: Record<CategoryName, ArcSlug | null> = {
@@ -14,6 +14,7 @@ export const CATEGORY_TO_ARC: Record<CategoryName, ArcSlug | null> = {
   sports:   "gendai",
   anime:    "monogatari",
   movie:    "monogatari",
+  novel:    "monogatari",
   books:    null,
 };
 
@@ -64,7 +65,7 @@ export const ARC_INFO: Record<ArcSlug, ArcInfo> = {
     color:       "#d4a017",
     colorBg:     "rgba(212, 160, 23, 0.08)",
     gradient:    "linear-gradient(135deg, #2a1a00 0%, #0d0d0d 100%)",
-    categories:  ["anime", "movie"],
+    categories:  ["anime", "movie", "novel"],
     deco:        "参",
   },
 };
@@ -85,5 +86,6 @@ export const CAT_LABEL: Record<CategoryName, string> = {
   sports:   "スポーツ戦略",
   anime:    "アニメの知恵",
   movie:    "映画の知恵",
+  novel:    "小説・物語",
   books:    "書籍レビュー",
 };

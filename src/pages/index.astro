@@ -7,8 +7,6 @@ import ArticleCard from "../components/ArticleCard.astro";
 import BookCard from "../components/BookCard.astro";
 import AffiliateDisclosure from "../components/AffiliateDisclosure.astro";
 
-const formspreeId = import.meta.env.FORMSPREE_ID ?? '';
-
 const allArticles = (await Promise.all([
   getCollection("battle"),
   getCollection("leader"),
@@ -19,10 +17,12 @@ const allArticles = (await Promise.all([
   getCollection("anime").catch(() => []),
   getCollection("business").catch(() => []),
   getCollection("sports").catch(() => []),
+  getCollection("novel").catch(() => []),
 ])).flat().sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 const featured = allArticles.find(a => a.data.featured) ?? allArticles[0];
 const recent   = allArticles.filter(a => a.id !== featured?.id).slice(0, 3);
+const sliderArticles = allArticles.slice(0, 10);
 
 function slug(col: string, id: string) {
   return `${col}/${id.replace(/\.mdx?$/, '')}`;
@@ -68,6 +68,38 @@ const marqueeItems = [
     </div>
   </div>
 
+  <!-- 記事スライダー -->
+  {sliderArticles.length > 0 && (
+    <section class="slider-section" aria-label="新着記事">
+      <div class="slider-header container">
+        <span class="slider-label">NEW ARTICLES</span>
+        <a href="/blog/" class="slider-more">すべて見る →</a>
+      </div>
+      <div class="slider-viewport">
+        <div class="slider-track" id="slider-track">
+          {[...sliderArticles, ...sliderArticles].map((post, i) => (
+            <a
+              href={`/blog/${slug(post.collection, post.id)}/`}
+              class="slider-card"
+              aria-hidden={i >= sliderArticles.length ? "true" : undefined}
+              tabindex={i >= sliderArticles.length ? -1 : undefined}
+            >
+              {post.data.ogImage ? (
+                <div class="sc-img" style={`background-image: url('${post.data.ogImage}')`}></div>
+              ) : (
+                <div class="sc-img sc-img--empty"></div>
+              )}
+              <div class="sc-body">
+                <span class="sc-cat">{post.data.category}</span>
+                <p class="sc-title">{post.data.title}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
   <!-- イントロバンド -->
   <section class="intro-band">
     <div class="container intro-inner">
@@ -76,49 +108,6 @@ const marqueeItems = [
         <p class="quote-jp">「戦わずして人の兵を屈するは、善の善なる者なり。」</p>
         <p class="quote-en font-italic">— Sun Tzu, The Art of War</p>
       </blockquote>
-    </div>
-  </section>
-
-  <!-- メルマガ登録 -->
-  <section class="email-section">
-    <div class="container email-inner">
-      <div class="email-left">
-        <h2 class="email-heading">疲れた週末に読みたい、一通のメール。</h2>
-        <ul class="email-benefits">
-          <li><span class="benefit-check">✓</span> 週1回、偉人の決断と知恵をあなたのもとへ</li>
-          <li><span class="benefit-check">✓</span> 「今週も頑張れた」と思えるひとことコラム</li>
-          <li><span class="benefit-check">✓</span> 新着記事の先行通知</li>
-        </ul>
-        <p class="email-note">無料・いつでも解除可能</p>
-      </div>
-      <div class="email-right">
-        <form
-          class="email-form"
-          id="newsletter-form"
-          action="https://ketsudankeifu.substack.com/subscribe"
-          method="get"
-        >
-          <label class="form-label" for="email-input">メールアドレス</label>
-          <div class="form-row">
-            <input
-              type="email"
-              id="email-input"
-              name="email"
-              placeholder="your@email.com"
-              required
-              class="form-input"
-            />
-            <button type="submit" class="form-btn">登録する →</button>
-          </div>
-          <p class="form-privacy">
-            <a href="/privacy/">プライバシーポリシー</a>に同意のうえご登録ください。
-          </p>
-        </form>
-        <div class="email-thanks" id="email-thanks" hidden>
-          <p class="thanks-icon">✓</p>
-          <p class="thanks-text">ご登録ありがとうございます。<br>確認メールをお送りします。</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -228,6 +217,12 @@ const marqueeItems = [
             label: "勝負師の知恵",
             hook: "土壇場で諦めなかった人たちの共通点",
             desc: "スポーツの名勝負が教える、粘り方と潔い撤退の作法",
+          },
+          {
+            cat: "novel",
+            label: "小説・物語",
+            hook: "物語の中の決断が、今日の自分に重なる",
+            desc: "御子柴礼司、ハーミオーニー——フィクションの登場人物は歴史の英傑と同じ決断をしている",
           },
         ].map(({ cat, label, hook, desc }) => (
           <li>
@@ -365,8 +360,8 @@ const marqueeItems = [
 <div class="sticky-cta" id="sticky-cta" aria-label="常設CTA">
   <div class="sticky-inner">
     <div class="sticky-items">
-      <a href="#newsletter-form" class="sticky-btn sticky-btn-primary">
-        📩 メルマガ登録（無料）
+      <a href="/blog/" class="sticky-btn sticky-btn-primary">
+        📖 記事を読む
       </a>
       <a
         href="https://www.amazon.co.jp/audible?tag=sengokublog20-22"
@@ -382,12 +377,6 @@ const marqueeItems = [
 </div>
 
 <script>
-  // メルマガフォーム（Substack）
-  const form = document.getElementById('newsletter-form') as HTMLFormElement | null;
-  const thanks = document.getElementById('email-thanks') as HTMLElement | null;
-  if (form && thanks) {
-  }
-
   // スティッキーCTA
   const stickyCta = document.getElementById('sticky-cta') as HTMLElement | null;
   const stickyClose = document.getElementById('sticky-close') as HTMLElement | null;
@@ -475,112 +464,107 @@ const marqueeItems = [
     letter-spacing: 0.05em;
   }
 
-  /* ── メルマガ ── */
-  .email-section {
-    background: var(--bg2);
-    padding: var(--sp-xl) 0;
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
+  /* ── 記事スライダー ── */
+  .slider-section {
+    padding: 2.5rem 0 0;
+    overflow: hidden;
   }
-  .email-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-  .email-heading {
-    font-family: var(--font-serif);
-    font-size: clamp(1.2rem, 2.5vw, 1.7rem);
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1.4;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.02em;
-  }
-  .email-benefits {
-    list-style: none;
+  .slider-header {
     display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 1.2rem;
   }
-  .email-benefits li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
+  .slider-label {
     font-family: var(--font-sans);
-    font-size: 0.88rem;
-    color: var(--ink2);
-    line-height: 1.5;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
   }
-  .benefit-check { color: var(--gold); font-weight: 700; flex-shrink: 0; }
-  .email-note {
+  .slider-more {
     font-family: var(--font-sans);
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     color: var(--ink3);
+    text-decoration: none;
+    transition: color 0.2s;
   }
-  .form-label {
-    display: block;
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    color: var(--ink2);
-    margin-bottom: 0.6rem;
+  .slider-more:hover { color: var(--gold); }
+
+  .slider-viewport {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
   }
-  .form-row {
+  .slider-track {
     display: flex;
-    margin-bottom: 0.75rem;
+    gap: 1rem;
+    width: max-content;
+    animation: slider-scroll 40s linear infinite;
+    padding: 0 2rem 2rem;
   }
-  .form-input {
-    flex: 1;
-    padding: 0.85rem 1.2rem;
+  .slider-track:hover { animation-play-state: paused; }
+  @keyframes slider-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  .slider-card {
+    width: 240px;
+    flex-shrink: 0;
+    background: var(--bg);
     border: 1px solid var(--rule);
-    border-right: none;
-    border-radius: 2px 0 0 2px;
-    font-family: var(--font-sans);
-    font-size: 0.88rem;
-    color: var(--ink);
-    background: var(--bg);
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  .form-input:focus { border-color: var(--gold); }
-  .form-btn {
-    padding: 0.85rem 1.6rem;
-    background: var(--ink);
-    color: #fff;
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    border: none;
-    border-radius: 0 2px 2px 0;
-    cursor: pointer;
-    transition: background 0.2s;
-    white-space: nowrap;
-  }
-  .form-btn:hover { background: var(--accent); }
-  .form-privacy {
-    font-family: var(--font-sans);
-    font-size: 0.72rem;
-    color: var(--ink3);
-  }
-  .form-privacy a { color: var(--gold); text-decoration: underline; }
-  .email-thanks {
-    text-align: center;
-    padding: 2.5rem;
-    background: var(--bg);
-    border: 1px solid var(--gold-light);
     border-radius: 4px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
   }
-  .thanks-icon { font-size: 2rem; color: var(--gold); margin-bottom: 0.75rem; }
-  .thanks-text {
+  .slider-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  }
+  .sc-img {
+    width: 100%;
+    height: 140px;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+    background-color: var(--bg2);
+  }
+  .sc-img--empty {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--gold-dark) 100%);
+  }
+  .sc-body {
+    padding: 0.85rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .sc-cat {
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .sc-title {
     font-family: var(--font-serif);
-    font-size: 0.95rem;
-    line-height: 1.8;
-    color: var(--ink2);
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--ink);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
+  .slider-card:hover .sc-title { color: var(--gold-dark); }
 
   /* ── 記事・カテゴリ ── */
   .articles-section { background: var(--bg); }
@@ -934,21 +918,18 @@ const marqueeItems = [
     .cat-grid   { grid-template-columns: repeat(3, 1fr); }
     .needs-grid { grid-template-columns: repeat(2, 1fr); }
     .book-grid  { grid-template-columns: repeat(2, 1fr); }
-    .email-inner { gap: 3rem; }
   }
   @media (max-width: 768px) {
     .cat-grid   { grid-template-columns: repeat(2, 1fr); }
-    .email-inner { grid-template-columns: 1fr; gap: 2.4rem; }
     .book-grid { grid-template-columns: repeat(2, 1fr); }
     .banner-inner { flex-direction: column; align-items: flex-start; }
     .sticky-btn-secondary { display: none; }
+    .slider-card { width: 200px; }
   }
   @media (max-width: 480px) {
     .cat-grid { grid-template-columns: 1fr; }
     .book-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-    .form-row { flex-direction: column; }
-    .form-input { border-right: 1px solid var(--rule); border-bottom: none; border-radius: 2px 2px 0 0; }
-    .form-btn { border-radius: 0 0 2px 2px; }
     .intro-label { display: none; }
+    .slider-card { width: 180px; }
   }
 </style>

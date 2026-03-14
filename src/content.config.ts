@@ -4,7 +4,7 @@ const articleSchema = z.object({
   title:       z.string(),
   date:        z.coerce.date(),
   updatedAt:   z.coerce.date().optional(),
-  category:    z.enum(["battle", "leader", "strategy", "books", "movie", "whatif", "anime", "business", "sports"]),
+  category:    z.enum(["battle", "leader", "strategy", "books", "movie", "whatif", "anime", "business", "sports", "novel"]),
   tags:        z.array(z.string()).default([]),
   description: z.string().max(120),
   ogImage:     z.string().optional(),
@@ -32,4 +32,5 @@ export const collections = {
   anime:    defineCollection({ type: "content", schema: articleSchema }),
   business: defineCollection({ type: "content", schema: articleSchema }),
   sports:   defineCollection({ type: "content", schema: articleSchema }),
+  novel:    defineCollection({ type: "content", schema: articleSchema }),
 };
