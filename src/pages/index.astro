@@ -167,13 +167,6 @@ const marqueeItems = [
       </div>
     </div>
 
-    <!-- ポップコーン粒 -->
-    <div class="popcorn-field" aria-hidden="true">
-      {Array.from({length: 12}).map((_, i) => (
-        <span class="popcorn" style={`--i:${i}`}>🍿</span>
-      ))}
-    </div>
-
     <!-- スポットライト -->
     <div class="spotlight" aria-hidden="true"></div>
 
@@ -736,29 +729,6 @@ const marqueeItems = [
     border-radius: 2px;
     border: 1px solid #444;
     flex-shrink: 0;
-  }
-
-  /* ポップコーン */
-  .popcorn-field {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-  }
-  .popcorn {
-    position: absolute;
-    font-size: 1.2rem;
-    bottom: -2rem;
-    opacity: 0;
-    animation: popcorn-fly 4s ease-out infinite;
-    animation-delay: calc(var(--i) * 0.4s);
-    left: calc(8% + var(--i) * 7%);
-  }
-  @keyframes popcorn-fly {
-    0%   { transform: translateY(0) rotate(0deg) scale(0.5); opacity: 0; }
-    10%  { opacity: 1; }
-    60%  { opacity: 0.8; }
-    100% { transform: translateY(-180px) rotate(360deg) scale(1.1); opacity: 0; }
   }
 
   .cinema-inner {
