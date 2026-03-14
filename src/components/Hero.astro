@@ -2,6 +2,11 @@
 ---
 
 <section class="hero" aria-label="ヒーロー">
+  <!-- 雷キャンバス -->
+  <canvas class="lightning-canvas" id="lightning-canvas" aria-hidden="true"></canvas>
+  <!-- 雷光フラッシュ -->
+  <div class="hero-flash" id="hero-flash" aria-hidden="true"></div>
+
   <div class="hero-inner container">
 
     <!-- 左：テキスト＋CTA -->
@@ -11,7 +16,7 @@
         歴史の知恵が、今日の力になる。
       </p>
 
-      <h1 class="hero-title">
+      <h1 class="hero-title" id="hero-title">
         迷ったとき、<br>
         <em>昔の誰かも</em>同じように迷っていた。
       </h1>
@@ -32,17 +37,148 @@
   </div>
 </section>
 
+<script>
+  const canvas = document.getElementById('lightning-canvas') as HTMLCanvasElement | null;
+  const flash  = document.getElementById('hero-flash') as HTMLElement | null;
+  const title  = document.getElementById('hero-title') as HTMLElement | null;
+
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+
+    function resize() {
+      const hero = canvas!.parentElement!;
+      canvas!.width  = hero.offsetWidth;
+      canvas!.height = hero.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    function drawBolt(
+      x1: number, y1: number,
+      x2: number, y2: number,
+      depth: number
+    ) {
+      if (!ctx) return;
+      if (depth === 0) {
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+        return;
+      }
+      const dx   = x2 - x1;
+      const dy   = y2 - y1;
+      const len  = Math.sqrt(dx * dx + dy * dy);
+      const midX = (x1 + x2) / 2 + (Math.random() - 0.5) * len * 0.45;
+      const midY = (y1 + y2) / 2 + (Math.random() - 0.25) * Math.abs(dy) * 0.3;
+
+      drawBolt(x1, y1, midX, midY, depth - 1);
+      drawBolt(midX, midY, x2, y2, depth - 1);
+
+      // ランダムな枝
+      if (depth > 2 && Math.random() > 0.55) {
+        const bx = midX + (Math.random() - 0.35) * dx * 0.6;
+        const by = midY + Math.random() * dy * 0.5;
+        ctx.globalAlpha = 0.45;
+        drawBolt(midX, midY, bx, by, depth - 2);
+        ctx.globalAlpha = 1;
+      }
+    }
+
+    function strike() {
+      if (!ctx || !canvas) return;
+      const W = canvas.width;
+      const H = canvas.height;
+
+      // 右上〜中央付近の雲から落ちる
+      const startX = W * (0.42 + Math.random() * 0.5);
+      const startY = H * (0.04 + Math.random() * 0.12);
+      const endX   = startX + (Math.random() - 0.5) * W * 0.25;
+      const endY   = H * (0.45 + Math.random() * 0.35);
+
+      ctx.clearRect(0, 0, W, H);
+      ctx.strokeStyle = 'rgba(210, 235, 255, 0.92)';
+      ctx.lineWidth   = 1.2;
+      ctx.shadowColor = 'rgba(150, 210, 255, 1)';
+      ctx.shadowBlur  = 14;
+      ctx.globalAlpha = 1;
+
+      drawBolt(startX, startY, endX, endY, 7);
+
+      // フラッシュ
+      if (flash) {
+        flash.style.transition = 'none';
+        flash.style.opacity = '0.18';
+        setTimeout(() => {
+          if (flash) { flash.style.transition = 'opacity 0.12s'; flash.style.opacity = '0'; }
+        }, 60);
+        setTimeout(() => {
+          if (flash) { flash.style.transition = 'none'; flash.style.opacity = '0.07'; }
+        }, 110);
+        setTimeout(() => {
+          if (flash) { flash.style.transition = 'opacity 0.2s'; flash.style.opacity = '0'; }
+        }, 160);
+      }
+
+      // タイトルを一瞬グローさせる
+      if (title) {
+        title.classList.add('title-flash');
+        setTimeout(() => title?.classList.remove('title-flash'), 300);
+      }
+
+      // ボルト消去
+      setTimeout(() => ctx?.clearRect(0, 0, W, H), 220);
+    }
+
+    function scheduleNext() {
+      const delay = 5000 + Math.random() * 10000; // 5〜15秒ランダム
+      setTimeout(() => {
+        strike();
+        scheduleNext();
+      }, delay);
+    }
+
+    // 最初は2秒後に打つ
+    setTimeout(() => { strike(); scheduleNext(); }, 2000);
+  }
+</script>
+
 <style>
   .hero {
+    position: relative;
     background:
       linear-gradient(to right, rgba(5,12,5,0.82) 0%, rgba(5,12,5,0.55) 55%, rgba(5,12,5,0.25) 100%),
       url('/images/header-bg.jpg') center center / cover no-repeat;
     min-height: 90vh;
     display: flex;
     align-items: center;
+    overflow: hidden;
+  }
+
+  /* 雷キャンバス */
+  .lightning-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* 雷光フラッシュ */
+  .hero-flash {
+    position: absolute;
+    inset: 0;
+    background: rgba(200, 230, 255, 1);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+    mix-blend-mode: overlay;
   }
 
   .hero-inner {
+    position: relative;
+    z-index: 3;
     display: grid;
     grid-template-columns: 1fr;
     gap: 4rem;
@@ -85,10 +221,37 @@
     color: #fff;
     line-height: 1.25;
     letter-spacing: 0.02em;
+    /* 常時うっすらグロー */
+    text-shadow:
+      0 0 40px rgba(59, 140, 110, 0.15),
+      0 0 80px rgba(59, 140, 110, 0.05);
+    transition: text-shadow 0.2s;
+  }
+  /* 雷に合わせてフラッシュ */
+  .hero-title.title-flash {
+    text-shadow:
+      0 0 20px rgba(200, 230, 255, 0.7),
+      0 0 50px rgba(200, 230, 255, 0.4),
+      0 0 100px rgba(200, 230, 255, 0.15);
   }
   .hero-title em {
     font-style: normal;
     color: var(--gold);
+    /* emは常時グリーングロー */
+    animation: em-glow 4s ease-in-out infinite;
+  }
+  @keyframes em-glow {
+    0%, 100% {
+      text-shadow:
+        0 0 12px rgba(59, 140, 110, 0.4),
+        0 0 24px rgba(59, 140, 110, 0.2);
+    }
+    50% {
+      text-shadow:
+        0 0 20px rgba(59, 140, 110, 0.7),
+        0 0 40px rgba(59, 140, 110, 0.35),
+        0 0 60px rgba(59, 140, 110, 0.15);
+    }
   }
 
   .hero-body {
@@ -147,65 +310,6 @@
     color: var(--gold);
   }
 
-  /* ── 右：半透明パネル ── */
-  .hero-panel {
-    background: rgba(10, 25, 10, 0.55);
-    border: 1px solid rgba(201, 168, 76, 0.2);
-    border-radius: 4px;
-    padding: 3rem 2.4rem;
-    position: relative;
-    overflow: hidden;
-    height: 420px;
-    display: flex;
-    align-items: flex-end;
-    backdrop-filter: blur(4px);
-  }
-
-  .panel-deco {
-    position: absolute;
-    top: -1rem;
-    right: -1.5rem;
-    font-family: var(--font-serif);
-    font-size: 14rem;
-    font-weight: 800;
-    color: rgba(255, 255, 255, 0.05);
-    line-height: 1;
-    user-select: none;
-    pointer-events: none;
-  }
-
-  .panel-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.8rem 1.5rem;
-    width: 100%;
-    position: relative;
-    z-index: 1;
-  }
-
-  .stat {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-
-  .stat-num {
-    font-family: var(--font-italic);
-    font-size: 2rem;
-    font-weight: 400;
-    font-style: italic;
-    color: var(--gold);
-    line-height: 1;
-  }
-
-  .stat-label {
-    font-family: var(--font-sans);
-    font-size: 0.72rem;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.55);
-    letter-spacing: 0.06em;
-  }
-
   /* ── レスポンシブ ── */
   @media (max-width: 900px) {
     .hero-inner {
@@ -213,11 +317,6 @@
       padding-top: calc(var(--nav-height) + 3rem);
       padding-bottom: 4rem;
     }
-    .hero-panel {
-      height: auto;
-      padding: 2rem;
-    }
-    .panel-deco { font-size: 8rem; }
   }
 
   @media (max-width: 480px) {
@@ -226,7 +325,6 @@
       padding-bottom: 3rem;
       gap: 2.5rem;
     }
-    .hero-panel { display: none; }
     .br-pc { display: none; }
   }
 </style>
