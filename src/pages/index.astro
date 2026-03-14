@@ -156,88 +156,6 @@ const marqueeItems = [
     </section>
   )}
 
-  <!-- カテゴリ -->
-  <section class="categories-section section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">あなたに寄り添う、偉人たちの視点。</h2>
-      </div>
-      <ul class="cat-grid" role="list">
-        {[
-          {
-            cat: "battle",
-            label: "合戦と戦略",
-            hook: "あの戦いも、誰かの迷いから始まった",
-            desc: "追い詰められた武将たちの決断は、今日の「どうすればいい？」に答えてくれる",
-          },
-          {
-            cat: "leader",
-            label: "武将の思想",
-            hook: "信長も家康も、最初はただの人間だった",
-            desc: "完璧じゃない彼らが、それでも前へ進めた理由",
-          },
-          {
-            cat: "strategy",
-            label: "兵法・知恵",
-            hook: "孫子の言葉は、疲れた心にも効く",
-            desc: "2500年前の知恵が、今日の判断をそっと助けてくれる",
-          },
-          {
-            cat: "books",
-            label: "書籍レビュー",
-            hook: "忙しい毎日の中で、この一冊があなたを変える",
-            desc: "読み終わった後、世界の見え方が少し変わる本を紹介",
-          },
-          {
-            cat: "movie",
-            label: "映画の中の知恵",
-            hook: "スクリーンの向こうに、あなたへのメッセージがある",
-            desc: "名作映画が描く人間の決断と葛藤を、一緒に読み解く",
-          },
-          {
-            cat: "whatif",
-            label: "歴史IF",
-            hook: "もし違う選択をしていたら、どうなっていたか",
-            desc: "「あの時こうしていれば」——歴史のIFが教える選択の重さ",
-          },
-          {
-            cat: "anime",
-            label: "アニメの中の知恵",
-            hook: "好きなアニメのあのシーン、実は深い意味があった",
-            desc: "キャラクターたちの葛藤と決断が、今日の自分に重なる",
-          },
-          {
-            cat: "business",
-            label: "ビジネスの知恵",
-            hook: "仕事で迷ったとき、偉人ならどうするか",
-            desc: "歴史の知恵を借りて、今日の仕事をすこし楽にする",
-          },
-          {
-            cat: "sports",
-            label: "勝負師の知恵",
-            hook: "土壇場で諦めなかった人たちの共通点",
-            desc: "スポーツの名勝負が教える、粘り方と潔い撤退の作法",
-          },
-          {
-            cat: "novel",
-            label: "小説・物語",
-            hook: "物語の中の決断が、今日の自分に重なる",
-            desc: "御子柴礼司、ハーミオーニー——フィクションの登場人物は歴史の英傑と同じ決断をしている",
-          },
-        ].map(({ cat, label, hook, desc }) => (
-          <li>
-            <a href={`/category/${cat}/`} class="cat-card">
-              <span class="cat-name">{label}</span>
-              <h3 class="cat-hook">{hook}</h3>
-              <p class="cat-desc">{desc}</p>
-              <span class="cat-link">記事一覧 →</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
-
   <!-- 映画コーナーバナー -->
   <section class="cinema-banner">
     <div class="container cinema-inner">
@@ -256,43 +174,61 @@ const marqueeItems = [
     </div>
   </section>
 
-  <!-- 悩み別おすすめ -->
-  <section class="needs-section section">
+  <!-- フリップカード：気持ちから探す -->
+  <section class="flip-section section">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">今、どんな気持ちで来ましたか？</h2>
-        <p class="needs-sub">気持ちから記事を探す</p>
+        <p class="flip-sub">カードをめくると、答えが見つかるかもしれない。</p>
       </div>
-      <ul class="needs-grid" role="list">
+      <ul class="flip-grid" role="list">
         {[
           {
             tag: "意思決定",
             label: "決められなくて、疲れた",
-            desc: "正解なんてなかった——それでも決断し続けた人たちの話",
+            quote: "「迷いながらも、決める。それが将の仕事だ。」",
+            author: "— 徳川家康",
+            href: "/category/strategy/",
           },
           {
             tag: "リーダーシップ",
             label: "誰かを支えるのが、しんどい",
-            desc: "信長も家康も孤独だった。それでも人を率いた理由",
+            quote: "「孤独でも前へ。それが大将の覚悟だ。」",
+            author: "— 織田信長",
+            href: "/category/leader/",
           },
           {
             tag: "ビジネス戦略",
             label: "仕事がうまくいかない",
-            desc: "劣勢でも勝った人たちが使っていた、シンプルな考え方",
+            quote: "「彼を知り己を知れば、百戦殆うからず。」",
+            author: "— 孫子",
+            href: "/category/business/",
           },
           {
-            tag: "組織論",
+            tag: "人生の選択",
             label: "もっと自分らしく生きたい",
-            desc: "既存のルールを壊して生きた偉人たちの、それぞれの道",
+            quote: "「天下布武——自分の旗を立て、自分の道を切り開け。」",
+            author: "— 織田信長",
+            href: "/category/whatif/",
           },
-        ].map(({ tag, label, desc }) => (
+        ].map(({ tag, label, quote, author, href }) => (
           <li>
-            <a href={`/blog/?tag=${encodeURIComponent(tag)}`} class="needs-card" data-tag={tag}>
-              <span class="needs-tag">#{tag}</span>
-              <h3 class="needs-label">{label}</h3>
-              <p class="needs-desc">{desc}</p>
-              <span class="needs-cta">記事を読む →</span>
-            </a>
+            <div class="flip-card" tabindex="0">
+              <div class="flip-inner">
+                <!-- 表 -->
+                <div class="flip-front">
+                  <span class="flip-tag">#{tag}</span>
+                  <h3 class="flip-label">{label}</h3>
+                  <span class="flip-hint">めくる ↻</span>
+                </div>
+                <!-- 裏 -->
+                <div class="flip-back">
+                  <blockquote class="flip-quote">{quote}</blockquote>
+                  <p class="flip-author">{author}</p>
+                  <a href={href} class="flip-cta">記事を読む →</a>
+                </div>
+              </div>
+            </div>
           </li>
         ))}
       </ul>
@@ -566,139 +502,128 @@ const marqueeItems = [
   }
   .slider-card:hover .sc-title { color: var(--gold-dark); }
 
-  /* ── 記事・カテゴリ ── */
+  /* ── 記事セクション ── */
   .articles-section { background: var(--bg); }
-  .categories-section { background: var(--bg2); }
 
-  .cat-grid {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    overflow: hidden;
-    background: var(--rule);
-  }
-  .cat-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    padding: 2rem 1.6rem;
-    background: var(--bg);
-    text-decoration: none;
-    color: inherit;
-    transition: background 0.25s;
-    height: 100%;
-  }
-  .cat-card:hover { background: var(--ink); }
-  .cat-card:hover .cat-name { color: var(--gold); }
-  .cat-card:hover .cat-hook,
-  .cat-card:hover .cat-link { color: #fff; }
-  .cat-card:hover .cat-desc { color: rgba(255,255,255,0.5); }
-
-  .cat-name {
-    font-family: var(--font-sans);
-    font-size: 0.63rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    text-transform: uppercase;
-    transition: color 0.25s;
-  }
-  .cat-hook {
-    font-family: var(--font-serif);
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1.55;
-    transition: color 0.25s;
-  }
-  .cat-desc {
-    font-family: var(--font-sans);
-    font-size: 0.78rem;
-    color: var(--ink3);
-    line-height: 1.65;
-    flex: 1;
-    transition: color 0.25s;
-  }
-  .cat-link {
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--gold);
-    margin-top: auto;
-    transition: color 0.25s;
-  }
-
-  /* ── 悩み別おすすめ ── */
-  .needs-section { background: var(--bg); }
-  .needs-sub {
+  /* ── フリップカード ── */
+  .flip-section { background: var(--bg2); }
+  .flip-sub {
     font-family: var(--font-sans);
     font-size: 0.78rem;
     color: var(--ink3);
     margin-top: 0.3rem;
   }
-  .needs-grid {
+  .flip-grid {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-top: 1.6rem;
+    gap: 1.2rem;
+    margin-top: 1.8rem;
   }
-  .needs-card {
+  /* カード外枠 */
+  .flip-card {
+    perspective: 900px;
+    height: 220px;
+    cursor: pointer;
+    outline: none;
+  }
+  .flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .flip-card:hover .flip-inner,
+  .flip-card:focus .flip-inner {
+    transform: rotateY(180deg);
+  }
+  /* 表・裏共通 */
+  .flip-front,
+  .flip-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 4px;
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
-    padding: 1.8rem 1.5rem;
-    border: 1px solid var(--rule);
-    border-radius: 4px;
+    padding: 1.8rem 1.6rem;
+  }
+  /* 表 */
+  .flip-front {
     background: var(--bg);
-    text-decoration: none;
-    color: inherit;
-    height: 100%;
-    transition: background 0.22s, border-color 0.22s, transform 0.22s;
+    border: 1px solid var(--rule);
+    justify-content: space-between;
   }
-  .needs-card:hover {
-    background: var(--accent);
-    border-color: var(--accent);
-    transform: translateY(-3px);
-  }
-  .needs-tag {
+  .flip-tag {
     font-family: var(--font-sans);
     font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     color: var(--gold);
-    transition: color 0.22s;
   }
-  .needs-label {
+  .flip-label {
     font-family: var(--font-serif);
     font-size: 1.05rem;
     font-weight: 700;
     color: var(--ink);
-    line-height: 1.4;
-    transition: color 0.22s;
+    line-height: 1.45;
+    flex: 1;
+    display: flex;
+    align-items: center;
   }
-  .needs-card:hover .needs-label { color: #fff; }
-  .needs-desc {
+  .flip-hint {
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    color: var(--ink3);
+    letter-spacing: 0.05em;
+    text-align: right;
+  }
+  /* 裏 */
+  .flip-back {
+    background: var(--accent);
+    border: 1px solid var(--gold-dark);
+    transform: rotateY(180deg);
+    justify-content: space-between;
+  }
+  .flip-quote {
+    font-family: var(--font-serif);
+    font-size: 0.92rem;
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.8;
+    border-left: 2px solid var(--gold);
+    padding-left: 0.9rem;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+  .flip-author {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    color: var(--gold-light);
+    letter-spacing: 0.08em;
+    margin: 0.6rem 0;
+  }
+  .flip-cta {
+    display: inline-block;
     font-family: var(--font-sans);
     font-size: 0.78rem;
-    line-height: 1.7;
-    color: var(--ink3);
-    flex: 1;
-    transition: color 0.22s;
-  }
-  .needs-card:hover .needs-desc { color: rgba(255,255,255,0.55); }
-  .needs-cta {
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--gold);
-    margin-top: auto;
-    transition: color 0.22s;
+    text-decoration: none;
+    border: 1px solid rgba(59,140,110,0.4);
+    border-radius: 2px;
+    padding: 0.4rem 0.9rem;
+    text-align: center;
+    transition: background 0.2s, color 0.2s;
   }
-  .needs-card:hover .needs-cta { color: var(--gold-light); }
+  .flip-cta:hover {
+    background: var(--gold);
+    color: #fff;
+  }
 
   /* ── 書籍セクション ── */
   .books-section {
@@ -915,19 +840,18 @@ const marqueeItems = [
 
   /* ── レスポンシブ ── */
   @media (max-width: 1024px) {
-    .cat-grid   { grid-template-columns: repeat(3, 1fr); }
-    .needs-grid { grid-template-columns: repeat(2, 1fr); }
+    .flip-grid  { grid-template-columns: repeat(2, 1fr); }
     .book-grid  { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 768px) {
-    .cat-grid   { grid-template-columns: repeat(2, 1fr); }
     .book-grid { grid-template-columns: repeat(2, 1fr); }
     .banner-inner { flex-direction: column; align-items: flex-start; }
     .sticky-btn-secondary { display: none; }
     .slider-card { width: 200px; }
   }
   @media (max-width: 480px) {
-    .cat-grid { grid-template-columns: 1fr; }
+    .flip-grid  { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .flip-card  { height: 180px; }
     .book-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
     .intro-label { display: none; }
     .slider-card { width: 180px; }

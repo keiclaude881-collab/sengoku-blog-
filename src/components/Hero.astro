@@ -105,29 +105,40 @@
 
       drawBolt(startX, startY, endX, endY, 7);
 
-      // フラッシュ
+      // フラッシュ（ゆっくり）
       if (flash) {
         flash.style.transition = 'none';
         flash.style.opacity = '0.18';
         setTimeout(() => {
-          if (flash) { flash.style.transition = 'opacity 0.12s'; flash.style.opacity = '0'; }
-        }, 60);
+          if (flash) { flash.style.transition = 'opacity 0.25s'; flash.style.opacity = '0'; }
+        }, 120);
         setTimeout(() => {
-          if (flash) { flash.style.transition = 'none'; flash.style.opacity = '0.07'; }
-        }, 110);
+          if (flash) { flash.style.transition = 'none'; flash.style.opacity = '0.08'; }
+        }, 250);
         setTimeout(() => {
-          if (flash) { flash.style.transition = 'opacity 0.2s'; flash.style.opacity = '0'; }
-        }, 160);
+          if (flash) { flash.style.transition = 'opacity 0.4s'; flash.style.opacity = '0'; }
+        }, 350);
       }
 
       // タイトルを一瞬グローさせる
       if (title) {
         title.classList.add('title-flash');
-        setTimeout(() => title?.classList.remove('title-flash'), 300);
+        setTimeout(() => title?.classList.remove('title-flash'), 600);
       }
 
-      // ボルト消去
-      setTimeout(() => ctx?.clearRect(0, 0, W, H), 220);
+      // ボルト消去（ゆっくりフェード）
+      setTimeout(() => {
+        if (!ctx || !canvas) return;
+        let alpha = 1;
+        const fade = setInterval(() => {
+          alpha -= 0.08;
+          if (alpha <= 0) { clearInterval(fade); ctx.clearRect(0, 0, canvas.width, canvas.height); return; }
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.globalAlpha = alpha;
+          drawBolt(startX, startY, endX, endY, 7);
+          ctx.globalAlpha = 1;
+        }, 30);
+      }, 300);
     }
 
     function scheduleNext() {
