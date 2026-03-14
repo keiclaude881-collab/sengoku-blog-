@@ -157,20 +157,42 @@ const marqueeItems = [
   )}
 
   <!-- 映画コーナーバナー -->
-  <section class="cinema-banner">
+  <section class="cinema-banner" aria-label="映画コーナー">
+    <!-- フィルムストリップ（上） -->
+    <div class="film-strip film-strip--top" aria-hidden="true">
+      <div class="film-track">
+        {Array.from({length: 20}).map(() => (
+          <span class="film-hole"></span>
+        ))}
+      </div>
+    </div>
+
+    <!-- ポップコーン粒 -->
+    <div class="popcorn-field" aria-hidden="true">
+      {Array.from({length: 12}).map((_, i) => (
+        <span class="popcorn" style={`--i:${i}`}>🍿</span>
+      ))}
+    </div>
+
+    <!-- スポットライト -->
+    <div class="spotlight" aria-hidden="true"></div>
+
     <div class="container cinema-inner">
       <div class="cinema-text">
         <span class="cinema-label">CINEMA &amp; STRATEGY</span>
         <h2 class="cinema-heading">映画で学ぶ、戦略の本質。</h2>
-        <p class="cinema-body">七人の侍からスター・ウォーズまで。U-NEXT・Hulu・Netflix・Disney+で観られる作品を戦略の視点で読み解く特設コーナー。</p>
-        <div class="cinema-services" aria-hidden="true">
-          <span class="cs-badge" style="background:#0045ff">U</span>
-          <span class="cs-badge" style="background:#3dbb3d">H</span>
-          <span class="cs-badge" style="background:#e50914">N</span>
-          <span class="cs-badge" style="background:#113ccf">D+</span>
-        </div>
+        <p class="cinema-body">七人の侍からスター・ウォーズまで。名作映画を戦略の視点で読み解く特設コーナー。</p>
       </div>
       <a href="/movies/" class="cinema-cta">映画コーナーへ →</a>
+    </div>
+
+    <!-- フィルムストリップ（下） -->
+    <div class="film-strip film-strip--bottom" aria-hidden="true">
+      <div class="film-track film-track--reverse">
+        {Array.from({length: 20}).map(() => (
+          <span class="film-hole"></span>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -662,14 +684,93 @@ const marqueeItems = [
   /* ── 映画コーナーバナー ── */
   .cinema-banner {
     background: #0d0f14;
-    padding: 3.5rem 0;
+    position: relative;
+    overflow: hidden;
   }
+
+  /* スポットライト */
+  .spotlight {
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    width: 50%;
+    height: 200%;
+    background: conic-gradient(from 180deg at 50% 0%, transparent 70deg, rgba(232,184,75,0.06) 90deg, transparent 110deg);
+    animation: spotlight-sweep 8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+  @keyframes spotlight-sweep {
+    0%,100% { transform: translateX(0) rotate(0deg); opacity: 0.6; }
+    50%      { transform: translateX(80%) rotate(12deg); opacity: 1; }
+  }
+
+  /* フィルムストリップ */
+  .film-strip {
+    width: 100%;
+    overflow: hidden;
+    height: 22px;
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+  }
+  .film-track {
+    display: flex;
+    gap: 12px;
+    padding: 0 8px;
+    width: max-content;
+    animation: film-roll 6s linear infinite;
+  }
+  .film-track--reverse {
+    animation-direction: reverse;
+  }
+  @keyframes film-roll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .film-hole {
+    display: inline-block;
+    width: 14px;
+    height: 10px;
+    background: #333;
+    border-radius: 2px;
+    border: 1px solid #444;
+    flex-shrink: 0;
+  }
+
+  /* ポップコーン */
+  .popcorn-field {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .popcorn {
+    position: absolute;
+    font-size: 1.2rem;
+    bottom: -2rem;
+    opacity: 0;
+    animation: popcorn-fly 4s ease-out infinite;
+    animation-delay: calc(var(--i) * 0.4s);
+    left: calc(8% + var(--i) * 7%);
+  }
+  @keyframes popcorn-fly {
+    0%   { transform: translateY(0) rotate(0deg) scale(0.5); opacity: 0; }
+    10%  { opacity: 1; }
+    60%  { opacity: 0.8; }
+    100% { transform: translateY(-180px) rotate(360deg) scale(1.1); opacity: 0; }
+  }
+
   .cinema-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 2.5rem;
     flex-wrap: wrap;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    position: relative;
+    z-index: 1;
   }
   .cinema-text { flex: 1; min-width: 260px; }
   .cinema-label {
@@ -696,24 +797,6 @@ const marqueeItems = [
     color: #6a6f7e;
     line-height: 1.75;
     max-width: 440px;
-    margin-bottom: 1rem;
-  }
-  .cinema-services {
-    display: flex;
-    gap: 0.45rem;
-  }
-  .cs-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 3px;
-    font-family: var(--font-sans);
-    font-size: 0.65rem;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: 0;
   }
   .cinema-cta {
     display: inline-flex;
