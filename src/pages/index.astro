@@ -507,11 +507,16 @@ const marqueeItems = [
 
   /* ── フリップカード ── */
   .flip-section { background: var(--bg2); }
+  /* ヘッダーを縦並びに上書き */
+  .flip-section .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
   .flip-sub {
     font-family: var(--font-sans);
     font-size: 0.78rem;
     color: var(--ink3);
-    margin-top: 0.3rem;
   }
   .flip-grid {
     list-style: none;
@@ -523,7 +528,7 @@ const marqueeItems = [
   /* カード外枠 */
   .flip-card {
     perspective: 900px;
-    height: 220px;
+    height: 240px;
     cursor: pointer;
     outline: none;
   }
@@ -548,7 +553,8 @@ const marqueeItems = [
     border-radius: 4px;
     display: flex;
     flex-direction: column;
-    padding: 1.8rem 1.6rem;
+    padding: 1.4rem 1.4rem;
+    overflow: hidden;
   }
   /* 表 */
   .flip-front {
@@ -589,16 +595,17 @@ const marqueeItems = [
   }
   .flip-quote {
     font-family: var(--font-serif);
-    font-size: 0.92rem;
+    font-size: clamp(0.78rem, 1.5vw, 0.92rem);
     font-weight: 400;
     color: #fff;
-    line-height: 1.8;
+    line-height: 1.7;
     border-left: 2px solid var(--gold);
-    padding-left: 0.9rem;
+    padding-left: 0.8rem;
     flex: 1;
     display: flex;
     align-items: center;
     margin: 0;
+    overflow: hidden;
   }
   .flip-author {
     font-family: var(--font-sans);
@@ -851,7 +858,9 @@ const marqueeItems = [
   }
   @media (max-width: 480px) {
     .flip-grid  { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-    .flip-card  { height: 180px; }
+    .flip-card  { height: 210px; }
+    .flip-front,
+    .flip-back  { padding: 1rem 1rem; }
     .book-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
     .intro-label { display: none; }
     .slider-card { width: 180px; }
