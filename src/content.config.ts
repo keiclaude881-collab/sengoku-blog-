@@ -15,10 +15,11 @@ const articleSchema = z.object({
   vodService:  z.enum(["unext", "hulu", "netflix", "disneyplus", "amazon"]).optional(),
   vodUrl:      z.string().optional(),
   affiliateBooks: z.array(z.object({
-    title:  z.string(),
-    asin:   z.string(),
-    reason: z.string().max(100),
-    image:  z.string().optional(),
+    title:      z.string(),
+    asin:       z.string().optional(),
+    rakutenUrl: z.string().optional(),
+    reason:     z.string().max(100),
+    image:      z.string().optional(),
   })).optional(),
 });
 

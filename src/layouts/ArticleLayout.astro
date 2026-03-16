@@ -12,7 +12,8 @@ import { CATEGORY_TO_ARC, ARC_INFO, NEXT_ARC, type CategoryName } from '../utils
 
 interface AffiliateBook {
   title:  string;
-  asin:   string;
+  asin?:       string;
+  rakutenUrl?: string;
   reason: string;
   image?: string;
 }
@@ -197,6 +198,7 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
               <BookCard
                 title={book.title}
                 asin={book.asin}
+                rakutenUrl={book.rakutenUrl}
                 reason={book.reason}
                 image={book.image}
               />

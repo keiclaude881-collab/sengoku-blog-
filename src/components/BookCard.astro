@@ -1,48 +1,64 @@
 ---
 interface Props {
-  title:  string;
-  asin:   string;
-  reason: string;
-  image?: string;
+  title:       string;
+  asin?:       string;
+  rakutenUrl?: string;
+  reason:      string;
+  image?:      string;
 }
-const { title, asin, reason, image } = Astro.props;
+const { title, asin, rakutenUrl, reason, image } = Astro.props;
 const associateId = import.meta.env.AMAZON_ASSOCIATE_ID ?? 'sengokublog20-22';
-const affiliateUrl = `https://www.amazon.co.jp/dp/${asin}/?tag=${associateId}`;
-const coverUrl = image ?? `https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg`;
-
+const amazonUrl = asin ? `https://www.amazon.co.jp/dp/${asin}/?tag=${associateId}` : null;
+const primaryUrl = amazonUrl ?? rakutenUrl ?? '#';
 const placeholderChars = ['兵', '謀', '戦', '策', '智', '将', '武', '覇', '道', '義'];
-const placeholder = placeholderChars[parseInt(asin.slice(-1), 10)] ?? '書';
+const placeholderChar = asin ? (placeholderChars[parseInt(asin.slice(-1), 10)] ?? '書') : '書';
+const coverUrl = image ?? (asin ? `https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg` : null);
 ---
 
 <div class="book-card">
   <a
-    href={affiliateUrl}
+    href={primaryUrl}
     target="_blank"
     rel="nofollow sponsored noopener"
     class="book-link"
-    aria-label={`${title} - Amazonで見る`}
+    aria-label={`${title} - ${amazonUrl ? 'Amazonで見る' : '楽天で見る'}`}
   >
     <div class="book-cover">
-      <img
-        src={coverUrl}
-        alt={title}
-        width="120"
-        height="180"
-        loading="lazy"
-        onerror="this.style.display='none';this.nextElementSibling.style.display=''"
-      />
-      <span class="cover-placeholder" aria-hidden="true" style="display:none">{placeholder}</span>
+      {coverUrl ? (
+        <>
+          <img
+            src={coverUrl}
+            alt={title}
+            width="120"
+            height="180"
+            loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display=''"
+          />
+          <span class="cover-placeholder" aria-hidden="true" style="display:none">{placeholderChar}</span>
+        </>
+      ) : (
+        <span class="cover-placeholder" aria-hidden="true">{placeholderChar}</span>
+      )}
     </div>
 
     <div class="book-info">
       <p class="book-title">{title}</p>
       <p class="book-reason">{reason}</p>
-      <span class="book-cta">
-        <span class="cta-text">Amazonで見る</span>
+      <span class={`book-cta ${!amazonUrl && rakutenUrl ? 'rakuten' : ''}`}>
+        <span class="cta-text">{amazonUrl ? 'Amazonで見る' : '楽天で見る'}</span>
         <span class="cta-arrow" aria-hidden="true">→</span>
       </span>
     </div>
   </a>
+
+  {amazonUrl && rakutenUrl && (
+    <a
+      href={rakutenUrl}
+      target="_blank"
+      rel="nofollow sponsored noopener"
+      class="rakuten-btn"
+    >楽天でも見る →</a>
+  )}
 </div>
 
 <style>
@@ -145,5 +161,29 @@ const placeholder = placeholderChars[parseInt(asin.slice(-1), 10)] ?? '書';
   }
   .book-card:hover .cta-arrow {
     transform: translateX(3px);
+  }
+
+  .book-cta.rakuten {
+    background: #bf0000;
+  }
+  .book-card:hover .book-cta.rakuten {
+    background: #990000;
+  }
+
+  .rakuten-btn {
+    display: block;
+    text-align: center;
+    padding: 0.45rem;
+    background: #bf0000;
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    transition: background 0.2s;
+  }
+  .rakuten-btn:hover {
+    background: #990000;
   }
 </style>
