@@ -234,7 +234,7 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
         <section class="arc-nav-section">
           <p class="arc-nav-label">この記事は<strong style={`color:${arc.color}`}>{arc.chapter}「{arc.title}」</strong>の一部です</p>
           <div class="arc-nav-actions">
-            <a href={`/arc/${arc.slug}/`} class="arc-nav-btn arc-nav-btn--primary" style={`border-color:${arc.color}; color:${arc.color};`}>
+            <a href={`/arc/${arc.slug}/`} class="arc-nav-btn arc-nav-btn--primary" style={`background:${arc.color}; border-color:${arc.color}; color:#fff;`}>
               {arc.chapter}の記事をすべて読む →
             </a>
             {nextArc && (
@@ -382,8 +382,10 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
   .arc-nav-btn:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
   .arc-nav-btn--primary {
     font-weight: 700;
+    color: #fff;
   }
   .arc-nav-btn--primary:hover {
+    opacity: 0.85;
     color: #fff;
   }
 
