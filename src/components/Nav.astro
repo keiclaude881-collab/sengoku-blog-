@@ -63,6 +63,12 @@ const chapters = ARC_ORDER.map(slug => ({
       </li>
     </ul>
 
+    <a href="/search/" class:list={["nav-search-btn", { active: path.startsWith("/search/") }]} aria-label="記事を検索">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+    </a>
+
     <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu">
       <span></span>
       <span></span>
@@ -90,6 +96,7 @@ const chapters = ARC_ORDER.map(slug => ({
         </>
       ))}
       <li><a href="/books/" class:list={["mobile-link", { active: path.startsWith("/books/") }]}>書籍レビュー</a></li>
+      <li><a href="/search/" class:list={["mobile-link", { active: path.startsWith("/search/") }]}>🔍 記事を探す</a></li>
     </ul>
   </div>
 </nav>
@@ -209,6 +216,24 @@ const chapters = ARC_ORDER.map(slug => ({
     color: var(--orange);
     font-weight: 600;
   }
+  .nav-search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: var(--text-mid);
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    flex-shrink: 0;
+  }
+  .nav-search-btn:hover,
+  .nav-search-btn.active {
+    background: var(--bg-sub);
+    color: var(--orange);
+  }
+
   .nav-link--cinema {
     color: #e8b84b;
     font-weight: 600;

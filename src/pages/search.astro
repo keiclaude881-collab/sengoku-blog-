@@ -1,0 +1,276 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const CAT_LABEL: Record<string, string> = {
+  battle: "合戦と戦略",
+  leader: "武将の思想",
+  strategy: "兵法・知恵",
+  books: "書籍レビュー",
+  movie: "映画の知恵",
+  whatif: "歴史IF",
+  anime: "アニメの知恵",
+  business: "ビジネス戦略",
+  sports: "スポーツ戦略",
+  novel: "歴史小説",
+};
+---
+
+<BaseLayout
+  title="記事を探す | 決断の系譜"
+  description="歴史・戦略・ビジネス・書籍レビューなど全記事を検索できます。"
+>
+  <div class="container search-page">
+    <header class="search-header">
+      <h1 class="search-title">記事を探す</h1>
+      <p class="search-subtitle">キーワードでタイトル・説明・タグを横断検索</p>
+    </header>
+
+    <div class="search-box">
+      <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input
+        id="search-input"
+        type="search"
+        placeholder="例：関ヶ原、孫子、ジョブズ…"
+        autocomplete="off"
+        autofocus
+      />
+      <button id="search-clear" class="search-clear" aria-label="クリア" hidden>✕</button>
+    </div>
+
+    <p id="search-status" class="search-status"></p>
+
+    <ul id="search-results" class="search-results" role="list"></ul>
+
+    <p id="no-results" class="no-results" hidden>該当する記事が見つかりませんでした。</p>
+  </div>
+</BaseLayout>
+
+<script define:vars={{ CAT_LABEL }}>
+  const input   = document.getElementById("search-input");
+  const clearBtn = document.getElementById("search-clear");
+  const list    = document.getElementById("search-results");
+  const status  = document.getElementById("search-status");
+  const noRes   = document.getElementById("no-results");
+
+  let articles = [];
+  let loaded = false;
+
+  async function loadIndex() {
+    if (loaded) return;
+    const res = await fetch("/search-index.json");
+    articles = await res.json();
+    loaded = true;
+  }
+
+  function highlight(text, query) {
+    if (!query) return text;
+    const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    return text.replace(new RegExp(`(${escaped})`, "gi"), "<mark>$1</mark>");
+  }
+
+  function render(query) {
+    const q = query.trim().toLowerCase();
+    list.innerHTML = "";
+    noRes.hidden = true;
+
+    if (!q) {
+      status.textContent = "";
+      return;
+    }
+
+    const results = articles.filter(a => {
+      return (
+        a.title.toLowerCase().includes(q) ||
+        a.description.toLowerCase().includes(q) ||
+        (a.tags || []).some(t => t.toLowerCase().includes(q)) ||
+        (CAT_LABEL[a.category] || "").includes(q)
+      );
+    });
+
+    status.textContent = `${results.length} 件`;
+
+    if (results.length === 0) {
+      noRes.hidden = false;
+      return;
+    }
+
+    results.forEach(a => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <a href="${a.slug}" class="search-card">
+          <span class="search-cat">${CAT_LABEL[a.category] || a.category}</span>
+          <p class="search-card-title">${highlight(a.title, query.trim())}</p>
+          <p class="search-card-desc">${highlight(a.description, query.trim())}</p>
+          ${a.tags.length ? `<p class="search-card-tags">${a.tags.map(t => `#${t}`).join(" ")}</p>` : ""}
+        </a>
+      `;
+      list.appendChild(li);
+    });
+  }
+
+  let timer;
+  input.addEventListener("input", async (e) => {
+    await loadIndex();
+    clearBtn.hidden = !e.target.value;
+    clearTimeout(timer);
+    timer = setTimeout(() => render(e.target.value), 200);
+  });
+
+  clearBtn.addEventListener("click", () => {
+    input.value = "";
+    clearBtn.hidden = true;
+    render("");
+    input.focus();
+  });
+
+  // URL パラメータから初期クエリを取得
+  const params = new URLSearchParams(location.search);
+  const q = params.get("q");
+  if (q) {
+    input.value = q;
+    clearBtn.hidden = false;
+    loadIndex().then(() => render(q));
+  }
+</script>
+
+<style>
+  .search-page {
+    padding-top: var(--sp-xl);
+    padding-bottom: var(--sp-xl);
+    max-width: 720px;
+  }
+
+  .search-header {
+    margin-bottom: var(--sp-lg);
+  }
+  .search-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 0.4rem;
+  }
+  .search-subtitle {
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+    margin: 0;
+  }
+
+  .search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    transition: border-color 0.2s;
+    margin-bottom: var(--sp-sm);
+  }
+  .search-box:focus-within {
+    border-color: var(--accent);
+  }
+  .search-icon {
+    position: absolute;
+    left: 1rem;
+    color: var(--ink-muted);
+    pointer-events: none;
+    flex-shrink: 0;
+  }
+  #search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 0.9rem 1rem 0.9rem 3rem;
+    font-size: 1rem;
+    font-family: var(--font-sans);
+    color: var(--ink);
+    outline: none;
+    width: 100%;
+  }
+  #search-input::placeholder {
+    color: var(--ink-muted);
+  }
+  .search-clear {
+    padding: 0.5rem 0.75rem;
+    background: none;
+    border: none;
+    color: var(--ink-muted);
+    cursor: pointer;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+  .search-clear:hover { color: var(--ink); }
+
+  .search-status {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    margin: 0 0 var(--sp-sm);
+    min-height: 1.2em;
+  }
+
+  .search-results {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .search-card {
+    display: block;
+    padding: 1.1rem 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    background: var(--surface);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .search-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .search-cat {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+  }
+  .search-card-title {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 0.35rem;
+    line-height: 1.4;
+  }
+  .search-card-desc {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    margin: 0 0 0.35rem;
+    line-height: 1.5;
+  }
+  .search-card-tags {
+    font-size: 0.75rem;
+    color: var(--ink-subtle, #999);
+    margin: 0;
+  }
+
+  .no-results {
+    color: var(--ink-muted);
+    font-size: 0.9rem;
+    padding: var(--sp-lg) 0;
+  }
+
+  mark {
+    background: rgba(180, 130, 60, 0.2);
+    color: inherit;
+    border-radius: 2px;
+    padding: 0 1px;
+  }
+</style>
