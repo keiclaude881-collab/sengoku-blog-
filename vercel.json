@@ -1,0 +1,1304 @@
+{
+  "redirects": [
+    {
+      "source": "/blog/alexander",
+      "destination": "/blog/leader/alexander/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/alexander/",
+      "destination": "/blog/leader/alexander/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/caesar",
+      "destination": "/blog/leader/caesar/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/caesar/",
+      "destination": "/blog/leader/caesar/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cao-cao",
+      "destination": "/blog/leader/cao-cao/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cao-cao/",
+      "destination": "/blog/leader/cao-cao/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/chinggis",
+      "destination": "/blog/leader/chinggis/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/chinggis/",
+      "destination": "/blog/leader/chinggis/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/frederick-great",
+      "destination": "/blog/leader/frederick-great/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/frederick-great/",
+      "destination": "/blog/leader/frederick-great/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/gustav-adolf",
+      "destination": "/blog/leader/gustav-adolf/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/gustav-adolf/",
+      "destination": "/blog/leader/gustav-adolf/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/hannibal",
+      "destination": "/blog/leader/hannibal/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/hannibal/",
+      "destination": "/blog/leader/hannibal/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/hideyoshi",
+      "destination": "/blog/leader/hideyoshi/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/hideyoshi/",
+      "destination": "/blog/leader/hideyoshi/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ieyasu",
+      "destination": "/blog/leader/ieyasu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ieyasu/",
+      "destination": "/blog/leader/ieyasu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ishibashi-tanzan",
+      "destination": "/blog/leader/ishibashi-tanzan/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ishibashi-tanzan/",
+      "destination": "/blog/leader/ishibashi-tanzan/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kenshin",
+      "destination": "/blog/leader/kenshin/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kenshin/",
+      "destination": "/blog/leader/kenshin/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kuroda-kanbei",
+      "destination": "/blog/leader/kuroda-kanbei/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kuroda-kanbei/",
+      "destination": "/blog/leader/kuroda-kanbei/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/li-shimin",
+      "destination": "/blog/leader/li-shimin/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/li-shimin/",
+      "destination": "/blog/leader/li-shimin/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/liu-bang",
+      "destination": "/blog/leader/liu-bang/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/liu-bang/",
+      "destination": "/blog/leader/liu-bang/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/masamune",
+      "destination": "/blog/leader/masamune/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/masamune/",
+      "destination": "/blog/leader/masamune/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/mitsuhide",
+      "destination": "/blog/leader/mitsuhide/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/mitsuhide/",
+      "destination": "/blog/leader/mitsuhide/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/mouri",
+      "destination": "/blog/leader/mouri/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/mouri/",
+      "destination": "/blog/leader/mouri/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/napoleon",
+      "destination": "/blog/leader/napoleon/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/napoleon/",
+      "destination": "/blog/leader/napoleon/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/nobunaga",
+      "destination": "/blog/leader/nobunaga/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/nobunaga/",
+      "destination": "/blog/leader/nobunaga/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/richard-lionheart",
+      "destination": "/blog/leader/richard-lionheart/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/richard-lionheart/",
+      "destination": "/blog/leader/richard-lionheart/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/saladin",
+      "destination": "/blog/leader/saladin/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/saladin/",
+      "destination": "/blog/leader/saladin/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sanada",
+      "destination": "/blog/leader/sanada/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sanada/",
+      "destination": "/blog/leader/sanada/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/scipio",
+      "destination": "/blog/leader/scipio/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/scipio/",
+      "destination": "/blog/leader/scipio/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shingen",
+      "destination": "/blog/leader/shingen/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shingen/",
+      "destination": "/blog/leader/shingen/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/takeda-katsuyori",
+      "destination": "/blog/leader/takeda-katsuyori/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/takeda-katsuyori/",
+      "destination": "/blog/leader/takeda-katsuyori/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/takenaka-hanbei",
+      "destination": "/blog/leader/takenaka-hanbei/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/takenaka-hanbei/",
+      "destination": "/blog/leader/takenaka-hanbei/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tokugawa-yoshinobu",
+      "destination": "/blog/leader/tokugawa-yoshinobu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tokugawa-yoshinobu/",
+      "destination": "/blog/leader/tokugawa-yoshinobu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/wang-jian",
+      "destination": "/blog/leader/wang-jian/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/wang-jian/",
+      "destination": "/blog/leader/wang-jian/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/wellington",
+      "destination": "/blog/leader/wellington/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/wellington/",
+      "destination": "/blog/leader/wellington/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/yamamoto-isoroku",
+      "destination": "/blog/leader/yamamoto-isoroku/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/yamamoto-isoroku/",
+      "destination": "/blog/leader/yamamoto-isoroku/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/zhuge-liang",
+      "destination": "/blog/leader/zhuge-liang/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/zhuge-liang/",
+      "destination": "/blog/leader/zhuge-liang/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/agincourt",
+      "destination": "/blog/battle/agincourt/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/agincourt/",
+      "destination": "/blog/battle/agincourt/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/anegawa",
+      "destination": "/blog/battle/anegawa/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/anegawa/",
+      "destination": "/blog/battle/anegawa/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/austerlitz",
+      "destination": "/blog/battle/austerlitz/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/austerlitz/",
+      "destination": "/blog/battle/austerlitz/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cannae",
+      "destination": "/blog/battle/cannae/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cannae/",
+      "destination": "/blog/battle/cannae/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/changping",
+      "destination": "/blog/battle/changping/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/changping/",
+      "destination": "/blog/battle/changping/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/gaugamela",
+      "destination": "/blog/battle/gaugamela/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/gaugamela/",
+      "destination": "/blog/battle/gaugamela/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kawanakajima",
+      "destination": "/blog/battle/kawanakajima/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kawanakajima/",
+      "destination": "/blog/battle/kawanakajima/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/lepanto",
+      "destination": "/blog/battle/lepanto/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/lepanto/",
+      "destination": "/blog/battle/lepanto/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/marathon",
+      "destination": "/blog/battle/marathon/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/marathon/",
+      "destination": "/blog/battle/marathon/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/midway",
+      "destination": "/blog/battle/midway/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/midway/",
+      "destination": "/blog/battle/midway/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/mikatagahara",
+      "destination": "/blog/battle/mikatagahara/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/mikatagahara/",
+      "destination": "/blog/battle/mikatagahara/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/nagashino-sequel",
+      "destination": "/blog/battle/nagashino-sequel/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/nagashino-sequel/",
+      "destination": "/blog/battle/nagashino-sequel/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/nagashino",
+      "destination": "/blog/battle/nagashino/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/nagashino/",
+      "destination": "/blog/battle/nagashino/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/normandy",
+      "destination": "/blog/battle/normandy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/normandy/",
+      "destination": "/blog/battle/normandy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/okehazama",
+      "destination": "/blog/battle/okehazama/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/okehazama/",
+      "destination": "/blog/battle/okehazama/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/osaka-no-jin",
+      "destination": "/blog/battle/osaka-no-jin/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/osaka-no-jin/",
+      "destination": "/blog/battle/osaka-no-jin/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sekigahara",
+      "destination": "/blog/battle/sekigahara/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sekigahara/",
+      "destination": "/blog/battle/sekigahara/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shizugatake",
+      "destination": "/blog/battle/shizugatake/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shizugatake/",
+      "destination": "/blog/battle/shizugatake/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/stalingrad",
+      "destination": "/blog/battle/stalingrad/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/stalingrad/",
+      "destination": "/blog/battle/stalingrad/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/thermopylae",
+      "destination": "/blog/battle/thermopylae/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/thermopylae/",
+      "destination": "/blog/battle/thermopylae/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/toba-fushimi",
+      "destination": "/blog/battle/toba-fushimi/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/toba-fushimi/",
+      "destination": "/blog/battle/toba-fushimi/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/trafalgar",
+      "destination": "/blog/battle/trafalgar/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/trafalgar/",
+      "destination": "/blog/battle/trafalgar/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/waterloo",
+      "destination": "/blog/battle/waterloo/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/waterloo/",
+      "destination": "/blog/battle/waterloo/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/yamazaki",
+      "destination": "/blog/battle/yamazaki/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/yamazaki/",
+      "destination": "/blog/battle/yamazaki/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/zama",
+      "destination": "/blog/battle/zama/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/zama/",
+      "destination": "/blog/battle/zama/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/blitzkrieg",
+      "destination": "/blog/strategy/blitzkrieg/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/blitzkrieg/",
+      "destination": "/blog/strategy/blitzkrieg/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/bochiku-hen",
+      "destination": "/blog/strategy/bochiku-hen/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/bochiku-hen/",
+      "destination": "/blog/strategy/bochiku-hen/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/clausewitz",
+      "destination": "/blog/strategy/clausewitz/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/clausewitz/",
+      "destination": "/blog/strategy/clausewitz/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/coalition-building",
+      "destination": "/blog/strategy/coalition-building/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/coalition-building/",
+      "destination": "/blog/strategy/coalition-building/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/divide-conquer",
+      "destination": "/blog/strategy/divide-conquer/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/divide-conquer/",
+      "destination": "/blog/strategy/divide-conquer/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/gorin-no-sho",
+      "destination": "/blog/strategy/gorin-no-sho/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/gorin-no-sho/",
+      "destination": "/blog/strategy/gorin-no-sho/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/guerrilla",
+      "destination": "/blog/strategy/guerrilla/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/guerrilla/",
+      "destination": "/blog/strategy/guerrilla/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/information-war",
+      "destination": "/blog/strategy/information-war/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/information-war/",
+      "destination": "/blog/strategy/information-war/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kyojitsu",
+      "destination": "/blog/strategy/kyojitsu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kyojitsu/",
+      "destination": "/blog/strategy/kyojitsu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/lanchester",
+      "destination": "/blog/strategy/lanchester/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/lanchester/",
+      "destination": "/blog/strategy/lanchester/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/machiavelli",
+      "destination": "/blog/strategy/machiavelli/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/machiavelli/",
+      "destination": "/blog/strategy/machiavelli/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/porter",
+      "destination": "/blog/strategy/porter/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/porter/",
+      "destination": "/blog/strategy/porter/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/psychological-war",
+      "destination": "/blog/strategy/psychological-war/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/psychological-war/",
+      "destination": "/blog/strategy/psychological-war/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/retreat-strategy",
+      "destination": "/blog/strategy/retreat-strategy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/retreat-strategy/",
+      "destination": "/blog/strategy/retreat-strategy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/supply-line",
+      "destination": "/blog/strategy/supply-line/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/supply-line/",
+      "destination": "/blog/strategy/supply-line/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/bezos-flywheel",
+      "destination": "/blog/business/bezos-flywheel/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/bezos-flywheel/",
+      "destination": "/blog/business/bezos-flywheel/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ieyasu-organization",
+      "destination": "/blog/business/ieyasu-organization/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ieyasu-organization/",
+      "destination": "/blog/business/ieyasu-organization/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/matsushita-management",
+      "destination": "/blog/business/matsushita-management/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/matsushita-management/",
+      "destination": "/blog/business/matsushita-management/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/nobunaga-innovation",
+      "destination": "/blog/business/nobunaga-innovation/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/nobunaga-innovation/",
+      "destination": "/blog/business/nobunaga-innovation/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shibusawa-eiichi",
+      "destination": "/blog/business/shibusawa-eiichi/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shibusawa-eiichi/",
+      "destination": "/blog/business/shibusawa-eiichi/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/son-masayoshi-strategy",
+      "destination": "/blog/business/son-masayoshi-strategy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/son-masayoshi-strategy/",
+      "destination": "/blog/business/son-masayoshi-strategy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/steve-jobs-strategy",
+      "destination": "/blog/business/steve-jobs-strategy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/steve-jobs-strategy/",
+      "destination": "/blog/business/steve-jobs-strategy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sunzi-business",
+      "destination": "/blog/business/sunzi-business/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sunzi-business/",
+      "destination": "/blog/business/sunzi-business/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/toyota-kaizen",
+      "destination": "/blog/business/toyota-kaizen/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/toyota-kaizen/",
+      "destination": "/blog/business/toyota-kaizen/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/gorin-no-sho-review",
+      "destination": "/blog/books/gorin-no-sho-review/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/gorin-no-sho-review/",
+      "destination": "/blog/books/gorin-no-sho-review/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kunshiron",
+      "destination": "/blog/books/kunshiron/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kunshiron/",
+      "destination": "/blog/books/kunshiron/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shippai-no-honshitsu",
+      "destination": "/blog/books/shippai-no-honshitsu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shippai-no-honshitsu/",
+      "destination": "/blog/books/shippai-no-honshitsu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sonshi-kanzen-kaisetsu",
+      "destination": "/blog/books/sonshi-kanzen-kaisetsu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sonshi-kanzen-kaisetsu/",
+      "destination": "/blog/books/sonshi-kanzen-kaisetsu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/strategy-no-honshitsu",
+      "destination": "/blog/books/strategy-no-honshitsu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/strategy-no-honshitsu/",
+      "destination": "/blog/books/strategy-no-honshitsu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/alexander-longlife-if",
+      "destination": "/blog/whatif/alexander-longlife-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/alexander-longlife-if/",
+      "destination": "/blog/whatif/alexander-longlife-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cao-cao-if",
+      "destination": "/blog/whatif/cao-cao-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cao-cao-if/",
+      "destination": "/blog/whatif/cao-cao-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/hannibal-rome-if",
+      "destination": "/blog/whatif/hannibal-rome-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/hannibal-rome-if/",
+      "destination": "/blog/whatif/hannibal-rome-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/honnoji-if",
+      "destination": "/blog/whatif/honnoji-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/honnoji-if/",
+      "destination": "/blog/whatif/honnoji-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ieyasu-sekigahara-lose-if",
+      "destination": "/blog/whatif/ieyasu-sekigahara-lose-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ieyasu-sekigahara-lose-if/",
+      "destination": "/blog/whatif/ieyasu-sekigahara-lose-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/katsuyori-nagashino-if",
+      "destination": "/blog/whatif/katsuyori-nagashino-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/katsuyori-nagashino-if/",
+      "destination": "/blog/whatif/katsuyori-nagashino-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/midway-if",
+      "destination": "/blog/whatif/midway-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/midway-if/",
+      "destination": "/blog/whatif/midway-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/napoleon-russia-if",
+      "destination": "/blog/whatif/napoleon-russia-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/napoleon-russia-if/",
+      "destination": "/blog/whatif/napoleon-russia-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/normandy-fail-if",
+      "destination": "/blog/whatif/normandy-fail-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/normandy-fail-if/",
+      "destination": "/blog/whatif/normandy-fail-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/oda-nobunaga-tenka-if",
+      "destination": "/blog/whatif/oda-nobunaga-tenka-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/oda-nobunaga-tenka-if/",
+      "destination": "/blog/whatif/oda-nobunaga-tenka-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/osaka-toyotomi-win-if",
+      "destination": "/blog/whatif/osaka-toyotomi-win-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/osaka-toyotomi-win-if/",
+      "destination": "/blog/whatif/osaka-toyotomi-win-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ryoma-longlife-if",
+      "destination": "/blog/whatif/ryoma-longlife-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ryoma-longlife-if/",
+      "destination": "/blog/whatif/ryoma-longlife-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ryoma-survival-if",
+      "destination": "/blog/whatif/ryoma-survival-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ryoma-survival-if/",
+      "destination": "/blog/whatif/ryoma-survival-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sekigahara-if-west",
+      "destination": "/blog/whatif/sekigahara-if-west/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sekigahara-if-west/",
+      "destination": "/blog/whatif/sekigahara-if-west/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shingen-longlife-if",
+      "destination": "/blog/whatif/shingen-longlife-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shingen-longlife-if/",
+      "destination": "/blog/whatif/shingen-longlife-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/all-blacks-culture",
+      "destination": "/blog/sports/all-blacks-culture/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/all-blacks-culture/",
+      "destination": "/blog/sports/all-blacks-culture/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/honda-keisuke-strategy",
+      "destination": "/blog/sports/honda-keisuke-strategy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/honda-keisuke-strategy/",
+      "destination": "/blog/sports/honda-keisuke-strategy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ichiro-strategy",
+      "destination": "/blog/sports/ichiro-strategy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ichiro-strategy/",
+      "destination": "/blog/sports/ichiro-strategy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/nomura-id-baseball",
+      "destination": "/blog/sports/nomura-id-baseball/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/nomura-id-baseball/",
+      "destination": "/blog/sports/nomura-id-baseball/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ochiai-management",
+      "destination": "/blog/sports/ochiai-management/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ochiai-management/",
+      "destination": "/blog/sports/ochiai-management/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ohtani-strategy",
+      "destination": "/blog/sports/ohtani-strategy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ohtani-strategy/",
+      "destination": "/blog/sports/ohtani-strategy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/pep-guardiola-tactics",
+      "destination": "/blog/sports/pep-guardiola-tactics/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/pep-guardiola-tactics/",
+      "destination": "/blog/sports/pep-guardiola-tactics/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/attack-on-titan-erwin",
+      "destination": "/blog/anime/attack-on-titan-erwin/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/attack-on-titan-erwin/",
+      "destination": "/blog/anime/attack-on-titan-erwin/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/code-geass-lelouch",
+      "destination": "/blog/anime/code-geass-lelouch/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/code-geass-lelouch/",
+      "destination": "/blog/anime/code-geass-lelouch/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/demon-slayer-tanjiro",
+      "destination": "/blog/anime/demon-slayer-tanjiro/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/demon-slayer-tanjiro/",
+      "destination": "/blog/anime/demon-slayer-tanjiro/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/300",
+      "destination": "/blog/movie/300/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/300/",
+      "destination": "/blog/movie/300/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/braveheart",
+      "destination": "/blog/movie/braveheart/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/braveheart/",
+      "destination": "/blog/movie/braveheart/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/darkest-hour",
+      "destination": "/blog/movie/darkest-hour/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/darkest-hour/",
+      "destination": "/blog/movie/darkest-hour/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/dune",
+      "destination": "/blog/movie/dune/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/dune/",
+      "destination": "/blog/movie/dune/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/dunkirk",
+      "destination": "/blog/movie/dunkirk/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/dunkirk/",
+      "destination": "/blog/movie/dunkirk/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/fury",
+      "destination": "/blog/movie/fury/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/fury/",
+      "destination": "/blog/movie/fury/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/gladiator",
+      "destination": "/blog/movie/gladiator/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/gladiator/",
+      "destination": "/blog/movie/gladiator/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/hacksaw-ridge",
+      "destination": "/blog/movie/hacksaw-ridge/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/hacksaw-ridge/",
+      "destination": "/blog/movie/hacksaw-ridge/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kagemusha",
+      "destination": "/blog/movie/kagemusha/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kagemusha/",
+      "destination": "/blog/movie/kagemusha/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kingdom",
+      "destination": "/blog/movie/kingdom/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kingdom/",
+      "destination": "/blog/movie/kingdom/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/last-samurai",
+      "destination": "/blog/movie/last-samurai/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/last-samurai/",
+      "destination": "/blog/movie/last-samurai/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/letters-from-iwo-jima",
+      "destination": "/blog/movie/letters-from-iwo-jima/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/letters-from-iwo-jima/",
+      "destination": "/blog/movie/letters-from-iwo-jima/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/patton",
+      "destination": "/blog/movie/patton/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/patton/",
+      "destination": "/blog/movie/patton/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ran",
+      "destination": "/blog/movie/ran/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ran/",
+      "destination": "/blog/movie/ran/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/red-cliff",
+      "destination": "/blog/movie/red-cliff/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/red-cliff/",
+      "destination": "/blog/movie/red-cliff/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/saving-private-ryan",
+      "destination": "/blog/movie/saving-private-ryan/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/saving-private-ryan/",
+      "destination": "/blog/movie/saving-private-ryan/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/seven-samurai",
+      "destination": "/blog/movie/seven-samurai/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/seven-samurai/",
+      "destination": "/blog/movie/seven-samurai/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/star-wars-strategy",
+      "destination": "/blog/movie/star-wars-strategy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/star-wars-strategy/",
+      "destination": "/blog/movie/star-wars-strategy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tora-tora-tora",
+      "destination": "/blog/movie/tora-tora-tora/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tora-tora-tora/",
+      "destination": "/blog/movie/tora-tora-tora/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/troy",
+      "destination": "/blog/movie/troy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/troy/",
+      "destination": "/blog/movie/troy/",
+      "permanent": true
+    }
+  ]
+}
