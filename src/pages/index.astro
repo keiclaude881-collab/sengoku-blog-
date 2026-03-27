@@ -159,18 +159,8 @@ const marqueeItems = [
 
   <!-- 映画コーナーバナー -->
   <section class="cinema-banner" aria-label="映画コーナー">
-    <!-- フィルムストリップ（上） -->
-    <div class="film-strip film-strip--top" aria-hidden="true">
-      <div class="film-track">
-        {Array.from({length: 20}).map(() => (
-          <span class="film-hole"></span>
-        ))}
-      </div>
-    </div>
-
-    <!-- スポットライト -->
-    <div class="spotlight" aria-hidden="true"></div>
-
+    <canvas class="cinema-embers" id="cinema-embers" aria-hidden="true"></canvas>
+    <div class="cinema-mist" aria-hidden="true"></div>
     <div class="container cinema-inner">
       <div class="cinema-text">
         <span class="cinema-label">CINEMA &amp; STRATEGY</span>
@@ -178,15 +168,6 @@ const marqueeItems = [
         <p class="cinema-body">七人の侍からスター・ウォーズまで。名作映画を戦略の視点で読み解く特設コーナー。</p>
       </div>
       <a href="/movies/" class="cinema-cta">映画コーナーへ →</a>
-    </div>
-
-    <!-- フィルムストリップ（下） -->
-    <div class="film-strip film-strip--bottom" aria-hidden="true">
-      <div class="film-track film-track--reverse">
-        {Array.from({length: 20}).map(() => (
-          <span class="film-hole"></span>
-        ))}
-      </div>
     </div>
   </section>
 
@@ -329,6 +310,55 @@ const marqueeItems = [
 </div>
 
 <script>
+  // 映画バナー パーティクル
+  const cinemaCanvas = document.getElementById('cinema-embers') as HTMLCanvasElement | null;
+  if (cinemaCanvas) {
+    const ctx = cinemaCanvas.getContext('2d')!;
+    const setSize = () => {
+      cinemaCanvas.width  = cinemaCanvas.offsetWidth;
+      cinemaCanvas.height = cinemaCanvas.offsetHeight;
+    };
+    setSize();
+    window.addEventListener('resize', setSize);
+
+    type Ember = { x:number; y:number; vx:number; vy:number; size:number; alpha:number; decay:number; wobble:number; wobbleSpeed:number };
+    const embers: Ember[] = [];
+    const MAX = 60;
+    const spawn = (): Ember => ({
+      x: Math.random() * cinemaCanvas.width,
+      y: cinemaCanvas.height + 10,
+      vx: (Math.random() - 0.5) * 0.6,
+      vy: -(Math.random() * 1.2 + 0.4),
+      size: Math.random() * 2 + 0.5,
+      alpha: Math.random() * 0.5 + 0.2,
+      decay: Math.random() * 0.004 + 0.002,
+      wobble: Math.random() * Math.PI * 2,
+      wobbleSpeed: Math.random() * 0.04 + 0.01,
+    });
+    const drawEmbers = () => {
+      ctx.clearRect(0, 0, cinemaCanvas.width, cinemaCanvas.height);
+      while (embers.length < MAX) embers.push(spawn());
+      for (let i = embers.length - 1; i >= 0; i--) {
+        const e = embers[i];
+        e.wobble += e.wobbleSpeed;
+        e.x += e.vx + Math.sin(e.wobble) * 0.3;
+        e.y += e.vy;
+        e.alpha -= e.decay;
+        if (e.alpha <= 0 || e.y < -20) { embers.splice(i, 1); continue; }
+        const g = ctx.createRadialGradient(e.x, e.y, 0, e.x, e.y, e.size * 2);
+        g.addColorStop(0, `rgba(180,255,210,${e.alpha})`);
+        g.addColorStop(0.5, `rgba(59,140,110,${e.alpha * 0.7})`);
+        g.addColorStop(1, `rgba(20,80,50,0)`);
+        ctx.beginPath();
+        ctx.arc(e.x, e.y, e.size * 2, 0, Math.PI * 2);
+        ctx.fillStyle = g;
+        ctx.fill();
+      }
+      requestAnimationFrame(drawEmbers);
+    };
+    drawEmbers();
+  }
+
   // スティッキーCTA
   const stickyCta = document.getElementById('sticky-cta') as HTMLElement | null;
   const stickyClose = document.getElementById('sticky-close') as HTMLElement | null;
@@ -677,59 +707,23 @@ const marqueeItems = [
 
   /* ── 映画コーナーバナー ── */
   .cinema-banner {
-    background: #0d0f14;
+    background: radial-gradient(ellipse at 50% 80%, #021a0e 0%, #000 70%);
     position: relative;
     overflow: hidden;
   }
-
-  /* スポットライト */
-  .spotlight {
+  .cinema-embers {
     position: absolute;
-    top: -20%;
-    left: -10%;
-    width: 50%;
-    height: 200%;
-    background: conic-gradient(from 180deg at 50% 0%, transparent 70deg, rgba(232,184,75,0.06) 90deg, transparent 110deg);
-    animation: spotlight-sweep 8s ease-in-out infinite;
-    pointer-events: none;
-    z-index: 0;
-  }
-  @keyframes spotlight-sweep {
-    0%,100% { transform: translateX(0) rotate(0deg); opacity: 0.6; }
-    50%      { transform: translateX(80%) rotate(12deg); opacity: 1; }
-  }
-
-  /* フィルムストリップ */
-  .film-strip {
+    inset: 0;
     width: 100%;
-    overflow: hidden;
-    height: 22px;
-    background: #1a1a1a;
-    display: flex;
-    align-items: center;
+    height: 100%;
+    pointer-events: none;
   }
-  .film-track {
-    display: flex;
-    gap: 12px;
-    padding: 0 8px;
-    width: max-content;
-    animation: film-roll 6s linear infinite;
-  }
-  .film-track--reverse {
-    animation-direction: reverse;
-  }
-  @keyframes film-roll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
-  .film-hole {
-    display: inline-block;
-    width: 14px;
-    height: 10px;
-    background: #333;
-    border-radius: 2px;
-    border: 1px solid #444;
-    flex-shrink: 0;
+  .cinema-mist {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 120% 50% at 40% 90%, rgba(40,140,80,0.07) 0%, transparent 70%);
+    pointer-events: none;
+    animation: mistDrift 14s ease-in-out infinite alternate;
   }
 
   .cinema-inner {
@@ -738,8 +732,8 @@ const marqueeItems = [
     justify-content: space-between;
     gap: 2.5rem;
     flex-wrap: wrap;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
     position: relative;
     z-index: 1;
   }
@@ -749,15 +743,15 @@ const marqueeItems = [
     font-family: var(--font-sans);
     font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.2em;
-    color: #e8b84b;
+    letter-spacing: 0.25em;
+    color: rgba(80,180,110,0.75);
     margin-bottom: 0.8rem;
   }
   .cinema-heading {
     font-family: var(--font-serif);
     font-size: clamp(1.2rem, 2.5vw, 1.8rem);
     font-weight: 700;
-    color: #f0eee8;
+    color: rgba(180,240,200,0.92);
     line-height: 1.35;
     margin-bottom: 0.75rem;
     letter-spacing: 0.04em;
@@ -765,7 +759,7 @@ const marqueeItems = [
   .cinema-body {
     font-family: var(--font-sans);
     font-size: 0.84rem;
-    color: #6a6f7e;
+    color: rgba(140,200,160,0.65);
     line-height: 1.75;
     max-width: 440px;
   }
@@ -773,8 +767,9 @@ const marqueeItems = [
     display: inline-flex;
     align-items: center;
     padding: 1rem 2.2rem;
-    background: #e8b84b;
-    color: #0d0f14;
+    background: transparent;
+    border: 1px solid rgba(59,140,110,0.5);
+    color: rgba(100,200,140,0.9);
     font-family: var(--font-sans);
     font-size: 0.88rem;
     font-weight: 700;
@@ -785,7 +780,13 @@ const marqueeItems = [
     flex-shrink: 0;
     transition: opacity 0.2s, transform 0.2s;
   }
-  .cinema-cta:hover { opacity: 0.88; transform: translateY(-2px); }
+  .cinema-cta:hover {
+    background: rgba(59,140,110,0.12);
+    border-color: rgba(100,200,140,0.8);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(59,140,110,0.2);
+    transform: translateY(-2px);
+  }
 
   /* ── バナー共通 ── */
   .banner-inner {

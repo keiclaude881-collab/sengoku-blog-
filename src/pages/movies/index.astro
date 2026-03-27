@@ -10,12 +10,6 @@ function slug(id: string) {
   return `movie/${id.replace(/\.mdx?$/, "")}`;
 }
 
-const services = [
-  { name: "U-NEXT",  color: "#0045ff", abbr: "U" },
-  { name: "Hulu",    color: "#3dbb3d", abbr: "H" },
-  { name: "Netflix", color: "#e50914", abbr: "N" },
-  { name: "Disney+", color: "#113ccf", abbr: "D+" },
-];
 ---
 
 <BaseLayout
@@ -31,15 +25,6 @@ const services = [
       <h1 class="hero-heading">映画で学ぶ<br />戦略の本質</h1>
       <p class="hero-sub">スクリーンの向こうに、リーダーシップと意思決定の本質がある。<br />歴史映画・戦争映画・SFを戦略の視点で読み解く。</p>
 
-      <!-- 対応サービス -->
-      <div class="service-row" aria-label="対応ストリーミングサービス">
-        {services.map(s => (
-          <span class="service-badge" style={`background: ${s.color}`}>
-            <span class="service-abbr">{s.abbr}</span>
-            <span class="service-name">{s.name}</span>
-          </span>
-        ))}
-      </div>
     </div>
   </section>
 
