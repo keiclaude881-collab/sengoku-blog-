@@ -43,6 +43,34 @@
   --nav-height: 64px;
 }
 
+/* ── ダークモード ── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:          #0d0d0d;
+    --bg2:         #161616;
+    --ink:         #f0f0f0;
+    --ink2:        #aaaaaa;
+    --ink3:        #555555;
+    --gold:        #4db882;
+    --gold-light:  #1a3d2c;
+    --gold-dark:   #6dd4a0;
+    --accent:      #1a4d34;
+    --rule:        rgba(255, 255, 255, 0.09);
+
+    --bg-sub:      #161616;
+    --bg-navy:     #1a4d34;
+    --bg-navy-mid: #2a6b50;
+    --text:        #f0f0f0;
+    --text-mid:    #aaaaaa;
+    --text-sub:    #555555;
+    --border:      rgba(255, 255, 255, 0.09);
+    --border-mid:  rgba(255, 255, 255, 0.15);
+    --orange:      #4db882;
+    --orange-dark: #6dd4a0;
+    --amber:       #1a3d2c;
+  }
+}
+
 /* ── リセット ── */
 *, *::before, *::after {
   box-sizing: border-box;
