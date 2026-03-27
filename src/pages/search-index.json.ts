@@ -13,6 +13,7 @@ export async function GET(_context: APIContext) {
     getCollection("business"),
     getCollection("sports"),
     getCollection("novel"),
+    getCollection("world").catch(() => []),
   ]);
 
   const items = collections

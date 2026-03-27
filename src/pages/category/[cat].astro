@@ -3,10 +3,10 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticleCard from "../../components/ArticleCard.astro";
 
-type Cat = "battle" | "leader" | "strategy" | "books" | "movie" | "whatif" | "anime" | "business" | "sports" | "novel";
+type Cat = "battle" | "leader" | "strategy" | "books" | "movie" | "whatif" | "anime" | "business" | "sports" | "novel" | "world";
 
 export async function getStaticPaths() {
-  const cats: Cat[] = ["battle", "leader", "strategy", "books", "movie", "whatif", "anime", "business", "sports", "novel"];
+  const cats: Cat[] = ["battle", "leader", "strategy", "books", "movie", "whatif", "anime", "business", "sports", "novel", "world"];
   return cats.map(cat => ({ params: { cat } }));
 }
 
@@ -75,6 +75,12 @@ const meta: Record<Cat, { label: string; deco: string; hook: string; desc: strin
     deco:  "語",
     hook:  "物語の中の決断が、今日の自分に重なる",
     desc:  "御子柴礼司、ハーミオーニー、ハリー——フィクションの登場人物たちは、歴史の英傑と同じ構造の選択をしている。小説・Audibleで楽しめる物語の戦略論。",
+  },
+  world: {
+    label: "世界史の決断",
+    deco:  "界",
+    hook:  "なぜあいつは勝ち、あいつは負けたのか",
+    desc:  "ハンニバル、ナポレオン、チンギス・ハン——時代も国も超えて、勝負を分けた決断の瞬間を追う。世界大戦から古代の合戦まで、普遍の戦略を読み解く。",
   },
 };
 

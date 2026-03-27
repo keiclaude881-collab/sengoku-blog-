@@ -18,6 +18,7 @@ const allArticles = (await Promise.all([
   getCollection("business").catch(() => []),
   getCollection("sports").catch(() => []),
   getCollection("novel").catch(() => []),
+  getCollection("world").catch(() => []),
 ])).flat().sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 const featured = allArticles.find(a => a.data.featured) ?? allArticles[0];

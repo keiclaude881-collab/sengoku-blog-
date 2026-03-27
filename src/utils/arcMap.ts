@@ -1,6 +1,6 @@
 export type ArcSlug = "rekishi" | "gendai" | "monogatari";
 export type CategoryName =
-  | "battle" | "leader" | "strategy" | "whatif"
+  | "battle" | "leader" | "strategy" | "whatif" | "world"
   | "business" | "sports"
   | "anime" | "movie" | "novel"
   | "books";
@@ -10,6 +10,7 @@ export const CATEGORY_TO_ARC: Record<CategoryName, ArcSlug | null> = {
   leader:   "rekishi",
   strategy: "rekishi",
   whatif:   "rekishi",
+  world:    "rekishi",
   business: "gendai",
   sports:   "gendai",
   anime:    "monogatari",
@@ -41,7 +42,7 @@ export const ARC_INFO: Record<ArcSlug, ArcInfo> = {
     color:       "#c0392b",
     colorBg:     "rgba(192, 57, 43, 0.08)",
     gradient:    "linear-gradient(135deg, #3d0a07 0%, #0d0d0d 100%)",
-    categories:  ["battle", "leader", "strategy", "whatif"],
+    categories:  ["battle", "world", "leader", "strategy", "whatif"],
     deco:        "壱",
   },
   gendai: {
@@ -82,6 +83,7 @@ export const CAT_LABEL: Record<CategoryName, string> = {
   leader:   "武将の思想",
   strategy: "兵法・知恵",
   whatif:   "歴史IF",
+  world:    "世界史の決断",
   business: "ビジネス戦略",
   sports:   "スポーツ戦略",
   anime:    "アニメの知恵",
