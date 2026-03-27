@@ -13,6 +13,7 @@ const allPosts = (await Promise.all([
   getCollection("anime"),
   getCollection("business"),
   getCollection("sports"),
+  getCollection("world").catch(() => []),
 ])).flat().sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 function slug(col: string, id: string) {
@@ -41,6 +42,7 @@ const categoryLabels: Record<string, string> = {
   anime:    "アニメ",
   business: "ビジネス",
   sports:   "スポーツ",
+  world:    "世界史",
 };
 const categories = Object.keys(categoryLabels);
 ---
