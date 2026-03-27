@@ -65,7 +65,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   .stage {
     position: fixed;
     inset: 0;
-    background: radial-gradient(ellipse at 50% 70%, #1a0a00 0%, #000000 70%);
+    background: radial-gradient(ellipse at 50% 70%, #021a0e 0%, #000000 70%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -88,11 +88,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     pointer-events: none;
   }
   .mist-1 {
-    background: radial-gradient(ellipse 120% 40% at 30% 80%, rgba(180,80,0,0.08) 0%, transparent 70%);
+    background: radial-gradient(ellipse 120% 40% at 30% 80%, rgba(40,140,80,0.08) 0%, transparent 70%);
     animation: mistDrift 12s ease-in-out infinite alternate;
   }
   .mist-2 {
-    background: radial-gradient(ellipse 100% 30% at 70% 90%, rgba(100,40,0,0.06) 0%, transparent 60%);
+    background: radial-gradient(ellipse 100% 30% at 70% 90%, rgba(20,80,50,0.06) 0%, transparent 60%);
     animation: mistDrift 18s ease-in-out infinite alternate-reverse;
   }
   @keyframes mistDrift {
@@ -123,7 +123,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.3em;
-    color: rgba(200,120,40,0.7);
+    color: rgba(80,180,110,0.7);
     text-transform: uppercase;
     margin: 0;
   }
@@ -140,13 +140,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     font-size: clamp(7rem, 20vw, 14rem);
     font-weight: 900;
     color: transparent;
-    background: linear-gradient(180deg, #e8a040 0%, #c05010 50%, #601800 100%);
+    background: linear-gradient(180deg, #7de8a8 0%, #3B8C6E 50%, #1a4d34 100%);
     -webkit-background-clip: text;
     background-clip: text;
     display: inline-block;
     animation: flicker 4s ease-in-out infinite;
     animation-delay: calc(var(--d) * 0.3s);
-    text-shadow: 0 0 60px rgba(220,100,20,0.3);
+    text-shadow: 0 0 60px rgba(59,140,110,0.3);
   }
   @keyframes flicker {
     0%, 90%, 100% { opacity: 1; filter: brightness(1); }
@@ -165,10 +165,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   .divider-line {
     flex: 1;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(200,120,40,0.5), transparent);
+    background: linear-gradient(90deg, transparent, rgba(59,140,110,0.5), transparent);
   }
   .divider-icon {
-    color: rgba(200,120,40,0.6);
+    color: rgba(59,140,110,0.6);
     font-size: 0.7rem;
   }
 
@@ -177,7 +177,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     font-family: var(--font-serif);
     font-size: clamp(1.1rem, 3vw, 1.6rem);
     font-weight: 700;
-    color: rgba(240,210,160,0.9);
+    color: rgba(180,240,200,0.9);
     letter-spacing: 0.12em;
     margin: 0;
   }
@@ -186,7 +186,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   .quote {
     margin: 0;
     padding: 1.2rem 1.6rem;
-    border-left: 2px solid rgba(200,120,40,0.4);
+    border-left: 2px solid rgba(59,140,110,0.4);
     max-width: 480px;
     text-align: left;
     animation: fadeUp 1.2s 0.4s cubic-bezier(0.16,1,0.3,1) both;
@@ -195,7 +195,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     font-family: var(--font-sans);
     font-size: clamp(0.82rem, 2vw, 0.95rem);
     line-height: 1.9;
-    color: rgba(210,180,130,0.85);
+    color: rgba(160,220,180,0.85);
     margin: 0 0 0.5rem;
   }
   .quote-author {
@@ -203,7 +203,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     font-size: 0.72rem;
     font-style: normal;
     letter-spacing: 0.08em;
-    color: rgba(180,120,60,0.7);
+    color: rgba(80,160,110,0.7);
   }
 
   /* ── ボタン ── */
@@ -213,8 +213,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     gap: 0.6rem;
     padding: 0.85rem 2.2rem;
     background: transparent;
-    border: 1px solid rgba(200,120,40,0.5);
-    color: rgba(220,160,80,0.9);
+    border: 1px solid rgba(59,140,110,0.5);
+    color: rgba(100,200,140,0.9);
     font-family: var(--font-sans);
     font-size: 0.85rem;
     font-weight: 600;
@@ -225,10 +225,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     animation: fadeUp 1.2s 0.6s cubic-bezier(0.16,1,0.3,1) both;
   }
   .back-btn:hover {
-    background: rgba(200,120,40,0.12);
-    border-color: rgba(220,160,80,0.8);
+    background: rgba(59,140,110,0.12);
+    border-color: rgba(100,200,140,0.8);
     color: #fff;
-    box-shadow: 0 0 24px rgba(200,100,20,0.25);
+    box-shadow: 0 0 24px rgba(59,140,110,0.25);
   }
   .btn-arrow {
     transition: transform 0.3s;
@@ -308,9 +308,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       }
 
       const grad = ctx.createRadialGradient(e.x, e.y, 0, e.x, e.y, e.size * 2);
-      grad.addColorStop(0, `rgba(255,200,80,${e.alpha})`);
-      grad.addColorStop(0.5, `rgba(255,100,20,${e.alpha * 0.7})`);
-      grad.addColorStop(1, `rgba(180,40,0,0)`);
+      grad.addColorStop(0, `rgba(180,255,210,${e.alpha})`);
+      grad.addColorStop(0.5, `rgba(59,140,110,${e.alpha * 0.7})`);
+      grad.addColorStop(1, `rgba(20,80,50,0)`);
 
       ctx.beginPath();
       ctx.arc(e.x, e.y, e.size * 2, 0, Math.PI * 2);
