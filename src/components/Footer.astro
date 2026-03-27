@@ -28,21 +28,6 @@ const cols = [
 <footer class="site-footer">
   <div class="footer-top">
     <div class="container footer-inner">
-      <div class="footer-brand">
-        <a href="/" class="footer-logo">
-          決断の<em>系譜</em>
-        </a>
-        <p class="footer-tagline">歴史の選択が、未来を変える。</p>
-        <p class="footer-desc">
-          古今東西の英傑たちの決断を深掘りする歴史×戦略ブログ。戦国から世界史、映画・SF、そして「あの時、もし違う選択をしていたら」まで。
-        </p>
-        <div class="footer-social">
-          <a href="https://note.com/ketsudan_keifu" target="_blank" rel="noopener noreferrer" class="social-btn">
-            note
-          </a>
-        </div>
-      </div>
-
       <nav class="footer-nav" aria-label="フッターナビ">
         {cols.map(col => (
           <div class="footer-col">
@@ -77,7 +62,7 @@ const cols = [
 
   .footer-inner {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 1fr;
     gap: var(--sp-xl);
     padding-top: var(--sp-xl);
     padding-bottom: var(--sp-lg);
