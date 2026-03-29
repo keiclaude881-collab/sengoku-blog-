@@ -7,8 +7,9 @@ interface Props {
   image?:      string;
 }
 const { title, asin, rakutenUrl, reason, image } = Astro.props;
-const associateId = import.meta.env.AMAZON_ASSOCIATE_ID ?? 'sengokublog20-22';
-const amazonUrl = asin ? `https://www.amazon.co.jp/dp/${asin}/?tag=${associateId}` : null;
+const amazonUrl = asin
+  ? `https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_id=185&pl_id=4062&url=${encodeURIComponent(`https://www.amazon.co.jp/dp/${asin}/`)}`
+  : null;
 const primaryUrl = amazonUrl ?? rakutenUrl ?? '#';
 const placeholderChars = ['兵', '謀', '戦', '策', '智', '将', '武', '覇', '道', '義'];
 const placeholderChar = asin ? (placeholderChars[parseInt(asin.slice(-1), 10)] ?? '書') : '書';

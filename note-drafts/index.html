@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>note下書き</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, sans-serif;
+  background: #f4f4f4;
+  padding: 40px 20px;
+}
+h1 {
+  font-size: 1rem;
+  color: #888;
+  margin-bottom: 32px;
+  letter-spacing: 0.05em;
+}
+.note {
+  background: white;
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 28px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.note + .note { margin-top: 0; }
+.note-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+textarea {
+  width: 100%;
+  height: 360px;
+  font-family: 'Menlo', monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 14px;
+  resize: vertical;
+  color: #333;
+  background: #fafafa;
+}
+textarea:focus { outline: none; border-color: #aaa; background: #fff; }
+.actions { margin-top: 12px; display: flex; gap: 10px; align-items: center; }
+button {
+  padding: 8px 22px;
+  background: #222;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+button:hover { background: #444; }
+button.copied { background: #2e7d32; }
+.filename { font-size: 12px; color: #aaa; }
+</style>
+</head>
+<body>
+<h1>📝 note下書き一覧 (2本)</h1>
+
+<div class="note">
+  <div class="note-title">「弱いところを前に出す」が、実は最強の戦術だった話</div>
+  <textarea id="ta0" readonly># 「弱いところを前に出す」が、実は最強の戦術だった話
+
+キングダム読んでて。
+
+強い敵に正面からぶつかるのって、たいていうまくいかない。
+李信が趙に勝てないのも、圧倒的に数が少ないからじゃなくて、戦い方が正面すぎるからというのも。ね。
+
+2200年前に「完璧な解答」を出した人がいます。
+
+## 7万人を1日で全滅させた男
+
+紀元前216年、カルタゴの将軍ハンニバルは5万の兵で、8万のローマ軍を1日で全滅させました。
+
+数が少ない側が、数が多い側を全滅させた。
+その答えが、わざと弱いところを中央に出した。ということ。
+
+## 「引き込む」という発想
+
+ハンニバルの布陣を見てみます。
+
+中央：弱い部隊（わざと）
+
+両翼：最強の精鋭
+
+ローマ軍は中央に突撃しました。弱い中央はじりじり後退します。
+ローマ兵は「押してる！勝ってる！」と感じながら前進した。
+
+これが罠で。
+
+後退しながら中央が凹型に変形して、ローマ軍が袋の中に入った瞬間、両翼の精鋭が折りたたまれてきた。
+
+逃げ場を失った7万人。密集しすぎて剣も振れない状態で、次々と倒れた。
+
+## ローマの強みが「罠」になった
+
+これがポイントです。
+
+ローマ軍の強みは「密集突撃」。
+みんなで固まって正面から押し込む、それがローマの最強戦術。
+
+でもハンニバルはその強みを「引き込む道具」にした。
+
+強く押せば押すほど、袋の奥に入り込む。
+ローマが強みを発揮すればするほど、包囲が深まる。
+
+「相手の強みが機能しない場所を設計する」——これがハンニバルの天才性です。
+
+## 2200年後も使われてる
+
+この戦術、今でも使われています。
+
+ビジネスで言えば：
+新興企業が大企業と真正面から戦っても勝てない。でも「弱いと思われているところ」で大企業を引き込んで、そこで勝負する——これがスタートアップの定番戦略です。
+
+Appleがパソコン市場に参入した時も、正面から戦わなかった。「デザイン」という大企業が手を抜いていた場所を起点にした。
+
+交渉でも同じ：
+相手が「絶対に勝てる」と思っている土俵で戦うより、相手の強みが活きない場所に引き込む。
+
+## 退くことは負けじゃない
+
+もう一個、ハンニバルから学べることがあります。
+
+中央が後退したのは「押されて逃げた」のじゃない。
+「引き込むために退いた」んです。
+
+意図的な後退と敗走は、見た目は同じでも意味が全く違う。
+
+仕事でも、「今は引く」という判断ができる人は強い。
+退いてるように見えて、相手を引き込んでいる。
+
+2200年前の戦場の話が、今に直結する。
+
+こちらにちょっとだけ真面目に書いたカンナエの戦いについてあるので、もしも気になるなら→どうぞ
+</textarea>
+  <div class="actions">
+    <button id="btn0" onclick="copy(0)">全部コピー</button>
+    <span class="filename">note_01_cannae_beginner.md</span>
+  </div>
+</div>
+
+
+<div class="note">
+  <div class="note-title">300人が100万人を3日間止めた。これは「無謀な特攻」じゃなかった。</div>
+  <textarea id="ta1" readonly># 300人が100万人を3日間止めた。これは「無謀な特攻」じゃなかった。
+
+映画「300」見たことある人には刺さる話です。
+
+スパルタ王レオニダスが300人でペルシャの大軍に立ち向かうやつ。
+あれ見て「カッコいい特攻」と思ってた時期が、自分にもありました。
+
+ちょっと待って。レオニダス、めちゃくちゃ計算してたんです。
+
+## 「峠」を選んだ理由
+
+紀元前480年、テルモピュレーの峠。
+
+ペルシャ軍：数万〜百万（諸説あり）
+スパルタ：300人
+
+でも峠の幅は15メートル。
+
+広い平原なら100万人が横に広がれる。でも15メートルの峠なら、何人来ても「横5人」しか並べない。
+
+100万 vs 300が、実質5 vs 300になった。
+
+レオニダスは「戦う場所」を選ぶことで、圧倒的な数の差を消した。
+
+## 3日間、何が起きたか
+
+1日目・2日目。ペルシャ精鋭「不死隊」が次々と突撃してきた。
+でも幅15mの峠では、数の優位が全く活きない。
+
+スパルタの近接戦技術が圧倒した。
+
+ペルシャ王クセルクセスは怒りで玉座から3度立ち上がった、と伝わります。
+
+3日目の朝、裏切り者が現れた。山の抜け道をペルシャに教えた。金と引き換えに。
+
+包囲が始まる。
+
+## レオニダスの本当の判断
+
+裏道の存在を知ったレオニダスは、連合軍のほとんどを撤退させた。
+
+自分だけ残って。
+
+なぜ逃げなかったか。
+
+「殿を誰かが務めなければ、逃げる味方がペルシャに追いつかれて全員死ぬ」
+
+自分たちが囮になることで、残りを逃がした。
+
+これ、特攻じゃない。撤退を成功させるための戦略的な犠牲です。
+
+## 3日間が稼いだもの
+
+テルモピュレーは「負け」でした。300人は全滅して、峠は突破された。
+
+でも稼いだものがある。
+
+時間——アテネの海軍が整備できた。
+士気——「スパルタは逃げなかった」という事実がギリシャ全土を鼓舞した。
+
+その数ヶ月後、アテネの海軍はサラミスの海戦でペルシャ艦隊を壊滅させた。
+テルモピュレーがなければ、サラミスはなかった。
+
+レオニダスの死が、ギリシャを救った。
+
+## 「負けの使い方」を知ってる人は強い
+
+負けたことを「ただの失敗」で終わらせるか、「次の勝ちへの布石」にできるか。
+
+テルモピュレーが「英雄的敗北」として語られたから、ギリシャ人の心に火がついた。
+もし「ただ負けた」で終わってたら、サラミスの勝利はなかった。
+
+敗北の語り方が、次の戦いを決める。
+
+失敗をどう言語化するか。どう意味づけるか。
+これ、組織でも個人でも同じだと思う。
+
+---
+
+「武器を置け」と言われたレオニダスの返答。
+
+「モロン・ラベ（来て取れ）」
+
+2500年後の今も、アメリカ陸軍特殊部隊のエンブレムに刻まれています。
+
+こちらにちょっとだけ真面目に書いたテルモピュレーの話があるので、もしも気になるなら→どうぞ
+</textarea>
+  <div class="actions">
+    <button id="btn1" onclick="copy(1)">全部コピー</button>
+    <span class="filename">note_02_thermopylae_beginner.md</span>
+  </div>
+</div>
+
+<script>
+function copy(i) {
+  const ta = document.getElementById('ta' + i)
+  const btn = document.getElementById('btn' + i)
+  navigator.clipboard.writeText(ta.value).then(() => {
+    btn.textContent = 'コピーしました ✓'
+    btn.classList.add('copied')
+    setTimeout(() => {
+      btn.textContent = '全部コピー'
+      btn.classList.remove('copied')
+    }, 2000)
+  })
+}
+</script>
+</body>
+</html>
