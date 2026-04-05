@@ -181,12 +181,12 @@ async function main() {
     console.log("   問題なければ Ctrl+C で終了してください\n");
 
     // ブラウザを開いたまま待機
-    await page.waitForTimeout(30000);
+    await page.waitForTimeout(3000);
 
   } catch (err) {
     console.error("❌ エラー:", err.message);
     console.log("   ブラウザを確認してください（30秒後に閉じます）");
-    await page.waitForTimeout(30000);
+    await page.waitForTimeout(3000);
   }
 
   await browser.close();
