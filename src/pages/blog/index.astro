@@ -11,8 +11,6 @@ const allPosts = (await Promise.all([
   getCollection("movie"),
   getCollection("whatif"),
   getCollection("anime"),
-  getCollection("business"),
-  getCollection("sports"),
   getCollection("world").catch(() => []),
 ])).flat().sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
@@ -40,8 +38,6 @@ const categoryLabels: Record<string, string> = {
   movie:    "映画",
   whatif:   "歴史IF",
   anime:    "アニメ",
-  business: "ビジネス",
-  sports:   "スポーツ",
   world:    "世界史",
 };
 const categories = Object.keys(categoryLabels);

@@ -10,8 +10,6 @@ export async function GET(_context: APIContext) {
     getCollection("movie"),
     getCollection("whatif"),
     getCollection("anime"),
-    getCollection("business"),
-    getCollection("sports"),
     getCollection("novel"),
     getCollection("world").catch(() => []),
   ]);

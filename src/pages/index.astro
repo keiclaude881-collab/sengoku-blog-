@@ -15,8 +15,6 @@ const allArticles = (await Promise.all([
   getCollection("movie").catch(() => []),
   getCollection("whatif").catch(() => []),
   getCollection("anime").catch(() => []),
-  getCollection("business").catch(() => []),
-  getCollection("sports").catch(() => []),
   getCollection("novel").catch(() => []),
   getCollection("world").catch(() => []),
 ])).flat().sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
@@ -195,11 +193,11 @@ const marqueeItems = [
             href: "/category/leader/",
           },
           {
-            tag: "ビジネス戦略",
+            tag: "兵法・戦略思想",
             label: "仕事がうまくいかない",
             quote: "「彼を知り己を知れば、百戦殆うからず。」",
             author: "— 孫子",
-            href: "/category/business/",
+            href: "/category/strategy/",
           },
           {
             tag: "人生の選択",

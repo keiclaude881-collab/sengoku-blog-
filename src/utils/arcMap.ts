@@ -1,18 +1,16 @@
-export type ArcSlug = "rekishi" | "gendai" | "monogatari";
+export type ArcSlug = "rekishi" | "senryaku" | "monogatari";
 export type CategoryName =
-  | "battle" | "leader" | "strategy" | "whatif" | "world"
-  | "business" | "sports"
+  | "battle" | "leader" | "world"
+  | "strategy" | "whatif"
   | "anime" | "movie" | "novel"
   | "books";
 
 export const CATEGORY_TO_ARC: Record<CategoryName, ArcSlug | null> = {
   battle:   "rekishi",
   leader:   "rekishi",
-  strategy: "rekishi",
-  whatif:   "rekishi",
   world:    "rekishi",
-  business: "gendai",
-  sports:   "gendai",
+  strategy: "senryaku",
+  whatif:   "senryaku",
   anime:    "monogatari",
   movie:    "monogatari",
   novel:    "monogatari",
@@ -38,23 +36,23 @@ export const ARC_INFO: Record<ArcSlug, ArcInfo> = {
     title:       "史実の決断",
     slug:        "rekishi",
     tagline:     "歴史の現場で、何が決まったか",
-    description: "桶狭間、関ヶ原、ガウガメラ——追い詰められた人間が決断した瞬間の記録。武将・将軍・英傑たちの思考を、孫子の原則で読み解く。すべての物語はここから始まる。",
+    description: "桶狭間、関ヶ原、ガウガメラ——追い詰められた人間が決断した瞬間の記録。武将・将軍・英傑たちの思考を読み解く。すべての物語はここから始まる。",
     color:       "#c0392b",
     colorBg:     "rgba(192, 57, 43, 0.08)",
     gradient:    "linear-gradient(135deg, #3d0a07 0%, #0d0d0d 100%)",
-    categories:  ["battle", "world", "leader", "strategy", "whatif"],
+    categories:  ["battle", "leader", "world"],
     deco:        "壱",
   },
-  gendai: {
+  senryaku: {
     chapter:     "第二章",
-    title:       "現代への継承",
-    slug:        "gendai",
-    tagline:     "同じ原則が、今も世界を動かしている",
-    description: "ジョブズ、ベゾス、トヨタ、グアルディオラ——2500年前の知恵を知らずに実践していた。第一章で読んだ原則が、現代でどう生きているかを追う。",
+    title:       "戦略と思想",
+    slug:        "senryaku",
+    tagline:     "2500年前の問いが、今も答えを持っている",
+    description: "孫子、マキャベリ、クラウゼヴィッツ——時代を超えて生き残った戦略思想の核心を読む。歴史IFで検証し、兵法の原則を現代の問いに接続する。",
     color:       "#2563eb",
     colorBg:     "rgba(37, 99, 235, 0.08)",
     gradient:    "linear-gradient(135deg, #071a3d 0%, #0d0d0d 100%)",
-    categories:  ["business", "sports"],
+    categories:  ["strategy", "whatif"],
     deco:        "弐",
   },
   monogatari: {
@@ -71,21 +69,19 @@ export const ARC_INFO: Record<ArcSlug, ArcInfo> = {
   },
 };
 
-export const ARC_ORDER: ArcSlug[] = ["rekishi", "gendai", "monogatari"];
+export const ARC_ORDER: ArcSlug[] = ["rekishi", "senryaku", "monogatari"];
 
 export const NEXT_ARC: Partial<Record<ArcSlug, ArcSlug>> = {
-  rekishi:    "gendai",
-  gendai:     "monogatari",
+  rekishi:   "senryaku",
+  senryaku:  "monogatari",
 };
 
 export const CAT_LABEL: Record<CategoryName, string> = {
   battle:   "合戦と戦略",
   leader:   "武将の思想",
-  strategy: "兵法・知恵",
-  whatif:   "歴史IF",
   world:    "世界史の決断",
-  business: "ビジネス戦略",
-  sports:   "スポーツ戦略",
+  strategy: "兵法・戦略思想",
+  whatif:   "歴史のIF",
   anime:    "アニメの知恵",
   movie:    "映画の知恵",
   novel:    "小説・物語",

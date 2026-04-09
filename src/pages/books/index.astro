@@ -3,7 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import AffiliateDisclosure from "../../components/AffiliateDisclosure.astro";
 import { getCollection } from "astro:content";
 
-const COLLECTIONS = ["battle", "leader", "strategy", "books", "movie", "whatif", "anime", "business", "sports", "world"] as const;
+const COLLECTIONS = ["battle", "leader", "strategy", "books", "movie", "whatif", "anime", "novel", "world"] as const;
 const allEntries = (await Promise.all(COLLECTIONS.map((c) => getCollection(c)))).flat();
 
 type ArticleRef = { title: string; url: string; collection: string };
@@ -17,6 +17,7 @@ for (const entry of allEntries) {
   const url  = `/blog/${entry.collection}/${slug}`;
 
   for (const book of affiliateBooks) {
+    if (!book.asin) continue;
     if (!bookMap.has(book.asin)) {
       bookMap.set(book.asin, { title: book.title, asin: book.asin, reason: book.reason, image: book.image, articles: [] });
     }

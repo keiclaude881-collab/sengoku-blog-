@@ -11,8 +11,6 @@ export async function GET(context: APIContext) {
     getCollection("movie"),
     getCollection("whatif"),
     getCollection("anime"),
-    getCollection("business"),
-    getCollection("sports"),
   ]);
 
   const allPosts = collections
