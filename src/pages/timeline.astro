@@ -1,0 +1,330 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// year フィールドがある記事だけ収集
+const allPosts = (await Promise.all([
+  getCollection("battle"),
+  getCollection("world"),
+  getCollection("leader").catch(() => []),
+  getCollection("strategy").catch(() => []),
+  getCollection("whatif").catch(() => []),
+])).flat().filter(p => p.data.year !== undefined);
+
+function slug(col: string, id: string) {
+  return `/blog/${col}/${id.replace(/\.mdx?$/, "")}`;
+}
+
+function formatYear(y: number) {
+  return y < 0 ? `紀元前${Math.abs(y)}年` : `${y}年`;
+}
+
+// 時代区分
+const ERAS = [
+  { key: "ancient",    label: "古代",  range: [-2000, 500],   color: "#c0392b", deco: "古" },
+  { key: "medieval",   label: "中世",  range: [501,  1500],   color: "#8b5cf6", deco: "中" },
+  { key: "earlymodern",label: "近世",  range: [1501, 1800],   color: "#d97706", deco: "近" },
+  { key: "modern",     label: "近代",  range: [1801, 1945],   color: "#2563eb", deco: "代" },
+  { key: "contemporary",label:"現代",  range: [1946, 2100],   color: "#16a34a", deco: "今" },
+] as const;
+
+type EraKey = typeof ERAS[number]["key"];
+
+function getEra(year: number): EraKey {
+  for (const era of ERAS) {
+    if (year >= era.range[0] && year <= era.range[1]) return era.key;
+  }
+  return "ancient";
+}
+
+// 時代ごとにグループ化 & ソート
+const eraMap = new Map<EraKey, typeof allPosts>();
+for (const era of ERAS) eraMap.set(era.key, []);
+for (const post of allPosts) {
+  const era = getEra(post.data.year!);
+  eraMap.get(era)!.push(post);
+}
+for (const [, posts] of eraMap) {
+  posts.sort((a, b) => a.data.year! - b.data.year!);
+}
+
+const totalWithYear = allPosts.length;
+---
+
+<BaseLayout
+  title="戦いの年表 | 決断の系譜"
+  description="紀元前から現代まで。史上の決戦を時代順に並べた年表。気になる時代をクリックして記事を探せます。"
+>
+  <div class="container timeline-page">
+
+    <header class="tl-header">
+      <p class="tl-eyebrow">TIMELINE</p>
+      <h1 class="tl-title">戦いの年表</h1>
+      <p class="tl-desc">
+        紀元前1274年のカデシュから、1944年のノルマンディーまで。<br>
+        {totalWithYear}の決戦を時代順に並べました。<br>
+        気になる時代を選んで、そこから読み始めてください。
+      </p>
+    </header>
+
+    <!-- 時代ナビ -->
+    <nav class="era-nav" aria-label="時代を選ぶ">
+      {ERAS.map(era => (
+        <button
+          class="era-btn"
+          data-era={era.key}
+          style={`--era-color: ${era.color};`}
+          type="button"
+        >
+          <span class="era-deco">{era.deco}</span>
+          <span class="era-label">{era.label}</span>
+          <span class="era-count">{eraMap.get(era.key)!.length}件</span>
+        </button>
+      ))}
+    </nav>
+
+    <!-- 年表本体 -->
+    <div class="tl-body">
+      {ERAS.map(era => {
+        const posts = eraMap.get(era.key)!;
+        if (posts.length === 0) return null;
+        return (
+          <section
+            class="era-section"
+            id={`era-${era.key}`}
+            data-era={era.key}
+            style={`--era-color: ${era.color};`}
+          >
+            <div class="era-heading">
+              <span class="era-heading-deco">{era.deco}</span>
+              <h2 class="era-heading-label">{era.label}</h2>
+              <span class="era-heading-range">
+                {era.range[0] < 0 ? `紀元前${Math.abs(era.range[0])}年` : `${era.range[0]}年`}
+                〜
+                {era.range[1] > 2000 ? "現在" : `${era.range[1]}年`}
+              </span>
+            </div>
+
+            <div class="era-posts">
+              {posts.map(post => (
+                <a href={slug(post.collection, post.id)} class="tl-card">
+                  <div class="tl-card-year">{formatYear(post.data.year!)}</div>
+                  <div class="tl-card-body">
+                    <p class="tl-card-title">{post.data.title}</p>
+                    <p class="tl-card-desc">{post.data.description}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+        );
+      })}
+    </div>
+
+  </div>
+</BaseLayout>
+
+<script>
+  // 時代ボタンでフィルタリング
+  const btns = document.querySelectorAll<HTMLButtonElement>(".era-btn");
+  const sections = document.querySelectorAll<HTMLElement>(".era-section");
+
+  btns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const era = btn.dataset.era;
+      const isActive = btn.classList.contains("active");
+
+      // すべてリセット
+      btns.forEach(b => b.classList.remove("active"));
+      sections.forEach(s => s.classList.remove("hidden"));
+
+      if (!isActive) {
+        // 選択した時代だけ表示
+        btn.classList.add("active");
+        sections.forEach(s => {
+          if (s.dataset.era !== era) s.classList.add("hidden");
+        });
+        // スクロール
+        document.getElementById(`era-${era}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+</script>
+
+<style>
+  .timeline-page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding-top: var(--sp-lg);
+    padding-bottom: var(--sp-xl);
+  }
+
+  /* Header */
+  .tl-header {
+    padding: var(--sp-xl) 0 var(--sp-lg);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: var(--sp-lg);
+  }
+  .tl-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .tl-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+  .tl-desc {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    line-height: 1.9;
+    color: var(--text-mid);
+  }
+
+  /* Era nav */
+  .era-nav {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: var(--sp-lg);
+  }
+  .era-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1.1rem;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    background: var(--bg-navy, #13161d);
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .era-btn:hover,
+  .era-btn.active {
+    border-color: var(--era-color);
+    background: color-mix(in srgb, var(--era-color) 12%, transparent);
+  }
+  .era-deco {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--era-color);
+  }
+  .era-label {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .era-count {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    color: var(--text-mid);
+    background: rgba(255,255,255,0.06);
+    border-radius: 2px;
+    padding: 0.1em 0.4em;
+  }
+
+  /* Era section */
+  .era-section {
+    margin-bottom: var(--sp-xl);
+    transition: opacity 0.2s;
+  }
+  .era-section.hidden {
+    display: none;
+  }
+
+  .era-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 2px solid var(--era-color);
+    margin-bottom: 1.4rem;
+  }
+  .era-heading-deco {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--era-color);
+    line-height: 1;
+  }
+  .era-heading-label {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .era-heading-range {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--text-mid);
+    margin-left: auto;
+  }
+
+  /* Cards */
+  .era-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .tl-card {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1.2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    transition: background 0.15s;
+    border-radius: 4px;
+    padding-left: 0.6rem;
+  }
+  .tl-card:hover {
+    background: rgba(255,255,255,0.03);
+  }
+
+  .tl-card-year {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--era-color);
+    letter-spacing: 0.03em;
+    padding-top: 0.2rem;
+    white-space: nowrap;
+  }
+
+  .tl-card-title {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 0.3rem;
+  }
+  .tl-card:hover .tl-card-title {
+    color: var(--era-color);
+  }
+
+  .tl-card-desc {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    line-height: 1.65;
+    color: var(--text-mid);
+  }
+
+  @media (max-width: 600px) {
+    .tl-card {
+      grid-template-columns: 80px 1fr;
+      gap: 0.8rem;
+    }
+    .era-heading-range { display: none; }
+  }
+</style>

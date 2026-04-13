@@ -8,6 +8,7 @@ const articleSchema = z.object({
   tags:        z.array(z.string()).default([]),
   description: z.string().max(120),
   ogImage:     z.string().optional(),
+  year:        z.number().optional(),
   readingTime: z.number(),
   featured:    z.boolean().default(false),
   lesson:      z.string().optional(),
