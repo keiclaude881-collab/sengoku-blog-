@@ -158,28 +158,15 @@ const marqueeItems = [
   <!-- 年表バナー -->
   <section class="timeline-banner">
     <div class="container tl-banner-inner">
-      <div class="tl-banner-left">
+      <div>
         <span class="tl-banner-eyebrow">TIMELINE</span>
         <h2 class="tl-banner-title">戦いの年表</h2>
         <p class="tl-banner-desc">
-          紀元前1274年のカデシュから、1944年のノルマンディーまで。<br>
-          42の決戦を時代順に並べました。<br>
-          「この戦いはいつ？」をここから確認できます。
+          紀元前から現代まで、42の決戦を時代順に並べました。<br>
+          「この戦いはいつの話？」がここで分かります。
         </p>
-        <a href="/timeline/" class="tl-banner-cta">年表を見る →</a>
       </div>
-      <div class="tl-banner-right" aria-hidden="true">
-        <div class="tl-era-list">
-          <span class="tl-era" style="--c:#c0392b">古代</span>
-          <span class="tl-era-line"></span>
-          <span class="tl-era" style="--c:#8b5cf6">中世</span>
-          <span class="tl-era-line"></span>
-          <span class="tl-era" style="--c:#d97706">近世</span>
-          <span class="tl-era-line"></span>
-          <span class="tl-era" style="--c:#2563eb">近代</span>
-        </div>
-        <p class="tl-range">紀元前1274年 〜 1944年</p>
-      </div>
+      <a href="/timeline/" class="tl-banner-cta">年表を見る →</a>
     </div>
   </section>
 
@@ -406,10 +393,10 @@ const marqueeItems = [
 <style>
   /* ── 年表バナー ── */
   .timeline-banner {
-    background: linear-gradient(135deg, #0d1a2e 0%, #0d0d0d 100%);
-    border-top: 1px solid rgba(37,99,235,0.3);
-    border-bottom: 1px solid rgba(37,99,235,0.3);
-    padding: 3rem 0;
+    background: var(--accent);
+    border-top: 1px solid var(--gold-dark);
+    border-bottom: 1px solid var(--gold-dark);
+    padding: 2.4rem 0;
   }
   .tl-banner-inner {
     display: flex;
@@ -422,73 +409,40 @@ const marqueeItems = [
     font-size: 0.62rem;
     font-weight: 700;
     letter-spacing: 0.3em;
-    color: #2563eb;
+    color: var(--gold-light);
     display: block;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
   }
   .tl-banner-title {
     font-family: var(--font-serif);
-    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
     font-weight: 800;
     color: #fff;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
   }
   .tl-banner-desc {
     font-family: var(--font-sans);
-    font-size: 0.85rem;
-    line-height: 1.9;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 1.4rem;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.65);
   }
   .tl-banner-cta {
+    flex-shrink: 0;
     display: inline-block;
     font-family: var(--font-sans);
     font-size: 0.85rem;
     font-weight: 700;
-    color: #fff;
-    background: #2563eb;
-    padding: 0.65rem 1.8rem;
+    color: var(--accent);
+    background: var(--gold-light);
+    padding: 0.7rem 2rem;
     border-radius: 4px;
     text-decoration: none;
+    white-space: nowrap;
     transition: opacity 0.2s, transform 0.2s;
   }
   .tl-banner-cta:hover { opacity: 0.85; transform: translateY(-1px); }
-
-  .tl-banner-right {
-    flex-shrink: 0;
-    text-align: center;
-  }
-  .tl-era-list {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    margin-bottom: 0.8rem;
-  }
-  .tl-era {
-    font-family: var(--font-serif);
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--c);
-    background: color-mix(in srgb, var(--c) 15%, transparent);
-    border: 1px solid color-mix(in srgb, var(--c) 40%, transparent);
-    border-radius: 3px;
-    padding: 0.2em 0.6em;
-    white-space: nowrap;
-  }
-  .tl-era-line {
-    width: 24px;
-    height: 1px;
-    background: rgba(255,255,255,0.2);
-  }
-  .tl-range {
-    font-family: var(--font-sans);
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.35);
-    letter-spacing: 0.05em;
-  }
   @media (max-width: 640px) {
-    .tl-banner-inner { flex-direction: column; }
-    .tl-banner-right { display: none; }
+    .tl-banner-inner { flex-direction: column; align-items: flex-start; }
   }
 
   /* ── マーキー ── */

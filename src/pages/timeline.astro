@@ -21,11 +21,11 @@ function formatYear(y: number) {
 
 // 時代区分
 const ERAS = [
-  { key: "ancient",    label: "古代",  range: [-2000, 500],   color: "#c0392b", deco: "古" },
-  { key: "medieval",   label: "中世",  range: [501,  1500],   color: "#8b5cf6", deco: "中" },
-  { key: "earlymodern",label: "近世",  range: [1501, 1800],   color: "#d97706", deco: "近" },
-  { key: "modern",     label: "近代",  range: [1801, 1945],   color: "#2563eb", deco: "代" },
-  { key: "contemporary",label:"現代",  range: [1946, 2100],   color: "#16a34a", deco: "今" },
+  { key: "ancient",     label: "古代",  range: [-2000, 500],  color: "#3B8C6E", deco: "古" },
+  { key: "medieval",    label: "中世",  range: [501,  1500],  color: "#3B8C6E", deco: "中" },
+  { key: "earlymodern", label: "近世",  range: [1501, 1800],  color: "#3B8C6E", deco: "近" },
+  { key: "modern",      label: "近代",  range: [1801, 1945],  color: "#3B8C6E", deco: "代" },
+  { key: "contemporary",label: "現代",  range: [1946, 2100],  color: "#3B8C6E", deco: "今" },
 ] as const;
 
 type EraKey = typeof ERAS[number]["key"];
@@ -201,21 +201,22 @@ const totalWithYear = allPosts.length;
     gap: 0.5rem;
     padding: 0.55rem 1.1rem;
     border-radius: 4px;
-    border: 1px solid var(--border);
-    background: var(--bg-navy, #13161d);
+    border: 1px solid var(--gold-dark);
+    background: transparent;
     cursor: pointer;
     transition: border-color 0.2s, background 0.2s;
   }
   .era-btn:hover,
   .era-btn.active {
-    border-color: var(--era-color);
-    background: color-mix(in srgb, var(--era-color) 12%, transparent);
+    border-color: var(--gold);
+    background: rgba(59,140,110,0.12);
   }
+  .era-btn.active .era-label { color: var(--gold); }
   .era-deco {
     font-family: var(--font-serif);
     font-size: 1rem;
     font-weight: 700;
-    color: var(--era-color);
+    color: var(--gold);
   }
   .era-label {
     font-family: var(--font-sans);
@@ -246,14 +247,14 @@ const totalWithYear = allPosts.length;
     align-items: baseline;
     gap: 0.8rem;
     padding-bottom: 0.7rem;
-    border-bottom: 2px solid var(--era-color);
+    border-bottom: 2px solid var(--gold);
     margin-bottom: 1.4rem;
   }
   .era-heading-deco {
     font-family: var(--font-serif);
     font-size: 1.4rem;
     font-weight: 800;
-    color: var(--era-color);
+    color: var(--gold);
     line-height: 1;
   }
   .era-heading-label {
@@ -295,7 +296,7 @@ const totalWithYear = allPosts.length;
     font-family: var(--font-sans);
     font-size: 0.78rem;
     font-weight: 700;
-    color: var(--era-color);
+    color: var(--gold);
     letter-spacing: 0.03em;
     padding-top: 0.2rem;
     white-space: nowrap;
@@ -310,7 +311,7 @@ const totalWithYear = allPosts.length;
     margin-bottom: 0.3rem;
   }
   .tl-card:hover .tl-card-title {
-    color: var(--era-color);
+    color: var(--gold);
   }
 
   .tl-card-desc {
