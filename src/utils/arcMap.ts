@@ -1,89 +1,99 @@
-export type ArcSlug = "rekishi" | "senryaku" | "monogatari";
+export type ThemeSlug = "decide" | "lead" | "recover" | "strategy" | "change";
 export type CategoryName =
-  | "battle" | "leader" | "world"
-  | "strategy" | "whatif"
+  | "decide" | "lead" | "recover" | "strategy" | "change"
   | "anime" | "movie" | "novel"
   | "books";
 
-export const CATEGORY_TO_ARC: Record<CategoryName, ArcSlug | null> = {
-  battle:   "rekishi",
-  leader:   "rekishi",
-  world:    "rekishi",
-  strategy: "senryaku",
-  whatif:   "senryaku",
-  anime:    "monogatari",
-  movie:    "monogatari",
-  novel:    "monogatari",
-  books:    null,
-};
-
-export interface ArcInfo {
-  chapter:     string;
-  title:       string;
-  slug:        ArcSlug;
+export interface ThemeInfo {
+  slug:        ThemeSlug;
+  label:       string;
+  icon:        string;
   tagline:     string;
   description: string;
   color:       string;
-  colorBg:     string;
   gradient:    string;
-  categories:  CategoryName[];
-  deco:        string;
 }
 
-export const ARC_INFO: Record<ArcSlug, ArcInfo> = {
-  rekishi: {
-    chapter:     "第一章",
-    title:       "史実の決断",
-    slug:        "rekishi",
-    tagline:     "歴史の現場で、何が決まったか",
-    description: "桶狭間、関ヶ原、ガウガメラ——追い詰められた人間が決断した瞬間の記録。武将・将軍・英傑たちの思考を読み解く。すべての物語はここから始まる。",
-    color:       "#c0392b",
-    colorBg:     "rgba(192, 57, 43, 0.08)",
-    gradient:    "linear-gradient(135deg, #3d0a07 0%, #0d0d0d 100%)",
-    categories:  ["battle", "leader", "world"],
-    deco:        "壱",
+export const THEME_INFO: Record<ThemeSlug, ThemeInfo> = {
+  decide: {
+    slug:        "decide",
+    label:       "決断できない時",
+    icon:        "⚔",
+    tagline:     "正解がわからない夜に、誰もが迷ってきた",
+    description: "桶狭間の信長も、テルモピュライのレオニダスも、「これで本当にいいのか」と思いながら決めた。迷いを抱えたまま前へ進んだ人たちの記録。",
+    color:       "#3B8C6E",
+    gradient:    "linear-gradient(135deg, #1E4A35 0%, #0d0d0d 100%)",
   },
-  senryaku: {
-    chapter:     "第二章",
-    title:       "戦略と思想",
-    slug:        "senryaku",
-    tagline:     "2500年前の問いが、今も答えを持っている",
-    description: "孫子、マキャベリ、クラウゼヴィッツ——時代を超えて生き残った戦略思想の核心を読む。歴史IFで検証し、兵法の原則を現代の問いに接続する。",
-    color:       "#2563eb",
-    colorBg:     "rgba(37, 99, 235, 0.08)",
-    gradient:    "linear-gradient(135deg, #071a3d 0%, #0d0d0d 100%)",
-    categories:  ["strategy", "whatif"],
-    deco:        "弐",
+  lead: {
+    slug:        "lead",
+    label:       "チームがうまくいかない時",
+    icon:        "将",
+    tagline:     "人を動かすことの難しさは、いつの時代も同じだ",
+    description: "信長はなぜ部下に信頼されたのか。家康はどうやって組織を束ねたのか。リーダーの悩みへの答えが、歴史の武将たちの判断の中にある。",
+    color:       "#3B8C6E",
+    gradient:    "linear-gradient(135deg, #1E4A35 0%, #0d0d0d 100%)",
   },
-  monogatari: {
-    chapter:     "第三章",
-    title:       "物語が映す真実",
-    slug:        "monogatari",
-    tagline:     "スクリーンの向こうに、本質が見える",
-    description: "エルウィン、マキシマス、七人の侍——物語の登場人物たちは歴史の英傑と同じ構造の選択をしている。フィクションに宿る普遍の原則を読み解く。",
-    color:       "#d4a017",
-    colorBg:     "rgba(212, 160, 23, 0.08)",
-    gradient:    "linear-gradient(135deg, #2a1a00 0%, #0d0d0d 100%)",
-    categories:  ["anime", "movie", "novel"],
-    deco:        "参",
+  recover: {
+    slug:        "recover",
+    label:       "逆境・失敗した時",
+    icon:        "復",
+    tagline:     "敗北は終わりではなく、始まりだった",
+    description: "三方ヶ原で大敗した家康も、ウォータールーで失脚したナポレオンも。どん底から立ち上がった人たちの共通点が見えてくる。",
+    color:       "#3B8C6E",
+    gradient:    "linear-gradient(135deg, #1E4A35 0%, #0d0d0d 100%)",
+  },
+  strategy: {
+    slug:        "strategy",
+    label:       "戦略・方向性に迷った時",
+    icon:        "謀",
+    tagline:     "2500年前の孫子が、今日の問いに答えている",
+    description: "孫子、クラウゼヴィッツ、ハンニバル——時代を超えて生き残った戦略の核心。競合に勝てない、方向性が見えない、そんな時のための知恵。",
+    color:       "#3B8C6E",
+    gradient:    "linear-gradient(135deg, #1E4A35 0%, #0d0d0d 100%)",
+  },
+  change: {
+    slug:        "change",
+    label:       "自分を変えたい時",
+    icon:        "変",
+    tagline:     "変わった人は、みな「変わる前の夜」を持っていた",
+    description: "桶狭間後の信長、長篠後の武将たち——現状を打ち破るために動いた人たちの覚悟と行動。「このままじゃいけない」という気持ちへの答え。",
+    color:       "#3B8C6E",
+    gradient:    "linear-gradient(135deg, #1E4A35 0%, #0d0d0d 100%)",
   },
 };
 
-export const ARC_ORDER: ArcSlug[] = ["rekishi", "senryaku", "monogatari"];
-
-export const NEXT_ARC: Partial<Record<ArcSlug, ArcSlug>> = {
-  rekishi:   "senryaku",
-  senryaku:  "monogatari",
-};
+export const THEME_ORDER: ThemeSlug[] = ["decide", "lead", "recover", "strategy", "change"];
 
 export const CAT_LABEL: Record<CategoryName, string> = {
-  battle:   "合戦と戦略",
-  leader:   "武将の思想",
-  world:    "世界史の決断",
-  strategy: "兵法・戦略思想",
-  whatif:   "歴史のIF",
+  decide:   "決断できない時",
+  lead:     "チームがうまくいかない時",
+  recover:  "逆境・失敗した時",
+  strategy: "戦略・方向性に迷った時",
+  change:   "自分を変えたい時",
   anime:    "アニメの知恵",
   movie:    "映画の知恵",
   novel:    "小説・物語",
   books:    "書籍レビュー",
+};
+
+// 後方互換用（arcページが残っている場合のフォールバック）
+export type ArcSlug = ThemeSlug;
+export const ARC_INFO = {} as Record<string, ThemeInfo>;
+export const ARC_ORDER = THEME_ORDER;
+export const NEXT_ARC: Partial<Record<ThemeSlug, ThemeSlug>> = {
+  decide:   "lead",
+  lead:     "recover",
+  recover:  "strategy",
+  strategy: "change",
+};
+export const CATEGORY_TO_ARC: Record<CategoryName, ThemeSlug | null> = {
+  decide:   "decide",
+  lead:     "lead",
+  recover:  "recover",
+  strategy: "strategy",
+  change:   "change",
+  anime:    null,
+  movie:    null,
+  novel:    null,
+  books:    null,
 };

@@ -1,13 +1,11 @@
 ---
 const navLinks = [
-  { label: '記事一覧',     href: '/blog/' },
-  { label: '年表',         href: '/timeline/' },
-  { label: '合戦と戦略',   href: '/category/battle/' },
-  { label: '武将の思想',   href: '/category/leader/' },
-  { label: '兵法・現代応用', href: '/category/strategy/' },
-  { label: '映画・SF',     href: '/category/movie/' },
-  { label: '歴史のIF',     href: '/category/whatif/' },
-  { label: '書籍レビュー', href: '/category/books/' },
+  { label: '決断できない時',       href: '/category/decide/' },
+  { label: 'チームがうまくいかない時', href: '/category/lead/' },
+  { label: '逆境・失敗した時',     href: '/category/recover/' },
+  { label: '戦略・方向性に迷った時', href: '/category/strategy/' },
+  { label: '自分を変えたい時',     href: '/category/change/' },
+  { label: '年表',               href: '/timeline/' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -93,10 +91,10 @@ const currentPath = Astro.url.pathname;
     display: block;
     color: var(--ink2);
     font-family: var(--font-sans);
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     font-weight: 400;
     letter-spacing: 0.03em;
-    padding: 0.4em 0.75em;
+    padding: 0.4em 0.65em;
     border-radius: 2px;
     text-decoration: none;
     transition: color 0.15s;
@@ -121,9 +119,9 @@ const currentPath = Astro.url.pathname;
     flex-shrink: 0;
     white-space: nowrap;
   }
-  .header-cta:hover { background: var(--accent); }
+  .header-cta:hover { background: var(--gold); }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     .site-nav { display: none; }
   }
 

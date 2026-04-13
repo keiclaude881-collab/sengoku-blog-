@@ -61,8 +61,15 @@ const nextArcSlug = arcSlug ? NEXT_ARC[arcSlug] : undefined;
 const nextArc = nextArcSlug ? ARC_INFO[nextArcSlug] : null;
 
 const catLabel: Record<string, string> = {
-  battle: "合戦と戦略", leader: "武将の思想", strategy: "兵法・知恵", books: "書籍レビュー",
-  movie: "映画の知恵", whatif: "歴史IF", anime: "アニメの知恵",
+  decide:   "決断できない時",
+  lead:     "チームがうまくいかない時",
+  recover:  "逆境・失敗した時",
+  strategy: "戦略・方向性に迷った時",
+  change:   "自分を変えたい時",
+  books:    "書籍レビュー",
+  movie:    "映画の知恵",
+  anime:    "アニメの知恵",
+  novel:    "小説・物語",
 };
 
 const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });

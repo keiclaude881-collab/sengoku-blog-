@@ -1,20 +1,19 @@
 ---
 interface Props {
-  category: "battle" | "leader" | "strategy" | "books" | "media" | "movie" | "whatif" | "anime" | "novel" | "world";
+  category: "decide" | "lead" | "recover" | "strategy" | "change" | "books" | "movie" | "whatif" | "anime" | "novel" | "world" | "battle" | "leader";
 }
 const { category } = Astro.props;
 
 const map: Record<string, { label: string; href: string }> = {
-  battle:   { label: "合戦と戦略",     href: "/category/battle/" },
-  leader:   { label: "武将の思想",     href: "/category/leader/" },
-  strategy: { label: "兵法・現代応用", href: "/category/strategy/" },
-  books:    { label: "書籍レビュー",   href: "/category/books/" },
-  media:    { label: "映像・音声",     href: "/category/media/" },
-  movie:    { label: "映画・SF",       href: "/category/movie/" },
-  whatif:   { label: "歴史のIF",       href: "/category/whatif/" },
-  anime:    { label: "アニメ戦略論",   href: "/category/anime/" },
-  novel:    { label: "小説・物語",     href: "/category/novel/" },
-  world:    { label: "世界史の決断",   href: "/category/world/" },
+  decide:   { label: "決断できない時",       href: "/category/decide/" },
+  lead:     { label: "チームがうまくいかない時", href: "/category/lead/" },
+  recover:  { label: "逆境・失敗した時",     href: "/category/recover/" },
+  strategy: { label: "戦略・方向性に迷った時", href: "/category/strategy/" },
+  change:   { label: "自分を変えたい時",     href: "/category/change/" },
+  books:    { label: "書籍レビュー",         href: "/category/books/" },
+  movie:    { label: "映画の知恵",           href: "/category/movie/" },
+  anime:    { label: "アニメの知恵",         href: "/category/anime/" },
+  novel:    { label: "小説・物語",           href: "/category/novel/" },
 };
 const { label, href } = map[category] ?? { label: category, href: `/category/${category}/` };
 ---

@@ -24,7 +24,8 @@ const tocHeadings = headings.filter(h => h.depth === 2);
 
 // 関連記事：同章(arc)の他カテゴリ含む最新3件、なければ同カテゴリ
 const arcSlug = CATEGORY_TO_ARC[post.collection as CollectionName];
-const arcCategories = arcSlug ? ARC_INFO[arcSlug].categories : [post.collection as CollectionName];
+const arcInfo = arcSlug ? ARC_INFO[arcSlug] : null;
+const arcCategories: CollectionName[] = arcInfo?.categories ?? [post.collection as CollectionName];
 
 const related = (await Promise.all(
   arcCategories.map(cat => getCollection(cat as CollectionName))

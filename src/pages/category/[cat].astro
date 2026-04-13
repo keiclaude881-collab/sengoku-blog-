@@ -2,98 +2,83 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticleCard from "../../components/ArticleCard.astro";
+import { THEME_INFO, THEME_ORDER, type ThemeSlug, type CategoryName } from "../../utils/arcMap";
 
-type Cat = "battle" | "leader" | "strategy" | "books" | "movie" | "whatif" | "anime" | "novel" | "world";
+// 5つの悩みカテゴリ + メディア系
+type Cat = ThemeSlug | "books" | "movie" | "anime" | "novel";
 
 export async function getStaticPaths() {
-  const cats: Cat[] = ["battle", "leader", "strategy", "books", "movie", "whatif", "anime", "novel", "world"];
+  const cats: Cat[] = [...THEME_ORDER, "books", "movie", "anime", "novel"];
   return cats.map(cat => ({ params: { cat } }));
 }
 
+const THEME_CATS: Cat[] = [...THEME_ORDER, "books", "movie", "anime", "novel"];
+
 const { cat } = Astro.params as { cat: Cat };
 
-const posts = (await getCollection(cat))
+// 全コレクションから category フィールドでフィルタ
+const ALL_COLLECTIONS = ["battle","world","leader","strategy","whatif","anime","movie","novel","books"] as const;
+const allPosts = (await Promise.all(
+  ALL_COLLECTIONS.map(c => getCollection(c).catch(() => []))
+)).flat().filter(p => p.data.category === cat)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
-const meta: Record<Cat, { label: string; deco: string; hook: string; desc: string }> = {
-  battle: {
-    label: "合戦と戦略",
-    deco:  "戦",
-    hook:  "あの戦いも、誰かの迷いから始まった",
-    desc:  "追い詰められた武将たちの決断は、今日の「どうすればいい？」に答えてくれる。関ヶ原・川中島・桶狭間——歴史の戦場で磨かれた知恵を、あなたの今日へ。",
-  },
-  leader: {
-    label: "武将の思想",
-    deco:  "将",
-    hook:  "信長も家康も、最初はただの人間だった",
-    desc:  "完璧じゃない彼らが、それでも前へ進めた理由。英傑たちの迷いと決断の物語が、あなたの背中をそっと押してくれる。",
-  },
-  strategy: {
-    label: "兵法・戦略思想",
-    deco:  "謀",
-    hook:  "孫子の問いは、2500年後も答えを求めている",
-    desc:  "孫子、クラウゼヴィッツ、マキャベリ——時代を超えて生き残った戦略思想の核心を読む。難しくない、堅苦しくない。原典の言葉を、今日の問いで解きほぐす。",
-  },
+function slug(col: string, id: string) {
+  return `${col}/${id.replace(/\.mdx?$/, "")}`;
+}
+
+// カテゴリメタ情報
+const MEDIA_META: Record<string, { label: string; icon: string; tagline: string; desc: string }> = {
   books: {
-    label: "書籍レビュー",
-    deco:  "読",
-    hook:  "忙しい毎日の中で、この一冊があなたを変える",
-    desc:  "読み終わった後、世界の見え方が少し変わる本を紹介。「時間がない」あなたのために、読む価値のある一冊だけを厳選。",
+    label:   "書籍レビュー",
+    icon:    "読",
+    tagline: "忙しい毎日の中で、この一冊があなたを変える",
+    desc:    "読み終わった後、世界の見え方が少し変わる本を紹介。読む価値のある一冊だけを厳選。",
   },
   movie: {
-    label: "映画の中の知恵",
-    deco:  "映",
-    hook:  "スクリーンの向こうに、あなたへのメッセージがある",
-    desc:  "名作映画が描く人間の決断と葛藤を、一緒に読み解く。観た後に「自分も頑張ろう」と思える作品たちの、もう一つの読み方。",
-  },
-  whatif: {
-    label: "歴史IF",
-    deco:  "IF",
-    hook:  "もし違う選択をしていたら、どうなっていたか",
-    desc:  "「あの時こうしていれば」——誰もが持つその感覚を、歴史の舞台で思考実験する。IFを考えることで、今の選択が見えてくる。",
+    label:   "映画の知恵",
+    icon:    "映",
+    tagline: "スクリーンの向こうに、あなたへのメッセージがある",
+    desc:    "名作映画が描く人間の決断と葛藤を読み解く。観た後に「自分も頑張ろう」と思える作品たちの、もう一つの読み方。",
   },
   anime: {
-    label: "アニメの中の知恵",
-    deco:  "動",
-    hook:  "好きなアニメのあのシーン、実は深い意味があった",
-    desc:  "キャラクターたちの葛藤と決断が、今日の自分に重なる。エンタメを楽しみながら、気づいたら自分の生き方を考えている。",
+    label:   "アニメの知恵",
+    icon:    "動",
+    tagline: "好きなアニメのあのシーン、実は深い意味があった",
+    desc:    "キャラクターたちの葛藤と決断が、今日の自分に重なる。",
   },
   novel: {
-    label: "小説・物語",
-    deco:  "語",
-    hook:  "物語の中の決断が、今日の自分に重なる",
-    desc:  "御子柴礼司、ハーミオーニー、ハリー——フィクションの登場人物たちは、歴史の英傑と同じ構造の選択をしている。小説・Audibleで楽しめる物語の戦略論。",
-  },
-  world: {
-    label: "世界史の決断",
-    deco:  "界",
-    hook:  "なぜあいつは勝ち、あいつは負けたのか",
-    desc:  "ハンニバル、ナポレオン、チンギス・ハン——時代も国も超えて、勝負を分けた決断の瞬間を追う。世界大戦から古代の合戦まで、普遍の戦略を読み解く。",
+    label:   "小説・物語",
+    icon:    "語",
+    tagline: "物語の中の決断が、今日の自分に重なる",
+    desc:    "フィクションの登場人物たちは、歴史の英傑と同じ構造の選択をしている。",
   },
 };
 
-const { label, deco, hook, desc } = meta[cat];
+const isTheme = THEME_ORDER.includes(cat as ThemeSlug);
+const themeInfo = isTheme ? THEME_INFO[cat as ThemeSlug] : null;
+const mediaInfo = !isTheme ? MEDIA_META[cat] : null;
 
-function slug(id: string) {
-  return `${cat}/${id.replace(/\.mdx?$/, '')}`;
-}
+const label   = themeInfo?.label   ?? mediaInfo?.label   ?? cat;
+const icon    = themeInfo?.icon    ?? mediaInfo?.icon    ?? "●";
+const tagline = themeInfo?.tagline ?? mediaInfo?.tagline ?? "";
+const desc    = themeInfo?.description ?? mediaInfo?.desc ?? "";
 ---
 
 <BaseLayout
-  title={`${label} — ${hook} | 決断の系譜`}
+  title={`${label} | 決断の系譜`}
   description={desc}
 >
-  <!-- カテゴリヒーロー -->
-  <div class={`cat-hero cat-hero--${cat}`}>
+  <div class="cat-hero">
     <div class="container cat-hero-inner">
       <div class="cat-hero-content">
         <p class="cat-eyebrow">CATEGORY</p>
         <h1 class="cat-title">{label}</h1>
-        <p class="cat-hook">{hook}</p>
+        <p class="cat-hook">{tagline}</p>
         <p class="cat-desc">{desc}</p>
-        <span class="cat-count">{posts.length} 記事</span>
+        <span class="cat-count">{allPosts.length} 記事</span>
       </div>
-      <div class="cat-deco" aria-hidden="true">{deco}</div>
+      <div class="cat-deco" aria-hidden="true">{icon}</div>
     </div>
   </div>
 
@@ -101,14 +86,12 @@ function slug(id: string) {
     <nav class="breadcrumb" aria-label="パンくず">
       <a href="/">ホーム</a>
       <span>›</span>
-      <a href="/blog/">記事一覧</a>
-      <span>›</span>
       <span aria-current="page">{label}</span>
     </nav>
 
-    {posts.length > 0 ? (
+    {allPosts.length > 0 ? (
       <ul class="article-grid" role="list">
-        {posts.map(post => (
+        {allPosts.map(post => (
           <li>
             <ArticleCard
               title={post.data.title}
@@ -118,7 +101,7 @@ function slug(id: string) {
               tags={post.data.tags}
               readingTime={post.data.readingTime}
               lesson={post.data.lesson}
-              slug={slug(post.id)}
+              slug={slug(post.collection, post.id)}
               ogImage={post.data.ogImage}
             />
           </li>
@@ -133,18 +116,10 @@ function slug(id: string) {
 <style>
   .cat-hero {
     padding: 4rem 0 3.5rem;
+    background: linear-gradient(135deg, #1E4A35 0%, #0d0d0d 100%);
     position: relative;
     overflow: hidden;
   }
-  .cat-hero--battle   { background: linear-gradient(135deg, #1E4A35 0%, #111111 100%); }
-  .cat-hero--leader   { background: linear-gradient(135deg, #2A6B50 0%, #111111 100%); }
-  .cat-hero--strategy { background: linear-gradient(135deg, #1E4A35 0%, #0a0a0a 100%); }
-  .cat-hero--books    { background: linear-gradient(135deg, #1a3a2a 0%, #111111 100%); }
-  .cat-hero--movie    { background: linear-gradient(135deg, #0a3d3a 0%, #001a18 100%); }
-  .cat-hero--whatif   { background: linear-gradient(135deg, #2a3d0a 0%, #111800 100%); }
-  .cat-hero--anime    { background: linear-gradient(135deg, #0d3545 0%, #001018 100%); }
-  .cat-hero--business { background: linear-gradient(135deg, #0e3d30 0%, #050e09 100%); }
-  .cat-hero--sports   { background: linear-gradient(135deg, #2d4a15 0%, #0a1400 100%); }
 
   .cat-hero-inner {
     display: flex;
@@ -173,19 +148,19 @@ function slug(id: string) {
 
   .cat-title {
     font-family: var(--font-serif);
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(1.8rem, 4vw, 3rem);
     font-weight: 700;
     color: #fff;
     letter-spacing: 0.04em;
-    line-height: 1.2;
+    line-height: 1.3;
   }
 
   .cat-hook {
     font-family: var(--font-serif);
-    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-size: clamp(0.9rem, 2vw, 1.15rem);
     font-weight: 400;
     color: rgba(255,255,255,0.7);
-    line-height: 1.6;
+    line-height: 1.7;
     border-left: 2px solid var(--gold);
     padding-left: 1rem;
   }
@@ -213,7 +188,7 @@ function slug(id: string) {
 
   .cat-deco {
     font-family: var(--font-serif);
-    font-size: clamp(8rem, 18vw, 16rem);
+    font-size: clamp(6rem, 15vw, 14rem);
     font-weight: 800;
     color: rgba(255,255,255,0.04);
     line-height: 1;

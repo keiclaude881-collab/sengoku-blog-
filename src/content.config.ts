@@ -4,7 +4,7 @@ const articleSchema = z.object({
   title:       z.string(),
   date:        z.coerce.date(),
   updatedAt:   z.coerce.date().optional(),
-  category:    z.enum(["battle", "leader", "strategy", "books", "movie", "whatif", "anime", "novel", "world"]),
+  category:    z.enum(["decide", "lead", "recover", "strategy", "change", "books", "movie", "anime", "novel"]),
   tags:        z.array(z.string()).default([]),
   description: z.string().max(120),
   ogImage:     z.string().optional(),
