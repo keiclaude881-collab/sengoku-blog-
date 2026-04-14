@@ -1,1076 +1,366 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/Hero.astro";
-import ArticleFeatured from "../components/ArticleFeatured.astro";
 import ArticleCard from "../components/ArticleCard.astro";
 import BookCard from "../components/BookCard.astro";
 import AffiliateDisclosure from "../components/AffiliateDisclosure.astro";
 
-const allArticles = (await Promise.all([
+// ④ decideカテゴリから直近3件
+const allDecide = (await Promise.all([
   getCollection("battle"),
   getCollection("leader"),
-  getCollection("strategy").catch(() => []),
-  getCollection("books").catch(() => []),
-  getCollection("movie").catch(() => []),
-  getCollection("whatif").catch(() => []),
-  getCollection("anime").catch(() => []),
-  getCollection("novel").catch(() => []),
-  getCollection("world").catch(() => []),
-])).flat().sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-
-const featured = allArticles.find(a => a.data.featured) ?? allArticles[0];
-const recent   = allArticles.filter(a => a.id !== featured?.id).slice(0, 3);
-const sliderArticles = allArticles.slice(0, 10);
+  getCollection("strategy"),
+  getCollection("whatif"),
+  getCollection("world"),
+].map(p => p.catch(() => [])))).flat()
+  .filter(p => p.data.category === "decide")
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
 
 function slug(col: string, id: string) {
-  return `${col}/${id.replace(/\.mdx?$/, '')}`;
+  return `${col}/${id.replace(/\.mdx?$/, "")}`;
 }
 
-const featuredBooks = [
+// ⑥ 書籍3冊
+const books = [
   { title: "孫子の兵法（知的生きかた文庫）", asin: "4837900186", reason: "情報戦の原典。競合分析の基礎が凝縮されている" },
-  { title: "五輪書（宮本武蔵）岩波文庫", asin: "4003300211", reason: "個の強さとは何か。武蔵の戦略哲学を学ぶ" },
-  { title: "戦略の本質", asin: "4532194628", reason: "日本の合戦を経営戦略の視点で再解釈した名著" },
+  { title: "五輪書（宮本武蔵）", asin: "4003300211", reason: "個の強さとは何か。武蔵の戦略哲学を学ぶ" },
   { title: "失敗の本質", asin: "4122018331", reason: "なぜ日本軍は負けたのか。組織論の古典" },
 ];
 
-const marqueeItems = [
-  "関ヶ原の決断",
-  "孫子の兵法",
-  "信長のイノベーション",
-  "家康の忍耐戦略",
-  "桶狭間の奇襲",
-  "武田信玄の人事",
-  "五輪書の哲学",
-  "ナポレオンの速戦",
-  "戦略的情報収集",
-  "謀攻篇の現代応用",
-];
+const AUDIBLE_URL = "https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_id=185&pl_id=4062&url=https%3A%2F%2Fwww.amazon.co.jp%2Fftu%2Fhome";
 ---
 
 <BaseLayout
-  title="決断の系譜 | 迷ったとき、偉人の知恵がそっと寄り添う。"
-  description="仕事・育児・人間関係に疲れたとき、歴史の武将・偉人・物語の主人公たちの決断が、今日を生きるヒントをくれる。"
+  title="決断の系譜 | 決断できない夜、あなたは一人じゃない。"
+  description="月曜日の悩みに、戦国武将が答える。500年前の武将たちが、意外なほどリアルな答えを持っている。"
 >
-  <!-- ヒーロー -->
-  <Hero />
 
-  <!-- 悩みカテゴリ5つ -->
-  <section class="themes-section" id="themes">
+  <!-- ① Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-sub">月曜日の悩みに、戦国武将が答える。</p>
+      <h1 class="hero-title">決断できない夜、<br>あなたは一人じゃない。</h1>
+      <a href="/blog/" class="hero-cta">記事を読む →</a>
+    </div>
+  </section>
+
+  <!-- ② 共感ブロック -->
+  <section class="empathy">
     <div class="container">
-      <p class="themes-label">あなたの今の悩みは？</p>
-      <div class="themes-grid">
-        {[
-          { href: "/category/decide/",   icon: "⚔",  label: "決断できない時",         sub: "迷い・判断・意思決定" },
-          { href: "/category/lead/",     icon: "将",  label: "チームがうまくいかない時", sub: "部下・リーダーシップ・人間関係" },
-          { href: "/category/recover/",  icon: "復",  label: "逆境・失敗した時",        sub: "立て直し・敗北からの復活" },
-          { href: "/category/strategy/", icon: "謀",  label: "戦略・方向性に迷った時",  sub: "競合・キャリア・事業の方向性" },
-          { href: "/category/change/",   icon: "変",  label: "自分を変えたい時",        sub: "成長・行動変容・覚悟" },
-        ].map(({ href, icon, label, sub }) => (
-          <a href={href} class="theme-card">
-            <span class="theme-icon">{icon}</span>
-            <span class="theme-label">{label}</span>
-            <span class="theme-sub">{sub}</span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- マーキー帯 -->
-  <div class="marquee-band" aria-hidden="true">
-    <div class="marquee-track">
-      {[...marqueeItems, ...marqueeItems].map(item => (
-        <span class="marquee-item">
-          <span class="marquee-dot">✦</span>
-          {item}
-        </span>
-      ))}
-    </div>
-  </div>
-
-  <!-- 記事スライダー -->
-  {sliderArticles.length > 0 && (
-    <section class="slider-section" aria-label="新着記事">
-      <div class="slider-header container">
-        <span class="slider-label">NEW ARTICLES</span>
-        <a href="/blog/" class="slider-more">すべて見る →</a>
-      </div>
-      <div class="slider-viewport">
-        <div class="slider-track" id="slider-track">
-          {[...sliderArticles, ...sliderArticles].map((post, i) => (
-            <a
-              href={`/blog/${slug(post.collection, post.id)}/`}
-              class="slider-card"
-              aria-hidden={i >= sliderArticles.length ? "true" : undefined}
-              tabindex={i >= sliderArticles.length ? -1 : undefined}
-            >
-              {post.data.ogImage ? (
-                <div class="sc-img" style={`background-image: url('${post.data.ogImage}')`}></div>
-              ) : (
-                <div class="sc-img sc-img--empty"></div>
-              )}
-              <div class="sc-body">
-                <span class="sc-cat">{post.data.category}</span>
-                <p class="sc-title">{post.data.title}</p>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- イントロバンド -->
-  <section class="intro-band">
-    <div class="container intro-inner">
-      <span class="intro-label" aria-hidden="true">Philosophy</span>
-      <blockquote class="intro-quote">
-        <p class="quote-jp">「戦わずして人の兵を屈するは、善の善なる者なり。」</p>
-        <p class="quote-en font-italic">— Sun Tzu, The Art of War</p>
-      </blockquote>
-    </div>
-  </section>
-
-  <!-- 注目記事 -->
-  {allArticles.length > 0 && (
-    <section class="section articles-section">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">注目記事</h2>
-          <a href="/blog/" class="section-more">すべて見る →</a>
-        </div>
-
-        {featured && (
-          <ArticleFeatured
-            title={featured.data.title}
-            description={featured.data.description}
-            date={featured.data.date}
-            category={featured.data.category}
-            tags={featured.data.tags}
-            readingTime={featured.data.readingTime}
-            lesson={featured.data.lesson}
-            slug={slug(featured.collection, featured.id)}
-          />
-        )}
-
-        {recent.length > 0 && (
-          <ul class="article-grid" role="list">
-            {recent.map(post => (
-              <li>
-                <ArticleCard
-                  title={post.data.title}
-                  description={post.data.description}
-                  date={post.data.date}
-                  category={post.data.category}
-                  tags={post.data.tags}
-                  readingTime={post.data.readingTime}
-                  lesson={post.data.lesson}
-                  slug={slug(post.collection, post.id)}
-                  ogImage={post.data.ogImage}
-                />
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-    </section>
-  )}
-
-  <!-- 年表バナー -->
-  <section class="timeline-banner">
-    <div class="container tl-banner-inner">
-      <div>
-        <span class="tl-banner-eyebrow">TIMELINE</span>
-        <h2 class="tl-banner-title">戦いの年表</h2>
-        <p class="tl-banner-desc">
-          紀元前から現代まで、42の決戦を時代順に並べました。<br>
-          「この戦いはいつの話？」がここで分かります。
-        </p>
-      </div>
-      <a href="/timeline/" class="tl-banner-cta">年表を見る →</a>
-    </div>
-  </section>
-
-  <!-- 映画コーナーバナー -->
-  <section class="cinema-banner" aria-label="映画コーナー">
-    <canvas class="cinema-embers" id="cinema-embers" aria-hidden="true"></canvas>
-    <div class="cinema-mist" aria-hidden="true"></div>
-    <div class="container cinema-inner">
-      <div class="cinema-text">
-        <span class="cinema-label">CINEMA &amp; STRATEGY</span>
-        <h2 class="cinema-heading">映画で学ぶ、戦略の本質。</h2>
-        <p class="cinema-body">七人の侍からスター・ウォーズまで。名作映画を戦略の視点で読み解く特設コーナー。</p>
-      </div>
-      <a href="/movies/" class="cinema-cta">映画コーナーへ →</a>
-    </div>
-  </section>
-
-  <!-- フリップカード：気持ちから探す -->
-  <section class="flip-section section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">今、どんな気持ちで来ましたか？</h2>
-        <p class="flip-sub">カードをめくると、答えが見つかるかもしれない。</p>
-      </div>
-      <ul class="flip-grid" role="list">
-        {[
-          {
-            tag: "意思決定",
-            label: "決められなくて、疲れた",
-            quote: "「迷いながらも、決める。それが将の仕事だ。」",
-            author: "— 徳川家康",
-            href: "/category/strategy/",
-          },
-          {
-            tag: "リーダーシップ",
-            label: "誰かを支えるのが、しんどい",
-            quote: "「孤独でも前へ。それが大将の覚悟だ。」",
-            author: "— 織田信長",
-            href: "/category/leader/",
-          },
-          {
-            tag: "兵法・戦略思想",
-            label: "仕事がうまくいかない",
-            quote: "「彼を知り己を知れば、百戦殆うからず。」",
-            author: "— 孫子",
-            href: "/category/strategy/",
-          },
-          {
-            tag: "人生の選択",
-            label: "もっと自分らしく生きたい",
-            quote: "「天下布武——自分の旗を立て、自分の道を切り開け。」",
-            author: "— 織田信長",
-            href: "/category/whatif/",
-          },
-        ].map(({ tag, label, quote, author, href }) => (
-          <li>
-            <div class="flip-card" tabindex="0">
-              <div class="flip-inner">
-                <!-- 表 -->
-                <div class="flip-front">
-                  <span class="flip-tag">#{tag}</span>
-                  <h3 class="flip-label">{label}</h3>
-                  <span class="flip-hint">めくる ↻</span>
-                </div>
-                <!-- 裏 -->
-                <div class="flip-back">
-                  <blockquote class="flip-quote">{quote}</blockquote>
-                  <p class="flip-author">{author}</p>
-                  <a href={href} class="flip-cta">記事を読む →</a>
-                </div>
-              </div>
-            </div>
-          </li>
-        ))}
+      <h2 class="empathy-heading">こんな状況、ありませんか？</h2>
+      <ul class="empathy-list">
+        <li>部下に何を言っても伝わらない</li>
+        <li>決断しなければいけないのに、正解が見えない</li>
+        <li>頑張っているのに、結果が出ない</li>
       </ul>
     </div>
   </section>
 
-  <!-- 書籍セクション -->
-  <section class="books-section" aria-label="おすすめ書籍">
-    <div class="container books-inner">
-      <div class="section-header books-header">
-        <h2 class="section-title books-title">戦略を深める、厳選の一冊。</h2>
-        <a href="/books/" class="books-more">すべて見る →</a>
+  <!-- ③ このブログの答え -->
+  <section class="answer">
+    <div class="container">
+      <p class="answer-text">
+        500年前の武将たちが、<br class="br-sp">意外なほどリアルな答えを持っている。
+      </p>
+    </div>
+  </section>
+
+  <!-- ④ 注目記事3本 -->
+  {allDecide.length > 0 && (
+    <section class="articles">
+      <div class="container">
+        <h2 class="section-heading">注目記事</h2>
+        <ul class="article-grid" role="list">
+          {allDecide.map(post => (
+            <li>
+              <ArticleCard
+                title={post.data.title}
+                description={post.data.description}
+                date={post.data.date}
+                category={post.data.category}
+                tags={post.data.tags}
+                readingTime={post.data.readingTime}
+                lesson={post.data.lesson}
+                slug={slug(post.collection, post.id)}
+                ogImage={post.data.ogImage}
+              />
+            </li>
+          ))}
+        </ul>
+        <div class="articles-more">
+          <a href="/blog/" class="more-link">すべての記事を見る →</a>
+        </div>
       </div>
-      <p class="books-lead">記事を読んで「もっと深く知りたい」と思ったら、この本から始めよう。</p>
+    </section>
+  )}
+
+  <!-- ⑤ Audibleバナー -->
+  <section class="audible">
+    <div class="container audible-inner">
+      <p class="audible-text">通勤中に戦略書を聴く。</p>
+      <a
+        href={AUDIBLE_URL}
+        target="_blank"
+        rel="nofollow sponsored noopener"
+        class="audible-cta"
+      >
+        30日間無料体験 →
+      </a>
+    </div>
+  </section>
+
+  <!-- ⑥ おすすめ書籍 -->
+  <section class="books">
+    <div class="container">
+      <h2 class="section-heading">あわせて読みたい</h2>
       <AffiliateDisclosure />
       <div class="book-grid">
-        {featuredBooks.map(b => (
+        {books.map(b => (
           <BookCard title={b.title} asin={b.asin} reason={b.reason} />
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Audibleバナー -->
-  <section class="audible-banner">
-    <div class="container banner-inner">
-      <div class="banner-text">
-        <span class="banner-tag audible-tag">Audible</span>
-        <h3 class="banner-heading audible-heading">通勤中に戦略書を聴く。</h3>
-        <p class="banner-body audible-body">孫子・五輪書・ビジネス書——移動時間が「戦略の学習時間」に変わる。30日間無料で体験できる。</p>
-      </div>
-      <a
-        href="https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_id=185&pl_id=4062&url=https%3A%2F%2Fwww.amazon.co.jp%2Fftu%2Fhome"
-        target="_blank"
-        rel="nofollow sponsored noopener"
-        class="banner-cta audible-cta"
-      >
-        30日間 無料体験 →
-      </a>
-    </div>
-  </section>
-
-  <!-- noteバナー -->
-  <section class="note-banner">
-    <div class="container banner-inner">
-      <div class="banner-text">
-        <span class="banner-tag note-tag">note</span>
-        <h3 class="banner-heading note-heading">深掘り記事はnoteで。</h3>
-        <p class="banner-body note-body">ブログの記事をさらに掘り下げた考察・体験談をnoteで公開中。フォローして最新記事を受け取ろう。</p>
-      </div>
-      <a
-        href="https://note.com/ketsudan_keifu"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="banner-cta note-cta"
-      >
-        noteを読む →
-      </a>
-    </div>
-  </section>
-
 </BaseLayout>
 
-<!-- スティッキーCTAバー -->
-<div class="sticky-cta" id="sticky-cta" aria-label="常設CTA">
-  <div class="sticky-inner">
-    <div class="sticky-items">
-      <a href="/blog/" class="sticky-btn sticky-btn-primary">
-        📖 記事を読む
-      </a>
-      <a
-        href="https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_id=185&pl_id=4062&url=https%3A%2F%2Fwww.amazon.co.jp%2Fftu%2Fhome"
-        target="_blank"
-        rel="nofollow sponsored noopener"
-        class="sticky-btn sticky-btn-secondary"
-      >
-        🎧 Audible 30日間無料
-      </a>
-    </div>
-    <button class="sticky-close" id="sticky-close" aria-label="閉じる">✕</button>
-  </div>
-</div>
-
-<script>
-  // 映画バナー パーティクル
-  const cinemaCanvas = document.getElementById('cinema-embers') as HTMLCanvasElement | null;
-  if (cinemaCanvas) {
-    const ctx = cinemaCanvas.getContext('2d')!;
-    const setSize = () => {
-      cinemaCanvas.width  = cinemaCanvas.offsetWidth;
-      cinemaCanvas.height = cinemaCanvas.offsetHeight;
-    };
-    setSize();
-    window.addEventListener('resize', setSize);
-
-    type Ember = { x:number; y:number; vx:number; vy:number; size:number; alpha:number; decay:number; wobble:number; wobbleSpeed:number };
-    const embers: Ember[] = [];
-    const MAX = 60;
-    const spawn = (): Ember => ({
-      x: Math.random() * cinemaCanvas.width,
-      y: cinemaCanvas.height + 10,
-      vx: (Math.random() - 0.5) * 0.6,
-      vy: -(Math.random() * 1.2 + 0.4),
-      size: Math.random() * 2 + 0.5,
-      alpha: Math.random() * 0.5 + 0.2,
-      decay: Math.random() * 0.004 + 0.002,
-      wobble: Math.random() * Math.PI * 2,
-      wobbleSpeed: Math.random() * 0.04 + 0.01,
-    });
-    const drawEmbers = () => {
-      ctx.clearRect(0, 0, cinemaCanvas.width, cinemaCanvas.height);
-      while (embers.length < MAX) embers.push(spawn());
-      for (let i = embers.length - 1; i >= 0; i--) {
-        const e = embers[i];
-        e.wobble += e.wobbleSpeed;
-        e.x += e.vx + Math.sin(e.wobble) * 0.3;
-        e.y += e.vy;
-        e.alpha -= e.decay;
-        if (e.alpha <= 0 || e.y < -20) { embers.splice(i, 1); continue; }
-        const g = ctx.createRadialGradient(e.x, e.y, 0, e.x, e.y, e.size * 2);
-        g.addColorStop(0, `rgba(255,230,120,${e.alpha})`);
-        g.addColorStop(0.5, `rgba(232,184,75,${e.alpha * 0.7})`);
-        g.addColorStop(1, `rgba(100,70,0,0)`);
-        ctx.beginPath();
-        ctx.arc(e.x, e.y, e.size * 2, 0, Math.PI * 2);
-        ctx.fillStyle = g;
-        ctx.fill();
-      }
-      requestAnimationFrame(drawEmbers);
-    };
-    drawEmbers();
-  }
-
-  // スティッキーCTA
-  const stickyCta = document.getElementById('sticky-cta') as HTMLElement | null;
-  const stickyClose = document.getElementById('sticky-close') as HTMLElement | null;
-  let ctaClosed = false;
-
-  if (stickyCta && stickyClose) {
-    window.addEventListener('scroll', () => {
-      if (ctaClosed) return;
-      stickyCta.classList.toggle('visible', window.scrollY > 400);
-    }, { passive: true });
-
-    stickyClose.addEventListener('click', () => {
-      ctaClosed = true;
-      stickyCta.classList.remove('visible');
-    });
-  }
-</script>
-
 <style>
-  /* ── 悩みカテゴリ ── */
-  .themes-section {
-    background: var(--bg2);
-    padding: 4rem 0 4.5rem;
-    border-bottom: 1px solid var(--rule);
+  /* ── Hero ── */
+  .hero {
+    background:
+      linear-gradient(to bottom, rgba(5,12,5,0.75) 0%, rgba(5,12,5,0.6) 100%),
+      url('/images/header-bg.jpg') center center / cover no-repeat;
+    min-height: 92svh;
+    display: flex;
+    align-items: center;
+    padding-top: var(--nav-height);
   }
-  .themes-label {
-    font-family: var(--font-sans);
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.3em;
-    color: var(--gold);
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  .themes-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
-  }
-  .theme-card {
+
+  .hero-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 5rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0.75rem;
-    padding: 2rem 1.25rem 1.75rem;
-    background: var(--bg);
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    text-decoration: none;
-    color: inherit;
-    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-  }
-  .theme-card:hover {
-    border-color: var(--gold);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(59,140,110,0.12);
-  }
-  .theme-icon {
-    font-family: var(--font-serif);
-    font-size: 2.2rem;
-    line-height: 1;
-    color: var(--gold);
-    display: block;
-  }
-  .theme-label {
-    font-family: var(--font-serif);
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1.45;
-    letter-spacing: 0.03em;
-  }
-  .theme-sub {
-    font-family: var(--font-sans);
-    font-size: 0.68rem;
-    color: var(--ink3);
-    line-height: 1.55;
-  }
-
-  /* ── 年表バナー ── */
-  .timeline-banner {
-    background: var(--accent);
-    border-top: 1px solid var(--gold-dark);
-    border-bottom: 1px solid var(--gold-dark);
-    padding: 2.4rem 0;
-  }
-  .tl-banner-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
     gap: 2rem;
   }
-  .tl-banner-eyebrow {
-    font-family: var(--font-sans);
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.3em;
-    color: var(--gold-light);
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-  .tl-banner-title {
-    font-family: var(--font-serif);
-    font-size: clamp(1.3rem, 3vw, 1.8rem);
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 0.6rem;
-  }
-  .tl-banner-desc {
-    font-family: var(--font-sans);
-    font-size: 0.84rem;
-    line-height: 1.85;
-    color: rgba(255,255,255,0.65);
-  }
-  .tl-banner-cta {
-    flex-shrink: 0;
-    display: inline-block;
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--accent);
-    background: var(--gold-light);
-    padding: 0.7rem 2rem;
-    border-radius: 4px;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: opacity 0.2s, transform 0.2s;
-  }
-  .tl-banner-cta:hover { opacity: 0.85; transform: translateY(-1px); }
-  @media (max-width: 640px) {
-    .tl-banner-inner { flex-direction: column; align-items: flex-start; }
-  }
 
-  /* ── マーキー ── */
-  .marquee-band {
-    background: var(--gold);
-    padding: 0.7rem 0;
-    overflow: hidden;
-  }
-  .marquee-track {
-    display: flex;
-    width: max-content;
-    animation: marquee 28s linear infinite;
-  }
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
-  .marquee-track:hover { animation-play-state: paused; }
-  .marquee-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0 2rem;
-    font-family: var(--font-serif);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    color: #fff;
-    white-space: nowrap;
-  }
-  .marquee-dot { font-size: 0.45rem; opacity: 0.7; }
-
-  /* ── イントロバンド ── */
-  .intro-band {
-    background: var(--accent);
-    padding: 5rem 0;
-  }
-  .intro-inner {
-    display: flex;
-    align-items: flex-start;
-    gap: 3rem;
-  }
-  .intro-label {
-    writing-mode: vertical-rl;
-    font-family: var(--font-italic);
-    font-size: 0.72rem;
-    font-style: italic;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    opacity: 0.7;
-    flex-shrink: 0;
-    margin-top: 0.2rem;
-  }
-  .quote-jp {
-    font-family: var(--font-serif);
-    font-size: clamp(1.15rem, 2.5vw, 1.7rem);
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.65;
-    letter-spacing: 0.04em;
-    margin-bottom: 1rem;
-  }
-  .quote-en {
-    font-family: var(--font-italic);
-    font-size: 0.95rem;
-    font-style: italic;
-    color: var(--gold);
-    letter-spacing: 0.05em;
-  }
-
-  /* ── 記事スライダー ── */
-  .slider-section {
-    padding: 2.5rem 0 0;
-    overflow: hidden;
-  }
-  .slider-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1.2rem;
-  }
-  .slider-label {
-    font-family: var(--font-sans);
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.3em;
-    color: var(--gold);
-    text-transform: uppercase;
-  }
-  .slider-more {
+  .hero-sub {
     font-family: var(--font-sans);
     font-size: 0.78rem;
-    color: var(--ink3);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .slider-more:hover { color: var(--gold); }
-
-  .slider-viewport {
-    overflow: hidden;
-    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-  }
-  .slider-track {
-    display: flex;
-    gap: 1rem;
-    width: max-content;
-    animation: slider-scroll 40s linear infinite;
-    padding: 0 2rem 2rem;
-  }
-  .slider-track:hover { animation-play-state: paused; }
-  @keyframes slider-scroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
-
-  .slider-card {
-    width: 240px;
-    flex-shrink: 0;
-    background: var(--bg);
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
-  }
-  .slider-card:hover {
-    border-color: var(--gold);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-  }
-  .sc-img {
-    width: 100%;
-    height: 140px;
-    background-size: cover;
-    background-position: center;
-    flex-shrink: 0;
-    background-color: var(--bg2);
-  }
-  .sc-img--empty {
-    background: linear-gradient(135deg, var(--accent) 0%, var(--gold-dark) 100%);
-  }
-  .sc-body {
-    padding: 0.85rem 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-  .sc-cat {
-    font-family: var(--font-sans);
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: var(--gold);
-    text-transform: uppercase;
-  }
-  .sc-title {
-    font-family: var(--font-serif);
-    font-size: 0.82rem;
-    font-weight: 600;
-    line-height: 1.5;
-    color: var(--ink);
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  .slider-card:hover .sc-title { color: var(--gold-dark); }
-
-  /* ── 記事セクション ── */
-  .articles-section { background: var(--bg); }
-
-  /* ── フリップカード ── */
-  .flip-section { background: var(--bg2); }
-  /* ヘッダーを縦並びに上書き */
-  .flip-section .section-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.4rem;
-  }
-  .flip-sub {
-    font-family: var(--font-sans);
-    font-size: 0.78rem;
-    color: var(--ink3);
-  }
-  .flip-grid {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.2rem;
-    margin-top: 1.8rem;
-  }
-  /* カード外枠 */
-  .flip-card {
-    perspective: 900px;
-    height: 240px;
-    cursor: pointer;
-    outline: none;
-  }
-  .flip-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .flip-card:hover .flip-inner,
-  .flip-card:focus .flip-inner {
-    transform: rotateY(180deg);
-  }
-  /* 表・裏共通 */
-  .flip-front,
-  .flip-back {
-    position: absolute;
-    inset: 0;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    padding: 1.4rem 1.4rem;
-    overflow: hidden;
-  }
-  /* 表 */
-  .flip-front {
-    background: var(--bg);
-    border: 1px solid var(--rule);
-    justify-content: space-between;
-  }
-  .flip-tag {
-    font-family: var(--font-sans);
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: var(--gold);
-  }
-  .flip-label {
-    font-family: var(--font-serif);
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1.45;
-    flex: 1;
-    display: flex;
-    align-items: center;
-  }
-  .flip-hint {
-    font-family: var(--font-sans);
-    font-size: 0.68rem;
-    color: var(--ink3);
-    letter-spacing: 0.05em;
-    text-align: right;
-  }
-  /* 裏 */
-  .flip-back {
-    background: var(--accent);
-    border: 1px solid var(--gold-dark);
-    transform: rotateY(180deg);
-    justify-content: space-between;
-  }
-  .flip-quote {
-    font-family: var(--font-serif);
-    font-size: clamp(0.78rem, 1.5vw, 0.92rem);
-    font-weight: 400;
-    color: #fff;
-    line-height: 1.7;
-    border-left: 2px solid var(--gold);
-    padding-left: 0.8rem;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    margin: 0;
-    overflow: hidden;
-  }
-  .flip-author {
-    font-family: var(--font-sans);
-    font-size: 0.72rem;
-    color: var(--gold-light);
-    letter-spacing: 0.08em;
-    margin: 0.6rem 0;
-  }
-  .flip-cta {
-    display: inline-block;
-    font-family: var(--font-sans);
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--gold);
-    text-decoration: none;
-    border: 1px solid rgba(59,140,110,0.4);
-    border-radius: 2px;
-    padding: 0.4rem 0.9rem;
-    text-align: center;
-    transition: background 0.2s, color 0.2s;
-  }
-  .flip-cta:hover {
-    background: var(--gold);
-    color: #fff;
-  }
-
-  /* ── 書籍セクション ── */
-  .books-section {
-    background: #2A5C43;   /* ミディアムグリーン（黒より明るめ） */
-    padding: var(--sp-xl) 0;
-  }
-  .books-header { border-bottom-color: rgba(255,255,255,0.08); }
-  .books-title { color: #fff; }
-  .books-more { font-family: var(--font-sans); font-size: 0.82rem; color: var(--gold); transition: color 0.2s; }
-  .books-more:hover { color: var(--gold-light); }
-  .books-lead {
-    font-family: var(--font-serif);
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.75);
-    margin-bottom: 0.5rem;
-    line-height: 1.8;
-  }
-  .books-section :global(.affiliate-disclosure) {
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 1.5rem;
-  }
-  .book-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.2rem;
-    margin-top: 1.5rem;
-  }
-
-  /* ── 映画コーナーバナー ── */
-  .cinema-banner {
-    background: radial-gradient(ellipse at 50% 80%, #1a1200 0%, #000 70%);
-    position: relative;
-    overflow: hidden;
-  }
-  .cinema-embers {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-  }
-  .cinema-mist {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 120% 50% at 40% 90%, rgba(232,184,75,0.07) 0%, transparent 70%);
-    pointer-events: none;
-    animation: mistDrift 14s ease-in-out infinite alternate;
-  }
-
-  .cinema-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2.5rem;
-    flex-wrap: wrap;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-    position: relative;
-    z-index: 1;
-  }
-  .cinema-text { flex: 1; min-width: 260px; }
-  .cinema-label {
-    display: block;
-    font-family: var(--font-sans);
-    font-size: 0.68rem;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.25em;
-    color: #e8b84b;
-    margin-bottom: 0.8rem;
+    color: var(--gold-light);
+    text-transform: uppercase;
   }
-  .cinema-heading {
+
+  .hero-title {
     font-family: var(--font-serif);
-    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-size: clamp(2.2rem, 7vw, 4rem);
     font-weight: 700;
-    color: #f0eee8;
-    line-height: 1.35;
-    margin-bottom: 0.75rem;
+    color: #fff;
+    line-height: 1.3;
     letter-spacing: 0.04em;
   }
-  .cinema-body {
-    font-family: var(--font-sans);
-    font-size: 0.84rem;
-    color: rgba(200,190,160,0.7);
-    line-height: 1.75;
-    max-width: 440px;
-  }
-  .cinema-cta {
+
+  .hero-cta {
     display: inline-flex;
     align-items: center;
-    padding: 1rem 2.2rem;
-    background: transparent;
-    border: 1px solid rgba(232,184,75,0.5);
-    color: #e8b84b;
+    padding: 1rem 2.4rem;
+    background: var(--gold);
+    color: #fff;
     font-family: var(--font-sans);
-    font-size: 0.88rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     border-radius: 2px;
     text-decoration: none;
-    white-space: nowrap;
-    flex-shrink: 0;
-    transition: opacity 0.2s, transform 0.2s;
+    transition: background 0.2s, transform 0.2s;
   }
-  .cinema-cta:hover {
-    background: rgba(232,184,75,0.12);
-    border-color: rgba(232,184,75,0.8);
-    color: #fff;
-    box-shadow: 0 0 20px rgba(232,184,75,0.2);
+  .hero-cta:hover {
+    background: var(--gold-dark);
     transform: translateY(-2px);
   }
 
-  /* ── バナー共通 ── */
-  .banner-inner {
+  /* ── 共感ブロック ── */
+  .empathy {
+    background: var(--bg2);
+    padding: 5rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .empathy-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 2.4rem;
+    letter-spacing: 0.04em;
+  }
+
+  .empathy-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .empathy-list li {
+    font-family: var(--font-serif);
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    color: var(--ink2);
+    line-height: 1.7;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  .empathy-list li::before {
+    content: "・";
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 1.2em;
+    line-height: 1.4;
+  }
+
+  /* ── このブログの答え ── */
+  .answer {
+    background: var(--accent);
+    padding: 5rem 0;
+  }
+
+  .answer-text {
+    font-family: var(--font-serif);
+    font-size: clamp(1.2rem, 3vw, 1.7rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.8;
+    letter-spacing: 0.04em;
+    text-align: center;
+  }
+
+  /* ── 注目記事 ── */
+  .articles {
+    background: var(--bg);
+    padding: 5rem 0;
+  }
+
+  .section-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.08em;
+    margin-bottom: 2.4rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid var(--gold);
+    display: inline-block;
+  }
+
+  .article-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .articles-more {
+    margin-top: 2.4rem;
+    text-align: center;
+  }
+
+  .more-link {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .more-link:hover { color: var(--gold-dark); }
+
+  /* ── Audibleバナー ── */
+  .audible {
+    background: var(--ink);
+    padding: 3.5rem 0;
+  }
+
+  .audible-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
     flex-wrap: wrap;
   }
-  .banner-tag {
-    display: inline-block;
-    font-family: var(--font-sans);
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    padding: 0.2em 0.8em;
-    border-radius: 2px;
-    text-transform: uppercase;
-    margin-bottom: 0.6rem;
-  }
-  .banner-heading {
+
+  .audible-text {
     font-family: var(--font-serif);
-    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
     font-weight: 700;
-    line-height: 1.4;
-    letter-spacing: 0.02em;
-    margin-bottom: 0.4rem;
+    color: #fff;
+    letter-spacing: 0.04em;
   }
-  .banner-body {
-    font-family: var(--font-sans);
-    font-size: 0.84rem;
-    line-height: 1.7;
-  }
-  .banner-cta {
+
+  .audible-cta {
     display: inline-flex;
     align-items: center;
     padding: 0.9rem 2rem;
+    background: var(--gold);
+    color: #fff;
     font-family: var(--font-sans);
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
     border-radius: 2px;
     text-decoration: none;
-    flex-shrink: 0;
-    transition: opacity 0.2s, transform 0.2s;
     white-space: nowrap;
-  }
-  .banner-cta:hover { opacity: 0.85; transform: translateY(-1px); }
-
-  .audible-banner { background: var(--accent); }
-  .audible-tag { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); }
-  .audible-heading { color: #fff; }
-  .audible-body { color: rgba(255,255,255,0.82); }
-  .audible-cta { background: var(--gold); color: #fff; }
-
-  .note-banner { background: var(--bg2); border-top: 1px solid var(--rule); }
-  .note-tag { background: var(--gold-light); color: var(--gold-dark); }
-  .note-heading { color: var(--ink); }
-  .note-body { color: var(--ink2); }
-  .note-cta { background: var(--ink); color: #fff; }
-
-  /* ── スティッキーCTA ── */
-  .sticky-cta {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 200;
-    transform: translateY(100%);
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .sticky-cta.visible { transform: translateY(0); }
-  .sticky-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--ink);
-    border-top: 2px solid var(--gold);
-    padding: 0.9rem 1.5rem;
-    gap: 1rem;
-  }
-  .sticky-items { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-  .sticky-btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.6rem 1.4rem;
-    font-family: var(--font-sans);
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    border-radius: 2px;
-    text-decoration: none;
-    transition: opacity 0.2s;
-    white-space: nowrap;
-  }
-  .sticky-btn:hover { opacity: 0.85; }
-  .sticky-btn-primary { background: var(--gold); color: #fff; }
-  .sticky-btn-secondary { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.15); }
-  .sticky-close {
-    background: none;
-    border: none;
-    color: rgba(255,255,255,0.35);
-    font-size: 1rem;
-    cursor: pointer;
-    padding: 0.25rem;
+    transition: background 0.2s, transform 0.2s;
     flex-shrink: 0;
-    transition: color 0.2s;
-    line-height: 1;
   }
-  .sticky-close:hover { color: rgba(255,255,255,0.7); }
+  .audible-cta:hover {
+    background: var(--gold-dark);
+    transform: translateY(-1px);
+  }
+
+  /* ── 書籍 ── */
+  .books {
+    background: var(--bg2);
+    padding: 5rem 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  /* ── container ── */
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
 
   /* ── レスポンシブ ── */
-  @media (max-width: 1024px) {
-    .themes-grid { grid-template-columns: repeat(3, 1fr); }
-    .flip-grid  { grid-template-columns: repeat(2, 1fr); }
-    .book-grid  { grid-template-columns: repeat(2, 1fr); }
-  }
   @media (max-width: 768px) {
-    .themes-grid { grid-template-columns: repeat(2, 1fr); }
-    .book-grid { grid-template-columns: repeat(2, 1fr); }
-    .banner-inner { flex-direction: column; align-items: flex-start; }
-    .sticky-btn-secondary { display: none; }
-    .slider-card { width: 200px; }
+    .hero-inner { padding: 3rem 1.5rem 4rem; }
+    .article-grid { grid-template-columns: 1fr; }
+    .book-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .audible-inner { flex-direction: column; align-items: flex-start; }
+    .answer-text { text-align: left; }
   }
+
   @media (max-width: 480px) {
-    .flip-grid  { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-    .flip-card  { height: 210px; }
-    .flip-front,
-    .flip-back  { padding: 1rem 1rem; }
-    .book-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-    .intro-label { display: none; }
-    .slider-card { width: 180px; }
+    .empathy { padding: 3.5rem 0; }
+    .answer  { padding: 3.5rem 0; }
+    .articles { padding: 3.5rem 0; }
+    .books  { padding: 3.5rem 0; }
+    .br-sp  { display: block; }
+  }
+  @media (min-width: 481px) {
+    .br-sp { display: none; }
   }
 </style>
