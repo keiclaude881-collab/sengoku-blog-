@@ -38,10 +38,15 @@ const AUDIBLE_URL = "https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_
 
   <!-- ① Hero -->
   <section class="hero">
+    <canvas class="lightning-canvas" id="lightning-canvas" aria-hidden="true"></canvas>
+    <div class="hero-flash" id="hero-flash" aria-hidden="true"></div>
     <div class="hero-inner">
       <p class="hero-sub">月曜日の悩みに、戦国武将が答える。</p>
-      <h1 class="hero-title">決断できない夜、<br>あなたは一人じゃない。</h1>
-      <a href="/blog/" class="hero-cta">記事を読む →</a>
+      <h1 class="hero-title" id="hero-title">決断できない夜、<br>あなたは一人じゃない。</h1>
+      <div class="hero-cta-wrap">
+        <a href="/blog/" class="hero-cta">記事を読む →</a>
+        <a href="/timeline/" class="hero-ghost">戦いの年表を見る</a>
+      </div>
     </div>
   </section>
 
@@ -88,9 +93,6 @@ const AUDIBLE_URL = "https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_
             </li>
           ))}
         </ul>
-        <div class="articles-more">
-          <a href="/blog/" class="more-link">すべての記事を見る →</a>
-        </div>
       </div>
     </section>
   )}
@@ -125,26 +127,132 @@ const AUDIBLE_URL = "https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_
 
 </BaseLayout>
 
+<script>
+  const canvas = document.getElementById('lightning-canvas') as HTMLCanvasElement | null;
+  const flash  = document.getElementById('hero-flash') as HTMLElement | null;
+  const title  = document.getElementById('hero-title') as HTMLElement | null;
+
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+
+    function resize() {
+      const hero = canvas!.parentElement!;
+      canvas!.width  = hero.offsetWidth;
+      canvas!.height = hero.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    function drawBolt(x1: number, y1: number, x2: number, y2: number, depth: number) {
+      if (!ctx) return;
+      if (depth === 0) {
+        ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); return;
+      }
+      const dx = x2 - x1, dy = y2 - y1;
+      const len = Math.sqrt(dx * dx + dy * dy);
+      const midX = (x1 + x2) / 2 + (Math.random() - 0.5) * len * 0.45;
+      const midY = (y1 + y2) / 2 + (Math.random() - 0.25) * Math.abs(dy) * 0.3;
+      drawBolt(x1, y1, midX, midY, depth - 1);
+      drawBolt(midX, midY, x2, y2, depth - 1);
+      if (depth > 2 && Math.random() > 0.55) {
+        const bx = midX + (Math.random() - 0.35) * dx * 0.6;
+        const by = midY + Math.random() * dy * 0.5;
+        ctx.globalAlpha = 0.45;
+        drawBolt(midX, midY, bx, by, depth - 2);
+        ctx.globalAlpha = 1;
+      }
+    }
+
+    function strike() {
+      if (!ctx || !canvas) return;
+      const W = canvas.width, H = canvas.height;
+      const startX = W * (0.42 + Math.random() * 0.5);
+      const startY = H * (0.04 + Math.random() * 0.12);
+      const endX   = startX + (Math.random() - 0.5) * W * 0.25;
+      const endY   = H * (0.45 + Math.random() * 0.35);
+
+      ctx.clearRect(0, 0, W, H);
+      ctx.strokeStyle = 'rgba(210, 235, 255, 0.92)';
+      ctx.lineWidth   = 1.2;
+      ctx.shadowColor = 'rgba(150, 210, 255, 1)';
+      ctx.shadowBlur  = 14;
+      ctx.globalAlpha = 1;
+      drawBolt(startX, startY, endX, endY, 7);
+
+      if (flash) {
+        flash.style.transition = 'none'; flash.style.opacity = '0.18';
+        setTimeout(() => { if (flash) { flash.style.transition = 'opacity 0.25s'; flash.style.opacity = '0'; } }, 120);
+        setTimeout(() => { if (flash) { flash.style.transition = 'none'; flash.style.opacity = '0.08'; } }, 250);
+        setTimeout(() => { if (flash) { flash.style.transition = 'opacity 0.4s'; flash.style.opacity = '0'; } }, 350);
+      }
+      if (title) {
+        title.classList.add('title-flash');
+        setTimeout(() => title?.classList.remove('title-flash'), 600);
+      }
+      setTimeout(() => {
+        if (!ctx || !canvas) return;
+        let alpha = 1;
+        const fade = setInterval(() => {
+          alpha -= 0.08;
+          if (alpha <= 0) { clearInterval(fade); ctx.clearRect(0, 0, canvas.width, canvas.height); return; }
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.globalAlpha = alpha;
+          drawBolt(startX, startY, endX, endY, 7);
+          ctx.globalAlpha = 1;
+        }, 30);
+      }, 300);
+    }
+
+    function scheduleNext() {
+      setTimeout(() => { strike(); scheduleNext(); }, 5000 + Math.random() * 10000);
+    }
+    setTimeout(() => { strike(); scheduleNext(); }, 2000);
+  }
+</script>
+
 <style>
   /* ── Hero ── */
   .hero {
+    position: relative;
     background:
-      linear-gradient(to bottom, rgba(5,12,5,0.75) 0%, rgba(5,12,5,0.6) 100%),
+      linear-gradient(to right, rgba(5,12,5,0.82) 0%, rgba(5,12,5,0.55) 55%, rgba(5,12,5,0.25) 100%),
       url('/images/header-bg.jpg') center center / cover no-repeat;
     min-height: 92svh;
     display: flex;
     align-items: center;
-    padding-top: var(--nav-height);
+    overflow: hidden;
+  }
+
+  .lightning-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero-flash {
+    position: absolute;
+    inset: 0;
+    background: rgba(200, 230, 255, 1);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+    mix-blend-mode: overlay;
   }
 
   .hero-inner {
+    position: relative;
+    z-index: 3;
     max-width: 640px;
     margin: 0 auto;
-    padding: 4rem 1.5rem 5rem;
+    padding: calc(var(--nav-height) + 4rem) 1.5rem 5rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 2rem;
+    width: 100%;
   }
 
   .hero-sub {
@@ -163,6 +271,21 @@ const AUDIBLE_URL = "https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_
     color: #fff;
     line-height: 1.3;
     letter-spacing: 0.04em;
+    text-shadow: 0 0 40px rgba(59,140,110,0.15), 0 0 80px rgba(59,140,110,0.05);
+    transition: text-shadow 0.2s;
+  }
+  .hero-title.title-flash {
+    text-shadow:
+      0 0 20px rgba(200,230,255,0.7),
+      0 0 50px rgba(200,230,255,0.4),
+      0 0 100px rgba(200,230,255,0.15);
+  }
+
+  .hero-cta-wrap {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
   }
 
   .hero-cta {
@@ -182,6 +305,26 @@ const AUDIBLE_URL = "https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_
   .hero-cta:hover {
     background: var(--gold-dark);
     transform: translateY(-2px);
+  }
+
+  .hero-ghost {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: transparent;
+    color: rgba(255,255,255,0.85);
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    border: 1px solid rgba(255,255,255,0.45);
+    border-radius: 2px;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .hero-ghost:hover {
+    border-color: var(--gold-light);
+    color: var(--gold-light);
   }
 
   /* ── 共感ブロック ── */
