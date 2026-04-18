@@ -33,6 +33,17 @@ const currentPath = Astro.url.pathname;
       </ul>
     </nav>
 
+    <a
+      href="https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_id=185&pl_id=4062&url=https%3A%2F%2Fwww.amazon.co.jp%2Fftu%2Fhome"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="header-audible"
+      aria-label="Audible 30日間無料体験"
+    >
+      <span class="audible-full">📚 戦略書を無料で聴く</span>
+      <span class="audible-short">📚 Audible</span>
+    </a>
+
   </div>
 </header>
 
@@ -102,6 +113,26 @@ const currentPath = Astro.url.pathname;
   .nav-link:hover { color: var(--ink); }
   .nav-link.active { color: var(--gold); font-weight: 500; }
 
+  .header-audible {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 1rem;
+    background: var(--gold);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s, opacity 0.2s;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .header-audible:hover { background: var(--gold-dark, #2A6B50); }
+
+  .audible-short { display: none; }
+
   .header-cta {
     display: inline-flex;
     align-items: center;
@@ -122,6 +153,11 @@ const currentPath = Astro.url.pathname;
 
   @media (max-width: 1000px) {
     .site-nav { display: none; }
+  }
+
+  @media (max-width: 640px) {
+    .audible-full { display: none; }
+    .audible-short { display: inline; }
   }
 
   @media (max-width: 480px) {

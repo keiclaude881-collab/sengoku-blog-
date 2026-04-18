@@ -172,11 +172,52 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
         </nav>
       )}
 
-      <!-- 本文 -->
+      <!-- 本文 + サイドバー -->
       <div class="article-layout">
         <div class="prose article-body">
           <slot />
         </div>
+
+        <!-- サイドバー（PC only） -->
+        <aside class="article-sidebar">
+          <!-- Audible固定バナー -->
+          <div class="sidebar-audible">
+            <p class="sidebar-audible-icon">📚</p>
+            <p class="sidebar-audible-catch">通勤中に孫子を聴く</p>
+            <p class="sidebar-audible-body">戦略書を聴く30分が、明日の判断を変える。</p>
+            <a
+              href="https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_id=185&pl_id=4062&url=https%3A%2F%2Fwww.amazon.co.jp%2Fftu%2Fhome"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="sidebar-audible-btn"
+            >→ 30日間無料で試す</a>
+          </div>
+
+          <!-- 人気記事 -->
+          <div class="sidebar-popular">
+            <h3 class="sidebar-heading">人気記事</h3>
+            <ul class="sidebar-popular-list">
+              <li>
+                <a href="/blog/whatif/shingen-longlife-if/" class="sidebar-popular-link">
+                  <span class="sidebar-popular-cat">歴史IF</span>
+                  <span class="sidebar-popular-title">もし武田信玄が長生きしていたら</span>
+                </a>
+              </li>
+              <li>
+                <a href="/blog/strategy/retreat-strategy/" class="sidebar-popular-link">
+                  <span class="sidebar-popular-cat">戦略</span>
+                  <span class="sidebar-popular-title">撤退を決断できるか</span>
+                </a>
+              </li>
+              <li>
+                <a href="/blog/leader/yamamoto-isoroku/" class="sidebar-popular-link">
+                  <span class="sidebar-popular-cat">武将の思想</span>
+                  <span class="sidebar-popular-title">やってみせなければ人は動かない</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </aside>
       </div>
 
       <!-- 記事内広告（AdSenseスロットID設定後に有効化） -->
@@ -484,12 +525,128 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 
   .article-layout {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 260px;
+    gap: 2.5rem;
+    align-items: start;
   }
 
   .article-body {
-    max-width: 740px;
+    min-width: 0;
     margin-bottom: var(--sp-lg);
+  }
+
+  /* サイドバー */
+  .article-sidebar {
+    position: sticky;
+    top: calc(var(--nav-height) + 1.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .sidebar-audible {
+    background: var(--accent, #1E4A35);
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    padding: 1.4rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .sidebar-audible-icon {
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+  .sidebar-audible-catch {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.4;
+  }
+  .sidebar-audible-body {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+  }
+  .sidebar-audible-btn {
+    display: inline-block;
+    margin-top: 0.4rem;
+    padding: 0.55rem 0.8rem;
+    background: var(--gold);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 3px;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .sidebar-audible-btn:hover { background: var(--gold-dark, #2A6B50); }
+
+  .sidebar-popular {
+    background: var(--bg-navy, #111827);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 6px;
+    padding: 1.2rem;
+  }
+  .sidebar-heading {
+    font-family: var(--font-sans);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--amber, #3B8C6E);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .sidebar-popular-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .sidebar-popular-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .sidebar-popular-list li:last-child .sidebar-popular-link {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .sidebar-popular-link:hover { opacity: 0.75; }
+  .sidebar-popular-cat {
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--amber, #3B8C6E);
+    text-transform: uppercase;
+  }
+  .sidebar-popular-title {
+    font-family: var(--font-serif);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 960px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+    }
+    .article-sidebar {
+      display: none;
+    }
+    .article-body {
+      max-width: 740px;
+    }
   }
 
   /* 目次 */

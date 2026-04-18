@@ -63,6 +63,16 @@ const label   = themeInfo?.label   ?? mediaInfo?.label   ?? cat;
 const icon    = themeInfo?.icon    ?? mediaInfo?.icon    ?? "●";
 const tagline = themeInfo?.tagline ?? mediaInfo?.tagline ?? "";
 const desc    = themeInfo?.description ?? mediaInfo?.desc ?? "";
+
+const AUDIBLE_URL = "https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_id=185&pl_id=4062&url=https%3A%2F%2Fwww.amazon.co.jp%2Fftu%2Fhome";
+const AUDIBLE_COPY: Record<string, string> = {
+  decide:   "決断に迷う夜、孫子はどう答えるか。",
+  lead:     "人を動かすリーダーの言葉を、通勤中に。",
+  recover:  "逆境を越えた者の思考を、耳から学ぶ。",
+  strategy: "戦略の本質は、聴いて初めてわかる。",
+  change:   "自分を変えた者の哲学を、30日間無料で。",
+};
+const audibleCopy = AUDIBLE_COPY[cat] ?? null;
 ---
 
 <BaseLayout
@@ -88,6 +98,18 @@ const desc    = themeInfo?.description ?? mediaInfo?.desc ?? "";
       <span>›</span>
       <span aria-current="page">{label}</span>
     </nav>
+
+    {audibleCopy && (
+      <div class="cat-audible-banner">
+        <p class="cat-audible-copy">{audibleCopy}</p>
+        <a
+          href={AUDIBLE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cat-audible-btn"
+        >📚 Audibleで聴く →</a>
+      </div>
+    )}
 
     {allPosts.length > 0 ? (
       <ul class="article-grid" role="list">
@@ -207,6 +229,44 @@ const desc    = themeInfo?.description ?? mediaInfo?.desc ?? "";
   }
   .breadcrumb a { color: var(--ink3); transition: color 0.2s; }
   .breadcrumb a:hover { color: var(--gold); }
+
+  .cat-audible-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background: rgba(59, 140, 110, 0.08);
+    border: 1px solid rgba(59, 140, 110, 0.3);
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 1rem 1.4rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .cat-audible-copy {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .cat-audible-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 1.1rem;
+    background: var(--gold);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 3px;
+    white-space: nowrap;
+    transition: background 0.2s;
+    flex-shrink: 0;
+  }
+  .cat-audible-btn:hover { background: var(--gold-dark, #2A6B50); }
 
   .empty {
     color: var(--ink3);
