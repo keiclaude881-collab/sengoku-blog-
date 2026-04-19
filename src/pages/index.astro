@@ -1,121 +1,172 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ArticleCard from "../components/ArticleCard.astro";
 import BookCard from "../components/BookCard.astro";
 import AffiliateDisclosure from "../components/AffiliateDisclosure.astro";
+import { THEME_INFO, THEME_ORDER } from "../utils/arcMap";
 
-// ④ decideカテゴリから直近3件
-const allDecide = (await Promise.all([
-  getCollection("battle"),
-  getCollection("leader"),
-  getCollection("strategy"),
-  getCollection("whatif"),
-  getCollection("world"),
-].map(p => p.catch(() => [])))).flat()
-  .filter(p => p.data.category === "decide")
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 3);
+// 最新記事（全カテゴリ、最新3件）
+const ALL_COLLECTIONS = ["battle","world","leader","strategy","whatif","anime","movie","novel","books"] as const;
+const allPosts = (await Promise.all(
+  ALL_COLLECTIONS.map(c => getCollection(c).catch(() => []))
+)).flat().sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const recentPosts = allPosts.slice(0, 3);
+
+// フィーチャー記事（ogImageがあるdecide記事の最新1件）
+const featured = allPosts.find(p => p.data.category === "decide" && p.data.ogImage) ?? allPosts[0];
 
 function slug(col: string, id: string) {
   return `${col}/${id.replace(/\.mdx?$/, "")}`;
 }
 
-// ⑥ 書籍3冊
+const AUDIBLE_URL = "https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_id=185&pl_id=4062&url=https%3A%2F%2Fwww.amazon.co.jp%2Fftu%2Fhome";
+
 const books = [
-  { title: "孫子の兵法（知的生きかた文庫）", asin: "4837900186", reason: "情報戦の原典。競合分析の基礎が凝縮されている" },
-  { title: "五輪書（宮本武蔵）", asin: "4003300211", reason: "個の強さとは何か。武蔵の戦略哲学を学ぶ" },
+  { title: "孫子の兵法（知的生きかた文庫）", asin: "4837900186", reason: "情報戦の原典。戦略思考の基礎が凝縮" },
+  { title: "五輪書（宮本武蔵）", asin: "4003300211", reason: "個の強さとは何か。武蔵の戦略哲学" },
   { title: "失敗の本質", asin: "4122018331", reason: "なぜ日本軍は負けたのか。組織論の古典" },
 ];
 
-const AUDIBLE_URL = "https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_id=185&pl_id=4062&url=https%3A%2F%2Fwww.amazon.co.jp%2Fftu%2Fhome";
+const catLabel: Record<string, string> = {
+  decide: "決断できない時", lead: "チームがうまくいかない時",
+  recover: "逆境・失敗した時", strategy: "戦略・方向性に迷った時",
+  change: "自分を変えたい時", books: "書籍レビュー",
+  movie: "映画の知恵", anime: "アニメの知恵", novel: "小説・物語",
+};
+
+function formatDate(d: Date) {
+  return d.toLocaleDateString("ja-JP", { year: "numeric", month: "long", day: "numeric" });
+}
 ---
 
 <BaseLayout
-  title="決断の系譜 | 決断できない夜、あなたは一人じゃない。"
-  description="月曜日の悩みに、戦国武将が答える。500年前の武将たちが、意外なほどリアルな答えを持っている。"
+  title="決断の系譜 | 500年前の武将の知恵が、今日の答えになる。"
+  description="決断できない夜に、武将の記録が答えをくれる。月曜日の悩みに、500年前の戦国武将が答える日本史ビジネスブログ。"
 >
 
-  <!-- ① Hero -->
+  <!-- ①  H E R O -->
   <section class="hero">
     <canvas class="lightning-canvas" id="lightning-canvas" aria-hidden="true"></canvas>
     <div class="hero-flash" id="hero-flash" aria-hidden="true"></div>
     <div class="hero-inner">
-      <p class="hero-sub">月曜日の悩みに、戦国武将が答える。</p>
-      <h1 class="hero-title" id="hero-title">決断できない夜、<br>あなたは一人じゃない。</h1>
-      <div class="hero-cta-wrap">
-        <a href="/blog/" class="hero-cta">記事を読む →</a>
-        <a href="/timeline/" class="hero-ghost">戦いの年表を見る</a>
-      </div>
+      <p class="hero-eyebrow">決断の系譜</p>
+      <h1 class="hero-title" id="hero-title">武将の知恵が、<br>今日の答えになる。</h1>
+      <p class="hero-sub">500年前の決断から、あなたの悩みを解く。</p>
+      <a href="/blog/" class="hero-cta">記事を読む</a>
+    </div>
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span></span>
     </div>
   </section>
 
-  <!-- ② 共感ブロック -->
-  <section class="empathy">
+  <!-- ②  C A T E G O R Y  G R I D -->
+  <section class="themes reveal">
     <div class="container">
-      <h2 class="empathy-heading">こんな状況、ありませんか？</h2>
-      <ul class="empathy-list">
-        <li>部下に何を言っても伝わらない</li>
-        <li>決断しなければいけないのに、正解が見えない</li>
-        <li>頑張っているのに、結果が出ない</li>
+      <p class="eyebrow">THEMES</p>
+      <h2 class="display-heading">あなたの悩みから探す</h2>
+      <ul class="theme-grid" role="list">
+        {THEME_ORDER.map(slug => {
+          const t = THEME_INFO[slug];
+          return (
+            <li>
+              <a href={`/category/${slug}/`} class="theme-card">
+                <span class="theme-icon" aria-hidden="true">{t.icon}</span>
+                <span class="theme-label">{t.label}</span>
+                <span class="theme-tagline">{t.tagline}</span>
+                <span class="theme-arrow">→</span>
+              </a>
+            </li>
+          );
+        })}
       </ul>
     </div>
   </section>
 
-  <!-- ③ このブログの答え -->
-  <section class="answer">
-    <div class="container">
-      <p class="answer-text">
-        500年前の武将たちが、<br class="br-sp">意外なほどリアルな答えを持っている。
-      </p>
-    </div>
-  </section>
-
-  <!-- ④ 注目記事3本 -->
-  {allDecide.length > 0 && (
-    <section class="articles">
-      <div class="container">
-        <h2 class="section-heading">注目記事</h2>
-        <ul class="article-grid" role="list">
-          {allDecide.map(post => (
-            <li>
-              <ArticleCard
-                title={post.data.title}
-                description={post.data.description}
-                date={post.data.date}
-                category={post.data.category}
-                tags={post.data.tags}
-                readingTime={post.data.readingTime}
-                lesson={post.data.lesson}
-                slug={slug(post.collection, post.id)}
-                ogImage={post.data.ogImage}
-              />
-            </li>
-          ))}
-        </ul>
+  <!-- ③  F E A T U R E  S P O T L I G H T -->
+  {featured && (
+    <section class="spotlight reveal">
+      <div class="spotlight-inner container">
+        <div class="spotlight-text">
+          <p class="eyebrow eyebrow--light">FEATURED</p>
+          <h2 class="spotlight-title">{featured.data.title}</h2>
+          <p class="spotlight-desc">{featured.data.description}</p>
+          <a href={`/blog/${slug(featured.collection, featured.id)}/`} class="spotlight-cta">
+            記事を読む →
+          </a>
+        </div>
+        {featured.data.ogImage && (
+          <div class="spotlight-img-wrap">
+            <img
+              src={featured.data.ogImage}
+              alt={featured.data.title}
+              class="spotlight-img"
+              loading="lazy"
+            />
+          </div>
+        )}
       </div>
     </section>
   )}
 
-  <!-- ⑤ Audibleバナー -->
-  <section class="audible">
+  <!-- ④  R E C E N T  A R T I C L E S -->
+  <section class="recent reveal">
+    <div class="container">
+      <p class="eyebrow">LATEST</p>
+      <h2 class="display-heading">最新記事</h2>
+      <ul class="recent-grid" role="list">
+        {recentPosts.map(post => (
+          <li>
+            <a href={`/blog/${slug(post.collection, post.id)}/`} class="recent-card">
+              {post.data.ogImage
+                ? <img src={post.data.ogImage} alt="" class="recent-card-img" loading="lazy" />
+                : <div class="recent-card-img recent-card-img--placeholder" aria-hidden="true">
+                    <span>{THEME_INFO[post.data.category as keyof typeof THEME_INFO]?.icon ?? "記"}</span>
+                  </div>
+              }
+              <div class="recent-card-body">
+                <span class="recent-cat">{catLabel[post.data.category] ?? post.data.category}</span>
+                <p class="recent-title">{post.data.title}</p>
+                <p class="recent-date">{formatDate(post.data.date)}</p>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div class="recent-more">
+        <a href="/blog/" class="pill-link">すべての記事を見る →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤  M A N I F E S T O -->
+  <section class="manifesto reveal">
+    <div class="container manifesto-inner">
+      <blockquote class="manifesto-quote">
+        <p>迷いながらも動いた。<br>負けながらも立った。</p>
+        <p class="manifesto-quote-2">その記録の中に、<br>あなたへの答えがある。</p>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ⑥  A U D I B L E -->
+  <section class="audible reveal">
     <div class="container audible-inner">
-      <p class="audible-text">通勤中に戦略書を聴く。</p>
-      <a
-        href={AUDIBLE_URL}
-        target="_blank"
-        rel="nofollow sponsored noopener"
-        class="audible-cta"
-      >
-        30日間無料体験 →
+      <div class="audible-text-wrap">
+        <p class="audible-head">📚 通勤中に孫子を聴く。</p>
+        <p class="audible-body">戦略書を聴く30分が、明日の判断を変える。30日間無料で体験できる。</p>
+      </div>
+      <a href={AUDIBLE_URL} target="_blank" rel="nofollow sponsored noopener" class="audible-btn">
+        無料で試す →
       </a>
     </div>
   </section>
 
-  <!-- ⑥ おすすめ書籍 -->
-  <section class="books">
+  <!-- ⑦  B O O K S -->
+  <section class="books reveal">
     <div class="container">
-      <h2 class="section-heading">あわせて読みたい</h2>
+      <p class="eyebrow">BOOKS</p>
+      <h2 class="display-heading">あわせて読みたい</h2>
       <AffiliateDisclosure />
       <div class="book-grid">
         {books.map(b => (
@@ -127,6 +178,7 @@ const AUDIBLE_URL = "https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_
 
 </BaseLayout>
 
+<!-- Lightning script (hero) -->
 <script>
   const canvas = document.getElementById('lightning-canvas') as HTMLCanvasElement | null;
   const flash  = document.getElementById('hero-flash') as HTMLElement | null;
@@ -134,376 +186,516 @@ const AUDIBLE_URL = "https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_
 
   if (canvas) {
     const ctx = canvas.getContext('2d');
-
     function resize() {
-      const hero = canvas!.parentElement!;
-      canvas!.width  = hero.offsetWidth;
-      canvas!.height = hero.offsetHeight;
+      canvas!.width  = canvas!.parentElement!.offsetWidth;
+      canvas!.height = canvas!.parentElement!.offsetHeight;
     }
     resize();
     window.addEventListener('resize', resize, { passive: true });
 
     function drawBolt(x1: number, y1: number, x2: number, y2: number, depth: number) {
       if (!ctx) return;
-      if (depth === 0) {
-        ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); return;
-      }
-      const dx = x2 - x1, dy = y2 - y1;
-      const len = Math.sqrt(dx * dx + dy * dy);
-      const midX = (x1 + x2) / 2 + (Math.random() - 0.5) * len * 0.45;
-      const midY = (y1 + y2) / 2 + (Math.random() - 0.25) * Math.abs(dy) * 0.3;
-      drawBolt(x1, y1, midX, midY, depth - 1);
-      drawBolt(midX, midY, x2, y2, depth - 1);
-      if (depth > 2 && Math.random() > 0.55) {
-        const bx = midX + (Math.random() - 0.35) * dx * 0.6;
-        const by = midY + Math.random() * dy * 0.5;
-        ctx.globalAlpha = 0.45;
-        drawBolt(midX, midY, bx, by, depth - 2);
-        ctx.globalAlpha = 1;
+      if (depth === 0) { ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke(); return; }
+      const dx = x2-x1, dy = y2-y1, len = Math.sqrt(dx*dx+dy*dy);
+      const mx = (x1+x2)/2+(Math.random()-0.5)*len*0.45;
+      const my = (y1+y2)/2+(Math.random()-0.25)*Math.abs(dy)*0.3;
+      drawBolt(x1,y1,mx,my,depth-1); drawBolt(mx,my,x2,y2,depth-1);
+      if (depth>2 && Math.random()>0.55) {
+        const bx=mx+(Math.random()-0.35)*dx*0.6, by=my+Math.random()*dy*0.5;
+        ctx.globalAlpha=0.45; drawBolt(mx,my,bx,by,depth-2); ctx.globalAlpha=1;
       }
     }
 
     function strike() {
-      if (!ctx || !canvas) return;
-      const W = canvas.width, H = canvas.height;
-      const startX = W * (0.42 + Math.random() * 0.5);
-      const startY = H * (0.04 + Math.random() * 0.12);
-      const endX   = startX + (Math.random() - 0.5) * W * 0.25;
-      const endY   = H * (0.45 + Math.random() * 0.35);
-
-      ctx.clearRect(0, 0, W, H);
-      ctx.strokeStyle = 'rgba(210, 235, 255, 0.92)';
-      ctx.lineWidth   = 1.2;
-      ctx.shadowColor = 'rgba(150, 210, 255, 1)';
-      ctx.shadowBlur  = 14;
-      ctx.globalAlpha = 1;
-      drawBolt(startX, startY, endX, endY, 7);
-
+      if (!ctx||!canvas) return;
+      const W=canvas.width,H=canvas.height;
+      const sx=W*(0.42+Math.random()*0.5), sy=H*(0.04+Math.random()*0.12);
+      const ex=sx+(Math.random()-0.5)*W*0.25, ey=H*(0.45+Math.random()*0.35);
+      ctx.clearRect(0,0,W,H);
+      ctx.strokeStyle='rgba(210,235,255,0.92)'; ctx.lineWidth=1.2;
+      ctx.shadowColor='rgba(150,210,255,1)'; ctx.shadowBlur=14; ctx.globalAlpha=1;
+      drawBolt(sx,sy,ex,ey,7);
       if (flash) {
-        flash.style.transition = 'none'; flash.style.opacity = '0.18';
-        setTimeout(() => { if (flash) { flash.style.transition = 'opacity 0.25s'; flash.style.opacity = '0'; } }, 120);
-        setTimeout(() => { if (flash) { flash.style.transition = 'none'; flash.style.opacity = '0.08'; } }, 250);
-        setTimeout(() => { if (flash) { flash.style.transition = 'opacity 0.4s'; flash.style.opacity = '0'; } }, 350);
+        flash.style.transition='none'; flash.style.opacity='0.18';
+        setTimeout(()=>{if(flash){flash.style.transition='opacity 0.25s';flash.style.opacity='0';}},120);
+        setTimeout(()=>{if(flash){flash.style.transition='none';flash.style.opacity='0.08';}},250);
+        setTimeout(()=>{if(flash){flash.style.transition='opacity 0.4s';flash.style.opacity='0';}},350);
       }
-      if (title) {
-        title.classList.add('title-flash');
-        setTimeout(() => title?.classList.remove('title-flash'), 600);
-      }
-      setTimeout(() => {
-        if (!ctx || !canvas) return;
-        let alpha = 1;
-        const fade = setInterval(() => {
-          alpha -= 0.08;
-          if (alpha <= 0) { clearInterval(fade); ctx.clearRect(0, 0, canvas.width, canvas.height); return; }
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          ctx.globalAlpha = alpha;
-          drawBolt(startX, startY, endX, endY, 7);
-          ctx.globalAlpha = 1;
-        }, 30);
-      }, 300);
+      if (title) { title.classList.add('title-flash'); setTimeout(()=>title?.classList.remove('title-flash'),600); }
+      setTimeout(()=>{
+        if(!ctx||!canvas) return;
+        let alpha=1;
+        const fade=setInterval(()=>{
+          alpha-=0.08; if(alpha<=0){clearInterval(fade);ctx.clearRect(0,0,canvas!.width,canvas!.height);return;}
+          ctx.clearRect(0,0,canvas!.width,canvas!.height);ctx.globalAlpha=alpha;
+          drawBolt(sx,sy,ex,ey,7);ctx.globalAlpha=1;
+        },30);
+      },300);
     }
 
-    function scheduleNext() {
-      setTimeout(() => { strike(); scheduleNext(); }, 5000 + Math.random() * 10000);
-    }
-    setTimeout(() => { strike(); scheduleNext(); }, 2000);
+    function scheduleNext(){ setTimeout(()=>{strike();scheduleNext();},5000+Math.random()*10000); }
+    setTimeout(()=>{strike();scheduleNext();},2000);
   }
 </script>
 
+<!-- Scroll reveal -->
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
 <style>
-  /* ── Hero ── */
+  /* ── UTILITIES ── */
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .eyebrow--light { color: var(--gold-light); }
+
+  .display-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+    margin-bottom: 3rem;
+    line-height: 1.35;
+  }
+
+  /* pill link */
+  .pill-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.65rem 1.6rem;
+    border: 1.5px solid var(--gold);
+    border-radius: 980px;
+    color: var(--gold);
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: background 0.25s, color 0.25s;
+  }
+  .pill-link:hover { background: var(--gold); color: #fff; }
+
+  /* scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .reveal.revealed { opacity: 1; transform: translateY(0); }
+
+  /* ── ① HERO ── */
   .hero {
     position: relative;
     background:
-      linear-gradient(to right, rgba(5,12,5,0.82) 0%, rgba(5,12,5,0.55) 55%, rgba(5,12,5,0.25) 100%),
+      linear-gradient(to bottom, rgba(5,12,5,0.78) 0%, rgba(5,12,5,0.52) 60%, rgba(5,12,5,0.78) 100%),
       url('/images/header-bg.jpg') center center / cover no-repeat;
-    min-height: 92svh;
+    min-height: 100svh;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     overflow: hidden;
   }
 
   .lightning-canvas {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    pointer-events: none; z-index: 1;
   }
 
   .hero-flash {
-    position: absolute;
-    inset: 0;
-    background: rgba(200, 230, 255, 1);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 2;
-    mix-blend-mode: overlay;
+    position: absolute; inset: 0;
+    background: rgba(200,230,255,1);
+    opacity: 0; pointer-events: none;
+    z-index: 2; mix-blend-mode: overlay;
   }
 
   .hero-inner {
-    position: relative;
-    z-index: 3;
-    max-width: 640px;
-    margin: 0 auto;
-    padding: calc(var(--nav-height) + 4rem) 1.5rem 5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2rem;
+    position: relative; z-index: 3;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 1.6rem;
+    padding: calc(var(--nav-height) + 4rem) 2rem 6rem;
+    max-width: 760px;
     width: 100%;
   }
 
-  .hero-sub {
+  .hero-eyebrow {
     font-family: var(--font-sans);
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.25em;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.35em;
     color: var(--gold-light);
     text-transform: uppercase;
   }
 
   .hero-title {
     font-family: var(--font-serif);
-    font-size: clamp(2.2rem, 7vw, 4rem);
+    font-size: clamp(2.6rem, 8vw, 5rem);
     font-weight: 700;
     color: #fff;
-    line-height: 1.3;
+    line-height: 1.25;
     letter-spacing: 0.04em;
-    text-shadow: 0 0 40px rgba(59,140,110,0.15), 0 0 80px rgba(59,140,110,0.05);
+    text-shadow: 0 0 60px rgba(59,140,110,0.2);
     transition: text-shadow 0.2s;
   }
   .hero-title.title-flash {
-    text-shadow:
-      0 0 20px rgba(200,230,255,0.7),
-      0 0 50px rgba(200,230,255,0.4),
-      0 0 100px rgba(200,230,255,0.15);
+    text-shadow: 0 0 20px rgba(200,230,255,0.7), 0 0 60px rgba(200,230,255,0.35);
   }
 
-  .hero-cta-wrap {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
+  .hero-sub {
+    font-family: var(--font-serif);
+    font-size: clamp(0.92rem, 2vw, 1.1rem);
+    font-weight: 400;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.06em;
+    line-height: 1.8;
   }
 
   .hero-cta {
-    display: inline-flex;
-    align-items: center;
-    padding: 1rem 2.4rem;
+    display: inline-flex; align-items: center;
+    padding: 0.9rem 2.6rem;
     background: var(--gold);
     color: #fff;
     font-family: var(--font-sans);
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    border-radius: 2px;
+    font-size: 0.9rem; font-weight: 600;
+    letter-spacing: 0.06em;
+    border-radius: 980px;
     text-decoration: none;
-    transition: background 0.2s, transform 0.2s;
+    transition: background 0.25s, transform 0.25s;
+    margin-top: 0.4rem;
   }
-  .hero-cta:hover {
-    background: var(--gold-dark);
-    transform: translateY(-2px);
+  .hero-cta:hover { background: var(--gold-dark); transform: scale(1.03); }
+
+  /* scroll hint */
+  .hero-scroll-hint {
+    position: absolute; bottom: 2.2rem; left: 50%; transform: translateX(-50%);
+    z-index: 3;
+  }
+  .hero-scroll-hint span {
+    display: block; width: 1px; height: 52px;
+    background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.4));
+    animation: scroll-line 1.8s ease-in-out infinite;
+  }
+  @keyframes scroll-line {
+    0%   { transform: scaleY(0); transform-origin: top; }
+    50%  { transform: scaleY(1); transform-origin: top; }
+    50.01% { transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
   }
 
-  .hero-ghost {
-    display: inline-flex;
-    align-items: center;
-    padding: 1rem 2rem;
-    background: transparent;
-    color: rgba(255,255,255,0.85);
-    font-family: var(--font-sans);
-    font-size: 0.88rem;
-    font-weight: 400;
-    letter-spacing: 0.05em;
-    border: 1px solid rgba(255,255,255,0.45);
-    border-radius: 2px;
-    text-decoration: none;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .hero-ghost:hover {
-    border-color: var(--gold-light);
-    color: var(--gold-light);
-  }
-
-  /* ── 共感ブロック ── */
-  .empathy {
-    background: var(--bg2);
-    padding: 5rem 0;
+  /* ── ② THEMES ── */
+  .themes {
+    background: var(--bg);
+    padding: 8rem 0;
     border-bottom: 1px solid var(--rule);
   }
 
-  .empathy-heading {
-    font-family: var(--font-serif);
-    font-size: clamp(1.3rem, 3vw, 1.8rem);
-    font-weight: 700;
-    color: var(--ink);
-    margin-bottom: 2.4rem;
-    letter-spacing: 0.04em;
-  }
-
-  .empathy-list {
+  .theme-grid {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    overflow: hidden;
   }
 
-  .empathy-list li {
-    font-family: var(--font-serif);
-    font-size: clamp(1rem, 2.5vw, 1.15rem);
-    color: var(--ink2);
-    line-height: 1.7;
-    padding-left: 1.5rem;
+  .theme-card {
+    display: flex; flex-direction: column; gap: 0.8rem;
+    padding: 2rem 1.5rem 1.6rem;
+    background: var(--bg);
+    text-decoration: none;
     position: relative;
+    transition: background 0.25s;
   }
-  .empathy-list li::before {
-    content: "・";
-    position: absolute;
-    left: 0;
-    color: var(--gold);
-    font-size: 1.2em;
-    line-height: 1.4;
-  }
+  .theme-card:hover { background: var(--bg2); }
+  .theme-card:hover .theme-arrow { opacity: 1; transform: translateX(0); }
 
-  /* ── このブログの答え ── */
-  .answer {
-    background: var(--accent);
-    padding: 5rem 0;
-  }
-
-  .answer-text {
+  .theme-icon {
     font-family: var(--font-serif);
-    font-size: clamp(1.2rem, 3vw, 1.7rem);
+    font-size: 2rem; color: var(--gold);
+    line-height: 1; margin-bottom: 0.4rem;
+  }
+
+  .theme-label {
+    font-family: var(--font-serif);
+    font-size: 0.88rem; font-weight: 700;
+    color: var(--ink); letter-spacing: 0.03em;
+    line-height: 1.5;
+  }
+
+  .theme-tagline {
+    font-family: var(--font-sans);
+    font-size: 0.72rem; color: var(--ink3);
+    line-height: 1.65; flex: 1;
+  }
+
+  .theme-arrow {
+    font-family: var(--font-sans);
+    font-size: 0.78rem; font-weight: 600;
+    color: var(--gold);
+    opacity: 0; transform: translateX(-4px);
+    transition: opacity 0.2s, transform 0.2s;
+    margin-top: auto;
+  }
+
+  /* ── ③ SPOTLIGHT ── */
+  .spotlight {
+    background: var(--accent);
+    padding: 8rem 0;
+  }
+
+  .spotlight-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .spotlight-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.4rem, 3vw, 2rem);
     font-weight: 700;
     color: #fff;
-    line-height: 1.8;
+    line-height: 1.4;
+    letter-spacing: 0.03em;
+    margin-bottom: 1.2rem;
+  }
+
+  .spotlight-desc {
+    font-family: var(--font-sans);
+    font-size: 0.9rem; line-height: 1.9;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 2rem;
+    max-width: 480px;
+  }
+
+  .spotlight-cta {
+    display: inline-flex; align-items: center;
+    padding: 0.8rem 2rem;
+    border: 1.5px solid rgba(255,255,255,0.5);
+    border-radius: 980px;
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.84rem; font-weight: 500;
     letter-spacing: 0.04em;
-    text-align: center;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
   }
+  .spotlight-cta:hover { border-color: var(--gold-light); background: rgba(255,255,255,0.06); }
 
-  /* ── 注目記事 ── */
-  .articles {
+  .spotlight-img-wrap {
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 32px 64px rgba(0,0,0,0.4);
+    aspect-ratio: 4/3;
+  }
+  .spotlight-img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .spotlight-img-wrap:hover .spotlight-img { transform: scale(1.03); }
+
+  /* ── ④ RECENT ── */
+  .recent {
     background: var(--bg);
-    padding: 5rem 0;
+    padding: 8rem 0;
   }
 
-  .section-heading {
-    font-family: var(--font-serif);
-    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-    font-weight: 700;
-    color: var(--ink);
-    letter-spacing: 0.08em;
-    margin-bottom: 2.4rem;
-    padding-bottom: 0.8rem;
-    border-bottom: 2px solid var(--gold);
-    display: inline-block;
-  }
-
-  .article-grid {
+  .recent-grid {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+    margin-bottom: 3rem;
   }
 
-  .articles-more {
-    margin-top: 2.4rem;
-    text-align: center;
+  .recent-card {
+    display: flex; flex-direction: column;
+    border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--rule);
+    text-decoration: none; color: inherit;
+    background: var(--bg);
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .recent-card:hover {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    transform: translateY(-4px);
   }
 
-  .more-link {
+  .recent-card-img {
+    width: 100%; aspect-ratio: 16/10;
+    object-fit: cover; display: block;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .recent-card:hover .recent-card-img { transform: scale(1.04); }
+
+  .recent-card-img--placeholder {
+    background: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .recent-card-img--placeholder span {
+    font-family: var(--font-serif);
+    font-size: 3rem; color: rgba(255,255,255,0.25);
+  }
+
+  .recent-card-body {
+    padding: 1.4rem 1.4rem 1.6rem;
+    display: flex; flex-direction: column; gap: 0.5rem;
+    flex: 1;
+  }
+
+  .recent-cat {
     font-family: var(--font-sans);
-    font-size: 0.85rem;
-    color: var(--gold);
-    text-decoration: none;
-    letter-spacing: 0.04em;
-    transition: color 0.2s;
+    font-size: 0.6rem; font-weight: 700;
+    letter-spacing: 0.18em; color: var(--gold);
+    text-transform: uppercase;
   }
-  .more-link:hover { color: var(--gold-dark); }
 
-  /* ── Audibleバナー ── */
+  .recent-title {
+    font-family: var(--font-serif);
+    font-size: 0.92rem; font-weight: 700;
+    color: var(--ink); line-height: 1.6;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .recent-date {
+    font-family: var(--font-sans);
+    font-size: 0.68rem; color: var(--ink3);
+    margin-top: auto;
+  }
+
+  .recent-more { text-align: center; }
+
+  /* ── ⑤ MANIFESTO ── */
+  .manifesto {
+    background: #000;
+    padding: 9rem 0;
+  }
+
+  .manifesto-inner { text-align: center; }
+
+  .manifesto-quote {
+    font-style: normal;
+  }
+
+  .manifesto-quote p {
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.7;
+    letter-spacing: 0.06em;
+  }
+
+  .manifesto-quote-2 {
+    margin-top: 1.5rem;
+    color: rgba(255,255,255,0.5) !important;
+    font-size: clamp(1.1rem, 2.5vw, 1.8rem) !important;
+  }
+
+  /* ── ⑥ AUDIBLE ── */
   .audible {
-    background: var(--ink);
-    padding: 3.5rem 0;
+    background: var(--bg);
+    padding: 5rem 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
   }
 
   .audible-inner {
-    display: flex;
-    align-items: center;
+    display: flex; align-items: center;
     justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
+    gap: 2rem; flex-wrap: wrap;
   }
 
-  .audible-text {
+  .audible-head {
     font-family: var(--font-serif);
-    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 0.04em;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 700; color: var(--ink);
+    margin-bottom: 0.5rem;
   }
 
-  .audible-cta {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.9rem 2rem;
+  .audible-body {
+    font-family: var(--font-sans);
+    font-size: 0.82rem; color: var(--ink3);
+    line-height: 1.7;
+    max-width: 500px;
+  }
+
+  .audible-btn {
+    display: inline-flex; align-items: center;
+    padding: 0.85rem 2rem;
     background: var(--gold);
     color: #fff;
     font-family: var(--font-sans);
-    font-size: 0.88rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    border-radius: 2px;
+    font-size: 0.84rem; font-weight: 600;
+    letter-spacing: 0.04em;
+    border-radius: 980px;
     text-decoration: none;
-    white-space: nowrap;
-    transition: background 0.2s, transform 0.2s;
-    flex-shrink: 0;
+    white-space: nowrap; flex-shrink: 0;
+    transition: background 0.25s, transform 0.25s;
   }
-  .audible-cta:hover {
-    background: var(--gold-dark);
-    transform: translateY(-1px);
-  }
+  .audible-btn:hover { background: var(--gold-dark); transform: scale(1.03); }
 
-  /* ── 書籍 ── */
+  /* ── ⑦ BOOKS ── */
   .books {
     background: var(--bg2);
-    padding: 5rem 0;
-    border-top: 1px solid var(--rule);
+    padding: 8rem 0;
   }
 
   .book-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    margin-top: 1.5rem;
+    margin-top: 0.5rem;
   }
 
-  /* ── container ── */
-  .container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 1.5rem;
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .theme-grid { grid-template-columns: repeat(3, 1fr); }
+    .spotlight-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .spotlight-img-wrap { max-width: 560px; }
   }
 
-  /* ── レスポンシブ ── */
   @media (max-width: 768px) {
-    .hero-inner { padding: 3rem 1.5rem 4rem; }
-    .article-grid { grid-template-columns: 1fr; }
+    .themes, .recent, .books { padding: 5rem 0; }
+    .spotlight { padding: 5rem 0; }
+    .manifesto { padding: 6rem 0; }
+    .theme-grid { grid-template-columns: repeat(2, 1fr); }
+    .recent-grid { grid-template-columns: 1fr; }
     .book-grid { grid-template-columns: 1fr; gap: 1rem; }
     .audible-inner { flex-direction: column; align-items: flex-start; }
-    .answer-text { text-align: left; }
+    .hero-inner { padding: calc(var(--nav-height) + 2rem) 1.5rem 4rem; }
   }
 
   @media (max-width: 480px) {
-    .empathy { padding: 3.5rem 0; }
-    .answer  { padding: 3.5rem 0; }
-    .articles { padding: 3.5rem 0; }
-    .books  { padding: 3.5rem 0; }
-    .br-sp  { display: block; }
-  }
-  @media (min-width: 481px) {
-    .br-sp { display: none; }
+    .theme-grid { grid-template-columns: 1fr 1fr; }
+    .theme-tagline { display: none; }
+    .container { padding: 0 1.25rem; }
   }
 </style>
