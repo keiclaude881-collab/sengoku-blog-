@@ -89,6 +89,8 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
   type="article"
   publishedAt={iso}
 >
+  <!-- 読書進捗バー -->
+  <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
   <!-- 章バナー -->
   {arc && (
     <div class="arc-banner" style={`background: ${arc.gradient}; border-bottom: 1px solid ${arc.color}30;`}>
@@ -292,6 +294,22 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
   </button>
 
   <script>
+    // 読書進捗バー
+    const progress = document.getElementById('reading-progress') as HTMLElement | null;
+    if (progress) {
+      const article = document.querySelector('.article-body') as HTMLElement | null;
+      window.addEventListener('scroll', () => {
+        if (!article) return;
+        const rect = article.getBoundingClientRect();
+        const total = article.offsetHeight - window.innerHeight;
+        const scrolled = Math.max(0, -rect.top);
+        const pct = total > 0 ? Math.min(100, (scrolled / total) * 100) : 0;
+        progress.style.width = `${pct}%`;
+      }, { passive: true });
+    }
+  </script>
+
+  <script>
     const btn = document.getElementById('float-back') as HTMLButtonElement;
     window.addEventListener('scroll', () => {
       btn.classList.toggle('visible', window.scrollY > 300);
@@ -334,6 +352,18 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 </BaseLayout>
 
 <style>
+  /* 読書進捗バー */
+  .reading-progress {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background: var(--gold);
+    z-index: 150;
+    transition: width 0.1s linear;
+  }
+
   /* Arc banner */
   .arc-banner {
     padding: 0.6rem 0;

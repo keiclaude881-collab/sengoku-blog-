@@ -3,76 +3,76 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticleCard from "../../components/ArticleCard.astro";
 
-const allPosts = (await Promise.all([
-  getCollection("battle"),
-  getCollection("leader"),
-  getCollection("strategy"),
-  getCollection("books"),
-  getCollection("movie"),
-  getCollection("whatif"),
-  getCollection("anime"),
-  getCollection("world").catch(() => []),
-])).flat().sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const ALL_COLLECTIONS = ["battle","world","leader","strategy","whatif","anime","movie","novel","books"] as const;
+const allPosts = (await Promise.all(
+  ALL_COLLECTIONS.map(c => getCollection(c).catch(() => []))
+)).flat().sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 function slug(col: string, id: string) {
   return `${col}/${id.replace(/\.mdx?$/, '')}`;
 }
 
-// よく使われるタグを抽出（上位表示用）
-const tagCount: Record<string, number> = {};
-for (const post of allPosts) {
-  for (const tag of post.data.tags) {
-    tagCount[tag] = (tagCount[tag] ?? 0) + 1;
-  }
-}
-const popularTags = Object.entries(tagCount)
-  .sort((a, b) => b[1] - a[1])
-  .slice(0, 12)
-  .map(([tag]) => tag);
+const THEME_CATS = [
+  { key: "decide",   label: "決断できない時" },
+  { key: "lead",     label: "チームがうまくいかない時" },
+  { key: "recover",  label: "逆境・失敗した時" },
+  { key: "strategy", label: "戦略・方向性に迷った時" },
+  { key: "change",   label: "自分を変えたい時" },
+];
 
-const categoryLabels: Record<string, string> = {
-  battle:   "合戦",
-  leader:   "英傑",
-  strategy: "戦略",
-  books:    "書評",
-  movie:    "映画",
-  whatif:   "歴史IF",
-  anime:    "アニメ",
-  world:    "世界史",
-};
-const categories = Object.keys(categoryLabels);
+const popularTags = (() => {
+  const tagCount: Record<string, number> = {};
+  for (const post of allPosts) {
+    for (const tag of post.data.tags ?? []) {
+      tagCount[tag] = (tagCount[tag] ?? 0) + 1;
+    }
+  }
+  return Object.entries(tagCount)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 12)
+    .map(([tag]) => tag);
+})();
 ---
 
 <BaseLayout
   title="記事一覧 | 決断の系譜"
-  description="迷ったとき、疲れたとき、ふと読みに来てください。歴史・映画・アニメ・スポーツの中に、今日を生きるヒントがあります。"
+  description="武将の決断・リーダーシップ・戦略・逆境からの復活——あなたの悩みに答える記事を探す。"
 >
-  <div class="container">
-    <header class="page-header">
-      <h1>記事一覧</h1>
-      <p>全 <span id="article-count">{allPosts.length}</span> 記事</p>
-    </header>
+  <div class="blog-header">
+    <div class="container">
+      <p class="blog-eyebrow">ARTICLES</p>
+      <h1 class="blog-title">記事一覧</h1>
+      <p class="blog-count">全 <span id="article-count">{allPosts.length}</span> 記事</p>
+    </div>
+  </div>
 
-    <!-- カテゴリフィルター -->
-    <div class="category-filter" role="group" aria-label="カテゴリで絞り込む">
-      <button class="cat-btn active" data-cat="all">すべて</button>
-      {categories.map(cat => (
-        <button class="cat-btn" data-cat={cat}>{categoryLabels[cat]}</button>
-      ))}
+  <div class="container blog-body">
+    <!-- テーマフィルター -->
+    <div class="filter-section">
+      <p class="filter-label">テーマで探す</p>
+      <div class="theme-filter" role="group" aria-label="テーマで絞り込む">
+        <button class="theme-btn active" data-cat="all">すべて</button>
+        {THEME_CATS.map(t => (
+          <button class="theme-btn" data-cat={t.key}>{t.label}</button>
+        ))}
+      </div>
     </div>
 
     <!-- タグフィルター -->
-    <div class="tag-filter" role="group" aria-label="タグで絞り込む">
-      <button class="tag-btn active" data-tag="all">すべてのタグ</button>
-      {popularTags.map(tag => (
-        <button class="tag-btn" data-tag={tag}>#{tag}</button>
-      ))}
+    <div class="filter-section">
+      <p class="filter-label">タグで探す</p>
+      <div class="tag-filter" role="group" aria-label="タグで絞り込む">
+        <button class="tag-btn active" data-tag="all">すべて</button>
+        {popularTags.map(tag => (
+          <button class="tag-btn" data-tag={tag}>#{tag}</button>
+        ))}
+      </div>
     </div>
 
     {allPosts.length > 0 ? (
       <ul class="article-grid" role="list" id="article-list">
         {allPosts.map(post => (
-          <li data-tags={post.data.tags.join(',')} data-cat={post.collection}>
+          <li data-tags={(post.data.tags ?? []).join(',')} data-cat={post.data.category}>
             <ArticleCard
               title={post.data.title}
               description={post.data.description}
@@ -97,7 +97,7 @@ const categories = Object.keys(categoryLabels);
 
 <script>
   const tagBtns  = document.querySelectorAll<HTMLButtonElement>('.tag-btn');
-  const catBtns  = document.querySelectorAll<HTMLButtonElement>('.cat-btn');
+  const catBtns  = document.querySelectorAll<HTMLButtonElement>('.theme-btn');
   const items    = document.querySelectorAll<HTMLLIElement>('#article-list > li');
   const noResult = document.getElementById('no-result') as HTMLElement;
   const countEl  = document.getElementById('article-count') as HTMLElement;
@@ -132,83 +132,137 @@ const categories = Object.keys(categoryLabels);
     applyFilters();
   }
 
-  // URLパラメータから初期タグを読み込む
   const initialTag = new URLSearchParams(location.search).get('tag') ?? 'all';
+  const initialCat = new URLSearchParams(location.search).get('cat') ?? 'all';
   setTag(initialTag);
+  setCat(initialCat);
 
   tagBtns.forEach(btn => btn.addEventListener('click', () => setTag(btn.dataset.tag ?? 'all')));
   catBtns.forEach(btn => btn.addEventListener('click', () => setCat(btn.dataset.cat ?? 'all')));
 </script>
 
 <style>
-  .category-filter {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+  .blog-header {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--rule);
+    padding: calc(var(--nav-height) + 3rem) 0 2.5rem;
   }
-  .cat-btn {
-    padding: 0.45rem 1.1rem;
-    border: 2px solid var(--rule);
-    border-radius: 2px;
-    background: transparent;
-    color: var(--ink2);
+
+  .blog-eyebrow {
     font-family: var(--font-sans);
-    font-size: 0.8rem;
+    font-size: 0.62rem;
     font-weight: 700;
-    letter-spacing: 0.05em;
-    cursor: pointer;
-    transition: background 0.18s, color 0.18s, border-color 0.18s;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
   }
-  .cat-btn:hover {
-    border-color: var(--accent, #8b0000);
-    color: var(--accent, #8b0000);
+
+  .blog-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
   }
-  .cat-btn.active {
-    background: var(--accent, #8b0000);
-    color: #fff;
-    border-color: var(--accent, #8b0000);
+
+  .blog-count {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    color: var(--ink3);
   }
-  .tag-filter {
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .blog-body {
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  .filter-section {
+    margin-bottom: 1.6rem;
+  }
+
+  .filter-label {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--ink3);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .theme-filter, .tag-filter {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 2.4rem;
   }
-  .tag-btn {
-    padding: 0.4rem 1rem;
-    border: 1px solid var(--rule);
-    border-radius: 2px;
+
+  .theme-btn {
+    padding: 0.5rem 1.1rem;
+    border: 1.5px solid var(--rule);
+    border-radius: 980px;
     background: transparent;
     color: var(--ink2);
     font-family: var(--font-sans);
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     font-weight: 500;
-    letter-spacing: 0.04em;
     cursor: pointer;
     transition: background 0.18s, color 0.18s, border-color 0.18s;
+    white-space: nowrap;
   }
-  .tag-btn:hover {
-    border-color: var(--ink);
-    color: var(--ink);
+  .theme-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .theme-btn.active {
+    background: var(--gold);
+    color: #fff;
+    border-color: var(--gold);
   }
+
+  .tag-btn {
+    padding: 0.35rem 0.85rem;
+    border: 1px solid var(--rule);
+    border-radius: 980px;
+    background: transparent;
+    color: var(--ink3);
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .tag-btn:hover { border-color: var(--ink2); color: var(--ink2); }
   .tag-btn.active {
     background: var(--ink);
     color: #fff;
     border-color: var(--ink);
   }
-  .no-result {
+
+  .article-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .no-result, .empty {
     text-align: center;
-    padding: var(--sp-xl) 0;
+    padding: 5rem 0;
     font-family: var(--font-sans);
     font-size: 0.88rem;
     color: var(--ink3);
   }
-  .empty {
-    text-align: center;
-    color: var(--ink3);
-    padding: var(--sp-xl);
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
+
+  @media (max-width: 960px) {
+    .article-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .article-grid { grid-template-columns: 1fr; }
+    .blog-body { padding: 2rem 1.25rem 4rem; }
   }
 </style>
