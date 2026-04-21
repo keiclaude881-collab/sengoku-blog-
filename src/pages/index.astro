@@ -51,7 +51,7 @@ function formatDate(d: Date) {
     <div class="hero-flash" id="hero-flash" aria-hidden="true"></div>
     <div class="hero-inner">
       <p class="hero-eyebrow">決断の系譜</p>
-      <h1 class="hero-title" id="hero-title">武将の知恵が、<br>今日の答えになる。</h1>
+      <h1 class="hero-title" id="hero-title">武将の知恵が、今日の答えになる。</h1>
       <p class="hero-sub">500年前の決断から、あなたの悩みを解く。</p>
       <a href="/blog/" class="hero-cta">記事を読む</a>
     </div>
@@ -66,15 +66,17 @@ function formatDate(d: Date) {
       <p class="eyebrow">THEMES</p>
       <h2 class="display-heading">あなたの悩みから探す</h2>
       <ul class="theme-grid" role="list">
-        {THEME_ORDER.map(slug => {
+        {THEME_ORDER.map((slug, i) => {
           const t = THEME_INFO[slug];
+          const num = String(i + 1).padStart(2, '0');
           return (
             <li>
               <a href={`/category/${slug}/`} class="theme-card">
+                <span class="theme-num" aria-hidden="true">{num}</span>
                 <span class="theme-icon" aria-hidden="true">{t.icon}</span>
-                <span class="theme-label">{t.label}</span>
+                <strong class="theme-label">{t.label}</strong>
                 <span class="theme-tagline">{t.tagline}</span>
-                <span class="theme-arrow">→</span>
+                <span class="theme-arrow" aria-hidden="true">記事を見る →</span>
               </a>
             </li>
           );
@@ -350,13 +352,16 @@ function formatDate(d: Date) {
 
   .hero-title {
     font-family: var(--font-serif);
-    font-size: clamp(2.6rem, 8vw, 5rem);
+    font-size: clamp(2.4rem, 8vw, 5rem);
     font-weight: 700;
     color: #fff;
     line-height: 1.25;
     letter-spacing: 0.04em;
     text-shadow: 0 0 60px rgba(59,140,110,0.2);
     transition: text-shadow 0.2s;
+    text-wrap: balance;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
   }
   .hero-title.title-flash {
     text-shadow: 0 0 20px rgba(200,230,255,0.7), 0 0 60px rgba(200,230,255,0.35);
@@ -410,54 +415,100 @@ function formatDate(d: Date) {
     border-bottom: 1px solid var(--rule);
   }
 
+  /* Flex layout — 5 items wrap & center. No empty cell at any width. */
   .theme-grid {
     list-style: none;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1px;
-    background: var(--rule);
-    border: 1px solid var(--rule);
-    border-radius: 12px;
-    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+  }
+
+  .theme-grid > li {
+    flex: 1 1 calc(20% - 1.2rem);
+    min-width: 150px;
+    max-width: 260px;
   }
 
   .theme-card {
-    display: flex; flex-direction: column; gap: 0.8rem;
-    padding: 2rem 1.5rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.8rem 1.4rem 1.5rem;
+    height: 100%;
     background: var(--bg);
+    border: 1.5px solid var(--rule);
+    border-radius: 14px;
     text-decoration: none;
     position: relative;
-    transition: background 0.25s;
+    overflow: hidden;
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
   }
-  .theme-card:hover { background: var(--bg2); }
+  .theme-card::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: var(--gold);
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .theme-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 10px 36px rgba(59,140,110,0.11);
+    transform: translateY(-3px);
+  }
+  .theme-card:hover::before { opacity: 1; }
   .theme-card:hover .theme-arrow { opacity: 1; transform: translateX(0); }
+
+  .theme-num {
+    font-family: var(--font-sans);
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--ink3);
+    display: block;
+    margin-bottom: 1.2rem;
+  }
 
   .theme-icon {
     font-family: var(--font-serif);
-    font-size: 2rem; color: var(--gold);
-    line-height: 1; margin-bottom: 0.4rem;
+    font-size: 2.6rem;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+    margin-bottom: 1rem;
   }
 
   .theme-label {
     font-family: var(--font-serif);
-    font-size: 0.88rem; font-weight: 700;
-    color: var(--ink); letter-spacing: 0.03em;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.03em;
     line-height: 1.5;
+    display: block;
+    margin-bottom: 0.6rem;
   }
 
   .theme-tagline {
     font-family: var(--font-sans);
-    font-size: 0.72rem; color: var(--ink3);
-    line-height: 1.65; flex: 1;
+    font-size: 0.72rem;
+    color: var(--ink3);
+    line-height: 1.7;
+    flex: 1;
+    display: block;
   }
 
   .theme-arrow {
     font-family: var(--font-sans);
-    font-size: 0.78rem; font-weight: 600;
+    font-size: 0.7rem;
+    font-weight: 600;
     color: var(--gold);
-    opacity: 0; transform: translateX(-4px);
+    opacity: 0;
+    transform: translateX(-5px);
     transition: opacity 0.2s, transform 0.2s;
-    margin-top: auto;
+    margin-top: 1.2rem;
+    display: block;
   }
 
   /* ── ③ SPOTLIGHT ── */
@@ -676,8 +727,47 @@ function formatDate(d: Date) {
   }
 
   /* ── RESPONSIVE ── */
+  /* Theme cards: compact at medium, list at mobile */
+  @media (max-width: 900px) {
+    .theme-grid > li { flex: 1 1 calc(33.333% - 1.2rem); max-width: 340px; }
+    .theme-tagline { display: none; }
+    .theme-card { padding: 1.4rem 1.1rem 1.2rem; }
+    .theme-icon { font-size: 2.2rem; }
+  }
+
+  @media (max-width: 600px) {
+    /* Vertical list — no empty cells, app-store feel */
+    .theme-grid {
+      flex-direction: column;
+      gap: 0;
+      border: 1.5px solid var(--rule);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .theme-grid > li { flex: none; min-width: 0; max-width: none; }
+    .theme-card {
+      flex-direction: row;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1.2rem 1.4rem;
+      border: none;
+      border-bottom: 1px solid var(--rule);
+      border-radius: 0;
+      height: auto;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+    .theme-grid > li:last-child .theme-card { border-bottom: none; }
+    .theme-card::before { display: none; }
+    .theme-card:hover { background: var(--bg2); border-color: transparent; }
+    .theme-num { display: none; }
+    .theme-icon { font-size: 2rem; margin: 0; flex-shrink: 0; }
+    .theme-label { font-size: 0.9rem; margin: 0; flex: 1; }
+    .theme-tagline { display: none; }
+    .theme-arrow { opacity: 1; transform: none; margin: 0; flex-shrink: 0; }
+  }
+
   @media (max-width: 1024px) {
-    .theme-grid { grid-template-columns: repeat(3, 1fr); }
     .spotlight-inner { grid-template-columns: 1fr; gap: 3rem; }
     .spotlight-img-wrap { max-width: 560px; }
   }
@@ -686,7 +776,6 @@ function formatDate(d: Date) {
     .themes, .recent, .books { padding: 5rem 0; }
     .spotlight { padding: 5rem 0; }
     .manifesto { padding: 6rem 0; }
-    .theme-grid { grid-template-columns: repeat(2, 1fr); }
     .recent-grid { grid-template-columns: 1fr; }
     .book-grid { grid-template-columns: 1fr; gap: 1rem; }
     .audible-inner { flex-direction: column; align-items: flex-start; }
@@ -694,8 +783,6 @@ function formatDate(d: Date) {
   }
 
   @media (max-width: 480px) {
-    .theme-grid { grid-template-columns: 1fr 1fr; }
-    .theme-tagline { display: none; }
     .container { padding: 0 1.25rem; }
   }
 </style>
