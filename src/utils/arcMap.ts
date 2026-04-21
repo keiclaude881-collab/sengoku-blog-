@@ -18,7 +18,7 @@ export const THEME_INFO: Record<ThemeSlug, ThemeInfo> = {
   decide: {
     slug:        "decide",
     label:       "決断できない時",
-    icon:        "⚔",
+    icon:        "決",
     tagline:     "正解がわからない夜に、誰もが迷ってきた",
     description: "桶狭間の信長も、テルモピュライのレオニダスも、「これで本当にいいのか」と思いながら決めた。迷いを抱えたまま前へ進んだ人たちの記録。",
     color:       "#3B8C6E",
