@@ -67,7 +67,7 @@
   display: block;
   margin-top: 0.8rem;
   padding: 0.55rem 1.4rem;
-  background: #FF9900;
+  background: var(--bg-navy);
   color: #fff !important;
   border-radius: 5px;
   font-style: normal;
@@ -81,7 +81,7 @@
 }
 
 .prose blockquote a:hover {
-  background: #e07b00;
+  background: var(--bg-navy-mid);
   color: #fff !important;
 }
 
