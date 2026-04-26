@@ -63,6 +63,28 @@
   font-style: italic;
 }
 
+.prose blockquote a {
+  display: block;
+  margin-top: 0.8rem;
+  padding: 0.55rem 1.4rem;
+  background: #FF9900;
+  color: #fff !important;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  text-decoration: none !important;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  text-align: center;
+  transition: background 0.15s;
+}
+
+.prose blockquote a:hover {
+  background: #e07b00;
+  color: #fff !important;
+}
+
 .prose table {
   width: 100%;
   border-collapse: collapse;
