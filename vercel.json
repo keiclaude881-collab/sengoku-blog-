@@ -1299,6 +1299,26 @@
       "source": "/blog/troy/",
       "destination": "/blog/movie/troy/",
       "permanent": true
+    },
+    {
+      "source": "/blog/battle/nagashino-sequel",
+      "destination": "/blog/battle/nagashino/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/battle/nagashino-sequel/",
+      "destination": "/blog/battle/nagashino/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/ryoma-survival-if",
+      "destination": "/blog/whatif/ryoma-longlife-if/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/ryoma-survival-if/",
+      "destination": "/blog/whatif/ryoma-longlife-if/",
+      "permanent": true
     }
   ]
 }
