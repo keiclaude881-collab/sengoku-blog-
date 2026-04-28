@@ -8,6 +8,7 @@ import AdUnit from '../components/AdUnit.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
 import YouTubeEmbed from '../components/YouTubeEmbed.astro';
 import VodBox from '../components/VodBox.astro';
+import { getCollection } from 'astro:content';
 import { CATEGORY_TO_ARC, ARC_INFO, NEXT_ARC, type CategoryName } from '../utils/arcMap';
 
 interface AffiliateBook {
@@ -80,6 +81,25 @@ const formattedUpdated = updatedAt
   : null;
 
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+
+// あわせて読みたい: 同カテゴリからランダム3本（自身を除く）
+const _allCollections = ["battle", "leader", "strategy", "books", "movie", "whatif", "anime", "novel", "world"] as const;
+const _allPosts = (await Promise.all(_allCollections.map(c => getCollection(c)))).flat();
+const _currentPath = Astro.url.pathname.replace(/\/$/, '');
+const _sameCat = _allPosts.filter(p => {
+  const pPath = `/blog/${p.collection}/${p.id.replace(/\.mdx?$/, '')}`;
+  return (p.data as any).category === category && pPath !== _currentPath;
+});
+// Fisher-Yates shuffle (build-time, deterministic per build)
+const _shuffled = [..._sameCat];
+for (let i = _shuffled.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [_shuffled[i], _shuffled[j]] = [_shuffled[j], _shuffled[i]];
+}
+const awaseteYomitai = _shuffled.slice(0, 3).map(p => ({
+  title: (p.data as any).title as string,
+  url:   `/blog/${p.collection}/${p.id.replace(/\.mdx?$/, '')}/`,
+}));
 ---
 
 <BaseLayout
@@ -221,6 +241,22 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
           </div>
         </aside>
       </div>
+
+      <!-- あわせて読みたい -->
+      {awaseteYomitai.length > 0 && (
+        <section class="awasete-section" aria-label="あわせて読みたい">
+          <hr class="awasete-hr" />
+          <h2 class="awasete-heading">あわせて読みたい</h2>
+          <ul class="awasete-list">
+            {awaseteYomitai.map(a => (
+              <li class="awasete-item">
+                <a href={a.url} class="awasete-link">{a.title}</a>
+              </li>
+            ))}
+          </ul>
+          <hr class="awasete-hr" />
+        </section>
+      )}
 
       <!-- 記事内広告（AdSenseスロットID設定後に有効化） -->
       {/* <AdUnit slot="XXXXXXXXXX" /> */}
@@ -846,6 +882,45 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
   }
   @media (max-width: 640px) {
     .related-grid { grid-template-columns: 1fr; }
+  }
+
+  /* あわせて読みたい */
+  .awasete-section {
+    margin: var(--sp-lg) 0;
+    max-width: 740px;
+  }
+  .awasete-hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.2rem 0;
+  }
+  .awasete-heading {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+  .awasete-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 0;
+  }
+  .awasete-item::before {
+    content: "- ";
+    color: var(--text-sub);
+  }
+  .awasete-link {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    color: var(--orange);
+    text-decoration: none;
+    line-height: 1.6;
+  }
+  .awasete-link:hover {
+    text-decoration: underline;
   }
 
   .article-nav {
