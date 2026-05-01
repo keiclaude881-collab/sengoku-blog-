@@ -19,7 +19,7 @@ const articleSchema = z.object({
     title:      z.string(),
     asin:       z.string().optional(),
     rakutenUrl: z.string().optional(),
-    reason:     z.string().max(100),
+    reason:     z.string(),
     image:      z.string().optional(),
   })).optional(),
 });
