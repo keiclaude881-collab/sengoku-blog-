@@ -34,6 +34,17 @@ const currentPath = Astro.url.pathname;
     </nav>
 
     <a
+      href="/search"
+      class="header-search-btn"
+      aria-label="記事を検索"
+      title="記事を検索 (⌘K)"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+    </a>
+
+    <a
       href="https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_id=185&pl_id=4062&url=https%3A%2F%2Fwww.amazon.co.jp%2Fftu%2Fhome"
       target="_blank"
       rel="noopener noreferrer"
@@ -75,6 +86,9 @@ const currentPath = Astro.url.pathname;
       ))}
     </ul>
     <div class="mobile-audible">
+      <a href="/search" class="mobile-search-btn">
+        🔍 記事を検索する
+      </a>
       <a
         href="https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_id=185&pl_id=4062&url=https%3A%2F%2Fwww.amazon.co.jp%2Fftu%2Fhome"
         target="_blank"
@@ -111,6 +125,14 @@ const currentPath = Astro.url.pathname;
   // ESCキーで閉じる
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && open) toggleMenu(false);
+  });
+
+  // Cmd+K / Ctrl+K で検索ページへ
+  document.addEventListener('keydown', e => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      window.location.href = '/search';
+    }
   });
 </script>
 
@@ -183,6 +205,24 @@ const currentPath = Astro.url.pathname;
   }
   .nav-link:hover { color: var(--ink); }
   .nav-link.active { color: var(--gold); font-weight: 500; }
+
+  /* ── Search button ── */
+  .header-search-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: var(--ink2);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: color 0.15s, background 0.15s;
+    flex-shrink: 0;
+  }
+  .header-search-btn:hover {
+    color: var(--ink);
+    background: var(--surface, #f5f5f5);
+  }
 
   /* ── Audible button ── */
   .header-audible {
@@ -283,6 +323,26 @@ const currentPath = Astro.url.pathname;
   .mobile-audible {
     margin-top: 2rem;
   }
+
+  .mobile-search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.9rem;
+    margin-bottom: 0.75rem;
+    background: var(--surface, #f5f5f5);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+  .mobile-search-btn:hover { background: var(--border); }
 
   .mobile-audible-btn {
     display: flex;
