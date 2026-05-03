@@ -10,7 +10,14 @@ const { title, asin, rakutenUrl, reason, image } = Astro.props;
 const amazonUrl = asin
   ? `https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_id=185&pl_id=4062&url=${encodeURIComponent(`https://www.amazon.co.jp/dp/${asin}/`)}`
   : null;
-const primaryUrl = amazonUrl ?? rakutenUrl ?? '#';
+
+// 楽天アフィリエイトID
+const RAKUTEN_AFF_ID = '27c79185.3f0d32df.27c79186.3b79dc5f';
+// rakutenUrl が未指定の場合はタイトル検索URLを自動生成
+const autoRakutenUrl = `https://hb.afl.rakuten.co.jp/ichiba/${RAKUTEN_AFF_ID}/?pc=${encodeURIComponent(`https://books.rakuten.co.jp/search?svc=30&g=001&s1=20&ej=0&e=1&w=${encodeURIComponent(title)}`)}`;
+const finalRakutenUrl = rakutenUrl ?? autoRakutenUrl;
+
+const primaryUrl = amazonUrl ?? finalRakutenUrl ?? '#';
 const placeholderChars = ['兵', '謀', '戦', '策', '智', '将', '武', '覇', '道', '義'];
 const placeholderChar = asin ? (placeholderChars[parseInt(asin.slice(-1), 10)] ?? '書') : '書';
 const coverUrl = image ?? (asin ? `https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg` : null);
@@ -52,9 +59,9 @@ const coverUrl = image ?? (asin ? `https://images-na.ssl-images-amazon.com/image
     </div>
   </a>
 
-  {amazonUrl && rakutenUrl && (
+  {amazonUrl && (
     <a
-      href={rakutenUrl}
+      href={finalRakutenUrl}
       target="_blank"
       rel="nofollow sponsored noopener"
       class="rakuten-btn"
