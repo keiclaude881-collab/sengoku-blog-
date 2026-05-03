@@ -7,8 +7,21 @@ interface Props {
   image?:      string;
 }
 const { title, asin, rakutenUrl, reason, image } = Astro.props;
-const amazonUrl = asin
-  ? `https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_id=185&pl_id=4062&url=${encodeURIComponent(`https://www.amazon.co.jp/dp/${asin}/`)}`
+
+// 紙ASIN → Kindle ASIN 変換マップ（報酬率 2.7% → 7.2%）
+const KINDLE_MAP: Record<string, string> = {
+  '4122018331': 'B00BN16XX8', // 失敗の本質
+  '4122075939': 'B00BN16XX8', // 失敗の本質（別版）
+  '4101152128': 'B00SQY8JLY', // 関ヶ原（上）→ 合本版
+  '4101152314': 'B00W1FH0GY', // 項羽と劉邦（上）→ 合本版
+  '4101152381': 'B00SQY8KAO', // 覇王の家（上）→ 合本版
+  '4101152063': 'B00SQY8K72', // 国盗り物語 → 合本版
+  '4101152071': 'B00SQY8K72', // 国盗り物語（別巻）→ 合本版
+};
+const resolvedAsin = asin ? (KINDLE_MAP[asin] ?? asin) : asin;
+
+const amazonUrl = resolvedAsin
+  ? `https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_id=185&pl_id=4062&url=${encodeURIComponent(`https://www.amazon.co.jp/dp/${resolvedAsin}/`)}`
   : null;
 
 // 楽天アフィリエイトID
@@ -20,7 +33,7 @@ const finalRakutenUrl = rakutenUrl ?? autoRakutenUrl;
 const primaryUrl = amazonUrl ?? finalRakutenUrl ?? '#';
 const placeholderChars = ['兵', '謀', '戦', '策', '智', '将', '武', '覇', '道', '義'];
 const placeholderChar = asin ? (placeholderChars[parseInt(asin.slice(-1), 10)] ?? '書') : '書';
-const coverUrl = image ?? (asin ? `https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg` : null);
+const coverUrl = image ?? (resolvedAsin ? `https://images-na.ssl-images-amazon.com/images/P/${resolvedAsin}.01.LZZZZZZZ.jpg` : null);
 ---
 
 <div class="book-card">
