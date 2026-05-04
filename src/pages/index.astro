@@ -65,6 +65,82 @@ function formatDate(d: Date) {
     </div>
   </section>
 
+  <!-- ①.5  T I C K E R -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker">
+      {[
+        "桶狭間の戦い 1560",
+        "関ヶ原の戦い 1600",
+        "川中島の戦い 1561",
+        "長篠の戦い 1575",
+        "ガウガメラの戦い BC331",
+        "カンナエの戦い BC216",
+        "テルモピュライ BC480",
+        "アクティウムの海戦 BC31",
+        "アウステルリッツ 1805",
+        "ノルマンディー上陸 1944",
+        "本能寺の変 1582",
+        "大坂の陣 1614",
+        "トラファルガー 1805",
+        "スターリングラード 1943",
+        "マラトンの戦い BC490",
+      ].concat([
+        "桶狭間の戦い 1560",
+        "関ヶ原の戦い 1600",
+        "川中島の戦い 1561",
+        "長篠の戦い 1575",
+        "ガウガメラの戦い BC331",
+        "カンナエの戦い BC216",
+        "テルモピュライ BC480",
+        "アクティウムの海戦 BC31",
+        "アウステルリッツ 1805",
+        "ノルマンディー上陸 1944",
+        "本能寺の変 1582",
+        "大坂の陣 1614",
+        "トラファルガー 1805",
+        "スターリングラード 1943",
+        "マラトンの戦い BC490",
+      ]).map(text => (
+        <span class="ticker-item">◆ {text}</span>
+      ))}
+    </div>
+  </div>
+
+  <!-- ①.6  S T A T S -->
+  <section class="stats reveal">
+    <div class="container stats-inner">
+      <div class="stat-item">
+        <div class="stat-num-wrap">
+          <span class="stat-num" data-target={allPosts.length}>0</span>
+          <span class="stat-unit">+</span>
+        </div>
+        <span class="stat-label">記事</span>
+      </div>
+      <div class="stat-sep" aria-hidden="true" />
+      <div class="stat-item">
+        <div class="stat-num-wrap">
+          <span class="stat-num" data-target="2500">0</span>
+        </div>
+        <span class="stat-label">年の歴史</span>
+      </div>
+      <div class="stat-sep" aria-hidden="true" />
+      <div class="stat-item">
+        <div class="stat-num-wrap">
+          <span class="stat-num" data-target="5">0</span>
+        </div>
+        <span class="stat-label">つの悩みテーマ</span>
+      </div>
+      <div class="stat-sep" aria-hidden="true" />
+      <div class="stat-item">
+        <div class="stat-num-wrap">
+          <span class="stat-num" data-target="39">0</span>
+          <span class="stat-unit">冊</span>
+        </div>
+        <span class="stat-label">の戦略書</span>
+      </div>
+    </div>
+  </section>
+
   <!-- ②  C A T E G O R Y  G R I D -->
   <section class="themes reveal">
     <div class="container">
@@ -121,25 +197,45 @@ function formatDate(d: Date) {
     <div class="container">
       <p class="eyebrow">LATEST</p>
       <h2 class="display-heading">最新記事</h2>
-      <ul class="recent-grid" role="list">
-        {recentPosts.map(post => (
-          <li>
-            <a href={`/blog/${slug(post.collection, post.id)}/`} class="recent-card">
-              {post.data.ogImage
-                ? <img src={post.data.ogImage} alt="" class="recent-card-img" loading="lazy" />
-                : <div class="recent-card-img recent-card-img--placeholder" aria-hidden="true">
-                    <span>{THEME_INFO[post.data.category as keyof typeof THEME_INFO]?.icon ?? "記"}</span>
+      <div class="recent-magazine" role="list">
+        {recentPosts[0] && (
+          <a href={`/blog/${slug(recentPosts[0].collection, recentPosts[0].id)}/`} class="recent-hero" role="listitem">
+            <div class="recent-hero-img-wrap">
+              {recentPosts[0].data.ogImage
+                ? <img src={recentPosts[0].data.ogImage} alt="" class="recent-hero-img" loading="lazy" />
+                : <div class="recent-hero-img recent-hero-img--ph" aria-hidden="true">
+                    <span>{THEME_INFO[recentPosts[0].data.category as keyof typeof THEME_INFO]?.icon ?? "記"}</span>
                   </div>
               }
-              <div class="recent-card-body">
-                <span class="recent-cat">{catLabel[post.data.category] ?? post.data.category}</span>
-                <p class="recent-title">{post.data.title}</p>
-                <p class="recent-date">{formatDate(post.data.date)}</p>
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
+            </div>
+            <div class="recent-hero-body">
+              <span class="recent-cat">{catLabel[recentPosts[0].data.category] ?? recentPosts[0].data.category}</span>
+              <p class="recent-hero-title">{recentPosts[0].data.title}</p>
+              <p class="recent-hero-desc">{recentPosts[0].data.description}</p>
+              <p class="recent-date">{formatDate(recentPosts[0].data.date)}</p>
+            </div>
+          </a>
+        )}
+        <ul class="recent-sub-grid" role="list">
+          {recentPosts.slice(1).map(post => (
+            <li role="listitem">
+              <a href={`/blog/${slug(post.collection, post.id)}/`} class="recent-card">
+                {post.data.ogImage
+                  ? <img src={post.data.ogImage} alt="" class="recent-card-img" loading="lazy" />
+                  : <div class="recent-card-img recent-card-img--placeholder" aria-hidden="true">
+                      <span>{THEME_INFO[post.data.category as keyof typeof THEME_INFO]?.icon ?? "記"}</span>
+                    </div>
+                }
+                <div class="recent-card-body">
+                  <span class="recent-cat">{catLabel[post.data.category] ?? post.data.category}</span>
+                  <p class="recent-title">{post.data.title}</p>
+                  <p class="recent-date">{formatDate(post.data.date)}</p>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
       <div class="recent-more">
         <a href="/blog/" class="pill-link">すべての記事を見る →</a>
       </div>
@@ -150,10 +246,10 @@ function formatDate(d: Date) {
   {philosophyPosts.length > 0 && (
     <section class="philosophy reveal">
       <div class="container">
-        <p class="eyebrow phil-eyebrow">PHILOSOPHY</p>
+        <p class="eyebrow">PHILOSOPHY</p>
         <div class="phil-head">
-          <h2 class="display-heading phil-heading">哲学の知恵</h2>
-          <a href="/philosophy/" class="pill-link pill-link--phil">すべて見る →</a>
+          <h2 class="display-heading">哲学の知恵</h2>
+          <a href="/philosophy/" class="pill-link">すべて見る →</a>
         </div>
         <p class="phil-sub">仕事・決断・生きる意味——2500年の問いが、今日のあなたに答える。</p>
         <ul class="phil-grid" role="list">
@@ -184,16 +280,6 @@ function formatDate(d: Date) {
       </div>
     </section>
   )}
-
-  <!-- ⑥  M A N I F E S T O -->
-  <section class="manifesto reveal">
-    <div class="container manifesto-inner">
-      <blockquote class="manifesto-quote">
-        <p>迷いながらも動いた。<br>負けながらも立った。</p>
-        <p class="manifesto-quote-2">その記録の中に、<br>あなたへの答えがある。</p>
-      </blockquote>
-    </div>
-  </section>
 
   <!-- ⑦  A U D I B L E -->
   <section class="audible reveal">
@@ -284,12 +370,35 @@ function formatDate(d: Date) {
   }
 </script>
 
-<!-- Scroll reveal -->
+<!-- Scroll reveal + Stats counter -->
 <script>
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); io.unobserve(e.target); } });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Stats counter animation
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target as HTMLElement;
+      const target = parseInt(el.dataset.target ?? '0');
+      const duration = 1400;
+      const fps = 60;
+      const total = duration / (1000 / fps);
+      let frame = 0;
+      // easeOutExpo
+      const timer = setInterval(() => {
+        frame++;
+        const progress = frame / total;
+        const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+        el.textContent = Math.floor(eased * target).toString();
+        if (frame >= total) { el.textContent = target.toString(); clearInterval(timer); }
+      }, 1000 / fps);
+      counterObs.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-num').forEach(el => counterObs.observe(el));
 </script>
 
 <style>
@@ -450,6 +559,107 @@ function formatDate(d: Date) {
     50%  { transform: scaleY(1); transform-origin: top; }
     50.01% { transform-origin: bottom; }
     100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* ── ①.5 TICKER ── */
+  .ticker-wrap {
+    background: var(--accent);
+    overflow: hidden;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    padding: 0.75rem 0;
+    position: relative;
+  }
+  .ticker-wrap::before,
+  .ticker-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 80px;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .ticker-wrap::before { left: 0; background: linear-gradient(to right, var(--accent), transparent); }
+  .ticker-wrap::after  { right: 0; background: linear-gradient(to left, var(--accent), transparent); }
+  .ticker {
+    display: flex;
+    gap: 0;
+    animation: ticker-scroll 40s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+  }
+  .ticker:hover { animation-play-state: paused; }
+  .ticker-item {
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.45);
+    padding: 0 2rem;
+  }
+  @keyframes ticker-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ── ①.6 STATS ── */
+  .stats {
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+    padding: 3.5rem 0;
+  }
+  .stats-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 1rem 3rem;
+    text-align: center;
+  }
+  .stat-num-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15rem;
+  }
+  .stat-num {
+    font-family: var(--font-serif);
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+    min-width: 3ch;
+    display: inline-block;
+    text-align: right;
+  }
+  .stat-unit {
+    font-family: var(--font-serif);
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 600;
+    color: var(--gold);
+  }
+  .stat-label {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--ink3);
+    text-transform: uppercase;
+  }
+  .stat-sep {
+    width: 1px;
+    height: 48px;
+    background: var(--rule);
+    flex-shrink: 0;
+    align-self: center;
   }
 
   /* ── ② THEMES ── */
@@ -618,46 +828,121 @@ function formatDate(d: Date) {
     padding: 8rem 0;
   }
 
-  .recent-grid {
-    list-style: none;
+  /* Magazine layout */
+  .recent-magazine {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 3fr 2fr;
     gap: 1.5rem;
     margin-bottom: 3rem;
+    align-items: start;
+  }
+
+  /* Hero card (latest) */
+  .recent-hero {
+    display: flex;
+    flex-direction: column;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    text-decoration: none;
+    color: inherit;
+    background: var(--bg);
+    transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+    height: 100%;
+  }
+  .recent-hero:hover {
+    box-shadow: 0 16px 48px rgba(0,0,0,0.14);
+    transform: translateY(-4px);
+    border-color: var(--gold);
+  }
+  .recent-hero-img-wrap {
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .recent-hero-img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: top center;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  .recent-hero-img--ph {
+    display: flex; align-items: center; justify-content: center;
+  }
+  .recent-hero-img--ph span {
+    font-family: var(--font-serif);
+    font-size: 4rem; color: rgba(255,255,255,0.2);
+  }
+  .recent-hero:hover .recent-hero-img { transform: scale(1.04); }
+  .recent-hero-body {
+    padding: 1.8rem 2rem 2rem;
+    display: flex; flex-direction: column; gap: 0.75rem;
+    flex: 1;
+  }
+  .recent-hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+  .recent-hero-desc {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    color: var(--ink3);
+    line-height: 1.75;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Sub grid (2 small cards) */
+  .recent-sub-grid {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
   .recent-card {
     display: flex; flex-direction: column;
-    border-radius: 12px; overflow: hidden;
+    border-radius: 10px; overflow: hidden;
     border: 1px solid var(--rule);
     text-decoration: none; color: inherit;
     background: var(--bg);
-    transition: box-shadow 0.3s, transform 0.3s;
+    transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
   }
   .recent-card:hover {
-    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
-    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+    border-color: var(--gold);
   }
 
   .recent-card-img {
-    width: 100%; aspect-ratio: 16/10;
-    object-fit: cover; display: block;
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width: 100%; aspect-ratio: 16/9;
+    object-fit: cover; object-position: top center;
+    display: block;
+    transition: transform 0.4s ease;
   }
   .recent-card:hover .recent-card-img { transform: scale(1.04); }
 
   .recent-card-img--placeholder {
+    aspect-ratio: 16/9;
     background: var(--accent);
     display: flex; align-items: center; justify-content: center;
   }
   .recent-card-img--placeholder span {
     font-family: var(--font-serif);
-    font-size: 3rem; color: rgba(255,255,255,0.25);
+    font-size: 2.5rem; color: rgba(255,255,255,0.2);
   }
 
   .recent-card-body {
-    padding: 1.4rem 1.4rem 1.6rem;
-    display: flex; flex-direction: column; gap: 0.5rem;
+    padding: 1rem 1.2rem 1.2rem;
+    display: flex; flex-direction: column; gap: 0.4rem;
     flex: 1;
   }
 
@@ -670,7 +955,7 @@ function formatDate(d: Date) {
 
   .recent-title {
     font-family: var(--font-serif);
-    font-size: 0.92rem; font-weight: 700;
+    font-size: 0.88rem; font-weight: 700;
     color: var(--ink); line-height: 1.6;
     flex: 1;
     display: -webkit-box;
@@ -681,38 +966,11 @@ function formatDate(d: Date) {
 
   .recent-date {
     font-family: var(--font-sans);
-    font-size: 0.68rem; color: var(--ink3);
-    margin-top: auto;
+    font-size: 0.66rem; color: var(--ink3);
+    margin-top: 0.2rem;
   }
 
   .recent-more { text-align: center; }
-
-  /* ── ⑤ MANIFESTO ── */
-  .manifesto {
-    background: #000;
-    padding: 9rem 0;
-  }
-
-  .manifesto-inner { text-align: center; }
-
-  .manifesto-quote {
-    font-style: normal;
-  }
-
-  .manifesto-quote p {
-    font-family: var(--font-serif);
-    font-size: clamp(1.6rem, 4vw, 3rem);
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.7;
-    letter-spacing: 0.06em;
-  }
-
-  .manifesto-quote-2 {
-    margin-top: 1.5rem;
-    color: rgba(255,255,255,0.5) !important;
-    font-size: clamp(1.1rem, 2.5vw, 1.8rem) !important;
-  }
 
   /* ── ⑥ AUDIBLE ── */
   .audible {
@@ -759,12 +1017,11 @@ function formatDate(d: Date) {
 
   /* ── ⑤ PHILOSOPHY ── */
   .philosophy {
-    background: linear-gradient(180deg, var(--bg) 0%, #0d0b1a 40%, #0d0b1a 100%);
+    background: var(--bg2, #f7f5f0);
     padding: 8rem 0;
     border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
   }
-
-  .phil-eyebrow { color: #a78bfa; }
 
   .phil-head {
     display: flex;
@@ -775,22 +1032,10 @@ function formatDate(d: Date) {
     margin-bottom: 0.5rem;
   }
 
-  .phil-heading {
-    color: #fff;
-    margin-bottom: 0;
-  }
-
-  .pill-link--phil {
-    border-color: #7c3aed;
-    color: #a78bfa;
-    white-space: nowrap;
-  }
-  .pill-link--phil:hover { background: #7c3aed; color: #fff; }
-
   .phil-sub {
     font-family: var(--font-serif);
     font-size: 0.92rem;
-    color: rgba(255,255,255,0.4);
+    color: var(--ink3);
     line-height: 1.8;
     margin-bottom: 3rem;
   }
@@ -807,23 +1052,23 @@ function formatDate(d: Date) {
     flex-direction: column;
     border-radius: 10px;
     overflow: hidden;
-    border: 1px solid rgba(124,58,237,0.2);
-    background: rgba(124,58,237,0.04);
+    border: 1px solid var(--rule);
+    background: var(--bg);
     text-decoration: none;
     color: inherit;
     transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
   }
   .phil-card:hover {
-    border-color: rgba(124,58,237,0.6);
+    border-color: var(--gold);
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(124,58,237,0.15);
+    box-shadow: 0 12px 40px rgba(59,140,110,0.12);
   }
 
   .phil-card-img-wrap {
     width: 100%;
     aspect-ratio: 16/10;
     overflow: hidden;
-    background: #0d0b1a;
+    background: var(--accent);
   }
   .phil-card-img {
     width: 100%;
@@ -848,7 +1093,7 @@ function formatDate(d: Date) {
     font-size: 0.6rem;
     font-weight: 700;
     letter-spacing: 0.2em;
-    color: #a78bfa;
+    color: var(--gold);
     text-transform: uppercase;
   }
 
@@ -856,7 +1101,7 @@ function formatDate(d: Date) {
     font-family: var(--font-serif);
     font-size: 0.92rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--ink);
     line-height: 1.6;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -867,7 +1112,7 @@ function formatDate(d: Date) {
   .phil-card-lesson {
     font-family: var(--font-sans);
     font-size: 0.73rem;
-    color: rgba(167,139,250,0.7);
+    color: var(--ink3);
     line-height: 1.65;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -934,16 +1179,30 @@ function formatDate(d: Date) {
     .spotlight-img-wrap { max-width: 560px; }
   }
 
+  @media (max-width: 900px) {
+    .stat-item { padding: 0.75rem 1.5rem; }
+    .stat-sep { height: 36px; }
+    .recent-magazine { grid-template-columns: 1fr; }
+    .recent-sub-grid { flex-direction: row; }
+    .recent-sub-grid li { flex: 1; }
+  }
+
   @media (max-width: 768px) {
     .themes, .recent, .books, .philosophy { padding: 5rem 0; }
+    .stats { padding: 2.5rem 0; }
     .spotlight { padding: 5rem 0; }
-    .manifesto { padding: 6rem 0; }
-    .recent-grid { grid-template-columns: 1fr; }
     .phil-grid { grid-template-columns: 1fr; }
     .book-grid { grid-template-columns: 1fr; gap: 1rem; }
     .audible-inner { flex-direction: column; align-items: flex-start; }
     .hero-inner { padding: calc(var(--nav-height) + 2rem) 1.5rem 4rem; }
     .phil-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  }
+
+  @media (max-width: 600px) {
+    .stats-inner { gap: 0; }
+    .stat-item { padding: 0.6rem 1rem; }
+    .stat-sep { height: 28px; }
+    .recent-sub-grid { flex-direction: column; }
   }
 
   @media (max-width: 480px) {
