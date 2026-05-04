@@ -49,11 +49,14 @@ function formatDate(d: Date) {
   title="決断の系譜 | 500年前の武将の知恵が、今日の答えになる。"
   description="決断できない夜に、武将の記録が答えをくれる。月曜日の悩みに、500年前の戦国武将が答える日本史ビジネスブログ。"
 >
+  <!-- スクロールプログレスバー -->
+  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
 
   <!-- ①  H E R O -->
   <section class="hero">
     <canvas class="lightning-canvas" id="lightning-canvas" aria-hidden="true"></canvas>
     <div class="hero-flash" id="hero-flash" aria-hidden="true"></div>
+    <div class="ember-container" id="ember-container" aria-hidden="true"></div>
     <div class="hero-inner">
       <p class="hero-eyebrow">決断の系譜</p>
       <h1 class="hero-title" id="hero-title">武将の知恵が、今日の答えになる。</h1>
@@ -377,7 +380,7 @@ function formatDate(d: Date) {
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // Stats counter animation
+  // Stats counter animation with glow
   const counterObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
@@ -387,13 +390,18 @@ function formatDate(d: Date) {
       const fps = 60;
       const total = duration / (1000 / fps);
       let frame = 0;
+      el.classList.add('counting');
       // easeOutExpo
       const timer = setInterval(() => {
         frame++;
         const progress = frame / total;
         const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
         el.textContent = Math.floor(eased * target).toString();
-        if (frame >= total) { el.textContent = target.toString(); clearInterval(timer); }
+        if (frame >= total) {
+          el.textContent = target.toString();
+          clearInterval(timer);
+          setTimeout(() => el.classList.remove('counting'), 600);
+        }
       }, 1000 / fps);
       counterObs.unobserve(el);
     });
@@ -401,7 +409,147 @@ function formatDate(d: Date) {
   document.querySelectorAll('.stat-num').forEach(el => counterObs.observe(el));
 </script>
 
+<!-- Progress bar + Embers + Stagger animations -->
+<script>
+  // ── Scroll progress bar ──
+  const progressBar = document.getElementById('scroll-progress');
+  function updateProgress() {
+    if (!progressBar) return;
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    (progressBar as HTMLElement).style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+
+  // ── Ember / spark particles in hero ──
+  const emberContainer = document.getElementById('ember-container');
+  function spawnEmber() {
+    if (!emberContainer) return;
+    const ember = document.createElement('span');
+    ember.className = 'ember';
+    const size = 1.5 + Math.random() * 3;
+    const x = 5 + Math.random() * 90;
+    const duration = 3.5 + Math.random() * 4;
+    const drift = (Math.random() - 0.5) * 80;
+    ember.style.cssText = `left:${x}%;width:${size}px;height:${size}px;--ember-duration:${duration}s;--ember-drift:${drift}px`;
+    emberContainer.appendChild(ember);
+    setTimeout(() => ember.remove(), (duration + 0.5) * 1000);
+  }
+  // Initial burst
+  for (let i = 0; i < 10; i++) setTimeout(spawnEmber, i * 180);
+  // Ongoing
+  setInterval(spawnEmber, 700);
+
+  // ── Staggered theme card entrance ──
+  const themeItems = document.querySelectorAll('.theme-grid > li');
+  themeItems.forEach(li => li.classList.add('stagger-ready'));
+
+  const staggerObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const items = (e.target as HTMLElement).querySelectorAll('.stagger-ready');
+      items.forEach((item, i) => {
+        setTimeout(() => item.classList.add('stagger-in'), i * 75);
+      });
+      staggerObs.unobserve(e.target);
+    });
+  }, { threshold: 0.08 });
+  const themeSection = document.querySelector('.themes');
+  if (themeSection) staggerObs.observe(themeSection);
+
+  // ── Staggered philosophy card entrance ──
+  const philItems = document.querySelectorAll('.phil-grid > li');
+  philItems.forEach(li => li.classList.add('stagger-ready'));
+
+  const philStaggerObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const items = (e.target as HTMLElement).querySelectorAll('.stagger-ready');
+      items.forEach((item, i) => {
+        setTimeout(() => item.classList.add('stagger-in'), i * 110);
+      });
+      philStaggerObs.unobserve(e.target);
+    });
+  }, { threshold: 0.08 });
+  const philSection = document.querySelector('.philosophy');
+  if (philSection) philStaggerObs.observe(philSection);
+
+  // ── Recent magazine cards entrance ──
+  const recentItems = document.querySelectorAll('.recent-hero, .recent-sub-grid li');
+  recentItems.forEach(el => el.classList.add('stagger-ready'));
+
+  const recentStaggerObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const items = (e.target as HTMLElement).querySelectorAll('.stagger-ready');
+      items.forEach((item, i) => {
+        setTimeout(() => item.classList.add('stagger-in'), i * 90);
+      });
+      recentStaggerObs.unobserve(e.target);
+    });
+  }, { threshold: 0.05 });
+  const recentSection = document.querySelector('.recent-magazine');
+  if (recentSection) recentStaggerObs.observe(recentSection);
+</script>
+
 <style>
+  /* ── SCROLL PROGRESS BAR ── */
+  .scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2.5px;
+    width: 0%;
+    background: linear-gradient(to right, var(--gold), #a8e4c0, var(--gold-light));
+    z-index: 9999;
+    pointer-events: none;
+    transition: width 0.05s linear;
+    box-shadow: 0 0 8px rgba(59,140,110,0.7);
+  }
+
+  /* ── EMBER PARTICLES ── */
+  .ember-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    overflow: hidden;
+  }
+  .ember {
+    position: absolute;
+    bottom: -4px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #a8e4c0, rgba(59,140,110,0.6));
+    box-shadow: 0 0 6px rgba(59,140,110,0.9), 0 0 14px rgba(59,140,110,0.4);
+    animation: ember-rise var(--ember-duration, 4s) ease-out forwards;
+    opacity: 0;
+  }
+  @keyframes ember-rise {
+    0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+    10%  { opacity: 0.85; }
+    80%  { opacity: 0.4; }
+    100% { transform: translateY(-65vh) translateX(var(--ember-drift, 40px)) scale(0.3); opacity: 0; }
+  }
+
+  /* ── STAGGER ENTRANCE ── */
+  .stagger-ready {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .stagger-ready.stagger-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── STAT NUMBER GLOW ── */
+  .stat-num.counting {
+    color: var(--gold);
+    text-shadow: 0 0 24px rgba(59,140,110,0.6), 0 0 8px rgba(59,140,110,0.4);
+    transition: color 0.2s, text-shadow 0.2s;
+  }
+
   /* ── UTILITIES ── */
   .container {
     max-width: var(--max-width);
