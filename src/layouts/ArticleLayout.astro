@@ -292,6 +292,23 @@ const awaseteYomitai = _shuffled.slice(0, 3).map(p => ({
         </section>
       )}
 
+      <!-- Kindle Unlimited バナー -->
+      <div class="kindle-banner">
+        <div class="kindle-banner-inner">
+          <span class="kindle-icon">📖</span>
+          <div class="kindle-text">
+            <p class="kindle-catch">この記事で紹介した本、読み放題で読める</p>
+            <p class="kindle-body">Kindle Unlimited なら歴史・戦略書が月額980円で読み放題。30日間無料で試せます。</p>
+          </div>
+          <a
+            href="https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_id=185&pl_id=4062&url=https%3A%2F%2Fwww.amazon.co.jp%2Fkindle-dbs%2Fhz%2Fsignup"
+            target="_blank"
+            rel="nofollow sponsored noopener"
+            class="kindle-btn"
+          >30日間無料で試す →</a>
+        </div>
+      </div>
+
       <!-- メール登録 -->
       <NewsletterForm />
 
@@ -760,6 +777,59 @@ const awaseteYomitai = _shuffled.slice(0, 3).map(p => ({
   }
 
   /* 書籍アフィリエイトゾーン */
+  /* Kindle Unlimited バナー */
+  .kindle-banner {
+    margin: 2rem 0;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface, #f9f9f9);
+    overflow: hidden;
+  }
+  .kindle-banner-inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    flex-wrap: wrap;
+  }
+  .kindle-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+  .kindle-text {
+    flex: 1;
+    min-width: 0;
+  }
+  .kindle-catch {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 0.25rem;
+  }
+  .kindle-body {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    margin: 0;
+    line-height: 1.6;
+  }
+  .kindle-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1.25rem;
+    background: #FF9900;
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 700;
+    border-radius: 4px;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .kindle-btn:hover { background: #e68a00; }
+
   .affiliate-zone {
     background: var(--bg-navy);
     border-radius: 6px;
