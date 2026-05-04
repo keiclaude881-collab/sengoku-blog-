@@ -15,7 +15,8 @@ interface Props {
   ogImage?:    string;
 }
 const { title, description, date, category, tags, readingTime, lesson, slug, ogImage } = Astro.props;
-const isPortrait = category === "movie" || category === "anime";
+const isPortrait    = category === "movie" || category === "anime";
+const isPhilosophy  = category === "philosophy";
 
 const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'short', day: 'numeric' });
 ---
@@ -24,7 +25,7 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
   <a href={`/blog/${slug}/`} class="card-link" tabindex="-1" aria-hidden="true"></a>
 
   {ogImage && (
-    <div class:list={["card-thumb", { "card-thumb--portrait": isPortrait }]}>
+    <div class:list={["card-thumb", { "card-thumb--portrait": isPortrait, "card-thumb--philosophy": isPhilosophy }]}>
       <img src={ogImage} alt={title} loading="lazy" />
     </div>
   )}
@@ -90,6 +91,11 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
   .article-card:hover .card-thumb img {
     transform: scale(1.05);
   }
+  /* 哲学：人物写真は上基準で表示（顔が切れないように）*/
+  .card-thumb--philosophy img {
+    object-position: top center;
+  }
+
   /* 縦長ポスター（映画・アニメ）*/
   .card-thumb--portrait {
     height: 240px;
