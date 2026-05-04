@@ -1,0 +1,371 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ArticleCard from "../../components/ArticleCard.astro";
+
+const posts = (await getCollection("philosophy"))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+function slug(id: string) {
+  return `philosophy/${id.replace(/\.mdx?$/, "")}`;
+}
+
+const PHILOSOPHERS = [
+  { name: "ニーチェ",       en: "Nietzsche",     key: "ニーチェ",     tagline: "意味を自分で作る" },
+  { name: "キルケゴール",   en: "Kierkegaard",   key: "キルケゴール", tagline: "それでも決断する" },
+  { name: "ハイデガー",     en: "Heidegger",     key: "ハイデガー",   tagline: "死を意識して生きる" },
+  { name: "カミュ",         en: "Camus",         key: "カミュ",       tagline: "不条理と向き合う" },
+  { name: "ヴィトゲンシュタイン", en: "Wittgenstein", key: "ヴィトゲンシュタイン", tagline: "語れることだけ語る" },
+];
+---
+
+<BaseLayout
+  title="哲学の知恵 | 決断の系譜"
+  description="ニーチェ・キルケゴール・ハイデガー——2500年の哲学が今日のあなたの悩みに答える。仕事・決断・生きる意味を哲学で読み解く。"
+>
+  <!-- ヒーロー -->
+  <section class="phil-hero">
+    <div class="hero-noise" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <span class="hero-eyebrow">PHILOSOPHY</span>
+        <h1 class="hero-heading">哲学の<em>知恵</em></h1>
+        <p class="hero-sub">
+          「なんのために働いているのか」「どうしても決められない」「このままでいいのか」——<br />
+          その問いは、哲学者たちが何百年もかけて考えてきたものと同じだ。
+        </p>
+        <p class="hero-sub2">
+          難しい言葉ではなく、今日の自分の悩みから読む哲学。
+        </p>
+      </div>
+      <div class="hero-deco" aria-hidden="true">哲</div>
+    </div>
+  </section>
+
+  <!-- 哲学者ナビ -->
+  <section class="phil-nav-section">
+    <div class="container">
+      <p class="nav-label">哲学者で探す</p>
+      <ul class="phil-nav" role="list">
+        {PHILOSOPHERS.map(p => {
+          const found = posts.some(post => post.data.tags?.includes(p.key));
+          return (
+            <li>
+              <div class={`phil-chip ${found ? '' : 'coming'}`}>
+                <span class="chip-name">{p.name}</span>
+                <span class="chip-en">{p.en}</span>
+                <span class="chip-tagline">{p.tagline}</span>
+                {!found && <span class="chip-soon">近日公開</span>}
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </section>
+
+  <!-- 記事一覧 -->
+  <section class="articles-section">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">全{posts.length}記事</h2>
+        <p class="section-sub">社会人の悩みから読む哲学</p>
+      </div>
+
+      {posts.length > 0 ? (
+        <ul class="article-grid" role="list">
+          {posts.map(post => (
+            <li>
+              <ArticleCard
+                title={post.data.title}
+                description={post.data.description}
+                date={post.data.date}
+                category={post.data.category}
+                tags={post.data.tags}
+                readingTime={post.data.readingTime}
+                lesson={post.data.lesson}
+                slug={slug(post.id)}
+                ogImage={post.data.ogImage}
+              />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="empty">記事を準備中です。</p>
+      )}
+    </div>
+  </section>
+
+  <!-- Audible バナー -->
+  <section class="audible-section">
+    <div class="container">
+      <div class="audible-banner">
+        <div class="audible-text">
+          <p class="audible-catch">哲学書を耳から読む</p>
+          <p class="audible-body">Audibleなら「ニーチェ入門」「ハイデガー入門」を通勤中に。月額1,500円、30日間無料。</p>
+        </div>
+        <a
+          href="https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_id=185&pl_id=4062&url=https%3A%2F%2Fwww.amazon.co.jp%2Fftu%2Fhome"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="audible-btn"
+        >📚 30日間無料で試す →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ── Hero ── */
+  .phil-hero {
+    background: linear-gradient(135deg, #1a1040 0%, #0d0d1a 60%, #0d0d0d 100%);
+    padding: calc(var(--nav-height) + 4rem) 0 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-noise {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-content {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    color: #a78bfa;
+    text-transform: uppercase;
+  }
+
+  .hero-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.04em;
+    line-height: 1.25;
+  }
+  .hero-heading em {
+    font-style: normal;
+    color: #a78bfa;
+  }
+
+  .hero-sub {
+    font-family: var(--font-serif);
+    font-size: clamp(0.88rem, 2vw, 1.05rem);
+    font-weight: 400;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.85;
+    border-left: 2px solid #7c3aed;
+    padding-left: 1rem;
+  }
+
+  .hero-sub2 {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.7;
+  }
+
+  .hero-deco {
+    font-family: var(--font-serif);
+    font-size: clamp(8rem, 18vw, 16rem);
+    font-weight: 800;
+    color: rgba(124,58,237,0.06);
+    line-height: 1;
+    user-select: none;
+    flex-shrink: 0;
+  }
+
+  /* ── Phil nav ── */
+  .phil-nav-section {
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav-label {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--ink3);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .phil-nav {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .phil-chip {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0.7rem 1.1rem;
+    border: 1px solid rgba(124,58,237,0.3);
+    border-radius: 6px;
+    background: rgba(124,58,237,0.05);
+    transition: border-color 0.2s, background 0.2s;
+    cursor: default;
+    min-width: 120px;
+  }
+  .phil-chip:hover {
+    border-color: rgba(124,58,237,0.6);
+    background: rgba(124,58,237,0.1);
+  }
+  .phil-chip.coming {
+    opacity: 0.5;
+    border-style: dashed;
+  }
+
+  .chip-name {
+    font-family: var(--font-serif);
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .chip-en {
+    font-family: var(--font-sans);
+    font-size: 0.62rem;
+    color: var(--ink3);
+    letter-spacing: 0.05em;
+  }
+  .chip-tagline {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    color: #7c3aed;
+    margin-top: 0.2rem;
+  }
+  .chip-soon {
+    font-family: var(--font-sans);
+    font-size: 0.62rem;
+    color: var(--ink3);
+    font-style: italic;
+  }
+
+  /* ── Articles ── */
+  .articles-section {
+    padding: 3rem 0 4rem;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .section-sub {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--ink3);
+  }
+
+  .empty {
+    color: var(--ink3);
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 3rem;
+  }
+
+  /* ── Audible ── */
+  .audible-section {
+    padding: 0 0 4rem;
+  }
+
+  .audible-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    background: rgba(124,58,237,0.06);
+    border: 1px solid rgba(124,58,237,0.2);
+    border-left: 4px solid #7c3aed;
+    border-radius: 6px;
+    flex-wrap: wrap;
+  }
+
+  .audible-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .audible-catch {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .audible-body {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    color: var(--ink2);
+    line-height: 1.65;
+  }
+
+  .audible-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.7rem 1.4rem;
+    background: #7c3aed;
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 700;
+    border-radius: 4px;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .audible-btn:hover { background: #6d28d9; }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .phil-hero { padding: calc(var(--nav-height) + 2.5rem) 0 2.5rem; }
+    .hero-deco { display: none; }
+    .phil-chip { min-width: 100px; }
+  }
+
+  @media (max-width: 480px) {
+    .audible-banner { flex-direction: column; align-items: flex-start; }
+    .audible-btn { width: 100%; justify-content: center; }
+  }
+</style>

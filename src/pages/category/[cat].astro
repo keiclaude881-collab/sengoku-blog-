@@ -4,20 +4,20 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticleCard from "../../components/ArticleCard.astro";
 import { THEME_INFO, THEME_ORDER, type ThemeSlug, type CategoryName } from "../../utils/arcMap";
 
-// 5つの悩みカテゴリ + メディア系
-type Cat = ThemeSlug | "books" | "movie" | "anime" | "novel";
+// 5つの悩みカテゴリ + メディア系 + 哲学
+type Cat = ThemeSlug | "books" | "movie" | "anime" | "novel" | "philosophy";
 
 export async function getStaticPaths() {
-  const cats: Cat[] = [...THEME_ORDER, "books", "movie", "anime", "novel"];
+  const cats: Cat[] = [...THEME_ORDER, "books", "movie", "anime", "novel", "philosophy"];
   return cats.map(cat => ({ params: { cat } }));
 }
 
-const THEME_CATS: Cat[] = [...THEME_ORDER, "books", "movie", "anime", "novel"];
+const THEME_CATS: Cat[] = [...THEME_ORDER, "books", "movie", "anime", "novel", "philosophy"];
 
 const { cat } = Astro.params as { cat: Cat };
 
 // 全コレクションから category フィールドでフィルタ
-const ALL_COLLECTIONS = ["battle","world","leader","strategy","whatif","anime","movie","novel","books"] as const;
+const ALL_COLLECTIONS = ["battle","world","leader","strategy","whatif","anime","movie","novel","books","philosophy"] as const;
 const allPosts = (await Promise.all(
   ALL_COLLECTIONS.map(c => getCollection(c).catch(() => []))
 )).flat().filter(p => p.data.category === cat)
@@ -53,6 +53,12 @@ const MEDIA_META: Record<string, { label: string; icon: string; tagline: string;
     tagline: "物語の中の決断が、今日の自分に重なる",
     desc:    "フィクションの登場人物たちは、歴史の英傑と同じ構造の選択をしている。",
   },
+  philosophy: {
+    label:   "哲学の知恵",
+    icon:    "哲",
+    tagline: "2500年前の問いが、今日のあなたへの答えだ",
+    desc:    "ニーチェ、キルケゴール、ハイデガー——彼らが格闘した問いは、仕事・人間関係・生きる意味という今日の悩みと同じ構造をしている。",
+  },
 };
 
 const isTheme = THEME_ORDER.includes(cat as ThemeSlug);
@@ -70,7 +76,8 @@ const AUDIBLE_COPY: Record<string, string> = {
   lead:     "人を動かすリーダーの言葉を、通勤中に。",
   recover:  "逆境を越えた者の思考を、耳から学ぶ。",
   strategy: "戦略の本質は、聴いて初めてわかる。",
-  change:   "自分を変えた者の哲学を、30日間無料で。",
+  change:      "自分を変えた者の哲学を、30日間無料で。",
+  philosophy:  "哲学書を通勤中に。ニーチェも、ハイデガーも、耳から入ってくる。",
 };
 const audibleCopy = AUDIBLE_COPY[cat] ?? null;
 ---
