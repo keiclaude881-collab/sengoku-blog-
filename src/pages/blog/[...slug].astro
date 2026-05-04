@@ -9,7 +9,7 @@ type CollectionName = CategoryName;
 
 export async function getStaticPaths() {
   const allPosts = (await Promise.all(
-    (["battle", "leader", "strategy", "books", "movie", "whatif", "anime", "novel", "world"] as const).map(c => getCollection(c))
+    (["battle", "leader", "strategy", "books", "movie", "whatif", "anime", "novel", "world", "philosophy"] as const).map(c => getCollection(c))
   )).flat();
 
   return allPosts.map(post => ({

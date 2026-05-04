@@ -6,7 +6,7 @@ import AffiliateDisclosure from "../components/AffiliateDisclosure.astro";
 import { THEME_INFO, THEME_ORDER } from "../utils/arcMap";
 
 // 最新記事（全カテゴリ、最新3件）
-const ALL_COLLECTIONS = ["battle","world","leader","strategy","whatif","anime","movie","novel","books"] as const;
+const ALL_COLLECTIONS = ["battle","world","leader","strategy","whatif","anime","movie","novel","books","philosophy"] as const;
 const allPosts = (await Promise.all(
   ALL_COLLECTIONS.map(c => getCollection(c).catch(() => []))
 )).flat().sort((a, b) => b.data.date.getTime() - a.data.date.getTime());

@@ -11,6 +11,7 @@ export async function GET(context: APIContext) {
     getCollection("movie"),
     getCollection("whatif"),
     getCollection("anime"),
+    getCollection("philosophy").catch(() => []),
   ]);
 
   const allPosts = collections

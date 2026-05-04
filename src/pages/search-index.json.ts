@@ -12,6 +12,7 @@ export async function GET(_context: APIContext) {
     getCollection("anime"),
     getCollection("novel"),
     getCollection("world").catch(() => []),
+    getCollection("philosophy").catch(() => []),
   ]);
 
   const items = collections

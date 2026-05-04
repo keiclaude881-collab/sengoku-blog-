@@ -2,7 +2,7 @@ export type ThemeSlug = "decide" | "lead" | "recover" | "strategy" | "change";
 export type CategoryName =
   | "decide" | "lead" | "recover" | "strategy" | "change"
   | "anime" | "movie" | "novel"
-  | "books";
+  | "books" | "philosophy";
 
 export interface ThemeInfo {
   slug:        ThemeSlug;
@@ -73,7 +73,8 @@ export const CAT_LABEL: Record<CategoryName, string> = {
   anime:    "アニメの知恵",
   movie:    "映画の知恵",
   novel:    "小説・物語",
-  books:    "書籍レビュー",
+  books:      "書籍レビュー",
+  philosophy: "哲学の知恵",
 };
 
 // 後方互換用（arcページが残っている場合のフォールバック）
@@ -95,5 +96,6 @@ export const CATEGORY_TO_ARC: Record<CategoryName, ThemeSlug | null> = {
   anime:    null,
   movie:    null,
   novel:    null,
-  books:    null,
+  books:      null,
+  philosophy: null,
 };
