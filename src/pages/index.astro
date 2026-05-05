@@ -1,25 +1,18 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import BookCard from "../components/BookCard.astro";
-import AffiliateDisclosure from "../components/AffiliateDisclosure.astro";
 import { THEME_INFO, THEME_ORDER } from "../utils/arcMap";
 
-// 最新記事（全カテゴリ、最新3件）
 const ALL_COLLECTIONS = ["battle","world","leader","strategy","whatif","anime","movie","novel","books","philosophy"] as const;
 const allPosts = (await Promise.all(
   ALL_COLLECTIONS.map(c => getCollection(c).catch(() => []))
 )).flat().sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
-const recentPosts = allPosts.slice(0, 3);
+const recentPosts = allPosts.slice(0, 4);
 
-// 哲学記事（最新3件）
 const philosophyPosts = (await getCollection("philosophy").catch(() => []))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
-
-// フィーチャー記事（ogImageがあるdecide記事の最新1件）
-const featured = allPosts.find(p => p.data.category === "decide" && p.data.ogImage) ?? allPosts[0];
 
 function slug(col: string, id: string) {
   return `${col}/${id.replace(/\.mdx?$/, "")}`;
@@ -27,22 +20,22 @@ function slug(col: string, id: string) {
 
 const AUDIBLE_URL = "https://af.moshimo.com/af/c/click?a_id=5427522&p_id=170&pc_id=185&pl_id=4062&url=https%3A%2F%2Fwww.amazon.co.jp%2Fftu%2Fhome";
 
-const books = [
-  { title: "孫子の兵法（知的生きかた文庫）", asin: "4837900186", reason: "情報戦の原典。戦略思考の基礎が凝縮" },
-  { title: "五輪書（宮本武蔵）", asin: "4003300211", reason: "個の強さとは何か。武蔵の戦略哲学" },
-  { title: "失敗の本質", asin: "4122018331", reason: "なぜ日本軍は負けたのか。組織論の古典" },
+const TICKER_ITEMS = [
+  "桶狭間の戦い 1560","関ヶ原の戦い 1600","川中島の戦い 1561","長篠の戦い 1575",
+  "ガウガメラの戦い BC331","カンナエの戦い BC216","テルモピュライ BC480",
+  "アクティウムの海戦 BC31","アウステルリッツ 1805","ノルマンディー上陸 1944",
+  "本能寺の変 1582","大坂の陣 1614","トラファルガー 1805","スターリングラード 1943","マラトンの戦い BC490",
 ];
-
-const catLabel: Record<string, string> = {
-  decide: "決断できない時", lead: "チームがうまくいかない時",
-  recover: "逆境・失敗した時", strategy: "戦略・方向性に迷った時",
-  change: "自分を変えたい時", books: "書籍レビュー",
-  movie: "映画の知恵", anime: "アニメの知恵", novel: "小説・物語",
-};
 
 function formatDate(d: Date) {
   return d.toLocaleDateString("ja-JP", { year: "numeric", month: "long", day: "numeric" });
 }
+
+const catLabel: Record<string, string> = {
+  battle:"合戦", world:"世界史", leader:"武将", strategy:"戦略",
+  whatif:"もしも", anime:"アニメ", movie:"映画", novel:"小説",
+  books:"書評", philosophy:"哲学",
+};
 ---
 
 <BaseLayout
@@ -52,7 +45,7 @@ function formatDate(d: Date) {
   <!-- スクロールプログレスバー -->
   <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
 
-  <!-- ①  H E R O -->
+  <!-- ① HERO -->
   <section class="hero">
     <canvas class="lightning-canvas" id="lightning-canvas" aria-hidden="true"></canvas>
     <div class="hero-flash" id="hero-flash" aria-hidden="true"></div>
@@ -61,191 +54,104 @@ function formatDate(d: Date) {
       <p class="hero-eyebrow">決断の系譜</p>
       <h1 class="hero-title" id="hero-title">武将の知恵が、今日の答えになる。</h1>
       <p class="hero-sub">500年前の決断から、あなたの悩みを解く。</p>
-      <a href="/blog/" class="hero-cta">記事を読む</a>
+      <a href="#concerns" class="hero-cta">悩みから記事を探す ↓</a>
     </div>
-    <div class="hero-scroll-hint" aria-hidden="true">
-      <span></span>
-    </div>
+    <div class="hero-scroll-hint" aria-hidden="true"><span></span></div>
   </section>
 
-  <!-- ①.5  T I C K E R -->
+  <!-- ② TICKER -->
   <div class="ticker-wrap" aria-hidden="true">
     <div class="ticker">
-      {[
-        "桶狭間の戦い 1560",
-        "関ヶ原の戦い 1600",
-        "川中島の戦い 1561",
-        "長篠の戦い 1575",
-        "ガウガメラの戦い BC331",
-        "カンナエの戦い BC216",
-        "テルモピュライ BC480",
-        "アクティウムの海戦 BC31",
-        "アウステルリッツ 1805",
-        "ノルマンディー上陸 1944",
-        "本能寺の変 1582",
-        "大坂の陣 1614",
-        "トラファルガー 1805",
-        "スターリングラード 1943",
-        "マラトンの戦い BC490",
-      ].concat([
-        "桶狭間の戦い 1560",
-        "関ヶ原の戦い 1600",
-        "川中島の戦い 1561",
-        "長篠の戦い 1575",
-        "ガウガメラの戦い BC331",
-        "カンナエの戦い BC216",
-        "テルモピュライ BC480",
-        "アクティウムの海戦 BC31",
-        "アウステルリッツ 1805",
-        "ノルマンディー上陸 1944",
-        "本能寺の変 1582",
-        "大坂の陣 1614",
-        "トラファルガー 1805",
-        "スターリングラード 1943",
-        "マラトンの戦い BC490",
-      ]).map(text => (
+      {[...TICKER_ITEMS, ...TICKER_ITEMS].map(text => (
         <span class="ticker-item">◆ {text}</span>
       ))}
     </div>
   </div>
 
-  <!-- ①.6  S T A T S -->
-  <section class="stats reveal">
-    <div class="container stats-inner">
-      <div class="stat-item">
-        <div class="stat-num-wrap">
-          <span class="stat-num" data-target={allPosts.length}>0</span>
-          <span class="stat-unit">+</span>
-        </div>
-        <span class="stat-label">記事</span>
-      </div>
-      <div class="stat-sep" aria-hidden="true" />
-      <div class="stat-item">
-        <div class="stat-num-wrap">
-          <span class="stat-num" data-target="2500">0</span>
-        </div>
-        <span class="stat-label">年の歴史</span>
-      </div>
-      <div class="stat-sep" aria-hidden="true" />
-      <div class="stat-item">
-        <div class="stat-num-wrap">
-          <span class="stat-num" data-target="5">0</span>
-        </div>
-        <span class="stat-label">つの悩みテーマ</span>
-      </div>
-      <div class="stat-sep" aria-hidden="true" />
-      <div class="stat-item">
-        <div class="stat-num-wrap">
-          <span class="stat-num" data-target="39">0</span>
-          <span class="stat-unit">冊</span>
-        </div>
-        <span class="stat-label">の戦略書</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ②  C A T E G O R Y  G R I D -->
-  <section class="themes reveal">
+  <!-- ③ THEMES ── ページの主役 -->
+  <section class="themes" id="concerns">
     <div class="container">
-      <p class="eyebrow">THEMES</p>
-      <h2 class="display-heading">あなたの悩みから探す</h2>
-      <ul class="theme-grid" role="list">
-        {THEME_ORDER.map((slug, i) => {
-          const t = THEME_INFO[slug];
-          const num = String(i + 1).padStart(2, '0');
+      <div class="themes-head reveal">
+        <p class="eyebrow eyebrow--light">YOUR CONCERN</p>
+        <h2 class="themes-title">今日の悩みはどれ？</h2>
+        <p class="themes-sub">テーマを選ぶと、その悩みに答える記事一覧へ。</p>
+      </div>
+      <ul class="theme-rows reveal" role="list">
+        {THEME_ORDER.map((themeSlug, i) => {
+          const t = THEME_INFO[themeSlug];
           return (
-            <li>
-              <a href={`/category/${slug}/`} class="theme-card">
-                <span class="theme-num" aria-hidden="true">{num}</span>
-                <span class="theme-icon" aria-hidden="true">{t.icon}</span>
-                <strong class="theme-label">{t.label}</strong>
-                <span class="theme-tagline">{t.tagline}</span>
-                <span class="theme-arrow" aria-hidden="true">記事を見る →</span>
+            <li class="theme-row-item">
+              <a href={`/category/${themeSlug}/`} class="theme-row">
+                <span class="row-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                <span class="row-icon" aria-hidden="true">{t.icon}</span>
+                <span class="row-body">
+                  <strong class="row-label">{t.label}</strong>
+                  <span class="row-tagline">{t.tagline}</span>
+                </span>
+                <span class="row-arrow" aria-hidden="true">記事を見る →</span>
               </a>
             </li>
           );
         })}
       </ul>
+      <div class="themes-foot reveal">
+        <a href="/blog/" class="themes-all-link">全記事を見る →</a>
+      </div>
     </div>
   </section>
 
-  <!-- ③  F E A T U R E  S P O T L I G H T -->
-  {featured && (
-    <section class="spotlight reveal">
-      <div class="spotlight-inner container">
-        <div class="spotlight-text">
-          <p class="eyebrow eyebrow--light">FEATURED</p>
-          <h2 class="spotlight-title">{featured.data.title}</h2>
-          <p class="spotlight-desc">{featured.data.description}</p>
-          <a href={`/blog/${slug(featured.collection, featured.id)}/`} class="spotlight-cta">
-            記事を読む →
-          </a>
-        </div>
-        {featured.data.ogImage && (
-          <div class="spotlight-img-wrap">
-            <img
-              src={featured.data.ogImage}
-              alt={featured.data.title}
-              class="spotlight-img"
-              loading="lazy"
-            />
-          </div>
-        )}
-      </div>
-    </section>
-  )}
-
-  <!-- ④  R E C E N T  A R T I C L E S -->
-  <section class="recent reveal">
+  <!-- ④ ARTICLES -->
+  <section class="articles reveal">
     <div class="container">
       <p class="eyebrow">LATEST</p>
       <h2 class="display-heading">最新記事</h2>
-      <div class="recent-magazine" role="list">
+      <div class="articles-grid">
+        <!-- メイン記事 -->
         {recentPosts[0] && (
-          <a href={`/blog/${slug(recentPosts[0].collection, recentPosts[0].id)}/`} class="recent-hero" role="listitem">
-            <div class="recent-hero-img-wrap">
+          <a href={`/blog/${slug(recentPosts[0].collection, recentPosts[0].id)}/`} class="art-hero">
+            <div class="art-hero-img-wrap">
               {recentPosts[0].data.ogImage
-                ? <img src={recentPosts[0].data.ogImage} alt="" class="recent-hero-img" loading="lazy" />
-                : <div class="recent-hero-img recent-hero-img--ph" aria-hidden="true">
-                    <span>{THEME_INFO[recentPosts[0].data.category as keyof typeof THEME_INFO]?.icon ?? "記"}</span>
-                  </div>
+                ? <img src={recentPosts[0].data.ogImage} alt="" class="art-hero-img" loading="lazy" />
+                : <div class="art-hero-img art-hero-img--ph" aria-hidden="true"><span>記</span></div>
               }
             </div>
-            <div class="recent-hero-body">
-              <span class="recent-cat">{catLabel[recentPosts[0].data.category] ?? recentPosts[0].data.category}</span>
-              <p class="recent-hero-title">{recentPosts[0].data.title}</p>
-              <p class="recent-hero-desc">{recentPosts[0].data.description}</p>
-              <p class="recent-date">{formatDate(recentPosts[0].data.date)}</p>
+            <div class="art-hero-body">
+              <span class="art-cat">{catLabel[recentPosts[0].data.category] ?? recentPosts[0].data.category}</span>
+              <p class="art-hero-title">{recentPosts[0].data.title}</p>
+              {recentPosts[0].data.lesson && (
+                <p class="art-hero-lesson"><span class="lesson-arrow">→</span>{recentPosts[0].data.lesson}</p>
+              )}
+              <p class="art-date">{formatDate(recentPosts[0].data.date)}</p>
+              <span class="art-read-more">続きを読む →</span>
             </div>
           </a>
         )}
-        <ul class="recent-sub-grid" role="list">
-          {recentPosts.slice(1).map(post => (
-            <li role="listitem">
-              <a href={`/blog/${slug(post.collection, post.id)}/`} class="recent-card">
+        <!-- サブリスト -->
+        <ul class="art-list" role="list">
+          {recentPosts.slice(1, 4).map(post => (
+            <li>
+              <a href={`/blog/${slug(post.collection, post.id)}/`} class="art-list-item">
                 {post.data.ogImage
-                  ? <img src={post.data.ogImage} alt="" class="recent-card-img" loading="lazy" />
-                  : <div class="recent-card-img recent-card-img--placeholder" aria-hidden="true">
-                      <span>{THEME_INFO[post.data.category as keyof typeof THEME_INFO]?.icon ?? "記"}</span>
-                    </div>
+                  ? <img src={post.data.ogImage} alt="" class="art-list-img" loading="lazy" />
+                  : <div class="art-list-img art-list-img--ph" aria-hidden="true"><span>記</span></div>
                 }
-                <div class="recent-card-body">
-                  <span class="recent-cat">{catLabel[post.data.category] ?? post.data.category}</span>
-                  <p class="recent-title">{post.data.title}</p>
-                  <p class="recent-date">{formatDate(post.data.date)}</p>
+                <div class="art-list-body">
+                  <span class="art-cat">{catLabel[post.data.category] ?? post.data.category}</span>
+                  <p class="art-list-title">{post.data.title}</p>
+                  <p class="art-date">{formatDate(post.data.date)}</p>
                 </div>
               </a>
             </li>
           ))}
         </ul>
       </div>
-      <div class="recent-more">
+      <div class="articles-more">
         <a href="/blog/" class="pill-link">すべての記事を見る →</a>
       </div>
     </div>
   </section>
 
-  <!-- ⑤  P H I L O S O P H Y -->
+  <!-- ⑤ PHILOSOPHY -->
   {philosophyPosts.length > 0 && (
     <section class="philosophy reveal">
       <div class="container">
@@ -261,12 +167,7 @@ function formatDate(d: Date) {
               <a href={`/blog/${slug(post.collection, post.id)}/`} class="phil-card">
                 {post.data.ogImage && (
                   <div class="phil-card-img-wrap">
-                    <img
-                      src={post.data.ogImage}
-                      alt={post.data.title}
-                      class="phil-card-img"
-                      loading="lazy"
-                    />
+                    <img src={post.data.ogImage} alt={post.data.title} class="phil-card-img" loading="lazy" />
                   </div>
                 )}
                 <div class="phil-card-body">
@@ -284,7 +185,7 @@ function formatDate(d: Date) {
     </section>
   )}
 
-  <!-- ⑦  A U D I B L E -->
+  <!-- ⑥ AUDIBLE -->
   <section class="audible reveal">
     <div class="container audible-inner">
       <div class="audible-text-wrap">
@@ -297,23 +198,9 @@ function formatDate(d: Date) {
     </div>
   </section>
 
-  <!-- ⑧  B O O K S -->
-  <section class="books reveal">
-    <div class="container">
-      <p class="eyebrow">BOOKS</p>
-      <h2 class="display-heading">あわせて読みたい</h2>
-      <AffiliateDisclosure />
-      <div class="book-grid">
-        {books.map(b => (
-          <BookCard title={b.title} asin={b.asin} reason={b.reason} />
-        ))}
-      </div>
-    </div>
-  </section>
-
 </BaseLayout>
 
-<!-- Lightning script (hero) -->
+<!-- ⚡ Lightning -->
 <script>
   const canvas = document.getElementById('lightning-canvas') as HTMLCanvasElement | null;
   const flash  = document.getElementById('hero-flash') as HTMLElement | null;
@@ -373,190 +260,91 @@ function formatDate(d: Date) {
   }
 </script>
 
-<!-- Scroll reveal + Stats counter -->
+<!-- Reveal + Stagger + Progress + Embers -->
 <script>
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); io.unobserve(e.target); } });
+  // ── Scroll reveal ──
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); revealObs.unobserve(e.target); } });
   }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-  // Stats counter animation with glow
-  const counterObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const el = e.target as HTMLElement;
-      const target = parseInt(el.dataset.target ?? '0');
-      const duration = 1400;
-      const fps = 60;
-      const total = duration / (1000 / fps);
-      let frame = 0;
-      el.classList.add('counting');
-      // easeOutExpo
-      const timer = setInterval(() => {
-        frame++;
-        const progress = frame / total;
-        const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-        el.textContent = Math.floor(eased * target).toString();
-        if (frame >= total) {
-          el.textContent = target.toString();
-          clearInterval(timer);
-          setTimeout(() => el.classList.remove('counting'), 600);
-        }
-      }, 1000 / fps);
-      counterObs.unobserve(el);
-    });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('.stat-num').forEach(el => counterObs.observe(el));
-</script>
-
-<!-- Progress bar + Embers + Stagger animations -->
-<script>
   // ── Scroll progress bar ──
-  const progressBar = document.getElementById('scroll-progress');
+  const progressBar = document.getElementById('scroll-progress') as HTMLElement | null;
   function updateProgress() {
     if (!progressBar) return;
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-    (progressBar as HTMLElement).style.width = pct + '%';
+    const pct = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (pct > 0 ? (window.scrollY / pct) * 100 : 0) + '%';
   }
   window.addEventListener('scroll', updateProgress, { passive: true });
 
-  // ── Ember / spark particles in hero ──
+  // ── Ember particles ──
   const emberContainer = document.getElementById('ember-container');
   function spawnEmber() {
     if (!emberContainer) return;
-    const ember = document.createElement('span');
-    ember.className = 'ember';
+    const e = document.createElement('span');
+    e.className = 'ember';
     const size = 1.5 + Math.random() * 3;
-    const x = 5 + Math.random() * 90;
-    const duration = 3.5 + Math.random() * 4;
+    const x    = 5 + Math.random() * 90;
+    const dur  = 3.5 + Math.random() * 4;
     const drift = (Math.random() - 0.5) * 80;
-    ember.style.cssText = `left:${x}%;width:${size}px;height:${size}px;--ember-duration:${duration}s;--ember-drift:${drift}px`;
-    emberContainer.appendChild(ember);
-    setTimeout(() => ember.remove(), (duration + 0.5) * 1000);
+    e.style.cssText = `left:${x}%;width:${size}px;height:${size}px;--d:${dur}s;--dx:${drift}px`;
+    emberContainer.appendChild(e);
+    setTimeout(() => e.remove(), (dur + 0.5) * 1000);
   }
-  // Initial burst
   for (let i = 0; i < 10; i++) setTimeout(spawnEmber, i * 180);
-  // Ongoing
   setInterval(spawnEmber, 700);
 
-  // ── Staggered theme card entrance ──
-  const themeItems = document.querySelectorAll('.theme-grid > li');
-  themeItems.forEach(li => li.classList.add('stagger-ready'));
-
-  const staggerObs = new IntersectionObserver((entries) => {
+  // ── Theme rows stagger ──
+  const themeRowItems = document.querySelectorAll('.theme-row-item');
+  themeRowItems.forEach(el => el.classList.add('stagger-ready'));
+  const themeObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
-      const items = (e.target as HTMLElement).querySelectorAll('.stagger-ready');
-      items.forEach((item, i) => {
-        setTimeout(() => item.classList.add('stagger-in'), i * 75);
+      (e.target as HTMLElement).querySelectorAll('.stagger-ready').forEach((item, i) => {
+        setTimeout(() => item.classList.add('stagger-in'), i * 80);
       });
-      staggerObs.unobserve(e.target);
-    });
-  }, { threshold: 0.08 });
-  const themeSection = document.querySelector('.themes');
-  if (themeSection) staggerObs.observe(themeSection);
-
-  // ── Staggered philosophy card entrance ──
-  const philItems = document.querySelectorAll('.phil-grid > li');
-  philItems.forEach(li => li.classList.add('stagger-ready'));
-
-  const philStaggerObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const items = (e.target as HTMLElement).querySelectorAll('.stagger-ready');
-      items.forEach((item, i) => {
-        setTimeout(() => item.classList.add('stagger-in'), i * 110);
-      });
-      philStaggerObs.unobserve(e.target);
-    });
-  }, { threshold: 0.08 });
-  const philSection = document.querySelector('.philosophy');
-  if (philSection) philStaggerObs.observe(philSection);
-
-  // ── Recent magazine cards entrance ──
-  const recentItems = document.querySelectorAll('.recent-hero, .recent-sub-grid li');
-  recentItems.forEach(el => el.classList.add('stagger-ready'));
-
-  const recentStaggerObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const items = (e.target as HTMLElement).querySelectorAll('.stagger-ready');
-      items.forEach((item, i) => {
-        setTimeout(() => item.classList.add('stagger-in'), i * 90);
-      });
-      recentStaggerObs.unobserve(e.target);
+      themeObs.unobserve(e.target);
     });
   }, { threshold: 0.05 });
-  const recentSection = document.querySelector('.recent-magazine');
-  if (recentSection) recentStaggerObs.observe(recentSection);
+  const themeRowsList = document.querySelector('.theme-rows');
+  if (themeRowsList) themeObs.observe(themeRowsList);
+
+  // ── Articles stagger ──
+  document.querySelectorAll('.art-hero, .art-list li').forEach(el => el.classList.add('stagger-ready'));
+  const artObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      (e.target as HTMLElement).querySelectorAll('.stagger-ready').forEach((item, i) => {
+        setTimeout(() => item.classList.add('stagger-in'), i * 90);
+      });
+      artObs.unobserve(e.target);
+    });
+  }, { threshold: 0.05 });
+  const artGrid = document.querySelector('.articles-grid');
+  if (artGrid) artObs.observe(artGrid);
+
+  // ── Philosophy stagger ──
+  document.querySelectorAll('.phil-grid > li').forEach(el => el.classList.add('stagger-ready'));
+  const philObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      (e.target as HTMLElement).querySelectorAll('.stagger-ready').forEach((item, i) => {
+        setTimeout(() => item.classList.add('stagger-in'), i * 110);
+      });
+      philObs.unobserve(e.target);
+    });
+  }, { threshold: 0.08 });
+  const philGrid = document.querySelector('.phil-grid');
+  if (philGrid) philObs.observe(philGrid);
 </script>
 
 <style>
-  /* ── SCROLL PROGRESS BAR ── */
-  .scroll-progress {
-    position: fixed;
-    top: 0; left: 0;
-    height: 2.5px;
-    width: 0%;
-    background: linear-gradient(to right, var(--gold), #a8e4c0, var(--gold-light));
-    z-index: 9999;
-    pointer-events: none;
-    transition: width 0.05s linear;
-    box-shadow: 0 0 8px rgba(59,140,110,0.7);
-  }
-
-  /* ── EMBER PARTICLES ── */
-  .ember-container {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 2;
-    overflow: hidden;
-  }
-  .ember {
-    position: absolute;
-    bottom: -4px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 40% 35%, #a8e4c0, rgba(59,140,110,0.6));
-    box-shadow: 0 0 6px rgba(59,140,110,0.9), 0 0 14px rgba(59,140,110,0.4);
-    animation: ember-rise var(--ember-duration, 4s) ease-out forwards;
-    opacity: 0;
-  }
-  @keyframes ember-rise {
-    0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
-    10%  { opacity: 0.85; }
-    80%  { opacity: 0.4; }
-    100% { transform: translateY(-65vh) translateX(var(--ember-drift, 40px)) scale(0.3); opacity: 0; }
-  }
-
-  /* ── STAGGER ENTRANCE ── */
-  .stagger-ready {
-    opacity: 0;
-    transform: translateY(22px);
-    transition: opacity 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-  .stagger-ready.stagger-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ── STAT NUMBER GLOW ── */
-  .stat-num.counting {
-    color: var(--gold);
-    text-shadow: 0 0 24px rgba(59,140,110,0.6), 0 0 8px rgba(59,140,110,0.4);
-    transition: color 0.2s, text-shadow 0.2s;
-  }
-
-  /* ── UTILITIES ── */
+  /* ── RESET / UTIL ── */
   .container {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 2rem;
   }
-
   .eyebrow {
     font-family: var(--font-sans);
     font-size: 0.62rem;
@@ -567,20 +355,16 @@ function formatDate(d: Date) {
     margin-bottom: 1rem;
     display: block;
   }
-
   .eyebrow--light { color: var(--gold-light); }
-
   .display-heading {
     font-family: var(--font-serif);
     font-size: clamp(1.6rem, 3.5vw, 2.4rem);
     font-weight: 700;
     color: var(--ink);
     letter-spacing: 0.04em;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     line-height: 1.35;
   }
-
-  /* pill link */
   .pill-link {
     display: inline-flex;
     align-items: center;
@@ -600,13 +384,33 @@ function formatDate(d: Date) {
   /* scroll reveal */
   .reveal {
     opacity: 0;
-    transform: translateY(32px);
-    transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.25,0.46,0.45,0.94),
+                transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
   }
   .reveal.revealed { opacity: 1; transform: translateY(0); }
 
-  /* ── ① HERO ── */
+  /* stagger */
+  .stagger-ready {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s cubic-bezier(0.25,0.46,0.45,0.94),
+                transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .stagger-ready.stagger-in { opacity: 1; transform: translateY(0); }
+
+  /* progress bar */
+  .scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2.5px; width: 0%;
+    background: linear-gradient(to right, var(--gold), #a8e4c0, var(--gold-light));
+    z-index: 9999;
+    pointer-events: none;
+    box-shadow: 0 0 8px rgba(59,140,110,0.7);
+  }
+
+  /* ── HERO ── */
   .hero {
     position: relative;
     background:
@@ -619,83 +423,82 @@ function formatDate(d: Date) {
     text-align: center;
     overflow: hidden;
   }
-
   .lightning-canvas {
     position: absolute; inset: 0;
     width: 100%; height: 100%;
     pointer-events: none; z-index: 1;
   }
-
   .hero-flash {
     position: absolute; inset: 0;
     background: rgba(200,230,255,1);
     opacity: 0; pointer-events: none;
     z-index: 2; mix-blend-mode: overlay;
   }
-
+  .ember-container {
+    position: absolute; inset: 0;
+    pointer-events: none; z-index: 2; overflow: hidden;
+  }
+  .ember {
+    position: absolute; bottom: -4px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #a8e4c0, rgba(59,140,110,0.6));
+    box-shadow: 0 0 6px rgba(59,140,110,0.9), 0 0 14px rgba(59,140,110,0.4);
+    animation: ember-rise var(--d, 4s) ease-out forwards;
+    opacity: 0;
+  }
+  @keyframes ember-rise {
+    0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+    10%  { opacity: 0.85; }
+    80%  { opacity: 0.4; }
+    100% { transform: translateY(-65vh) translateX(var(--dx, 40px)) scale(0.3); opacity: 0; }
+  }
   .hero-inner {
     position: relative; z-index: 3;
     display: flex; flex-direction: column;
     align-items: center; gap: 1.6rem;
     padding: calc(var(--nav-height) + 4rem) 2rem 6rem;
-    max-width: 760px;
-    width: 100%;
+    max-width: 760px; width: 100%;
   }
-
   .hero-eyebrow {
     font-family: var(--font-sans);
-    font-size: 0.65rem;
-    font-weight: 700;
+    font-size: 0.65rem; font-weight: 700;
     letter-spacing: 0.35em;
     color: var(--gold-light);
     text-transform: uppercase;
   }
-
   .hero-title {
     font-family: var(--font-serif);
     font-size: clamp(2.4rem, 8vw, 5rem);
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.25;
-    letter-spacing: 0.04em;
+    font-weight: 700; color: #fff;
+    line-height: 1.25; letter-spacing: 0.04em;
     text-shadow: 0 0 60px rgba(59,140,110,0.2);
     transition: text-shadow 0.2s;
-    text-wrap: balance;
-    word-break: keep-all;
-    overflow-wrap: anywhere;
+    text-wrap: balance; word-break: keep-all; overflow-wrap: anywhere;
   }
   .hero-title.title-flash {
     text-shadow: 0 0 20px rgba(200,230,255,0.7), 0 0 60px rgba(200,230,255,0.35);
   }
-
   .hero-sub {
     font-family: var(--font-serif);
-    font-size: clamp(0.92rem, 2vw, 1.1rem);
-    font-weight: 400;
+    font-size: clamp(0.92rem, 2vw, 1.1rem); font-weight: 400;
     color: rgba(255,255,255,0.65);
-    letter-spacing: 0.06em;
-    line-height: 1.8;
+    letter-spacing: 0.06em; line-height: 1.8;
   }
-
   .hero-cta {
     display: inline-flex; align-items: center;
     padding: 0.9rem 2.6rem;
-    background: var(--gold);
-    color: #fff;
+    background: var(--gold); color: #fff;
     font-family: var(--font-sans);
     font-size: 0.9rem; font-weight: 600;
-    letter-spacing: 0.06em;
-    border-radius: 980px;
+    letter-spacing: 0.06em; border-radius: 980px;
     text-decoration: none;
     transition: background 0.25s, transform 0.25s;
     margin-top: 0.4rem;
   }
   .hero-cta:hover { background: var(--gold-dark); transform: scale(1.03); }
-
-  /* scroll hint */
   .hero-scroll-hint {
-    position: absolute; bottom: 2.2rem; left: 50%; transform: translateX(-50%);
-    z-index: 3;
+    position: absolute; bottom: 2.2rem; left: 50%;
+    transform: translateX(-50%); z-index: 3;
   }
   .hero-scroll-hint span {
     display: block; width: 1px; height: 52px;
@@ -703,507 +506,310 @@ function formatDate(d: Date) {
     animation: scroll-line 1.8s ease-in-out infinite;
   }
   @keyframes scroll-line {
-    0%   { transform: scaleY(0); transform-origin: top; }
-    50%  { transform: scaleY(1); transform-origin: top; }
+    0%     { transform: scaleY(0); transform-origin: top; }
+    50%    { transform: scaleY(1); transform-origin: top; }
     50.01% { transform-origin: bottom; }
-    100% { transform: scaleY(0); transform-origin: bottom; }
+    100%   { transform: scaleY(0); transform-origin: bottom; }
   }
 
-  /* ── ①.5 TICKER ── */
+  /* ── TICKER ── */
   .ticker-wrap {
     background: var(--accent);
     overflow: hidden;
     border-top: 1px solid rgba(255,255,255,0.04);
     border-bottom: 1px solid rgba(255,255,255,0.04);
-    padding: 0.75rem 0;
-    position: relative;
+    padding: 0.75rem 0; position: relative;
   }
-  .ticker-wrap::before,
-  .ticker-wrap::after {
-    content: '';
-    position: absolute;
-    top: 0; bottom: 0;
-    width: 80px;
-    z-index: 1;
-    pointer-events: none;
+  .ticker-wrap::before, .ticker-wrap::after {
+    content: ''; position: absolute; top: 0; bottom: 0; width: 80px;
+    z-index: 1; pointer-events: none;
   }
   .ticker-wrap::before { left: 0; background: linear-gradient(to right, var(--accent), transparent); }
   .ticker-wrap::after  { right: 0; background: linear-gradient(to left, var(--accent), transparent); }
   .ticker {
-    display: flex;
-    gap: 0;
+    display: flex; white-space: nowrap; width: max-content;
     animation: ticker-scroll 40s linear infinite;
-    white-space: nowrap;
-    width: max-content;
   }
   .ticker:hover { animation-play-state: paused; }
   .ticker-item {
-    font-family: var(--font-sans);
-    font-size: 0.68rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    color: rgba(255,255,255,0.45);
-    padding: 0 2rem;
+    font-family: var(--font-sans); font-size: 0.68rem;
+    font-weight: 500; letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.45); padding: 0 2rem;
   }
   @keyframes ticker-scroll {
     0%   { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
 
-  /* ── ①.6 STATS ── */
-  .stats {
-    background: var(--bg);
-    border-bottom: 1px solid var(--rule);
-    padding: 3.5rem 0;
-  }
-  .stats-inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-    flex-wrap: wrap;
-  }
-  .stat-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3rem;
-    padding: 1rem 3rem;
-    text-align: center;
-  }
-  .stat-num-wrap {
-    display: flex;
-    align-items: baseline;
-    gap: 0.15rem;
-  }
-  .stat-num {
-    font-family: var(--font-serif);
-    font-size: clamp(2.4rem, 5vw, 3.8rem);
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1;
-    letter-spacing: -0.02em;
-    font-variant-numeric: tabular-nums;
-    min-width: 3ch;
-    display: inline-block;
-    text-align: right;
-  }
-  .stat-unit {
-    font-family: var(--font-serif);
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    font-weight: 600;
-    color: var(--gold);
-  }
-  .stat-label {
-    font-family: var(--font-sans);
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    color: var(--ink3);
-    text-transform: uppercase;
-  }
-  .stat-sep {
-    width: 1px;
-    height: 48px;
-    background: var(--rule);
-    flex-shrink: 0;
-    align-self: center;
-  }
-
-  /* ── ② THEMES ── */
+  /* ── THEMES ── ページの主役 */
   .themes {
-    background: var(--bg);
-    padding: 8rem 0;
-    border-bottom: 1px solid var(--rule);
+    background: var(--accent);
+    padding: 6rem 0 5rem;
+  }
+  .themes-head {
+    margin-bottom: 3rem;
+  }
+  .themes-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700; color: #fff;
+    letter-spacing: 0.04em; line-height: 1.25;
+    margin-bottom: 0.8rem;
+  }
+  .themes-sub {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.7;
   }
 
-  /* Flex layout — 5 items wrap & center. No empty cell at any width. */
-  .theme-grid {
+  /* テーマ行 */
+  .theme-rows {
     list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.2rem;
+    border-top: 1px solid rgba(255,255,255,0.07);
   }
-
-  .theme-grid > li {
-    flex: 1 1 calc(20% - 1.2rem);
-    min-width: 150px;
-    max-width: 260px;
-  }
-
-  .theme-card {
+  .theme-row-item { position: relative; }
+  .theme-row {
     display: flex;
-    flex-direction: column;
-    padding: 1.8rem 1.4rem 1.5rem;
-    height: 100%;
-    background: var(--bg);
-    border: 1.5px solid var(--rule);
-    border-radius: 14px;
-    text-decoration: none;
+    align-items: center;
+    gap: 1.6rem;
+    padding: 1.8rem 0.5rem 1.8rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    text-decoration: none; color: #fff;
     position: relative;
-    overflow: hidden;
-    transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    transition: padding-left 0.25s cubic-bezier(0.25,0.46,0.45,0.94),
+                background 0.25s;
   }
-  .theme-card::before {
+  .theme-row::before {
     content: '';
-    position: absolute;
-    inset: 0 0 auto 0;
-    height: 3px;
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px;
     background: var(--gold);
     opacity: 0;
     transition: opacity 0.25s;
   }
-  .theme-card:hover {
-    border-color: var(--gold);
-    box-shadow: 0 10px 36px rgba(59,140,110,0.11);
-    transform: translateY(-3px);
-  }
-  .theme-card:hover::before { opacity: 1; }
-  .theme-card:hover .theme-arrow { opacity: 1; transform: translateX(0); }
+  .theme-row:hover { padding-left: 1.2rem; }
+  .theme-row:hover::before { opacity: 1; }
+  .theme-row:hover .row-num { color: var(--gold-light); }
+  .theme-row:hover .row-icon { transform: scale(1.1); }
+  .theme-row:hover .row-arrow { opacity: 1; transform: translateX(0); color: var(--gold-light); }
 
-  .theme-num {
+  .row-num {
     font-family: var(--font-sans);
-    font-size: 0.55rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    color: var(--ink3);
-    display: block;
-    margin-bottom: 1.2rem;
+    font-size: 0.6rem; font-weight: 700;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.25);
+    width: 2rem; flex-shrink: 0;
+    transition: color 0.25s;
   }
-
-  .theme-icon {
+  .row-icon {
     font-family: var(--font-serif);
-    font-size: 2.6rem;
-    color: var(--gold);
+    font-size: 2rem; color: var(--gold);
+    width: 2.8rem; text-align: center; flex-shrink: 0;
     line-height: 1;
-    display: block;
-    margin-bottom: 1rem;
+    transition: transform 0.25s;
   }
-
-  .theme-label {
-    font-family: var(--font-serif);
-    font-size: 0.88rem;
-    font-weight: 700;
-    color: var(--ink);
-    letter-spacing: 0.03em;
-    line-height: 1.5;
-    display: block;
-    margin-bottom: 0.6rem;
-  }
-
-  .theme-tagline {
-    font-family: var(--font-sans);
-    font-size: 0.72rem;
-    color: var(--ink3);
-    line-height: 1.7;
+  .row-body {
     flex: 1;
-    display: block;
+    display: flex; flex-direction: column; gap: 0.3rem;
   }
-
-  .theme-arrow {
-    font-family: var(--font-sans);
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: var(--gold);
-    opacity: 0;
-    transform: translateX(-5px);
-    transition: opacity 0.2s, transform 0.2s;
-    margin-top: 1.2rem;
-    display: block;
-  }
-
-  /* ── ③ SPOTLIGHT ── */
-  .spotlight {
-    background: var(--accent);
-    padding: 8rem 0;
-  }
-
-  .spotlight-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-
-  .spotlight-title {
+  .row-label {
     font-family: var(--font-serif);
-    font-size: clamp(1.4rem, 3vw, 2rem);
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.4;
-    letter-spacing: 0.03em;
-    margin-bottom: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-weight: 700; color: #fff;
+    letter-spacing: 0.02em; line-height: 1.3;
+  }
+  .row-tagline {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.5;
+  }
+  .row-arrow {
+    font-family: var(--font-sans);
+    font-size: 0.78rem; font-weight: 600;
+    color: var(--gold);
+    flex-shrink: 0;
+    opacity: 0; transform: translateX(-8px);
+    transition: opacity 0.25s, transform 0.25s, color 0.25s;
   }
 
-  .spotlight-desc {
-    font-family: var(--font-sans);
-    font-size: 0.9rem; line-height: 1.9;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 2rem;
-    max-width: 480px;
+  .themes-foot {
+    margin-top: 2.5rem;
+    text-align: right;
   }
-
-  .spotlight-cta {
-    display: inline-flex; align-items: center;
-    padding: 0.8rem 2rem;
-    border: 1.5px solid rgba(255,255,255,0.5);
-    border-radius: 980px;
-    color: #fff;
+  .themes-all-link {
     font-family: var(--font-sans);
-    font-size: 0.84rem; font-weight: 500;
-    letter-spacing: 0.04em;
+    font-size: 0.8rem; font-weight: 600;
+    color: rgba(255,255,255,0.35);
     text-decoration: none;
-    transition: border-color 0.2s, background 0.2s;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
   }
-  .spotlight-cta:hover { border-color: var(--gold-light); background: rgba(255,255,255,0.06); }
+  .themes-all-link:hover { color: var(--gold-light); }
 
-  .spotlight-img-wrap {
-    border-radius: 12px; overflow: hidden;
-    box-shadow: 0 32px 64px rgba(0,0,0,0.4);
-    aspect-ratio: 4/3;
-  }
-  .spotlight-img {
-    width: 100%; height: 100%;
-    object-fit: cover; display: block;
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-  .spotlight-img-wrap:hover .spotlight-img { transform: scale(1.03); }
-
-  /* ── ④ RECENT ── */
-  .recent {
+  /* ── ARTICLES ── */
+  .articles {
     background: var(--bg);
-    padding: 8rem 0;
+    padding: 7rem 0;
+    border-bottom: 1px solid var(--rule);
   }
-
-  /* Magazine layout */
-  .recent-magazine {
+  .articles-grid {
     display: grid;
     grid-template-columns: 3fr 2fr;
-    gap: 1.5rem;
+    gap: 2rem;
     margin-bottom: 3rem;
     align-items: start;
   }
 
-  /* Hero card (latest) */
-  .recent-hero {
-    display: flex;
-    flex-direction: column;
-    border-radius: 14px;
-    overflow: hidden;
+  /* メイン記事 */
+  .art-hero {
+    display: flex; flex-direction: column;
+    border-radius: 12px; overflow: hidden;
     border: 1px solid var(--rule);
-    text-decoration: none;
-    color: inherit;
+    text-decoration: none; color: inherit;
     background: var(--bg);
     transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
     height: 100%;
   }
-  .recent-hero:hover {
-    box-shadow: 0 16px 48px rgba(0,0,0,0.14);
+  .art-hero:hover {
+    box-shadow: 0 16px 48px rgba(0,0,0,0.1);
     transform: translateY(-4px);
     border-color: var(--gold);
   }
-  .recent-hero-img-wrap {
-    width: 100%;
-    aspect-ratio: 16/9;
-    overflow: hidden;
-    background: var(--accent);
-    flex-shrink: 0;
+  .art-hero-img-wrap {
+    width: 100%; aspect-ratio: 16/9;
+    overflow: hidden; background: var(--accent); flex-shrink: 0;
   }
-  .recent-hero-img {
+  .art-hero-img {
     width: 100%; height: 100%;
     object-fit: cover; object-position: top center;
     display: block;
     transition: transform 0.5s ease;
   }
-  .recent-hero-img--ph {
+  .art-hero:hover .art-hero-img { transform: scale(1.04); }
+  .art-hero-img--ph {
     display: flex; align-items: center; justify-content: center;
   }
-  .recent-hero-img--ph span {
+  .art-hero-img--ph span {
     font-family: var(--font-serif);
-    font-size: 4rem; color: rgba(255,255,255,0.2);
+    font-size: 4rem; color: rgba(255,255,255,0.15);
   }
-  .recent-hero:hover .recent-hero-img { transform: scale(1.04); }
-  .recent-hero-body {
+  .art-hero-body {
     padding: 1.8rem 2rem 2rem;
-    display: flex; flex-direction: column; gap: 0.75rem;
+    display: flex; flex-direction: column; gap: 0.7rem; flex: 1;
+  }
+  .art-hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 700; color: var(--ink);
+    line-height: 1.55; letter-spacing: 0.02em;
+  }
+  .art-hero-lesson {
+    font-family: var(--font-sans);
+    font-size: 0.78rem; color: var(--gold);
+    line-height: 1.65;
+    display: flex; gap: 0.4rem; align-items: flex-start;
     flex: 1;
   }
-  .recent-hero-title {
-    font-family: var(--font-serif);
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1.5;
-    letter-spacing: 0.02em;
-  }
-  .recent-hero-desc {
+  .lesson-arrow { flex-shrink: 0; }
+  .art-read-more {
     font-family: var(--font-sans);
-    font-size: 0.82rem;
-    color: var(--ink3);
-    line-height: 1.75;
+    font-size: 0.78rem; font-weight: 600;
+    color: var(--gold); letter-spacing: 0.03em;
+    margin-top: auto;
+  }
+
+  /* サブリスト */
+  .art-list {
+    list-style: none;
+    display: flex; flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .art-list li { border-bottom: 1px solid var(--rule); }
+  .art-list li:last-child { border-bottom: none; }
+
+  .art-list-item {
+    display: flex; gap: 0.9rem;
+    padding: 1.1rem 1.2rem;
+    text-decoration: none; color: inherit;
+    background: var(--bg);
+    transition: background 0.2s;
+  }
+  .art-list-item:hover { background: var(--bg2); }
+
+  .art-list-img {
+    width: 72px; height: 54px;
+    object-fit: cover; object-position: top center;
+    border-radius: 4px; flex-shrink: 0;
+    display: block;
+  }
+  .art-list-img--ph {
+    display: flex; align-items: center; justify-content: center;
+    background: var(--accent); border-radius: 4px;
+  }
+  .art-list-img--ph span {
+    font-family: var(--font-serif);
+    font-size: 1.4rem; color: rgba(255,255,255,0.2);
+  }
+  .art-list-body {
+    display: flex; flex-direction: column; gap: 0.3rem; flex: 1;
+    min-width: 0;
+  }
+  .art-list-title {
+    font-family: var(--font-serif);
+    font-size: 0.85rem; font-weight: 700;
+    color: var(--ink); line-height: 1.55;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
 
-  /* Sub grid (2 small cards) */
-  .recent-sub-grid {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .recent-card {
-    display: flex; flex-direction: column;
-    border-radius: 10px; overflow: hidden;
-    border: 1px solid var(--rule);
-    text-decoration: none; color: inherit;
-    background: var(--bg);
-    transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
-  }
-  .recent-card:hover {
-    box-shadow: 0 8px 28px rgba(0,0,0,0.1);
-    transform: translateY(-3px);
-    border-color: var(--gold);
-  }
-
-  .recent-card-img {
-    width: 100%; aspect-ratio: 16/9;
-    object-fit: cover; object-position: top center;
-    display: block;
-    transition: transform 0.4s ease;
-  }
-  .recent-card:hover .recent-card-img { transform: scale(1.04); }
-
-  .recent-card-img--placeholder {
-    aspect-ratio: 16/9;
-    background: var(--accent);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .recent-card-img--placeholder span {
-    font-family: var(--font-serif);
-    font-size: 2.5rem; color: rgba(255,255,255,0.2);
-  }
-
-  .recent-card-body {
-    padding: 1rem 1.2rem 1.2rem;
-    display: flex; flex-direction: column; gap: 0.4rem;
-    flex: 1;
-  }
-
-  .recent-cat {
+  /* 共通 */
+  .art-cat {
     font-family: var(--font-sans);
-    font-size: 0.6rem; font-weight: 700;
-    letter-spacing: 0.18em; color: var(--gold);
-    text-transform: uppercase;
+    font-size: 0.58rem; font-weight: 700;
+    letter-spacing: 0.2em; color: var(--gold);
+    text-transform: uppercase; display: block;
   }
-
-  .recent-title {
-    font-family: var(--font-serif);
-    font-size: 0.88rem; font-weight: 700;
-    color: var(--ink); line-height: 1.6;
-    flex: 1;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .recent-date {
+  .art-date {
     font-family: var(--font-sans);
     font-size: 0.66rem; color: var(--ink3);
-    margin-top: 0.2rem;
   }
+  .articles-more { text-align: center; }
 
-  .recent-more { text-align: center; }
-
-  /* ── ⑥ AUDIBLE ── */
-  .audible {
-    background: var(--bg);
-    padding: 5rem 0;
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .audible-inner {
-    display: flex; align-items: center;
-    justify-content: space-between;
-    gap: 2rem; flex-wrap: wrap;
-  }
-
-  .audible-head {
-    font-family: var(--font-serif);
-    font-size: clamp(1rem, 2vw, 1.3rem);
-    font-weight: 700; color: var(--ink);
-    margin-bottom: 0.5rem;
-  }
-
-  .audible-body {
-    font-family: var(--font-sans);
-    font-size: 0.82rem; color: var(--ink3);
-    line-height: 1.7;
-    max-width: 500px;
-  }
-
-  .audible-btn {
-    display: inline-flex; align-items: center;
-    padding: 0.85rem 2rem;
-    background: var(--gold);
-    color: #fff;
-    font-family: var(--font-sans);
-    font-size: 0.84rem; font-weight: 600;
-    letter-spacing: 0.04em;
-    border-radius: 980px;
-    text-decoration: none;
-    white-space: nowrap; flex-shrink: 0;
-    transition: background 0.25s, transform 0.25s;
-  }
-  .audible-btn:hover { background: var(--gold-dark); transform: scale(1.03); }
-
-  /* ── ⑤ PHILOSOPHY ── */
+  /* ── PHILOSOPHY ── */
   .philosophy {
     background: var(--bg2, #f7f5f0);
-    padding: 8rem 0;
+    padding: 7rem 0;
     border-top: 1px solid var(--rule);
     border-bottom: 1px solid var(--rule);
   }
-
   .phil-head {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 0.5rem;
+    display: flex; align-items: baseline;
+    justify-content: space-between; gap: 1.5rem;
+    flex-wrap: wrap; margin-bottom: 0.5rem;
   }
-
   .phil-sub {
     font-family: var(--font-serif);
-    font-size: 0.92rem;
-    color: var(--ink3);
-    line-height: 1.8;
-    margin-bottom: 3rem;
+    font-size: 0.92rem; color: var(--ink3);
+    line-height: 1.8; margin-bottom: 3rem;
   }
-
   .phil-grid {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
   }
-
   .phil-card {
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    overflow: hidden;
+    display: flex; flex-direction: column;
+    border-radius: 10px; overflow: hidden;
     border: 1px solid var(--rule);
-    background: var(--bg);
-    text-decoration: none;
-    color: inherit;
+    background: var(--bg); text-decoration: none; color: inherit;
     transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
   }
   .phil-card:hover {
@@ -1211,149 +817,95 @@ function formatDate(d: Date) {
     transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(59,140,110,0.12);
   }
-
   .phil-card-img-wrap {
-    width: 100%;
-    aspect-ratio: 16/10;
-    overflow: hidden;
-    background: var(--accent);
+    width: 100%; aspect-ratio: 16/10;
+    overflow: hidden; background: var(--accent);
   }
   .phil-card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: top center;
     display: block;
     transition: transform 0.45s ease;
   }
   .phil-card:hover .phil-card-img { transform: scale(1.05); }
-
   .phil-card-body {
     padding: 1.3rem 1.4rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    flex: 1;
+    display: flex; flex-direction: column; gap: 0.6rem; flex: 1;
   }
-
   .phil-card-tag {
     font-family: var(--font-sans);
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    color: var(--gold);
+    font-size: 0.6rem; font-weight: 700;
+    letter-spacing: 0.2em; color: var(--gold);
     text-transform: uppercase;
   }
-
   .phil-card-title {
     font-family: var(--font-serif);
-    font-size: 0.92rem;
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1.6;
+    font-size: 0.92rem; font-weight: 700;
+    color: var(--ink); line-height: 1.6;
     display: -webkit-box;
     -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    -webkit-box-orient: vertical; overflow: hidden;
   }
-
   .phil-card-lesson {
     font-family: var(--font-sans);
-    font-size: 0.73rem;
-    color: var(--ink3);
+    font-size: 0.73rem; color: var(--ink3);
     line-height: 1.65;
     display: -webkit-box;
     -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    -webkit-box-orient: vertical; overflow: hidden;
   }
 
-  /* ── ⑧ BOOKS ── */
-  .books {
-    background: var(--bg2);
-    padding: 8rem 0;
+  /* ── AUDIBLE ── */
+  .audible {
+    background: var(--bg);
+    padding: 5rem 0;
+    border-top: 1px solid var(--rule);
   }
-
-  .book-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 0.5rem;
+  .audible-inner {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    gap: 2rem; flex-wrap: wrap;
   }
+  .audible-head {
+    font-family: var(--font-serif);
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 700; color: var(--ink); margin-bottom: 0.5rem;
+  }
+  .audible-body {
+    font-family: var(--font-sans);
+    font-size: 0.82rem; color: var(--ink3);
+    line-height: 1.7; max-width: 500px;
+  }
+  .audible-btn {
+    display: inline-flex; align-items: center;
+    padding: 0.85rem 2rem;
+    background: var(--gold); color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.84rem; font-weight: 600;
+    letter-spacing: 0.04em; border-radius: 980px;
+    text-decoration: none; white-space: nowrap; flex-shrink: 0;
+    transition: background 0.25s, transform 0.25s;
+  }
+  .audible-btn:hover { background: var(--gold-dark); transform: scale(1.03); }
 
   /* ── RESPONSIVE ── */
-  /* Theme cards: compact at medium, list at mobile */
   @media (max-width: 900px) {
-    .theme-grid > li { flex: 1 1 calc(33.333% - 1.2rem); max-width: 340px; }
-    .theme-tagline { display: none; }
-    .theme-card { padding: 1.4rem 1.1rem 1.2rem; }
-    .theme-icon { font-size: 2.2rem; }
+    .articles-grid { grid-template-columns: 1fr; }
+    .art-list { border-radius: 12px; }
+    .theme-row { gap: 1.2rem; }
   }
-
-  @media (max-width: 600px) {
-    /* Vertical list — no empty cells, app-store feel */
-    .theme-grid {
-      flex-direction: column;
-      gap: 0;
-      border: 1.5px solid var(--rule);
-      border-radius: 14px;
-      overflow: hidden;
-    }
-    .theme-grid > li { flex: none; min-width: 0; max-width: none; }
-    .theme-card {
-      flex-direction: row;
-      align-items: center;
-      gap: 1.2rem;
-      padding: 1.2rem 1.4rem;
-      border: none;
-      border-bottom: 1px solid var(--rule);
-      border-radius: 0;
-      height: auto;
-      transform: none !important;
-      box-shadow: none !important;
-    }
-    .theme-grid > li:last-child .theme-card { border-bottom: none; }
-    .theme-card::before { display: none; }
-    .theme-card:hover { background: var(--bg2); border-color: transparent; }
-    .theme-num { display: none; }
-    .theme-icon { font-size: 2rem; margin: 0; flex-shrink: 0; }
-    .theme-label { font-size: 0.9rem; margin: 0; flex: 1; }
-    .theme-tagline { display: none; }
-    .theme-arrow { opacity: 1; transform: none; margin: 0; flex-shrink: 0; }
-  }
-
-  @media (max-width: 1024px) {
-    .spotlight-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .spotlight-img-wrap { max-width: 560px; }
-  }
-
-  @media (max-width: 900px) {
-    .stat-item { padding: 0.75rem 1.5rem; }
-    .stat-sep { height: 36px; }
-    .recent-magazine { grid-template-columns: 1fr; }
-    .recent-sub-grid { flex-direction: row; }
-    .recent-sub-grid li { flex: 1; }
-  }
-
   @media (max-width: 768px) {
-    .themes, .recent, .books, .philosophy { padding: 5rem 0; }
-    .stats { padding: 2.5rem 0; }
-    .spotlight { padding: 5rem 0; }
+    .themes { padding: 4rem 0 3.5rem; }
+    .articles, .philosophy { padding: 5rem 0; }
     .phil-grid { grid-template-columns: 1fr; }
-    .book-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .phil-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
     .audible-inner { flex-direction: column; align-items: flex-start; }
     .hero-inner { padding: calc(var(--nav-height) + 2rem) 1.5rem 4rem; }
-    .phil-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .row-tagline { display: none; }
+    .row-icon { font-size: 1.6rem; width: 2.2rem; }
   }
-
-  @media (max-width: 600px) {
-    .stats-inner { gap: 0; }
-    .stat-item { padding: 0.6rem 1rem; }
-    .stat-sep { height: 28px; }
-    .recent-sub-grid { flex-direction: column; }
-  }
-
   @media (max-width: 480px) {
     .container { padding: 0 1.25rem; }
+    .art-hero-body { padding: 1.2rem 1.3rem 1.5rem; }
   }
 </style>
