@@ -72,7 +72,7 @@ const catLabel: Record<string, string> = {
   <section class="themes" id="concerns">
     <div class="container">
       <div class="themes-head reveal">
-        <p class="eyebrow eyebrow--light">YOUR CONCERN</p>
+        <p class="eyebrow">YOUR CONCERN</p>
         <h2 class="themes-title">今日の悩みはどれ？</h2>
         <p class="themes-sub">テーマを選ぶと、その悩みに答える記事一覧へ。</p>
       </div>
@@ -543,8 +543,9 @@ const catLabel: Record<string, string> = {
 
   /* ── THEMES ── ページの主役 */
   .themes {
-    background: var(--accent);
+    background: var(--bg);
     padding: 6rem 0 5rem;
+    border-bottom: 1px solid var(--rule);
   }
   .themes-head {
     margin-bottom: 3rem;
@@ -552,21 +553,21 @@ const catLabel: Record<string, string> = {
   .themes-title {
     font-family: var(--font-serif);
     font-size: clamp(2rem, 5vw, 3.2rem);
-    font-weight: 700; color: #fff;
+    font-weight: 700; color: var(--ink);
     letter-spacing: 0.04em; line-height: 1.25;
     margin-bottom: 0.8rem;
   }
   .themes-sub {
     font-family: var(--font-sans);
     font-size: 0.85rem;
-    color: rgba(255,255,255,0.4);
+    color: var(--ink3);
     line-height: 1.7;
   }
 
   /* テーマ行 */
   .theme-rows {
     list-style: none;
-    border-top: 1px solid rgba(255,255,255,0.07);
+    border-top: 1px solid var(--rule);
   }
   .theme-row-item { position: relative; }
   .theme-row {
@@ -574,8 +575,8 @@ const catLabel: Record<string, string> = {
     align-items: center;
     gap: 1.6rem;
     padding: 1.8rem 0.5rem 1.8rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    text-decoration: none; color: #fff;
+    border-bottom: 1px solid var(--rule);
+    text-decoration: none; color: var(--ink);
     position: relative;
     transition: padding-left 0.25s cubic-bezier(0.25,0.46,0.45,0.94),
                 background 0.25s;
@@ -588,17 +589,17 @@ const catLabel: Record<string, string> = {
     opacity: 0;
     transition: opacity 0.25s;
   }
-  .theme-row:hover { padding-left: 1.2rem; }
+  .theme-row:hover { padding-left: 1.2rem; background: var(--bg2); }
   .theme-row:hover::before { opacity: 1; }
-  .theme-row:hover .row-num { color: var(--gold-light); }
+  .theme-row:hover .row-num { color: var(--gold); }
   .theme-row:hover .row-icon { transform: scale(1.1); }
-  .theme-row:hover .row-arrow { opacity: 1; transform: translateX(0); color: var(--gold-light); }
+  .theme-row:hover .row-arrow { opacity: 1; transform: translateX(0); }
 
   .row-num {
     font-family: var(--font-sans);
     font-size: 0.6rem; font-weight: 700;
     letter-spacing: 0.2em;
-    color: rgba(255,255,255,0.25);
+    color: var(--ink3);
     width: 2rem; flex-shrink: 0;
     transition: color 0.25s;
   }
@@ -616,13 +617,13 @@ const catLabel: Record<string, string> = {
   .row-label {
     font-family: var(--font-serif);
     font-size: clamp(1rem, 2.5vw, 1.2rem);
-    font-weight: 700; color: #fff;
+    font-weight: 700; color: var(--ink);
     letter-spacing: 0.02em; line-height: 1.3;
   }
   .row-tagline {
     font-family: var(--font-sans);
     font-size: 0.78rem;
-    color: rgba(255,255,255,0.4);
+    color: var(--ink3);
     line-height: 1.5;
   }
   .row-arrow {
@@ -631,7 +632,7 @@ const catLabel: Record<string, string> = {
     color: var(--gold);
     flex-shrink: 0;
     opacity: 0; transform: translateX(-8px);
-    transition: opacity 0.25s, transform 0.25s, color 0.25s;
+    transition: opacity 0.25s, transform 0.25s;
   }
 
   .themes-foot {
@@ -641,12 +642,12 @@ const catLabel: Record<string, string> = {
   .themes-all-link {
     font-family: var(--font-sans);
     font-size: 0.8rem; font-weight: 600;
-    color: rgba(255,255,255,0.35);
+    color: var(--ink3);
     text-decoration: none;
     letter-spacing: 0.05em;
     transition: color 0.2s;
   }
-  .themes-all-link:hover { color: var(--gold-light); }
+  .themes-all-link:hover { color: var(--gold); }
 
   /* ── ARTICLES ── */
   .articles {
