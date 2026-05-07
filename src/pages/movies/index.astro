@@ -10,6 +10,22 @@ function slug(id: string) {
   return `movie/${id.replace(/\.mdx?$/, "")}`;
 }
 
+function detectGenre(tags: string[]): string {
+  const t = tags.join(" ");
+  if (/SF/.test(t)) return "sf";
+  if (/第二次世界大戦|太平洋戦争|ノルマンディー|沖縄戦|硫黄島/.test(t)) return "wwii";
+  if (/戦国時代|時代劇|黒澤明|明治|三国志|始皇帝|中国史/.test(t)) return "japanese";
+  if (/ローマ史|ギリシア|スパルタ|古代|トロイ|スコットランド/.test(t)) return "ancient";
+  return "other";
+}
+
+const GENRES = [
+  { key: "all",      label: "すべて" },
+  { key: "wwii",     label: "世界大戦" },
+  { key: "japanese", label: "日本・アジア史" },
+  { key: "ancient",  label: "古代・西洋" },
+  { key: "sf",       label: "SF" },
+];
 ---
 
 <BaseLayout
@@ -24,7 +40,6 @@ function slug(id: string) {
       <span class="hero-label">CINEMA &amp; STRATEGY</span>
       <h1 class="hero-heading">映画で学ぶ<br />戦略の本質</h1>
       <p class="hero-sub">スクリーンの向こうに、リーダーシップと意思決定の本質がある。<br />歴史映画・戦争映画・SFを戦略の視点で読み解く。</p>
-
     </div>
   </section>
 
@@ -36,9 +51,23 @@ function slug(id: string) {
         <p class="section-sub">各記事の末尾に視聴リンクあり</p>
       </div>
 
-      <ul class="movie-grid" role="list">
+      <!-- ジャンルフィルター -->
+      <div class="genre-filter" role="tablist" aria-label="ジャンルで絞り込む">
+        {GENRES.map((g, i) => (
+          <button
+            class={`genre-btn ${i === 0 ? 'active' : ''}`}
+            data-genre={g.key}
+            role="tab"
+            aria-selected={i === 0 ? "true" : "false"}
+          >
+            {g.label}
+          </button>
+        ))}
+      </div>
+
+      <ul class="movie-grid" role="list" id="movie-grid">
         {movies.map(m => (
-          <li>
+          <li data-genre={detectGenre(m.data.tags)}>
             <MovieCard
               title={m.data.title}
               description={m.data.description}
@@ -51,9 +80,42 @@ function slug(id: string) {
           </li>
         ))}
       </ul>
+
+      <p class="no-results" id="no-results" aria-live="polite" hidden>
+        このジャンルの記事は準備中です
+      </p>
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  const btns = document.querySelectorAll<HTMLButtonElement>('.genre-btn');
+  const items = document.querySelectorAll<HTMLElement>('#movie-grid li');
+  const noResults = document.getElementById('no-results') as HTMLParagraphElement;
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const genre = btn.dataset.genre!;
+
+      // タブ状態更新
+      btns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      // フィルタリング
+      let visible = 0;
+      items.forEach(item => {
+        const show = genre === 'all' || item.dataset.genre === genre;
+        item.hidden = !show;
+        if (show) visible++;
+      });
+      noResults.hidden = visible > 0;
+    });
+  });
+</script>
 
 <style>
   /* ── ヒーロー ── */
@@ -107,41 +169,6 @@ function slug(id: string) {
     max-width: 520px;
   }
 
-  .service-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    margin-top: 0.5rem;
-  }
-
-  .service-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.35em 0.9em 0.35em 0.5em;
-    border-radius: 3px;
-  }
-  .service-abbr {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.6rem;
-    height: 1.6rem;
-    background: rgba(255,255,255,0.18);
-    border-radius: 2px;
-    font-size: 0.68rem;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: 0;
-  }
-  .service-name {
-    font-family: var(--font-sans);
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 0.03em;
-  }
-
   /* ── 作品一覧 ── */
   .movies-section {
     background: #10131a;
@@ -152,7 +179,7 @@ function slug(id: string) {
     display: flex;
     align-items: baseline;
     gap: 1rem;
-    margin-bottom: 2.4rem;
+    margin-bottom: 1.6rem;
   }
 
   .section-title {
@@ -168,6 +195,40 @@ function slug(id: string) {
     color: #5a5f6e;
   }
 
+  /* ── ジャンルフィルター ── */
+  .genre-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .genre-btn {
+    padding: 0.4em 1.1em;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 3px;
+    color: #8a8f9e;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
+  }
+
+  .genre-btn:hover {
+    background: rgba(232, 184, 75, 0.08);
+    border-color: rgba(232, 184, 75, 0.3);
+    color: #e8b84b;
+  }
+
+  .genre-btn.active {
+    background: rgba(232, 184, 75, 0.12);
+    border-color: rgba(232, 184, 75, 0.5);
+    color: #e8b84b;
+    font-weight: 600;
+  }
+
   .movie-grid {
     list-style: none;
     display: grid;
@@ -175,9 +236,23 @@ function slug(id: string) {
     gap: 1.6rem;
   }
 
+  .movie-grid li[hidden] {
+    display: none;
+  }
+
+  .no-results {
+    text-align: center;
+    color: #5a5f6e;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    padding: 3rem 0;
+  }
+
   @media (max-width: 480px) {
     .cinema-hero { padding-top: calc(var(--nav-height) + 2.5rem); }
     .movie-grid  { grid-template-columns: 1fr; gap: 1.2rem; }
     .section-head { flex-direction: column; gap: 0.2rem; }
+    .genre-filter { gap: 0.4rem; }
+    .genre-btn { font-size: 0.78rem; padding: 0.35em 0.9em; }
   }
 </style>

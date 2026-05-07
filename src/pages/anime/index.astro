@@ -1,0 +1,318 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import MovieCard from "../../components/MovieCard.astro";
+
+const animes = (await getCollection("anime"))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+function slug(id: string) {
+  return `anime/${id.replace(/\.mdx?$/, "")}`;
+}
+
+const WORKS = [
+  { key: "進撃の巨人", title: "進撃の巨人", en: "Attack on Titan", tagline: "犠牲を前提にした決断" },
+  { key: "コードギアス", title: "コードギアス", en: "Code Geass", tagline: "情報を支配した者が勝つ" },
+  { key: "鬼滅の刃", title: "鬼滅の刃", en: "Demon Slayer", tagline: "極限状態での意思決定" },
+  { key: "ハイキュー", title: "ハイキュー!!", en: "Haikyuu!!", tagline: "チームの限界を突破する" },
+  { key: "銀英伝", title: "銀河英雄伝説", en: "Legend of the Galactic Heroes", tagline: "理想と現実の戦略論" },
+];
+---
+
+<BaseLayout
+  title="アニメで学ぶ戦略 | 決断の系譜"
+  description={`進撃の巨人・コードギアス・鬼滅の刃——アニメに描かれたリーダーシップと意思決定の本質を読み解く。全${animes.length}作品。`}
+  ogImage="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1080"
+>
+  <!-- ヒーロー -->
+  <section class="anime-hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <span class="hero-label">ANIME &amp; STRATEGY</span>
+      <h1 class="hero-heading">アニメで学ぶ<br />戦略の本質</h1>
+      <p class="hero-sub">
+        エルウィンの決断、ルルーシュの情報戦、炭治郎のメンタル管理——<br />
+        スクリーンの向こうにある、リーダーシップと意思決定の本質。
+      </p>
+    </div>
+  </section>
+
+  <!-- 作品ナビ -->
+  <section class="works-nav-section">
+    <div class="container">
+      <p class="nav-label">作品で探す</p>
+      <ul class="works-nav" role="list">
+        {WORKS.map(w => {
+          const found = animes.some(a => a.data.tags?.some(t => t.includes(w.key.slice(0, 4))));
+          return (
+            <li>
+              <div class={`work-chip ${found ? 'available' : 'coming'}`}>
+                <span class="chip-title">{w.title}</span>
+                <span class="chip-en">{w.en}</span>
+                <span class="chip-tagline">{w.tagline}</span>
+                {!found && <span class="chip-soon">近日公開</span>}
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </section>
+
+  <!-- 作品一覧 -->
+  <section class="anime-section">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">全{animes.length}作品</h2>
+        <p class="section-sub">各記事の末尾に関連書籍あり</p>
+      </div>
+
+      <ul class="anime-grid" role="list">
+        {animes.map(a => (
+          <li>
+            <MovieCard
+              title={a.data.title}
+              description={a.data.description}
+              lesson={a.data.lesson}
+              slug={slug(a.id)}
+              ogImage={a.data.ogImage}
+              youtubeId={a.data.youtubeId}
+              tags={a.data.tags}
+            />
+          </li>
+        ))}
+      </ul>
+
+      <!-- 今後追加予定 -->
+      <div class="coming-section">
+        <p class="coming-label">近日公開</p>
+        <ul class="coming-list" role="list">
+          {["ハイキュー!! — チームの限界突破", "銀河英雄伝説 — 二人の天才の戦略論", "ナルト — 忍術より先に「人」を動かす"].map(t => (
+            <li class="coming-item">
+              <span class="coming-dot" aria-hidden="true"></span>
+              <span>{t}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ── ヒーロー ── */
+  .anime-hero {
+    position: relative;
+    background: #0a0d18;
+    padding: calc(var(--nav-height) + 4rem) 0 4rem;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 30%, rgba(130, 80, 240, 0.10) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 80% at 20% 80%, rgba(232, 184, 75, 0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+
+  .hero-label {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #a78bfa;
+    text-transform: uppercase;
+  }
+
+  .hero-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    color: #f0eee8;
+    line-height: 1.3;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-sub {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: #8a8f9e;
+    line-height: 1.8;
+    max-width: 520px;
+  }
+
+  /* ── 作品ナビ ── */
+  .works-nav-section {
+    background: #0d1020;
+    padding: 3rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .nav-label {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #5a5f7e;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+
+  .works-nav {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .work-chip {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0.75rem 1.1rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    min-width: 160px;
+    position: relative;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .work-chip.available {
+    border-color: rgba(167, 139, 250, 0.25);
+    background: rgba(167, 139, 250, 0.06);
+  }
+
+  .work-chip.coming {
+    opacity: 0.55;
+  }
+
+  .chip-title {
+    font-family: var(--font-serif);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #f0eee8;
+  }
+
+  .chip-en {
+    font-family: var(--font-sans);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #a78bfa;
+  }
+
+  .chip-tagline {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    color: #6a6f8e;
+    margin-top: 0.1rem;
+  }
+
+  .chip-soon {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.6rem;
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #5a5f7e;
+    background: rgba(255,255,255,0.06);
+    padding: 0.15em 0.5em;
+    border-radius: 2px;
+  }
+
+  /* ── 一覧 ── */
+  .anime-section {
+    background: #0d1020;
+    padding: 4rem 0 6rem;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #f0eee8;
+  }
+
+  .section-sub {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: #5a5f6e;
+  }
+
+  .anime-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.6rem;
+    margin-bottom: 3rem;
+  }
+
+  /* ── 近日公開 ── */
+  .coming-section {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 2rem;
+  }
+
+  .coming-label {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #5a5f7e;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .coming-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .coming-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: #5a5f7e;
+  }
+
+  .coming-dot {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: rgba(167, 139, 250, 0.4);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 480px) {
+    .anime-hero { padding-top: calc(var(--nav-height) + 2.5rem); }
+    .anime-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+    .section-head { flex-direction: column; gap: 0.2rem; }
+    .works-nav { gap: 0.6rem; }
+    .work-chip { min-width: 140px; }
+  }
+</style>
