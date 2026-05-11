@@ -1,4 +1,6 @@
-# note.com 公開スケジュール
+# Substack 公開スケジュール
+
+https://ketsudankeifu.substack.com
 
 下書き22本（プロフィール含む）を週2〜3本ペースで公開。
 月・木の2本/週を基本とし、最初の週はプロフィールを先行公開。
@@ -29,12 +31,26 @@
 | Week 11 | 7/21（月） | note_21: ハイデガー（「このまま死ぬのか」と思った朝） | 哲学 |
 
 ## 公開手順
-1. note.com にログイン
+1. Substack (https://ketsudankeifu.substack.com) にログイン
 2. 下書き一覧から該当記事を選ぶ
-3. 「公開する」ボタンをクリック
-4. タグを確認して公開
+3. 「Publish」ボタンをクリック
+4. 無料公開で送信
+
+## バッチ投稿（下書き一括作成）
+```bash
+# .env.local に設定が必要
+# SUBSTACK_EMAIL=your@email.com
+# SUBSTACK_PASSWORD=yourpassword
+
+# 個別指定
+node scripts/substack-batch.js note-drafts/note_01_cannae_beginner.md
+
+# 全件
+node scripts/substack-batch.js --all
+```
 
 ## 注意
-- 記事間隔は最低2〜3日あける（スパムと認識されないため）
-- 公開後はTwitter/Xでもシェア推奨
+- 記事間隔は最低2〜3日あける
+- 公開後はX（Twitter）でもシェア推奨
 - 反応が良かったカテゴリ（入門系 or 論文系）を次シリーズに活かす
+- Substackは無料読者にも全文公開する設定で進める
