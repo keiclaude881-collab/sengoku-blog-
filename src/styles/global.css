@@ -127,3 +127,290 @@ main {
   transition: color 0.2s;
 }
 .section-more:hover { color: var(--gold-dark); }
+
+
+/* ================================================================
+   FUN ANIMATIONS
+   ================================================================ */
+
+/* --- TextScramble --- */
+.scramble-char {
+  color: var(--gold, #c8a96e);
+  opacity: 0.6;
+  display: inline-block;
+}
+.scramble-done {
+  display: inline-block;
+}
+
+/* --- Typewriter cursor --- */
+.typewriter-active::after {
+  content: '|';
+  animation: blink 0.7s step-end infinite;
+  color: var(--gold, #c8a96e);
+  margin-left: 2px;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* --- Glow Words --- */
+.glow-word {
+  cursor: default;
+  transition: text-shadow 0.3s, color 0.3s;
+}
+.glow-word:hover {
+  color: var(--gold, #c8a96e);
+  text-shadow: 0 0 8px rgba(200,169,110,0.8), 0 0 20px rgba(200,169,110,0.4);
+}
+
+/* --- Glitch --- */
+.glitch {
+  position: relative;
+  animation: glitch-anim 0.4s steps(2) forwards;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.glitch::before {
+  color: #ff3e3e;
+  clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
+  transform: translateX(-3px);
+  animation: glitch-top 0.4s steps(2) forwards;
+}
+.glitch::after {
+  color: #3effef;
+  clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+  transform: translateX(3px);
+  animation: glitch-bottom 0.4s steps(2) forwards;
+}
+@keyframes glitch-anim {
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(-2px) skewX(-2deg); }
+  50%  { transform: translateX(2px) skewX(2deg); }
+  75%  { transform: translateX(-1px); }
+  100% { transform: translateX(0); }
+}
+@keyframes glitch-top {
+  0%   { transform: translateX(-3px); }
+  50%  { transform: translateX(3px); }
+  100% { transform: translateX(-3px); }
+}
+@keyframes glitch-bottom {
+  0%   { transform: translateX(3px); }
+  50%  { transform: translateX(-3px); }
+  100% { transform: translateX(3px); }
+}
+
+/* --- Fire Text --- */
+.fire-active {
+  position: relative;
+  color: #fff;
+  text-shadow:
+    0 0 4px #fff,
+    0 0 10px #f90,
+    0 0 20px #f90,
+    0 0 40px #f60,
+    0 0 80px #f30;
+  animation: flicker 1.5s infinite alternate;
+}
+@keyframes flicker {
+  0%   { text-shadow: 0 0 4px #fff, 0 0 10px #f90, 0 0 20px #f90, 0 0 40px #f60; }
+  25%  { text-shadow: 0 0 4px #fff, 0 0 14px #f90, 0 0 10px #f90, 0 0 30px #f60; }
+  50%  { text-shadow: 0 0 6px #fff, 0 0 8px  #f90, 0 0 24px #f90, 0 0 50px #f30; }
+  75%  { text-shadow: 0 0 3px #fff, 0 0 12px #f90, 0 0 16px #f90, 0 0 35px #f60; }
+  100% { text-shadow: 0 0 5px #fff, 0 0 10px #f90, 0 0 22px #f90, 0 0 45px #f30; }
+}
+
+/* --- Cat Attacked (logo shake) --- */
+@keyframes cat-attack-shake {
+  0%   { transform: translate(0,0) rotate(0); }
+  20%  { transform: translate(-4px,2px) rotate(-3deg); }
+  40%  { transform: translate(4px,-2px) rotate(3deg); }
+  60%  { transform: translate(-3px,1px) rotate(-2deg); }
+  80%  { transform: translate(3px,-1px) rotate(2deg); }
+  100% { transform: translate(0,0) rotate(0); }
+}
+.cat-attacked {
+  animation: cat-attack-shake 0.4s ease-in-out 2 !important;
+}
+
+/* ================================================================
+   CAT MASCOT
+   ================================================================ */
+#site-cat {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: -120px;
+  width: 80px;
+  height: 80px;
+  z-index: 9999;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* 左から右へ走る */
+#site-cat.cat-ltr {
+  animation: run-ltr 3s linear forwards;
+}
+/* 右から左へ走る */
+#site-cat.cat-rtl {
+  animation: run-rtl 3s linear forwards;
+  transform: scaleX(-1);
+}
+
+@keyframes run-ltr {
+  0%   { left: -100px; bottom: 0; }
+  40%  { left: 45vw;   bottom: 0; }
+  55%  { left: 47vw;   bottom: 60px; }  /* ジャンプ */
+  65%  { left: 50vw;   bottom: 0; }
+  100% { left: calc(100vw + 100px); bottom: 0; }
+}
+@keyframes run-rtl {
+  0%   { left: calc(100vw + 100px); bottom: 0; }
+  40%  { left: 55vw;  bottom: 0; }
+  55%  { left: 52vw;  bottom: 60px; }
+  65%  { left: 50vw;  bottom: 0; }
+  100% { left: -100px; bottom: 0; }
+}
+
+/* 攻撃時は上にジャンプしてロゴへ */
+#site-cat.cat-attack {
+  animation: cat-jump-attack 0.6s ease-out forwards !important;
+}
+@keyframes cat-jump-attack {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-80px); }
+  100% { transform: translateY(0); }
+}
+
+/* 走るアニメ（胴体揺れ） */
+.cat-body {
+  position: relative;
+  width: 80px;
+  height: 60px;
+  animation: cat-run-body 0.18s infinite alternate;
+}
+@keyframes cat-run-body {
+  0%   { transform: translateY(0) rotate(-1deg); }
+  100% { transform: translateY(-4px) rotate(1deg); }
+}
+
+/* 頭 */
+.cat-head {
+  position: absolute;
+  top: 0; left: 18px;
+  width: 36px;
+  height: 32px;
+  background: #555;
+  border-radius: 50% 50% 45% 45%;
+}
+.cat-ear {
+  position: absolute;
+  top: -10px;
+  width: 0; height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 14px solid #555;
+}
+.cat-ear.left  { left: 3px; transform: rotate(-10deg); }
+.cat-ear.right { right: 3px; transform: rotate(10deg); }
+.cat-face { position: relative; }
+.cat-eye {
+  position: absolute;
+  top: 10px;
+  width: 7px; height: 7px;
+  background: #ffe44d;
+  border-radius: 50%;
+  animation: cat-blink 3s infinite;
+}
+.cat-eye.left  { left: 5px; }
+.cat-eye.right { right: 5px; }
+@keyframes cat-blink {
+  0%,96%,100% { transform: scaleY(1); }
+  98% { transform: scaleY(0.1); }
+}
+.cat-nose {
+  position: absolute;
+  top: 18px; left: 50%;
+  transform: translateX(-50%);
+  width: 5px; height: 3px;
+  background: #f77;
+  border-radius: 50%;
+}
+.cat-whisker {
+  position: absolute;
+  top: 20px;
+  width: 20px; height: 1px;
+  background: rgba(255,255,255,0.7);
+}
+.cat-whisker.left  { left: -18px; transform: rotate(10deg); }
+.cat-whisker.right { right: -18px; transform: rotate(-10deg); }
+
+/* 胴体 */
+.cat-torso {
+  position: absolute;
+  top: 24px; left: 10px;
+  width: 48px; height: 24px;
+  background: #555;
+  border-radius: 40% 40% 30% 30%;
+}
+
+/* 尻尾 */
+.cat-tail {
+  position: absolute;
+  bottom: 4px; right: 0;
+  width: 28px; height: 8px;
+  background: #555;
+  border-radius: 0 4px 4px 0;
+  transform-origin: left center;
+  animation: tail-wag 0.5s ease-in-out infinite alternate;
+}
+@keyframes tail-wag {
+  0%   { transform: rotate(-20deg); }
+  100% { transform: rotate(20deg); }
+}
+
+/* 足 */
+.cat-leg {
+  position: absolute;
+  bottom: 0;
+  width: 10px; height: 14px;
+  background: #555;
+  border-radius: 0 0 4px 4px;
+}
+.cat-leg.fl { left: 14px; animation: leg-run 0.18s infinite alternate; }
+.cat-leg.fr { left: 26px; animation: leg-run 0.18s infinite alternate-reverse; }
+.cat-leg.bl { left: 38px; animation: leg-run 0.18s infinite alternate-reverse; }
+.cat-leg.br { left: 50px; animation: leg-run 0.18s infinite alternate; }
+@keyframes leg-run {
+  0%   { transform: rotate(-15deg) translateY(0); }
+  100% { transform: rotate(15deg) translateY(2px); }
+}
+
+/* フキダシ */
+.cat-speech {
+  position: absolute;
+  bottom: 70px; left: 0;
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
+}
+.cat-speech.show {
+  opacity: 1;
+  transform: translateY(0);
+}
