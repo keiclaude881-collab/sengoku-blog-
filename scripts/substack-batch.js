@@ -1,24 +1,44 @@
 #!/usr/bin/env node
 /**
- * Substack 一括下書き投稿スクリプト
+ * Substack 一括下書き投稿スクリプト（AppleScript経由でChrome操作）
  * 使い方: node scripts/substack-batch.js --all
  *
- * Chromeにログイン済みのセッションをそのまま使う（パスワード不要）
+ * 事前条件: ChromeでSubstackにログイン済みであること
  */
 
-import { chromium } from "playwright";
 import { readFileSync, readdirSync } from "fs";
-import { resolve, dirname, join } from "path";
+import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
-import { homedir } from "os";
+import { execSync } from "child_process";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
 const DRAFTS_DIR = resolve(root, "note-drafts");
-const PUBLICATION_URL = "https://ketsudankeifu.substack.com";
+const PUBLICATION_URL = "https://senryaku.substack.com";
 
-// MacのChromeプロファイルパス
-const CHROME_PROFILE = join(homedir(), "Library/Application Support/Google/Chrome");
+function sleep(ms) {
+  return new Promise(r => setTimeout(r, ms));
+}
+
+function runAppleScript(script) {
+  return execSync(`osascript -e '${script.replace(/'/g, "'\\''")}'`, { encoding: "utf-8" }).trim();
+}
+
+
+function chromeJS(js) {
+  // AppleScriptでChromeにJSを実行させる
+  const escaped = js.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\n/g, "\\n");
+  const script = `tell application "Google Chrome" to execute active tab of front window javascript "${escaped}"`;
+  try {
+    return execSync(`osascript -e '${script.replace(/'/g, "'\\''")}'`, { encoding: "utf-8" }).trim();
+  } catch (e) {
+    return null;
+  }
+}
+
+function chromeNavigate(url) {
+  execSync(`osascript -e 'tell application "Google Chrome" to set URL of active tab of front window to "${url}"'`);
+}
 
 function parseDraft(filePath) {
   const raw = readFileSync(resolve(root, filePath), "utf-8");
@@ -37,38 +57,52 @@ function parseDraft(filePath) {
   return { title, body: bodyLines.join("\n").trim() };
 }
 
-async function postDraft(page, filePath) {
+async function postDraft(filePath) {
   const { title, body } = parseDraft(filePath);
   console.log(`\n📝 ${title}`);
 
-  await page.goto(`${PUBLICATION_URL}/publish/post/new`);
-  await page.waitForLoadState("networkidle", { timeout: 30000 });
-  await page.waitForTimeout(2000);
+  // 新規投稿ページへ
+  chromeNavigate(`${PUBLICATION_URL}/publish/post/new`);
+  await sleep(4000);
 
-  // タイトル
-  const titleEl = page.locator('h1[contenteditable], [data-testid="post-title-input"], [placeholder="Title"]').first();
-  await titleEl.waitFor({ timeout: 20000 });
-  await titleEl.click();
-  await page.keyboard.press("Control+a");
-  await page.keyboard.type(title, { delay: 15 });
-  await page.waitForTimeout(500);
+  // タイトル入力
+  const titleJs = `
+    (function() {
+      var titleEl = document.querySelector('[data-testid="post-title-input"], h1[contenteditable="true"], [placeholder="Title"], .editor-title, div[data-placeholder="Title"]');
+      if (!titleEl) return 'NOT_FOUND';
+      titleEl.focus();
+      titleEl.click();
+      document.execCommand('selectAll', false, null);
+      document.execCommand('insertText', false, ${JSON.stringify(title)});
+      return 'OK';
+    })()
+  `;
+  const titleResult = chromeJS(titleJs);
+  if (titleResult === "NOT_FOUND") {
+    throw new Error("タイトル欄が見つかりません");
+  }
+  await sleep(500);
 
-  // 本文
-  const bodyEl = page.locator('.ProseMirror').first();
-  await bodyEl.waitFor({ timeout: 15000 });
-  await bodyEl.click();
-  await page.waitForTimeout(300);
-  await page.evaluate((text) => {
-    const dt = new DataTransfer();
-    dt.setData("text/plain", text);
-    const el = document.querySelector(".ProseMirror");
-    if (el) {
-      el.focus();
-      el.dispatchEvent(new ClipboardEvent("paste", { clipboardData: dt, bubbles: true }));
-    }
-  }, body);
-  await page.waitForTimeout(2000);
-  await page.waitForTimeout(3000);
+  // 本文入力
+  const bodyJs = `
+    (function() {
+      var bodyEl = document.querySelector('.ProseMirror');
+      if (!bodyEl) return 'NOT_FOUND';
+      bodyEl.focus();
+      bodyEl.click();
+      var dt = new DataTransfer();
+      dt.setData('text/plain', ${JSON.stringify(body)});
+      bodyEl.dispatchEvent(new ClipboardEvent('paste', { clipboardData: dt, bubbles: true }));
+      return 'OK';
+    })()
+  `;
+  const bodyResult = chromeJS(bodyJs);
+  if (bodyResult === "NOT_FOUND") {
+    throw new Error("本文欄が見つかりません");
+  }
+
+  // 自動保存待ち
+  await sleep(5000);
   console.log("✅ 保存完了");
 }
 
@@ -78,62 +112,42 @@ async function main() {
     .sort()
     .map((f) => `note-drafts/${f}`);
 
-  console.log(`\n📂 投稿対象: ${files.length}件`);
-  console.log("🌐 Chromeのセッションを使ってログイン済み状態で起動...\n");
+  console.log(`📂 投稿対象: ${files.length}件\n`);
 
-  // ブラウザ起動
-  const browser = await chromium.launch({ headless: false, slowMo: 50 });
-  const context = await browser.newContext();
-  const page = await context.newPage();
-
-  // Substackログインページへ
-  await page.goto("https://substack.com/sign-in");
-  await page.waitForLoadState("domcontentloaded");
-
-  // ログイン完了を待機（最大5分）
-  console.log("🌐 ブラウザが開きました。Substackにログインしてください。");
-  console.log("   ログインが完了すると自動で投稿を開始します。\n");
-  let loggedIn = false;
-  for (let i = 0; i < 300; i++) {
-    await page.waitForTimeout(1000);
-    const url = page.url();
-    if (!url.includes("sign-in") && !url.includes("login") && !url.includes("substack.com/?")) {
-      loggedIn = true;
-      console.log("✅ ログイン検出！すぐに開始します。");
-      break;
-    }
-    if (i % 10 === 0 && i > 0) {
-      process.stdout.write(`\r⏳ ${300 - i}秒待機中...`);
-    }
+  // Chromeでログイン確認
+  let currentUrl;
+  try {
+    currentUrl = runAppleScript("tell application \"Google Chrome\" to return URL of active tab of front window");
+  } catch {
+    // Chromeを起動してSubstackへ
+    execSync(`open -a "Google Chrome" "${PUBLICATION_URL}"`);
+    await sleep(3000);
+    currentUrl = runAppleScript("tell application \"Google Chrome\" to return URL of active tab of front window");
   }
-  process.stdout.write("\n");
 
-  if (!loggedIn) {
-    console.error("❌ ログインが確認できませんでした。");
-    await browser.close();
+  console.log("現在のURL:", currentUrl);
+  if (currentUrl.includes("sign-in") || currentUrl.includes("login")) {
+    console.error("❌ Substackにログインしてください。ChromeでSubstackを開いてログインしてから再実行してください。");
     process.exit(1);
   }
-  console.log("✅ ログイン確認OK\n▶ 投稿開始...");
+  console.log("✅ ログイン確認OK\n▶ 投稿開始...\n");
 
   const results = [];
   for (const filePath of files) {
     try {
-      await postDraft(page, filePath);
+      await postDraft(filePath);
       results.push({ file: filePath, ok: true });
     } catch (err) {
       console.error(`❌ ${filePath}: ${err.message}`);
       results.push({ file: filePath, ok: false });
     }
-    await page.waitForTimeout(2000);
+    await sleep(2000);
   }
 
   console.log("\n========== 結果 ==========");
   results.forEach((r) => console.log(`${r.ok ? "✅" : "❌"} ${r.file}`));
   const failed = results.filter((r) => !r.ok).length;
   console.log(failed === 0 ? "\n🎉 全件完了！" : `\n⚠️  ${failed}件失敗`);
-
-  await page.waitForTimeout(3000);
-  await browser.close();
 }
 
 main().catch(console.error);
