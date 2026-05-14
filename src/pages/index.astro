@@ -14,6 +14,14 @@ const philosophyPosts = (await getCollection("philosophy").catch(() => []))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
 
+const novelPosts = (await getCollection("novel").catch(() => []))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+
+const animePosts = (await getCollection("anime").catch(() => []))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+
 function slug(col: string, id: string) {
   return `${col}/${id.replace(/\.mdx?$/, "")}`;
 }
@@ -185,7 +193,71 @@ const catLabel: Record<string, string> = {
     </section>
   )}
 
-  <!-- ⑥ AUDIBLE -->
+  <!-- ⑥ NOVEL -->
+  {novelPosts.length > 0 && (
+    <section class="novel reveal">
+      <div class="container">
+        <p class="eyebrow">NOVEL</p>
+        <div class="side-head">
+          <h2 class="display-heading">歴史小説から学ぶ</h2>
+          <a href="/novel/" class="pill-link">すべて見る →</a>
+        </div>
+        <p class="side-sub">司馬遼太郎・吉川英治が描いた武将たちの選択——小説の中に戦略の本質がある。</p>
+        <ul class="side-grid" role="list">
+          {novelPosts.map(post => (
+            <li>
+              <a href={`/blog/${slug(post.collection, post.id)}/`} class="side-card">
+                {post.data.ogImage && (
+                  <div class="side-card-img-wrap">
+                    <img src={post.data.ogImage} alt={post.data.title} class="side-card-img" loading="lazy" />
+                  </div>
+                )}
+                <div class="side-card-body">
+                  <span class="side-card-tag">小説</span>
+                  <p class="side-card-title">{post.data.title}</p>
+                  {post.data.lesson && <p class="side-card-lesson">{post.data.lesson}</p>}
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <!-- ⑦ ANIME -->
+  {animePosts.length > 0 && (
+    <section class="anime-sec reveal">
+      <div class="container">
+        <p class="eyebrow">ANIME</p>
+        <div class="side-head">
+          <h2 class="display-heading">アニメで戦略を読む</h2>
+          <a href="/anime/" class="pill-link">すべて見る →</a>
+        </div>
+        <p class="side-sub">銀英伝・ハイキュー・平家物語——フィクションの戦場に、リアルな組織論がある。</p>
+        <ul class="side-grid" role="list">
+          {animePosts.map(post => (
+            <li>
+              <a href={`/blog/${slug(post.collection, post.id)}/`} class="side-card">
+                {post.data.ogImage && (
+                  <div class="side-card-img-wrap">
+                    <img src={post.data.ogImage} alt={post.data.title} class="side-card-img" loading="lazy" />
+                  </div>
+                )}
+                <div class="side-card-body">
+                  <span class="side-card-tag">アニメ</span>
+                  <p class="side-card-title">{post.data.title}</p>
+                  {post.data.lesson && <p class="side-card-lesson">{post.data.lesson}</p>}
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <!-- ⑧ AUDIBLE -->
   <section class="audible reveal">
     <div class="container audible-inner">
       <div class="audible-text-wrap">
@@ -856,6 +928,84 @@ const catLabel: Record<string, string> = {
     -webkit-box-orient: vertical; overflow: hidden;
   }
 
+  /* ── NOVEL / ANIME ── */
+  .novel {
+    background: var(--bg);
+    padding: 7rem 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .anime-sec {
+    background: var(--bg2, #f7f5f0);
+    padding: 7rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .side-head {
+    display: flex; align-items: baseline;
+    justify-content: space-between; gap: 1.5rem;
+    flex-wrap: wrap; margin-bottom: 0.5rem;
+  }
+  .side-sub {
+    font-family: var(--font-serif);
+    font-size: 0.92rem; color: var(--ink3);
+    line-height: 1.8; margin-bottom: 3rem;
+  }
+  .side-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .side-card {
+    display: flex; flex-direction: column;
+    border-radius: 10px; overflow: hidden;
+    border: 1px solid var(--rule);
+    background: var(--bg); text-decoration: none; color: inherit;
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  }
+  .side-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(59,140,110,0.12);
+  }
+  .side-card-img-wrap {
+    width: 100%; aspect-ratio: 16/10;
+    overflow: hidden; background: var(--accent);
+  }
+  .side-card-img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: top center;
+    display: block;
+    transition: transform 0.45s ease;
+  }
+  .side-card:hover .side-card-img { transform: scale(1.05); }
+  .side-card-body {
+    padding: 1.3rem 1.4rem 1.5rem;
+    display: flex; flex-direction: column; gap: 0.6rem; flex: 1;
+  }
+  .side-card-tag {
+    font-family: var(--font-sans);
+    font-size: 0.6rem; font-weight: 700;
+    letter-spacing: 0.2em; color: var(--gold);
+    text-transform: uppercase;
+  }
+  .side-card-title {
+    font-family: var(--font-serif);
+    font-size: 0.92rem; font-weight: 700;
+    color: var(--ink); line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .side-card-lesson {
+    font-family: var(--font-sans);
+    font-size: 0.73rem; color: var(--ink3);
+    line-height: 1.65;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; overflow: hidden;
+  }
+
   /* ── AUDIBLE ── */
   .audible {
     background: var(--bg);
@@ -897,9 +1047,9 @@ const catLabel: Record<string, string> = {
   }
   @media (max-width: 768px) {
     .themes { padding: 4rem 0 3.5rem; }
-    .articles, .philosophy { padding: 5rem 0; }
-    .phil-grid { grid-template-columns: 1fr; }
-    .phil-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .articles, .philosophy, .novel, .anime-sec { padding: 5rem 0; }
+    .phil-grid, .side-grid { grid-template-columns: 1fr; }
+    .phil-head, .side-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
     .audible-inner { flex-direction: column; align-items: flex-start; }
     .hero-inner { padding: calc(var(--nav-height) + 2rem) 1.5rem 4rem; }
     .row-tagline { display: none; }
