@@ -177,30 +177,3 @@ main {
   100% { text-shadow: 0 0 5px #fff, 0 0 12px #f90, 0 0 20px #f90, 0 0 48px #f30; }
 }
 
-/* ════════════════════════════════════════════════
-   INK RIPPLE — クリックで墨が広がる
-   ════════════════════════════════════════════════ */
-.ink-ripple {
-  position: fixed;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  background: radial-gradient(circle, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0) 70%);
-  pointer-events: none;
-  z-index: 9997;
-  animation: ink-spread 0.75s cubic-bezier(0.2, 0.8, 0.4, 1) forwards;
-}
-@keyframes ink-spread {
-  0%   { transform: translate(-50%,-50%) scale(0);  opacity: 0.9; }
-  60%  { opacity: 0.4; }
-  100% { transform: translate(-50%,-50%) scale(10); opacity: 0; }
-}
-
-/* ════════════════════════════════════════════════
-   CARD TILT — 記事カードが 3D で傾く
-   ════════════════════════════════════════════════ */
-.article-card {
-  transition: transform 0.12s ease-out, box-shadow 0.2s ease-out;
-  cursor: pointer;
-}

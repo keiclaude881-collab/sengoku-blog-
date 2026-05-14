@@ -1,164 +1,13 @@
 /**
  * fun-animations.js
- * ① 浮遊エンバー + カーソル火花（canvas）
- * ② クリック墨汁リップル
- * ③ 記事カード 3D チルト
- * ④ テキストスクランブル（h1 ホバー）
- * ⑤ グローワード（キーワード金色発光）
- * ⑥ タイピング表示
- * ⑦ 燃えるテキスト
+ * ① テキストスクランブル（h1 ホバー）
+ * ② グローワード（キーワード金色発光）
+ * ③ タイピング表示
+ * ④ 燃えるテキスト
  */
 
 /* ══════════════════════════════════════════════
-   1. PARTICLE CANVAS — エンバー & カーソル火花
-   ══════════════════════════════════════════════ */
-function initParticleCanvas() {
-  const canvas = document.createElement('canvas');
-  canvas.id = 'particle-canvas';
-  Object.assign(canvas.style, {
-    position: 'fixed',
-    top: '0', left: '0',
-    width: '100%', height: '100%',
-    pointerEvents: 'none',
-    zIndex: '9990',
-  });
-  document.body.appendChild(canvas);
-
-  const ctx = canvas.getContext('2d');
-  let W = 0, H = 0;
-
-  function resize() {
-    W = canvas.width  = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  /* ── パーティクル ── */
-  const particles = [];
-
-  class Spark {
-    constructor(x, y) {
-      this.x = x; this.y = y;
-      const angle = Math.random() * Math.PI * 2;
-      const spd   = 1.5 + Math.random() * 5;
-      this.vx = Math.cos(angle) * spd;
-      this.vy = Math.sin(angle) * spd - 2.5;
-      this.r  = 1 + Math.random() * 2;
-      this.life  = 1;
-      this.decay = 0.045 + Math.random() * 0.07;
-      this.hue   = 38 + Math.random() * 22;  // ゴールド
-    }
-    update() {
-      this.x += this.vx;
-      this.y += this.vy;
-      this.vy += 0.18;          // 重力
-      this.vx *= 0.97;
-      this.life -= this.decay;
-    }
-    draw() {
-      ctx.save();
-      ctx.globalAlpha = this.life;
-      ctx.shadowColor = `hsl(${this.hue},100%,70%)`;
-      ctx.shadowBlur  = 6;
-      ctx.fillStyle   = `hsl(${this.hue},100%,${65 + this.life * 25}%)`;
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r * this.life, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.restore();
-    }
-  }
-
-  /* カーソルトラッキング */
-  let mx = -9999, my = -9999, pmx = -9999, pmy = -9999;
-  let sparkFrame = 0;
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-
-  /* ループ */
-  function loop() {
-    ctx.clearRect(0, 0, W, H);
-
-    /* カーソルが動いていたら火花 */
-    const dx = mx - pmx, dy = my - pmy;
-    if (Math.sqrt(dx * dx + dy * dy) > 6 && mx > 0) {
-      sparkFrame++;
-      if (sparkFrame % 3 === 0) {
-        for (let i = 0; i < 3; i++) particles.push(new Spark(mx, my));
-      }
-    }
-    pmx = mx; pmy = my;
-
-    /* 更新 & 描画 */
-    for (let i = particles.length - 1; i >= 0; i--) {
-      particles[i].update();
-      particles[i].draw();
-      if (particles[i].life <= 0) {
-        if (particles[i] instanceof Spark) particles.splice(i, 1);
-        // Ember は reset() で再利用される
-      }
-    }
-
-    requestAnimationFrame(loop);
-  }
-  requestAnimationFrame(loop);
-}
-
-/* ══════════════════════════════════════════════
-   2. INK RIPPLE — クリックで墨が広がる
-   ══════════════════════════════════════════════ */
-function initInkRipple() {
-  document.addEventListener('click', e => {
-    if (e.target.closest('a, button, input, textarea, select, label')) return;
-
-    const r = document.createElement('div');
-    r.className = 'ink-ripple';
-    r.style.left = e.clientX + 'px';
-    r.style.top  = e.clientY + 'px';
-    document.body.appendChild(r);
-    r.addEventListener('animationend', () => r.remove());
-  });
-}
-
-/* ══════════════════════════════════════════════
-   3. CARD TILT — 記事カードが 3D で傾く
-   ══════════════════════════════════════════════ */
-function initCardTilt() {
-  const SELECTOR = '.article-card, [data-tilt]';
-
-  function bind(card) {
-    card.style.willChange = 'transform';
-    card.style.transformStyle = 'preserve-3d';
-
-    card.addEventListener('mousemove', e => {
-      const rect = card.getBoundingClientRect();
-      const cx = rect.left + rect.width  / 2;
-      const cy = rect.top  + rect.height / 2;
-      const rx = ((e.clientY - cy) / (rect.height / 2)) * -9;
-      const ry = ((e.clientX - cx) / (rect.width  / 2)) *  9;
-      card.style.transform = `perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.04)`;
-      card.style.boxShadow = `${-ry * 1.5}px ${rx * 1.5}px 32px rgba(0,0,0,0.28)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform  = '';
-      card.style.boxShadow  = '';
-    });
-  }
-
-  document.querySelectorAll(SELECTOR).forEach(bind);
-
-  /* SPA的にあとから追加されたカードにも対応 */
-  new MutationObserver(mutations => {
-    mutations.forEach(m => m.addedNodes.forEach(n => {
-      if (n.nodeType !== 1) return;
-      if (n.matches && n.matches(SELECTOR)) bind(n);
-      n.querySelectorAll && n.querySelectorAll(SELECTOR).forEach(bind);
-    }));
-  }).observe(document.body, { childList: true, subtree: true });
-}
-
-/* ══════════════════════════════════════════════
-   4. TEXT SCRAMBLE — h1 ホバーで武将名がランダムに混ざる
+   1. TEXT SCRAMBLE — h1 ホバーで武将名がランダムに混ざる
    ══════════════════════════════════════════════ */
 class TextScramble {
   constructor(el) {
@@ -172,7 +21,7 @@ class TextScramble {
     this.resolve && this.resolve();
     const p = new Promise(r => this.resolve = r);
     this.queue = Array.from({ length: len }, (_, i) => ({
-      from:  old[i]    || '',
+      from:  old[i]     || '',
       to:    newText[i] || '',
       start: Math.floor(Math.random() * 10),
       end:   Math.floor(Math.random() * 10) + 10,
@@ -214,7 +63,7 @@ function initHeroScramble() {
 }
 
 /* ══════════════════════════════════════════════
-   5. GLOW WORDS — キーワードをホバーで金色に光らせる
+   2. GLOW WORDS — キーワードをホバーで金色に光らせる
    ══════════════════════════════════════════════ */
 const GLOW_WORDS = [
   '決断', '信長', '孫子', '戦略', '勝利', '敗北', '革命', '生死',
@@ -249,7 +98,7 @@ function initGlowWords() {
 }
 
 /* ══════════════════════════════════════════════
-   6. TYPEWRITER — data-typewriter 属性でタイピング表示
+   3. TYPEWRITER — data-typewriter 属性でタイピング表示
    ══════════════════════════════════════════════ */
 function typeWriter(el, text, speed = 58) {
   el.textContent = '';
@@ -274,7 +123,7 @@ function initTypewriterHero() {
 }
 
 /* ══════════════════════════════════════════════
-   7. FIRE TEXT — data-fire / .fire-text に炎
+   4. FIRE TEXT — data-fire / .fire-text に炎
    ══════════════════════════════════════════════ */
 function initFire() {
   document.querySelectorAll('[data-fire], .fire-text').forEach(el => {
@@ -286,9 +135,6 @@ function initFire() {
    BOOT
    ══════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
-  initParticleCanvas();
-  initInkRipple();
-  initCardTilt();
   initHeroScramble();
   initGlowWords();
   initTypewriterHero();
