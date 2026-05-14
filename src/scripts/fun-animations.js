@@ -37,37 +37,6 @@ function initParticleCanvas() {
   /* ── パーティクル ── */
   const particles = [];
 
-  class Ember {
-    constructor() { this.reset(); }
-    reset() {
-      this.x = Math.random() * W;
-      this.y = H + 10;
-      this.vx = (Math.random() - 0.5) * 0.6;
-      this.vy = -(0.4 + Math.random() * 1.2);
-      this.r  = 1.2 + Math.random() * 2.5;
-      this.life = 1;
-      this.decay = 0.0025 + Math.random() * 0.003;
-      this.hue = 15 + Math.random() * 35;   // 橙〜赤
-    }
-    update() {
-      this.x  += this.vx + Math.sin(Date.now() * 0.002 + this.y) * 0.3;
-      this.y  += this.vy;
-      this.life -= this.decay;
-      if (this.life <= 0 || this.y < -20) this.reset();
-    }
-    draw() {
-      ctx.save();
-      ctx.globalAlpha = this.life * 0.8;
-      ctx.shadowColor = `hsl(${this.hue},100%,60%)`;
-      ctx.shadowBlur  = this.r * 4;
-      ctx.fillStyle   = `hsl(${this.hue},100%,${55 + this.life * 30}%)`;
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r * this.life, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.restore();
-    }
-  }
-
   class Spark {
     constructor(x, y) {
       this.x = x; this.y = y;
@@ -98,14 +67,6 @@ function initParticleCanvas() {
       ctx.fill();
       ctx.restore();
     }
-  }
-
-  /* エンバー常時 30 個 */
-  for (let i = 0; i < 30; i++) {
-    const e = new Ember();
-    e.y    = Math.random() * H;   // 最初はバラバラな高さから開始
-    e.life = Math.random();
-    particles.push(e);
   }
 
   /* カーソルトラッキング */
