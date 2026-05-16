@@ -22,6 +22,10 @@ const animePosts = (await getCollection("anime").catch(() => []))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
 
+const booksPosts = (await getCollection("books").catch(() => []))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+
 function slug(col: string, id: string) {
   return `${col}/${id.replace(/\.mdx?$/, "")}`;
 }
@@ -296,7 +300,39 @@ const catLabel: Record<string, string> = {
     </section>
   )}
 
-  <!-- ⑧ AUDIBLE -->
+  <!-- ⑧ BOOKS -->
+  {booksPosts.length > 0 && (
+    <section class="books-sec reveal">
+      <div class="container">
+        <p class="eyebrow">BOOKS</p>
+        <div class="side-head">
+          <h2 class="display-heading">書評・戦略書</h2>
+          <a href="/category/books/" class="pill-link">すべて見る →</a>
+        </div>
+        <p class="side-sub">孫子・五輪書・失敗の本質——時代を超えた戦略書を、今日使える言葉で読み解く。</p>
+        <ul class="side-grid" role="list">
+          {booksPosts.map(post => (
+            <li>
+              <a href={`/blog/${slug(post.collection, post.id)}/`} class="side-card">
+                {post.data.ogImage && (
+                  <div class="side-card-img-wrap">
+                    <img src={post.data.ogImage} alt={post.data.title} class="side-card-img" loading="lazy" />
+                  </div>
+                )}
+                <div class="side-card-body">
+                  <span class="side-card-tag">書評</span>
+                  <p class="side-card-title">{post.data.title}</p>
+                  {post.data.lesson && <p class="side-card-lesson">{post.data.lesson}</p>}
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <!-- ⑨ AUDIBLE -->
   <section class="audible reveal">
     <div class="container audible-inner">
       <div class="audible-text-wrap">
