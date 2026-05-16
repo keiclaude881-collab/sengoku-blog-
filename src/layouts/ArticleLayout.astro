@@ -379,17 +379,26 @@ const awaseteYomitai = _shuffled.slice(0, 3).map(p => ({
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Article",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": pageUrl },
     "headline": title,
     "datePublished": iso,
     "dateModified": isoUpdated,
-    "author": { "@type": "Person", "name": "決断の系譜" },
+    "author": {
+      "@type": "Person",
+      "name": "決断の系譜",
+      "url": "https://sengoku-blog.vercel.app"
+    },
     "publisher": {
       "@type": "Organization",
       "name": "決断の系譜",
       "logo": { "@type": "ImageObject", "url": "https://sengoku-blog.vercel.app/favicon.svg" }
     },
     "description": description,
-    "image": ogImage ? `https://sengoku-blog.vercel.app${ogImage}` : "https://sengoku-blog.vercel.app/images/default-ogp.svg"
+    "image": ogImage ? ogImage : "https://sengoku-blog.vercel.app/images/default-ogp.svg",
+    "keywords": tags.join(", "),
+    "articleSection": catLabel[category] ?? category,
+    "wordCount": readingTime * 600,
+    "url": pageUrl
   })} />
 
   <script type="application/ld+json" set:html={JSON.stringify({

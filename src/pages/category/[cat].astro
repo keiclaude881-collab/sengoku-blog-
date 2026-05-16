@@ -86,6 +86,23 @@ const audibleCopy = AUDIBLE_COPY[cat] ?? null;
   title={`${label} | 決断の系譜`}
   description={desc}
 >
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": `${label} | 決断の系譜`,
+    "description": desc,
+    "url": `https://sengoku-blog.vercel.app/category/${cat}/`,
+    "inLanguage": "ja",
+    "isPartOf": { "@id": "https://sengoku-blog.vercel.app/#website" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://sengoku-blog.vercel.app/" },
+        { "@type": "ListItem", "position": 2, "name": label,    "item": `https://sengoku-blog.vercel.app/category/${cat}/` }
+      ]
+    }
+  })} />
+
   <div class="cat-hero">
     <div class="container cat-hero-inner">
       <div class="cat-hero-content">
