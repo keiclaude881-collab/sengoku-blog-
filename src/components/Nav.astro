@@ -56,10 +56,25 @@ const chapters = ARC_ORDER.map(slug => ({
         </li>
       ))}
 
-      <li>
-        <a href="/books/" class:list={["nav-link", { active: path.startsWith("/books/") }]}>
-          書籍
-        </a>
+      <li class="nav-dropdown-wrap" data-arc="media">
+        <button
+          class:list={["nav-link nav-dropdown-btn", {
+            active: path.startsWith("/books/") || path.startsWith("/novel/") || path.startsWith("/anime/") || path.startsWith("/philosophy/") || path.startsWith("/movies/")
+          }]}
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
+          メディア<span class="dropdown-arrow">▾</span>
+        </button>
+        <div class="nav-dropdown nav-dropdown--media">
+          <ul role="list">
+            <li><a href="/books/"      class:list={["dropdown-link", { active: path.startsWith("/books/") }]}>📚 書籍レビュー</a></li>
+            <li><a href="/novel/"      class:list={["dropdown-link", { active: path.startsWith("/novel/") }]}>📖 歴史小説</a></li>
+            <li><a href="/anime/"      class:list={["dropdown-link", { active: path.startsWith("/anime/") }]}>🎬 アニメ</a></li>
+            <li><a href="/movies/"     class:list={["dropdown-link", { active: path.startsWith("/movies/") }]}>🎥 映画</a></li>
+            <li><a href="/philosophy/" class:list={["dropdown-link", { active: path.startsWith("/philosophy/") }]}>🧠 哲学</a></li>
+          </ul>
+        </div>
       </li>
     </ul>
 
@@ -97,8 +112,12 @@ const chapters = ARC_ORDER.map(slug => ({
           ))}
         </>
       ))}
-      <li><a href="/books/" class:list={["mobile-link", { active: path.startsWith("/books/") }]}>書籍レビュー</a></li>
-      <li><a href="/search/" class:list={["mobile-link", { active: path.startsWith("/search/") }]}>🔍 記事を探す</a></li>
+      <li><a href="/books/"      class:list={["mobile-link", { active: path.startsWith("/books/") }]}>📚 書籍レビュー</a></li>
+      <li><a href="/novel/"      class:list={["mobile-link", { active: path.startsWith("/novel/") }]}>📖 歴史小説</a></li>
+      <li><a href="/anime/"      class:list={["mobile-link", { active: path.startsWith("/anime/") }]}>🎬 アニメ</a></li>
+      <li><a href="/movies/"     class:list={["mobile-link", { active: path.startsWith("/movies/") }]}>🎥 映画</a></li>
+      <li><a href="/philosophy/" class:list={["mobile-link", { active: path.startsWith("/philosophy/") }]}>🧠 哲学</a></li>
+      <li><a href="/search/"     class:list={["mobile-link", { active: path.startsWith("/search/") }]}>🔍 記事を探す</a></li>
     </ul>
   </div>
 </nav>
@@ -294,6 +313,10 @@ const chapters = ARC_ORDER.map(slug => ({
   .nav-dropdown--chapter {
     min-width: 220px;
   }
+  .nav-dropdown--media {
+    min-width: 160px;
+  }
+  .nav-dropdown--media ul { list-style: none; }
   .dropdown-chapter-header {
     display: block;
     padding: 1rem 1.2rem;
