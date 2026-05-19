@@ -83,8 +83,8 @@ const formattedUpdated = updatedAt
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 
 // あわせて読みたい: 同カテゴリからランダム3本（自身を除く）
-const _allCollections = ["battle", "leader", "strategy", "books", "movie", "whatif", "anime", "novel", "world"] as const;
-const _allPosts = (await Promise.all(_allCollections.map(c => getCollection(c)))).flat();
+const _allCollections = ["whatif", "books", "movie", "anime", "novel", "philosophy"] as const;
+const _allPosts = (await Promise.all(_allCollections.map(c => getCollection(c).catch(() => [])))).flat();
 const _currentPath = Astro.url.pathname.replace(/\/$/, '');
 const _sameCat = _allPosts.filter(p => {
   const pPath = `/blog/${p.collection}/${p.id.replace(/\.mdx?$/, '')}`;

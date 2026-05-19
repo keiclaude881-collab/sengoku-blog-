@@ -25,14 +25,10 @@ const articleSchema = z.object({
 });
 
 export const collections = {
-  battle:   defineCollection({ type: "content", schema: articleSchema }),
-  leader:   defineCollection({ type: "content", schema: articleSchema }),
-  strategy: defineCollection({ type: "content", schema: articleSchema }),
-  books:    defineCollection({ type: "content", schema: articleSchema }),
-  movie:    defineCollection({ type: "content", schema: articleSchema }),
-  whatif:   defineCollection({ type: "content", schema: articleSchema }),
-  anime:    defineCollection({ type: "content", schema: articleSchema }),
-  novel:    defineCollection({ type: "content", schema: articleSchema }),
-  world:      defineCollection({ type: "content", schema: articleSchema }),
+  whatif:     defineCollection({ type: "content", schema: articleSchema }),
+  books:      defineCollection({ type: "content", schema: articleSchema }),
+  movie:      defineCollection({ type: "content", schema: articleSchema }),
+  anime:      defineCollection({ type: "content", schema: articleSchema }),
+  novel:      defineCollection({ type: "content", schema: articleSchema }),
   philosophy: defineCollection({ type: "content", schema: articleSchema }),
 };

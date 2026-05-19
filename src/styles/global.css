@@ -1,29 +1,34 @@
 /* ── CSS 変数 ── */
 :root {
-  /* カラーパレット (spec準拠) */
-  --bg:          #FFFFFF;
-  --bg2:         #F4F4F4;
-  --ink:         #111111;
-  --ink2:        #444444;
-  --ink3:        #999999;
-  --gold:        #3B8C6E;   /* エバーグリーン */
-  --gold-light:  #C8E8D8;  /* 薄緑 */
-  --gold-dark:   #2A6B50;  /* 深緑 */
-  --accent:      #1E4A35;  /* ダークエバーグリーン */
-  --rule:        rgba(0, 0, 0, 0.09);
+  /* カラーパレット — 偉人ラボ */
+  --bg:           #FFFFFF;
+  --bg2:          #F4F4F5;
+  --ink:          #09090B;
+  --ink2:         #52525B;
+  --ink3:         #A1A1AA;
+  --violet:       #7C3AED;   /* primary accent */
+  --violet-light: #EDE9FE;
+  --violet-dark:  #5B21B6;
+  --amber:        #F59E0B;   /* secondary accent */
+  --amber-light:  #FEF3C7;
+  --amber-dark:   #D97706;
+  --rule:         rgba(0, 0, 0, 0.08);
 
-  /* 後方互換エイリアス（既存コンポーネントが参照） */
-  --bg-sub:      #F4F4F4;
-  --bg-navy:     #1E4A35;
-  --bg-navy-mid: #2A6B50;
-  --text:        #111111;
-  --text-mid:    #444444;
-  --text-sub:    #999999;
-  --border:      rgba(0, 0, 0, 0.09);
+  /* 後方互換エイリアス */
+  --bg-sub:      #F4F4F5;
+  --bg-navy:     #1E1B4B;
+  --bg-navy-mid: #312E81;
+  --text:        #09090B;
+  --text-mid:    #52525B;
+  --text-sub:    #A1A1AA;
+  --border:      rgba(0, 0, 0, 0.08);
   --border-mid:  rgba(0, 0, 0, 0.15);
-  --orange:      #3B8C6E;
-  --orange-dark: #2A6B50;
-  --amber:       #C8E8D8;
+  --gold:        #7C3AED;
+  --gold-light:  #EDE9FE;
+  --gold-dark:   #5B21B6;
+  --accent:      #7C3AED;
+  --orange:      #7C3AED;
+  --orange-dark: #5B21B6;
 
   /* FONT */
   --font-serif:  "Shippori Mincho", "Noto Serif JP", serif;

@@ -3,8 +3,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import AffiliateDisclosure from "../../components/AffiliateDisclosure.astro";
 import { getCollection } from "astro:content";
 
-const COLLECTIONS = ["battle", "leader", "strategy", "books", "movie", "whatif", "anime", "novel", "world", "philosophy"] as const;
-const allEntries = (await Promise.all(COLLECTIONS.map((c) => getCollection(c)))).flat();
+const COLLECTIONS = ["whatif", "books", "movie", "anime", "novel", "philosophy"] as const;
+const allEntries = (await Promise.all(COLLECTIONS.map((c) => getCollection(c).catch(() => [])))).flat();
 
 type ArticleRef = { title: string; url: string; collection: string };
 type BookData   = { title: string; asin: string; reason: string; image?: string; articles: ArticleRef[] };

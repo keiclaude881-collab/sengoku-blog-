@@ -17,7 +17,7 @@ const THEME_CATS: Cat[] = [...THEME_ORDER, "books", "movie", "anime", "novel", "
 const { cat } = Astro.params as { cat: Cat };
 
 // 全コレクションから category フィールドでフィルタ
-const ALL_COLLECTIONS = ["battle","world","leader","strategy","whatif","anime","movie","novel","books","philosophy"] as const;
+const ALL_COLLECTIONS = ["whatif","anime","movie","novel","books","philosophy"] as const;
 const allPosts = (await Promise.all(
   ALL_COLLECTIONS.map(c => getCollection(c).catch(() => []))
 )).flat().filter(p => p.data.category === cat)

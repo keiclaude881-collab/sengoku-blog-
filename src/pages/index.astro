@@ -3,1135 +3,374 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { THEME_INFO, THEME_ORDER } from "../utils/arcMap";
 
-const ALL_COLLECTIONS = ["battle","world","leader","strategy","whatif","anime","movie","novel","books","philosophy"] as const;
+const ALL_COLLECTIONS = ["whatif","anime","movie","novel","books","philosophy"] as const;
 const allPosts = (await Promise.all(
   ALL_COLLECTIONS.map(c => getCollection(c).catch(() => []))
 )).flat().sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
-const recentPosts = allPosts.slice(0, 4);
-
-const philosophyPosts = (await getCollection("philosophy").catch(() => []))
+const recentPosts = allPosts.slice(0, 6);
+const whatifPosts = (await getCollection("whatif").catch(() => []))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 3);
-
-const novelPosts = (await getCollection("novel").catch(() => []))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 3);
-
-const animePosts = (await getCollection("anime").catch(() => []))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 3);
-
-const booksPosts = (await getCollection("books").catch(() => []))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 3);
+  .slice(0, 4);
 
 function slug(col: string, id: string) {
   return `${col}/${id.replace(/\.mdx?$/, "")}`;
 }
-
-const AUDIBLE_URL = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&node=7471076051&tag=sengokublog20-22";
-
-const TICKER_ITEMS = [
-  "桶狭間の戦い 1560","関ヶ原の戦い 1600","川中島の戦い 1561","長篠の戦い 1575",
-  "ガウガメラの戦い BC331","カンナエの戦い BC216","テルモピュライ BC480",
-  "アクティウムの海戦 BC31","アウステルリッツ 1805","ノルマンディー上陸 1944",
-  "本能寺の変 1582","大坂の陣 1614","トラファルガー 1805","スターリングラード 1943","マラトンの戦い BC490",
-];
-
 function formatDate(d: Date) {
-  return d.toLocaleDateString("ja-JP", { year: "numeric", month: "long", day: "numeric" });
+  return d.toLocaleDateString("ja-JP", { year: "numeric", month: "short", day: "numeric" });
 }
 
-const catLabel: Record<string, string> = {
-  battle:"合戦", world:"世界史", leader:"武将", strategy:"戦略",
-  whatif:"もしも", anime:"アニメ", movie:"映画", novel:"小説",
-  books:"書評", philosophy:"哲学",
-};
+const themes = THEME_ORDER.map(s => ({ slug: s, ...THEME_INFO[s] }));
+
+const INSTAGRAM_URL = "https://www.instagram.com/ijin_lab/";
+const SUBSTACK_URL  = "https://ijin-lab.substack.com/";
+const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&node=7471076051&tag=sengokublog20-22";
+
+const EXAMPLES = [
+  { figure: "織田信長",   topic: "リモートワーク時代の部下管理" },
+  { figure: "ナポレオン", topic: "プレゼンで人を動かす方法" },
+  { figure: "坂本龍馬",  topic: "転職・キャリアチェンジ" },
+  { figure: "孫子",      topic: "SNSマーケティング戦略" },
+  { figure: "シーザー",  topic: "チームの士気を上げる方法" },
+  { figure: "宮本武蔵",  topic: "ライバルとの差別化" },
+];
 ---
 
 <BaseLayout
-  title="決断の系譜 | 500年前の武将の知恵が、今日の答えになる。"
-  description="決断できない夜に、武将の記録が答えをくれる。月曜日の悩みに、500年前の戦国武将が答える日本史ビジネスブログ。"
+  title="偉人ラボ | 歴史の偉人が現代の問題を解決する"
+  description="信長・ナポレオン・孫子・龍馬——歴史の偉人たちが現代のあなたの悩みに答える。仕事・人間関係・決断・逆境——時代を超えた知恵をあなたへ。"
 >
-  <!-- JSON-LD: WebSite + Organization -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://sengoku-blog.vercel.app/#website",
-        "url": "https://sengoku-blog.vercel.app/",
-        "name": "決断の系譜",
-        "description": "決断できない夜に、武将の記録が答えをくれる。500年前の戦国武将が答える日本史ビジネスブログ。",
-        "inLanguage": "ja",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://sengoku-blog.vercel.app/search/?q={search_term_string}"
-          },
-          "query-input": "required name=search_term_string"
-        }
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://sengoku-blog.vercel.app/#organization",
-        "name": "決断の系譜",
-        "url": "https://sengoku-blog.vercel.app/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://sengoku-blog.vercel.app/favicon.svg",
-          "width": 512,
-          "height": 512
-        },
-        "description": "戦国武将・世界の名将の決断を現代ビジネスに活かすメディア",
-        "sameAs": [
-          "https://senryaku.substack.com"
-        ]
-      }
-    ]
+    "@type": "WebSite",
+    "name": "偉人ラボ",
+    "url": "https://sengoku-blog.vercel.app/",
+    "description": "歴史の偉人が現代の問題を解決するメディア",
+    "inLanguage": "ja",
   })} />
 
-  <!-- スクロールプログレスバー -->
-  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
-
-  <!-- ① HERO -->
+  <!-- HERO -->
   <section class="hero">
-    <canvas class="lightning-canvas" id="lightning-canvas" aria-hidden="true"></canvas>
-    <div class="hero-flash" id="hero-flash" aria-hidden="true"></div>
-    <div class="ember-container" id="ember-container" aria-hidden="true"></div>
-    <div class="hero-inner">
-      <p class="hero-eyebrow">決断の系譜</p>
-      <h1 class="hero-title" id="hero-title">武将の知恵が、今日の答えになる。</h1>
-      <p class="hero-sub">500年前の決断から、あなたの悩みを解く。</p>
-      <a href="#concerns" class="hero-cta">悩みから記事を探す ↓</a>
-    </div>
-    <div class="hero-scroll-hint" aria-hidden="true"><span></span></div>
-  </section>
-
-  <!-- ② TICKER -->
-  <div class="ticker-wrap" aria-hidden="true">
-    <div class="ticker">
-      {[...TICKER_ITEMS, ...TICKER_ITEMS].map(text => (
-        <span class="ticker-item">◆ {text}</span>
-      ))}
-    </div>
-  </div>
-
-  <!-- ③ THEMES ── ページの主役 -->
-  <section class="themes" id="concerns">
-    <div class="container">
-      <div class="themes-head reveal">
-        <p class="eyebrow">YOUR CONCERN</p>
-        <h2 class="themes-title">今日の悩みはどれ？</h2>
-        <p class="themes-sub">テーマを選ぶと、その悩みに答える記事一覧へ。</p>
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <p class="hero-eyebrow">IJIN LAB — 偉人ラボ</p>
+        <h1 class="hero-title">
+          歴史の偉人が、<br />
+          <span class="hero-accent">あなたの悩みを解決する。</span>
+        </h1>
+        <p class="hero-desc">
+          信長・ナポレオン・シーザー・孫子・龍馬——<br />
+          彼らが現代にいたら、今日のあなたの問題をこう解決する。
+        </p>
+        <div class="hero-actions">
+          <a href="/category/decide/" class="hero-btn hero-btn--primary">悩みで読む</a>
+          <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer" class="hero-btn hero-btn--outline">📩 ニュースレター登録</a>
+        </div>
       </div>
-      <ul class="theme-rows reveal" role="list">
-        {THEME_ORDER.map((themeSlug, i) => {
-          const t = THEME_INFO[themeSlug];
-          return (
-            <li class="theme-row-item">
-              <a href={`/category/${themeSlug}/`} class="theme-row">
-                <span class="row-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-                <span class="row-icon" aria-hidden="true">{t.icon}</span>
-                <span class="row-body">
-                  <strong class="row-label">{t.label}</strong>
-                  <span class="row-tagline">{t.tagline}</span>
-                </span>
-                <span class="row-arrow" aria-hidden="true">記事を見る →</span>
-              </a>
-            </li>
-          );
-        })}
-      </ul>
-      <div class="themes-foot reveal">
-        <a href="/blog/" class="themes-all-link">全記事を見る →</a>
+
+      <div class="hero-examples" aria-hidden="true">
+        {EXAMPLES.map((ex, i) => (
+          <div class="hero-ex-card" style={`animation-delay: ${i * 0.08}s`}>
+            <span class="ex-figure">{ex.figure}</span>
+            <span class="ex-arrow">×</span>
+            <span class="ex-topic">{ex.topic}</span>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- ④ ARTICLES -->
-  <section class="articles reveal">
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="container intro-inner">
+      <p class="intro-q">「コロナのパンデミックを、織田信長ならどう乗り越えた？」</p>
+      <p class="intro-q">「転職を迷う夜に、坂本龍馬はこう考えた。」</p>
+      <p class="intro-q">「プレゼンが苦手な人へ——ナポレオンの話し方を盗む。」</p>
+      <p class="intro-body">
+        偉人ラボは、歴史の偉人たちの思考・戦略・決断を現代語に翻訳するメディアです。<br />
+        Instagram <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" class="intro-link">@ijin_lab</a> では短動画で、このブログでは深掘り記事で届けます。
+      </p>
+    </div>
+  </section>
+
+  <!-- 悩みカテゴリ -->
+  <section class="section themes-section">
     <div class="container">
-      <p class="eyebrow">LATEST</p>
-      <h2 class="display-heading">最新記事</h2>
-      <div class="articles-grid">
-        <!-- メイン記事 -->
-        {recentPosts[0] && (
-          <a href={`/blog/${slug(recentPosts[0].collection, recentPosts[0].id)}/`} class="art-hero">
-            <div class="art-hero-img-wrap">
-              {recentPosts[0].data.ogImage
-                ? <img src={recentPosts[0].data.ogImage} alt="" class="art-hero-img" loading="lazy" />
-                : <div class="art-hero-img art-hero-img--ph" aria-hidden="true"><span>記</span></div>
-              }
-            </div>
-            <div class="art-hero-body">
-              <span class="art-cat">{catLabel[recentPosts[0].data.category] ?? recentPosts[0].data.category}</span>
-              <p class="art-hero-title">{recentPosts[0].data.title}</p>
-              {recentPosts[0].data.lesson && (
-                <p class="art-hero-lesson"><span class="lesson-arrow">→</span>{recentPosts[0].data.lesson}</p>
-              )}
-              <p class="art-date">{formatDate(recentPosts[0].data.date)}</p>
-              <span class="art-read-more">続きを読む →</span>
+      <div class="section-header">
+        <h2 class="section-title">悩みで探す</h2>
+        <p class="section-sub">今の気持ちに合う偉人の知恵を</p>
+      </div>
+      <div class="themes-grid">
+        {themes.map(t => (
+          <a href={`/category/${t.slug}/`} class="theme-card">
+            <span class="theme-icon">{t.icon}</span>
+            <div>
+              <p class="theme-label">{t.label}</p>
+              <p class="theme-tagline">{t.tagline}</p>
             </div>
           </a>
-        )}
-        <!-- サブリスト -->
-        <ul class="art-list" role="list">
-          {recentPosts.slice(1, 4).map(post => (
-            <li>
-              <a href={`/blog/${slug(post.collection, post.id)}/`} class="art-list-item">
-                {post.data.ogImage
-                  ? <img src={post.data.ogImage} alt="" class="art-list-img" loading="lazy" />
-                  : <div class="art-list-img art-list-img--ph" aria-hidden="true"><span>記</span></div>
-                }
-                <div class="art-list-body">
-                  <span class="art-cat">{catLabel[post.data.category] ?? post.data.category}</span>
-                  <p class="art-list-title">{post.data.title}</p>
-                  <p class="art-date">{formatDate(post.data.date)}</p>
-                </div>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div class="articles-more">
-        <a href="/blog/" class="pill-link">すべての記事を見る →</a>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- ⑤ PHILOSOPHY -->
-  {philosophyPosts.length > 0 && (
-    <section class="philosophy reveal">
+  <!-- もしも歴史 -->
+  {whatifPosts.length > 0 && (
+    <section class="section whatif-section">
       <div class="container">
-        <p class="eyebrow">PHILOSOPHY</p>
-        <div class="phil-head">
-          <h2 class="display-heading">哲学の知恵</h2>
-          <a href="/philosophy/" class="pill-link">すべて見る →</a>
+        <div class="section-header">
+          <h2 class="section-title">もしも歴史</h2>
+          <a href="/category/whatif/" class="section-more">すべて見る →</a>
         </div>
-        <p class="phil-sub">仕事・決断・生きる意味——2500年の問いが、今日のあなたに答える。</p>
-        <ul class="phil-grid" role="list">
-          {philosophyPosts.map(post => (
-            <li>
-              <a href={`/blog/${slug(post.collection, post.id)}/`} class="phil-card">
-                {post.data.ogImage && (
-                  <div class="phil-card-img-wrap">
-                    <img src={post.data.ogImage} alt={post.data.title} class="phil-card-img" loading="lazy" />
-                  </div>
-                )}
-                <div class="phil-card-body">
-                  <span class="phil-card-tag">哲学</span>
-                  <p class="phil-card-title">{post.data.title}</p>
-                  {post.data.lesson && (
-                    <p class="phil-card-lesson">{post.data.lesson}</p>
-                  )}
+        <div class="whatif-grid">
+          {whatifPosts.map(post => (
+            <a href={`/blog/${slug(post.collection, post.id)}/`} class="whatif-card">
+              {post.data.ogImage && (
+                <div class="whatif-img-wrap">
+                  <img src={post.data.ogImage} alt={post.data.title} loading="lazy" />
                 </div>
-              </a>
-            </li>
+              )}
+              <div class="whatif-body">
+                <p class="whatif-title">{post.data.title}</p>
+                {post.data.lesson && <p class="whatif-lesson">{post.data.lesson}</p>}
+              </div>
+            </a>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   )}
 
-  <!-- ⑥ NOVEL -->
-  {novelPosts.length > 0 && (
-    <section class="novel reveal">
-      <div class="container">
-        <p class="eyebrow">NOVEL</p>
-        <div class="side-head">
-          <h2 class="display-heading">歴史小説から学ぶ</h2>
-          <a href="/novel/" class="pill-link">すべて見る →</a>
-        </div>
-        <p class="side-sub">司馬遼太郎・吉川英治が描いた武将たちの選択——小説の中に戦略の本質がある。</p>
-        <ul class="side-grid" role="list">
-          {novelPosts.map(post => (
-            <li>
-              <a href={`/blog/${slug(post.collection, post.id)}/`} class="side-card">
-                {post.data.ogImage && (
-                  <div class="side-card-img-wrap">
-                    <img src={post.data.ogImage} alt={post.data.title} class="side-card-img" loading="lazy" />
-                  </div>
-                )}
-                <div class="side-card-body">
-                  <span class="side-card-tag">小説</span>
-                  <p class="side-card-title">{post.data.title}</p>
-                  {post.data.lesson && <p class="side-card-lesson">{post.data.lesson}</p>}
-                </div>
-              </a>
-            </li>
-          ))}
-        </ul>
+  <!-- 最新記事 -->
+  <section class="section recent-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">最新記事</h2>
+        <a href="/blog/" class="section-more">すべて見る →</a>
       </div>
-    </section>
-  )}
-
-  <!-- ⑦ ANIME -->
-  {animePosts.length > 0 && (
-    <section class="anime-sec reveal">
-      <div class="container">
-        <p class="eyebrow">ANIME</p>
-        <div class="side-head">
-          <h2 class="display-heading">アニメで戦略を読む</h2>
-          <a href="/anime/" class="pill-link">すべて見る →</a>
-        </div>
-        <p class="side-sub">銀英伝・ハイキュー・平家物語——フィクションの戦場に、リアルな組織論がある。</p>
-        <ul class="side-grid" role="list">
-          {animePosts.map(post => (
-            <li>
-              <a href={`/blog/${slug(post.collection, post.id)}/`} class="side-card">
-                {post.data.ogImage && (
-                  <div class="side-card-img-wrap">
-                    <img src={post.data.ogImage} alt={post.data.title} class="side-card-img" loading="lazy" />
-                  </div>
-                )}
-                <div class="side-card-body">
-                  <span class="side-card-tag">アニメ</span>
-                  <p class="side-card-title">{post.data.title}</p>
-                  {post.data.lesson && <p class="side-card-lesson">{post.data.lesson}</p>}
-                </div>
-              </a>
-            </li>
-          ))}
-        </ul>
+      <div class="recent-grid">
+        {recentPosts.map(post => (
+          <a href={`/blog/${slug(post.collection, post.id)}/`} class="recent-card">
+            {post.data.ogImage && (
+              <div class="recent-img-wrap">
+                <img src={post.data.ogImage} alt={post.data.title} loading="lazy" />
+              </div>
+            )}
+            <div class="recent-body">
+              <span class="recent-cat">{post.collection}</span>
+              <p class="recent-title">{post.data.title}</p>
+              <p class="recent-date">{formatDate(post.data.date)}</p>
+            </div>
+          </a>
+        ))}
       </div>
-    </section>
-  )}
+    </div>
+  </section>
 
-  <!-- ⑧ BOOKS -->
-  {booksPosts.length > 0 && (
-    <section class="books-sec reveal">
-      <div class="container">
-        <p class="eyebrow">BOOKS</p>
-        <div class="side-head">
-          <h2 class="display-heading">書評・戦略書</h2>
-          <a href="/category/books/" class="pill-link">すべて見る →</a>
-        </div>
-        <p class="side-sub">孫子・五輪書・失敗の本質——時代を超えた戦略書を、今日使える言葉で読み解く。</p>
-        <ul class="side-grid" role="list">
-          {booksPosts.map(post => (
-            <li>
-              <a href={`/blog/${slug(post.collection, post.id)}/`} class="side-card">
-                {post.data.ogImage && (
-                  <div class="side-card-img-wrap">
-                    <img src={post.data.ogImage} alt={post.data.title} class="side-card-img" loading="lazy" />
-                  </div>
-                )}
-                <div class="side-card-body">
-                  <span class="side-card-tag">書評</span>
-                  <p class="side-card-title">{post.data.title}</p>
-                  {post.data.lesson && <p class="side-card-lesson">{post.data.lesson}</p>}
-                </div>
-              </a>
-            </li>
-          ))}
-        </ul>
+  <!-- Instagram CTA -->
+  <section class="insta-cta-section">
+    <div class="container insta-cta-inner">
+      <div>
+        <p class="insta-cta-label">INSTAGRAM</p>
+        <p class="insta-cta-title">毎日、偉人の知恵を60秒で。</p>
+        <p class="insta-cta-desc">リールで「偉人×現代問題」を発信中。フォローしていつでも見返せる。</p>
       </div>
-    </section>
-  )}
+      <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" class="insta-cta-btn">
+        📸 @ijin_lab をフォロー
+      </a>
+    </div>
+  </section>
 
-  <!-- ⑨ AUDIBLE -->
-  <section class="audible reveal">
+  <!-- Audible -->
+  <section class="audible-section">
     <div class="container audible-inner">
-      <div class="audible-text-wrap">
-        <p class="audible-head">📚 通勤中に孫子を聴く。</p>
-        <p class="audible-body">戦略書を聴く30分が、明日の判断を変える。30日間無料で体験できる。</p>
-      </div>
-      <a href={AUDIBLE_URL} target="_blank" rel="nofollow sponsored noopener" class="audible-btn">
-        無料で試す →
+      <p class="audible-copy">偉人の著作・歴史書を通勤中に。Audible 30日間無料。</p>
+      <a href={AUDIBLE_URL} target="_blank" rel="noopener noreferrer" class="audible-btn">
+        📚 Audibleで試す →
       </a>
     </div>
   </section>
 
 </BaseLayout>
 
-<!-- ⚡ Lightning -->
-<script>
-  const canvas = document.getElementById('lightning-canvas') as HTMLCanvasElement | null;
-  const flash  = document.getElementById('hero-flash') as HTMLElement | null;
-  const title  = document.getElementById('hero-title') as HTMLElement | null;
-
-  if (canvas) {
-    const ctx = canvas.getContext('2d');
-    function resize() {
-      canvas!.width  = canvas!.parentElement!.offsetWidth;
-      canvas!.height = canvas!.parentElement!.offsetHeight;
-    }
-    resize();
-    window.addEventListener('resize', resize, { passive: true });
-
-    function drawBolt(x1: number, y1: number, x2: number, y2: number, depth: number) {
-      if (!ctx) return;
-      if (depth === 0) { ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke(); return; }
-      const dx = x2-x1, dy = y2-y1, len = Math.sqrt(dx*dx+dy*dy);
-      const mx = (x1+x2)/2+(Math.random()-0.5)*len*0.45;
-      const my = (y1+y2)/2+(Math.random()-0.25)*Math.abs(dy)*0.3;
-      drawBolt(x1,y1,mx,my,depth-1); drawBolt(mx,my,x2,y2,depth-1);
-      if (depth>2 && Math.random()>0.55) {
-        const bx=mx+(Math.random()-0.35)*dx*0.6, by=my+Math.random()*dy*0.5;
-        ctx.globalAlpha=0.45; drawBolt(mx,my,bx,by,depth-2); ctx.globalAlpha=1;
-      }
-    }
-
-    function strike() {
-      if (!ctx||!canvas) return;
-      const W=canvas.width,H=canvas.height;
-      const sx=W*(0.42+Math.random()*0.5), sy=H*(0.04+Math.random()*0.12);
-      const ex=sx+(Math.random()-0.5)*W*0.25, ey=H*(0.45+Math.random()*0.35);
-      ctx.clearRect(0,0,W,H);
-      ctx.strokeStyle='rgba(210,235,255,0.92)'; ctx.lineWidth=1.2;
-      ctx.shadowColor='rgba(150,210,255,1)'; ctx.shadowBlur=14; ctx.globalAlpha=1;
-      drawBolt(sx,sy,ex,ey,7);
-      if (flash) {
-        flash.style.transition='none'; flash.style.opacity='0.18';
-        setTimeout(()=>{if(flash){flash.style.transition='opacity 0.25s';flash.style.opacity='0';}},120);
-        setTimeout(()=>{if(flash){flash.style.transition='none';flash.style.opacity='0.08';}},250);
-        setTimeout(()=>{if(flash){flash.style.transition='opacity 0.4s';flash.style.opacity='0';}},350);
-      }
-      if (title) { title.classList.add('title-flash'); setTimeout(()=>title?.classList.remove('title-flash'),600); }
-      setTimeout(()=>{
-        if(!ctx||!canvas) return;
-        let alpha=1;
-        const fade=setInterval(()=>{
-          alpha-=0.08; if(alpha<=0){clearInterval(fade);ctx.clearRect(0,0,canvas!.width,canvas!.height);return;}
-          ctx.clearRect(0,0,canvas!.width,canvas!.height);ctx.globalAlpha=alpha;
-          drawBolt(sx,sy,ex,ey,7);ctx.globalAlpha=1;
-        },30);
-      },300);
-    }
-
-    function scheduleNext(){ setTimeout(()=>{strike();scheduleNext();},5000+Math.random()*10000); }
-    setTimeout(()=>{strike();scheduleNext();},2000);
-  }
-</script>
-
-<!-- Reveal + Stagger + Progress + Embers -->
-<script>
-  // ── Scroll reveal ──
-  const revealObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); revealObs.unobserve(e.target); } });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-
-  // ── Scroll progress bar ──
-  const progressBar = document.getElementById('scroll-progress') as HTMLElement | null;
-  function updateProgress() {
-    if (!progressBar) return;
-    const pct = document.documentElement.scrollHeight - window.innerHeight;
-    progressBar.style.width = (pct > 0 ? (window.scrollY / pct) * 100 : 0) + '%';
-  }
-  window.addEventListener('scroll', updateProgress, { passive: true });
-
-  // ── Ember particles ──
-  const emberContainer = document.getElementById('ember-container');
-  function spawnEmber() {
-    if (!emberContainer) return;
-    const e = document.createElement('span');
-    e.className = 'ember';
-    const size = 1.5 + Math.random() * 3;
-    const x    = 5 + Math.random() * 90;
-    const dur  = 3.5 + Math.random() * 4;
-    const drift = (Math.random() - 0.5) * 80;
-    e.style.cssText = `left:${x}%;width:${size}px;height:${size}px;--d:${dur}s;--dx:${drift}px`;
-    emberContainer.appendChild(e);
-    setTimeout(() => e.remove(), (dur + 0.5) * 1000);
-  }
-  for (let i = 0; i < 10; i++) setTimeout(spawnEmber, i * 180);
-  setInterval(spawnEmber, 700);
-
-  // ── Theme rows stagger ──
-  const themeRowItems = document.querySelectorAll('.theme-row-item');
-  themeRowItems.forEach(el => el.classList.add('stagger-ready'));
-  const themeObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      (e.target as HTMLElement).querySelectorAll('.stagger-ready').forEach((item, i) => {
-        setTimeout(() => item.classList.add('stagger-in'), i * 80);
-      });
-      themeObs.unobserve(e.target);
-    });
-  }, { threshold: 0.05 });
-  const themeRowsList = document.querySelector('.theme-rows');
-  if (themeRowsList) themeObs.observe(themeRowsList);
-
-  // ── Articles stagger ──
-  document.querySelectorAll('.art-hero, .art-list li').forEach(el => el.classList.add('stagger-ready'));
-  const artObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      (e.target as HTMLElement).querySelectorAll('.stagger-ready').forEach((item, i) => {
-        setTimeout(() => item.classList.add('stagger-in'), i * 90);
-      });
-      artObs.unobserve(e.target);
-    });
-  }, { threshold: 0.05 });
-  const artGrid = document.querySelector('.articles-grid');
-  if (artGrid) artObs.observe(artGrid);
-
-  // ── Philosophy stagger ──
-  document.querySelectorAll('.phil-grid > li').forEach(el => el.classList.add('stagger-ready'));
-  const philObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      (e.target as HTMLElement).querySelectorAll('.stagger-ready').forEach((item, i) => {
-        setTimeout(() => item.classList.add('stagger-in'), i * 110);
-      });
-      philObs.unobserve(e.target);
-    });
-  }, { threshold: 0.08 });
-  const philGrid = document.querySelector('.phil-grid');
-  if (philGrid) philObs.observe(philGrid);
-</script>
-
 <style>
-  /* ── RESET / UTIL ── */
-  .container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-  .eyebrow {
-    font-family: var(--font-sans);
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.3em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    display: block;
-  }
-  .eyebrow--light { color: var(--gold-light); }
-  .display-heading {
-    font-family: var(--font-serif);
-    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-    font-weight: 700;
-    color: var(--ink);
-    letter-spacing: 0.04em;
-    margin-bottom: 2.5rem;
-    line-height: 1.35;
-  }
-  .pill-link {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.65rem 1.6rem;
-    border: 1.5px solid var(--gold);
-    border-radius: 980px;
-    color: var(--gold);
-    font-family: var(--font-sans);
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-decoration: none;
-    transition: background 0.25s, color 0.25s;
-  }
-  .pill-link:hover { background: var(--gold); color: #fff; }
-
-  /* scroll reveal */
-  .reveal {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.7s cubic-bezier(0.25,0.46,0.45,0.94),
-                transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
-  }
-  .reveal.revealed { opacity: 1; transform: translateY(0); }
-
-  /* stagger */
-  .stagger-ready {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s cubic-bezier(0.25,0.46,0.45,0.94),
-                transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
-  }
-  .stagger-ready.stagger-in { opacity: 1; transform: translateY(0); }
-
-  /* progress bar */
-  .scroll-progress {
-    position: fixed;
-    top: 0; left: 0;
-    height: 2.5px; width: 0%;
-    background: linear-gradient(to right, var(--gold), #a8e4c0, var(--gold-light));
-    z-index: 9999;
-    pointer-events: none;
-    box-shadow: 0 0 8px rgba(59,140,110,0.7);
-  }
-
-  /* ── HERO ── */
   .hero {
-    position: relative;
-    background:
-      linear-gradient(to bottom, rgba(5,12,5,0.78) 0%, rgba(5,12,5,0.52) 60%, rgba(5,12,5,0.78) 100%),
-      url('/images/header-bg.jpg') center center / cover no-repeat;
-    min-height: 100svh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    overflow: hidden;
-  }
-  .lightning-canvas {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    pointer-events: none; z-index: 1;
-  }
-  .hero-flash {
-    position: absolute; inset: 0;
-    background: rgba(200,230,255,1);
-    opacity: 0; pointer-events: none;
-    z-index: 2; mix-blend-mode: overlay;
-  }
-  .ember-container {
-    position: absolute; inset: 0;
-    pointer-events: none; z-index: 2; overflow: hidden;
-  }
-  .ember {
-    position: absolute; bottom: -4px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 40% 35%, #a8e4c0, rgba(59,140,110,0.6));
-    box-shadow: 0 0 6px rgba(59,140,110,0.9), 0 0 14px rgba(59,140,110,0.4);
-    animation: ember-rise var(--d, 4s) ease-out forwards;
-    opacity: 0;
-  }
-  @keyframes ember-rise {
-    0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
-    10%  { opacity: 0.85; }
-    80%  { opacity: 0.4; }
-    100% { transform: translateY(-65vh) translateX(var(--dx, 40px)) scale(0.3); opacity: 0; }
+    padding: calc(var(--nav-height) + 4rem) 0 5rem;
+    background: linear-gradient(160deg, #faf9ff 0%, #f0ebff 60%, #faf9ff 100%);
+    border-bottom: 1px solid var(--border);
   }
   .hero-inner {
-    position: relative; z-index: 3;
-    display: flex; flex-direction: column;
-    align-items: center; gap: 1.6rem;
-    padding: calc(var(--nav-height) + 4rem) 2rem 6rem;
-    max-width: 760px; width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
   }
   .hero-eyebrow {
     font-family: var(--font-sans);
-    font-size: 0.65rem; font-weight: 700;
-    letter-spacing: 0.35em;
-    color: var(--gold-light);
-    text-transform: uppercase;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--violet);
+    margin-bottom: 1.2rem;
   }
   .hero-title {
     font-family: var(--font-serif);
-    font-size: clamp(2.4rem, 8vw, 5rem);
-    font-weight: 700; color: #fff;
-    line-height: 1.25; letter-spacing: 0.04em;
-    text-shadow: 0 0 60px rgba(59,140,110,0.2);
-    transition: text-shadow 0.2s;
-    text-wrap: balance; word-break: keep-all; overflow-wrap: anywhere;
+    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.35;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.2rem;
   }
-  .hero-title.title-flash {
-    text-shadow: 0 0 20px rgba(200,230,255,0.7), 0 0 60px rgba(200,230,255,0.35);
-  }
-  .hero-sub {
-    font-family: var(--font-serif);
-    font-size: clamp(0.92rem, 2vw, 1.1rem); font-weight: 400;
-    color: rgba(255,255,255,0.65);
-    letter-spacing: 0.06em; line-height: 1.8;
-  }
-  .hero-cta {
-    display: inline-flex; align-items: center;
-    padding: 0.9rem 2.6rem;
-    background: var(--gold); color: #fff;
+  .hero-accent { color: var(--violet); }
+  .hero-desc {
     font-family: var(--font-sans);
-    font-size: 0.9rem; font-weight: 600;
-    letter-spacing: 0.06em; border-radius: 980px;
+    font-size: 0.92rem;
+    line-height: 1.9;
+    color: var(--ink2);
+    margin-bottom: 2rem;
+  }
+  .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .hero-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 700;
     text-decoration: none;
-    transition: background 0.25s, transform 0.25s;
-    margin-top: 0.4rem;
+    transition: all 0.15s;
+    white-space: nowrap;
   }
-  .hero-cta:hover { background: var(--gold-dark); transform: scale(1.03); }
-  .hero-scroll-hint {
-    position: absolute; bottom: 2.2rem; left: 50%;
-    transform: translateX(-50%); z-index: 3;
-  }
-  .hero-scroll-hint span {
-    display: block; width: 1px; height: 52px;
-    background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.4));
-    animation: scroll-line 1.8s ease-in-out infinite;
-  }
-  @keyframes scroll-line {
-    0%     { transform: scaleY(0); transform-origin: top; }
-    50%    { transform: scaleY(1); transform-origin: top; }
-    50.01% { transform-origin: bottom; }
-    100%   { transform: scaleY(0); transform-origin: bottom; }
-  }
-
-  /* ── TICKER ── */
-  .ticker-wrap {
-    background: var(--accent);
-    overflow: hidden;
-    border-top: 1px solid rgba(255,255,255,0.04);
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-    padding: 0.75rem 0; position: relative;
-  }
-  .ticker-wrap::before, .ticker-wrap::after {
-    content: ''; position: absolute; top: 0; bottom: 0; width: 80px;
-    z-index: 1; pointer-events: none;
-  }
-  .ticker-wrap::before { left: 0; background: linear-gradient(to right, var(--accent), transparent); }
-  .ticker-wrap::after  { right: 0; background: linear-gradient(to left, var(--accent), transparent); }
-  .ticker {
-    display: flex; white-space: nowrap; width: max-content;
-    animation: ticker-scroll 40s linear infinite;
-  }
-  .ticker:hover { animation-play-state: paused; }
-  .ticker-item {
-    font-family: var(--font-sans); font-size: 0.68rem;
-    font-weight: 500; letter-spacing: 0.08em;
-    color: rgba(255,255,255,0.45); padding: 0 2rem;
-  }
-  @keyframes ticker-scroll {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  /* ── THEMES ── ページの主役 */
-  .themes {
-    background: var(--bg);
-    padding: 6rem 0 5rem;
-    border-bottom: 1px solid var(--rule);
-  }
-  .themes-head {
-    margin-bottom: 3rem;
-  }
-  .themes-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    font-weight: 700; color: var(--ink);
-    letter-spacing: 0.04em; line-height: 1.25;
-    margin-bottom: 0.8rem;
-  }
-  .themes-sub {
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
-    color: var(--ink3);
-    line-height: 1.7;
-  }
-
-  /* テーマ行 */
-  .theme-rows {
-    list-style: none;
-    border-top: 1px solid var(--rule);
-  }
-  .theme-row-item { position: relative; }
-  .theme-row {
+  .hero-btn--primary { background: var(--violet); color: #fff; }
+  .hero-btn--primary:hover { background: var(--violet-dark); }
+  .hero-btn--outline { border: 1.5px solid var(--violet); color: var(--violet); }
+  .hero-btn--outline:hover { background: var(--violet-light); }
+  .hero-examples { display: flex; flex-direction: column; gap: 0.55rem; }
+  .hero-ex-card {
     display: flex;
     align-items: center;
-    gap: 1.6rem;
-    padding: 1.8rem 0.5rem 1.8rem 0;
-    border-bottom: 1px solid var(--rule);
-    text-decoration: none; color: var(--ink);
-    position: relative;
-    transition: padding-left 0.25s cubic-bezier(0.25,0.46,0.45,0.94),
-                background 0.25s;
+    gap: 0.6rem;
+    padding: 0.7rem 1rem;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    animation: slideIn 0.5s ease both;
   }
-  .theme-row::before {
-    content: '';
-    position: absolute; left: 0; top: 0; bottom: 0;
-    width: 3px;
-    background: var(--gold);
-    opacity: 0;
-    transition: opacity 0.25s;
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to   { opacity: 1; transform: translateX(0); }
   }
-  .theme-row:hover { padding-left: 1.2rem; background: var(--bg2); }
-  .theme-row:hover::before { opacity: 1; }
-  .theme-row:hover .row-num { color: var(--gold); }
-  .theme-row:hover .row-icon { transform: scale(1.1); }
-  .theme-row:hover .row-arrow { opacity: 1; transform: translateX(0); }
+  .ex-figure { font-family: var(--font-serif); font-size: 0.88rem; font-weight: 700; color: var(--violet); white-space: nowrap; min-width: 5em; }
+  .ex-arrow  { color: var(--amber); font-weight: 700; flex-shrink: 0; }
+  .ex-topic  { font-family: var(--font-sans); font-size: 0.8rem; color: var(--ink2); line-height: 1.4; }
 
-  .row-num {
-    font-family: var(--font-sans);
-    font-size: 0.6rem; font-weight: 700;
-    letter-spacing: 0.2em;
-    color: var(--ink3);
-    width: 2rem; flex-shrink: 0;
-    transition: color 0.25s;
-  }
-  .row-icon {
+  .intro { padding: 2.8rem 0; background: var(--bg2); border-bottom: 1px solid var(--border); }
+  .intro-inner { max-width: 680px; }
+  .intro-q {
     font-family: var(--font-serif);
-    font-size: 2rem; color: var(--gold);
-    width: 2.8rem; text-align: center; flex-shrink: 0;
-    line-height: 1;
-    transition: transform 0.25s;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.7;
+    padding-left: 1rem;
+    border-left: 3px solid var(--violet);
+    margin-bottom: 0.8rem;
   }
-  .row-body {
-    flex: 1;
-    display: flex; flex-direction: column; gap: 0.3rem;
-  }
-  .row-label {
-    font-family: var(--font-serif);
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
-    font-weight: 700; color: var(--ink);
-    letter-spacing: 0.02em; line-height: 1.3;
-  }
-  .row-tagline {
-    font-family: var(--font-sans);
-    font-size: 0.78rem;
-    color: var(--ink3);
-    line-height: 1.5;
-  }
-  .row-arrow {
-    font-family: var(--font-sans);
-    font-size: 0.78rem; font-weight: 600;
-    color: var(--gold);
-    flex-shrink: 0;
-    opacity: 0; transform: translateX(-8px);
-    transition: opacity 0.25s, transform 0.25s;
-  }
+  .intro-body { margin-top: 1.5rem; font-family: var(--font-sans); font-size: 0.87rem; line-height: 1.9; color: var(--ink2); }
+  .intro-link { color: var(--violet); font-weight: 600; }
 
-  .themes-foot {
-    margin-top: 2.5rem;
-    text-align: right;
-  }
-  .themes-all-link {
-    font-family: var(--font-sans);
-    font-size: 0.8rem; font-weight: 600;
-    color: var(--ink3);
-    text-decoration: none;
-    letter-spacing: 0.05em;
-    transition: color 0.2s;
-  }
-  .themes-all-link:hover { color: var(--gold); }
-
-  /* ── ARTICLES ── */
-  .articles {
-    background: var(--bg);
-    padding: 7rem 0;
-    border-bottom: 1px solid var(--rule);
-  }
-  .articles-grid {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 2rem;
-    margin-bottom: 3rem;
-    align-items: start;
-  }
-
-  /* メイン記事 */
-  .art-hero {
-    display: flex; flex-direction: column;
-    border-radius: 12px; overflow: hidden;
-    border: 1px solid var(--rule);
-    text-decoration: none; color: inherit;
-    background: var(--bg);
-    transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
-    height: 100%;
-  }
-  .art-hero:hover {
-    box-shadow: 0 16px 48px rgba(0,0,0,0.1);
-    transform: translateY(-4px);
-    border-color: var(--gold);
-  }
-  .art-hero-img-wrap {
-    width: 100%; aspect-ratio: 16/9;
-    overflow: hidden; background: var(--accent); flex-shrink: 0;
-  }
-  .art-hero-img {
-    width: 100%; height: 100%;
-    object-fit: cover; object-position: top center;
-    display: block;
-    transition: transform 0.5s ease;
-  }
-  .art-hero:hover .art-hero-img { transform: scale(1.04); }
-  .art-hero-img--ph {
-    display: flex; align-items: center; justify-content: center;
-  }
-  .art-hero-img--ph span {
-    font-family: var(--font-serif);
-    font-size: 4rem; color: rgba(255,255,255,0.15);
-  }
-  .art-hero-body {
-    padding: 1.8rem 2rem 2rem;
-    display: flex; flex-direction: column; gap: 0.7rem; flex: 1;
-  }
-  .art-hero-title {
-    font-family: var(--font-serif);
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    font-weight: 700; color: var(--ink);
-    line-height: 1.55; letter-spacing: 0.02em;
-  }
-  .art-hero-lesson {
-    font-family: var(--font-sans);
-    font-size: 0.78rem; color: var(--gold);
-    line-height: 1.65;
-    display: flex; gap: 0.4rem; align-items: flex-start;
-    flex: 1;
-  }
-  .lesson-arrow { flex-shrink: 0; }
-  .art-read-more {
-    font-family: var(--font-sans);
-    font-size: 0.78rem; font-weight: 600;
-    color: var(--gold); letter-spacing: 0.03em;
-    margin-top: auto;
-  }
-
-  /* サブリスト */
-  .art-list {
-    list-style: none;
-    display: flex; flex-direction: column;
-    gap: 0;
-    border: 1px solid var(--rule);
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  .art-list li { border-bottom: 1px solid var(--rule); }
-  .art-list li:last-child { border-bottom: none; }
-
-  .art-list-item {
-    display: flex; gap: 0.9rem;
-    padding: 1.1rem 1.2rem;
-    text-decoration: none; color: inherit;
-    background: var(--bg);
-    transition: background 0.2s;
-  }
-  .art-list-item:hover { background: var(--bg2); }
-
-  .art-list-img {
-    width: 72px; height: 54px;
-    object-fit: cover; object-position: top center;
-    border-radius: 4px; flex-shrink: 0;
-    display: block;
-  }
-  .art-list-img--ph {
-    display: flex; align-items: center; justify-content: center;
-    background: var(--accent); border-radius: 4px;
-  }
-  .art-list-img--ph span {
-    font-family: var(--font-serif);
-    font-size: 1.4rem; color: rgba(255,255,255,0.2);
-  }
-  .art-list-body {
-    display: flex; flex-direction: column; gap: 0.3rem; flex: 1;
-    min-width: 0;
-  }
-  .art-list-title {
-    font-family: var(--font-serif);
-    font-size: 0.85rem; font-weight: 700;
-    color: var(--ink); line-height: 1.55;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  /* 共通 */
-  .art-cat {
-    font-family: var(--font-sans);
-    font-size: 0.58rem; font-weight: 700;
-    letter-spacing: 0.2em; color: var(--gold);
-    text-transform: uppercase; display: block;
-  }
-  .art-date {
-    font-family: var(--font-sans);
-    font-size: 0.66rem; color: var(--ink3);
-  }
-  .articles-more { text-align: center; }
-
-  /* ── PHILOSOPHY ── */
-  .philosophy {
-    background: var(--bg2, #f7f5f0);
-    padding: 7rem 0;
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-  }
-  .phil-head {
-    display: flex; align-items: baseline;
-    justify-content: space-between; gap: 1.5rem;
-    flex-wrap: wrap; margin-bottom: 0.5rem;
-  }
-  .phil-sub {
-    font-family: var(--font-serif);
-    font-size: 0.92rem; color: var(--ink3);
-    line-height: 1.8; margin-bottom: 3rem;
-  }
-  .phil-grid {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-  .phil-card {
-    display: flex; flex-direction: column;
-    border-radius: 10px; overflow: hidden;
-    border: 1px solid var(--rule);
-    background: var(--bg); text-decoration: none; color: inherit;
-    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
-  }
-  .phil-card:hover {
-    border-color: var(--gold);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(59,140,110,0.12);
-  }
-  .phil-card-img-wrap {
-    width: 100%; aspect-ratio: 16/10;
-    overflow: hidden; background: var(--accent);
-  }
-  .phil-card-img {
-    width: 100%; height: 100%;
-    object-fit: cover; object-position: top center;
-    display: block;
-    transition: transform 0.45s ease;
-  }
-  .phil-card:hover .phil-card-img { transform: scale(1.05); }
-  .phil-card-body {
-    padding: 1.3rem 1.4rem 1.5rem;
-    display: flex; flex-direction: column; gap: 0.6rem; flex: 1;
-  }
-  .phil-card-tag {
-    font-family: var(--font-sans);
-    font-size: 0.6rem; font-weight: 700;
-    letter-spacing: 0.2em; color: var(--gold);
-    text-transform: uppercase;
-  }
-  .phil-card-title {
-    font-family: var(--font-serif);
-    font-size: 0.92rem; font-weight: 700;
-    color: var(--ink); line-height: 1.6;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical; overflow: hidden;
-  }
-  .phil-card-lesson {
-    font-family: var(--font-sans);
-    font-size: 0.73rem; color: var(--ink3);
-    line-height: 1.65;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical; overflow: hidden;
-  }
-
-  /* ── NOVEL / ANIME ── */
-  .novel {
-    background: var(--bg);
-    padding: 7rem 0;
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-  }
-  .anime-sec {
-    background: var(--bg2, #f7f5f0);
-    padding: 7rem 0;
-    border-bottom: 1px solid var(--rule);
-  }
-  .side-head {
-    display: flex; align-items: baseline;
-    justify-content: space-between; gap: 1.5rem;
-    flex-wrap: wrap; margin-bottom: 0.5rem;
-  }
-  .side-sub {
-    font-family: var(--font-serif);
-    font-size: 0.92rem; color: var(--ink3);
-    line-height: 1.8; margin-bottom: 3rem;
-  }
-  .side-grid {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-  .side-card {
-    display: flex; flex-direction: column;
-    border-radius: 10px; overflow: hidden;
-    border: 1px solid var(--rule);
-    background: var(--bg); text-decoration: none; color: inherit;
-    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
-  }
-  .side-card:hover {
-    border-color: var(--gold);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(59,140,110,0.12);
-  }
-  .side-card-img-wrap {
-    width: 100%; aspect-ratio: 16/10;
-    overflow: hidden; background: var(--accent);
-  }
-  .side-card-img {
-    width: 100%; height: 100%;
-    object-fit: cover; object-position: top center;
-    display: block;
-    transition: transform 0.45s ease;
-  }
-  .side-card:hover .side-card-img { transform: scale(1.05); }
-  .side-card-body {
-    padding: 1.3rem 1.4rem 1.5rem;
-    display: flex; flex-direction: column; gap: 0.6rem; flex: 1;
-  }
-  .side-card-tag {
-    font-family: var(--font-sans);
-    font-size: 0.6rem; font-weight: 700;
-    letter-spacing: 0.2em; color: var(--gold);
-    text-transform: uppercase;
-  }
-  .side-card-title {
-    font-family: var(--font-serif);
-    font-size: 0.92rem; font-weight: 700;
-    color: var(--ink); line-height: 1.6;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical; overflow: hidden;
-  }
-  .side-card-lesson {
-    font-family: var(--font-sans);
-    font-size: 0.73rem; color: var(--ink3);
-    line-height: 1.65;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical; overflow: hidden;
-  }
-
-  /* ── AUDIBLE ── */
-  .audible {
-    background: var(--bg);
-    padding: 5rem 0;
-    border-top: 1px solid var(--rule);
-  }
-  .audible-inner {
-    display: flex; align-items: center;
+  .section { padding: 4rem 0; }
+  .section-header {
+    display: flex;
+    align-items: baseline;
     justify-content: space-between;
-    gap: 2rem; flex-wrap: wrap;
+    margin-bottom: 2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border);
   }
-  .audible-head {
-    font-family: var(--font-serif);
-    font-size: clamp(1rem, 2vw, 1.3rem);
-    font-weight: 700; color: var(--ink); margin-bottom: 0.5rem;
-  }
-  .audible-body {
-    font-family: var(--font-sans);
-    font-size: 0.82rem; color: var(--ink3);
-    line-height: 1.7; max-width: 500px;
-  }
-  .audible-btn {
-    display: inline-flex; align-items: center;
-    padding: 0.85rem 2rem;
-    background: var(--gold); color: #fff;
-    font-family: var(--font-sans);
-    font-size: 0.84rem; font-weight: 600;
-    letter-spacing: 0.04em; border-radius: 980px;
-    text-decoration: none; white-space: nowrap; flex-shrink: 0;
-    transition: background 0.25s, transform 0.25s;
-  }
-  .audible-btn:hover { background: var(--gold-dark); transform: scale(1.03); }
+  .section-title { font-family: var(--font-serif); font-size: clamp(1.25rem, 2.5vw, 1.6rem); font-weight: 700; color: var(--ink); }
+  .section-sub   { font-family: var(--font-sans); font-size: 0.78rem; color: var(--ink3); }
+  .section-more  { font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; color: var(--violet); text-decoration: none; }
+  .section-more:hover { opacity: 0.7; }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    .articles-grid { grid-template-columns: 1fr; }
-    .art-list { border-radius: 12px; }
-    .theme-row { gap: 1.2rem; }
+  .themes-section { background: #fff; }
+  .themes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; }
+  .theme-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-decoration: none;
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
   }
+  .theme-card:hover { border-color: var(--violet); box-shadow: 0 4px 16px rgba(124,58,237,0.08); transform: translateY(-2px); }
+  .theme-icon { font-family: var(--font-serif); font-size: 1.7rem; font-weight: 800; color: var(--violet); flex-shrink: 0; width: 2rem; text-align: center; }
+  .theme-label { font-family: var(--font-serif); font-size: 0.92rem; font-weight: 700; color: var(--ink); margin-bottom: 0.2rem; }
+  .theme-tagline { font-family: var(--font-sans); font-size: 0.7rem; color: var(--ink3); line-height: 1.5; }
+
+  .whatif-section { background: var(--bg2); }
+  .whatif-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.2rem; }
+  .whatif-card {
+    display: flex; flex-direction: column;
+    background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+    text-decoration: none; transition: box-shadow 0.15s, transform 0.15s;
+  }
+  .whatif-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.07); transform: translateY(-2px); }
+  .whatif-img-wrap { aspect-ratio: 16/9; overflow: hidden; background: var(--bg2); }
+  .whatif-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+  .whatif-card:hover .whatif-img-wrap img { transform: scale(1.04); }
+  .whatif-body { padding: 1rem 1.1rem; }
+  .whatif-title { font-family: var(--font-serif); font-size: 0.92rem; font-weight: 700; color: var(--ink); line-height: 1.5; margin-bottom: 0.4rem; }
+  .whatif-lesson { font-family: var(--font-sans); font-size: 0.73rem; color: var(--ink3); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+  .recent-section { background: #fff; }
+  .recent-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+  .recent-card {
+    display: flex; gap: 0.9rem; align-items: flex-start; padding: 0.9rem;
+    border: 1px solid var(--border); border-radius: 10px; text-decoration: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .recent-card:hover { border-color: var(--violet); box-shadow: 0 4px 14px rgba(124,58,237,0.06); }
+  .recent-img-wrap { width: 68px; height: 68px; flex-shrink: 0; border-radius: 6px; overflow: hidden; background: var(--bg2); }
+  .recent-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+  .recent-cat { display: inline-block; font-family: var(--font-sans); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--violet); margin-bottom: 0.25rem; }
+  .recent-title { font-family: var(--font-serif); font-size: 0.88rem; font-weight: 700; color: var(--ink); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .recent-date  { font-family: var(--font-sans); font-size: 0.68rem; color: var(--ink3); margin-top: 0.35rem; }
+
+  .insta-cta-section { background: linear-gradient(135deg, #4C1D95 0%, #1e1b4b 100%); padding: 3rem 0; }
+  .insta-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+  .insta-cta-label { font-family: var(--font-sans); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.25em; color: rgba(255,255,255,0.45); margin-bottom: 0.5rem; }
+  .insta-cta-title { font-family: var(--font-serif); font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: 0.4rem; }
+  .insta-cta-desc  { font-family: var(--font-sans); font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+  .insta-cta-btn {
+    display: inline-flex; align-items: center; padding: 0.8rem 1.8rem;
+    background: var(--amber); color: #fff; font-family: var(--font-sans);
+    font-size: 0.9rem; font-weight: 700; text-decoration: none;
+    border-radius: 8px; white-space: nowrap; flex-shrink: 0; transition: background 0.15s;
+  }
+  .insta-cta-btn:hover { background: var(--amber-dark); }
+
+  .audible-section { background: var(--bg2); border-top: 1px solid var(--border); padding: 1.5rem 0; }
+  .audible-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .audible-copy { font-family: var(--font-serif); font-size: 0.93rem; font-weight: 600; color: var(--ink); }
+  .audible-btn {
+    display: inline-flex; align-items: center; padding: 0.5rem 1.2rem;
+    background: var(--violet); color: #fff; font-family: var(--font-sans);
+    font-size: 0.82rem; font-weight: 700; text-decoration: none;
+    border-radius: 6px; white-space: nowrap; flex-shrink: 0; transition: background 0.15s;
+  }
+  .audible-btn:hover { background: var(--violet-dark); }
+
   @media (max-width: 768px) {
-    .themes { padding: 4rem 0 3.5rem; }
-    .articles, .philosophy, .novel, .anime-sec { padding: 5rem 0; }
-    .phil-grid, .side-grid { grid-template-columns: 1fr; }
-    .phil-head, .side-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-examples { display: none; }
+    .insta-cta-inner { flex-direction: column; align-items: flex-start; }
     .audible-inner { flex-direction: column; align-items: flex-start; }
-    .hero-inner { padding: calc(var(--nav-height) + 2rem) 1.5rem 4rem; }
-    .row-tagline { display: none; }
-    .row-icon { font-size: 1.6rem; width: 2.2rem; }
-  }
-  @media (max-width: 480px) {
-    .container { padding: 0 1.25rem; }
-    .art-hero-body { padding: 1.2rem 1.3rem 1.5rem; }
   }
 </style>

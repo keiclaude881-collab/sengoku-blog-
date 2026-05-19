@@ -1,48 +1,72 @@
 ---
 const year = new Date().getFullYear();
+
+const INSTAGRAM_URL = "https://www.instagram.com/ijin_lab/";
+const SUBSTACK_URL  = "https://ijin-lab.substack.com/";
+
 const cols = [
   {
-    title: "カテゴリ",
+    title: "悩みで探す",
     links: [
-      { label: "決断できない時",       href: "/category/decide/" },
-      { label: "チームがうまくいかない時", href: "/category/lead/" },
-      { label: "逆境・失敗した時",     href: "/category/recover/" },
-      { label: "戦略・方向性に迷った時", href: "/category/strategy/" },
-      { label: "自分を変えたい時",     href: "/category/change/" },
+      { label: "決断できない",       href: "/category/decide/" },
+      { label: "人間関係・チーム",   href: "/category/lead/" },
+      { label: "逆境・失敗した",     href: "/category/recover/" },
+      { label: "戦略・方向性に迷う", href: "/category/strategy/" },
+      { label: "自分を変えたい",     href: "/category/change/" },
+      { label: "もしも歴史",         href: "/category/whatif/" },
+    ],
+  },
+  {
+    title: "作品で読む",
+    links: [
+      { label: "📚 書籍",   href: "/books/" },
+      { label: "🎬 アニメ", href: "/anime/" },
+      { label: "🎥 映画",   href: "/movies/" },
+      { label: "📖 小説",   href: "/novel/" },
+      { label: "🧠 哲学",   href: "/philosophy/" },
     ],
   },
   {
     title: "サイト情報",
     links: [
-      { label: "はじめての方へ",     href: "/start/" },
-      { label: "記事一覧",           href: "/blog/" },
-      { label: "おすすめ書籍",       href: "/books/" },
-      { label: "このブログについて", href: "/about/" },
-      { label: "プライバシーポリシー", href: "/privacy/" },
+      { label: "このサイトについて",     href: "/about/" },
+      { label: "プライバシーポリシー",   href: "/privacy/" },
+      { label: "お問い合わせ",           href: "/contact/" },
     ],
   },
 ];
 ---
 
 <footer class="site-footer">
-  <!-- ニュースレター登録 -->
-  <div class="footer-newsletter">
-    <div class="container footer-newsletter-inner">
-      <div class="newsletter-text">
-        <h2 class="newsletter-heading">週一回、武将の知恵を受け取る</h2>
-        <p class="newsletter-desc">新着記事・武将の名言・ビジネス応用コラムを毎週お届け。</p>
+
+  <!-- Newsletter CTA -->
+  <div class="footer-nl">
+    <div class="container footer-nl-inner">
+      <div>
+        <p class="footer-nl-title">週1回、偉人の知恵をあなたへ</p>
+        <p class="footer-nl-desc">歴史の偉人が現代の問題を解決するニュースレター。無料で購読できます。</p>
       </div>
-      <a
-        href="https://note.com/ketsudan_keifu"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="newsletter-btn"
-      >無料で購読する →</a>
+      <div class="footer-nl-actions">
+        <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer" class="footer-nl-btn">
+          📩 無料で購読する →
+        </a>
+        <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" class="footer-nl-insta">
+          📸 @ijin_lab
+        </a>
+      </div>
     </div>
   </div>
 
-  <div class="footer-top">
-    <div class="container footer-inner">
+  <!-- Main footer -->
+  <div class="footer-main">
+    <div class="container footer-main-inner">
+
+      <div class="footer-brand">
+        <a href="/" class="footer-logo">偉人<span>ラボ</span></a>
+        <p class="footer-tagline">歴史の偉人が、現代の問題を解決する。</p>
+        <p class="footer-desc">信長・ナポレオン・シーザー・孫子——時代を超えた偉人たちの思考を現代に翻訳。仕事・人間関係・決断・逆境——あなたの悩みへの答えがここにある。</p>
+      </div>
+
       <nav class="footer-nav" aria-label="フッターナビ">
         {cols.map(col => (
           <div class="footer-col">
@@ -55,181 +79,155 @@ const cols = [
           </div>
         ))}
       </nav>
+
     </div>
   </div>
 
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
-      <p class="copy">&copy; {year} 決断の系譜. All rights reserved.</p>
+      <p class="copy">&copy; {year} 偉人ラボ. All rights reserved.</p>
       <p class="affiliate-notice">
-        本サイトはAmazonアソシエイトプログラム・U-NEXTアフィリエイトプログラムに参加しています。
+        本サイトはAmazonアソシエイト・プログラムの参加者です。
       </p>
     </div>
   </div>
+
 </footer>
 
 <style>
   .site-footer {
     background: var(--bg2);
-    border-top: 1px solid var(--rule);
+    border-top: 1px solid var(--border);
     margin-top: auto;
   }
 
-  /* ニュースレター */
-  .footer-newsletter {
-    background: linear-gradient(135deg, #1E4A35 0%, #162e20 100%);
-    border-bottom: 1px solid rgba(59, 140, 110, 0.3);
-    padding: 2.2rem 0;
+  /* Newsletter */
+  .footer-nl {
+    background: linear-gradient(135deg, #4C1D95 0%, #1e1b4b 100%);
+    padding: 2.4rem 0;
   }
-  .footer-newsletter-inner {
+  .footer-nl-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1.5rem;
     flex-wrap: wrap;
   }
-  .newsletter-heading {
+  .footer-nl-title {
     font-family: var(--font-serif);
     font-size: 1.1rem;
     font-weight: 700;
     color: #fff;
-    letter-spacing: 0.03em;
     margin-bottom: 0.4rem;
   }
-  .newsletter-desc {
+  .footer-nl-desc {
     font-family: var(--font-sans);
     font-size: 0.82rem;
     color: rgba(255,255,255,0.6);
     line-height: 1.6;
   }
-  .newsletter-btn {
+  .footer-nl-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+  .footer-nl-btn {
     display: inline-flex;
     align-items: center;
-    padding: 0.7rem 1.6rem;
-    background: var(--gold, #3B8C6E);
+    padding: 0.65rem 1.4rem;
+    background: var(--amber);
     color: #fff;
     font-family: var(--font-sans);
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    letter-spacing: 0.04em;
     text-decoration: none;
-    border-radius: 3px;
+    border-radius: 6px;
     white-space: nowrap;
-    flex-shrink: 0;
     transition: background 0.2s;
   }
-  .newsletter-btn:hover { background: var(--gold-dark, #2A6B50); }
-
-  @media (max-width: 640px) {
-    .footer-newsletter-inner {
-      flex-direction: column;
-      align-items: flex-start;
-    }
+  .footer-nl-btn:hover { background: var(--amber-dark); }
+  .footer-nl-insta {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    transition: color 0.15s;
   }
+  .footer-nl-insta:hover { color: #fff; }
 
-  .footer-inner {
+  /* Main */
+  .footer-main { padding: 3rem 0 2rem; }
+  .footer-main-inner {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--sp-xl);
-    padding-top: var(--sp-xl);
-    padding-bottom: var(--sp-lg);
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
   }
 
   .footer-logo {
     display: inline-block;
     font-family: var(--font-serif);
-    font-size: 1.1rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
     color: var(--ink);
-    margin-bottom: 0.8rem;
     text-decoration: none;
+    margin-bottom: 0.8rem;
   }
-  .footer-logo em {
-    font-style: normal;
-    color: var(--gold);
-  }
+  .footer-logo span { color: var(--violet); }
 
   .footer-tagline {
     font-family: var(--font-sans);
-    font-size: 0.82rem;
-    font-weight: 500;
-    color: var(--gold);
-    letter-spacing: 0.06em;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--violet);
+    letter-spacing: 0.04em;
     margin-bottom: 0.8rem;
   }
-
   .footer-desc {
     font-family: var(--font-sans);
-    font-size: 0.8rem;
-    font-weight: 400;
-    line-height: 1.85;
+    font-size: 0.78rem;
+    line-height: 1.9;
     color: var(--ink3);
-    max-width: 360px;
-  }
-
-  .footer-social {
-    display: flex;
-    gap: 0.6rem;
-    margin-top: 1.2rem;
-  }
-  .social-btn {
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    color: var(--ink2);
-    border: 1px solid var(--rule);
-    border-radius: 3px;
-    padding: 0.35rem 0.8rem;
-    text-decoration: none;
-    transition: color 0.2s, border-color 0.2s;
-  }
-  .social-btn:hover {
-    color: var(--gold);
-    border-color: var(--gold);
+    max-width: 300px;
   }
 
   .footer-nav {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--sp-lg);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
   }
-
   .footer-col-title {
     font-family: var(--font-sans);
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     font-weight: 700;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--violet);
     margin-bottom: 1rem;
   }
-
   .footer-col ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
+    gap: 0.6rem;
   }
-
   .footer-col a {
     font-family: var(--font-sans);
     font-size: 0.82rem;
-    font-weight: 400;
     color: var(--ink2);
     text-decoration: none;
-    transition: color 0.2s;
-    letter-spacing: 0.02em;
+    transition: color 0.15s;
   }
-  .footer-col a:hover { color: var(--ink); }
+  .footer-col a:hover { color: var(--violet); }
 
+  /* Bottom */
   .footer-bottom {
-    border-top: 1px solid var(--rule);
+    border-top: 1px solid var(--border);
     padding: 1.2rem 0;
-    background: var(--bg2);
   }
-
   .footer-bottom-inner {
     display: flex;
     justify-content: space-between;
@@ -237,23 +235,26 @@ const cols = [
     flex-wrap: wrap;
     gap: 0.5rem;
   }
-
   .copy, .affiliate-notice {
     font-family: var(--font-sans);
     font-size: 0.72rem;
-    font-weight: 400;
     color: var(--ink3);
-    letter-spacing: 0.04em;
   }
 
   @media (max-width: 768px) {
-    .footer-inner {
+    .footer-main-inner {
       grid-template-columns: 1fr;
-      gap: var(--sp-lg);
+      gap: 2rem;
     }
-    .footer-bottom-inner {
-      flex-direction: column;
-      align-items: flex-start;
+    .footer-nav {
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
     }
+    .footer-nl-inner { flex-direction: column; align-items: flex-start; }
+    .footer-bottom-inner { flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (max-width: 480px) {
+    .footer-nav { grid-template-columns: 1fr; }
   }
 </style>

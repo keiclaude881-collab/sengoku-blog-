@@ -4,11 +4,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 // year フィールドがある記事だけ収集
 const allPosts = (await Promise.all([
-  getCollection("battle"),
-  getCollection("world"),
-  getCollection("leader").catch(() => []),
-  getCollection("strategy").catch(() => []),
   getCollection("whatif").catch(() => []),
+  getCollection("books").catch(() => []),
+  getCollection("anime").catch(() => []),
+  getCollection("movie").catch(() => []),
+  getCollection("novel").catch(() => []),
+  getCollection("philosophy").catch(() => []),
 ])).flat().filter(p => p.data.year !== undefined);
 
 function slug(col: string, id: string) {

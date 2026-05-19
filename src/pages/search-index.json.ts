@@ -3,15 +3,11 @@ import type { APIContext } from "astro";
 
 export async function GET(_context: APIContext) {
   const collections = await Promise.all([
-    getCollection("battle"),
-    getCollection("leader"),
-    getCollection("strategy"),
-    getCollection("books"),
-    getCollection("movie"),
-    getCollection("whatif"),
-    getCollection("anime"),
-    getCollection("novel"),
-    getCollection("world").catch(() => []),
+    getCollection("whatif").catch(() => []),
+    getCollection("books").catch(() => []),
+    getCollection("movie").catch(() => []),
+    getCollection("anime").catch(() => []),
+    getCollection("novel").catch(() => []),
     getCollection("philosophy").catch(() => []),
   ]);
 

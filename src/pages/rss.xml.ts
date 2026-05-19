@@ -4,13 +4,11 @@ import type { APIContext } from "astro";
 
 export async function GET(context: APIContext) {
   const collections = await Promise.all([
-    getCollection("battle"),
-    getCollection("leader"),
-    getCollection("strategy"),
-    getCollection("books"),
-    getCollection("movie"),
-    getCollection("whatif"),
-    getCollection("anime"),
+    getCollection("whatif").catch(() => []),
+    getCollection("books").catch(() => []),
+    getCollection("movie").catch(() => []),
+    getCollection("anime").catch(() => []),
+    getCollection("novel").catch(() => []),
     getCollection("philosophy").catch(() => []),
   ]);
 
@@ -19,8 +17,8 @@ export async function GET(context: APIContext) {
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
   return rss({
-    title: "決断の系譜",
-    description: "歴史の転換点から学ぶ戦略思考。合戦・リーダー・戦略・歴史のIFを現代ビジネスに繋げる。",
+    title: "偉人ラボ",
+    description: "歴史の偉人が現代の問題を解決する。信長・ナポレオン・孫子・龍馬——偉人たちの知恵を現代語で届ける。",
     site: context.site!,
     items: allPosts.map((post) => ({
       title: post.data.title,
