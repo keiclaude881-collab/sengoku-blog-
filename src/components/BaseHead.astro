@@ -9,7 +9,7 @@ interface Props {
 const {
   title,
   description,
-  ogImage = "/images/cat-ogp.svg",
+  ogImage = "/images/ijin-lab-ogp.svg",
   type = "website",
   publishedAt,
 } = Astro.props;
@@ -23,10 +23,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <meta name="description" content={description} />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 <link rel="canonical" href={canonicalURL} />
-<link rel="icon" type="image/jpeg" href="/images/cat-icon.jpg" />
-<link rel="apple-touch-icon" href="/images/cat-icon.jpg" />
+<link rel="icon" type="image/svg+xml" href="/images/ijin-lab-icon.svg" />
+<link rel="apple-touch-icon" href="/images/ijin-lab-icon.svg" />
 <link rel="sitemap" href="/sitemap-index.xml" />
-<link rel="alternate" type="application/rss+xml" title="決断の系譜 RSS" href="/rss.xml" />
+<link rel="alternate" type="application/rss+xml" title="偉人ラボ RSS" href="/rss.xml" />
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
