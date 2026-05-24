@@ -153,6 +153,7 @@ const awaseteYomitai = _shuffled.slice(0, 3).map(p => ({
 
       <!-- 記事ヘッダー -->
       <header class="article-header">
+        <p class="article-lab-label">◉ IJIN LAB — RESEARCH NOTE</p>
         <div class="article-meta">
           <CategoryBadge category={category} />
           <time datetime={iso} class="meta-text">{formattedDate}</time>
@@ -551,8 +552,16 @@ const awaseteYomitai = _shuffled.slice(0, 3).map(p => ({
 
   .article-header {
     padding: var(--sp-md) 0 var(--sp-md);
-    border-bottom: 2px solid var(--orange);
+    border-bottom: 2px solid var(--violet);
     margin-bottom: var(--sp-lg);
+  }
+  .article-lab-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    color: var(--amber);
+    margin-bottom: 1rem;
+    opacity: 0.8;
   }
 
   .article-meta {
