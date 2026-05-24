@@ -26,14 +26,6 @@ const INSTAGRAM_URL = "https://www.instagram.com/ijin_lab/";
 const SUBSTACK_URL  = "https://ijin-lab.substack.com/";
 const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&node=7471076051&tag=sengokublog20-22";
 
-const EXAMPLES = [
-  { figure: "織田信長",   topic: "部下が動かない時",         href: "/blog/whatif/nobunaga-leadership/" },
-  { figure: "ナポレオン", topic: "プレゼンが通らない時",     href: "/blog/whatif/napoleon-presentation/" },
-  { figure: "坂本龍馬",  topic: "転職を迷っている時",       href: "/blog/whatif/ryoma-career-change/" },
-  { figure: "孫子",      topic: "SNSで勝てない時",          href: "/category/strategy/" },
-  { figure: "シーザー",  topic: "チームが崩壊しそうな時",   href: "/category/lead/" },
-  { figure: "宮本武蔵",  topic: "自分の強みがわからない時", href: "/category/change/" },
-];
 ---
 
 <BaseLayout
@@ -68,16 +60,6 @@ const EXAMPLES = [
         </div>
       </div>
 
-      <div class="hero-examples">
-        {EXAMPLES.map((ex, i) => (
-          <a href={ex.href} class="hero-ex-card" style={`animation-delay: ${i * 0.08}s`}>
-            <span class="ex-figure">{ex.figure}</span>
-            <span class="ex-arrow">×</span>
-            <span class="ex-topic">{ex.topic}</span>
-            <span class="ex-arrow-right">→</span>
-          </a>
-        ))}
-      </div>
     </div>
   </section>
 
@@ -226,10 +208,10 @@ const EXAMPLES = [
     overflow: hidden;
   }
   .hero-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 680px;
   }
   .hero-eyebrow {
     font-family: var(--font-mono);
@@ -286,35 +268,6 @@ const EXAMPLES = [
   .hero-btn--primary:hover { background: var(--violet-dark); }
   .hero-btn--outline { border: 1.5px solid var(--violet); color: var(--violet); }
   .hero-btn--outline:hover { background: var(--violet-light); }
-  .hero-examples { display: flex; flex-direction: column; gap: 0.55rem; }
-  .hero-ex-card {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.7rem 1rem;
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    animation: slideIn 0.5s ease both;
-    text-decoration: none;
-    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
-    cursor: pointer;
-  }
-  .hero-ex-card:hover {
-    border-color: var(--violet);
-    box-shadow: 0 4px 16px rgba(124,58,237,0.1);
-    transform: translateX(4px);
-  }
-  @keyframes slideIn {
-    from { opacity: 0; transform: translateX(20px); }
-    to   { opacity: 1; transform: translateX(0); }
-  }
-  .ex-figure { font-family: var(--font-serif); font-size: 0.88rem; font-weight: 700; color: var(--violet); white-space: nowrap; min-width: 5em; }
-  .ex-arrow  { color: var(--amber); font-weight: 700; flex-shrink: 0; }
-  .ex-topic  { font-family: var(--font-sans); font-size: 0.8rem; color: var(--ink2); line-height: 1.4; flex: 1; }
-  .ex-arrow-right { font-size: 0.75rem; color: var(--ink3); margin-left: auto; flex-shrink: 0; transition: color 0.15s; }
-  .hero-ex-card:hover .ex-arrow-right { color: var(--violet); }
 
   .intro { padding: 2.8rem 0; background: var(--bg2); border-bottom: 1px solid var(--border); }
   .intro-inner { max-width: 680px; }
@@ -463,8 +416,6 @@ const EXAMPLES = [
   .ch-btn--outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
 
   @media (max-width: 768px) {
-    .hero-inner { grid-template-columns: 1fr; }
-    .hero-examples { display: none; }
     .channels-grid { grid-template-columns: 1fr; }
   }
 </style>
