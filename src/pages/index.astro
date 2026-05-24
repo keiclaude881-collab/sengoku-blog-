@@ -27,12 +27,12 @@ const SUBSTACK_URL  = "https://ijin-lab.substack.com/";
 const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&node=7471076051&tag=sengokublog20-22";
 
 const EXAMPLES = [
-  { figure: "織田信長",   topic: "リモートワーク時代の部下管理" },
-  { figure: "ナポレオン", topic: "プレゼンで人を動かす方法" },
-  { figure: "坂本龍馬",  topic: "転職・キャリアチェンジ" },
-  { figure: "孫子",      topic: "SNSマーケティング戦略" },
-  { figure: "シーザー",  topic: "チームの士気を上げる方法" },
-  { figure: "宮本武蔵",  topic: "ライバルとの差別化" },
+  { figure: "織田信長",   topic: "部下が動かない時",         href: "/blog/whatif/nobunaga-leadership/" },
+  { figure: "ナポレオン", topic: "プレゼンが通らない時",     href: "/blog/whatif/napoleon-presentation/" },
+  { figure: "坂本龍馬",  topic: "転職を迷っている時",       href: "/blog/whatif/ryoma-career-change/" },
+  { figure: "孫子",      topic: "SNSで勝てない時",          href: "/category/strategy/" },
+  { figure: "シーザー",  topic: "チームが崩壊しそうな時",   href: "/category/lead/" },
+  { figure: "宮本武蔵",  topic: "自分の強みがわからない時", href: "/category/change/" },
 ];
 ---
 
@@ -68,13 +68,14 @@ const EXAMPLES = [
         </div>
       </div>
 
-      <div class="hero-examples" aria-hidden="true">
+      <div class="hero-examples">
         {EXAMPLES.map((ex, i) => (
-          <div class="hero-ex-card" style={`animation-delay: ${i * 0.08}s`}>
+          <a href={ex.href} class="hero-ex-card" style={`animation-delay: ${i * 0.08}s`}>
             <span class="ex-figure">{ex.figure}</span>
             <span class="ex-arrow">×</span>
             <span class="ex-topic">{ex.topic}</span>
-          </div>
+            <span class="ex-arrow-right">→</span>
+          </a>
         ))}
       </div>
     </div>
@@ -296,6 +297,14 @@ const EXAMPLES = [
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     animation: slideIn 0.5s ease both;
+    text-decoration: none;
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+    cursor: pointer;
+  }
+  .hero-ex-card:hover {
+    border-color: var(--violet);
+    box-shadow: 0 4px 16px rgba(124,58,237,0.1);
+    transform: translateX(4px);
   }
   @keyframes slideIn {
     from { opacity: 0; transform: translateX(20px); }
@@ -303,7 +312,9 @@ const EXAMPLES = [
   }
   .ex-figure { font-family: var(--font-serif); font-size: 0.88rem; font-weight: 700; color: var(--violet); white-space: nowrap; min-width: 5em; }
   .ex-arrow  { color: var(--amber); font-weight: 700; flex-shrink: 0; }
-  .ex-topic  { font-family: var(--font-sans); font-size: 0.8rem; color: var(--ink2); line-height: 1.4; }
+  .ex-topic  { font-family: var(--font-sans); font-size: 0.8rem; color: var(--ink2); line-height: 1.4; flex: 1; }
+  .ex-arrow-right { font-size: 0.75rem; color: var(--ink3); margin-left: auto; flex-shrink: 0; transition: color 0.15s; }
+  .hero-ex-card:hover .ex-arrow-right { color: var(--violet); }
 
   .intro { padding: 2.8rem 0; background: var(--bg2); border-bottom: 1px solid var(--border); }
   .intro-inner { max-width: 680px; }
