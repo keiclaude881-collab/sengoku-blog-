@@ -10,23 +10,6 @@ function slug(id: string) {
   return `philosophy/${id.replace(/\.mdx?$/, "")}`;
 }
 
-const PHILOSOPHERS = [
-  { name: "ニーチェ",           en: "Nietzsche",     key: "ニーチェ",           tagline: "意味を自分で作る" },
-  { name: "キルケゴール",       en: "Kierkegaard",   key: "キルケゴール",       tagline: "それでも決断する" },
-  { name: "ハイデガー",         en: "Heidegger",     key: "ハイデガー",         tagline: "死を意識して生きる" },
-  { name: "カミュ",             en: "Camus",         key: "カミュ",             tagline: "不条理と向き合う" },
-  { name: "セネカ",             en: "Seneca",        key: "セネカ",             tagline: "時間を生き直す" },
-  { name: "マルクス・アウレリウス", en: "Aurelius",  key: "マルクス・アウレリウス", tagline: "揺れない心を作る" },
-  { name: "パスカル",           en: "Pascal",        key: "パスカル",           tagline: "賭けに出る論理" },
-  { name: "アリストテレス",     en: "Aristotle",     key: "アリストテレス",     tagline: "徳を実践する" },
-  { name: "プラトン",           en: "Plato",         key: "プラトン",           tagline: "正義を問い直す" },
-  { name: "カント",             en: "Kant",          key: "カント",             tagline: "義務から動く" },
-  { name: "サルトル",           en: "Sartre",        key: "サルトル",           tagline: "自由から逃げない" },
-  { name: "マキャベリ",         en: "Machiavelli",   key: "マキャベリ",         tagline: "権力を読み解く" },
-  { name: "老子",               en: "Laozi",         key: "老子",               tagline: "消耗せずに動く" },
-  { name: "孔子",               en: "Confucius",     key: "孔子",               tagline: "人を育てる" },
-  { name: "ヴィトゲンシュタイン", en: "Wittgenstein", key: "ヴィトゲンシュタイン", tagline: "語れることだけ語る" },
-];
 ---
 
 <BaseLayout
@@ -52,45 +35,18 @@ const PHILOSOPHERS = [
     </div>
   </section>
 
-  <!-- 哲学者ナビ -->
-  <section class="phil-nav-section">
-    <div class="container">
-      <p class="nav-label">哲学者で絞り込む</p>
-      <ul class="phil-nav" role="list" id="phil-chips">
-        {PHILOSOPHERS.map(p => {
-          const found = posts.some(post => post.data.tags?.some(t => t.includes(p.key)));
-          return (
-            <li>
-              <button
-                class={`phil-chip ${found ? '' : 'coming'}`}
-                data-key={p.key}
-                disabled={!found}
-                aria-pressed="false"
-              >
-                <span class="chip-name">{p.name}</span>
-                <span class="chip-en">{p.en}</span>
-                <span class="chip-tagline">{p.tagline}</span>
-                {!found && <span class="chip-soon">近日公開</span>}
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  </section>
-
   <!-- 記事一覧 -->
   <section class="articles-section">
     <div class="container">
       <div class="section-head">
-        <h2 class="section-title" id="article-count">全{posts.length}記事</h2>
-        <p class="section-sub" id="filter-label">社会人の悩みから読む哲学</p>
+        <h2 class="section-title">全{posts.length}記事</h2>
+        <p class="section-sub">社会人の悩みから読む哲学</p>
       </div>
 
       {posts.length > 0 ? (
-        <ul class="article-grid" role="list" id="article-list">
+        <ul class="article-grid" role="list">
           {posts.map(post => (
-            <li data-tags={post.data.tags?.join(',') ?? ''} class="article-item">
+            <li>
               <ArticleCard
                 title={post.data.title}
                 description={post.data.description}
@@ -105,7 +61,6 @@ const PHILOSOPHERS = [
             </li>
           ))}
         </ul>
-        <p class="empty hidden" id="no-results">この哲学者の記事は準備中です。</p>
       ) : (
         <p class="empty">記事を準備中です。</p>
       )}
@@ -131,60 +86,6 @@ const PHILOSOPHERS = [
   </section>
 </BaseLayout>
 
-<script>
-  const chips = document.querySelectorAll<HTMLButtonElement>('.phil-chip:not(.coming)');
-  const items = document.querySelectorAll<HTMLLIElement>('.article-item');
-  const countEl = document.getElementById('article-count');
-  const labelEl = document.getElementById('filter-label');
-  const noResults = document.getElementById('no-results');
-  const totalCount = items.length;
-
-  let activeKey: string | null = null;
-
-  chips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      const key = chip.dataset.key ?? '';
-
-      if (activeKey === key) {
-        // 同じチップを再クリック → リセット
-        activeKey = null;
-        chip.setAttribute('aria-pressed', 'false');
-        chip.classList.remove('active');
-        showAll();
-      } else {
-        // 別のチップをクリック
-        activeKey = key;
-        chips.forEach(c => {
-          c.setAttribute('aria-pressed', 'false');
-          c.classList.remove('active');
-        });
-        chip.setAttribute('aria-pressed', 'true');
-        chip.classList.add('active');
-        filterBy(key);
-      }
-    });
-  });
-
-  function filterBy(key: string) {
-    let visible = 0;
-    items.forEach(item => {
-      const tags = item.dataset.tags ?? '';
-      const match = tags.split(',').some(t => t.includes(key));
-      item.style.display = match ? '' : 'none';
-      if (match) visible++;
-    });
-    if (countEl) countEl.textContent = `${visible}件`;
-    if (labelEl) labelEl.textContent = `「${key}」の記事`;
-    if (noResults) noResults.classList.toggle('hidden', visible > 0);
-  }
-
-  function showAll() {
-    items.forEach(item => { item.style.display = ''; });
-    if (countEl) countEl.textContent = `全${totalCount}記事`;
-    if (labelEl) labelEl.textContent = '社会人の悩みから読む哲学';
-    if (noResults) noResults.classList.add('hidden');
-  }
-</script>
 
 <style>
   /* ── Hero ── */
@@ -268,84 +169,6 @@ const PHILOSOPHERS = [
     flex-shrink: 0;
   }
 
-  /* ── Phil nav ── */
-  .phil-nav-section {
-    padding: 2.5rem 0;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .nav-label {
-    font-family: var(--font-sans);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    color: var(--ink3);
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
-
-  .phil-nav {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
-
-  .phil-chip {
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-    padding: 0.7rem 1.1rem;
-    border: 1px solid rgba(124,58,237,0.3);
-    border-radius: 6px;
-    background: rgba(124,58,237,0.05);
-    transition: border-color 0.15s, background 0.15s, transform 0.1s;
-    cursor: pointer;
-    min-width: 110px;
-    text-align: left;
-    font: inherit;
-  }
-  .phil-chip:hover:not(.coming) {
-    border-color: rgba(124,58,237,0.6);
-    background: rgba(124,58,237,0.1);
-  }
-  .phil-chip.active {
-    border-color: var(--violet);
-    background: rgba(124,58,237,0.18);
-    box-shadow: 0 0 0 1px var(--violet);
-    transform: translateY(-1px);
-  }
-  .phil-chip.coming {
-    opacity: 0.45;
-    border-style: dashed;
-    cursor: default;
-  }
-
-  .chip-name {
-    font-family: var(--font-serif);
-    font-size: 0.92rem;
-    font-weight: 700;
-    color: var(--ink);
-  }
-  .chip-en {
-    font-family: var(--font-sans);
-    font-size: 0.62rem;
-    color: var(--ink3);
-    letter-spacing: 0.05em;
-  }
-  .chip-tagline {
-    font-family: var(--font-sans);
-    font-size: 0.7rem;
-    color: var(--violet, #7C3AED);
-    margin-top: 0.2rem;
-  }
-  .chip-soon {
-    font-family: var(--font-sans);
-    font-size: 0.62rem;
-    color: var(--ink3);
-    font-style: italic;
-  }
-
   /* ── Articles ── */
   .articles-section {
     padding: 3rem 0 4rem;
@@ -380,8 +203,6 @@ const PHILOSOPHERS = [
     text-align: center;
     padding: 3rem;
   }
-  .hidden { display: none; }
-
   /* ── Audible ── */
   .audible-section {
     padding: 0 0 4rem;
