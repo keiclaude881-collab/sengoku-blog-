@@ -3,100 +3,154 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-  title="このブログについて | 決断の系譜"
-  description="決断できない夜に、500年前の武将たちの知恵が答えをくれる。決断の系譜のコンセプトと運営者について。"
+  title="IJIN LABについて | 決断の系譜"
+  description="偉人の決断から、今日の答えを見つける研究室。歴史上の偉人×現代の問題をテーマに、月曜日の自分に刺さる記事を書いています。"
 >
-  <div class="about-hero">
-    <div class="container">
-      <p class="eyebrow">ABOUT</p>
-      <h1 class="about-title">このブログについて</h1>
-      <p class="about-lead">武将の記録が、今日の答えになる。</p>
+
+  <!-- Hero -->
+  <section class="about-hero">
+    <div class="hero-noise" aria-hidden="true"></div>
+    <div class="container about-hero-inner">
+      <div>
+        <p class="eyebrow">◉ IJIN LAB — ABOUT</p>
+        <h1 class="about-title">偉人の決断から、<br />今日の答えを見つける。</h1>
+        <p class="about-lead">
+          武将、哲学者、革命家、戦略家——<br />
+          500〜2500年前の偉人たちは、あなたと同じ問いと戦っていた。
+        </p>
+      </div>
     </div>
-  </div>
+  </section>
 
   <div class="container about-body">
 
+    <!-- コンセプト -->
     <section class="about-section">
-      <h2>なぜ、このブログを作ったのか</h2>
+      <p class="section-label">// CONCEPT</p>
+      <h2>なぜ、このラボを作ったのか</h2>
       <p>
         「決断できない」「チームがうまくいかない」「また失敗した」——仕事の中でそういう夜がある。
-        答えを探して、ビジネス書を読む。自己啓発本を読む。でも、どこかピンとこない。
       </p>
       <p>
-        ある日、武田信玄の「人は城、人は石垣」という言葉を読んだ時に気づいた。
-        500年前の武将たちは、自分と同じ問いと戦っていた。リーダーとしての孤独、判断の重さ、部下への接し方——ぜんぶ。
+        ビジネス書を読む。自己啓発本を読む。それでもどこかピンとこない。
       </p>
       <p>
-        そして彼らは、今も語り継がれる答えを残した。難しい歴史書ではなく、ビジネス書風でもなく、
-        「月曜日の自分に刺さる言葉」として届けたいと思って、このブログを始めた。
+        ある日、織田信長の組織論を読んだとき気づいた。
+        500年前の武将たちが戦っていた問いは、今の自分と全く同じだった。
+        リーダーとしての孤独、判断の重さ、部下への接し方、失敗からの立ち直り方——ぜんぶ。
+      </p>
+      <p>
+        そして彼らは、今も語り継がれる答えを残した。
+      </p>
+      <p>
+        難しい歴史書でも、ビジネス書風の薄い解説でもなく——
+        <strong>「月曜日の自分に刺さる言葉」</strong>として届けたい。
+        それがIJIN LABを作った理由だ。
       </p>
     </section>
 
+    <!-- テーマ -->
     <section class="about-section">
-      <h2>5つのテーマ</h2>
-      <p>
-        読者の「今日の悩み」から逆引きできるように、記事を5つのテーマに分類している。
-      </p>
+      <p class="section-label">// RESEARCH FIELDS</p>
+      <h2>5つの研究テーマ</h2>
+      <p>読者の「今日の悩み」から逆引きできるように、記事を5つに分類している。</p>
+
       <ul class="theme-list">
-        <li>
-          <span class="theme-icon">⚔</span>
-          <div>
-            <strong>決断できない時</strong>
-            <p>桶狭間の信長、テルモピュレーのレオニダス——正解がわからない夜に動いた人たちの話。</p>
+        <li class="theme-item">
+          <div class="theme-icon">決</div>
+          <div class="theme-body">
+            <strong>決断できない時（decide）</strong>
+            <p>桶狭間の信長、カエサルの最後の朝——正解がわからない夜に動いた人たちの話。</p>
           </div>
         </li>
-        <li>
-          <span class="theme-icon">将</span>
-          <div>
-            <strong>チームがうまくいかない時</strong>
-            <p>山本五十六の「やってみせ」、諸葛亮の参謀論——人を動かすことの本質。</p>
+        <li class="theme-item">
+          <div class="theme-icon">将</div>
+          <div class="theme-body">
+            <strong>チームがうまくいかない時（lead）</strong>
+            <p>信長の評価システム、秀吉の懐柔術——人を動かすことの本質。</p>
           </div>
         </li>
-        <li>
-          <span class="theme-icon">復</span>
-          <div>
-            <strong>逆境・失敗した時</strong>
-            <p>三方ヶ原で大敗した家康、ワーテルローのナポレオン——どん底から立ち上がった記録。</p>
+        <li class="theme-item">
+          <div class="theme-icon">復</div>
+          <div class="theme-body">
+            <strong>逆境・失敗した時（recover）</strong>
+            <p>三方ヶ原で大敗した家康、ロシア遠征のナポレオン——どん底から立ち上がった記録。</p>
           </div>
         </li>
-        <li>
-          <span class="theme-icon">謀</span>
-          <div>
-            <strong>戦略・方向性に迷った時</strong>
-            <p>孫子、クラウゼヴィッツ、マキャベリ——2500年間生き残った戦略の核心。</p>
+        <li class="theme-item">
+          <div class="theme-icon">謀</div>
+          <div class="theme-body">
+            <strong>戦略・方向性に迷った時（strategy）</strong>
+            <p>宮本武蔵の競争論、クレオパトラの交渉術——2000年間生き残った戦略の核心。</p>
           </div>
         </li>
-        <li>
-          <span class="theme-icon">変</span>
-          <div>
-            <strong>自分を変えたい時</strong>
-            <p>現状を打ち破るために動いた人たちの覚悟と、最初の一歩の話。</p>
+        <li class="theme-item">
+          <div class="theme-icon">変</div>
+          <div class="theme-body">
+            <strong>自分を変えたい時（change）</strong>
+            <p>草履取りから天下人になった秀吉——現状を打ち破るための最初の一手。</p>
           </div>
         </li>
       </ul>
     </section>
 
+    <!-- 運営者 -->
     <section class="about-section">
-      <h2>お断り（アフィリエイトについて）</h2>
+      <p class="section-label">// RESEARCHER</p>
+      <h2>運営者について</h2>
+      <p>
+        けい。社会人。歴史が好きで、ビジネスが好きで、その交差点に面白いものがあると信じている。
+      </p>
+      <p>
+        専門家でも歴史研究者でもない。ただ、偉人の言動から「これ、今の自分に使えるな」と思ったことを、
+        同じように悩む人に届けたい。そういう動機だけで書いている。
+      </p>
+      <div class="researcher-links">
+        <a href="https://www.instagram.com/ijin_lab/" target="_blank" rel="noopener noreferrer" class="researcher-link">📸 Instagram @ijin_lab</a>
+      </div>
+    </section>
+
+    <!-- アフィリエイト -->
+    <section class="about-section">
+      <p class="section-label">// DISCLOSURE</p>
+      <h2>アフィリエイトについて</h2>
       <p>
         本サイトはAmazonアソシエイトプログラム、Audibleアフィリエイトプログラムをはじめとする
         アフィリエイトプログラムに参加しています。リンクから購入・登録が発生した場合に収益が生じることがあります。
+      </p>
+      <p>
         紹介する書籍・サービスはすべて独自の視点で選定しており、スポンサー記事は掲載していません。
       </p>
     </section>
 
     <div class="about-cta">
       <a href="/blog/" class="cta-btn">記事を読む →</a>
-      <a href="/category/decide/" class="cta-ghost">決断できない時の記事へ</a>
+      <a href="/contact/" class="cta-ghost">お問い合わせ</a>
     </div>
 
   </div>
 </BaseLayout>
 
 <style>
+  /* ── Hero ── */
   .about-hero {
-    background: var(--accent);
-    padding: calc(var(--nav-height) + 4rem) 0 3.5rem;
+    background: linear-gradient(135deg, #4C1D95 0%, #1e1b4b 100%);
+    padding: calc(var(--nav-height) + 4rem) 0 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-noise {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .about-hero-inner {
+    position: relative;
+    z-index: 1;
   }
 
   .container {
@@ -106,13 +160,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   }
 
   .eyebrow {
-    font-family: var(--font-sans);
+    font-family: var(--font-mono);
     font-size: 0.62rem;
     font-weight: 700;
-    letter-spacing: 0.3em;
-    color: var(--gold-light);
+    letter-spacing: 0.25em;
+    color: var(--amber);
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
+    opacity: 0.9;
   }
 
   .about-title {
@@ -121,16 +176,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     font-weight: 700;
     color: #fff;
     letter-spacing: 0.04em;
-    margin-bottom: 0.8rem;
+    line-height: 1.4;
+    margin-bottom: 1.2rem;
   }
 
   .about-lead {
     font-family: var(--font-serif);
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: rgba(255,255,255,0.65);
-    line-height: 1.8;
+    line-height: 1.9;
   }
 
+  /* ── Body ── */
   .about-body {
     padding: 4rem 1.5rem 6rem;
   }
@@ -142,6 +199,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   }
   .about-section:last-of-type { border-bottom: none; }
 
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    color: var(--violet);
+    margin-bottom: 0.8rem;
+    opacity: 0.8;
+  }
+
   .about-section h2 {
     font-family: var(--font-serif);
     font-size: 1.25rem;
@@ -150,7 +216,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     letter-spacing: 0.04em;
     margin-bottom: 1.4rem;
     padding-left: 0.9rem;
-    border-left: 3px solid var(--gold);
+    border-left: 3px solid var(--violet);
   }
 
   .about-section p {
@@ -162,50 +228,79 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   }
   .about-section p:last-child { margin-bottom: 0; }
 
+  /* ── Themes ── */
   .theme-list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 1.4rem;
+    gap: 1rem;
     margin-top: 1.4rem;
   }
 
-  .theme-list li {
+  .theme-item {
     display: flex;
     gap: 1.2rem;
     align-items: flex-start;
-    padding: 1.2rem;
+    padding: 1.2rem 1.4rem;
     background: var(--bg2);
     border-radius: 6px;
+    border: 1px solid var(--rule);
+    transition: border-color 0.2s;
   }
+  .theme-item:hover { border-color: rgba(124,58,237,0.3); }
 
   .theme-icon {
     font-family: var(--font-serif);
-    font-size: 1.5rem;
-    color: var(--gold);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--violet);
     flex-shrink: 0;
-    line-height: 1.3;
     width: 2rem;
     text-align: center;
+    line-height: 1.4;
   }
 
-  .theme-list strong {
+  .theme-body strong {
     display: block;
     font-family: var(--font-serif);
     font-size: 0.95rem;
     font-weight: 700;
     color: var(--ink);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.35rem;
   }
 
-  .theme-list p {
+  .theme-body p {
     font-family: var(--font-sans);
     font-size: 0.8rem;
     color: var(--ink3);
     line-height: 1.7;
-    margin: 0;
+    margin: 0 !important;
   }
 
+  /* ── Researcher ── */
+  .researcher-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  .researcher-link {
+    font-family: var(--font-sans);
+    font-size: 0.84rem;
+    color: var(--violet);
+    text-decoration: none;
+    border: 1px solid rgba(124,58,237,0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .researcher-link:hover {
+    background: rgba(124,58,237,0.08);
+    border-color: var(--violet);
+  }
+
+  /* ── CTA ── */
   .about-cta {
     display: flex;
     gap: 1rem;
@@ -218,7 +313,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     display: inline-flex;
     align-items: center;
     padding: 0.85rem 2rem;
-    background: var(--gold);
+    background: var(--violet);
     color: #fff;
     font-family: var(--font-sans);
     font-size: 0.88rem;
@@ -227,16 +322,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     text-decoration: none;
     transition: background 0.2s;
   }
-  .cta-btn:hover { background: var(--gold-dark); }
+  .cta-btn:hover { background: #6d28d9; }
 
   .cta-ghost {
     font-family: var(--font-sans);
     font-size: 0.84rem;
-    color: var(--gold);
+    color: var(--ink3);
     text-decoration: none;
     border-bottom: 1px solid currentColor;
     padding-bottom: 1px;
-    transition: opacity 0.2s;
+    transition: color 0.2s;
   }
-  .cta-ghost:hover { opacity: 0.7; }
+  .cta-ghost:hover { color: var(--ink); }
+
+  @media (max-width: 640px) {
+    .about-hero { padding: calc(var(--nav-height) + 2.5rem) 0 2.5rem; }
+    .theme-item { flex-direction: column; gap: 0.5rem; }
+    .theme-icon { width: auto; }
+  }
 </style>

@@ -1,0 +1,371 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="お問い合わせ | 決断の系譜"
+  description="IJIN LABへのお問い合わせ、記事への感想、掲載依頼などはこちらから。"
+>
+
+  <!-- Hero -->
+  <section class="contact-hero">
+    <div class="hero-noise" aria-hidden="true"></div>
+    <div class="container contact-hero-inner">
+      <p class="eyebrow">◉ IJIN LAB — CONTACT</p>
+      <h1 class="contact-title">お問い合わせ</h1>
+      <p class="contact-lead">記事への感想、ご意見、掲載依頼など、お気軽にどうぞ。</p>
+    </div>
+  </section>
+
+  <div class="container contact-body">
+
+    <!-- SNS -->
+    <section class="contact-section">
+      <p class="section-label">// QUICK CONTACT</p>
+      <h2>SNSで気軽に話しかけてください</h2>
+      <p>一番早く届く方法はInstagramのDMです。感想・質問・リクエストなんでも歓迎。</p>
+
+      <div class="sns-cards">
+        <a
+          href="https://www.instagram.com/ijin_lab/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="sns-card"
+        >
+          <span class="sns-icon">📸</span>
+          <div class="sns-info">
+            <span class="sns-name">Instagram</span>
+            <span class="sns-handle">@ijin_lab</span>
+            <span class="sns-desc">DM・コメントで受け付けています</span>
+          </div>
+          <span class="sns-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- フォーム -->
+    <section class="contact-section">
+      <p class="section-label">// FORM</p>
+      <h2>メールフォーム</h2>
+      <p>企業からの掲載依頼・取材依頼はこちらのフォームからお願いします。<br />2〜3営業日以内に返信します。</p>
+
+      <form
+        class="contact-form"
+        action="https://formspree.io/f/xdkojpvv"
+        method="POST"
+      >
+        <div class="form-group">
+          <label for="name" class="form-label">お名前 <span class="required">*</span></label>
+          <input type="text" id="name" name="name" class="form-input" required placeholder="山田 太郎" />
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">メールアドレス <span class="required">*</span></label>
+          <input type="email" id="email" name="email" class="form-input" required placeholder="example@email.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="subject" class="form-label">件名</label>
+          <input type="text" id="subject" name="subject" class="form-input" placeholder="記事リクエスト・感想など" />
+        </div>
+
+        <div class="form-group">
+          <label for="message" class="form-label">メッセージ <span class="required">*</span></label>
+          <textarea id="message" name="message" class="form-textarea" required rows="6" placeholder="記事の感想、リクエスト、ご質問など..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">送信する →</button>
+      </form>
+    </section>
+
+    <!-- よくある質問 -->
+    <section class="contact-section">
+      <p class="section-label">// FAQ</p>
+      <h2>よくある質問</h2>
+
+      <dl class="faq-list">
+        <div class="faq-item">
+          <dt>記事のリクエストはできますか？</dt>
+          <dd>はい。「この人物について書いてほしい」「この悩みに効く偉人を教えてほしい」などInstagramのDMかフォームで教えてください。全部は対応できませんが、面白そうなものは取り上げます。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>記事の内容について誤りがあった場合は？</dt>
+          <dd>お知らせいただければすぐに確認・修正します。歴史的解釈については諸説あるものも多いため、参考文献と合わせてご指摘いただけると助かります。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>記事を引用・転載したい場合は？</dt>
+          <dd>一部引用（出典明記あり）は問題ありません。全文転載はご遠慮ください。</dd>
+        </div>
+      </dl>
+    </section>
+
+  </div>
+</BaseLayout>
+
+<style>
+  /* ── Hero ── */
+  .contact-hero {
+    background: linear-gradient(135deg, #4C1D95 0%, #1e1b4b 100%);
+    padding: calc(var(--nav-height) + 4rem) 0 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-noise {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .contact-hero-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: var(--amber);
+    margin-bottom: 1.2rem;
+    opacity: 0.9;
+  }
+
+  .contact-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.04em;
+    margin-bottom: 1rem;
+  }
+
+  .contact-lead {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+  }
+
+  /* ── Body ── */
+  .contact-body {
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  .contact-section {
+    margin-bottom: 3.5rem;
+    padding-bottom: 3.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .contact-section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    color: var(--violet);
+    margin-bottom: 0.8rem;
+    opacity: 0.8;
+  }
+
+  .contact-section h2 {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+    margin-bottom: 1rem;
+    padding-left: 0.9rem;
+    border-left: 3px solid var(--violet);
+  }
+
+  .contact-section p {
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    line-height: 2;
+    color: var(--ink2);
+    margin-bottom: 1.4rem;
+  }
+
+  /* ── SNS Cards ── */
+  .sns-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .sns-card {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.1rem 1.4rem;
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .sns-card:hover {
+    border-color: rgba(124,58,237,0.4);
+    background: rgba(124,58,237,0.04);
+  }
+
+  .sns-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  .sns-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    flex: 1;
+  }
+
+  .sns-name {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .sns-handle {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--violet);
+  }
+
+  .sns-desc {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--ink3);
+  }
+
+  .sns-arrow {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--ink3);
+    flex-shrink: 0;
+  }
+
+  /* ── Form ── */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    margin-top: 1.6rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-label {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .required {
+    color: var(--violet);
+    margin-left: 0.2rem;
+  }
+
+  .form-input,
+  .form-textarea {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--ink);
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .form-input:focus,
+  .form-textarea:focus {
+    border-color: var(--violet);
+    box-shadow: 0 0 0 3px rgba(124,58,237,0.12);
+  }
+
+  .form-input::placeholder,
+  .form-textarea::placeholder {
+    color: var(--ink3);
+    opacity: 0.6;
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 140px;
+    line-height: 1.7;
+  }
+
+  .submit-btn {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.85rem 2.2rem;
+    background: var(--violet);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 980px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .submit-btn:hover { background: #6d28d9; }
+  .submit-btn:active { transform: scale(0.98); }
+
+  /* ── FAQ ── */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 1.4rem;
+  }
+
+  .faq-item {
+    padding: 1.3rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .faq-item:last-child { border-bottom: none; }
+
+  .faq-item dt {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .faq-item dd {
+    font-family: var(--font-sans);
+    font-size: 0.87rem;
+    color: var(--ink2);
+    line-height: 1.85;
+    margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .contact-hero { padding: calc(var(--nav-height) + 2.5rem) 0 2.5rem; }
+    .submit-btn { width: 100%; justify-content: center; }
+  }
+</style>
