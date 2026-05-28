@@ -5,10 +5,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 // year フィールドがある記事だけ収集
 const allPosts = (await Promise.all([
   getCollection("whatif").catch(() => []),
-  getCollection("books").catch(() => []),
   
-  getCollection("movie").catch(() => []),
-  getCollection("novel").catch(() => []),
   getCollection("philosophy").catch(() => []),
 ])).flat().filter(p => p.data.year !== undefined);
 

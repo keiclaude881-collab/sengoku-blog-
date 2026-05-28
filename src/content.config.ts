@@ -4,7 +4,7 @@ const articleSchema = z.object({
   title:       z.string(),
   date:        z.coerce.date(),
   updatedAt:   z.coerce.date().optional(),
-  category:    z.enum(["decide", "lead", "recover", "strategy", "change", "books", "movie", "novel", "philosophy"]),
+  category:    z.enum(["decide", "lead", "recover", "strategy", "change", "philosophy"]),
   tags:        z.array(z.string()).default([]),
   description: z.string().max(120),
   ogImage:     z.string().optional(),
@@ -26,8 +26,5 @@ const articleSchema = z.object({
 
 export const collections = {
   whatif:     defineCollection({ type: "content", schema: articleSchema }),
-  books:      defineCollection({ type: "content", schema: articleSchema }),
-  movie:      defineCollection({ type: "content", schema: articleSchema }),
-  novel:      defineCollection({ type: "content", schema: articleSchema }),
   philosophy: defineCollection({ type: "content", schema: articleSchema }),
 };

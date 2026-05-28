@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { THEME_INFO, THEME_ORDER } from "../utils/arcMap";
 
-const ALL_COLLECTIONS = ["whatif","movie","novel","books","philosophy"] as const;
+const ALL_COLLECTIONS = ["whatif","philosophy"] as const;
 const allPosts = (await Promise.all(
   ALL_COLLECTIONS.map(c => getCollection(c).catch(() => []))
 )).flat().sort((a, b) => b.data.date.getTime() - a.data.date.getTime());

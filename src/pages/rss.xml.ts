@@ -5,10 +5,7 @@ import type { APIContext } from "astro";
 export async function GET(context: APIContext) {
   const collections = await Promise.all([
     getCollection("whatif").catch(() => []),
-    getCollection("books").catch(() => []),
-    getCollection("movie").catch(() => []),
     
-    getCollection("novel").catch(() => []),
     getCollection("philosophy").catch(() => []),
   ]);
 
