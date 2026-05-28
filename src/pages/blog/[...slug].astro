@@ -9,7 +9,7 @@ type CollectionName = CategoryName;
 
 export async function getStaticPaths() {
   const allPosts = (await Promise.all(
-    (["whatif", "books", "movie", "anime", "novel", "philosophy"] as const).map(c => getCollection(c))
+    (["whatif", "books", "movie",  "novel", "philosophy"] as const).map(c => getCollection(c))
   )).flat();
 
   return allPosts.map(post => ({
@@ -23,7 +23,7 @@ const { Content, headings } = await render(post);
 const tocHeadings = headings.filter(h => h.depth === 2);
 
 // 関連記事：タグ類似度スコア → 同カテゴリボーナス → 新着順
-const ALL_COLLECTIONS = ["whatif", "books", "movie", "anime", "novel", "philosophy"] as const;
+const ALL_COLLECTIONS = ["whatif", "books", "movie",  "novel", "philosophy"] as const;
 const allPosts = (await Promise.all(
   ALL_COLLECTIONS.map(c => getCollection(c))
 )).flat();

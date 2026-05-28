@@ -15,7 +15,7 @@ interface Props {
   ogImage?:    string;
 }
 const { title, description, date, category, tags, readingTime, lesson, slug, ogImage } = Astro.props;
-const isPortrait    = category === "movie" || category === "anime";
+const isPortrait    = category === "movie";
 const isPhilosophy  = category === "philosophy";
 
 const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'short', day: 'numeric' });

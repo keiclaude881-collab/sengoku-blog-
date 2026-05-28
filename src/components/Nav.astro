@@ -53,7 +53,7 @@ const SUBSTACK_URL  = "https://ijin-lab.substack.com/";
       <li class="nav-dropdown-wrap">
         <button
           class:list={["nav-link nav-dropdown-btn", {
-            active: ["/books/","/anime/","/movies/","/novel/","/philosophy/"].some(p => path.startsWith(p))
+            active: ["/books/","/movies/","/novel/","/philosophy/"].some(p => path.startsWith(p))
           }]}
           aria-expanded="false"
           aria-haspopup="true"
@@ -63,7 +63,6 @@ const SUBSTACK_URL  = "https://ijin-lab.substack.com/";
         <div class="nav-dropdown nav-dropdown--media">
           <ul role="list">
             <li><a href="/books/"      class:list={["dropdown-link", { active: path.startsWith("/books/") }]}>📚 書籍</a></li>
-            <li><a href="/anime/"      class:list={["dropdown-link", { active: path.startsWith("/anime/") }]}>🎬 アニメ</a></li>
             <li><a href="/movies/"     class:list={["dropdown-link", { active: path.startsWith("/movies/") }]}>🎥 映画</a></li>
             <li><a href="/novel/"      class:list={["dropdown-link", { active: path.startsWith("/novel/") }]}>📖 小説</a></li>
             <li><a href="/philosophy/" class:list={["dropdown-link", { active: path.startsWith("/philosophy/") }]}>🧠 哲学</a></li>
@@ -111,7 +110,6 @@ const SUBSTACK_URL  = "https://ijin-lab.substack.com/";
       ))}
       <li class="mobile-section-title">作品で読む</li>
       <li><a href="/books/"      class:list={["mobile-link", { active: path.startsWith("/books/") }]}>📚 書籍</a></li>
-      <li><a href="/anime/"      class:list={["mobile-link", { active: path.startsWith("/anime/") }]}>🎬 アニメ</a></li>
       <li><a href="/movies/"     class:list={["mobile-link", { active: path.startsWith("/movies/") }]}>🎥 映画</a></li>
       <li><a href="/novel/"      class:list={["mobile-link", { active: path.startsWith("/novel/") }]}>📖 小説</a></li>
       <li><a href="/philosophy/" class:list={["mobile-link", { active: path.startsWith("/philosophy/") }]}>🧠 哲学</a></li>

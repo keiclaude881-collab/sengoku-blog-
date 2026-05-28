@@ -69,7 +69,6 @@ const catLabel: Record<string, string> = {
   change:   "自分を変えたい時",
   books:    "書籍レビュー",
   movie:    "映画の知恵",
-  anime:    "アニメの知恵",
   novel:    "小説・物語",
 };
 
@@ -83,7 +82,7 @@ const formattedUpdated = updatedAt
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 
 // あわせて読みたい: 同カテゴリからランダム3本（自身を除く）
-const _allCollections = ["whatif", "books", "movie", "anime", "novel", "philosophy"] as const;
+const _allCollections = ["whatif", "books", "movie",  "novel", "philosophy"] as const;
 const _allPosts = (await Promise.all(_allCollections.map(c => getCollection(c).catch(() => [])))).flat();
 const _currentPath = Astro.url.pathname.replace(/\/$/, '');
 const _sameCat = _allPosts.filter(p => {

@@ -6,7 +6,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const allPosts = (await Promise.all([
   getCollection("whatif").catch(() => []),
   getCollection("books").catch(() => []),
-  getCollection("anime").catch(() => []),
+  
   getCollection("movie").catch(() => []),
   getCollection("novel").catch(() => []),
   getCollection("philosophy").catch(() => []),

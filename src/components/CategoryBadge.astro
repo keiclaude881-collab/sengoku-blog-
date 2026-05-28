@@ -1,6 +1,6 @@
 ---
 interface Props {
-  category: "decide" | "lead" | "recover" | "strategy" | "change" | "books" | "movie" | "whatif" | "anime" | "novel" | "world" | "battle" | "leader";
+  category: "decide" | "lead" | "recover" | "strategy" | "change" | "books" | "movie" | "whatif" | "novel" | "world" | "battle" | "leader";
 }
 const { category } = Astro.props;
 
@@ -12,7 +12,6 @@ const map: Record<string, { label: string; href: string }> = {
   change:   { label: "自分を変えたい時",     href: "/category/change/" },
   books:    { label: "書籍レビュー",         href: "/category/books/" },
   movie:    { label: "映画の知恵",           href: "/category/movie/" },
-  anime:    { label: "アニメの知恵",         href: "/category/anime/" },
   novel:    { label: "小説・物語",           href: "/category/novel/" },
 };
 const { label, href } = map[category] ?? { label: category, href: `/category/${category}/` };

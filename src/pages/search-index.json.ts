@@ -6,7 +6,7 @@ export async function GET(_context: APIContext) {
     getCollection("whatif").catch(() => []),
     getCollection("books").catch(() => []),
     getCollection("movie").catch(() => []),
-    getCollection("anime").catch(() => []),
+    
     getCollection("novel").catch(() => []),
     getCollection("philosophy").catch(() => []),
   ]);

@@ -1,7 +1,7 @@
 export type ThemeSlug = "decide" | "lead" | "recover" | "strategy" | "change";
 export type CategoryName =
   | "decide" | "lead" | "recover" | "strategy" | "change"
-  | "anime" | "movie" | "novel"
+  | "movie" | "novel"
   | "books" | "philosophy";
 
 export interface ThemeInfo {
@@ -70,7 +70,6 @@ export const CAT_LABEL: Record<CategoryName, string> = {
   recover:  "逆境・失敗した時",
   strategy: "戦略・方向性に迷った時",
   change:   "自分を変えたい時",
-  anime:    "アニメの知恵",
   movie:    "映画の知恵",
   novel:    "小説・物語",
   books:      "書籍レビュー",
@@ -93,7 +92,6 @@ export const CATEGORY_TO_ARC: Record<CategoryName, ThemeSlug | null> = {
   recover:  "recover",
   strategy: "strategy",
   change:   "change",
-  anime:    null,
   movie:    null,
   novel:    null,
   books:      null,
