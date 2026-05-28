@@ -6,17 +6,6 @@ const SUBSTACK_URL  = "https://ijin-lab.substack.com/";
 
 const cols = [
   {
-    title: "悩みで探す",
-    links: [
-      { label: "決断できない",       href: "/category/decide/" },
-      { label: "人間関係・チーム",   href: "/category/lead/" },
-      { label: "逆境・失敗した",     href: "/category/recover/" },
-      { label: "戦略・方向性に迷う", href: "/category/strategy/" },
-      { label: "自分を変えたい",     href: "/category/change/" },
-      { label: "もしも歴史",         href: "/category/whatif/" },
-    ],
-  },
-  {
     title: "サイト情報",
     links: [
       { label: "このサイトについて",     href: "/about/" },
@@ -168,7 +157,7 @@ const cols = [
 
   .footer-nav {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 2rem;
   }
   .footer-col-title {
