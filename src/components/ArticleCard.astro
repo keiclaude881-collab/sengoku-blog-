@@ -15,7 +15,6 @@ interface Props {
   ogImage?:    string;
 }
 const { title, description, date, category, tags, readingTime, lesson, slug, ogImage } = Astro.props;
-const isPortrait    = category === "movie";
 const isPhilosophy  = category === "philosophy";
 
 const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'short', day: 'numeric' });
@@ -25,7 +24,7 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
   <a href={`/blog/${slug}/`} class="card-link" tabindex="-1" aria-hidden="true"></a>
 
   {ogImage && (
-    <div class:list={["card-thumb", { "card-thumb--portrait": isPortrait, "card-thumb--philosophy": isPhilosophy }]}>
+    <div class:list={["card-thumb", { "card-thumb--philosophy": isPhilosophy }]}>
       <img src={ogImage} alt={title} loading="lazy" />
     </div>
   )}

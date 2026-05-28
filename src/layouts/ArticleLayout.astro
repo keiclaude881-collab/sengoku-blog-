@@ -67,9 +67,7 @@ const catLabel: Record<string, string> = {
   recover:  "逆境・失敗した時",
   strategy: "戦略・方向性に迷った時",
   change:   "自分を変えたい時",
-  books:    "書籍レビュー",
-  movie:    "映画の知恵",
-  novel:    "小説・物語",
+  philosophy: "哲学の知恵",
 };
 
 const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -82,7 +80,7 @@ const formattedUpdated = updatedAt
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 
 // あわせて読みたい: 同カテゴリからランダム3本（自身を除く）
-const _allCollections = ["whatif", "books", "movie",  "novel", "philosophy"] as const;
+const _allCollections = ["whatif", "philosophy"] as const;
 const _allPosts = (await Promise.all(_allCollections.map(c => getCollection(c).catch(() => [])))).flat();
 const _currentPath = Astro.url.pathname.replace(/\/$/, '');
 const _sameCat = _allPosts.filter(p => {
@@ -535,18 +533,6 @@ const awaseteYomitai = _shuffled.slice(0, 3).map(p => ({
 
   .article-page {
     padding: var(--sp-lg) 0 var(--sp-xl);
-  }
-
-  /* 映画記事：シネマゴールドに上書き */
-  .article-page[data-category="movie"] {
-    --orange:      #e8b84b;
-    --orange-dark: #c99a30;
-    --amber:       #e8b84b;
-    --gold:        #e8b84b;
-    --gold-light:  rgba(232, 184, 75, 0.15);
-    --gold-dark:   #c99a30;
-    --bg-navy:     #13161d;
-    --bg-navy-mid: #1a1e28;
   }
 
   .article-header {

@@ -1,18 +1,16 @@
 ---
 interface Props {
-  category: "decide" | "lead" | "recover" | "strategy" | "change" | "books" | "movie" | "whatif" | "novel" | "world" | "battle" | "leader";
+  category: "decide" | "lead" | "recover" | "strategy" | "change" | "whatif" | "world" | "battle" | "leader";
 }
 const { category } = Astro.props;
 
 const map: Record<string, { label: string; href: string }> = {
-  decide:   { label: "決断できない時",       href: "/category/decide/" },
-  lead:     { label: "チームがうまくいかない時", href: "/category/lead/" },
-  recover:  { label: "逆境・失敗した時",     href: "/category/recover/" },
-  strategy: { label: "戦略・方向性に迷った時", href: "/category/strategy/" },
-  change:   { label: "自分を変えたい時",     href: "/category/change/" },
-  books:    { label: "書籍レビュー",         href: "/category/books/" },
-  movie:    { label: "映画の知恵",           href: "/category/movie/" },
-  novel:    { label: "小説・物語",           href: "/category/novel/" },
+  decide:     { label: "決断できない時",         href: "/category/decide/" },
+  lead:       { label: "チームがうまくいかない時", href: "/category/lead/" },
+  recover:    { label: "逆境・失敗した時",       href: "/category/recover/" },
+  strategy:   { label: "戦略・方向性に迷った時", href: "/category/strategy/" },
+  change:     { label: "自分を変えたい時",       href: "/category/change/" },
+  philosophy: { label: "哲学の知恵",             href: "/category/philosophy/" },
 };
 const { label, href } = map[category] ?? { label: category, href: `/category/${category}/` };
 ---

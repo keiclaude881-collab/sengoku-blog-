@@ -5,19 +5,19 @@ import ArticleCard from "../../components/ArticleCard.astro";
 import { THEME_INFO, THEME_ORDER, type ThemeSlug, type CategoryName } from "../../utils/arcMap";
 
 // 5つの悩みカテゴリ + メディア系 + 哲学
-type Cat = ThemeSlug | "books" | "movie" | "novel" | "philosophy";
+type Cat = ThemeSlug | "philosophy";
 
 export async function getStaticPaths() {
-  const cats: Cat[] = [...THEME_ORDER, "books", "movie", "novel", "philosophy"];
+  const cats: Cat[] = [...THEME_ORDER, "philosophy"];
   return cats.map(cat => ({ params: { cat } }));
 }
 
-const THEME_CATS: Cat[] = [...THEME_ORDER, "books", "movie", "novel", "philosophy"];
+const THEME_CATS: Cat[] = [...THEME_ORDER, "philosophy"];
 
 const { cat } = Astro.params as { cat: Cat };
 
 // 全コレクションから category フィールドでフィルタ
-const ALL_COLLECTIONS = ["whatif","movie","novel","books","philosophy"] as const;
+const ALL_COLLECTIONS = ["whatif","philosophy"] as const;
 const allPosts = (await Promise.all(
   ALL_COLLECTIONS.map(c => getCollection(c).catch(() => []))
 )).flat().filter(p => p.data.category === cat)
@@ -29,24 +29,6 @@ function slug(col: string, id: string) {
 
 // カテゴリメタ情報
 const MEDIA_META: Record<string, { label: string; icon: string; tagline: string; desc: string }> = {
-  books: {
-    label:   "書籍レビュー",
-    icon:    "読",
-    tagline: "忙しい毎日の中で、この一冊があなたを変える",
-    desc:    "読み終わった後、世界の見え方が少し変わる本を紹介。読む価値のある一冊だけを厳選。",
-  },
-  movie: {
-    label:   "映画の知恵",
-    icon:    "映",
-    tagline: "スクリーンの向こうに、あなたへのメッセージがある",
-    desc:    "名作映画が描く人間の決断と葛藤を読み解く。観た後に「自分も頑張ろう」と思える作品たちの、もう一つの読み方。",
-  },
-  novel: {
-    label:   "小説・物語",
-    icon:    "語",
-    tagline: "物語の中の決断が、今日の自分に重なる",
-    desc:    "フィクションの登場人物たちは、歴史の英傑と同じ構造の選択をしている。",
-  },
   philosophy: {
     label:   "哲学の知恵",
     icon:    "哲",
