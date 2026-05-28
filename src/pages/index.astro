@@ -13,6 +13,10 @@ const whatifPosts = (await getCollection("whatif").catch(() => []))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 4);
 
+const philosophyPosts = (await getCollection("philosophy").catch(() => []))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+
 function slug(col: string, id: string) {
   return `${col}/${id.replace(/\.mdx?$/, "")}`;
 }
@@ -123,6 +127,38 @@ const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&no
                 <p class="whatif-case">CASE #{String(i + 1).padStart(3, '0')}</p>
                 <p class="whatif-title">{post.data.title}</p>
                 {post.data.lesson && <p class="whatif-lesson">{post.data.lesson}</p>}
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- 哲学コーナー -->
+  {philosophyPosts.length > 0 && (
+    <section class="section philosophy-section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="lab-label">PHILOSOPHY LAB</p>
+            <h2 class="section-title phil-title">哲学の知恵</h2>
+          </div>
+          <a href="/philosophy/" class="section-more phil-more">すべて見る →</a>
+        </div>
+        <p class="phil-hook">ニーチェ・カント・ハイデガー——2500年前の問いが、今日のあなたへの答えだ。</p>
+        <div class="phil-grid">
+          {philosophyPosts.map(post => (
+            <a href={`/blog/${slug(post.collection, post.id)}/`} class="phil-card">
+              {post.data.ogImage && (
+                <div class="phil-img-wrap">
+                  <img src={post.data.ogImage} alt={post.data.title} loading="lazy" />
+                </div>
+              )}
+              <div class="phil-body">
+                <p class="phil-date">{formatDate(post.data.date)}</p>
+                <p class="phil-card-title">{post.data.title}</p>
+                {post.data.lesson && <p class="phil-lesson">{post.data.lesson}</p>}
               </div>
             </a>
           ))}
@@ -352,6 +388,54 @@ const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&no
   .recent-cat { display: inline-block; font-family: var(--font-sans); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--violet); margin-bottom: 0.25rem; }
   .recent-title { font-family: var(--font-serif); font-size: 0.88rem; font-weight: 700; color: var(--ink); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   .recent-date  { font-family: var(--font-sans); font-size: 0.68rem; color: var(--ink3); margin-top: 0.35rem; }
+
+  /* ── Philosophy ── */
+  .philosophy-section {
+    background: linear-gradient(135deg, #1e1b4b 0%, #2e1065 60%, #1e1b4b 100%);
+  }
+  .philosophy-section .section-header {
+    border-bottom-color: rgba(255,255,255,0.1);
+  }
+  .phil-title { color: #fff; }
+  .phil-more { color: var(--gold); }
+  .phil-more:hover { color: var(--amber); opacity: 1; }
+  .philosophy-section .lab-label { color: rgba(255,255,255,0.4); }
+  .phil-hook {
+    font-family: var(--font-serif);
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.55);
+    border-left: 2px solid var(--gold);
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+  .phil-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.2rem;
+  }
+  .phil-card {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s, transform 0.15s;
+  }
+  .phil-card:hover {
+    background: rgba(255,255,255,0.09);
+    border-color: rgba(255,255,255,0.25);
+    transform: translateY(-2px);
+  }
+  .phil-img-wrap { aspect-ratio: 16/9; overflow: hidden; background: rgba(0,0,0,0.3); }
+  .phil-img-wrap img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: transform 0.3s, opacity 0.3s; }
+  .phil-card:hover .phil-img-wrap img { transform: scale(1.04); opacity: 1; }
+  .phil-body { padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .phil-date { font-family: var(--font-sans); font-size: 0.62rem; color: rgba(255,255,255,0.35); }
+  .phil-card-title { font-family: var(--font-serif); font-size: 0.92rem; font-weight: 700; color: #fff; line-height: 1.5; }
+  .phil-lesson { font-family: var(--font-sans); font-size: 0.72rem; color: rgba(255,255,255,0.5); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
   /* ── Channels ── */
   .channels-section {
