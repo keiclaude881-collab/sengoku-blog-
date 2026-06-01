@@ -40,9 +40,17 @@ const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&no
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "偉人ラボ",
-    "url": "https://sengoku-blog.vercel.app/",
+    "url": Astro.site?.toString() ?? "https://sengoku-blog.vercel.app/",
     "description": "歴史の偉人が現代の問題を解決するメディア",
     "inLanguage": "ja",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": `${(Astro.site?.toString() ?? "https://sengoku-blog.vercel.app").replace(/\/$/, "")}/search/?q={search_term_string}`
+      },
+      "query-input": "required name=search_term_string"
+    }
   })} />
 
   <!-- HERO -->

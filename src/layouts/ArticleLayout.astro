@@ -78,6 +78,7 @@ const formattedUpdated = updatedAt
   : null;
 
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const siteOrigin = Astro.site?.toString().replace(/\/$/, "") ?? "https://sengoku-blog.vercel.app";
 
 // あわせて読みたい: 同カテゴリからランダム3本（自身を除く）
 const _allCollections = ["whatif", "philosophy"] as const;
@@ -100,7 +101,7 @@ const awaseteYomitai = _shuffled.slice(0, 3).map(p => ({
 ---
 
 <BaseLayout
-  title={`${title} | 決断の系譜`}
+  title={`${title} | 偉人ラボ`}
   description={description}
   ogImage={ogImage}
   type="article"
@@ -383,16 +384,16 @@ const awaseteYomitai = _shuffled.slice(0, 3).map(p => ({
     "dateModified": isoUpdated,
     "author": {
       "@type": "Person",
-      "name": "決断の系譜",
-      "url": "https://sengoku-blog.vercel.app"
+      "name": "偉人ラボ",
+      "url": siteOrigin
     },
     "publisher": {
       "@type": "Organization",
-      "name": "決断の系譜",
-      "logo": { "@type": "ImageObject", "url": "https://sengoku-blog.vercel.app/favicon.svg" }
+      "name": "偉人ラボ",
+      "logo": { "@type": "ImageObject", "url": `${siteOrigin}/favicon.svg` }
     },
     "description": description,
-    "image": ogImage ? ogImage : "https://sengoku-blog.vercel.app/images/default-ogp.svg",
+    "image": ogImage ? ogImage : `${siteOrigin}/images/default-ogp.svg`,
     "keywords": tags.join(", "),
     "articleSection": catLabel[category] ?? category,
     "wordCount": readingTime * 600,
@@ -403,9 +404,9 @@ const awaseteYomitai = _shuffled.slice(0, 3).map(p => ({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "ホーム",     "item": "https://sengoku-blog.vercel.app/" },
-      { "@type": "ListItem", "position": 2, "name": "記事一覧",   "item": "https://sengoku-blog.vercel.app/blog/" },
-      { "@type": "ListItem", "position": 3, "name": catLabel[category], "item": `https://sengoku-blog.vercel.app/category/${category}/` },
+      { "@type": "ListItem", "position": 1, "name": "ホーム",     "item": `${siteOrigin}/` },
+      { "@type": "ListItem", "position": 2, "name": "記事一覧",   "item": `${siteOrigin}/blog/` },
+      { "@type": "ListItem", "position": 3, "name": catLabel[category], "item": `${siteOrigin}/category/${category}/` },
       { "@type": "ListItem", "position": 4, "name": title,        "item": pageUrl },
     ]
   })} />
