@@ -1,21 +1,17 @@
 ---
 const navLinks = [
-  { label: '決断できない時',         href: '/category/decide/' },
-  { label: 'チームがうまくいかない時', href: '/category/lead/' },
-  { label: '逆境・失敗した時',       href: '/category/recover/' },
-  { label: '戦略・方向性に迷った時',  href: '/category/strategy/' },
-  { label: '自分を変えたい時',       href: '/category/change/' },
-  { label: '哲学',                  href: '/philosophy/' },
-  { label: '年表',                  href: '/timeline/' },
+  { label: 'もしも歴史',  href: '/blog/' },
+  { label: '哲学',        href: '/philosophy/' },
+  { label: '悩みで探す',  href: '/category/decide/' },
+  { label: '年表',        href: '/timeline/' },
 ];
-
 const currentPath = Astro.url.pathname;
 ---
 
 <header class="site-header">
-  <div class="container header-inner">
+  <div class="header-inner">
     <a href="/" class="site-logo" aria-label="偉人ラボ トップへ">
-      <span class="logo-text">決断の<em>系譜</em></span>
+      偉人<span>ラボ</span>
     </a>
 
     <nav class="site-nav" aria-label="メインナビゲーション">
@@ -25,7 +21,6 @@ const currentPath = Astro.url.pathname;
             <a
               href={href}
               class:list={['nav-link', { active: currentPath.startsWith(href) }]}
-              aria-current={currentPath.startsWith(href) ? 'page' : undefined}
             >
               {label}
             </a>
@@ -34,344 +29,79 @@ const currentPath = Astro.url.pathname;
       </ul>
     </nav>
 
-    <a
-      href="/search"
-      class="header-search-btn"
-      aria-label="記事を検索"
-      title="記事を検索 (⌘K)"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <a href="/search" class="header-search-btn" aria-label="検索">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
       </svg>
     </a>
-
-    <a
-      href="https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&node=7471076051&tag=sengokublog20-22"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="header-audible"
-      aria-label="Audible 30日間無料体験"
-    >
-      <span class="audible-full">📚 戦略書を無料で聴く</span>
-      <span class="audible-short">📚</span>
-    </a>
-
-    <!-- ハンバーガーボタン（モバイルのみ） -->
-    <button
-      class="hamburger"
-      id="hamburger"
-      aria-label="メニューを開く"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-    >
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
   </div>
 </header>
 
-<!-- モバイルメニューオーバーレイ -->
-<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-  <nav aria-label="モバイルナビゲーション">
-    <ul class="mobile-nav-list">
-      {navLinks.map(({ label, href }) => (
-        <li>
-          <a
-            href={href}
-            class:list={['mobile-nav-link', { active: currentPath.startsWith(href) }]}
-          >
-            {label}
-          </a>
-        </li>
-      ))}
-    </ul>
-    <div class="mobile-audible">
-      <a href="/search" class="mobile-search-btn">
-        🔍 記事を検索する
-      </a>
-      <a
-        href="https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&node=7471076051&tag=sengokublog20-22"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="mobile-audible-btn"
-      >
-        📚 戦略書を30日間無料で聴く
-      </a>
-    </div>
-  </nav>
-</div>
-
-<script>
-  const btn   = document.getElementById('hamburger')!;
-  const menu  = document.getElementById('mobile-menu')!;
-  let open = false;
-
-  function toggleMenu(force?: boolean) {
-    open = force !== undefined ? force : !open;
-    btn.setAttribute('aria-expanded', String(open));
-    menu.setAttribute('aria-hidden', String(!open));
-    btn.classList.toggle('is-open', open);
-    menu.classList.toggle('is-open', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  }
-
-  btn.addEventListener('click', () => toggleMenu());
-
-  // メニュー内リンクをクリックしたら閉じる
-  menu.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => toggleMenu(false));
-  });
-
-  // ESCキーで閉じる
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && open) toggleMenu(false);
-  });
-
-  // Cmd+K / Ctrl+K で検索ページへ
-  document.addEventListener('keydown', e => {
-    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-      e.preventDefault();
-      window.location.href = '/search';
-    }
-  });
-</script>
-
 <style>
-  /* ── Header ── */
   .site-header {
-    background: var(--bg);
-    border-bottom: 1px solid var(--rule);
     position: fixed;
     top: 0; left: 0; right: 0;
-    z-index: 200;
     height: var(--nav-height);
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    z-index: 100;
   }
-
-  .container {
+  .header-inner {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 1.5rem;
-  }
-
-  .header-inner {
+    padding: 0 2rem;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 100%;
-    gap: 1.5rem;
+    gap: 2rem;
   }
-
   .site-logo {
-    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink);
     text-decoration: none;
     flex-shrink: 0;
-    z-index: 201;
   }
+  .site-logo span { color: var(--ink2); }
 
-  .logo-text {
-    font-family: var(--font-serif);
-    font-size: 1.15rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: var(--ink);
-  }
-  .logo-text em { font-style: normal; color: var(--gold); }
-
-  /* ── Desktop nav ── */
-  .site-nav {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-  }
-
+  .site-nav { flex: 1; display: flex; justify-content: center; }
   .nav-list {
     list-style: none;
     display: flex;
-    gap: 0.2rem;
+    align-items: center;
+    gap: 0.25rem;
   }
-
   .nav-link {
-    display: block;
-    color: var(--ink2);
     font-family: var(--font-sans);
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     font-weight: 400;
-    letter-spacing: 0.03em;
-    padding: 0.4em 0.65em;
-    border-radius: 2px;
+    color: var(--ink2);
     text-decoration: none;
-    transition: color 0.15s;
-    white-space: nowrap;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    transition: color 0.15s, background 0.15s;
   }
-  .nav-link:hover { color: var(--ink); }
-  .nav-link.active { color: var(--gold); font-weight: 500; }
+  .nav-link:hover { color: var(--ink); background: rgba(0,0,0,0.05); }
+  .nav-link.active { color: var(--ink); font-weight: 500; }
 
-  /* ── Search button ── */
   .header-search-btn {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 32px; height: 32px;
     color: var(--ink2);
-    border-radius: 6px;
-    text-decoration: none;
+    border-radius: 50%;
     transition: color 0.15s, background 0.15s;
     flex-shrink: 0;
   }
-  .header-search-btn:hover {
-    color: var(--ink);
-    background: var(--surface, #f5f5f5);
-  }
+  .header-search-btn:hover { color: var(--ink); background: rgba(0,0,0,0.05); }
 
-  /* ── Audible button ── */
-  .header-audible {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.45rem 1rem;
-    background: var(--gold);
-    color: #fff;
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    border-radius: 2px;
-    text-decoration: none;
-    transition: background 0.2s;
-    flex-shrink: 0;
-    white-space: nowrap;
-    z-index: 201;
-  }
-  .header-audible:hover { background: var(--gold-dark, #2A6B50); }
-
-  .audible-short { display: none; }
-
-  /* ── Hamburger ── */
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    width: 40px;
-    height: 40px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 6px;
-    flex-shrink: 0;
-    z-index: 201;
-  }
-
-  .bar {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background: var(--ink);
-    border-radius: 2px;
-    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1),
-                opacity 0.3s ease;
-    transform-origin: center;
-  }
-
-  .hamburger.is-open .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .hamburger.is-open .bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
-  .hamburger.is-open .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-  /* ── Mobile menu overlay ── */
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    inset: 0;
-    top: var(--nav-height);
-    background: var(--bg);
-    z-index: 199;
-    padding: 2rem 1.5rem;
-    overflow-y: auto;
-    transform: translateX(100%);
-    transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  .mobile-menu.is-open { transform: translateX(0); }
-
-  .mobile-nav-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    border-top: 1px solid var(--rule);
-  }
-
-  .mobile-nav-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.1rem 0;
-    border-bottom: 1px solid var(--rule);
-    font-family: var(--font-serif);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--ink);
-    text-decoration: none;
-    letter-spacing: 0.03em;
-    transition: color 0.2s, padding-left 0.2s;
-  }
-  .mobile-nav-link::after { content: "→"; color: var(--ink3); font-size: 0.8rem; }
-  .mobile-nav-link.active { color: var(--gold); }
-  .mobile-nav-link.active::after { color: var(--gold); }
-  .mobile-nav-link:hover { color: var(--gold); padding-left: 0.5rem; }
-
-  .mobile-audible {
-    margin-top: 2rem;
-  }
-
-  .mobile-search-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 0.9rem;
-    margin-bottom: 0.75rem;
-    background: var(--surface, #f5f5f5);
-    color: var(--ink);
-    font-family: var(--font-sans);
-    font-size: 0.88rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    border-radius: 4px;
-    text-decoration: none;
-    border: 1px solid var(--border);
-    transition: background 0.2s;
-  }
-  .mobile-search-btn:hover { background: var(--border); }
-
-  .mobile-audible-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 1rem;
-    background: var(--gold);
-    color: #fff;
-    font-family: var(--font-sans);
-    font-size: 0.88rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .mobile-audible-btn:hover { background: var(--gold-dark); }
-
-  /* ── Responsive breakpoints ── */
-  @media (max-width: 1000px) {
+  @media (max-width: 768px) {
     .site-nav { display: none; }
-    .hamburger { display: flex; }
-    .mobile-menu { display: block; }
-  }
-
-  @media (max-width: 640px) {
-    .audible-full { display: none; }
-    .audible-short { display: inline; }
   }
 </style>

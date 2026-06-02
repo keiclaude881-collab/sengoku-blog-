@@ -73,37 +73,21 @@ const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&no
   })} />
 
   <!-- HERO -->
-  <section class="hero lab-grid">
+  <section class="hero">
     <div class="container hero-inner">
-      <div class="hero-content">
-        <p class="hero-eyebrow"><span class="hero-eyebrow-dot">◉</span> IJIN LAB — RESEARCH STATION</p>
-        <h1 class="hero-title">
-          歴史の偉人が、<br />
-          <span class="hero-accent">あなたの悩みを解決する。</span>
-        </h1>
-        <p class="hero-desc">
-          信長・ナポレオン・シーザー・孫子・龍馬——<br />
-          彼らが現代にいたら、今日のあなたの問題をこう解決する。
-        </p>
-        <div class="hero-actions">
-          <a href="/category/decide/" class="hero-btn hero-btn--primary">悩みで読む</a>
-          <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer" class="hero-btn hero-btn--outline">📩 ニュースレター登録</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- INTRO -->
-  <section class="intro">
-    <div class="container intro-inner">
-      <p class="intro-q">「コロナのパンデミックを、織田信長ならどう乗り越えた？」</p>
-      <p class="intro-q">「転職を迷う夜に、坂本龍馬はこう考えた。」</p>
-      <p class="intro-q">「プレゼンが苦手な人へ——ナポレオンの話し方を盗む。」</p>
-      <p class="intro-body">
-        偉人ラボは、歴史の偉人たちの思考・戦略・決断を現代語に翻訳するメディアです。<br />
-        Instagram <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" class="intro-link">@ijin_lab</a> では短動画で、このブログでは深掘り記事で届けます。
+      <p class="hero-eyebrow">IJIN LAB</p>
+      <h1 class="hero-title">
+        歴史の偉人が、<br />
+        <span class="hero-accent">あなたの悩みを解決する。</span>
+      </h1>
+      <p class="hero-desc">
+        信長・ナポレオン・シーザー・孫子・龍馬<br />
+        時代を超えた知恵を、現代語に翻訳する。
       </p>
+      <div class="hero-actions">
+        <a href="/blog/" class="hero-btn hero-btn--primary">記事を読む</a>
+        <a href="/category/decide/" class="hero-btn hero-btn--ghost">悩みで探す</a>
+      </div>
     </div>
   </section>
 
@@ -160,7 +144,7 @@ const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&no
 
   <!-- もしも歴史 -->
   {whatifPosts.length > 0 && (
-    <section class="section whatif-section lab-dots">
+    <section class="section whatif-section">
       <div class="container">
         <div class="section-header">
           <div>
@@ -291,88 +275,66 @@ const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&no
 
 <style>
   .hero {
-    padding: calc(var(--nav-height) + 4rem) 0 5rem;
-    background: linear-gradient(160deg, #faf9ff 0%, #f0ebff 60%, #faf9ff 100%);
-    border-bottom: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
+    padding: calc(var(--nav-height) + 6rem) 0 7rem;
+    background: #000;
+    color: #fff;
   }
   .hero-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    max-width: 680px;
+    max-width: 780px;
   }
   .hero-eyebrow {
     font-family: var(--font-mono);
-    font-size: 0.62rem;
-    font-weight: 400;
-    letter-spacing: 0.25em;
-    color: var(--violet);
-    margin-bottom: 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-    opacity: 0.8;
-  }
-  .hero-eyebrow-dot {
-    color: var(--amber);
-    font-size: 0.55rem;
-    animation: pulse-dot 2s ease-in-out infinite;
-  }
-  @keyframes pulse-dot {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 1.5rem;
   }
   .hero-title {
-    font-family: var(--font-serif);
-    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
-    font-weight: 800;
-    color: var(--ink);
-    line-height: 1.35;
-    letter-spacing: 0.02em;
-    margin-bottom: 1.2rem;
+    font-family: var(--font-sans);
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: #fff;
+    margin-bottom: 1.5rem;
   }
-  .hero-accent { color: var(--violet); }
+  .hero-accent {
+    background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,0.6) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
   .hero-desc {
     font-family: var(--font-sans);
-    font-size: 0.92rem;
-    line-height: 1.9;
-    color: var(--ink2);
-    margin-bottom: 2rem;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.7;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
   }
-  .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
   .hero-btn {
     display: inline-flex;
     align-items: center;
-    padding: 0.7rem 1.5rem;
-    border-radius: 8px;
+    padding: 0.75rem 1.75rem;
+    border-radius: 980px;
     font-family: var(--font-sans);
-    font-size: 0.88rem;
-    font-weight: 700;
+    font-size: 0.92rem;
+    font-weight: 500;
     text-decoration: none;
-    transition: all 0.15s;
-    white-space: nowrap;
+    transition: all 0.2s;
   }
-  .hero-btn--primary { background: var(--violet); color: #fff; }
-  .hero-btn--primary:hover { background: var(--violet-dark); }
-  .hero-btn--outline { border: 1.5px solid var(--violet); color: var(--violet); }
-  .hero-btn--outline:hover { background: var(--violet-light); }
-
-  .intro { padding: 2.8rem 0; background: var(--bg2); border-bottom: 1px solid var(--border); }
-  .intro-inner { max-width: 680px; }
-  .intro-q {
-    font-family: var(--font-serif);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--ink);
-    line-height: 1.7;
-    padding-left: 1rem;
-    border-left: 3px solid var(--violet);
-    margin-bottom: 0.8rem;
+  .hero-btn--primary {
+    background: #fff;
+    color: #000;
   }
-  .intro-body { margin-top: 1.5rem; font-family: var(--font-sans); font-size: 0.87rem; line-height: 1.9; color: var(--ink2); }
-  .intro-link { color: var(--violet); font-weight: 600; }
+  .hero-btn--primary:hover { background: rgba(255,255,255,0.85); }
+  .hero-btn--ghost {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .hero-btn--ghost:hover { background: rgba(255,255,255,0.2); }
 
   .section { padding: 4rem 0; }
   .section-header {
@@ -383,10 +345,10 @@ const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&no
     padding-bottom: 0.8rem;
     border-bottom: 1px solid var(--border);
   }
-  .section-title { font-family: var(--font-serif); font-size: clamp(1.25rem, 2.5vw, 1.6rem); font-weight: 700; color: var(--ink); }
+  .section-title { font-family: var(--font-sans); font-size: clamp(1.25rem, 2.5vw, 1.6rem); font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
   .section-sub   { font-family: var(--font-sans); font-size: 0.78rem; color: var(--ink3); }
-  .section-more  { font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; color: var(--violet); text-decoration: none; }
-  .section-more:hover { opacity: 0.7; }
+  .section-more  { font-family: var(--font-sans); font-size: 0.78rem; font-weight: 500; color: var(--ink2); text-decoration: none; }
+  .section-more:hover { color: var(--ink); }
 
   .themes-section { background: #fff; }
   .themes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; }
@@ -445,7 +407,7 @@ const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&no
 
   /* ── Philosophy ── */
   .philosophy-section {
-    background: linear-gradient(135deg, #1e1b4b 0%, #2e1065 60%, #1e1b4b 100%);
+    background: #1d1d1f;
   }
   .philosophy-section .section-header {
     border-bottom-color: rgba(255,255,255,0.1);
@@ -493,7 +455,7 @@ const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&no
 
   /* ── Channels ── */
   .channels-section {
-    background: linear-gradient(135deg, #4C1D95 0%, #1e1b4b 100%);
+    background: #1d1d1f;
     padding: 3.5rem 0;
   }
   .channels-grid {
@@ -558,7 +520,7 @@ const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&no
   }
 
   /* 偉人ギャラリー */
-  .gallery-section { background: var(--bg); }
+  .gallery-section { background: var(--bg2); padding: var(--sp-xl) 0; }
   .gallery-grid {
     display: grid;
     grid-template-columns: repeat(8, 1fr);

@@ -1,51 +1,50 @@
 /* ── CSS 変数 ── */
 :root {
-  /* カラーパレット — 偉人ラボ */
-  --bg:           #FFFFFF;
-  --bg2:          #F4F4F5;
-  --ink:          #09090B;
-  --ink2:         #52525B;
-  --ink3:         #A1A1AA;
-  --violet:       #7C3AED;   /* primary accent */
-  --violet-light: #EDE9FE;
-  --violet-dark:  #5B21B6;
-  --amber:        #F59E0B;   /* secondary accent */
-  --amber-light:  #FEF3C7;
-  --amber-dark:   #D97706;
-  --rule:         rgba(0, 0, 0, 0.08);
+  --bg:           #ffffff;
+  --bg2:          #f5f5f7;
+  --bg3:          #e8e8ed;
+  --ink:          #1d1d1f;
+  --ink2:         #6e6e73;
+  --ink3:         #86868b;
+  --accent:       #1d1d1f;
+  --accent-blue:  #0071e3;
+  --rule:         rgba(0,0,0,0.1);
+  --border:       rgba(0,0,0,0.1);
+  --border-mid:   rgba(0,0,0,0.15);
 
-  /* 後方互換エイリアス */
-  --bg-sub:      #F4F4F5;
-  --bg-navy:     #1E1B4B;
-  --bg-navy-mid: #312E81;
-  --text:        #09090B;
-  --text-mid:    #52525B;
-  --text-sub:    #A1A1AA;
-  --border:      rgba(0, 0, 0, 0.08);
-  --border-mid:  rgba(0, 0, 0, 0.15);
-  --gold:        #7C3AED;
-  --gold-light:  #EDE9FE;
-  --gold-dark:   #5B21B6;
-  --accent:      #7C3AED;
-  --orange:      #7C3AED;
-  --orange-dark: #5B21B6;
+  /* legacy aliases needed by other components */
+  --bg-sub:      #f5f5f7;
+  --text:        #1d1d1f;
+  --text-mid:    #6e6e73;
+  --text-sub:    #86868b;
+  --violet:      #1d1d1f;
+  --violet-light:#f5f5f7;
+  --violet-dark: #000000;
+  --gold:        #1d1d1f;
+  --gold-light:  #f5f5f7;
+  --gold-dark:   #000000;
+  --amber:       #1d1d1f;
+  --amber-light: #f5f5f7;
+  --amber-dark:  #000000;
+  --orange:      #1d1d1f;
+  --orange-dark: #000000;
+  --bg-navy:     #1d1d1f;
+  --bg-navy-mid: #2d2d2f;
 
-  /* FONT */
-  --font-serif:  "Shippori Mincho", "Noto Serif JP", serif;
-  --font-sans:   "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+  --font-serif: "Shippori Mincho", "Noto Serif JP", serif;
+  --font-sans:  -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  --font-mono:  "SF Mono", "Courier New", monospace;
   --font-italic: "DM Serif Display", serif;
-  --font-mono:   "Courier New", monospace;
 
-  /* SPACING */
   --sp-xs: 0.4rem;
   --sp-sm: 0.8rem;
   --sp-md: 1.6rem;
   --sp-lg: 3.2rem;
   --sp-xl: 6.4rem;
 
-  /* LAYOUT */
   --max-width:  1200px;
-  --nav-height: 64px;
+  --nav-height: 52px;
+  --radius:     12px;
 }
 
 /* ── リセット ── */
@@ -116,10 +115,10 @@ main {
 }
 
 .section-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: clamp(1.4rem, 3vw, 2rem);
   font-weight: 700;
-  letter-spacing: 0.03em;
+  letter-spacing: -0.02em;
   color: var(--ink);
 }
 
@@ -128,156 +127,18 @@ main {
   font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.08em;
-  color: var(--gold);
+  color: var(--ink2);
   transition: color 0.2s;
 }
-.section-more:hover { color: var(--gold-dark); }
+.section-more:hover { color: var(--ink); }
 
-
-/* ================================================================
-   FUN ANIMATIONS
-   ================================================================ */
-
-/* --- TextScramble --- */
-.scramble-char {
-  color: var(--gold, #c8a96e);
-  opacity: 0.55;
-  display: inline-block;
-}
-.scramble-done { display: inline-block; }
-
-/* --- Typewriter cursor --- */
-.typewriter-active::after {
-  content: '|';
-  animation: blink 0.7s step-end infinite;
-  color: var(--gold, #c8a96e);
-  margin-left: 2px;
-}
-@keyframes blink { 50% { opacity: 0; } }
-
-/* --- Glow Words --- */
-.glow-word {
-  cursor: default;
-  transition: text-shadow 0.25s, color 0.25s;
-}
-.glow-word:hover {
-  color: var(--gold, #c8a96e);
-  text-shadow: 0 0 6px rgba(200,169,110,0.9), 0 0 18px rgba(200,169,110,0.5);
-}
-
-/* --- Fire Text --- */
-.fire-active {
-  text-shadow:
-    0 0 4px #fff,
-    0 0 10px #f90,
-    0 0 22px #f90,
-    0 0 44px #f50,
-    0 0 80px #f20;
-  animation: flicker 1.6s infinite alternate;
-}
-@keyframes flicker {
-  0%   { text-shadow: 0 0 4px #fff, 0 0 10px #f90, 0 0 22px #f90, 0 0 44px #f50; }
-  33%  { text-shadow: 0 0 6px #fff, 0 0 16px #f90, 0 0 12px #f90, 0 0 32px #f50; }
-  66%  { text-shadow: 0 0 3px #fff, 0 0  8px #f90, 0 0 26px #f90, 0 0 52px #f20; }
-  100% { text-shadow: 0 0 5px #fff, 0 0 12px #f90, 0 0 20px #f90, 0 0 48px #f30; }
-}
-
-/* ================================================================
-   LAB AESTHETICS — 偉人ラボ
-   ================================================================ */
-
-/* グラフ用紙グリッド背景 */
-.lab-grid {
-  background-image:
-    linear-gradient(rgba(124, 58, 237, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 58, 237, 0.06) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-.lab-grid-sm {
-  background-image:
-    linear-gradient(rgba(124, 58, 237, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 58, 237, 0.04) 1px, transparent 1px);
-  background-size: 20px 20px;
-}
-.lab-grid-dark {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-/* ドットグリッド */
-.lab-dots {
-  background-image: radial-gradient(circle, rgba(124,58,237,0.15) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-/* モノスペース・ラボラベル */
+/* ── ラボラベル ── */
 .lab-label {
   font-family: var(--font-mono);
   font-size: 0.6rem;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--violet);
-  opacity: 0.7;
+  color: var(--ink3);
 }
-.lab-label--light {
-  color: rgba(255,255,255,0.5);
-}
-
-/* 実験番号バッジ */
-.lab-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4em;
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.15em;
-  color: var(--violet);
-  border: 1px solid rgba(124,58,237,0.3);
-  border-radius: 3px;
-  padding: 0.2em 0.6em;
-  background: rgba(124,58,237,0.04);
-}
-.lab-badge::before {
-  content: '◉';
-  font-size: 0.5rem;
-  color: var(--amber);
-}
-
-/* 測定ライン区切り */
-.lab-rule {
-  border: none;
-  border-top: 1px dashed rgba(124,58,237,0.2);
-  position: relative;
-  margin: 2rem 0;
-}
-.lab-rule::after {
-  content: '◆';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: var(--bg);
-  padding: 0 0.5rem;
-  font-size: 0.4rem;
-  color: rgba(124,58,237,0.3);
-  letter-spacing: 0.5em;
-}
-
-/* スキャンライン（ダーク背景用） */
-@keyframes scan {
-  0%   { transform: translateY(-100%); }
-  100% { transform: translateY(100vh); }
-}
-.lab-scan::after {
-  content: '';
-  position: absolute;
-  left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(124,58,237,0.15), transparent);
-  animation: scan 6s linear infinite;
-  pointer-events: none;
-}
-
+.lab-label--light { color: rgba(255,255,255,0.5); }
