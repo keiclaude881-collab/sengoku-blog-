@@ -27,22 +27,14 @@ function formatDate(d: Date) {
 const themes = THEME_ORDER.map(s => ({ slug: s, ...THEME_INFO[s] }));
 
 const GALLERY_FIGURES = [
-  { name: "織田信長",       era: "戦国",       image: "https://upload.wikimedia.org/wikipedia/commons/3/36/Odanobunaga.jpg",                                                                                                                             href: "/blog/whatif/oda-nobunaga-tenka-if/" },
-  { name: "豊臣秀吉",       era: "戦国",       image: "https://upload.wikimedia.org/wikipedia/commons/0/09/Toyotomi_Hideyoshi_c1598_Kodai-ji_Temple.png",                                                                                               href: "/blog/whatif/hideyoshi-longlife-if/" },
-  { name: "徳川家康",       era: "戦国",       image: "https://upload.wikimedia.org/wikipedia/commons/2/20/Tokugawa_Ieyasu2_full.JPG",                                                                                                                   href: "/blog/whatif/ieyasu-meigen/" },
-  { name: "武田信玄",       era: "戦国",       image: "https://upload.wikimedia.org/wikipedia/commons/2/27/Takeda_Harunobu.jpg",                                                                                                                         href: "/blog/whatif/shingen-longlife-if/" },
-  { name: "明智光秀",       era: "戦国",       image: "https://upload.wikimedia.org/wikipedia/commons/d/da/Akechi_Mitsuhide.jpg",                                                                                                                        href: "/blog/whatif/honnoji-if/" },
-  { name: "真田幸村",       era: "戦国",       image: "https://upload.wikimedia.org/wikipedia/commons/8/8f/Sanada_Yukimura_Osaka.jpg",                                                                                                                   href: "/blog/whatif/sanada-osaka-win-if/" },
-  { name: "坂本龍馬",       era: "幕末",       image: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Ryoma_Sakamoto.png",                                                                                                                          href: "/blog/whatif/ryoma-longlife-if/" },
-  { name: "ナポレオン",     era: "近世欧州",   image: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Jean_Auguste_Dominique_Ingres%2C_Portrait_de_Napol%C3%A9on_Bonaparte_en_premier_consul%2C_Li%C3%A8ge%2C_BAL_%28d%C3%A9tail%29.jpg",         href: "/blog/whatif/napoleon-russia-if/" },
-  { name: "カエサル",       era: "古代ローマ", image: "https://upload.wikimedia.org/wikipedia/commons/3/3a/Caesar_by_Rubens.jpg",                                                                                                                        href: "/blog/whatif/caesar-last-day/" },
-  { name: "アレクサンドロス", era: "古代ギリシャ", image: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Alexander_the_Great_mosaic.jpg",                                                                                                         href: "/blog/whatif/alexander-longlife-if/" },
-  { name: "クレオパトラ",   era: "古代エジプト", image: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Kleopatra-VII.-Altes-Museum-Berlin1.jpg",                                                                                                  href: "/blog/whatif/cleopatra-beauty-myth/" },
-  { name: "エリザベス1世", era: "近世英国",   image: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Elizabeth_I_(Armada_Portrait).jpg",                                                                                                           href: "/blog/whatif/elizabeth-decision/" },
-  { name: "ニーチェ",       era: "哲学",       image: "https://upload.wikimedia.org/wikipedia/commons/1/1b/Nietzsche187a.jpg",                                                                                                                           href: "/blog/philosophy/nietzsche-meaning/" },
-  { name: "マキャベリ",     era: "哲学",       image: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Santi_di_Tito_-_Niccolo_Machiavelli%27s_portrait.jpg",                                                                                      href: "/blog/philosophy/machiavelli-prince/" },
-  { name: "孔子",           era: "哲学",       image: "https://upload.wikimedia.org/wikipedia/commons/0/03/Confucius_Portrait%2C_Kongzi_%28Confucius%29_Family_Mansion%2C_Qufu_%2813044361055%29.jpg",                                                  href: "/blog/philosophy/confucius-analects/" },
-  { name: "宮本武蔵",       era: "江戸",       image: "https://upload.wikimedia.org/wikipedia/commons/3/37/Miyamoto_Musashi-Portrait-Edo-period.png",                                                                                                   href: "/blog/whatif/miyamoto-musashi-competition/" },
+  { name: "織田信長",   era: "戦国",       image: "https://upload.wikimedia.org/wikipedia/commons/3/36/Odanobunaga.jpg",              href: "/blog/whatif/oda-nobunaga-tenka-if/" },
+  { name: "徳川家康",   era: "戦国",       image: "https://upload.wikimedia.org/wikipedia/commons/2/20/Tokugawa_Ieyasu2_full.JPG",    href: "/blog/whatif/ieyasu-meigen/" },
+  { name: "武田信玄",   era: "戦国",       image: "https://upload.wikimedia.org/wikipedia/commons/3/33/Takeda_Harunobu.jpg",          href: "/blog/whatif/shingen-longlife-if/" },
+  { name: "坂本龍馬",   era: "幕末",       image: "https://upload.wikimedia.org/wikipedia/commons/8/84/Portrait_of_Sakamoto_Ryoma_by_Kunisawa_Shinkuro_%28Sakamoto_Ryoma_Memorial_Museum%29.jpg", href: "/blog/whatif/ryoma-longlife-if/" },
+  { name: "ナポレオン", era: "近世欧州",   image: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Jean_Auguste_Dominique_Ingres%2C_Portrait_de_Napol%C3%A9on_Bonaparte_en_premier_consul%2C_Li%C3%A8ge%2C_BAL_%28d%C3%A9tail%29.jpg", href: "/blog/whatif/napoleon-russia-if/" },
+  { name: "カエサル",   era: "古代ローマ", image: "https://upload.wikimedia.org/wikipedia/commons/3/3a/Caesar_by_Rubens.jpg",          href: "/blog/whatif/caesar-last-day/" },
+  { name: "エリザベス1世", era: "近世英国", image: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Elizabeth_I_(Armada_Portrait).jpg", href: "/blog/whatif/elizabeth-decision/" },
+  { name: "ニーチェ",   era: "哲学",       image: "https://upload.wikimedia.org/wikipedia/commons/1/1b/Nietzsche187a.jpg",             href: "/blog/philosophy/nietzsche-meaning/" },
 ];
 
 const INSTAGRAM_URL = "https://www.instagram.com/ijin_lab/";
@@ -120,10 +112,10 @@ const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&no
     <div class="container">
       <div class="section-header">
         <div>
-          <p class="lab-label">RESEARCH SUBJECTS</p>
-          <h2 class="section-title">偉人を探す</h2>
+          <p class="lab-label">FEATURED</p>
+          <h2 class="section-title">注目の偉人</h2>
         </div>
-        <p class="section-sub">30人以上の偉人から、今の自分に刺さる一人を選ぶ</p>
+        <p class="section-sub">厳選した8人の偉人から読む</p>
       </div>
       <div class="gallery-grid">
         {GALLERY_FIGURES.map(fig => (
@@ -523,8 +515,8 @@ const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&no
   .gallery-section { background: var(--bg2); padding: var(--sp-xl) 0; }
   .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
   }
   .gallery-card {
     text-decoration: none;
@@ -589,10 +581,7 @@ const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&no
     margin: 0;
     text-align: center;
   }
-  @media (max-width: 900px) {
-    .gallery-grid { grid-template-columns: repeat(4, 1fr); }
-  }
-  @media (max-width: 480px) {
-    .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+  @media (max-width: 768px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
   }
 </style>
