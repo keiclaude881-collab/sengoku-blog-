@@ -66,20 +66,57 @@ const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&no
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="container hero-inner">
+    <div class="hero-left">
       <p class="hero-eyebrow">IJIN LAB</p>
       <h1 class="hero-title">
         歴史の偉人が、<br />
-        <em class="hero-em">あなたの悩みを</em><br />
+        あなたの悩みを<br />
         解決する。
       </h1>
       <p class="hero-sub">信長・ナポレオン・シーザー・孫子・龍馬</p>
+      <a href="/blog/" class="hero-cta">記事を読む <span>→</span></a>
     </div>
-    <div class="hero-scroll">
-      <span>scroll</span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    <div class="hero-right">
+      <div class="hero-figure-card" id="hero-fig">
+        <img id="hero-fig-img" src="https://upload.wikimedia.org/wikipedia/commons/3/36/Odanobunaga.jpg" alt="織田信長" />
+        <div class="hero-figure-label">
+          <span class="hero-figure-era" id="hero-fig-era">戦国</span>
+          <span class="hero-figure-name" id="hero-fig-name">織田信長</span>
+        </div>
+      </div>
     </div>
+    <script>
+      const figures = [
+        { name: "織田信長", era: "戦国", img: "https://upload.wikimedia.org/wikipedia/commons/3/36/Odanobunaga.jpg" },
+        { name: "徳川家康", era: "戦国", img: "https://upload.wikimedia.org/wikipedia/commons/2/20/Tokugawa_Ieyasu2_full.JPG" },
+        { name: "ナポレオン", era: "近世欧州", img: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Jean_Auguste_Dominique_Ingres%2C_Portrait_de_Napol%C3%A9on_Bonaparte_en_premier_consul%2C_Li%C3%A8ge%2C_BAL_%28d%C3%A9tail%29.jpg" },
+        { name: "カエサル", era: "古代ローマ", img: "https://upload.wikimedia.org/wikipedia/commons/3/3a/Caesar_by_Rubens.jpg" },
+        { name: "エリザベス1世", era: "近世英国", img: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Elizabeth_I_(Armada_Portrait).jpg" },
+        { name: "ニーチェ", era: "哲学", img: "https://upload.wikimedia.org/wikipedia/commons/1/1b/Nietzsche187a.jpg" },
+      ];
+      let idx = Math.floor(Math.random() * figures.length);
+      const imgEl = document.getElementById('hero-fig-img');
+      const nameEl = document.getElementById('hero-fig-name');
+      const eraEl = document.getElementById('hero-fig-era');
+      const card = document.getElementById('hero-fig');
+
+      imgEl.src = figures[idx].img;
+      imgEl.alt = figures[idx].name;
+      nameEl.textContent = figures[idx].name;
+      eraEl.textContent = figures[idx].era;
+
+      setInterval(() => {
+        card.style.opacity = '0';
+        setTimeout(() => {
+          idx = (idx + 1) % figures.length;
+          imgEl.src = figures[idx].img;
+          imgEl.alt = figures[idx].name;
+          nameEl.textContent = figures[idx].name;
+          eraEl.textContent = figures[idx].era;
+          card.style.opacity = '1';
+        }, 500);
+      }, 4000);
+    </script>
   </section>
 
   <!-- MARQUEE -->
@@ -152,10 +189,6 @@ const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&no
       <p class="lab-label">TODAY'S LESSON</p>
       <blockquote class="quote-text" id="daily-quote">loading...</blockquote>
       <p class="quote-author" id="daily-author"></p>
-      <button class="quote-refresh" id="quote-refresh" aria-label="別の教訓を見る">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
-        別の教訓
-      </button>
     </div>
     <script>
       const lessons = [
@@ -339,74 +372,109 @@ const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&no
 
 <style>
   .hero {
-    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     min-height: 100svh;
-    display: flex;
-    align-items: center;
-    background: #000;
-    overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/97/Bishu_Okehazama-gassen.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.12;
-    filter: grayscale(100%);
-  }
-  .hero-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 900px;
     padding-top: var(--nav-height);
+    background: #000;
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 4rem 5rem 3rem;
   }
   .hero-eyebrow {
     font-family: var(--font-mono);
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     letter-spacing: 0.3em;
-    color: rgba(255,255,255,0.35);
-    margin-bottom: 2rem;
-    display: block;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 2.5rem;
   }
   .hero-title {
     font-family: var(--font-sans);
-    font-size: clamp(3rem, 9vw, 7rem);
+    font-size: clamp(2.2rem, 5vw, 4rem);
     font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.04em;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
     color: #fff;
-    margin-bottom: 2rem;
-  }
-  .hero-em {
-    font-style: normal;
-    color: transparent;
-    -webkit-text-stroke: 2px rgba(255,255,255,0.9);
-    letter-spacing: -0.04em;
+    margin-bottom: 1.5rem;
   }
   .hero-sub {
     font-family: var(--font-sans);
-    font-size: clamp(0.8rem, 1.5vw, 1rem);
-    color: rgba(255,255,255,0.4);
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.35);
     letter-spacing: 0.1em;
-    font-weight: 300;
+    margin-bottom: 3rem;
   }
-  .hero-scroll {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 2rem;
-    display: flex;
+  .hero-cta {
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    background: #fff;
+    color: #000;
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 0.85rem 2rem;
+    border-radius: 980px;
+    text-decoration: none;
+    width: fit-content;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .hero-cta:hover { background: #e8e8ed; transform: scale(1.03); }
+  .hero-cta span { font-size: 1.1em; transition: transform 0.2s; }
+  .hero-cta:hover span { transform: translateX(3px); }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    background: #111;
+  }
+  .hero-figure-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: opacity 0.5s ease;
+  }
+  .hero-figure-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+  .hero-figure-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 3rem 2rem 2rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .hero-figure-era {
     font-family: var(--font-mono);
     font-size: 0.6rem;
     letter-spacing: 0.2em;
-    color: rgba(255,255,255,0.2);
-    animation: bounce 2s ease-in-out infinite;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
   }
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(6px); }
+  .hero-figure-name {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 50vw;
+    }
+    .hero-left { padding: 3rem 1.5rem 2rem; justify-content: flex-end; }
+    .hero-title { font-size: clamp(2rem, 8vw, 3rem); }
   }
 
   .section { padding: 4rem 0; }
@@ -537,8 +605,9 @@ const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&no
 
   /* ── Channels ── */
   .channels-section {
-    background: #1d1d1f;
-    padding: 3.5rem 0;
+    background: var(--bg);
+    padding: var(--sp-xl) 0;
+    border-top: 1px solid var(--rule);
   }
   .channels-grid {
     display: grid;
@@ -546,56 +615,71 @@ const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&no
     gap: 1.5rem;
   }
   .ch-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 12px;
-    padding: 1.8rem 1.5rem;
+    background: var(--bg2);
+    border-radius: var(--radius);
+    padding: 2.5rem 2rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.75rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border: 1px solid transparent;
   }
-  .ch-card--mid {
-    background: rgba(255,255,255,0.08);
-    border-color: rgba(255,255,255,0.2);
+  .ch-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+    border-color: var(--rule);
   }
-  .ch-icon { font-size: 1.6rem; margin-bottom: 0.3rem; }
+  .ch-card--mid { background: var(--ink); color: #fff; }
+  .ch-icon { font-size: 2rem; line-height: 1; }
   .ch-label {
-    font-family: var(--font-sans);
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    color: rgba(255,255,255,0.4);
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    color: var(--ink3);
+    text-transform: uppercase;
   }
+  .ch-card--mid .ch-label { color: rgba(255,255,255,0.4); }
   .ch-title {
-    font-family: var(--font-serif);
-    font-size: 1rem;
+    font-family: var(--font-sans);
+    font-size: 1.25rem;
     font-weight: 700;
-    color: #fff;
-    line-height: 1.4;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
   }
+  .ch-card--mid .ch-title { color: #fff; }
   .ch-desc {
     font-family: var(--font-sans);
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.55);
+    font-size: 0.82rem;
     line-height: 1.7;
+    color: var(--ink2);
     flex: 1;
   }
+  .ch-card--mid .ch-desc { color: rgba(255,255,255,0.6); }
   .ch-btn {
-    display: inline-block;
-    margin-top: 0.8rem;
-    padding: 0.6rem 1.2rem;
-    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1.5rem;
+    border-radius: 980px;
     font-family: var(--font-sans);
-    font-size: 0.8rem;
-    font-weight: 700;
+    font-size: 0.82rem;
+    font-weight: 600;
     text-decoration: none;
-    text-align: center;
-    transition: all 0.15s;
+    transition: all 0.2s;
+    margin-top: 0.5rem;
   }
-  .ch-btn--amber { background: var(--amber); color: #fff; }
-  .ch-btn--amber:hover { background: var(--amber-dark); }
-  .ch-btn--outline { border: 1.5px solid rgba(255,255,255,0.4); color: #fff; }
-  .ch-btn--outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+  .ch-btn--amber {
+    background: var(--ink);
+    color: #fff;
+  }
+  .ch-btn--amber:hover { background: #333; }
+  .ch-btn--outline {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+  .ch-btn--outline:hover { background: rgba(255,255,255,0.25); }
 
   @media (max-width: 768px) {
     .channels-grid { grid-template-columns: 1fr; }
@@ -704,24 +788,5 @@ const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&no
     font-size: 0.72rem;
     letter-spacing: 0.15em;
     color: rgba(255,255,255,0.4);
-  }
-  .quote-refresh {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.15);
-    color: rgba(255,255,255,0.6);
-    font-family: var(--font-sans);
-    font-size: 0.78rem;
-    padding: 0.5rem 1.2rem;
-    border-radius: 980px;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-top: 0.5rem;
-  }
-  .quote-refresh:hover {
-    background: rgba(255,255,255,0.18);
-    color: #fff;
   }
 </style>
