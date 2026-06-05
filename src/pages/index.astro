@@ -1,792 +1,350 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { THEME_INFO, THEME_ORDER } from "../utils/arcMap";
 
-const ALL_COLLECTIONS = ["whatif","philosophy"] as const;
-const allPosts = (await Promise.all(
-  ALL_COLLECTIONS.map(c => getCollection(c).catch(() => []))
-)).flat().sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+type Post = {
+  id: string;
+  col: string;
+  data: {
+    title: string;
+    date: Date;
+    description?: string;
+    ogImage?: string;
+  };
+};
 
-const recentPosts = allPosts.slice(0, 6);
-const whatifPosts = (await getCollection("whatif").catch(() => []))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 4);
+const allPosts: Post[] = (await Promise.all([
+  getCollection("whatif").then(posts => posts.map(p => ({ ...p, col: "whatif" }))).catch(() => []),
+  getCollection("philosophy").then(posts => posts.map(p => ({ ...p, col: "philosophy" }))).catch(() => []),
+])).flat().sort((a: Post, b: Post) => b.data.date.getTime() - a.data.date.getTime());
 
-const philosophyPosts = (await getCollection("philosophy").catch(() => []))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 3);
-
-function slug(col: string, id: string) {
-  return `${col}/${id.replace(/\.mdx?$/, "")}`;
+function href(col: string, id: string) {
+  return `/blog/${col}/${id.replace(/\.mdx?$/, "")}/`;
 }
-function formatDate(d: Date) {
+function fmt(d: Date) {
   return d.toLocaleDateString("ja-JP", { year: "numeric", month: "short", day: "numeric" });
 }
+function label(col: string) {
+  return col === "whatif" ? "もしも歴史" : "哲学";
+}
 
-const themes = THEME_ORDER.map(s => ({ slug: s, ...THEME_INFO[s] }));
-
-const GALLERY_FIGURES = [
-  { name: "織田信長",      era: "戦国",        image: "https://upload.wikimedia.org/wikipedia/commons/3/36/Odanobunaga.jpg",                  href: "/blog/whatif/oda-nobunaga-tenka-if/" },
-  { name: "徳川家康",      era: "戦国",        image: "https://upload.wikimedia.org/wikipedia/commons/2/20/Tokugawa_Ieyasu2_full.JPG",         href: "/blog/whatif/ieyasu-meigen/" },
-  { name: "武田信玄",      era: "戦国",        image: "https://upload.wikimedia.org/wikipedia/commons/3/33/Takeda_Harunobu.jpg",               href: "/blog/whatif/shingen-longlife-if/" },
-  { name: "坂本龍馬",      era: "幕末",        image: "https://upload.wikimedia.org/wikipedia/commons/8/84/Portrait_of_Sakamoto_Ryoma_by_Kunisawa_Shinkuro_%28Sakamoto_Ryoma_Memorial_Museum%29.jpg", href: "/blog/whatif/ryoma-longlife-if/" },
-  { name: "ナポレオン",    era: "近世欧州",    image: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Jean_Auguste_Dominique_Ingres%2C_Portrait_de_Napol%C3%A9on_Bonaparte_en_premier_consul%2C_Li%C3%A8ge%2C_BAL_%28d%C3%A9tail%29.jpg", href: "/blog/whatif/napoleon-russia-if/" },
-  { name: "カエサル",      era: "古代ローマ",  image: "https://upload.wikimedia.org/wikipedia/commons/3/3a/Caesar_by_Rubens.jpg",               href: "/blog/whatif/caesar-last-day/" },
-  { name: "エリザベス1世", era: "近世英国",    image: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Elizabeth_I_(Armada_Portrait).jpg",  href: "/blog/whatif/elizabeth-decision/" },
-  { name: "ニーチェ",      era: "哲学",        image: "https://upload.wikimedia.org/wikipedia/commons/1/1b/Nietzsche187a.jpg",                  href: "/blog/philosophy/nietzsche-meaning/" },
-];
-
-const INSTAGRAM_URL = "https://www.instagram.com/ijin_lab/";
-const SUBSTACK_URL  = "https://ijin-lab.substack.com/";
-const AUDIBLE_URL   = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&node=7471076051&tag=sengokublog20-22";
-
+const FIRST = 12;
+const featured = allPosts[0];
+const rest     = allPosts.slice(1);
 ---
 
 <BaseLayout
   title="偉人ラボ | 歴史の偉人が現代の問題を解決する"
   description="信長・ナポレオン・孫子・龍馬——歴史の偉人たちが現代のあなたの悩みに答える。仕事・人間関係・決断・逆境——時代を超えた知恵をあなたへ。"
 >
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "偉人ラボ",
-    "url": Astro.site?.toString() ?? "https://sengoku-blog.vercel.app/",
-    "description": "歴史の偉人が現代の問題を解決するメディア",
-    "inLanguage": "ja",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": `${(Astro.site?.toString() ?? "https://sengoku-blog.vercel.app").replace(/\/$/, "")}/search/?q={search_term_string}`
-      },
-      "query-input": "required name=search_term_string"
-    }
-  })} />
+  <main class="page">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-left">
-      <p class="hero-eyebrow">IJIN LAB</p>
-      <h1 class="hero-title">
-        歴史の偉人が、<br />
-        あなたの悩みを<br />
-        解決する。
-      </h1>
-      <p class="hero-sub">信長・ナポレオン・シーザー・孫子・龍馬</p>
-      <a href="/blog/" class="hero-cta">記事を読む <span>→</span></a>
-    </div>
-    <div class="hero-right">
-      <div class="hero-figure-card" id="hero-fig">
-        <img id="hero-fig-img" src="https://upload.wikimedia.org/wikipedia/commons/3/36/Odanobunaga.jpg" alt="織田信長" />
-        <div class="hero-figure-label">
-          <span class="hero-figure-era" id="hero-fig-era">戦国</span>
-          <span class="hero-figure-name" id="hero-fig-name">織田信長</span>
+    <!-- ─── Featured ─────────────────────────────── -->
+    {featured && (
+      <a class="featured" href={href(featured.col, featured.id)}>
+        <div class="featured-img-wrap">
+          {featured.data.ogImage
+            ? <img src={featured.data.ogImage} alt={featured.data.title} loading="eager" />
+            : <div class="img-placeholder" />
+          }
         </div>
-      </div>
-    </div>
-    <script>
-      const figures = [
-        { name: "織田信長", era: "戦国", img: "https://upload.wikimedia.org/wikipedia/commons/3/36/Odanobunaga.jpg" },
-        { name: "徳川家康", era: "戦国", img: "https://upload.wikimedia.org/wikipedia/commons/2/20/Tokugawa_Ieyasu2_full.JPG" },
-        { name: "ナポレオン", era: "近世欧州", img: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Jean_Auguste_Dominique_Ingres%2C_Portrait_de_Napol%C3%A9on_Bonaparte_en_premier_consul%2C_Li%C3%A8ge%2C_BAL_%28d%C3%A9tail%29.jpg" },
-        { name: "カエサル", era: "古代ローマ", img: "https://upload.wikimedia.org/wikipedia/commons/3/3a/Caesar_by_Rubens.jpg" },
-        { name: "エリザベス1世", era: "近世英国", img: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Elizabeth_I_(Armada_Portrait).jpg" },
-        { name: "ニーチェ", era: "哲学", img: "https://upload.wikimedia.org/wikipedia/commons/1/1b/Nietzsche187a.jpg" },
-      ];
-      let idx = Math.floor(Math.random() * figures.length);
-      const imgEl = document.getElementById('hero-fig-img');
-      const nameEl = document.getElementById('hero-fig-name');
-      const eraEl = document.getElementById('hero-fig-era');
-      const card = document.getElementById('hero-fig');
-
-      imgEl.src = figures[idx].img;
-      imgEl.alt = figures[idx].name;
-      nameEl.textContent = figures[idx].name;
-      eraEl.textContent = figures[idx].era;
-
-      setInterval(() => {
-        card.style.opacity = '0';
-        setTimeout(() => {
-          idx = (idx + 1) % figures.length;
-          imgEl.src = figures[idx].img;
-          imgEl.alt = figures[idx].name;
-          nameEl.textContent = figures[idx].name;
-          eraEl.textContent = figures[idx].era;
-          card.style.opacity = '1';
-        }, 500);
-      }, 4000);
-    </script>
-  </section>
-
-  <!-- MARQUEE -->
-  <div class="marquee-wrap" aria-hidden="true">
-    <div class="marquee-track">
-      <span>織田信長</span><span>·</span>
-      <span>ナポレオン</span><span>·</span>
-      <span>カエサル</span><span>·</span>
-      <span>武田信玄</span><span>·</span>
-      <span>クレオパトラ</span><span>·</span>
-      <span>徳川家康</span><span>·</span>
-      <span>ニーチェ</span><span>·</span>
-      <span>坂本龍馬</span><span>·</span>
-      <span>アレクサンドロス</span><span>·</span>
-      <span>真田幸村</span><span>·</span>
-      <span>マキャベリ</span><span>·</span>
-      <span>エリザベス1世</span><span>·</span>
-      <span>宮本武蔵</span><span>·</span>
-      <span>孫子</span><span>·</span>
-      <span>曹操</span><span>·</span>
-      <!-- duplicate for seamless loop -->
-      <span>織田信長</span><span>·</span>
-      <span>ナポレオン</span><span>·</span>
-      <span>カエサル</span><span>·</span>
-      <span>武田信玄</span><span>·</span>
-      <span>クレオパトラ</span><span>·</span>
-      <span>徳川家康</span><span>·</span>
-      <span>ニーチェ</span><span>·</span>
-      <span>坂本龍馬</span><span>·</span>
-      <span>アレクサンドロス</span><span>·</span>
-      <span>真田幸村</span><span>·</span>
-      <span>マキャベリ</span><span>·</span>
-      <span>エリザベス1世</span><span>·</span>
-      <span>宮本武蔵</span><span>·</span>
-      <span>孫子</span><span>·</span>
-      <span>曹操</span><span>·</span>
-    </div>
-  </div>
-
-  <!-- 偉人ギャラリー -->
-  <section class="section gallery-section">
-    <div class="container">
-      <div class="section-header">
-        <div>
-          <p class="lab-label">FEATURED</p>
-          <h2 class="section-title">注目の偉人</h2>
+        <div class="featured-body">
+          <span class="badge">{label(featured.col)}</span>
+          <h2 class="featured-title">{featured.data.title}</h2>
+          {featured.data.description && (
+            <p class="featured-desc">{featured.data.description}</p>
+          )}
+          <time class="meta-date">{fmt(featured.data.date)}</time>
         </div>
-        <p class="section-sub">厳選した8人の偉人から読む</p>
-      </div>
-      <div class="gallery-grid">
-        {GALLERY_FIGURES.map(fig => (
-          <a href={fig.href} class="gallery-card">
-            <div class="gallery-img-wrap">
-              <img src={fig.image} alt={fig.name} loading="lazy" />
-              <div class="gallery-overlay">
-                <span class="gallery-cta">記事を読む →</span>
-              </div>
+      </a>
+    )}
+
+    <!-- ─── Grid ──────────────────────────────────── -->
+    <div class="grid" id="grid">
+      {rest.map((p, i) => (
+        <a
+          class="card"
+          href={href(p.col, p.id)}
+          data-index={i}
+          style={i >= FIRST - 1 ? "display:none" : ""}
+        >
+          <div class="card-img-wrap">
+            {p.data.ogImage
+              ? <img src={p.data.ogImage} alt={p.data.title} loading="lazy" />
+              : <div class="img-placeholder" />
+            }
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="badge">{label(p.col)}</span>
+              <time class="meta-date">{fmt(p.data.date)}</time>
             </div>
-            <p class="gallery-era">{fig.era}</p>
-            <p class="gallery-name">{fig.name}</p>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- 今日の教訓 -->
-  <section class="quote-section">
-    <div class="container quote-inner">
-      <p class="lab-label">TODAY'S LESSON</p>
-      <blockquote class="quote-text" id="daily-quote">loading...</blockquote>
-      <p class="quote-author" id="daily-author"></p>
-    </div>
-    <script>
-      const lessons = [
-        { text: "改革のスピードと組織の消化速度は、セットで管理しなければならない", author: "織田信長の教訓" },
-        { text: "城は壊せる。だが人の心が離れたら、取り戻すのは城より難しい。", author: "武田信玄の教訓" },
-        { text: "勝てない戦いはある。でも負け方は選べる。", author: "真田幸村の教訓" },
-        { text: "最速で遠くまで行ける人間と、長く走り続けられる人間は、違う走り方をしている。", author: "アレクサンドロス大王の教訓" },
-        { text: "敵を部下にできる人間が、最強の組織を作る。", author: "曹操の教訓" },
-        { text: "人は城、人は石垣、人は堀。情けは味方、仇は敵なり。", author: "武田信玄の言葉" },
-        { text: "正しさは武器になる。だが正しさだけでは、人は動かない。", author: "上杉謙信の教訓" },
-        { text: "リーダーの最終的な仕事は、自分が不要になる組織を作ることだ。", author: "偉人ラボの考察" },
-        { text: "生き様は、結果より先に人の記憶に残る。", author: "真田幸村の教訓" },
-        { text: "改革者が潰されても、改革の本質は残ることがある。", author: "偉人ラボの考察" },
-      ];
-      let current = Math.floor(Math.random() * lessons.length);
-      const quoteEl = document.getElementById('daily-quote');
-      const authorEl = document.getElementById('daily-author');
-
-      function show(idx) {
-        quoteEl.style.opacity = '0';
-        authorEl.style.opacity = '0';
-        setTimeout(() => {
-          quoteEl.textContent = `「${lessons[idx].text}」`;
-          authorEl.textContent = `— ${lessons[idx].author}`;
-          quoteEl.style.opacity = '1';
-          authorEl.style.opacity = '1';
-        }, 400);
-      }
-
-      // initial
-      quoteEl.textContent = `「${lessons[current].text}」`;
-      authorEl.textContent = `— ${lessons[current].author}`;
-      quoteEl.style.transition = 'opacity 0.4s ease';
-      authorEl.style.transition = 'opacity 0.4s ease';
-
-      // auto-rotate every 5s
-      setInterval(() => {
-        current = (current + 1) % lessons.length;
-        show(current);
-      }, 5000);
-
-      // keep refresh button working
-      const btn = document.getElementById('quote-refresh');
-      if (btn) btn.addEventListener('click', () => {
-        current = (current + 1) % lessons.length;
-        show(current);
-      });
-    </script>
-  </section>
-
-  <!-- もしも歴史 -->
-  {whatifPosts.length > 0 && (
-    <section class="section whatif-section">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <p class="lab-label">EXPERIMENT LOG</p>
-            <h2 class="section-title">もしも歴史</h2>
-          </div>
-          <a href="/blog/" class="section-more">すべて見る →</a>
-        </div>
-        <div class="whatif-grid">
-          {whatifPosts.map((post, i) => (
-            <a href={`/blog/${slug(post.collection, post.id)}/`} class="whatif-card">
-              {post.data.ogImage && (
-                <div class="whatif-img-wrap">
-                  <img src={post.data.ogImage} alt={post.data.title} loading="lazy" />
-                </div>
-              )}
-              <div class="whatif-body">
-                <p class="whatif-case">CASE #{String(i + 1).padStart(3, '0')}</p>
-                <p class="whatif-title">{post.data.title}</p>
-                {post.data.lesson && <p class="whatif-lesson">{post.data.lesson}</p>}
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- 哲学コーナー -->
-  {philosophyPosts.length > 0 && (
-    <section class="section philosophy-section">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <p class="lab-label">PHILOSOPHY LAB</p>
-            <h2 class="section-title phil-title">哲学の知恵</h2>
-          </div>
-          <a href="/philosophy/" class="section-more phil-more">すべて見る →</a>
-        </div>
-        <p class="phil-hook">ニーチェ・カント・ハイデガー——2500年前の問いが、今日のあなたへの答えだ。</p>
-        <div class="phil-grid">
-          {philosophyPosts.map(post => (
-            <a href={`/blog/${slug(post.collection, post.id)}/`} class="phil-card">
-              {post.data.ogImage && (
-                <div class="phil-img-wrap">
-                  <img src={post.data.ogImage} alt={post.data.title} loading="lazy" />
-                </div>
-              )}
-              <div class="phil-body">
-                <p class="phil-date">{formatDate(post.data.date)}</p>
-                <p class="phil-card-title">{post.data.title}</p>
-                {post.data.lesson && <p class="phil-lesson">{post.data.lesson}</p>}
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- 最新記事 -->
-  <section class="section recent-section">
-    <div class="container">
-      <div class="section-header">
-        <div>
-          <p class="lab-label">LATEST CASES</p>
-          <h2 class="section-title">最新記事</h2>
-        </div>
-        <a href="/blog/" class="section-more">すべて見る →</a>
-      </div>
-      <div class="recent-grid">
-        {recentPosts.map(post => (
-          <a href={`/blog/${slug(post.collection, post.id)}/`} class="recent-card">
-            {post.data.ogImage && (
-              <div class="recent-img-wrap">
-                <img src={post.data.ogImage} alt={post.data.title} loading="lazy" />
-              </div>
+            <h3 class="card-title">{p.data.title}</h3>
+            {p.data.description && (
+              <p class="card-desc">{p.data.description}</p>
             )}
-            <div class="recent-body">
-              <span class="recent-cat">{post.collection}</span>
-              <p class="recent-title">{post.data.title}</p>
-              <p class="recent-date">{formatDate(post.data.date)}</p>
-            </div>
-          </a>
-        ))}
-      </div>
+          </div>
+        </a>
+      ))}
     </div>
-  </section>
 
-  <!-- チャンネルCTA -->
-  <section class="channels-section">
-    <div class="container channels-grid">
-
-      <div class="ch-card">
-        <p class="ch-icon">📸</p>
-        <p class="ch-label">INSTAGRAM</p>
-        <p class="ch-title">60秒で偉人の知恵</p>
-        <p class="ch-desc">リールで毎日「偉人×現代問題」を配信。スキマ時間に見返せる。</p>
-        <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" class="ch-btn ch-btn--amber">
-          @ijin_lab をフォロー
-        </a>
+    <!-- ─── Load more ─────────────────────────────── -->
+    {rest.length >= FIRST && (
+      <div class="more-wrap" id="more-wrap">
+        <button class="more-btn" id="more-btn">もっと読む</button>
       </div>
+    )}
 
-      <div class="ch-card ch-card--mid">
-        <p class="ch-icon">📩</p>
-        <p class="ch-label">NEWSLETTER</p>
-        <p class="ch-title">週1回、深掘りを届ける</p>
-        <p class="ch-desc">Substackで無料配信。偉人1人の思考をじっくり読める。</p>
-        <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer" class="ch-btn ch-btn--outline">
-          無料で購読する
-        </a>
-      </div>
-
-      <div class="ch-card">
-        <p class="ch-icon">🎧</p>
-        <p class="ch-label">AUDIBLE</p>
-        <p class="ch-title">通勤中に歴史書を</p>
-        <p class="ch-desc">偉人の著作・歴史書が耳で読める。30日間無料で体験できる。</p>
-        <a href={AUDIBLE_URL} target="_blank" rel="noopener noreferrer" class="ch-btn ch-btn--amber">
-          30日間無料で試す
-        </a>
-      </div>
-
-    </div>
-  </section>
-
+  </main>
 </BaseLayout>
 
+<script>
+  const btn  = document.getElementById("more-btn");
+  const wrap = document.getElementById("more-wrap");
+  if (btn) {
+    btn.addEventListener("click", () => {
+      const hidden = document.querySelectorAll<HTMLElement>(".card[style*='display:none']");
+      hidden.forEach(el => {
+        el.style.display = "";
+        el.classList.add("reveal");
+      });
+      if (hidden.length === 0 || document.querySelectorAll(".card[style*='display:none']").length === 0) {
+        wrap?.remove();
+      }
+    });
+  }
+</script>
+
 <style>
-  .hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 100svh;
-    padding-top: var(--nav-height);
-    background: #000;
-  }
-  .hero-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 5rem 4rem 5rem 3rem;
-  }
-  .hero-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.3em;
-    color: rgba(255,255,255,0.3);
-    margin-bottom: 2.5rem;
-  }
-  .hero-title {
-    font-family: var(--font-sans);
-    font-size: clamp(2.2rem, 5vw, 4rem);
-    font-weight: 800;
-    line-height: 1.12;
-    letter-spacing: -0.03em;
-    color: #fff;
-    margin-bottom: 1.5rem;
-  }
-  .hero-sub {
-    font-family: var(--font-sans);
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.35);
-    letter-spacing: 0.1em;
-    margin-bottom: 3rem;
-  }
-  .hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: #fff;
-    color: #000;
-    font-family: var(--font-sans);
-    font-size: 0.88rem;
-    font-weight: 600;
-    padding: 0.85rem 2rem;
-    border-radius: 980px;
-    text-decoration: none;
-    width: fit-content;
-    transition: background 0.2s, transform 0.2s;
-  }
-  .hero-cta:hover { background: #e8e8ed; transform: scale(1.03); }
-  .hero-cta span { font-size: 1.1em; transition: transform 0.2s; }
-  .hero-cta:hover span { transform: translateX(3px); }
+/* ── Page shell ───────────────────────────────────── */
+.page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
 
-  .hero-right {
-    position: relative;
-    overflow: hidden;
-    background: #111;
-  }
-  .hero-figure-card {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transition: opacity 0.5s ease;
-  }
-  .hero-figure-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    display: block;
-  }
-  .hero-figure-label {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 3rem 2rem 2rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-  .hero-figure-era {
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
-    color: rgba(255,255,255,0.5);
-    text-transform: uppercase;
-  }
-  .hero-figure-name {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 0.05em;
-  }
+/* ── Featured card ───────────────────────────────── */
+.featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 40px;
+  transition: box-shadow 0.25s ease;
+}
+.featured:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,.10);
+}
+.featured-img-wrap {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+.featured-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.featured:hover .featured-img-wrap img {
+  transform: scale(1.03);
+}
+.featured-body {
+  padding: 40px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  background: #fff;
+}
+.featured-title {
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: #1d1d1f;
+  margin: 0;
+  letter-spacing: -.01em;
+}
+.featured-desc {
+  font-size: .9rem;
+  line-height: 1.7;
+  color: #6e6e73;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
-  @media (max-width: 768px) {
-    .hero {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto 50vw;
-    }
-    .hero-left { padding: 3rem 1.5rem 2rem; justify-content: flex-end; }
-    .hero-title { font-size: clamp(2rem, 8vw, 3rem); }
-  }
+/* ── Grid ────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
 
-  .section { padding: 4rem 0; }
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-    padding-bottom: 0.8rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .section-title { font-family: var(--font-sans); font-size: clamp(1.25rem, 2.5vw, 1.6rem); font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
-  .section-sub   { font-family: var(--font-sans); font-size: 0.78rem; color: var(--ink3); }
-  .section-more  { font-family: var(--font-sans); font-size: 0.78rem; font-weight: 500; color: var(--ink2); text-decoration: none; }
-  .section-more:hover { color: var(--ink); }
+/* ── Card ────────────────────────────────────────── */
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e5e5e5;
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background: #fff;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.card:hover {
+  box-shadow: 0 6px 24px rgba(0,0,0,.09);
+  transform: translateY(-2px);
+}
+.card.reveal {
+  animation: fadeUp 0.4s ease both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
-  .marquee-wrap {
-    background: #fff;
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-    overflow: hidden;
-    padding: 1rem 0;
-  }
-  .marquee-track {
-    display: flex;
-    gap: 2rem;
-    width: max-content;
-    animation: marquee 30s linear infinite;
-    font-family: var(--font-serif);
-    font-size: 1.1rem;
-    color: var(--ink2);
-    letter-spacing: 0.05em;
-  }
-  .marquee-track span:nth-child(even) {
-    color: var(--ink3);
-    font-size: 0.6rem;
-    align-self: center;
-  }
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
+.card-img-wrap {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #f0f0f0;
+  flex-shrink: 0;
+}
+.card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.card:hover .card-img-wrap img {
+  transform: scale(1.04);
+}
+.img-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+}
 
-  .whatif-section { background: var(--bg2); }
-  .whatif-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.2rem; }
-  .whatif-card {
-    display: flex; flex-direction: column;
-    background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
-    text-decoration: none; transition: box-shadow 0.15s, transform 0.15s;
-  }
-  .whatif-card:hover { box-shadow: 0 6px 24px rgba(124,58,237,0.1); transform: translateY(-2px); border-color: rgba(124,58,237,0.2); }
-  .whatif-img-wrap { aspect-ratio: 16/9; overflow: hidden; background: var(--bg2); }
-  .whatif-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-  .whatif-card:hover .whatif-img-wrap img { transform: scale(1.04); }
-  .whatif-body { padding: 1rem 1.1rem; }
-  .whatif-case {
-    font-family: var(--font-mono);
-    font-size: 0.58rem;
-    letter-spacing: 0.2em;
-    color: var(--amber);
-    margin-bottom: 0.4rem;
-    opacity: 0.9;
-  }
-  .whatif-title { font-family: var(--font-serif); font-size: 0.92rem; font-weight: 700; color: var(--ink); line-height: 1.5; margin-bottom: 0.4rem; }
-  .whatif-lesson { font-family: var(--font-sans); font-size: 0.73rem; color: var(--ink3); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.card-body {
+  padding: 18px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1d1d1f;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.card-desc {
+  font-size: .82rem;
+  line-height: 1.65;
+  color: #6e6e73;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
-  .recent-section { background: #fff; }
-  .recent-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
-  .recent-card {
-    display: flex; gap: 0.9rem; align-items: flex-start; padding: 0.9rem;
-    border: 1px solid var(--border); border-radius: 10px; text-decoration: none;
-    transition: border-color 0.15s, box-shadow 0.15s;
-  }
-  .recent-card:hover { border-color: var(--violet); box-shadow: 0 4px 14px rgba(124,58,237,0.06); }
-  .recent-img-wrap { width: 68px; height: 68px; flex-shrink: 0; border-radius: 6px; overflow: hidden; background: var(--bg2); }
-  .recent-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-  .recent-cat { display: inline-block; font-family: var(--font-sans); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--violet); margin-bottom: 0.25rem; }
-  .recent-title { font-family: var(--font-serif); font-size: 0.88rem; font-weight: 700; color: var(--ink); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .recent-date  { font-family: var(--font-sans); font-size: 0.68rem; color: var(--ink3); margin-top: 0.35rem; }
+/* ── Badge & date ────────────────────────────────── */
+.badge {
+  display: inline-block;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #1d1d1f;
+  color: #fff;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.meta-date {
+  font-size: .78rem;
+  color: #86868b;
+}
 
-  /* ── Philosophy ── */
-  .philosophy-section {
-    background: #1d1d1f;
-  }
-  .philosophy-section .section-header {
-    border-bottom-color: rgba(255,255,255,0.1);
-  }
-  .phil-title { color: #fff; }
-  .phil-more { color: var(--gold); }
-  .phil-more:hover { color: var(--amber); opacity: 1; }
-  .philosophy-section .lab-label { color: rgba(255,255,255,0.4); }
-  .phil-hook {
-    font-family: var(--font-serif);
-    font-size: 0.92rem;
-    color: rgba(255,255,255,0.55);
-    border-left: 2px solid var(--gold);
-    padding-left: 1rem;
-    margin-bottom: 2rem;
-    line-height: 1.7;
-  }
-  .phil-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.2rem;
-  }
-  .phil-card {
-    display: flex;
-    flex-direction: column;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 10px;
-    overflow: hidden;
-    text-decoration: none;
-    transition: background 0.15s, border-color 0.15s, transform 0.15s;
-  }
-  .phil-card:hover {
-    background: rgba(255,255,255,0.09);
-    border-color: rgba(255,255,255,0.25);
-    transform: translateY(-2px);
-  }
-  .phil-img-wrap { aspect-ratio: 16/9; overflow: hidden; background: rgba(0,0,0,0.3); }
-  .phil-img-wrap img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: transform 0.3s, opacity 0.3s; }
-  .phil-card:hover .phil-img-wrap img { transform: scale(1.04); opacity: 1; }
-  .phil-body { padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.4rem; }
-  .phil-date { font-family: var(--font-sans); font-size: 0.62rem; color: rgba(255,255,255,0.35); }
-  .phil-card-title { font-family: var(--font-serif); font-size: 0.92rem; font-weight: 700; color: #fff; line-height: 1.5; }
-  .phil-lesson { font-family: var(--font-sans); font-size: 0.72rem; color: rgba(255,255,255,0.5); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+/* ── More button ─────────────────────────────────── */
+.more-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 56px 0 0;
+}
+.more-btn {
+  font-family: inherit;
+  font-size: .9rem;
+  font-weight: 500;
+  color: #1d1d1f;
+  background: transparent;
+  border: 1px solid #1d1d1f;
+  border-radius: 100px;
+  padding: 12px 40px;
+  cursor: pointer;
+  letter-spacing: .04em;
+  transition: background .2s, color .2s;
+}
+.more-btn:hover {
+  background: #1d1d1f;
+  color: #fff;
+}
 
-  /* ── Channels ── */
-  .channels-section {
-    background: var(--bg);
-    padding: var(--sp-xl) 0;
-    border-top: 1px solid var(--rule);
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 900px) {
+  .featured {
+    grid-template-columns: 1fr;
   }
-  .channels-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+  .featured-img-wrap {
+    aspect-ratio: 16/9;
   }
-  .ch-card {
-    background: var(--bg2);
-    border-radius: var(--radius);
-    padding: 2.5rem 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    border: 1px solid transparent;
+  .featured-body {
+    padding: 28px 24px;
   }
-  .ch-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.1);
-    border-color: var(--rule);
-  }
-  .ch-card--mid { background: var(--ink); color: #fff; }
-  .ch-icon { font-size: 2rem; line-height: 1; }
-  .ch-label {
-    font-family: var(--font-mono);
-    font-size: 0.58rem;
-    letter-spacing: 0.2em;
-    color: var(--ink3);
-    text-transform: uppercase;
-  }
-  .ch-card--mid .ch-label { color: rgba(255,255,255,0.4); }
-  .ch-title {
-    font-family: var(--font-sans);
+  .featured-title {
     font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--ink);
-    letter-spacing: -0.02em;
-    line-height: 1.2;
   }
-  .ch-card--mid .ch-title { color: #fff; }
-  .ch-desc {
-    font-family: var(--font-sans);
-    font-size: 0.82rem;
-    line-height: 1.7;
-    color: var(--ink2);
-    flex: 1;
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
   }
-  .ch-card--mid .ch-desc { color: rgba(255,255,255,0.6); }
-  .ch-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.7rem 1.5rem;
-    border-radius: 980px;
-    font-family: var(--font-sans);
-    font-size: 0.82rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s;
-    margin-top: 0.5rem;
-  }
-  .ch-btn--amber {
-    background: var(--ink);
-    color: #fff;
-  }
-  .ch-btn--amber:hover { background: #333; }
-  .ch-btn--outline {
-    background: rgba(255,255,255,0.15);
-    color: #fff;
-    border: 1px solid rgba(255,255,255,0.25);
-  }
-  .ch-btn--outline:hover { background: rgba(255,255,255,0.25); }
+}
 
-  @media (max-width: 768px) {
-    .channels-grid { grid-template-columns: 1fr; }
+@media (max-width: 560px) {
+  .page {
+    padding: 24px 16px 60px;
   }
-
-  /* 偉人ギャラリー */
-  .gallery-section { background: var(--bg2); padding: var(--sp-xl) 0; }
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+  .featured-title {
+    font-size: 1.1rem;
   }
-  .gallery-card {
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.4rem;
+  .featured-body {
+    padding: 22px 20px;
   }
-  .gallery-img-wrap {
-    width: 100%;
-    aspect-ratio: 2/3;
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-    background: var(--bg2);
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
-  .gallery-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    filter: sepia(20%) contrast(1.05);
-    transition: transform 0.3s ease, filter 0.3s ease;
-  }
-  .gallery-card:hover .gallery-img-wrap img {
-    transform: scale(1.08);
-    filter: sepia(0%) contrast(1.1);
-  }
-  .gallery-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(30,27,75,0.85) 0%, transparent 60%);
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding-bottom: 0.5rem;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  .gallery-card:hover .gallery-overlay { opacity: 1; }
-  .gallery-cta {
-    font-family: var(--font-sans);
-    font-size: 0.65rem;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 0.05em;
-  }
-  .gallery-era {
-    font-family: var(--font-mono);
-    font-size: 0.55rem;
-    color: var(--violet);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin: 0;
-  }
-  .gallery-name {
-    font-family: var(--font-serif);
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--ink);
-    margin: 0;
-    text-align: center;
-  }
-  @media (max-width: 768px) {
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-  }
-
-  .quote-section {
-    background: #1d1d1f;
-    padding: 5rem 0;
-    text-align: center;
-  }
-  .quote-section .lab-label { color: rgba(255,255,255,0.3); margin-bottom: 2rem; }
-  .quote-inner {
-    max-width: 760px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-  }
-  .quote-text {
-    font-family: var(--font-serif);
-    font-size: clamp(1.1rem, 3vw, 1.6rem);
-    font-weight: 400;
-    line-height: 1.8;
-    color: #fff;
-    border: none;
-    margin: 0;
-    padding: 0;
-    letter-spacing: 0.03em;
-  }
-  .quote-author {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    color: rgba(255,255,255,0.4);
-  }
+}
 </style>
