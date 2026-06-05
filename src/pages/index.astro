@@ -28,9 +28,9 @@ function label(col: string) {
   return col === "whatif" ? "もしも歴史" : "哲学";
 }
 
-const FIRST = 12;
 const featured = allPosts[0];
 const rest     = allPosts.slice(1);
+const SHOW     = 10;
 ---
 
 <BaseLayout
@@ -39,59 +39,55 @@ const rest     = allPosts.slice(1);
 >
   <main class="page">
 
-    <!-- ─── Featured ─────────────────────────────── -->
+    <!-- ─── Featured ─── -->
     {featured && (
-      <a class="featured" href={href(featured.col, featured.id)}>
-        <div class="featured-img-wrap">
+      <a class="hero" href={href(featured.col, featured.id)}>
+        <div class="hero-img">
           {featured.data.ogImage
             ? <img src={featured.data.ogImage} alt={featured.data.title} loading="eager" />
-            : <div class="img-placeholder" />
+            : <div class="no-img" />
           }
+          <div class="hero-scrim" />
         </div>
-        <div class="featured-body">
-          <span class="badge">{label(featured.col)}</span>
-          <h2 class="featured-title">{featured.data.title}</h2>
-          {featured.data.description && (
-            <p class="featured-desc">{featured.data.description}</p>
-          )}
-          <time class="meta-date">{fmt(featured.data.date)}</time>
+        <div class="hero-text">
+          <span class="tag">{label(featured.col)}</span>
+          <h2 class="hero-title">{featured.data.title}</h2>
+          {featured.data.description &&
+            <p class="hero-desc">{featured.data.description}</p>
+          }
+          <time class="date">{fmt(featured.data.date)}</time>
         </div>
       </a>
     )}
 
-    <!-- ─── Grid ──────────────────────────────────── -->
-    <div class="grid" id="grid">
+    <!-- ─── Article list ─── -->
+    <ul class="list" id="list">
       {rest.map((p, i) => (
-        <a
-          class="card"
-          href={href(p.col, p.id)}
-          data-index={i}
-          style={i >= FIRST - 1 ? "display:none" : ""}
-        >
-          <div class="card-img-wrap">
-            {p.data.ogImage
-              ? <img src={p.data.ogImage} alt={p.data.title} loading="lazy" />
-              : <div class="img-placeholder" />
-            }
-          </div>
-          <div class="card-body">
-            <div class="card-meta">
-              <span class="badge">{label(p.col)}</span>
-              <time class="meta-date">{fmt(p.data.date)}</time>
+        <li class="row" data-i={i} style={i >= SHOW ? "display:none" : ""}>
+          <a class="row-inner" href={href(p.col, p.id)}>
+            <div class="row-img">
+              {p.data.ogImage
+                ? <img src={p.data.ogImage} alt={p.data.title} loading="lazy" />
+                : <div class="no-img" />
+              }
             </div>
-            <h3 class="card-title">{p.data.title}</h3>
-            {p.data.description && (
-              <p class="card-desc">{p.data.description}</p>
-            )}
-          </div>
-        </a>
+            <div class="row-text">
+              <span class="tag">{label(p.col)}</span>
+              <h3 class="row-title">{p.data.title}</h3>
+              {p.data.description &&
+                <p class="row-desc">{p.data.description}</p>
+              }
+              <time class="date">{fmt(p.data.date)}</time>
+            </div>
+          </a>
+        </li>
       ))}
-    </div>
+    </ul>
 
-    <!-- ─── Load more ─────────────────────────────── -->
-    {rest.length >= FIRST && (
-      <div class="more-wrap" id="more-wrap">
-        <button class="more-btn" id="more-btn">もっと読む</button>
+    <!-- ─── More ─── -->
+    {rest.length > SHOW && (
+      <div class="more" id="more">
+        <button id="btn">もっと読む</button>
       </div>
     )}
 
@@ -99,169 +95,146 @@ const rest     = allPosts.slice(1);
 </BaseLayout>
 
 <script>
-  const btn  = document.getElementById("more-btn");
-  const wrap = document.getElementById("more-wrap");
-  if (btn) {
-    btn.addEventListener("click", () => {
-      const hidden = document.querySelectorAll<HTMLElement>(".card[style*='display:none']");
-      hidden.forEach(el => {
-        el.style.display = "";
-        el.classList.add("reveal");
-      });
-      if (hidden.length === 0 || document.querySelectorAll(".card[style*='display:none']").length === 0) {
-        wrap?.remove();
-      }
-    });
-  }
+  document.getElementById("btn")?.addEventListener("click", () => {
+    const hidden = document.querySelectorAll<HTMLElement>("#list li[style*='display:none']");
+    hidden.forEach(el => { el.style.display = ""; el.classList.add("in"); });
+    if (!document.querySelector("#list li[style*='display:none']")) {
+      document.getElementById("more")?.remove();
+    }
+  });
 </script>
 
 <style>
-/* ── Page shell ───────────────────────────────────── */
+/* ── Shell ── */
 .page {
-  max-width: 1120px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 40px 24px 80px;
+  padding: 0 24px 100px;
 }
 
-/* ── Featured card ───────────────────────────────── */
-.featured {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  border: 1px solid #e5e5e5;
-  border-radius: 16px;
-  overflow: hidden;
+/* ── Hero ── */
+.hero {
+  display: block;
   text-decoration: none;
   color: inherit;
-  margin-bottom: 40px;
-  transition: box-shadow 0.25s ease;
+  position: relative;
+  margin-bottom: 64px;
 }
-.featured:hover {
-  box-shadow: 0 8px 32px rgba(0,0,0,.10);
-}
-.featured-img-wrap {
-  aspect-ratio: 4/3;
+.hero-img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/7;
   overflow: hidden;
-  background: #f0f0f0;
+  background: #111;
 }
-.featured-img-wrap img {
+.hero-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top center;
   display: block;
-  transition: transform 0.4s ease;
+  transition: transform .5s ease;
+  filter: brightness(.82);
 }
-.featured:hover .featured-img-wrap img {
-  transform: scale(1.03);
+.hero:hover .hero-img img { transform: scale(1.03); }
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,.55) 100%);
 }
-.featured-body {
-  padding: 40px 40px;
+
+.hero-text {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 32px 36px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 16px;
-  background: #fff;
+  gap: 10px;
+  color: #fff;
 }
-.featured-title {
-  font-size: 1.55rem;
-  font-weight: 700;
-  line-height: 1.45;
-  color: #1d1d1f;
+.hero-title {
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 800;
+  line-height: 1.4;
   margin: 0;
   letter-spacing: -.01em;
 }
-.featured-desc {
+.hero-desc {
   font-size: .9rem;
-  line-height: 1.7;
-  color: #6e6e73;
+  line-height: 1.65;
   margin: 0;
+  opacity: .85;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-/* ── Grid ────────────────────────────────────────── */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+/* ── List ── */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.row {
+  border-top: 1px solid #e5e5e5;
+}
+.row:last-child { border-bottom: 1px solid #e5e5e5; }
+.row.in { animation: fadeIn .35s ease both; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
 }
 
-/* ── Card ────────────────────────────────────────── */
-.card {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #e5e5e5;
-  border-radius: 14px;
-  overflow: hidden;
+.row-inner {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 28px;
+  padding: 28px 0;
   text-decoration: none;
   color: inherit;
-  background: #fff;
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  transition: opacity .2s;
 }
-.card:hover {
-  box-shadow: 0 6px 24px rgba(0,0,0,.09);
-  transform: translateY(-2px);
-}
-.card.reveal {
-  animation: fadeUp 0.4s ease both;
-}
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+.row-inner:hover { opacity: .72; }
 
-.card-img-wrap {
+.row-img {
   aspect-ratio: 4/3;
   overflow: hidden;
   background: #f0f0f0;
   flex-shrink: 0;
 }
-.card-img-wrap img {
+.row-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top center;
   display: block;
-  transition: transform 0.4s ease;
+  transition: transform .4s ease;
 }
-.card:hover .card-img-wrap img {
-  transform: scale(1.04);
-}
-.img-placeholder {
+.row-inner:hover .row-img img { transform: scale(1.04); }
+
+.no-img {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+  background: #e8e8e8;
 }
 
-.card-body {
-  padding: 18px 20px 22px;
+.row-text {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  flex: 1;
-}
-.card-meta {
-  display: flex;
-  align-items: center;
+  justify-content: center;
   gap: 10px;
 }
-.card-title {
-  font-size: 1rem;
+.row-title {
+  font-size: 1.15rem;
   font-weight: 700;
   line-height: 1.5;
-  color: #1d1d1f;
   margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  color: #1d1d1f;
 }
-.card-desc {
-  font-size: .82rem;
-  line-height: 1.65;
+.row-desc {
+  font-size: .85rem;
+  line-height: 1.7;
   color: #6e6e73;
   margin: 0;
   display: -webkit-box;
@@ -270,81 +243,51 @@ const rest     = allPosts.slice(1);
   overflow: hidden;
 }
 
-/* ── Badge & date ────────────────────────────────── */
-.badge {
+/* ── Tag & date ── */
+.tag {
   display: inline-block;
-  font-size: .7rem;
-  font-weight: 600;
-  letter-spacing: .04em;
-  padding: 2px 8px;
-  border-radius: 4px;
-  background: #1d1d1f;
-  color: #fff;
-  white-space: nowrap;
-  flex-shrink: 0;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #6e6e73;
 }
-.meta-date {
-  font-size: .78rem;
-  color: #86868b;
+.date {
+  font-size: .75rem;
+  color: #aeaeb2;
 }
 
-/* ── More button ─────────────────────────────────── */
-.more-wrap {
+/* ── More ── */
+.more {
   display: flex;
   justify-content: center;
-  padding: 56px 0 0;
+  padding-top: 60px;
 }
-.more-btn {
+#btn {
   font-family: inherit;
-  font-size: .9rem;
+  font-size: .85rem;
   font-weight: 500;
+  letter-spacing: .08em;
   color: #1d1d1f;
-  background: transparent;
+  background: none;
   border: 1px solid #1d1d1f;
-  border-radius: 100px;
-  padding: 12px 40px;
+  border-radius: 2px;
+  padding: 13px 48px;
   cursor: pointer;
-  letter-spacing: .04em;
-  transition: background .2s, color .2s;
+  transition: background .18s, color .18s;
 }
-.more-btn:hover {
-  background: #1d1d1f;
-  color: #fff;
-}
+#btn:hover { background: #1d1d1f; color: #fff; }
 
-/* ── Responsive ──────────────────────────────────── */
-@media (max-width: 900px) {
-  .featured {
-    grid-template-columns: 1fr;
-  }
-  .featured-img-wrap {
-    aspect-ratio: 16/9;
-  }
-  .featured-body {
-    padding: 28px 24px;
-  }
-  .featured-title {
-    font-size: 1.25rem;
-  }
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-  }
-}
-
-@media (max-width: 560px) {
-  .page {
-    padding: 24px 16px 60px;
-  }
-  .featured-title {
-    font-size: 1.1rem;
-  }
-  .featured-body {
-    padding: 22px 20px;
-  }
-  .grid {
-    grid-template-columns: 1fr;
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .page { padding: 0 16px 80px; }
+  .hero-img { aspect-ratio: 4/3; }
+  .hero-text { padding: 20px; }
+  .row-inner {
+    grid-template-columns: 120px 1fr;
     gap: 16px;
+    padding: 20px 0;
   }
+  .row-title { font-size: 1rem; }
 }
 </style>
