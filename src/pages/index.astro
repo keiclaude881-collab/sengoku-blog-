@@ -48,7 +48,7 @@ const rest     = allPosts.slice(7);
 {featured && (
   <section class="featured">
     <div class="featured-inner">
-      <a href={`/blog/${featured.id}/`} class="featured-card">
+      <a href={`/blog/${featured.id.replace(/\.mdx?$/, '')}/`} class="featured-card">
         <div class="featured-img-wrap">
           {featured.data.ogImage
             ? <img src={featured.data.ogImage} alt={featured.data.title} class="featured-img" />
