@@ -1,0 +1,121 @@
+---
+interface Props {
+  type: "securities" | "creditcard" | "book" | "service";
+  name: string;
+  description: string;
+  cta: string;
+  href: string;
+  note?: string;
+  badge?: string;
+}
+const { type, name, description, cta, href, note, badge } = Astro.props;
+
+const icons: Record<string, string> = {
+  securities:  "📈",
+  creditcard:  "💳",
+  book:        "📚",
+  service:     "🔗",
+};
+---
+
+<div class={`aff-card aff-card--${type}`}>
+  <div class="aff-inner">
+    <div class="aff-left">
+      <span class="aff-icon">{icons[type]}</span>
+      <div>
+        {badge && <span class="aff-badge">{badge}</span>}
+        <p class="aff-name">{name}</p>
+        <p class="aff-desc">{description}</p>
+        {note && <p class="aff-note">{note}</p>}
+      </div>
+    </div>
+    <a href={href} target="_blank" rel="noopener noreferrer nofollow" class="aff-btn">
+      {cta}
+    </a>
+  </div>
+  <p class="aff-disclosure">※ アフィリエイトリンクを含みます</p>
+</div>
+
+<style>
+.aff-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 2rem 0;
+}
+.aff-card--securities { border-left: 3px solid #f59e0b; }
+.aff-card--creditcard { border-left: 3px solid #3b82f6; }
+.aff-card--book       { border-left: 3px solid #8b5cf6; }
+.aff-card--service    { border-left: 3px solid #10b981; }
+
+.aff-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.4rem 1.6rem;
+  flex-wrap: wrap;
+}
+.aff-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  flex: 1;
+  min-width: 0;
+}
+.aff-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.aff-badge {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: #fef3c7;
+  color: #92400e;
+  padding: 0.15rem 0.5rem;
+  border-radius: 100px;
+  margin-bottom: 0.3rem;
+}
+.aff-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+.aff-desc {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--ink2);
+  margin-bottom: 0.2rem;
+}
+.aff-note {
+  font-size: 0.72rem;
+  color: var(--ink3);
+}
+.aff-btn {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.7rem 1.4rem;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.15s;
+  flex-shrink: 0;
+}
+.aff-btn:hover { opacity: 0.8; }
+.aff-disclosure {
+  font-size: 0.65rem;
+  color: var(--ink3);
+  padding: 0.4rem 1.6rem;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+}
+</style>

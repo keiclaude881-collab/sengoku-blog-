@@ -3,341 +3,264 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-  title="IJIN LABについて | 偉人ラボ"
-  description="偉人の決断から、今日の答えを見つける研究室。歴史上の偉人×現代の問題をテーマに、月曜日の自分に刺さる記事を書いています。"
+  title="このブログについて | 偉人ラボ"
+  description="偉人の知恵を投資・副業・思考法に翻訳して、自分の生活を豊かにする仕組みを作る。運営者・けいのブログコンセプトと目的を紹介します。"
 >
 
-  <!-- Hero -->
-  <section class="about-hero">
-    <div class="hero-noise" aria-hidden="true"></div>
-    <div class="container about-hero-inner">
-      <div>
-        <p class="eyebrow">◉ IJIN LAB — ABOUT</p>
-        <h1 class="about-title">偉人の決断から、<br />今日の答えを見つける。</h1>
-        <p class="about-lead">
-          武将、哲学者、革命家、戦略家——<br />
-          500〜2500年前の偉人たちは、あなたと同じ問いと戦っていた。
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <div class="container about-body">
+<div class="about-wrap">
+  <div class="about-inner">
 
     <!-- コンセプト -->
-    <section class="about-section">
-      <p class="section-label">// CONCEPT</p>
-      <h2>なぜ、このラボを作ったのか</h2>
-      <p>
-        「決断できない」「チームがうまくいかない」「また失敗した」——仕事の中でそういう夜がある。
-      </p>
-      <p>
-        ビジネス書を読む。自己啓発本を読む。それでもどこかピンとこない。
-      </p>
-      <p>
-        ある日、織田信長の組織論を読んだとき気づいた。
-        500年前の武将たちが戦っていた問いは、今の自分と全く同じだった。
-        リーダーとしての孤独、判断の重さ、部下への接し方、失敗からの立ち直り方——ぜんぶ。
-      </p>
-      <p>
-        そして彼らは、今も語り継がれる答えを残した。
-      </p>
-      <p>
-        難しい歴史書でも、ビジネス書風の薄い解説でもなく——
-        <strong>「月曜日の自分に刺さる言葉」</strong>として届けたい。
-        それがIJIN LABを作った理由だ。
+    <section class="about-section about-section--top">
+      <p class="label">このブログについて</p>
+      <h1 class="about-title">偉人の知恵を「仕組み」に変える</h1>
+      <p class="about-lead">
+        歴史上の偉人たちが残した思考法を、現代の投資・副業・キャリアに翻訳する。
+        そして自分自身の生活を豊かにする「仕組み」を作る——それがこのブログの目的です。
       </p>
     </section>
 
-    <!-- テーマ -->
+    <!-- なぜ作ったか -->
     <section class="about-section">
-      <p class="section-label">// RESEARCH FIELDS</p>
-      <h2>5つの研究テーマ</h2>
-      <p>読者の「今日の悩み」から逆引きできるように、記事を5つに分類している。</p>
+      <h2 class="section-heading">なぜこのブログを作ったか</h2>
+      <div class="prose-block">
+        <p>副業・投資を始めようとしたとき、情報が多すぎて何から手をつければいいかわからなかった。</p>
+        <p>ビジネス書を読んでも、すぐ忘れる。SNSの情報は断片的でノイズが多い。</p>
+        <p>そんなとき気づいたのが、偉人たちの思考には「本質」がある、ということ。孫子が2500年前に書いた戦略論は、投資の原則と驚くほど一致していた。ナポレオンの「選択と集中」は、副業で結果を出すための地図になった。</p>
+        <p>難しい歴史書でなく、薄いビジネス書でもなく——<strong>「自分が実際に使える形」で偉人の知恵を届けたい。</strong>それがこのブログを作った理由です。</p>
+      </div>
+    </section>
 
-      <ul class="theme-list">
-        <li class="theme-item">
-          <div class="theme-icon">決</div>
-          <div class="theme-body">
-            <strong>決断できない時（decide）</strong>
-            <p>桶狭間の信長、カエサルの最後の朝——正解がわからない夜に動いた人たちの話。</p>
-          </div>
+    <!-- 3カテゴリ -->
+    <section class="about-section">
+      <h2 class="section-heading">3つのテーマ</h2>
+      <ul class="cat-list">
+        <li class="cat-item">
+          <a href="/money/" class="cat-link">
+            <span class="cat-badge cat-badge--money">投資・お金</span>
+            <div class="cat-body">
+              <p class="cat-name">投資・お金</p>
+              <p class="cat-desc">孫子・フランクリン・マルクス・アウレリウスの思想から、新NISA・インデックス投資・資産形成の本質を学ぶ。</p>
+            </div>
+            <span class="cat-arrow">→</span>
+          </a>
         </li>
-        <li class="theme-item">
-          <div class="theme-icon">将</div>
-          <div class="theme-body">
-            <strong>チームがうまくいかない時（lead）</strong>
-            <p>信長の評価システム、秀吉の懐柔術——人を動かすことの本質。</p>
-          </div>
+        <li class="cat-item">
+          <a href="/career/" class="cat-link">
+            <span class="cat-badge cat-badge--career">仕事・副業</span>
+            <div class="cat-body">
+              <p class="cat-name">仕事・副業</p>
+              <p class="cat-desc">ナポレオン・マキャベリ・カエサルの戦略論から、会社員が副業で結果を出すための原則を学ぶ。</p>
+            </div>
+            <span class="cat-arrow">→</span>
+          </a>
         </li>
-        <li class="theme-item">
-          <div class="theme-icon">復</div>
-          <div class="theme-body">
-            <strong>逆境・失敗した時（recover）</strong>
-            <p>三方ヶ原で大敗した家康、ロシア遠征のナポレオン——どん底から立ち上がった記録。</p>
-          </div>
-        </li>
-        <li class="theme-item">
-          <div class="theme-icon">謀</div>
-          <div class="theme-body">
-            <strong>戦略・方向性に迷った時（strategy）</strong>
-            <p>宮本武蔵の競争論、クレオパトラの交渉術——2000年間生き残った戦略の核心。</p>
-          </div>
-        </li>
-        <li class="theme-item">
-          <div class="theme-icon">変</div>
-          <div class="theme-body">
-            <strong>自分を変えたい時（change）</strong>
-            <p>草履取りから天下人になった秀吉——現状を打ち破るための最初の一手。</p>
-          </div>
+        <li class="cat-item">
+          <a href="/mindset/" class="cat-link">
+            <span class="cat-badge cat-badge--mindset">思考法</span>
+            <div class="cat-body">
+              <p class="cat-name">思考法</p>
+              <p class="cat-desc">ストア哲学・孔子・ニーチェの叡智から、ぶれない意思決定とメンタルの整え方を学ぶ。</p>
+            </div>
+            <span class="cat-arrow">→</span>
+          </a>
         </li>
       </ul>
     </section>
 
     <!-- 運営者 -->
     <section class="about-section">
-      <p class="section-label">// RESEARCHER</p>
-      <h2>運営者について</h2>
-      <p>
-        けい。社会人。歴史が好きで、ビジネスが好きで、その交差点に面白いものがあると信じている。
-      </p>
-      <p>
-        専門家でも歴史研究者でもない。ただ、偉人の言動から「これ、今の自分に使えるな」と思ったことを、
-        同じように悩む人に届けたい。そういう動機だけで書いている。
-      </p>
-      <div class="researcher-links">
-        <a href="https://www.instagram.com/ijin_lab/" target="_blank" rel="noopener noreferrer" class="researcher-link">📸 Instagram @ijin_lab</a>
+      <h2 class="section-heading">運営者</h2>
+      <div class="profile">
+        <div class="profile-body">
+          <p class="profile-name">けい</p>
+          <p class="profile-role">会社員 / ブログ運営者</p>
+          <div class="prose-block">
+            <p>20代会社員。歴史と哲学が好きで、副業・投資で生活の自由度を上げることを目標にしている。</p>
+            <p>専門家でも研究者でもない。偉人の言葉を読んで「これ、今の自分に使えるな」と思ったことを、同じように考えている人に届けたい——そういう動機だけで書いている。</p>
+            <p>このブログ自体が「偉人の知恵を実践して仕組み収入を作るプロセス」の記録でもある。</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- アフィリエイト -->
+    <!-- アフィリエイト開示 -->
     <section class="about-section">
-      <p class="section-label">// DISCLOSURE</p>
-      <h2>アフィリエイトについて</h2>
-      <p>
-        本サイトはAmazonアソシエイトプログラム、Audibleアフィリエイトプログラムをはじめとする
-        アフィリエイトプログラムに参加しています。リンクから購入・登録が発生した場合に収益が生じることがあります。
-      </p>
-      <p>
-        紹介する書籍・サービスはすべて独自の視点で選定しており、スポンサー記事は掲載していません。
-      </p>
+      <h2 class="section-heading">アフィリエイトについて</h2>
+      <div class="prose-block">
+        <p>本サイトはAmazonアソシエイト・プログラム、A8.net、アクセストレード、もしもアフィリエイトをはじめとするアフィリエイトプログラムに参加しています。</p>
+        <p>記事内のリンクから商品・サービスの購入や口座開設が発生した場合、サイト運営者に収益が生じることがあります。</p>
+        <p>紹介する商品・サービスはすべて独自の基準で選定しており、報酬の有無が記事の内容・評価に影響することはありません。</p>
+      </div>
     </section>
 
+    <!-- CTA -->
     <div class="about-cta">
       <a href="/blog/" class="cta-btn">記事を読む →</a>
       <a href="/contact/" class="cta-ghost">お問い合わせ</a>
     </div>
 
   </div>
+</div>
+
 </BaseLayout>
 
 <style>
-  /* ── Hero ── */
-  .about-hero {
-    background: linear-gradient(135deg, #4C1D95 0%, #1e1b4b 100%);
-    padding: calc(var(--nav-height) + 4rem) 0 4rem;
-    position: relative;
-    overflow: hidden;
-  }
+.about-wrap {
+  padding: 56px 0 88px;
+}
+.about-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
 
-  .hero-noise {
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    opacity: 0.4;
-    pointer-events: none;
-  }
+.about-section {
+  padding-bottom: 3rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--border);
+}
+.about-section--top { padding-bottom: 3rem; }
+.about-section:last-of-type { border-bottom: none; }
 
-  .about-hero-inner {
-    position: relative;
-    z-index: 1;
-  }
+.label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 1rem;
+}
+.about-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.2rem;
+}
+.about-lead {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--ink2);
+}
 
-  .container {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
+.section-heading {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1.4rem;
+  padding-left: 0.8rem;
+  border-left: 2px solid var(--ink3);
+}
 
-  .eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    color: var(--amber);
-    text-transform: uppercase;
-    margin-bottom: 1.2rem;
-    opacity: 0.9;
-  }
+.prose-block p {
+  font-size: 0.92rem;
+  line-height: 2;
+  color: var(--ink2);
+  margin-bottom: 1rem;
+}
+.prose-block p:last-child { margin-bottom: 0; }
+.prose-block strong { color: var(--ink); font-weight: 600; }
 
-  .about-title {
-    font-family: var(--font-serif);
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 0.04em;
-    line-height: 1.4;
-    margin-bottom: 1.2rem;
-  }
+/* ── Category list ── */
+.cat-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+.cat-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.cat-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 1.4rem;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s;
+}
+.cat-link:hover { background: var(--bg2); }
+.cat-badge {
+  flex-shrink: 0;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.7rem;
+  border-radius: 100px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.cat-badge--money   { background: #fef3c7; color: #92400e; border-color: #fde68a; }
+.cat-badge--career  { background: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
+.cat-badge--mindset { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; }
+.cat-body { flex: 1; min-width: 0; }
+.cat-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+.cat-desc {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--ink2);
+}
+.cat-arrow {
+  font-size: 0.9rem;
+  color: var(--ink3);
+  flex-shrink: 0;
+}
 
-  .about-lead {
-    font-family: var(--font-serif);
-    font-size: 1rem;
-    color: rgba(255,255,255,0.65);
-    line-height: 1.9;
-  }
+/* ── Profile ── */
+.profile { display: flex; flex-direction: column; gap: 1.2rem; }
+.profile-name {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+}
+.profile-role {
+  font-size: 0.75rem;
+  color: var(--ink3);
+  margin-bottom: 1rem;
+}
 
-  /* ── Body ── */
-  .about-body {
-    padding: 4rem 1.5rem 6rem;
-  }
+/* ── CTA ── */
+.about-cta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+}
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem 1.8rem;
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+.cta-btn:hover { opacity: 0.8; }
+.cta-ghost {
+  font-size: 0.84rem;
+  color: var(--ink3);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  transition: color 0.15s;
+}
+.cta-ghost:hover { color: var(--ink2); }
 
-  .about-section {
-    margin-bottom: 3.5rem;
-    padding-bottom: 3.5rem;
-    border-bottom: 1px solid var(--rule);
-  }
-  .about-section:last-of-type { border-bottom: none; }
-
-  .section-label {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.2em;
-    color: var(--violet);
-    margin-bottom: 0.8rem;
-    opacity: 0.8;
-  }
-
-  .about-section h2 {
-    font-family: var(--font-serif);
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--ink);
-    letter-spacing: 0.04em;
-    margin-bottom: 1.4rem;
-    padding-left: 0.9rem;
-    border-left: 3px solid var(--violet);
-  }
-
-  .about-section p {
-    font-family: var(--font-sans);
-    font-size: 0.92rem;
-    line-height: 2;
-    color: var(--ink2);
-    margin-bottom: 1rem;
-  }
-  .about-section p:last-child { margin-bottom: 0; }
-
-  /* ── Themes ── */
-  .theme-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1.4rem;
-  }
-
-  .theme-item {
-    display: flex;
-    gap: 1.2rem;
-    align-items: flex-start;
-    padding: 1.2rem 1.4rem;
-    background: var(--bg2);
-    border-radius: 6px;
-    border: 1px solid var(--rule);
-    transition: border-color 0.2s;
-  }
-  .theme-item:hover { border-color: rgba(124,58,237,0.3); }
-
-  .theme-icon {
-    font-family: var(--font-serif);
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--violet);
-    flex-shrink: 0;
-    width: 2rem;
-    text-align: center;
-    line-height: 1.4;
-  }
-
-  .theme-body strong {
-    display: block;
-    font-family: var(--font-serif);
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--ink);
-    margin-bottom: 0.35rem;
-  }
-
-  .theme-body p {
-    font-family: var(--font-sans);
-    font-size: 0.8rem;
-    color: var(--ink3);
-    line-height: 1.7;
-    margin: 0 !important;
-  }
-
-  /* ── Researcher ── */
-  .researcher-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.2rem;
-    flex-wrap: wrap;
-  }
-
-  .researcher-link {
-    font-family: var(--font-sans);
-    font-size: 0.84rem;
-    color: var(--violet);
-    text-decoration: none;
-    border: 1px solid rgba(124,58,237,0.3);
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background 0.2s, border-color 0.2s;
-  }
-  .researcher-link:hover {
-    background: rgba(124,58,237,0.08);
-    border-color: var(--violet);
-  }
-
-  /* ── CTA ── */
-  .about-cta {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-top: 1rem;
-  }
-
-  .cta-btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.85rem 2rem;
-    background: var(--violet);
-    color: #fff;
-    font-family: var(--font-sans);
-    font-size: 0.88rem;
-    font-weight: 600;
-    border-radius: 980px;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .cta-btn:hover { background: #6d28d9; }
-
-  .cta-ghost {
-    font-family: var(--font-sans);
-    font-size: 0.84rem;
-    color: var(--ink3);
-    text-decoration: none;
-    border-bottom: 1px solid currentColor;
-    padding-bottom: 1px;
-    transition: color 0.2s;
-  }
-  .cta-ghost:hover { color: var(--ink); }
-
-  @media (max-width: 640px) {
-    .about-hero { padding: calc(var(--nav-height) + 2.5rem) 0 2.5rem; }
-    .theme-item { flex-direction: column; gap: 0.5rem; }
-    .theme-icon { width: auto; }
-  }
+@media (max-width: 480px) {
+  .about-inner { padding: 0 1rem; }
+  .cat-link { flex-wrap: wrap; }
+}
 </style>
