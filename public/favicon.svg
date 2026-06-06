@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" rx="12" fill="#1a1a1a"/>
-  <rect x="4" y="4" width="92" height="92" rx="9" fill="none" stroke="#c9a84c" stroke-width="2"/>
-  <text y="78" x="50" text-anchor="middle" font-size="64" fill="#c9a84c" font-family="serif">⚔</text>
+  <rect width="100" height="100" rx="16" fill="#1c1917"/>
+  <text y="68" x="50" text-anchor="middle" font-size="52" fill="#ffffff" font-family="serif" font-weight="700">偉</text>
+  <rect x="20" y="78" width="60" height="2.5" rx="1.25" fill="#f59e0b"/>
 </svg>
