@@ -1,268 +1,201 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import ArticleCard from "../../components/ArticleCard.astro";
 
-const ALL_COLLECTIONS = ["whatif","philosophy"] as const;
-const allPosts = (await Promise.all(
-  ALL_COLLECTIONS.map(c => getCollection(c).catch(() => []))
-)).flat().sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const LABELS: Record<string, string> = {
+  money:   "投資・お金",
+  career:  "仕事・副業",
+  mindset: "思考法",
+};
+const HREFS: Record<string, string> = {
+  money:   "/money/",
+  career:  "/career/",
+  mindset: "/mindset/",
+};
 
-function slug(col: string, id: string) {
-  return `${col}/${id.replace(/\.mdx?$/, '')}`;
+const url      = Astro.url;
+const catParam = url.searchParams.get("cat") ?? "all";
+
+const allPosts = (await getCollection("posts"))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const filtered = catParam === "all"
+  ? allPosts
+  : allPosts.filter(p => p.data.category === catParam);
+
+function fmt(d: Date) {
+  return d.toLocaleDateString("ja-JP", { year: "numeric", month: "short", day: "numeric" });
 }
 
-const THEME_CATS = [
-  { key: "decide",   label: "決断できない時" },
-  { key: "lead",     label: "チームがうまくいかない時" },
-  { key: "recover",  label: "逆境・失敗した時" },
-  { key: "strategy", label: "戦略・方向性に迷った時" },
-  { key: "change",   label: "自分を変えたい時" },
+const cats = [
+  { key: "all",     label: "すべて" },
+  { key: "money",   label: "投資・お金" },
+  { key: "career",  label: "仕事・副業" },
+  { key: "mindset", label: "思考法" },
 ];
-
-const popularTags = (() => {
-  const tagCount: Record<string, number> = {};
-  for (const post of allPosts) {
-    for (const tag of post.data.tags ?? []) {
-      tagCount[tag] = (tagCount[tag] ?? 0) + 1;
-    }
-  }
-  return Object.entries(tagCount)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 12)
-    .map(([tag]) => tag);
-})();
 ---
 
 <BaseLayout
   title="記事一覧 | 偉人ラボ"
-  description="武将の決断・リーダーシップ・戦略・逆境からの復活——あなたの悩みに答える記事を探す。"
+  description="偉人ラボの全記事一覧。投資・お金・仕事・副業・思考法のカテゴリから探せます。"
 >
-  <div class="blog-header">
-    <div class="container">
-      <p class="blog-eyebrow">ARTICLES</p>
-      <h1 class="blog-title">記事一覧</h1>
-      <p class="blog-count">全 <span id="article-count">{allPosts.length}</span> 記事</p>
-    </div>
-  </div>
 
-  <div class="container blog-body">
-    <!-- テーマフィルター -->
-    <div class="filter-section">
-      <p class="filter-label">テーマで探す</p>
-      <div class="theme-filter" role="group" aria-label="テーマで絞り込む">
-        <button class="theme-btn active" data-cat="all">すべて</button>
-        {THEME_CATS.map(t => (
-          <button class="theme-btn" data-cat={t.key}>{t.label}</button>
-        ))}
-      </div>
+<div class="blog-page">
+  <div class="container">
+
+    <div class="page-header">
+      <h1 class="page-title">記事一覧</h1>
+      <p class="page-count">{filtered.length}件</p>
     </div>
 
-    <!-- タグフィルター -->
-    <div class="filter-section">
-      <p class="filter-label">タグで探す</p>
-      <div class="tag-filter" role="group" aria-label="タグで絞り込む">
-        <button class="tag-btn active" data-tag="all">すべて</button>
-        {popularTags.map(tag => (
-          <button class="tag-btn" data-tag={tag}>#{tag}</button>
-        ))}
-      </div>
+    <div class="filter-bar">
+      {cats.map(c => (
+        <a
+          href={c.key === "all" ? "/blog/" : `/blog/?cat=${c.key}`}
+          class:list={["filter-btn", { active: catParam === c.key }]}
+        >
+          {c.label}
+        </a>
+      ))}
     </div>
 
-    {allPosts.length > 0 ? (
-      <ul class="article-grid" role="list" id="article-list">
-        {allPosts.map(post => (
-          <li data-tags={(post.data.tags ?? []).join(',')} data-cat={post.data.category}>
-            <ArticleCard
-              title={post.data.title}
-              description={post.data.description}
-              date={post.data.date}
-              category={post.data.category}
-              tags={post.data.tags}
-              readingTime={post.data.readingTime}
-              lesson={post.data.lesson}
-              slug={slug(post.collection, post.id)}
-              ogImage={post.data.ogImage}
-            />
+    {filtered.length > 0 ? (
+      <ul class="card-grid">
+        {filtered.map(p => (
+          <li class="fade-in">
+            <a href={`/blog/${p.id}/`} class="card-link">
+              <div class="card-img-wrap">
+                {p.data.ogImage
+                  ? <img src={p.data.ogImage} alt={p.data.title} loading="lazy" class="card-img" />
+                  : <div class="card-img-empty" />
+                }
+              </div>
+              <div class="card-body">
+                <a href={HREFS[p.data.category]} class={`card-cat card-cat--${p.data.category}`}>
+                  {LABELS[p.data.category]}
+                </a>
+                <h2 class="card-title">{p.data.title}</h2>
+                {p.data.description && <p class="card-desc">{p.data.description}</p>}
+                <div class="card-foot">
+                  <time class="card-date">{fmt(p.data.date)}</time>
+                  <span class="card-time">{p.data.readingTime}分で読める</span>
+                </div>
+              </div>
+            </a>
           </li>
         ))}
       </ul>
     ) : (
-      <p class="empty">記事はまもなく公開されます。</p>
+      <p class="empty">記事がありません。</p>
     )}
 
-    <p class="no-result" id="no-result" hidden>該当する記事が見つかりませんでした。</p>
   </div>
+</div>
+
 </BaseLayout>
 
-<script>
-  const tagBtns  = document.querySelectorAll<HTMLButtonElement>('.tag-btn');
-  const catBtns  = document.querySelectorAll<HTMLButtonElement>('.theme-btn');
-  const items    = document.querySelectorAll<HTMLLIElement>('#article-list > li');
-  const noResult = document.getElementById('no-result') as HTMLElement;
-  const countEl  = document.getElementById('article-count') as HTMLElement;
-
-  let activeTag = 'all';
-  let activeCat = 'all';
-
-  function applyFilters() {
-    let visible = 0;
-    items.forEach(li => {
-      const tags = li.dataset.tags ?? '';
-      const cat  = li.dataset.cat ?? '';
-      const tagMatch = activeTag === 'all' || tags.split(',').includes(activeTag);
-      const catMatch = activeCat === 'all' || cat === activeCat;
-      const show = tagMatch && catMatch;
-      li.hidden = !show;
-      if (show) visible++;
-    });
-    noResult.hidden = visible > 0;
-    if (countEl) countEl.textContent = String(visible);
-  }
-
-  function setTag(tag: string) {
-    activeTag = tag;
-    tagBtns.forEach(b => b.classList.toggle('active', b.dataset.tag === tag));
-    applyFilters();
-  }
-
-  function setCat(cat: string) {
-    activeCat = cat;
-    catBtns.forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
-    applyFilters();
-  }
-
-  const initialTag = new URLSearchParams(location.search).get('tag') ?? 'all';
-  const initialCat = new URLSearchParams(location.search).get('cat') ?? 'all';
-  setTag(initialTag);
-  setCat(initialCat);
-
-  tagBtns.forEach(btn => btn.addEventListener('click', () => setTag(btn.dataset.tag ?? 'all')));
-  catBtns.forEach(btn => btn.addEventListener('click', () => setCat(btn.dataset.cat ?? 'all')));
-</script>
-
 <style>
-  .blog-header {
-    background: var(--bg2);
-    border-bottom: 1px solid var(--rule);
-    padding: calc(var(--nav-height) + 3rem) 0 2.5rem;
-  }
+.blog-page { padding: 52px 0 88px; }
+.page-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.page-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.page-count { font-size: 0.8rem; color: var(--ink3); }
 
-  .blog-eyebrow {
-    font-family: var(--font-sans);
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.3em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 0.8rem;
-  }
+.filter-bar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.filter-btn {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--ink2);
+  text-decoration: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: 100px;
+  border: 1px solid var(--border-mid);
+  transition: all 0.15s;
+}
+.filter-btn:hover { color: var(--ink); border-color: var(--ink3); }
+.filter-btn.active { background: var(--ink); color: #fff; border-color: var(--ink); }
 
-  .blog-title {
-    font-family: var(--font-serif);
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 700;
-    color: var(--ink);
-    letter-spacing: 0.04em;
-    margin-bottom: 0.5rem;
-  }
+.card-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px 28px;
+}
+.card-link { display: block; text-decoration: none; color: inherit; }
+.card-img-wrap {
+  overflow: hidden;
+  border-radius: var(--radius);
+  aspect-ratio: 16 / 9;
+  background: var(--bg2);
+  margin-bottom: 1rem;
+}
+.card-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.card-link:hover .card-img { transform: scale(1.04); }
+.card-img-empty { width: 100%; height: 100%; background: var(--bg3); }
+.card-cat {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 100px;
+  text-decoration: none;
+  margin-bottom: 0.6rem;
+  border: 1px solid transparent;
+}
+.card-cat--money   { background: #fef3c7; color: #92400e; border-color: #fde68a; }
+.card-cat--career  { background: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
+.card-cat--mindset { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; }
+.card-title {
+  font-family: var(--font-serif);
+  font-size: clamp(0.92rem, 1.4vw, 1.05rem);
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+  transition: color 0.2s;
+}
+.card-link:hover .card-title { color: var(--ink2); }
+.card-desc {
+  font-size: 0.8rem;
+  line-height: 1.75;
+  color: var(--ink2);
+  margin-bottom: 0.6rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.card-foot { display: flex; align-items: center; justify-content: space-between; }
+.card-date { font-size: 0.7rem; color: var(--ink3); }
+.card-time { font-size: 0.68rem; color: var(--ink3); }
 
-  .blog-count {
-    font-family: var(--font-sans);
-    font-size: 0.82rem;
-    color: var(--ink3);
-  }
+.empty { text-align: center; color: var(--ink3); padding: 4rem 0; }
 
-  .container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
-
-  .blog-body {
-    padding: 3rem 1.5rem 5rem;
-  }
-
-  .filter-section {
-    margin-bottom: 1.6rem;
-  }
-
-  .filter-label {
-    font-family: var(--font-sans);
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    color: var(--ink3);
-    text-transform: uppercase;
-    margin-bottom: 0.75rem;
-  }
-
-  .theme-filter, .tag-filter {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .theme-btn {
-    padding: 0.5rem 1.1rem;
-    border: 1.5px solid var(--rule);
-    border-radius: 980px;
-    background: transparent;
-    color: var(--ink2);
-    font-family: var(--font-sans);
-    font-size: 0.78rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.18s, color 0.18s, border-color 0.18s;
-    white-space: nowrap;
-  }
-  .theme-btn:hover { border-color: var(--gold); color: var(--gold); }
-  .theme-btn.active {
-    background: var(--gold);
-    color: #fff;
-    border-color: var(--gold);
-  }
-
-  .tag-btn {
-    padding: 0.35rem 0.85rem;
-    border: 1px solid var(--rule);
-    border-radius: 980px;
-    background: transparent;
-    color: var(--ink3);
-    font-family: var(--font-sans);
-    font-size: 0.72rem;
-    font-weight: 400;
-    cursor: pointer;
-    transition: background 0.15s, color 0.15s, border-color 0.15s;
-  }
-  .tag-btn:hover { border-color: var(--ink2); color: var(--ink2); }
-  .tag-btn.active {
-    background: var(--ink);
-    color: #fff;
-    border-color: var(--ink);
-  }
-
-  .article-grid {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 2.5rem;
-  }
-
-  .no-result, .empty {
-    text-align: center;
-    padding: 5rem 0;
-    font-family: var(--font-sans);
-    font-size: 0.88rem;
-    color: var(--ink3);
-  }
-
-  @media (max-width: 960px) {
-    .article-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 640px) {
-    .article-grid { grid-template-columns: 1fr; }
-    .blog-body { padding: 2rem 1.25rem 4rem; }
-  }
+@media (max-width: 900px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .card-grid { grid-template-columns: 1fr; } }
 </style>

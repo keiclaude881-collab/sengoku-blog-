@@ -1,9 +1,9 @@
 ---
 const navLinks = [
-  { label: 'もしも歴史', href: '/blog/' },
-  { label: '哲学',       href: '/philosophy/' },
-  { label: 'テーマで探す', href: '/category/decide/' },
-  { label: '年表',       href: '/timeline/' },
+  { label: '投資・お金', href: '/money/' },
+  { label: '仕事・副業', href: '/career/' },
+  { label: '思考法',     href: '/mindset/' },
+  { label: 'このブログについて', href: '/about/' },
 ];
 const currentPath = Astro.url.pathname;
 ---
@@ -61,8 +61,8 @@ const currentPath = Astro.url.pathname;
       </ul>
     </nav>
     <div class="mobile-nav-foot">
-      <a href="/about">このサイトについて</a>
       <a href="/contact">お問い合わせ</a>
+      <a href="/privacy">プライバシーポリシー</a>
     </div>
   </div>
 </div>
@@ -102,7 +102,6 @@ const currentPath = Astro.url.pathname;
     border-bottom: 1px solid var(--border);
     z-index: 100;
   }
-
   .header-inner {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -113,7 +112,6 @@ const currentPath = Astro.url.pathname;
     justify-content: space-between;
     gap: 2rem;
   }
-
   .site-logo {
     font-family: var(--font-serif);
     font-size: 1.1rem;
@@ -123,16 +121,9 @@ const currentPath = Astro.url.pathname;
     text-decoration: none;
     flex-shrink: 0;
   }
-  .site-logo em {
-    font-style: normal;
-    color: var(--ink2);
-  }
+  .site-logo em { font-style: normal; color: var(--ink2); }
 
-  .site-nav {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-  }
+  .site-nav { flex: 1; display: flex; justify-content: center; }
   .nav-list {
     list-style: none;
     display: flex;
@@ -140,7 +131,6 @@ const currentPath = Astro.url.pathname;
     gap: 0.2rem;
   }
   .nav-link {
-    font-family: var(--font-sans);
     font-size: 0.82rem;
     font-weight: 400;
     color: var(--ink2);
@@ -158,13 +148,11 @@ const currentPath = Astro.url.pathname;
     gap: 0.25rem;
     flex-shrink: 0;
   }
-
   .header-icon-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 34px;
-    height: 34px;
+    width: 34px; height: 34px;
     color: var(--ink2);
     border-radius: 50%;
     text-decoration: none;
@@ -172,14 +160,12 @@ const currentPath = Astro.url.pathname;
   }
   .header-icon-btn:hover { color: var(--ink); background: var(--bg2); }
 
-  /* ── Hamburger ── */
   .hamburger {
     display: none;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
-    width: 34px;
-    height: 34px;
+    width: 34px; height: 34px;
     background: none;
     border: none;
     cursor: pointer;
@@ -196,13 +182,10 @@ const currentPath = Astro.url.pathname;
   .hamburger.is-open .bar:nth-child(2) { opacity: 0; }
   .hamburger.is-open .bar:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-  /* ── Mobile nav ── */
   .mobile-nav {
     position: fixed;
     top: var(--nav-height);
-    left: 0;
-    right: 0;
-    bottom: 0;
+    left: 0; right: 0; bottom: 0;
     background: #fff;
     z-index: 99;
     transform: translateX(100%);
@@ -210,21 +193,15 @@ const currentPath = Astro.url.pathname;
     overflow-y: auto;
   }
   .mobile-nav.is-open { transform: translateX(0); }
-
   .mobile-nav-inner {
     padding: 2rem;
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
   }
-  .mobile-nav-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-  }
+  .mobile-nav-list { list-style: none; }
   .mobile-nav-link {
     display: block;
-    font-family: var(--font-sans);
     font-size: 1.1rem;
     font-weight: 400;
     color: var(--ink2);
@@ -235,7 +212,6 @@ const currentPath = Astro.url.pathname;
   }
   .mobile-nav-link:hover,
   .mobile-nav-link.active { color: var(--ink); }
-
   .mobile-nav-foot {
     display: flex;
     flex-direction: column;

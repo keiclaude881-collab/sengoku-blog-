@@ -3,21 +3,14 @@ import { getCollection } from "astro:content";
 import type { APIContext } from "astro";
 
 export async function GET(context: APIContext) {
-  const collections = await Promise.all([
-    getCollection("whatif").catch(() => []),
-    
-    getCollection("philosophy").catch(() => []),
-  ]);
-
-  const allPosts = collections
-    .flat()
+  const posts = (await getCollection("posts"))
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
   return rss({
     title: "偉人ラボ",
-    description: "歴史の偉人が現代の問題を解決する。信長・ナポレオン・孫子・龍馬——偉人たちの知恵を現代語で届ける。",
+    description: "偉人の思考で現代のお金と仕事を攻略する。孫子・ナポレオン・マルクス・アウレリウス——時代を超えた知恵を投資・副業・キャリアに応用する。",
     site: context.site!,
-    items: allPosts.map((post) => ({
+    items: posts.map(post => ({
       title: post.data.title,
       pubDate: post.data.date,
       description: post.data.description,
