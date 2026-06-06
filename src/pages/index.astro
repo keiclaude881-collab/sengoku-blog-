@@ -82,7 +82,7 @@ const rest     = allPosts.slice(7);
       <ul class="card-grid">
         {recent.map(p => (
           <li class="fade-in">
-            <a href={`/blog/${p.id}/`} class="card-link">
+            <a href={`/blog/${p.id.replace(/.mdx?$/, '')}/`} class="card-link">
               <div class="card-img-wrap">
                 {p.data.ogImage
                   ? <img src={p.data.ogImage} alt={p.data.title} loading="lazy" class="card-img" />
@@ -115,7 +115,7 @@ const rest     = allPosts.slice(7);
       <ul class="article-list">
         {rest.map((p, i) => (
           <li class={`article-item fade-in${i >= 10 ? " js-hidden" : ""}`}>
-            <a href={`/blog/${p.id}/`} class="article-link">
+            <a href={`/blog/${p.id.replace(/.mdx?$/, '')}/`} class="article-link">
               <span class={`article-cat article-cat--${p.data.category}`}>{LABELS[p.data.category]}</span>
               <span class="article-title">{p.data.title}</span>
               <time class="article-date">{fmt(p.data.date)}</time>

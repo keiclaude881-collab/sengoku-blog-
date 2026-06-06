@@ -2,337 +2,158 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const QUOTES = [
-  { text: "失敗とは、より賢く再挑戦するための好機にすぎない。", figure: "ヘンリー・フォード" },
-  { text: "私は失敗したのではない。うまくいかない方法を1万通り発見しただけだ。", figure: "トーマス・エジソン" },
   { text: "道に迷った者は、立ち止まって考えよ。焦りは更なる迷いを生む。", figure: "孫子" },
   { text: "不可能とは、小さな人間の都合であって、偉大な人間には存在しない。", figure: "ナポレオン・ボナパルト" },
+  { text: "失敗とは、より賢く再挑戦するための好機にすぎない。", figure: "ヘンリー・フォード" },
   { text: "転んでもただでは起きるな。転んだ場所から何かを拾って立ち上がれ。", figure: "豊臣秀吉" },
-  { text: "道が閉ざされた時、新しい道が現れる。問題はそれに気づけるかだ。", figure: "坂本龍馬（伝）" },
+  { text: "コントロールできないことに悩む時間を、コントロールできることに使え。", figure: "マルクス・アウレリウス" },
+  { text: "準備なき行動は、行動なきより危険だ。", figure: "マキャベリ" },
 ];
 ---
 
 <BaseLayout
-  title="404 — 偉人ラボ"
+  title="404 — ページが見つかりません | 偉人ラボ"
   description="お探しのページは存在しません。偉人ラボに戻る。"
 >
-  <div class="lab-404">
 
-    <!-- 背景グリッド -->
-    <div class="grid-bg" aria-hidden="true"></div>
+<div class="not-found">
+  <div class="not-found-inner">
 
-    <!-- パーティクル -->
-    <canvas id="particles" class="particles" aria-hidden="true"></canvas>
+    <p class="nf-eyebrow">404</p>
 
-    <div class="content">
+    <h1 class="nf-title">ページが見つかりません</h1>
 
-      <!-- フラスコアイコン -->
-      <div class="flask-wrap" aria-hidden="true">
-        <svg class="flask-svg" viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg">
-          <path d="M32 8 L32 44 L12 76 Q8 86 18 90 L62 90 Q72 86 68 76 L48 44 L48 8 Z"
-                fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
-          <path d="M18 70 Q14 84 20 88 L60 88 Q66 84 62 70 L48 40 Z"
-                fill="currentColor" opacity="0.2" class="liquid"/>
-          <circle cx="30" cy="76" r="4" fill="currentColor" opacity="0.7" class="bubble b1"/>
-          <circle cx="50" cy="80" r="3" fill="currentColor" opacity="0.5" class="bubble b2"/>
-          <circle cx="40" cy="70" r="3.5" fill="currentColor" opacity="0.6" class="bubble b3"/>
-          <line x1="22" y1="8" x2="58" y2="8" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-          <line x1="26" y1="16" x2="54" y2="16" stroke="currentColor" stroke-width="2" opacity="0.4" stroke-linecap="round"/>
-        </svg>
-      </div>
+    <p class="nf-desc">お探しのページは移動・削除されたか、URLが間違っている可能性があります。</p>
 
-      <!-- 404 -->
-      <div class="num-wrap">
-        <span class="num">4</span>
-        <span class="num zero">0</span>
-        <span class="num">4</span>
-      </div>
+    <div class="nf-divider"></div>
 
-      <p class="label">EXPERIMENT FAILED</p>
+    <blockquote class="nf-quote" id="nf-quote">
+      <p class="nf-quote-text" id="qt"></p>
+      <cite class="nf-quote-figure" id="qf"></cite>
+    </blockquote>
 
-      <h1 class="title">この実験データは存在しない</h1>
-
-      <div class="divider" aria-hidden="true">
-        <span></span><span class="dot">◆</span><span></span>
-      </div>
-
-      <!-- ランダム名言 -->
-      <blockquote class="quote" id="quote-block">
-        <p class="quote-text" id="qt"></p>
-        <cite class="quote-figure" id="qf"></cite>
-      </blockquote>
-
-      <a href="/" class="back-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <div class="nf-actions">
+      <a href="/" class="nf-btn-primary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M19 12H5M5 12l7-7M5 12l7 7"/>
         </svg>
-        ラボに戻る
+        トップに戻る
       </a>
-
+      <a href="/blog/" class="nf-btn-ghost">記事一覧を見る</a>
     </div>
+
   </div>
+</div>
+
 </BaseLayout>
 
-<style>
-  /* ページ全体をジャック */
-  :global(body):has(.lab-404) {
-    overflow: hidden;
-  }
-  :global(main):has(.lab-404) {
-    padding-top: 0;
-  }
-  .lab-404 ~ * { display: none !important; }
-
-  .lab-404 {
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(160deg, #0f0a2e 0%, #1a0d3d 50%, #0f0a2e 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    overflow: hidden;
-  }
-
-  /* グリッド背景 */
-  .grid-bg {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(124,58,237,0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(124,58,237,0.08) 1px, transparent 1px);
-    background-size: 60px 60px;
-    animation: gridShift 20s linear infinite;
-  }
-  @keyframes gridShift {
-    from { transform: translateY(0); }
-    to   { transform: translateY(60px); }
-  }
-
-  /* パーティクル */
-  .particles {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-
-  /* コンテンツ */
-  .content {
-    position: relative;
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.4rem;
-    padding: 2rem;
-    text-align: center;
-    animation: riseUp 0.8s cubic-bezier(0.16,1,0.3,1) both;
-  }
-  @keyframes riseUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* フラスコ */
-  .flask-wrap {
-    width: 72px;
-    color: #7C3AED;
-    filter: drop-shadow(0 0 16px rgba(124,58,237,0.5));
-    animation: float 3s ease-in-out infinite;
-  }
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-8px); }
-  }
-  .flask-svg { width: 100%; }
-  .liquid { animation: liquidRise 2s ease-in-out infinite alternate; }
-  @keyframes liquidRise {
-    from { opacity: 0.15; }
-    to   { opacity: 0.35; }
-  }
-  .bubble { animation: bubbleUp 2s ease-in-out infinite; }
-  .b1 { animation-delay: 0s; }
-  .b2 { animation-delay: 0.4s; }
-  .b3 { animation-delay: 0.8s; }
-  @keyframes bubbleUp {
-    0%, 100% { transform: translateY(0); opacity: 0.7; }
-    50%       { transform: translateY(-4px); opacity: 0.3; }
-  }
-
-  /* 404数字 */
-  .num-wrap {
-    display: flex;
-    gap: 0.1em;
-    line-height: 1;
-  }
-  .num {
-    font-family: var(--font-serif);
-    font-size: clamp(6rem, 18vw, 11rem);
-    font-weight: 900;
-    color: transparent;
-    background: linear-gradient(180deg, #C4B5FD 0%, #7C3AED 60%, #4C1D95 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    filter: drop-shadow(0 0 30px rgba(124,58,237,0.4));
-  }
-  .zero {
-    background: linear-gradient(180deg, #FDE68A 0%, #F59E0B 60%, #D97706 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: pulse 2.5s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { filter: drop-shadow(0 0 20px rgba(245,158,11,0.3)); }
-    50%       { filter: drop-shadow(0 0 40px rgba(245,158,11,0.7)); }
-  }
-
-  /* ラベル */
-  .label {
-    font-family: var(--font-sans);
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.3em;
-    color: rgba(245,158,11,0.8);
-    text-transform: uppercase;
-  }
-
-  /* タイトル */
-  .title {
-    font-family: var(--font-serif);
-    font-size: clamp(1rem, 3vw, 1.4rem);
-    font-weight: 700;
-    color: rgba(196,181,253,0.9);
-    letter-spacing: 0.05em;
-    margin: 0;
-  }
-
-  /* 区切り */
-  .divider {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    width: min(300px, 80vw);
-  }
-  .divider span:first-child,
-  .divider span:last-child {
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(124,58,237,0.5), transparent);
-    display: block;
-  }
-  .dot {
-    font-size: 0.5rem;
-    color: rgba(124,58,237,0.6);
-  }
-
-  /* 名言 */
-  .quote {
-    margin: 0;
-    padding: 1.1rem 1.4rem;
-    border-left: 2px solid rgba(124,58,237,0.5);
-    max-width: 460px;
-    text-align: left;
-    animation: riseUp 0.8s 0.3s cubic-bezier(0.16,1,0.3,1) both;
-  }
-  .quote-text {
-    font-family: var(--font-sans);
-    font-size: clamp(0.8rem, 2vw, 0.92rem);
-    line-height: 1.9;
-    color: rgba(196,181,253,0.85);
-    margin: 0 0 0.5rem;
-  }
-  .quote-figure {
-    font-family: var(--font-sans);
-    font-size: 0.7rem;
-    font-style: normal;
-    letter-spacing: 0.08em;
-    color: rgba(245,158,11,0.8);
-  }
-
-  /* 戻るボタン */
-  .back-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.8rem 2rem;
-    background: transparent;
-    border: 1px solid rgba(124,58,237,0.5);
-    color: rgba(196,181,253,0.9);
-    font-family: var(--font-sans);
-    font-size: 0.88rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: all 0.2s;
-    animation: riseUp 0.8s 0.5s cubic-bezier(0.16,1,0.3,1) both;
-  }
-  .back-btn:hover {
-    background: rgba(124,58,237,0.15);
-    border-color: rgba(124,58,237,0.9);
-    color: #fff;
-    box-shadow: 0 0 24px rgba(124,58,237,0.3);
-    transform: translateX(-3px);
-  }
-  .back-btn svg { transition: transform 0.2s; }
-  .back-btn:hover svg { transform: translateX(-3px); }
-</style>
-
 <script define:vars={{ QUOTES }}>
-  // 名言ランダム表示
   const q = QUOTES[Math.floor(Math.random() * QUOTES.length)];
-  document.getElementById('qt').textContent = q.text;
+  document.getElementById('qt').textContent = `「${q.text}」`;
   document.getElementById('qf').textContent = `— ${q.figure}`;
-
-  // パーティクル（バイオレット泡）
-  const canvas = document.getElementById('particles');
-  const ctx = canvas.getContext('2d');
-
-  function resize() {
-    canvas.width  = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize, { passive: true });
-
-  const particles = [];
-  const COLORS = [
-    'rgba(124,58,237,',
-    'rgba(196,181,253,',
-    'rgba(245,158,11,',
-    'rgba(167,139,250,',
-  ];
-
-  function spawn() {
-    return {
-      x: Math.random() * canvas.width,
-      y: canvas.height + 10,
-      vx: (Math.random() - 0.5) * 0.6,
-      vy: -(Math.random() * 1.2 + 0.4),
-      r: Math.random() * 3 + 0.5,
-      alpha: Math.random() * 0.5 + 0.2,
-      decay: Math.random() * 0.003 + 0.0015,
-      color: COLORS[Math.floor(Math.random() * COLORS.length)],
-    };
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    while (particles.length < 100) particles.push(spawn());
-
-    for (let i = particles.length - 1; i >= 0; i--) {
-      const p = particles[i];
-      p.x += p.vx;
-      p.y += p.vy;
-      p.alpha -= p.decay;
-
-      if (p.alpha <= 0 || p.y < -20) { particles.splice(i, 1); continue; }
-
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = p.color + p.alpha + ')';
-      ctx.fill();
-    }
-    requestAnimationFrame(draw);
-  }
-  draw();
 </script>
+
+<style>
+.not-found {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+}
+.not-found-inner {
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nf-eyebrow {
+  font-family: var(--font-serif);
+  font-size: clamp(5rem, 16vw, 9rem);
+  font-weight: 700;
+  color: var(--bg3);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  user-select: none;
+}
+
+.nf-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.nf-desc {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--ink2);
+  max-width: 380px;
+}
+
+.nf-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--border-mid);
+}
+
+.nf-quote {
+  margin: 0;
+  padding: 1.4rem 1.6rem;
+  background: var(--bg2);
+  border-radius: var(--radius);
+  border-left: 2px solid var(--border-mid);
+  text-align: left;
+  width: 100%;
+}
+.nf-quote-text {
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  line-height: 1.9;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+}
+.nf-quote-figure {
+  font-size: 0.72rem;
+  font-style: normal;
+  color: var(--ink3);
+  letter-spacing: 0.06em;
+}
+
+.nf-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+.nf-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.6rem;
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+.nf-btn-primary:hover { opacity: 0.8; }
+.nf-btn-ghost {
+  font-size: 0.84rem;
+  color: var(--ink2);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  transition: color 0.15s;
+}
+.nf-btn-ghost:hover { color: var(--ink); }
+</style>

@@ -63,7 +63,7 @@ const cats = [
       <ul class="card-grid">
         {filtered.map(p => (
           <li class="fade-in">
-            <a href={`/blog/${p.id}/`} class="card-link">
+            <a href={`/blog/${p.id.replace(/.mdx?$/, '')}/`} class="card-link">
               <div class="card-img-wrap">
                 {p.data.ogImage
                   ? <img src={p.data.ogImage} alt={p.data.title} loading="lazy" class="card-img" />

@@ -125,7 +125,7 @@ function fmt(d: Date) {
         <ul class="related-grid">
           {related.map(p => (
             <li>
-              <a href={`/blog/${p.id}/`} class="related-card">
+              <a href={`/blog/${p.id.replace(/.mdx?$/, '')}/`} class="related-card">
                 <div class="related-img-wrap">
                   {p.data.ogImage
                     ? <img src={p.data.ogImage} alt={p.data.title} loading="lazy" class="related-img" />
