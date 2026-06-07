@@ -1,0 +1,23 @@
+{
+  "name": "偉人ラボ｜偉人の思考で現代のお金と仕事を攻略する",
+  "short_name": "偉人ラボ",
+  "description": "歴史上の偉人の思考法を、現代のお金・キャリア・自己投資に変換するブログ",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf7f2",
+  "theme_color": "#1c1917",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
