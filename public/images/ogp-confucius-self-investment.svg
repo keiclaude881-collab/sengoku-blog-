@@ -6,12 +6,12 @@
   <path d="M 220 250 L 380 250 L 380 470 L 220 470 Z" fill="#f3e8ff" opacity="0.6"/>
   <path d="M 380 250 L 540 250 L 540 470 L 380 470 Z" fill="#e9d5ff" opacity="0.6"/>
   <line x1="380" y1="250" x2="380" y2="470" stroke="#9333ea" stroke-width="2" opacity="0.5"/>
-  <line x1="245" y1="290" x2="355" y2="290" stroke="#6b21a8" stroke-width="3" opacity="0.5"/>
-  <line x1="245" y1="320" x2="355" y2="320" stroke="#6b21a8" stroke-width="3" opacity="0.4"/>
-  <line x1="245" y1="350" x2="335" y2="350" stroke="#6b21a8" stroke-width="3" opacity="0.35"/>
-  <line x1="405" y1="290" x2="515" y2="290" stroke="#6b21a8" stroke-width="3" opacity="0.5"/>
-  <line x1="405" y1="320" x2="515" y2="320" stroke="#6b21a8" stroke-width="3" opacity="0.4"/>
-  <line x1="405" y1="350" x2="495" y2="350" stroke="#6b21a8" stroke-width="3" opacity="0.35"/>
+  <line x1="245" y1="290" x2="355" y2="290" stroke="#6b21a8" stroke-width="3" opacity="0.6"/>
+  <line x1="245" y1="320" x2="355" y2="320" stroke="#6b21a8" stroke-width="3" opacity="0.5"/>
+  <line x1="245" y1="350" x2="335" y2="350" stroke="#6b21a8" stroke-width="3" opacity="0.45"/>
+  <line x1="405" y1="290" x2="515" y2="290" stroke="#6b21a8" stroke-width="3" opacity="0.6"/>
+  <line x1="405" y1="320" x2="515" y2="320" stroke="#6b21a8" stroke-width="3" opacity="0.5"/>
+  <line x1="405" y1="350" x2="495" y2="350" stroke="#6b21a8" stroke-width="3" opacity="0.45"/>
   <circle cx="380" cy="430" r="30" fill="none" stroke="#6b21a8" stroke-width="2.5" opacity="0.6"/>
   <text x="380" y="441" font-family="'Shippori Mincho', serif" font-size="26" fill="#6b21a8" text-anchor="middle" opacity="0.75">学</text>
 

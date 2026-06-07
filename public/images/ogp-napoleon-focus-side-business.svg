@@ -13,8 +13,8 @@
   <circle cx="360" cy="318" r="6" fill="#fcd34d"/>
 
   <!-- 的（ターゲット）と矢 -->
-  <circle cx="900" cy="450" r="100" fill="none" stroke="#1e40af" stroke-width="3" opacity="0.25"/>
-  <circle cx="900" cy="450" r="70" fill="none" stroke="#1e40af" stroke-width="3" opacity="0.4"/>
+  <circle cx="900" cy="450" r="100" fill="none" stroke="#1e40af" stroke-width="3" opacity="0.4"/>
+  <circle cx="900" cy="450" r="70" fill="none" stroke="#1e40af" stroke-width="3" opacity="0.55"/>
   <circle cx="900" cy="450" r="40" fill="none" stroke="#1e40af" stroke-width="3" opacity="0.6"/>
   <circle cx="900" cy="450" r="12" fill="#1e40af"/>
   <line x1="744" y1="540" x2="894" y2="456" stroke="#1c1917" stroke-width="4"/>

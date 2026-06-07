@@ -3,12 +3,12 @@
   <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#dbeafe" stroke-width="2"/>
 
   <!-- 大軍(大きな円の集合)を、小さな一点が突き抜けるイメージ -->
-  <g transform="translate(360,420)" opacity="0.55">
-    <circle cx="-70" cy="-70" r="58" fill="#bfdbfe"/>
-    <circle cx="80" cy="-50" r="50" fill="#bfdbfe"/>
-    <circle cx="10" cy="50" r="64" fill="#bfdbfe"/>
-    <circle cx="-100" cy="60" r="44" fill="#bfdbfe"/>
-    <circle cx="110" cy="70" r="40" fill="#bfdbfe"/>
+  <g transform="translate(360,420)" opacity="0.7">
+    <circle cx="-70" cy="-70" r="58" fill="#3b82f6"/>
+    <circle cx="80" cy="-50" r="50" fill="#3b82f6"/>
+    <circle cx="10" cy="50" r="64" fill="#3b82f6"/>
+    <circle cx="-100" cy="60" r="44" fill="#3b82f6"/>
+    <circle cx="110" cy="70" r="40" fill="#3b82f6"/>
   </g>
   <g transform="translate(360,420)">
     <path d="M -150 90 L 130 -110" stroke="#dc2626" stroke-width="4" stroke-linecap="round" opacity="0.75"/>

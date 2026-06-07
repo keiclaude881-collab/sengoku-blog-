@@ -3,8 +3,8 @@
   <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#dbeafe" stroke-width="2"/>
 
   <!-- 草原と地平線 -->
-  <rect x="0" y="470" width="1200" height="160" fill="#dbeafe" opacity="0.35"/>
-  <line x1="0" y1="470" x2="1200" y2="470" stroke="#bfdbfe" stroke-width="2"/>
+  <rect x="0" y="470" width="1200" height="160" fill="#dbeafe" opacity="0.5"/>
+  <line x1="0" y1="470" x2="1200" y2="470" stroke="#3b82f6" stroke-width="2" opacity="0.5"/>
 
   <!-- 騎馬のシルエット（簡略化） -->
   <g transform="translate(300,420)" opacity="0.85">

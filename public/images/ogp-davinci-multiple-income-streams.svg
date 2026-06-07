@@ -4,8 +4,8 @@
 
   <!-- ウィトルウィウス的人体図モチーフ（簡略） -->
   <g transform="translate(330,360)" opacity="0.75">
-    <circle cx="0" cy="0" r="110" fill="none" stroke="#1e40af" stroke-width="2.5" opacity="0.5"/>
-    <rect x="-92" y="-92" width="184" height="184" fill="none" stroke="#3b82f6" stroke-width="2.5" opacity="0.5"/>
+    <circle cx="0" cy="0" r="110" fill="none" stroke="#1e40af" stroke-width="2.5" opacity="0.65"/>
+    <rect x="-92" y="-92" width="184" height="184" fill="none" stroke="#3b82f6" stroke-width="2.5" opacity="0.65"/>
     <circle cx="0" cy="-58" r="16" fill="#1e3a8a" opacity="0.7"/>
     <line x1="0" y1="-42" x2="0" y2="40" stroke="#1e3a8a" stroke-width="6" opacity="0.7" stroke-linecap="round"/>
     <line x1="0" y1="-20" x2="-72" y2="-58" stroke="#1e3a8a" stroke-width="6" opacity="0.7" stroke-linecap="round"/>
@@ -15,10 +15,10 @@
   </g>
 
   <!-- 複数分野を表す重なる円（掛け算のメタファー） -->
-  <g opacity="0.55">
-    <circle cx="730" cy="400" r="62" fill="#93c5fd" opacity="0.5"/>
-    <circle cx="800" cy="400" r="62" fill="#60a5fa" opacity="0.5"/>
-    <circle cx="765" cy="350" r="62" fill="#3b82f6" opacity="0.4"/>
+  <g opacity="0.8">
+    <circle cx="730" cy="400" r="62" fill="#3b82f6" opacity="0.6"/>
+    <circle cx="800" cy="400" r="62" fill="#1e40af" opacity="0.55"/>
+    <circle cx="765" cy="350" r="62" fill="#1e3a8a" opacity="0.5"/>
   </g>
   <text x="765" y="408" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#1e3a8a" text-anchor="middle" opacity="0.8">掛け算</text>
 

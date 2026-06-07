@@ -5,9 +5,9 @@
   <!-- 育つ木（複利・成長のメタファー） -->
   <g transform="translate(330,470)" opacity="0.85">
     <rect x="-10" y="-130" width="20" height="130" fill="#92400e" opacity="0.6"/>
-    <circle cx="0" cy="-160" r="64" fill="#fbbf24" opacity="0.55"/>
-    <circle cx="-46" cy="-128" r="42" fill="#fcd34d" opacity="0.55"/>
-    <circle cx="48" cy="-132" r="46" fill="#fde68a" opacity="0.55"/>
+    <circle cx="0" cy="-160" r="64" fill="#d97706" opacity="0.55"/>
+    <circle cx="-46" cy="-128" r="42" fill="#b45309" opacity="0.55"/>
+    <circle cx="48" cy="-132" r="46" fill="#f59e0b" opacity="0.55"/>
     <ellipse cx="0" cy="6" rx="74" ry="16" fill="#92400e" opacity="0.18"/>
   </g>
 
