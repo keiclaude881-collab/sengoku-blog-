@@ -84,29 +84,24 @@ function fmt(d: Date) {
       </div>
     )}
 
-    <div class="article-layout">
+    <!-- Body -->
+    <div class="prose">
 
-      <!-- TOC (sidebar) -->
+      <!-- TOC (inline box) -->
       {toc.length > 0 && (
-        <aside class="toc-sidebar">
-          <div class="toc-inner">
-            <p class="toc-label">目次</p>
-            <ol class="toc-list">
-              {toc.map(h => (
-                <li>
-                  <a href={`#${h.slug}`} class="toc-link">{h.text}</a>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </aside>
+        <nav class="toc-box" aria-label="目次">
+          <p class="toc-box-label">目次</p>
+          <ol class="toc-box-list">
+            {toc.map(h => (
+              <li>
+                <a href={`#${h.slug}`} class="toc-box-link">{h.text}</a>
+              </li>
+            ))}
+          </ol>
+        </nav>
       )}
 
-      <!-- Body -->
-      <div class="prose">
-        <Content />
-      </div>
-
+      <Content />
     </div>
 
     <!-- Tags -->
@@ -232,55 +227,55 @@ function fmt(d: Date) {
   display: block;
 }
 
-/* ── Article body + sidebar ── */
-.article-layout {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 220px;
-  gap: 48px;
-  align-items: start;
-}
-
 .prose {
   min-width: 0;
 }
 
-.toc-sidebar {
-  position: sticky;
-  top: calc(var(--nav-height) + 24px);
-}
-.toc-inner {
+/* ── TOC (inline box) ── */
+.toc-box {
   background: var(--bg2);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.2rem;
+  padding: 1.4rem 1.6rem;
+  margin: 0 0 2.4rem;
 }
-.toc-label {
-  font-size: 0.68rem;
+.toc-box-label {
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink3);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.9rem;
 }
-.toc-list {
+.toc-box-list {
   list-style: none;
-  counter-reset: toc;
+  counter-reset: toc-box;
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
+  gap: 0.55rem;
 }
-.toc-link {
-  display: block;
+.toc-box-list li {
+  counter-increment: toc-box;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+.toc-box-list li::before {
+  content: counter(toc-box);
+  flex-shrink: 0;
+  font-family: var(--font-serif);
   font-size: 0.78rem;
-  line-height: 1.5;
+  font-weight: 700;
+  color: var(--ink3);
+}
+.toc-box-link {
+  font-size: 0.88rem;
+  line-height: 1.6;
   color: var(--ink2);
   text-decoration: none;
-  padding: 0.3rem 0;
-  border-bottom: 1px solid var(--border);
   transition: color 0.15s;
 }
-.toc-link:hover { color: var(--ink); }
-.toc-list li:last-child .toc-link { border-bottom: none; }
+.toc-box-link:hover { color: var(--ink); text-decoration: underline; }
 
 /* ── Tags ── */
 .tags {
@@ -343,8 +338,6 @@ function fmt(d: Date) {
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  .article-layout { grid-template-columns: 1fr; }
-  .toc-sidebar { display: none; }
   .related-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 540px) {
