@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+
+  <!-- 円形メダリオン（フランクリンの肖像をイメージ） -->
+  <circle cx="330" cy="315" r="170" fill="none" stroke="#d97706" stroke-width="3" opacity="0.35"/>
+  <circle cx="330" cy="315" r="140" fill="#fde68a" opacity="0.45"/>
+  <circle cx="330" cy="270" r="46" fill="#92400e" opacity="0.85"/>
+  <path d="M 264 380 Q 330 320 396 380 L 396 430 L 264 430 Z" fill="#92400e" opacity="0.85"/>
+
+  <!-- コイン -->
+  <circle cx="430" cy="470" r="22" fill="#fbbf24" stroke="#92400e" stroke-width="2"/>
+  <circle cx="470" cy="488" r="22" fill="#fbbf24" stroke="#92400e" stroke-width="2"/>
+  <circle cx="408" cy="498" r="22" fill="#fbbf24" stroke="#92400e" stroke-width="2"/>
+
+  <!-- 上昇する棒グラフ -->
+  <rect x="760" y="430" width="46" height="110" fill="#fde68a"/>
+  <rect x="826" y="380" width="46" height="160" fill="#fcd34d"/>
+  <rect x="892" y="320" width="46" height="220" fill="#fbbf24"/>
+  <rect x="958" y="250" width="46" height="290" fill="#92400e"/>
+
+  <!-- カテゴリラベル -->
+  <rect x="760" y="170" width="120" height="36" rx="18" fill="#fef3c7" stroke="#fde68a"/>
+  <text x="820" y="194" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="1">投資・お金</text>
+
+  <!-- タイトル -->
+  <text x="760" y="250" font-family="'Shippori Mincho', serif" font-size="34" font-weight="700" fill="#1c1917" letter-spacing="1">フランクリンの</text>
+  <text x="760" y="296" font-family="'Shippori Mincho', serif" font-size="34" font-weight="700" fill="#1c1917" letter-spacing="1">お金の習慣</text>
+
+  <text x="100" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+</svg>

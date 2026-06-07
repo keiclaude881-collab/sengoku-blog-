@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f7f9fc"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#dfe7f3" stroke-width="2"/>
+
+  <!-- 二角帽（ナポレオン）シルエット -->
+  <path d="M 230 360
+           C 230 320 290 270 360 270
+           C 430 270 490 320 490 360
+           C 430 340 380 350 360 360
+           C 340 350 290 340 230 360 Z"
+        fill="#1e3a8a" opacity="0.85"/>
+  <ellipse cx="360" cy="358" rx="50" ry="10" fill="#1e3a8a" opacity="0.6"/>
+  <circle cx="360" cy="318" r="6" fill="#fcd34d"/>
+
+  <!-- 的（ターゲット）と矢 -->
+  <circle cx="880" cy="350" r="120" fill="none" stroke="#1e40af" stroke-width="3" opacity="0.25"/>
+  <circle cx="880" cy="350" r="84" fill="none" stroke="#1e40af" stroke-width="3" opacity="0.4"/>
+  <circle cx="880" cy="350" r="48" fill="none" stroke="#1e40af" stroke-width="3" opacity="0.6"/>
+  <circle cx="880" cy="350" r="14" fill="#1e40af"/>
+  <line x1="700" y1="430" x2="876" y2="354" stroke="#1c1917" stroke-width="4"/>
+  <path d="M 876 354 L 858 344 L 866 364 Z" fill="#1c1917"/>
+  <path d="M 700 430 L 716 422 L 712 438 Z" fill="#1c1917" opacity="0.7"/>
+
+  <!-- カテゴリラベル -->
+  <rect x="700" y="180" width="120" height="36" rx="18" fill="#dbeafe" stroke="#bfdbfe"/>
+  <text x="760" y="204" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#1e40af" text-anchor="middle" letter-spacing="1">仕事・副業</text>
+
+  <!-- タイトル -->
+  <text x="700" y="280" font-family="'Shippori Mincho', serif" font-size="32" font-weight="700" fill="#1c1917" letter-spacing="1">ナポレオンの</text>
+  <text x="700" y="324" font-family="'Shippori Mincho', serif" font-size="32" font-weight="700" fill="#1c1917" letter-spacing="1">「選択と集中」</text>
+
+  <text x="100" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+</svg>
