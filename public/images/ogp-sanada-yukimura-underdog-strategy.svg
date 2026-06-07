@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f7faff"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#dbeafe" stroke-width="2"/>
+
+  <!-- 大軍(大きな円の集合)を、小さな一点が突き抜けるイメージ -->
+  <g transform="translate(360,420)" opacity="0.55">
+    <circle cx="-70" cy="-70" r="58" fill="#bfdbfe"/>
+    <circle cx="80" cy="-50" r="50" fill="#bfdbfe"/>
+    <circle cx="10" cy="50" r="64" fill="#bfdbfe"/>
+    <circle cx="-100" cy="60" r="44" fill="#bfdbfe"/>
+    <circle cx="110" cy="70" r="40" fill="#bfdbfe"/>
+  </g>
+  <g transform="translate(360,420)">
+    <path d="M -150 90 L 130 -110" stroke="#dc2626" stroke-width="4" stroke-linecap="round" opacity="0.75"/>
+    <circle cx="130" cy="-110" r="11" fill="#dc2626"/>
+    <path d="M 130 -110 L 150 -132 L 158 -108 Z" fill="#dc2626" opacity="0.85"/>
+  </g>
+
+  <!-- 六文銭(真田家の家紋モチーフ) -->
+  <g transform="translate(870,470)" opacity="0.7">
+    <circle cx="-60" cy="0" r="15" fill="none" stroke="#1e40af" stroke-width="3"/>
+    <circle cx="-20" cy="0" r="15" fill="none" stroke="#1e40af" stroke-width="3"/>
+    <circle cx="20" cy="0" r="15" fill="none" stroke="#1e40af" stroke-width="3"/>
+    <circle cx="60" cy="0" r="15" fill="none" stroke="#1e40af" stroke-width="3"/>
+    <circle cx="-40" cy="34" r="15" fill="none" stroke="#1e40af" stroke-width="3"/>
+    <circle cx="40" cy="34" r="15" fill="none" stroke="#1e40af" stroke-width="3"/>
+  </g>
+
+  <!-- カテゴリラベル -->
+  <rect x="700" y="170" width="148" height="36" rx="18" fill="#dbeafe" stroke="#bfdbfe"/>
+  <text x="774" y="194" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#1e40af" text-anchor="middle" letter-spacing="1">仕事・副業 / 戦略</text>
+
+  <!-- タイトル -->
+  <text x="700" y="262" font-family="'Shippori Mincho', serif" font-size="30" font-weight="700" fill="#1c1917" letter-spacing="1">真田幸村に学ぶ</text>
+  <text x="700" y="304" font-family="'Shippori Mincho', serif" font-size="30" font-weight="700" fill="#1c1917" letter-spacing="1">「弱者の戦略」</text>
+
+  <text x="100" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+</svg>

@@ -114,7 +114,7 @@ const rest     = allPosts.slice(4);
         <a href="/blog/" class="section-more">すべて見る →</a>
       </div>
     </div>
-    <ul class="article-scroll">
+    <ul class="article-scroll" id="article-scroll">
       {rest.map(p => (
         <li class="article-scroll-item fade-in">
           <a href={`/blog/${p.id.replace(/.mdx?$/, '')}/`} class="scroll-card">
@@ -137,6 +137,49 @@ const rest     = allPosts.slice(4);
 )}
 
 </BaseLayout>
+
+<script>
+  const scroller = document.getElementById('article-scroll');
+  if (scroller) {
+    let userPaused = false;
+    let resumeTimer: ReturnType<typeof setTimeout> | undefined;
+    let inView = false;
+    let raf = 0;
+
+    const pauseForUser = () => {
+      userPaused = true;
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => { userPaused = false; }, 4000);
+    };
+    ['pointerdown', 'wheel', 'touchstart'].forEach(evt =>
+      scroller.addEventListener(evt, pauseForUser, { passive: true })
+    );
+
+    const SPEED_PX_PER_SEC = 40;
+    let lastTime = 0;
+
+    const step = (time: number) => {
+      const dt = lastTime ? time - lastTime : 0;
+      lastTime = time;
+
+      if (inView && !userPaused) {
+        const max = scroller.scrollWidth - scroller.clientWidth;
+        const next = scroller.scrollLeft + (SPEED_PX_PER_SEC * dt) / 1000;
+        scroller.scrollLeft = next >= max ? 0 : next;
+      } else {
+        lastTime = 0;
+      }
+      raf = requestAnimationFrame(step);
+    };
+
+    new IntersectionObserver(
+      ([entry]) => { inView = entry.isIntersecting; },
+      { threshold: 0.2 }
+    ).observe(scroller);
+
+    raf = requestAnimationFrame(step);
+  }
+</script>
 
 <style>
 /* ── MASTHEAD ── */
@@ -364,7 +407,6 @@ const rest     = allPosts.slice(4);
   display: flex;
   gap: 16px;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   max-width: var(--max-width);
   margin: 0 auto;
@@ -375,7 +417,6 @@ const rest     = allPosts.slice(4);
 .article-scroll-item {
   flex: 0 0 auto;
   width: 240px;
-  scroll-snap-align: start;
 }
 .scroll-card {
   display: flex;
