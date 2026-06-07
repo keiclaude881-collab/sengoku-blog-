@@ -21,8 +21,8 @@ function fmt(d: Date) {
 }
 
 const featured = allPosts[0];
-const recent   = allPosts.slice(1, 7);
-const rest     = allPosts.slice(7);
+const recent   = allPosts.slice(1, 4);
+const rest     = allPosts.slice(4);
 ---
 
 <BaseLayout
@@ -118,7 +118,7 @@ const rest     = allPosts.slice(7);
             <a href={`/blog/${p.id.replace(/.mdx?$/, '')}/`} class="article-link">
               <span class="article-thumb-wrap">
                 {p.data.ogImage
-                  ? <img src={p.data.ogImage} alt="" loading="lazy" class="article-thumb" />
+                  ? <img src={p.data.ogImage.replace(/\/ogp-/, '/thumb-').replace(/\.svg$/, '.png')} alt="" loading="lazy" class="article-thumb" />
                   : <span class="article-thumb article-thumb--empty" />
                 }
               </span>
@@ -400,7 +400,7 @@ const rest     = allPosts.slice(7);
   display: block;
   border-radius: calc(var(--radius) - 6px);
   overflow: hidden;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 1 / 1;
   background: var(--bg3);
 }
 .article-thumb { width: 100%; height: 100%; object-fit: cover; display: block; }
