@@ -105,49 +105,38 @@ const rest     = allPosts.slice(4);
   </section>
 )}
 
-<!-- ═══ ARTICLE LIST ═════════════════════════════════════════ -->
+<!-- ═══ ARTICLE LIST (horizontal scroll) ═══════════════════════ -->
 {rest.length > 0 && (
   <section class="list-section">
     <div class="section-wrap">
       <div class="section-header">
         <h2 class="section-title">もっと読む</h2>
+        <a href="/blog/" class="section-more">すべて見る →</a>
       </div>
-      <ul class="article-list">
-        {rest.map((p, i) => (
-          <li class={`article-item fade-in${i >= 10 ? " js-hidden" : ""}`}>
-            <a href={`/blog/${p.id.replace(/.mdx?$/, '')}/`} class="article-link">
-              <span class="article-thumb-wrap">
-                {p.data.ogImage
-                  ? <img src={p.data.ogImage.replace(/\/ogp-/, '/thumb-').replace(/\.svg$/, '.png')} alt="" loading="lazy" class="article-thumb" />
-                  : <span class="article-thumb article-thumb--empty" />
-                }
-              </span>
-              <span class="article-body">
-                <span class={`article-cat article-cat--${p.data.category}`}>{LABELS[p.data.category]}</span>
-                <span class="article-title">{p.data.title}</span>
-                <time class="article-date">{fmt(p.data.date)}</time>
-              </span>
-            </a>
-          </li>
-        ))}
-      </ul>
-      {rest.length > 10 && (
-        <div class="show-more-wrap" id="show-more-wrap">
-          <button id="show-more-btn" class="show-more-btn">もっと見る</button>
-        </div>
-      )}
     </div>
+    <ul class="article-scroll">
+      {rest.map(p => (
+        <li class="article-scroll-item fade-in">
+          <a href={`/blog/${p.id.replace(/.mdx?$/, '')}/`} class="scroll-card">
+            <span class="scroll-thumb-wrap">
+              {p.data.ogImage
+                ? <img src={p.data.ogImage.replace(/\/ogp-/, '/thumb-').replace(/\.svg$/, '.png')} alt="" loading="lazy" class="scroll-thumb" />
+                : <span class="scroll-thumb scroll-thumb--empty" />
+              }
+            </span>
+            <span class="scroll-body">
+              <span class={`article-cat article-cat--${p.data.category}`}>{LABELS[p.data.category]}</span>
+              <span class="scroll-title">{p.data.title}</span>
+              <time class="article-date">{fmt(p.data.date)}</time>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
   </section>
 )}
 
 </BaseLayout>
-
-<script>
-  document.getElementById('show-more-btn')?.addEventListener('click', () => {
-    document.querySelectorAll<HTMLElement>('.js-hidden').forEach(el => el.classList.remove('js-hidden'));
-    document.getElementById('show-more-wrap')?.remove();
-  });
-</script>
 
 <style>
 /* ── MASTHEAD ── */
@@ -368,49 +357,59 @@ const rest     = allPosts.slice(4);
 }
 .card-date { font-size: 0.7rem; color: var(--ink3); }
 
-/* ── ARTICLE LIST ── */
+/* ── ARTICLE SCROLL (carousel) ── */
 .list-section { padding: 56px 0 88px; }
-.article-list {
+.article-scroll {
   list-style: none;
   display: flex;
-  flex-direction: column;
-  gap: 14px;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4px 2rem 12px;
+  scrollbar-width: none;
 }
-.article-item.js-hidden { display: none; }
-.article-link {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 18px;
-  align-items: stretch;
-  padding: 14px;
+.article-scroll::-webkit-scrollbar { display: none; }
+.article-scroll-item {
+  flex: 0 0 auto;
+  width: 240px;
+  scroll-snap-align: start;
+}
+.scroll-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
   text-decoration: none;
   color: inherit;
   background: var(--bg2);
   border: 1px solid var(--border);
   border-radius: var(--radius);
+  padding: 12px;
   transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
 }
-.article-link:hover {
+.scroll-card:hover {
   border-color: var(--border-mid);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(28,25,23,0.06);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(28,25,23,0.07);
 }
-.article-link:active { transform: translateY(0); }
-.article-thumb-wrap {
+.scroll-card:active { transform: translateY(0); }
+.scroll-thumb-wrap {
   display: block;
   border-radius: calc(var(--radius) - 6px);
   overflow: hidden;
   aspect-ratio: 1 / 1;
   background: var(--bg3);
 }
-.article-thumb { width: 100%; height: 100%; object-fit: cover; display: block; }
-.article-thumb--empty { width: 100%; height: 100%; display: block; background: var(--bg3); }
-.article-body {
+.scroll-thumb { width: 100%; height: 100%; object-fit: cover; display: block; }
+.scroll-thumb--empty { width: 100%; height: 100%; display: block; background: var(--bg3); }
+.scroll-body {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   min-width: 0;
-  justify-content: center;
 }
 .article-cat {
   display: inline-flex;
@@ -427,13 +426,13 @@ const rest     = allPosts.slice(4);
 .article-cat--money   { background: #fef3c7; color: #92400e; border-color: #fde68a; }
 .article-cat--career  { background: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
 .article-cat--mindset { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; }
-.article-title {
-  font-size: 0.95rem;
+.scroll-title {
+  font-size: 0.86rem;
   font-weight: 600;
   color: var(--ink);
   line-height: 1.5;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -442,23 +441,6 @@ const rest     = allPosts.slice(4);
   color: var(--ink3);
   white-space: nowrap;
 }
-
-/* ── SHOW MORE ── */
-.show-more-wrap { display: flex; justify-content: center; padding-top: 44px; }
-.show-more-btn {
-  font-family: inherit;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--ink);
-  background: transparent;
-  border: 1px solid var(--border-mid);
-  padding: 13px 52px;
-  cursor: pointer;
-  border-radius: var(--radius);
-  transition: background 0.2s, border-color 0.2s;
-}
-.show-more-btn:hover { background: var(--bg2); border-color: var(--ink3); }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
@@ -473,12 +455,9 @@ const rest     = allPosts.slice(4);
 @media (max-width: 540px) {
   .card-grid { grid-template-columns: 1fr; }
 }
-@media (max-width: 460px) {
-  .article-link { grid-template-columns: 96px 1fr; gap: 12px; padding: 10px; }
-  .article-title { font-size: 0.88rem; }
-  .article-date { display: none; }
-}
 @media (max-width: 480px) {
   .masthead-inner, .featured-inner, .section-wrap { padding: 0 1rem; }
+  .article-scroll { padding-left: 1rem; padding-right: 1rem; }
+  .article-scroll-item { width: 200px; }
 }
 </style>
