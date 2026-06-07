@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+
+  <!-- 崩れるローマの柱 -->
+  <rect x="240" y="380" width="36" height="160" fill="#92400e" opacity="0.75"/>
+  <rect x="232" y="364" width="52" height="18" fill="#92400e" opacity="0.8"/>
+  <rect x="232" y="540" width="52" height="16" fill="#92400e" opacity="0.8"/>
+
+  <rect x="320" y="320" width="36" height="220" fill="#92400e" opacity="0.55"/>
+  <rect x="312" y="304" width="52" height="18" fill="#92400e" opacity="0.6"/>
+  <rect x="312" y="540" width="52" height="16" fill="#92400e" opacity="0.6"/>
+
+  <!-- 崩れて倒れた柱（傾き） -->
+  <g transform="rotate(18 470 480)">
+    <rect x="430" y="420" width="36" height="170" fill="#d6cdbf" opacity="0.8"/>
+    <rect x="422" y="404" width="52" height="18" fill="#d6cdbf" opacity="0.85"/>
+  </g>
+  <!-- 破片 -->
+  <rect x="540" y="556" width="34" height="14" fill="#d6cdbf" opacity="0.7" transform="rotate(-12 557 563)"/>
+  <rect x="500" y="568" width="26" height="12" fill="#d6cdbf" opacity="0.6" transform="rotate(8 513 574)"/>
+
+  <!-- 下落するグラフ -->
+  <polyline points="700,330 780,360 860,400 940,460 1020,500 1100,560"
+            fill="none" stroke="#b45309" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+  <circle cx="700" cy="330" r="6" fill="#fbbf24"/>
+  <circle cx="1100" cy="560" r="6" fill="#92400e"/>
+  <line x1="700" y1="600" x2="1100" y2="600" stroke="#e8e0d4" stroke-width="2"/>
+  <line x1="700" y1="600" x2="700" y2="320" stroke="#e8e0d4" stroke-width="2"/>
+
+  <!-- カテゴリラベル -->
+  <rect x="700" y="170" width="120" height="36" rx="18" fill="#fef3c7" stroke="#fde68a"/>
+  <text x="760" y="194" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="1">投資・お金</text>
+
+  <!-- タイトル -->
+  <text x="700" y="252" font-family="'Shippori Mincho', serif" font-size="32" font-weight="700" fill="#1c1917" letter-spacing="1">ローマ帝国の</text>
+  <text x="700" y="298" font-family="'Shippori Mincho', serif" font-size="32" font-weight="700" fill="#1c1917" letter-spacing="1">財政崩壊に学ぶ</text>
+
+  <text x="100" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+</svg>
