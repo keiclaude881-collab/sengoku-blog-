@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+
+  <!-- 古い枠が崩れ、新しい形へ移っていくイメージ -->
+  <g transform="translate(330,210)">
+    <rect x="-110" y="-90" width="180" height="180" rx="6" fill="none" stroke="#c4b5fd" stroke-width="2.5" opacity="0.5" transform="rotate(-9)"/>
+    <line x1="-150" y1="-130" x2="-30" y2="-10" stroke="#c4b5fd" stroke-width="2" opacity="0.4"/>
+    <line x1="100" y1="-150" x2="-20" y2="-30" stroke="#c4b5fd" stroke-width="2" opacity="0.4"/>
+    <line x1="120" y1="100" x2="0" y2="-20" stroke="#c4b5fd" stroke-width="2" opacity="0.4"/>
+  </g>
+
+  <g transform="translate(640,210)">
+    <rect x="-70" y="-70" width="140" height="140" rx="10" fill="none" stroke="#6b21a8" stroke-width="3.5"/>
+    <circle cx="0" cy="0" r="14" fill="#6b21a8"/>
+  </g>
+
+  <path d="M 470 210 L 540 210" stroke="#a855f7" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow)" opacity="0.8"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L7,3 z" fill="#a855f7"/>
+    </marker>
+  </defs>
+</svg>

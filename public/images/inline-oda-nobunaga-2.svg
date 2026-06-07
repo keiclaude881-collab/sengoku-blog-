@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+
+  <!-- 「立場(冠)」より「機能(歯車)」を選ぶイメージ -->
+  <g transform="translate(360,210)" opacity="0.4">
+    <path d="M -60 30 L -60 -10 L -36 10 L -12 -26 L 12 10 L 36 -26 L 60 10 L 60 30 Z" fill="none" stroke="#c4b5fd" stroke-width="3"/>
+    <circle cx="-36" cy="-32" r="5" fill="#c4b5fd"/>
+    <circle cx="0" cy="-32" r="5" fill="#c4b5fd"/>
+    <circle cx="36" cy="-32" r="5" fill="#c4b5fd"/>
+  </g>
+
+  <g transform="translate(660,210)">
+    <circle cx="0" cy="0" r="58" fill="none" stroke="#6b21a8" stroke-width="3.5"/>
+    <circle cx="0" cy="0" r="20" fill="none" stroke="#6b21a8" stroke-width="3.5"/>
+    <g stroke="#6b21a8" stroke-width="6" stroke-linecap="round">
+      <line x1="0" y1="-58" x2="0" y2="-72"/>
+      <line x1="0" y1="58" x2="0" y2="72"/>
+      <line x1="-58" y1="0" x2="-72" y2="0"/>
+      <line x1="58" y1="0" x2="72" y2="0"/>
+      <line x1="-41" y1="-41" x2="-51" y2="-51"/>
+      <line x1="41" y1="41" x2="51" y2="51"/>
+      <line x1="-41" y1="41" x2="-51" y2="51"/>
+      <line x1="41" y1="-41" x2="51" y2="-51"/>
+    </g>
+  </g>
+
+  <path d="M 470 210 L 540 210" stroke="#a855f7" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow2)" opacity="0.8"/>
+  <defs>
+    <marker id="arrow2" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L7,3 z" fill="#a855f7"/>
+    </marker>
+  </defs>
+</svg>

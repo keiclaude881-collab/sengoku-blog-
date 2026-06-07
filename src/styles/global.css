@@ -94,6 +94,18 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .prose table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.prose img {
+  border-radius: var(--radius);
+  margin: 2.4rem 0;
+}
+.prose figure { margin: 2.4rem 0; }
+.prose figure img { margin: 0; }
+.prose figcaption {
+  margin-top: 0.7rem;
+  font-size: 0.8rem;
+  color: var(--ink3);
+  text-align: center;
+}
 
 main {
   flex: 1;
