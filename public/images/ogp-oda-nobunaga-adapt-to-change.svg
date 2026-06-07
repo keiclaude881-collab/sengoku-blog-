@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#faf7ff"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+
+  <!-- 古い形が崩れ、新しい形へ移り変わるイメージ(変化適応) -->
+  <g transform="translate(350,440)" opacity="0.75">
+    <rect x="-86" y="-86" width="120" height="120" rx="6" fill="none" stroke="#c4b5fd" stroke-width="2.5" opacity="0.55" transform="rotate(-10)"/>
+    <path d="M 10 -70 L 110 -70 L 110 30 L 10 30 Z" fill="none" stroke="#6b21a8" stroke-width="3"/>
+    <circle cx="60" cy="-20" r="9" fill="#6b21a8" opacity="0.7"/>
+    <path d="M -86 86 L 60 -60" stroke="#a855f7" stroke-width="2" stroke-dasharray="6 7" opacity="0.5"/>
+  </g>
+
+  <!-- 鋭く伸びる矢印(時代を切り開くイメージ) -->
+  <g transform="translate(870,400)" opacity="0.7">
+    <path d="M -90 70 L 80 -80" stroke="#6b21a8" stroke-width="4" stroke-linecap="round"/>
+    <path d="M 80 -80 L 50 -78 M 80 -80 L 78 -50" stroke="#6b21a8" stroke-width="4" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <!-- カテゴリラベル -->
+  <rect x="700" y="170" width="148" height="36" rx="18" fill="#f3e8ff" stroke="#e9d5ff"/>
+  <text x="774" y="194" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#6b21a8" text-anchor="middle" letter-spacing="1">思考法 / 戦略</text>
+
+  <!-- タイトル -->
+  <text x="700" y="262" font-family="'Shippori Mincho', serif" font-size="30" font-weight="700" fill="#1c1917" letter-spacing="1">織田信長に学ぶ</text>
+  <text x="700" y="304" font-family="'Shippori Mincho', serif" font-size="30" font-weight="700" fill="#1c1917" letter-spacing="1">「常識を壊す」変化適応力</text>
+
+  <text x="100" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+</svg>
