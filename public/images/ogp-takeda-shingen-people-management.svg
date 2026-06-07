@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f7faff"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#dbeafe" stroke-width="2"/>
+
+  <!-- 「人」が連なって石垣・城を成すイメージ(人は城、人は石垣、人は堀) -->
+  <g transform="translate(360,440)" opacity="0.85">
+    <g transform="translate(-96,-12)">
+      <circle cx="0" cy="-34" r="13" fill="#1e40af" opacity="0.7"/>
+      <path d="M -16 6 Q 0 -16 16 6 L 16 30 L -16 30 Z" fill="#1e40af" opacity="0.6"/>
+    </g>
+    <g transform="translate(-32,-12)">
+      <circle cx="0" cy="-34" r="13" fill="#1e40af" opacity="0.7"/>
+      <path d="M -16 6 Q 0 -16 16 6 L 16 30 L -16 30 Z" fill="#1e40af" opacity="0.6"/>
+    </g>
+    <g transform="translate(32,-12)">
+      <circle cx="0" cy="-34" r="13" fill="#1e40af" opacity="0.7"/>
+      <path d="M -16 6 Q 0 -16 16 6 L 16 30 L -16 30 Z" fill="#1e40af" opacity="0.6"/>
+    </g>
+    <g transform="translate(96,-12)">
+      <circle cx="0" cy="-34" r="13" fill="#1e40af" opacity="0.7"/>
+      <path d="M -16 6 Q 0 -16 16 6 L 16 30 L -16 30 Z" fill="#1e40af" opacity="0.6"/>
+    </g>
+    <rect x="-130" y="40" width="260" height="14" rx="4" fill="#1e3a8a" opacity="0.35"/>
+    <rect x="-110" y="58" width="220" height="12" rx="4" fill="#1e3a8a" opacity="0.25"/>
+  </g>
+
+  <!-- 風林火山の旗を象徴する四つの帯 -->
+  <g transform="translate(870,400)" opacity="0.6">
+    <rect x="-70" y="-90" width="26" height="180" rx="4" fill="#1e40af" opacity="0.5"/>
+    <rect x="-32" y="-90" width="26" height="180" rx="4" fill="#3b82f6" opacity="0.45"/>
+    <rect x="6" y="-90" width="26" height="180" rx="4" fill="#dc2626" opacity="0.4"/>
+    <rect x="44" y="-90" width="26" height="180" rx="4" fill="#1e3a8a" opacity="0.5"/>
+  </g>
+
+  <!-- カテゴリラベル -->
+  <rect x="700" y="170" width="148" height="36" rx="18" fill="#dbeafe" stroke="#bfdbfe"/>
+  <text x="774" y="194" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#1e40af" text-anchor="middle" letter-spacing="1">仕事・副業 / 戦略</text>
+
+  <!-- タイトル -->
+  <text x="700" y="262" font-family="'Shippori Mincho', serif" font-size="30" font-weight="700" fill="#1c1917" letter-spacing="1">武田信玄に学ぶ</text>
+  <text x="700" y="304" font-family="'Shippori Mincho', serif" font-size="30" font-weight="700" fill="#1c1917" letter-spacing="1">「人を活かす」マネジメント</text>
+
+  <text x="100" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+</svg>
