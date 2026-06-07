@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#f7faff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#dbeafe" stroke-width="2"/>
+  <!-- 一つの源から、複数の道が枝分かれして広がるイメージ -->
+  <g transform="translate(370,210)">
+    <circle cx="0" cy="0" r="12" fill="#1e40af"/>
+    <path d="M 0 0 C 80 -70 180 -90 280 -110" stroke="#3b82f6" stroke-width="2.5" fill="none" opacity="0.7"/>
+    <path d="M 0 0 C 100 -10 200 -10 300 -10" stroke="#3b82f6" stroke-width="2.5" fill="none" opacity="0.7"/>
+    <path d="M 0 0 C 80 70 180 90 280 110" stroke="#3b82f6" stroke-width="2.5" fill="none" opacity="0.7"/>
+    <circle cx="280" cy="-110" r="8" fill="#3b82f6"/>
+    <circle cx="300" cy="-10" r="8" fill="#3b82f6"/>
+    <circle cx="280" cy="110" r="8" fill="#3b82f6"/>
+  </g>
+</svg>

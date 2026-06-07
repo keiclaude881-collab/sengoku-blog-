@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#f7faff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#dbeafe" stroke-width="2"/>
+  <!-- 身の丈を計る天秤(分度・推譲)のイメージ -->
+  <g transform="translate(500,180)" stroke="#1e40af" stroke-width="2.5" opacity="0.8">
+    <line x1="0" y1="-50" x2="0" y2="90"/>
+    <line x1="-110" y1="-30" x2="110" y2="-30"/>
+    <path d="M -110 -30 L -130 30 L -90 30 Z" fill="none"/>
+    <path d="M 110 -30 L 90 30 L 130 30 Z" fill="none"/>
+    <circle cx="0" cy="-30" r="6" fill="#1e40af"/>
+  </g>
+  <rect x="460" y="270" width="80" height="14" rx="4" fill="#3b82f6" opacity="0.6"/>
+  <rect x="440" y="288" width="120" height="12" rx="4" fill="#1e40af" opacity="0.45"/>
+</svg>

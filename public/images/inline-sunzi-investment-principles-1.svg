@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <!-- 盾(守り)の奥で、着実に右肩上がりに育つ資産 -->
+  <g transform="translate(420,210)">
+    <path d="M 0 -96 L 64 -70 L 64 16 C 64 70 32 100 0 112 C -32 100 -64 70 -64 16 L -64 -70 Z" fill="none" stroke="#92400e" stroke-width="3" stroke-linejoin="round" opacity="0.8"/>
+    <path d="M -34 30 L -10 0 L 14 18 L 38 -28" stroke="#b45309" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="38" cy="-28" r="6" fill="#b45309"/>
+  </g>
+</svg>

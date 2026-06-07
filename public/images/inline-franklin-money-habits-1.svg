@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <!-- 一滴ずつ積み重なり、瓶を満たしていくイメージ -->
+  <g transform="translate(440,230)">
+    <path d="M -60 -110 L -60 -70 L -84 80 Q -84 100 -60 100 L 60 100 Q 84 100 84 80 L 60 -70 L 60 -110 Z" fill="none" stroke="#92400e" stroke-width="3" stroke-linejoin="round"/>
+    <line x1="-72" y1="-110" x2="72" y2="-110" stroke="#92400e" stroke-width="3" stroke-linecap="round"/>
+    <rect x="-78" y="20" width="156" height="58" rx="4" fill="#f59e0b" opacity="0.55"/>
+    <circle cx="0" cy="-40" r="6" fill="#b45309"/>
+    <circle cx="14" cy="-10" r="6" fill="#b45309"/>
+    <circle cx="-12" cy="6" r="6" fill="#b45309"/>
+  </g>
+  <g stroke="#d97706" stroke-width="2.5" opacity="0.7">
+    <path d="M 600 80 L 600 250" stroke-dasharray="3 6"/>
+    <path d="M 660 60 L 660 250" stroke-dasharray="3 6"/>
+    <path d="M 720 100 L 720 250" stroke-dasharray="3 6"/>
+  </g>
+</svg>

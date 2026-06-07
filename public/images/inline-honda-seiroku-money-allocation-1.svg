@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <!-- 一本の流れが、「貯める」と「活かして使う」に分かれていくイメージ -->
+  <g transform="translate(360,210)">
+    <circle cx="0" cy="0" r="10" fill="#92400e"/>
+    <path d="M 0 0 C 90 -50 180 -60 280 -70" stroke="#b45309" stroke-width="2.5" fill="none" opacity="0.7"/>
+    <path d="M 0 0 C 90 50 180 60 280 70" stroke="#b45309" stroke-width="2.5" fill="none" opacity="0.7"/>
+  </g>
+  <g transform="translate(640,140)">
+    <rect x="-34" y="-26" width="68" height="52" rx="6" fill="none" stroke="#92400e" stroke-width="2.5"/>
+    <text x="0" y="6" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#92400e" text-anchor="middle">貯</text>
+  </g>
+  <g transform="translate(640,280)">
+    <circle cx="-34" cy="0" r="22" fill="#f59e0b" opacity="0.55"/>
+    <circle cx="0" cy="0" r="22" fill="#d97706" opacity="0.55"/>
+    <circle cx="34" cy="0" r="22" fill="#b45309" opacity="0.55"/>
+  </g>
+</svg>

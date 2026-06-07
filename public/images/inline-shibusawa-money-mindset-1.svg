@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <!-- 道徳(本)と算盤(お金)を釣り合わせる天秤 -->
+  <g transform="translate(500,180)" stroke="#92400e" stroke-width="2.5" opacity="0.8">
+    <line x1="0" y1="-50" x2="0" y2="90"/>
+    <line x1="-110" y1="-30" x2="110" y2="-30"/>
+    <path d="M -110 -30 L -130 26 L -90 26 Z" fill="none"/>
+    <path d="M 110 -30 L 90 26 L 130 26 Z" fill="none"/>
+    <circle cx="0" cy="-30" r="6" fill="#92400e"/>
+  </g>
+  <rect x="-128" y="6" width="36" height="28" rx="3" fill="none" stroke="#92400e" stroke-width="2" transform="translate(500,180)"/>
+  <circle cx="610" cy="216" r="15" fill="#b45309" opacity="0.6"/>
+  <circle cx="630" cy="216" r="15" fill="#d97706" opacity="0.55"/>
+</svg>

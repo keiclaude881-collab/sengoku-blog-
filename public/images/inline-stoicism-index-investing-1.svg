@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+  <!-- 荒れる線(市場の上下動)の中心に、静かに揺るがない円 -->
+  <path d="M 230 280 L 310 180 L 380 250 L 460 140 L 540 230 L 620 120 L 700 260 L 780 170" stroke="#8b5cf6" stroke-width="3" fill="none" opacity="0.75"/>
+  <circle cx="500" cy="210" r="40" fill="none" stroke="#6b21a8" stroke-width="3.5"/>
+  <circle cx="500" cy="210" r="10" fill="#6b21a8"/>
+</svg>

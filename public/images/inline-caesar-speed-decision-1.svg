@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+  <!-- 迷いの霧の中を、迷わず一直線に進む矢 -->
+  <g opacity="0.7">
+    <circle cx="330" cy="150" r="9" fill="#8b5cf6"/>
+    <circle cx="380" cy="260" r="6" fill="#8b5cf6"/>
+    <circle cx="300" cy="290" r="7" fill="#8b5cf6"/>
+    <circle cx="420" cy="180" r="5" fill="#8b5cf6"/>
+    <circle cx="270" cy="210" r="6" fill="#8b5cf6"/>
+  </g>
+  <path d="M 280 320 L 700 130" stroke="#6b21a8" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 700 130 L 668 136 M 700 130 L 692 160" stroke="#6b21a8" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <circle cx="280" cy="320" r="8" fill="#6b21a8"/>
+</svg>

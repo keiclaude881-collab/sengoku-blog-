@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+  <!-- 開いた本から、芽が育っていくイメージ -->
+  <g transform="translate(500,260)">
+    <path d="M -120 30 L 0 6 L 120 30 L 120 50 L 0 28 L -120 50 Z" fill="none" stroke="#6b21a8" stroke-width="3" stroke-linejoin="round"/>
+    <line x1="0" y1="6" x2="0" y2="28" stroke="#6b21a8" stroke-width="2.5"/>
+    <path d="M 0 6 C -16 -40 -50 -56 -64 -90" stroke="#a855f7" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8"/>
+    <ellipse cx="-72" cy="-98" rx="16" ry="9" fill="#8b5cf6" opacity="0.85" transform="rotate(-30 -72 -98)"/>
+    <ellipse cx="-50" cy="-78" rx="13" ry="7" fill="#8b5cf6" opacity="0.75" transform="rotate(20 -50 -78)"/>
+  </g>
+</svg>

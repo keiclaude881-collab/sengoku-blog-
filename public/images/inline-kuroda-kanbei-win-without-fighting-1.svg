@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#f7faff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#dbeafe" stroke-width="2"/>
+  <!-- 衝突せず、静かに着地点へ収まっていく二つの円 -->
+  <g opacity="0.85">
+    <circle cx="380" cy="210" r="64" fill="none" stroke="#3b82f6" stroke-width="3"/>
+    <circle cx="560" cy="210" r="48" fill="none" stroke="#1e40af" stroke-width="3"/>
+    <path d="M 444 210 C 480 180 500 180 512 210" stroke="#93c5fd" stroke-width="2.5" stroke-dasharray="5 6" fill="none"/>
+  </g>
+  <circle cx="470" cy="210" r="6" fill="#1e40af" opacity="0.7"/>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <!-- ひびの入った柱と、右肩下がりの線(崩壊への過程) -->
+  <g transform="translate(380,210)" stroke="#92400e" stroke-width="3" opacity="0.75">
+    <line x1="-50" y1="-110" x2="-50" y2="110"/>
+    <line x1="50" y1="-110" x2="50" y2="110"/>
+    <line x1="-66" y1="-110" x2="66" y2="-110"/>
+    <line x1="-66" y1="110" x2="66" y2="110"/>
+    <path d="M -20 -110 L -6 -50 L -28 10 L -10 110" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.6"/>
+  </g>
+  <path d="M 600 130 L 670 180 L 720 170 L 800 280" stroke="#b45309" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <circle cx="800" cy="280" r="7" fill="#b45309"/>
+</svg>
