@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#faf8fc"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#ecdffa" stroke-width="2"/>
+
+  <!-- 月桂冠のシルエット -->
+  <g transform="translate(330,330)" opacity="0.8">
+    <circle cx="0" cy="0" r="80" fill="none" stroke="#9333ea" stroke-width="6" opacity="0.5"/>
+    <path d="M -56 -50 Q -90 -10 -56 50" fill="none" stroke="#6b21a8" stroke-width="5" opacity="0.7" stroke-linecap="round"/>
+    <path d="M 56 -50 Q 90 -10 56 50" fill="none" stroke="#6b21a8" stroke-width="5" opacity="0.7" stroke-linecap="round"/>
+    <ellipse cx="-66" cy="-28" rx="9" ry="16" fill="#6b21a8" opacity="0.6" transform="rotate(-30 -66 -28)"/>
+    <ellipse cx="-78" cy="6" rx="9" ry="16" fill="#6b21a8" opacity="0.6" transform="rotate(-5 -78 6)"/>
+    <ellipse cx="-66" cy="36" rx="9" ry="16" fill="#6b21a8" opacity="0.6" transform="rotate(25 -66 36)"/>
+    <ellipse cx="66" cy="-28" rx="9" ry="16" fill="#6b21a8" opacity="0.6" transform="rotate(30 66 -28)"/>
+    <ellipse cx="78" cy="6" rx="9" ry="16" fill="#6b21a8" opacity="0.6" transform="rotate(5 78 6)"/>
+    <ellipse cx="66" cy="36" rx="9" ry="16" fill="#6b21a8" opacity="0.6" transform="rotate(-25 66 36)"/>
+  </g>
+
+  <!-- スピード線（速さの象徴） -->
+  <g stroke="#9333ea" stroke-width="5" stroke-linecap="round" opacity="0.55">
+    <line x1="640" y1="380" x2="760" y2="380"/>
+    <line x1="640" y1="410" x2="730" y2="410"/>
+    <line x1="640" y1="440" x2="700" y2="440"/>
+  </g>
+  <path d="M 760 350 L 830 380 L 760 410 Z" fill="#6b21a8" opacity="0.7"/>
+
+  <!-- カテゴリラベル -->
+  <rect x="660" y="180" width="100" height="36" rx="18" fill="#f3e8ff" stroke="#e9d5ff"/>
+  <text x="710" y="204" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#6b21a8" text-anchor="middle" letter-spacing="1">思考法</text>
+
+  <!-- タイトル -->
+  <text x="660" y="280" font-family="'Shippori Mincho', serif" font-size="32" font-weight="700" fill="#1c1917" letter-spacing="1">カエサルの「速さ」</text>
+  <text x="660" y="324" font-family="'Shippori Mincho', serif" font-size="32" font-weight="700" fill="#1c1917" letter-spacing="1">に学ぶ意思決定</text>
+
+  <text x="100" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+</svg>
