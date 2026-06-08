@@ -6,20 +6,13 @@
   <rect x="0" y="0" width="10" height="630" fill="#92400e"/>
 
   <!-- フラスコアイコン（中央・大きく） -->
-  <g transform="translate(600, 235)">
-    <path d="M -52 -118 L -52 -10 L -134 122 Q -154 162 -114 176 L 114 176 Q 154 162 134 122 L 52 -10 L 52 -118 Z"
-          fill="none" stroke="#92400e" stroke-width="11" stroke-linejoin="round"/>
-    <path d="M -106 88 Q -128 140 -104 168 L 104 168 Q 128 140 106 88 L 48 -8 L -48 -8 Z"
+  <g transform="translate(600, 315)">
+    <path d="M -68 -154 L -68 -14 L -174 158 Q -200 210 -148 228 L 148 228 Q 200 210 174 158 L 68 -14 L 68 -154 Z"
+          fill="none" stroke="#92400e" stroke-width="14" stroke-linejoin="round"/>
+    <path d="M -138 114 Q -166 182 -136 218 L 136 218 Q 166 182 138 114 L 62 -10 L -62 -10 Z"
           fill="#f59e0b" opacity="0.85"/>
-    <circle cx="-32" cy="118" r="15" fill="#92400e" opacity="0.55"/>
-    <circle cx="30" cy="142" r="10" fill="#92400e" opacity="0.4"/>
-    <line x1="-80" y1="-118" x2="80" y2="-118" stroke="#92400e" stroke-width="11" stroke-linecap="round"/>
+    <circle cx="-42" cy="153" r="19" fill="#92400e" opacity="0.55"/>
+    <circle cx="39" cy="184" r="13" fill="#92400e" opacity="0.4"/>
+    <line x1="-104" y1="-154" x2="104" y2="-154" stroke="#92400e" stroke-width="14" stroke-linecap="round"/>
   </g>
-
-  <!-- メインタイトル -->
-  <text x="600" y="498" text-anchor="middle" font-family="serif" font-size="78" font-weight="800" fill="#1c1917" letter-spacing="8">偉人ラボ</text>
-  <!-- アンバーアクセント -->
-  <rect x="560" y="524" width="80" height="4" rx="2" fill="#f59e0b"/>
-  <!-- タグライン -->
-  <text x="600" y="568" text-anchor="middle" font-family="sans-serif" font-size="26" fill="#78716c" letter-spacing="1">歴史の偉人が、現代の問題を解決する。</text>
 </svg>
