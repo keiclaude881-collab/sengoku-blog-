@@ -1,47 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e1b4b"/>
-      <stop offset="100%" style="stop-color:#4C1D95"/>
-    </linearGradient>
-    <linearGradient id="text-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#EDE9FE"/>
-      <stop offset="100%" style="stop-color:#C4B5FD"/>
-    </linearGradient>
-  </defs>
   <!-- 背景 -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <!-- グリッドライン（ラボ感） -->
-  <g stroke="rgba(124,58,237,0.15)" stroke-width="1">
-    <line x1="0" y1="105" x2="1200" y2="105"/>
-    <line x1="0" y1="210" x2="1200" y2="210"/>
-    <line x1="0" y1="315" x2="1200" y2="315"/>
-    <line x1="0" y1="420" x2="1200" y2="420"/>
-    <line x1="0" y1="525" x2="1200" y2="525"/>
-    <line x1="200" y1="0" x2="200" y2="630"/>
-    <line x1="400" y1="0" x2="400" y2="630"/>
-    <line x1="600" y1="0" x2="600" y2="630"/>
-    <line x1="800" y1="0" x2="800" y2="630"/>
-    <line x1="1000" y1="0" x2="1000" y2="630"/>
-  </g>
+  <rect width="1200" height="630" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e8e0d4" stroke-width="3"/>
   <!-- アクセント線 -->
-  <rect x="0" y="0" width="6" height="630" fill="#7C3AED"/>
+  <rect x="0" y="0" width="10" height="630" fill="#92400e"/>
+
   <!-- フラスコアイコン -->
-  <g transform="translate(80, 180)">
-    <path d="M40 0 L40 60 L10 110 Q5 125 20 130 L100 130 Q115 125 110 110 L80 60 L80 0 Z"
-          fill="none" stroke="#F59E0B" stroke-width="6" stroke-linejoin="round"/>
-    <path d="M20 100 Q15 120 22 127 L98 127 Q105 120 100 100 L82 55 Z"
-          fill="#F59E0B" opacity="0.3"/>
-    <circle cx="45" cy="108" r="6" fill="#F59E0B" opacity="0.8"/>
-    <circle cx="68" cy="118" r="4" fill="#F59E0B" opacity="0.6"/>
-    <line x1="28" y1="0" x2="92" y2="0" stroke="#F59E0B" stroke-width="6" stroke-linecap="round"/>
+  <g transform="translate(245, 290)">
+    <path d="M -34 -106 L -34 -10 L -92 86 Q -106 116 -78 126 L 78 126 Q 106 116 92 86 L 34 -10 L 34 -106 Z"
+          fill="none" stroke="#92400e" stroke-width="9" stroke-linejoin="round"/>
+    <path d="M -72 64 Q -88 102 -72 120 L 72 120 Q 88 102 72 64 L 32 -8 L -32 -8 Z"
+          fill="#f59e0b" opacity="0.85"/>
+    <circle cx="-22" cy="86" r="11" fill="#92400e" opacity="0.55"/>
+    <circle cx="20" cy="102" r="7" fill="#92400e" opacity="0.4"/>
+    <line x1="-54" y1="-106" x2="54" y2="-106" stroke="#92400e" stroke-width="9" stroke-linecap="round"/>
   </g>
+
   <!-- メインタイトル -->
-  <text x="240" y="270" font-family="serif" font-size="90" font-weight="bold" fill="url(#text-grad)" letter-spacing="8">偉人ラボ</text>
+  <text x="430" y="285" font-family="serif" font-size="92" font-weight="800" fill="#1c1917" letter-spacing="6">偉人ラボ</text>
   <!-- サブタイトル -->
-  <text x="243" y="340" font-family="sans-serif" font-size="28" fill="rgba(196,181,253,0.8)" letter-spacing="2">IJIN LAB</text>
-  <!-- タグライン -->
-  <text x="243" y="420" font-family="sans-serif" font-size="32" fill="rgba(255,255,255,0.65)">歴史の偉人が、現代の問題を解決する。</text>
+  <text x="433" y="330" font-family="sans-serif" font-size="26" fill="#a8a29e" letter-spacing="3">IJIN LAB</text>
   <!-- アンバーアクセント -->
-  <rect x="243" y="370" width="60" height="3" rx="2" fill="#F59E0B"/>
+  <rect x="433" y="358" width="64" height="4" rx="2" fill="#f59e0b"/>
+  <!-- タグライン -->
+  <text x="433" y="408" font-family="sans-serif" font-size="30" fill="#78716c">歴史の偉人が、現代の問題を解決する。</text>
 </svg>
