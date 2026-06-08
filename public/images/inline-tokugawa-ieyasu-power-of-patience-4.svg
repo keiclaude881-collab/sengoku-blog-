@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <!-- 複数の道の中から、一つの道を選び取るイメージ -->
+  <g stroke="#92400e" stroke-width="3" fill="none" stroke-linecap="round">
+    <circle cx="300" cy="320" r="9" fill="#92400e"/>
+    <!-- 選ばれなかった道 -->
+    <path d="M 300 320 Q 470 260 700 140" stroke="#d97706" stroke-dasharray="4 8" opacity="0.45"/>
+    <path d="M 300 320 Q 480 360 720 360" stroke="#d97706" stroke-dasharray="4 8" opacity="0.45"/>
+    <!-- 選ばれた道(実線・太い) -->
+    <path d="M 300 320 Q 470 240 720 232" stroke="#92400e" stroke-width="4"/>
+    <path d="M 720 232 L 700 222 M 720 232 L 706 248"/>
+  </g>
+  <g fill="#f59e0b">
+    <circle cx="700" cy="140" r="6" opacity="0.4"/>
+    <circle cx="720" cy="360" r="6" opacity="0.4"/>
+    <circle cx="730" cy="226" r="9"/>
+  </g>
+</svg>
