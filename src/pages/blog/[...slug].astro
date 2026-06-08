@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import AuthorProfile from "../../components/AuthorProfile.astro";
 
 const LABELS: Record<string, string> = {
   money:   "投資・お金",
@@ -87,10 +88,16 @@ function fmt(d: Date) {
     <!-- Body -->
     <div class="prose">
 
-      <!-- TOC (inline box) -->
+      <!-- TOC (collapsible) -->
       {toc.length > 0 && (
-        <nav class="toc-box" aria-label="目次">
-          <p class="toc-box-label">目次</p>
+        <details class="toc-box" open>
+          <summary class="toc-box-summary">
+            <span class="toc-box-label">
+              <span class="toc-box-icon" aria-hidden="true">☰</span>
+              目次
+            </span>
+            <span class="toc-box-toggle" aria-hidden="true"></span>
+          </summary>
           <ol class="toc-box-list">
             {toc.map(h => (
               <li>
@@ -98,7 +105,7 @@ function fmt(d: Date) {
               </li>
             ))}
           </ol>
-        </nav>
+        </details>
       )}
 
       <Content />
@@ -134,6 +141,8 @@ function fmt(d: Date) {
         </ul>
       </section>
     )}
+
+    <AuthorProfile />
 
   </div>
 </article>
@@ -237,28 +246,59 @@ function fmt(d: Date) {
   scroll-margin-top: calc(var(--nav-height) + 1.2rem);
 }
 
-/* ── TOC (inline box) ── */
+/* Highlighter-style emphasis for key passages */
+.prose :global(mark) {
+  background: linear-gradient(transparent 60%, #fde68a 60%);
+  color: var(--ink);
+  padding: 0 0.1em;
+}
+
+/* ── TOC (collapsible box) ── */
 .toc-box {
   background: var(--bg2);
   border: 1px solid var(--ink3);
   border-radius: var(--radius);
-  padding: 1.4rem 1.6rem;
+  padding: 0 1.6rem;
   margin: 0 0 2.4rem;
 }
-.toc-box-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink);
-  margin-bottom: 0.9rem;
+.toc-box[open] { padding-bottom: 1.4rem; }
+.toc-box-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
 }
+.toc-box-summary::-webkit-details-marker { display: none; }
+.toc-box-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+}
+.toc-box-icon { font-size: 0.9rem; }
+.toc-box-toggle {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--ink3);
+}
+.toc-box-toggle::before { content: "閉じる"; }
+.toc-box:not([open]) .toc-box-toggle::before { content: "開く"; }
 .toc-box-list {
   list-style: none;
   counter-reset: toc-box;
   display: flex;
   flex-direction: column;
   gap: 0.55rem;
+  margin: 0;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
 }
 .toc-box-list li {
   counter-increment: toc-box;

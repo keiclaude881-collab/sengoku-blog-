@@ -10,6 +10,9 @@ featured: false
 ---
 
 import AffiliateCard from "../../components/AffiliateCard.astro";
+import CompareTable from "../../components/CompareTable.astro";
+import FukidashiBox from "../../components/FukidashiBox.astro";
+import InlineRecommend from "../../components/InlineRecommend.astro";
 
 ## バフェットが「最も尊敬する人」と言った男
 
@@ -30,7 +33,7 @@ import AffiliateCard from "../../components/AffiliateCard.astro";
 
 フランクリンの言葉：「収入が1シリングでも、支出が19ペンスなら幸福。収入が20シリングでも、支出が1ポンドなら悲惨。」
 
-現代語に翻訳すると：**収入の範囲内で生活し、差額を投資に回せ。**
+現代語に翻訳すると：<mark>収入の範囲内で生活し、差額を投資に回せ。</mark>
 
 これは当たり前に聞こえるが、実践できている人は少ない。サブスクリプションの積み重ね、コンビニの小遣い、外食費——日本の平均的な会社員の「見えない支出」は月2〜5万円に達することが多い。
 
@@ -59,6 +62,32 @@ import AffiliateCard from "../../components/AffiliateCard.astro";
 
 5年の差が600万円の差を生む。フランクリンが「時は金なり」と言ったのは、まさにこのことだ。
 
+<FukidashiBox type="question" speaker="よくある疑問" text="でも、たった5年の差でそんなに変わるものなの？" />
+<FukidashiBox type="answer" speaker="複利のしくみ" text="変わる。複利は「時間×利率」で雪だるま式に増えるから、スタート地点が早いほど雪だるまが転がる距離が長くなる。差が開くのは終盤——つまり『始めるのが早い人』ほど、後から逆転されにくい。" />
+
+<CompareTable
+  left={{
+    label: "30歳から始めた人",
+    color: "blue",
+    points: [
+      "毎月3万円を30年間積立",
+      "複利の効果を最大限に享受",
+      "60歳時点で約2,500万円に到達"
+    ]
+  }}
+  right={{
+    label: "40歳から始めた人",
+    color: "orange",
+    points: [
+      "毎月3万円を20年間積立",
+      "複利が効き始める前に期間が終了",
+      "60歳時点で約1,400万円にとどまる"
+    ]
+  }}
+/>
+
+同じ「毎月3万円」でも、始めた年齢だけで1,000万円以上の差が生まれる。フランクリンの「時は金なり」は、精神論ではなく、複利という数字の現実だったわけだ。
+
 ### 習慣③：自己投資を最優先にせよ
 
 フランクリンが最も重視した投資は、株でも不動産でもなく「知識への投資」だった。
@@ -71,6 +100,8 @@ import AffiliateCard from "../../components/AffiliateCard.astro";
 - 英語・プログラミングなど市場価値を高めるスキル
 
 フランクリン自身、独学でフランス語・ラテン語・スペイン語を習得し、科学・哲学・経済学を学んだ。その知識が、最終的に大きな富と影響力につながった。
+
+<InlineRecommend slug="honda-seiroku-money-allocation" label="あわせて読みたい" />
 
 ## バフェットが引き継いだもの
 

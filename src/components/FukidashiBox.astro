@@ -8,78 +8,75 @@ const { speaker, text, type = "narrator" } = Astro.props;
 ---
 
 <div class:list={["fukidashi", `fukidashi--${type}`]}>
-  {speaker && <span class="fukidashi-speaker">{speaker}</span>}
-  <p class="fukidashi-text">{text}</p>
+  <span class="fukidashi-icon" aria-hidden="true">{type === "question" ? "Q" : type === "answer" ? "A" : "💬"}</span>
+  <div class="fukidashi-body">
+    {speaker && <span class="fukidashi-speaker">{speaker}</span>}
+    <p class="fukidashi-text">{text}</p>
+  </div>
 </div>
 
 <style>
   .fukidashi {
-    position: relative;
-    padding: 1rem 1.3rem;
-    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    padding: 1.1rem 1.3rem;
+    border-radius: var(--radius);
     margin: 1.4rem 0;
-    font-family: var(--font-serif);
-    font-size: 0.93rem;
-    line-height: 1.9;
   }
 
-  /* 吹き出し三角（左下） */
-  .fukidashi::before {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    left: 20px;
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
+  .fukidashi-icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1;
   }
 
-  /* narrator: 金色ベース */
-  .fukidashi--narrator {
-    background: rgba(212, 160, 23, 0.08);
-    border-left: 3px solid var(--amber, #d4a017);
-    color: var(--text, #1a1a1a);
-  }
-  .fukidashi--narrator::before {
-    border-top: 10px solid rgba(212, 160, 23, 0.15);
-  }
-
-  /* question: 薄青 */
-  .fukidashi--question {
-    background: rgba(59, 130, 246, 0.07);
-    border-left: 3px solid #3b82f6;
-    color: var(--text, #1a1a1a);
-  }
-  .fukidashi--question::before {
-    border-top: 10px solid rgba(59, 130, 246, 0.1);
-  }
-
-  /* answer: 深緑 */
-  .fukidashi--answer {
-    background: rgba(22, 101, 52, 0.07);
-    border-left: 3px solid #16a34a;
-    color: var(--text, #1a1a1a);
-  }
-  .fukidashi--answer::before {
-    border-top: 10px solid rgba(22, 101, 52, 0.1);
-  }
+  .fukidashi-body { min-width: 0; }
 
   .fukidashi-speaker {
-    display: inline-block;
-    font-family: var(--font-sans);
+    display: block;
     font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
-    color: var(--amber, #d4a017);
-    margin-bottom: 0.4rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.35rem;
     text-transform: uppercase;
   }
 
-  .fukidashi--question .fukidashi-speaker { color: #3b82f6; }
-  .fukidashi--answer  .fukidashi-speaker { color: #16a34a; }
-
   .fukidashi-text {
     margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.85;
+    color: var(--ink);
   }
+
+  /* narrator: ニュートラル */
+  .fukidashi--narrator {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+  }
+  .fukidashi--narrator .fukidashi-icon { background: var(--ink3); color: #fff; }
+  .fukidashi--narrator .fukidashi-speaker { color: var(--ink3); }
+
+  /* question: 薄青 */
+  .fukidashi--question {
+    background: rgba(59, 130, 246, 0.06);
+    border: 1px solid #bfdbfe;
+  }
+  .fukidashi--question .fukidashi-icon { background: #3b82f6; color: #fff; }
+  .fukidashi--question .fukidashi-speaker { color: #1e40af; }
+
+  /* answer: 薄緑 */
+  .fukidashi--answer {
+    background: rgba(34, 197, 94, 0.06);
+    border: 1px solid #bbf7d0;
+  }
+  .fukidashi--answer .fukidashi-icon { background: #22c55e; color: #fff; }
+  .fukidashi--answer .fukidashi-speaker { color: #166534; }
 </style>

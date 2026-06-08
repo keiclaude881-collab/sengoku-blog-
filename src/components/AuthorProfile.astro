@@ -1,0 +1,90 @@
+---
+---
+
+<div class="author-profile">
+  <img src="/images/profile-avatar.svg" alt="温故" class="author-avatar" />
+  <div class="author-body">
+    <p class="author-role">この記事を書いた人</p>
+    <p class="author-name">温故（おんこ）<span class="author-handle">| 偉人ラボ運営</span></p>
+    <p class="author-bio">
+      歴史上の偉人や思想家の言葉を読み込み、「お金」「キャリア」「思考法」のヒントに翻訳して発信中。
+      座右の銘は「温故知新」。古典や伝記を読みながら、現代の働き方・お金との付き合い方を模索しています。
+    </p>
+    <div class="author-links">
+      <a href="/contact/" class="author-link">お問い合わせ</a>
+      <a href="/" class="author-link">記事一覧へ</a>
+    </div>
+  </div>
+</div>
+
+<style>
+.author-profile {
+  display: flex;
+  gap: 1.4rem;
+  align-items: flex-start;
+  margin-top: 3rem;
+  padding: 1.6rem;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.author-avatar {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: block;
+}
+.author-body { min-width: 0; }
+.author-role {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin: 0 0 0.4rem;
+}
+.author-name {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 0.6rem;
+}
+.author-handle {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--ink3);
+  margin-left: 0.4rem;
+}
+.author-bio {
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: var(--ink2);
+  margin: 0 0 1rem;
+}
+.author-links {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+.author-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--border-mid);
+  border-radius: 100px;
+  transition: background 0.15s;
+}
+.author-link:hover { background: var(--bg3); }
+
+@media (max-width: 540px) {
+  .author-profile { flex-direction: column; align-items: center; text-align: center; }
+  .author-links { justify-content: center; }
+}
+</style>

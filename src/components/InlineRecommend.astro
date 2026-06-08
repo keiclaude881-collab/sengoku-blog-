@@ -1,0 +1,76 @@
+---
+import { getCollection } from "astro:content";
+
+interface Props {
+  slug: string;
+  label?: string;
+}
+const { slug, label = "あわせて読みたい" } = Astro.props;
+
+const posts = await getCollection("posts");
+const post = posts.find(p => p.id.replace(/\.mdx?$/, "") === slug);
+---
+
+{post && (
+  <a href={`/blog/${slug}/`} class="inline-rec">
+    <span class="inline-rec-label">{label}</span>
+    <div class="inline-rec-body">
+      {post.data.ogImage
+        ? <img src={post.data.ogImage} alt={post.data.title} loading="lazy" class="inline-rec-img" />
+        : <div class="inline-rec-img inline-rec-img--empty" />
+      }
+      <p class="inline-rec-title">{post.data.title}</p>
+    </div>
+  </a>
+)}
+
+<style>
+.inline-rec {
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: inherit;
+  margin: 2rem 0;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+.inline-rec:hover { border-color: var(--ink3); }
+.inline-rec-label {
+  display: block;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  background: var(--bg2);
+  padding: 0.5rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+}
+.inline-rec-body {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+}
+.inline-rec-img {
+  flex-shrink: 0;
+  width: 84px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+.inline-rec-img--empty { background: var(--bg3); }
+.inline-rec-title {
+  margin: 0;
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+@media (max-width: 560px) {
+  .inline-rec-img { width: 64px; height: 44px; }
+}
+</style>

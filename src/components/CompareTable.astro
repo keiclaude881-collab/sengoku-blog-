@@ -1,0 +1,100 @@
+---
+interface Side {
+  label: string;
+  color: "blue" | "orange" | "green" | "purple";
+  points: string[];
+}
+interface Props {
+  left: Side;
+  right: Side;
+}
+const { left, right } = Astro.props;
+---
+
+<div class="compare">
+  <div class={`compare-col compare-col--${left.color}`}>
+    <p class="compare-head">{left.label}</p>
+    <ol class="compare-list">
+      {left.points.map(p => <li>{p}</li>)}
+    </ol>
+  </div>
+  <div class={`compare-col compare-col--${right.color}`}>
+    <p class="compare-head">{right.label}</p>
+    <ol class="compare-list">
+      {right.points.map(p => <li>{p}</li>)}
+    </ol>
+  </div>
+</div>
+
+<style>
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 2rem 0;
+}
+.compare-col {
+  background: var(--bg);
+  padding: 1.4rem 1.5rem;
+}
+.compare-head {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 0.6rem 0.8rem;
+  border-radius: 100px;
+  margin: 0 0 1.2rem;
+  line-height: 1.5;
+}
+.compare-col--blue   .compare-head { background: #dbeafe; color: #1e40af; }
+.compare-col--orange .compare-head { background: #ffedd5; color: #9a3412; }
+.compare-col--green  .compare-head { background: #dcfce7; color: #166534; }
+.compare-col--purple .compare-head { background: #f3e8ff; color: #6b21a8; }
+
+.compare-list {
+  list-style: none;
+  counter-reset: compare;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+}
+.compare-list li {
+  counter-increment: compare;
+  position: relative;
+  padding-left: 1.8rem;
+  font-size: 0.84rem;
+  line-height: 1.7;
+  color: var(--ink2);
+}
+.compare-list li::before {
+  content: counter(compare);
+  position: absolute;
+  left: 0;
+  top: 0.05rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #fff;
+}
+.compare-col--blue   .compare-list li::before { background: #3b82f6; }
+.compare-col--orange .compare-list li::before { background: #f97316; }
+.compare-col--green  .compare-list li::before { background: #22c55e; }
+.compare-col--purple .compare-list li::before { background: #a855f7; }
+
+@media (max-width: 640px) {
+  .compare {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
