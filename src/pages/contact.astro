@@ -18,30 +18,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   <div class="container contact-body">
 
-    <!-- SNS -->
-    <section class="contact-section">
-      <p class="section-label">// QUICK CONTACT</p>
-      <h2>SNSで気軽に話しかけてください</h2>
-      <p>一番早く届く方法はInstagramのDMです。感想・質問・リクエストなんでも歓迎。</p>
-
-      <div class="sns-cards">
-        <a
-          href="https://www.instagram.com/ijin_lab/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="sns-card"
-        >
-          <span class="sns-icon">📸</span>
-          <div class="sns-info">
-            <span class="sns-name">Instagram</span>
-            <span class="sns-handle">@ijin_lab</span>
-            <span class="sns-desc">DM・コメントで受け付けています</span>
-          </div>
-          <span class="sns-arrow">→</span>
-        </a>
-      </div>
-    </section>
-
     <!-- フォーム -->
     <section class="contact-section">
       <p class="section-label">// FORM</p>
@@ -85,7 +61,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <dl class="faq-list">
         <div class="faq-item">
           <dt>記事のリクエストはできますか？</dt>
-          <dd>はい。「この人物について書いてほしい」「この悩みに効く偉人を教えてほしい」などInstagramのDMかフォームで教えてください。全部は対応できませんが、面白そうなものは取り上げます。</dd>
+          <dd>はい。「この人物について書いてほしい」「この悩みに効く偉人を教えてほしい」など下記のフォームで教えてください。全部は対応できませんが、面白そうなものは取り上げます。</dd>
         </div>
         <div class="faq-item">
           <dt>記事の内容について誤りがあった場合は？</dt>
@@ -175,67 +151,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     line-height: 2;
     color: var(--ink2);
     margin-bottom: 1.4rem;
-  }
-
-  /* ── SNS Cards ── */
-  .sns-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .sns-card {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-    padding: 1.1rem 1.4rem;
-    background: var(--bg2);
-    border: 1px solid var(--rule);
-    border-radius: 8px;
-    text-decoration: none;
-    transition: border-color 0.2s, background 0.2s;
-  }
-  .sns-card:hover {
-    border-color: var(--ink3);
-    background: var(--bg2);
-  }
-
-  .sns-icon {
-    font-size: 1.4rem;
-    flex-shrink: 0;
-  }
-
-  .sns-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    flex: 1;
-  }
-
-  .sns-name {
-    font-family: var(--font-sans);
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: var(--ink);
-  }
-
-  .sns-handle {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    color: var(--ink2);
-  }
-
-  .sns-desc {
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
-    color: var(--ink3);
-  }
-
-  .sns-arrow {
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    color: var(--ink3);
-    flex-shrink: 0;
   }
 
   /* ── Form ── */
