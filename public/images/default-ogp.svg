@@ -5,23 +5,21 @@
   <!-- アクセント線 -->
   <rect x="0" y="0" width="10" height="630" fill="#92400e"/>
 
-  <!-- フラスコアイコン -->
-  <g transform="translate(245, 290)">
-    <path d="M -34 -106 L -34 -10 L -92 86 Q -106 116 -78 126 L 78 126 Q 106 116 92 86 L 34 -10 L 34 -106 Z"
-          fill="none" stroke="#92400e" stroke-width="9" stroke-linejoin="round"/>
-    <path d="M -72 64 Q -88 102 -72 120 L 72 120 Q 88 102 72 64 L 32 -8 L -32 -8 Z"
+  <!-- フラスコアイコン（中央・大きく） -->
+  <g transform="translate(600, 235)">
+    <path d="M -52 -118 L -52 -10 L -134 122 Q -154 162 -114 176 L 114 176 Q 154 162 134 122 L 52 -10 L 52 -118 Z"
+          fill="none" stroke="#92400e" stroke-width="11" stroke-linejoin="round"/>
+    <path d="M -106 88 Q -128 140 -104 168 L 104 168 Q 128 140 106 88 L 48 -8 L -48 -8 Z"
           fill="#f59e0b" opacity="0.85"/>
-    <circle cx="-22" cy="86" r="11" fill="#92400e" opacity="0.55"/>
-    <circle cx="20" cy="102" r="7" fill="#92400e" opacity="0.4"/>
-    <line x1="-54" y1="-106" x2="54" y2="-106" stroke="#92400e" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="-32" cy="118" r="15" fill="#92400e" opacity="0.55"/>
+    <circle cx="30" cy="142" r="10" fill="#92400e" opacity="0.4"/>
+    <line x1="-80" y1="-118" x2="80" y2="-118" stroke="#92400e" stroke-width="11" stroke-linecap="round"/>
   </g>
 
   <!-- メインタイトル -->
-  <text x="430" y="285" font-family="serif" font-size="92" font-weight="800" fill="#1c1917" letter-spacing="6">偉人ラボ</text>
-  <!-- サブタイトル -->
-  <text x="433" y="330" font-family="sans-serif" font-size="26" fill="#a8a29e" letter-spacing="3">IJIN LAB</text>
+  <text x="600" y="498" text-anchor="middle" font-family="serif" font-size="78" font-weight="800" fill="#1c1917" letter-spacing="8">偉人ラボ</text>
   <!-- アンバーアクセント -->
-  <rect x="433" y="358" width="64" height="4" rx="2" fill="#f59e0b"/>
+  <rect x="560" y="524" width="80" height="4" rx="2" fill="#f59e0b"/>
   <!-- タグライン -->
-  <text x="433" y="408" font-family="sans-serif" font-size="30" fill="#78716c">歴史の偉人が、現代の問題を解決する。</text>
+  <text x="600" y="568" text-anchor="middle" font-family="sans-serif" font-size="26" fill="#78716c" letter-spacing="1">歴史の偉人が、現代の問題を解決する。</text>
 </svg>
