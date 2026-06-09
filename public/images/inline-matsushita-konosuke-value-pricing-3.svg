@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <!-- 価値→提供→感謝→お金の循環図 -->
+
+  <!-- 中央の円（核心） -->
+  <circle cx="500" cy="210" r="55" fill="#f59e0b" opacity="0.25" stroke="#d97706" stroke-width="2.5"/>
+  <text x="500" y="205" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">価値交換</text>
+  <text x="500" y="225" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">の連鎖</text>
+
+  <!-- 4つのノード -->
+  <!-- 上：価値を作る -->
+  <circle cx="500" cy="80" r="46" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+  <text x="500" y="74" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">価値を</text>
+  <text x="500" y="94" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">生み出す</text>
+
+  <!-- 右：提供する -->
+  <circle cx="780" cy="210" r="46" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+  <text x="780" y="204" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">お客様に</text>
+  <text x="780" y="224" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">届ける</text>
+
+  <!-- 下：感謝を受け取る -->
+  <circle cx="500" cy="340" r="46" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+  <text x="500" y="334" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">感謝を</text>
+  <text x="500" y="354" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">受け取る</text>
+
+  <!-- 左：お金に変わる -->
+  <circle cx="220" cy="210" r="46" fill="#f59e0b" opacity="0.55" stroke="#92400e" stroke-width="2.5"/>
+  <text x="220" y="204" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">お金として</text>
+  <text x="220" y="224" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">還ってくる</text>
+
+  <!-- 循環矢印（時計回り） -->
+  <!-- 上→右 -->
+  <path d="M 545 98 Q 680 110 762 170" fill="none" stroke="#b45309" stroke-width="2.5" stroke-linecap="round"/>
+  <polygon points="756,161 770,172 758,180" fill="#b45309"/>
+
+  <!-- 右→下 -->
+  <path d="M 778 257 Q 770 300 730 330 Q 690 355 548 354" fill="none" stroke="#b45309" stroke-width="2.5" stroke-linecap="round"/>
+  <polygon points="549,347 535,358 550,366" fill="#b45309"/>
+
+  <!-- 下→左 -->
+  <path d="M 453 340 Q 370 335 285 295 Q 248 268 238 257" fill="none" stroke="#b45309" stroke-width="2.5" stroke-linecap="round"/>
+  <polygon points="231,264 236,250 246,260" fill="#b45309"/>
+
+  <!-- 左→上 -->
+  <path d="M 222 163 Q 228 118 278 96 Q 340 72 453 76" fill="none" stroke="#b45309" stroke-width="2.5" stroke-linecap="round"/>
+  <polygon points="452,68 466,76 453,84" fill="#b45309"/>
+
+  <!-- ラベル（矢印の横） -->
+  <text x="680" y="128" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#92400e" text-anchor="middle" opacity="0.9">価値の提供</text>
+  <text x="740" y="315" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#92400e" text-anchor="middle" opacity="0.9">喜んでいただく</text>
+  <text x="300" y="352" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#92400e" text-anchor="middle" opacity="0.9">感謝の証</text>
+  <text x="285" y="110" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#92400e" text-anchor="middle" opacity="0.9">次の価値へ再投資</text>
+
+  <!-- 松下の言葉 -->
+  <text x="500" y="400" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#b45309" text-anchor="middle" letter-spacing="1" opacity="0.85" font-style="italic">「お金は価値を届けた証である」——松下幸之助</text>
+</svg>

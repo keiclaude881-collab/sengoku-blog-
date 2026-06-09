@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+  <!-- タイムライン（横軸） -->
+  <line x1="150" y1="260" x2="850" y2="260" stroke="#e9d5ff" stroke-width="2.5" opacity="0.9"/>
+  <!-- 過去（左） -->
+  <circle cx="260" cy="210" r="42" fill="#e9d5ff" opacity="0.5"/>
+  <circle cx="260" cy="210" r="42" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="7 5" opacity="0.6"/>
+  <text x="260" y="218" font-family="'Hiragino Sans', sans-serif" font-size="16" fill="#8b5cf6" text-anchor="middle" opacity="0.75">過去</text>
+  <line x1="260" y1="252" x2="260" y2="260" stroke="#8b5cf6" stroke-width="2" opacity="0.5"/>
+  <!-- 今（中央） -->
+  <circle cx="500" cy="175" r="58" fill="#a855f7" opacity="0.85"/>
+  <text x="500" y="183" font-family="'Hiragino Sans', sans-serif" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">今</text>
+  <line x1="500" y1="233" x2="500" y2="260" stroke="#6b21a8" stroke-width="3" opacity="0.8"/>
+  <!-- 未来（右） -->
+  <circle cx="740" cy="210" r="42" fill="#e9d5ff" opacity="0.5"/>
+  <circle cx="740" cy="210" r="42" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="7 5" opacity="0.6"/>
+  <text x="740" y="218" font-family="'Hiragino Sans', sans-serif" font-size="16" fill="#8b5cf6" text-anchor="middle" opacity="0.75">未来</text>
+  <line x1="740" y1="252" x2="740" y2="260" stroke="#8b5cf6" stroke-width="2" opacity="0.5"/>
+  <!-- 矢印（過去→今→未来）を暗示する薄い矢 -->
+  <path d="M 310 258 L 460 258" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.4"/>
+  <path d="M 540 258 L 690 258" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.4"/>
+  <!-- ラベル -->
+  <text x="260" y="316" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#8b5cf6" text-anchor="middle" opacity="0.6">後悔</text>
+  <text x="500" y="316" font-family="'Hiragino Sans', sans-serif" font-size="13" font-weight="700" fill="#6b21a8" text-anchor="middle">最善を尽くす</text>
+  <text x="740" y="316" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#8b5cf6" text-anchor="middle" opacity="0.6">不安</text>
+</svg>

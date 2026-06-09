@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <!-- 価格競争vs価値競争の対比図 -->
+
+  <!-- 中央の仕切り線 -->
+  <line x1="500" y1="60" x2="500" y2="370" stroke="#e8e0d4" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="500" y="50" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">VS</text>
+
+  <!-- 左側：価格競争（下降スパイラル） -->
+  <text x="250" y="85" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#92400e" text-anchor="middle">価格競争</text>
+  <rect x="80" y="95" width="340" height="35" rx="4" fill="#e8e0d4" stroke="#d6d0c8" stroke-width="1.5"/>
+  <text x="250" y="119" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#6b7280" text-anchor="middle">「安くすれば売れる」という発想</text>
+
+  <!-- 下降矢印 -->
+  <path d="M 250 145 L 250 345" fill="none" stroke="#d97706" stroke-width="2.5" stroke-dasharray="5 3"/>
+  <polygon points="242,342 250,362 258,342" fill="#d97706"/>
+
+  <!-- 価格競争の悪循環ボックス -->
+  <rect x="100" y="155" width="300" height="44" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="250" y="173" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">値下げ → 利益減少</text>
+  <text x="250" y="191" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle" font-style="italic">投資余力が消える</text>
+
+  <rect x="110" y="220" width="280" height="44" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="250" y="238" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">品質維持できず → 信頼失墜</text>
+  <text x="250" y="256" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle" font-style="italic">さらなる値下げ圧力</text>
+
+  <rect x="120" y="285" width="260" height="44" rx="6" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+  <text x="250" y="303" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">消耗戦・疲弊・撤退</text>
+  <text x="250" y="321" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle" font-style="italic">一時しのぎに終わる</text>
+
+  <!-- 右側：価値競争（上昇スパイラル） -->
+  <text x="750" y="85" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#92400e" text-anchor="middle">価値競争</text>
+  <rect x="580" y="95" width="340" height="35" rx="4" fill="#d97706" opacity="0.2" stroke="#d97706" stroke-width="1.5"/>
+  <text x="750" y="119" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#92400e" text-anchor="middle" font-weight="700">「品質・信頼・サービス」で選ばれる</text>
+
+  <!-- 上昇矢印 -->
+  <path d="M 750 145 L 750 345" fill="none" stroke="#92400e" stroke-width="2.5"/>
+  <polygon points="742,148 750,128 758,148" fill="#92400e"/>
+
+  <!-- 価値競争の好循環ボックス -->
+  <rect x="600" y="155" width="300" height="44" rx="6" fill="#fef3c7" stroke="#92400e" stroke-width="1.5"/>
+  <text x="750" y="173" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">適正価格 → 利益確保</text>
+  <text x="750" y="191" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle" font-style="italic">品質向上への再投資</text>
+
+  <rect x="590" y="220" width="320" height="44" rx="6" fill="#fef3c7" stroke="#92400e" stroke-width="1.5"/>
+  <text x="750" y="238" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">品質・信頼が高まる → リピート</text>
+  <text x="750" y="256" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle" font-style="italic">ブランド力の強化</text>
+
+  <rect x="600" y="285" width="300" height="44" rx="6" fill="#f59e0b" opacity="0.3" stroke="#92400e" stroke-width="2"/>
+  <text x="750" y="303" font-family="'Hiragino Sans', sans-serif" font-size="13" font-weight="700" fill="#92400e" text-anchor="middle">永続する価値の提供</text>
+  <text x="750" y="321" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#92400e" text-anchor="middle" font-style="italic">「松下電器」の選ばれ続ける理由</text>
+
+  <text x="500" y="395" font-family="'Hiragino Sans', sans-serif" font-size="15" fill="#b45309" text-anchor="middle" letter-spacing="1" opacity="0.85">安売りは一時しのぎ、価値提供は永続する</text>
+</svg>

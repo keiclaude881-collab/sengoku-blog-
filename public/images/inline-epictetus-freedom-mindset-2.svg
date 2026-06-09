@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+  <!-- 左の円：自分のもの -->
+  <circle cx="360" cy="210" r="130" fill="#a855f7" opacity="0.18"/>
+  <circle cx="360" cy="210" r="130" fill="none" stroke="#6b21a8" stroke-width="3" opacity="0.8"/>
+  <!-- 右の円：自分のものでない -->
+  <circle cx="640" cy="210" r="130" fill="#e9d5ff" opacity="0.35"/>
+  <circle cx="640" cy="210" r="130" fill="none" stroke="#8b5cf6" stroke-width="2.5" stroke-dasharray="8 6" opacity="0.7"/>
+  <!-- 仕切りライン -->
+  <line x1="500" y1="80" x2="500" y2="340" stroke="#6b21a8" stroke-width="2" stroke-dasharray="6 5" opacity="0.4"/>
+  <!-- 左ラベル -->
+  <text x="360" y="195" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#6b21a8" text-anchor="middle">自分のもの</text>
+  <text x="360" y="222" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#6b21a8" text-anchor="middle" opacity="0.8">判断・欲求・回避</text>
+  <text x="360" y="244" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#6b21a8" text-anchor="middle" opacity="0.8">意志・態度・反応</text>
+  <!-- 右ラベル -->
+  <text x="640" y="195" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#8b5cf6" text-anchor="middle" opacity="0.85">自分のものでない</text>
+  <text x="640" y="222" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#8b5cf6" text-anchor="middle" opacity="0.75">他人の評価・天気</text>
+  <text x="640" y="244" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#8b5cf6" text-anchor="middle" opacity="0.75">過去・病気・景気</text>
+</svg>

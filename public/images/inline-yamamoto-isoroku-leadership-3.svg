@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <!-- 権限を渡す＝成長の余地が生まれる図 -->
+
+  <!-- Title -->
+  <text x="500" y="48" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="1">「任せる」ことで、人は育つ</text>
+
+  <!-- Left panel: 管理しすぎ -->
+  <rect x="60" y="70" width="380" height="280" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" opacity="0.6"/>
+  <text x="250" y="105" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#b45309" text-anchor="middle">管理しすぎる環境</text>
+
+  <!-- Caged figure -->
+  <!-- Bars -->
+  <line x1="170" y1="130" x2="170" y2="300" stroke="#d97706" stroke-width="4" stroke-linecap="round"/>
+  <line x1="210" y1="130" x2="210" y2="300" stroke="#d97706" stroke-width="4" stroke-linecap="round"/>
+  <line x1="250" y1="130" x2="250" y2="300" stroke="#d97706" stroke-width="4" stroke-linecap="round"/>
+  <line x1="290" y1="130" x2="290" y2="300" stroke="#d97706" stroke-width="4" stroke-linecap="round"/>
+  <line x1="330" y1="130" x2="330" y2="300" stroke="#d97706" stroke-width="4" stroke-linecap="round"/>
+  <line x1="160" y1="130" x2="345" y2="130" stroke="#d97706" stroke-width="3"/>
+  <line x1="160" y1="300" x2="345" y2="300" stroke="#d97706" stroke-width="3"/>
+  <!-- Person inside cage -->
+  <circle cx="250" cy="185" r="18" fill="#b45309" opacity="0.6"/>
+  <path d="M 232 216 Q 250 202 268 216 L 270 265 L 230 265 Z" fill="#b45309" opacity="0.55"/>
+
+  <text x="250" y="330" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#b45309" text-anchor="middle">失敗できない</text>
+  <text x="250" y="350" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#92400e" text-anchor="middle" opacity="0.85">→ 耐性が育たない</text>
+
+  <!-- Middle arrow -->
+  <path d="M 455 215 L 540 215" stroke="#92400e" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <polygon points="536,206 552,215 536,224" fill="#92400e"/>
+  <text x="498" y="200" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#92400e" text-anchor="middle">権限委譲</text>
+  <text x="498" y="234" font-family="'Hiragino Sans', sans-serif" font-size="11" fill="#b45309" text-anchor="middle">任せる</text>
+
+  <!-- Right panel: 任せる環境 -->
+  <rect x="560" y="70" width="380" height="280" rx="12" fill="#fef3c7" stroke="#92400e" stroke-width="2" opacity="0.7"/>
+  <text x="750" y="105" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#92400e" text-anchor="middle">任せる環境</text>
+
+  <!-- Open space with person growing -->
+  <!-- Person (free, larger, growing) -->
+  <circle cx="680" cy="195" r="22" fill="#92400e" opacity="0.75"/>
+  <path d="M 658 228 Q 680 210 702 228 L 706 295 L 654 295 Z" fill="#92400e" opacity="0.7"/>
+
+  <!-- Growth arrows around person -->
+  <path d="M 720 180 C 760 150 800 140 830 145" stroke="#f59e0b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <polygon points="826,136 840,147 827,157" fill="#f59e0b"/>
+  <text x="820" y="135" font-family="'Hiragino Sans', sans-serif" font-size="11" fill="#92400e" text-anchor="middle">成長</text>
+
+  <!-- Small failure dot -->
+  <circle cx="750" cy="240" r="7" fill="#d97706" opacity="0.7"/>
+  <text x="780" y="244" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309">失敗→学び</text>
+
+  <text x="750" y="330" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">失敗の余地がある</text>
+  <text x="750" y="350" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#92400e" text-anchor="middle" font-weight="700">→ 自走できる人が育つ</text>
+
+  <!-- Bottom caption -->
+  <text x="500" y="395" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#b45309" text-anchor="middle" opacity="0.85">「任せてやらねば、人は育たず」——山本五十六</text>
+</svg>

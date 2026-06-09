@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <!-- リーダーが前に立ちチームが続くイメージ -->
+
+  <!-- Ground line -->
+  <line x1="80" y1="330" x2="920" y2="330" stroke="#e8e0d4" stroke-width="2"/>
+
+  <!-- Leader figure (front, larger, highlighted) -->
+  <circle cx="200" cy="220" r="28" fill="#92400e" opacity="0.9"/>
+  <path d="M 170 268 Q 200 240 230 268 L 234 330 L 166 330 Z" fill="#92400e" opacity="0.85"/>
+  <!-- Leader badge -->
+  <circle cx="200" cy="185" r="10" fill="#f59e0b" stroke="#92400e" stroke-width="2"/>
+  <text x="200" y="190" font-family="'Hiragino Sans', sans-serif" font-size="10" font-weight="700" fill="#92400e" text-anchor="middle">将</text>
+
+  <!-- Leader label -->
+  <text x="200" y="358" font-family="'Hiragino Sans', sans-serif" font-size="13" font-weight="700" fill="#92400e" text-anchor="middle">リーダー</text>
+  <text x="200" y="374" font-family="'Hiragino Sans', sans-serif" font-size="11" fill="#b45309" text-anchor="middle">やってみせる</text>
+
+  <!-- Arrow pointing right from leader -->
+  <path d="M 240 280 L 330 280" stroke="#f59e0b" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <polygon points="330,272 346,280 330,288" fill="#f59e0b"/>
+
+  <!-- Team member 1 -->
+  <circle cx="430" cy="230" r="22" fill="#b45309" opacity="0.75"/>
+  <path d="M 408 272 Q 430 250 452 272 L 456 330 L 404 330 Z" fill="#b45309" opacity="0.7"/>
+  <text x="430" y="358" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">部下①</text>
+  <text x="430" y="374" font-family="'Hiragino Sans', sans-serif" font-size="11" fill="#b45309" text-anchor="middle">聞いて学ぶ</text>
+
+  <!-- Team member 2 -->
+  <circle cx="570" cy="232" r="22" fill="#b45309" opacity="0.65"/>
+  <path d="M 548 274 Q 570 252 592 274 L 596 330 L 544 330 Z" fill="#b45309" opacity="0.6"/>
+  <text x="570" y="358" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">部下②</text>
+  <text x="570" y="374" font-family="'Hiragino Sans', sans-serif" font-size="11" fill="#b45309" text-anchor="middle">やってみる</text>
+
+  <!-- Team member 3 -->
+  <circle cx="710" cy="234" r="22" fill="#b45309" opacity="0.55"/>
+  <path d="M 688 276 Q 710 254 732 276 L 736 330 L 684 330 Z" fill="#b45309" opacity="0.5"/>
+  <text x="710" y="358" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">部下③</text>
+  <text x="710" y="374" font-family="'Hiragino Sans', sans-serif" font-size="11" fill="#b45309" text-anchor="middle">ほめられ自立</text>
+
+  <!-- Direction arrow at top -->
+  <path d="M 180 140 C 300 120 500 115 820 130" stroke="#f59e0b" stroke-width="2.5" fill="none" stroke-dasharray="8 5" stroke-linecap="round"/>
+  <polygon points="816,121 832,132 817,142" fill="#f59e0b"/>
+
+  <!-- Title -->
+  <text x="500" y="400" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#b45309" text-anchor="middle" letter-spacing="1" opacity="0.85">リーダーが前に立ち、チームを動かす——山本五十六の部下育成の姿</text>
+</svg>

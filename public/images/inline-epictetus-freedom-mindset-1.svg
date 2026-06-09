@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+  <!-- 鎖のリンク（左側） -->
+  <rect x="200" y="160" width="52" height="28" rx="14" fill="none" stroke="#6b21a8" stroke-width="4" opacity="0.65"/>
+  <rect x="262" y="160" width="52" height="28" rx="14" fill="none" stroke="#6b21a8" stroke-width="4" opacity="0.65"/>
+  <rect x="200" y="200" width="52" height="28" rx="14" fill="none" stroke="#8b5cf6" stroke-width="3.5" opacity="0.55"/>
+  <rect x="262" y="200" width="52" height="28" rx="14" fill="none" stroke="#8b5cf6" stroke-width="3.5" opacity="0.55"/>
+  <line x1="252" y1="174" x2="262" y2="174" stroke="#6b21a8" stroke-width="4" opacity="0.65"/>
+  <line x1="252" y1="214" x2="262" y2="214" stroke="#8b5cf6" stroke-width="3.5" opacity="0.55"/>
+  <!-- 中心の輝き（内なる自由） -->
+  <circle cx="500" cy="210" r="70" fill="#f3e8ff" opacity="0.6"/>
+  <circle cx="500" cy="210" r="44" fill="#e9d5ff" opacity="0.7"/>
+  <circle cx="500" cy="210" r="22" fill="#a855f7" opacity="0.85"/>
+  <!-- 光の放射線 -->
+  <line x1="500" y1="120" x2="500" y2="148" stroke="#6b21a8" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+  <line x1="500" y1="272" x2="500" y2="300" stroke="#6b21a8" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+  <line x1="410" y1="210" x2="438" y2="210" stroke="#6b21a8" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+  <line x1="562" y1="210" x2="590" y2="210" stroke="#6b21a8" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+  <line x1="436" y1="146" x2="456" y2="166" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+  <line x1="544" y1="146" x2="524" y2="166" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+  <line x1="436" y1="274" x2="456" y2="254" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+  <line x1="544" y1="274" x2="524" y2="254" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+  <!-- 右側の鎖 -->
+  <rect x="686" y="160" width="52" height="28" rx="14" fill="none" stroke="#6b21a8" stroke-width="4" opacity="0.65"/>
+  <rect x="748" y="160" width="52" height="28" rx="14" fill="none" stroke="#6b21a8" stroke-width="4" opacity="0.65"/>
+  <rect x="686" y="200" width="52" height="28" rx="14" fill="none" stroke="#8b5cf6" stroke-width="3.5" opacity="0.55"/>
+  <rect x="748" y="200" width="52" height="28" rx="14" fill="none" stroke="#8b5cf6" stroke-width="3.5" opacity="0.55"/>
+  <line x1="738" y1="174" x2="748" y2="174" stroke="#6b21a8" stroke-width="4" opacity="0.65"/>
+  <line x1="738" y1="214" x2="748" y2="214" stroke="#8b5cf6" stroke-width="3.5" opacity="0.55"/>
+</svg>
