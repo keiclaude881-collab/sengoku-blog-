@@ -1,22 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#faf7f2"/>
-  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <rect width="1000" height="420" fill="#faf7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
   <!-- 信号が赤から青に変わる瞬間を待つイメージ -->
   <g transform="translate(440,210)">
-    <rect x="-46" y="-110" width="92" height="220" rx="20" fill="none" stroke="#92400e" stroke-width="3.5"/>
-    <circle cx="0" cy="-62" r="26" fill="#b45309" opacity="0.85"/>
-    <circle cx="0" cy="0" r="26" fill="none" stroke="#92400e" stroke-width="3"/>
-    <circle cx="0" cy="62" r="26" fill="#f59e0b"/>
+    <rect x="-46" y="-110" width="92" height="220" rx="20" fill="none" stroke="#6b21a8" stroke-width="3.5"/>
+    <circle cx="0" cy="-62" r="26" fill="#6b21a8" opacity="0.8"/>
+    <circle cx="0" cy="0" r="26" fill="none" stroke="#8b5cf6" stroke-width="3"/>
+    <circle cx="0" cy="62" r="26" fill="#8b5cf6"/>
   </g>
   <!-- 待つ人影 -->
-  <g stroke="#92400e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="660" cy="190" r="20" fill="#f59e0b" opacity="0.5" stroke="none"/>
+  <g stroke="#6b21a8" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="660" cy="190" r="20" fill="#c4b5fd" opacity="0.6" stroke="none"/>
     <path d="M 660 212 L 660 270"/>
     <path d="M 660 230 L 632 256 M 660 230 L 688 256"/>
     <path d="M 660 270 L 638 318 M 660 270 L 682 318"/>
   </g>
-  <!-- 静かに過ぎる時間 -->
-  <g stroke="#d97706" stroke-width="2.5" stroke-dasharray="3 7" opacity="0.6">
-    <path d="M 540 340 L 760 340"/>
-  </g>
+  <line x1="540" y1="340" x2="760" y2="340" stroke="#a855f7" stroke-width="2.5" stroke-dasharray="3 7" opacity="0.5"/>
 </svg>

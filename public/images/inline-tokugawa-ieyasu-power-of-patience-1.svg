@@ -1,12 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#faf7f2"/>
-  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <rect width="1000" height="420" fill="#faf7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
   <!-- 種から芽が出て、ゆっくりと木に育っていくイメージ -->
-  <g stroke="#92400e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <!-- 地面 -->
-    <line x1="120" y1="320" x2="880" y2="320" stroke="#d97706" stroke-width="2.5" stroke-dasharray="3 7" opacity="0.6"/>
+  <g stroke="#6b21a8" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="120" y1="320" x2="880" y2="320" stroke="#a855f7" stroke-width="2.5" stroke-dasharray="3 7" opacity="0.5"/>
     <!-- 種 -->
-    <ellipse cx="260" cy="312" rx="14" ry="10" fill="#b45309" stroke="none"/>
+    <ellipse cx="260" cy="312" rx="14" ry="10" fill="#6b21a8" opacity="0.7" stroke="none"/>
     <!-- 芽 -->
     <g transform="translate(470,320)">
       <path d="M 0 0 L 0 -34"/>
@@ -21,11 +20,10 @@
       <path d="M 0 -70 Q -18 -82 -28 -68 Q -16 -60 0 -66"/>
     </g>
   </g>
-  <circle cx="260" cy="312" r="3" fill="#f59e0b"/>
-  <g fill="#f59e0b" opacity="0.65">
-    <circle cx="450" cy="290" r="3"/>
-    <circle cx="500" cy="278" r="3"/>
-    <circle cx="650" cy="250" r="3.5"/>
-    <circle cx="710" cy="232" r="3.5"/>
+  <g fill="#8b5cf6" opacity="0.6">
+    <circle cx="450" cy="292" r="3"/>
+    <circle cx="500" cy="280" r="3"/>
+    <circle cx="650" cy="252" r="3.5"/>
+    <circle cx="710" cy="234" r="3.5"/>
   </g>
 </svg>
