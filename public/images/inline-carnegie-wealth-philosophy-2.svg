@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <!-- 収入が積み上がり、スキルの土台を形成するイメージ -->
+
+  <!-- 土台（スキルの積み重ね） -->
+  <!-- 最下段 -->
+  <rect x="160" y="290" width="360" height="46" rx="4" fill="#f59e0b" opacity="0.35" stroke="#d97706" stroke-width="1.5"/>
+  <text x="340" y="319" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#92400e" text-anchor="middle">基礎的な労働・学習</text>
+
+  <!-- 2段目 -->
+  <rect x="195" y="238" width="290" height="46" rx="4" fill="#f59e0b" opacity="0.45" stroke="#d97706" stroke-width="1.5"/>
+  <text x="340" y="267" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#92400e" text-anchor="middle">専門スキルの習得</text>
+
+  <!-- 3段目 -->
+  <rect x="230" y="186" width="220" height="46" rx="4" fill="#d97706" opacity="0.5" stroke="#b45309" stroke-width="1.5"/>
+  <text x="340" y="215" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#92400e" text-anchor="middle">人脈・信頼の構築</text>
+
+  <!-- 4段目 -->
+  <rect x="265" y="134" width="150" height="46" rx="4" fill="#b45309" opacity="0.55" stroke="#92400e" stroke-width="1.5"/>
+  <text x="340" y="163" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#faf7f2" text-anchor="middle">事業化・投資</text>
+
+  <!-- 最上段（頂点） -->
+  <rect x="295" y="82" width="90" height="46" rx="4" fill="#92400e" opacity="0.8" stroke="#92400e" stroke-width="1.5"/>
+  <text x="340" y="111" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#fef3c7" text-anchor="middle">富の確立</text>
+
+  <!-- 矢印（成長） -->
+  <path d="M 560 320 L 560 80" stroke="#92400e" stroke-width="2" fill="none" opacity="0.5" stroke-dasharray="6 4"/>
+  <polygon points="552,82 560,62 568,82" fill="#92400e" opacity="0.7"/>
+
+  <!-- 右側：現代への応用 -->
+  <rect x="620" y="100" width="310" height="230" rx="8" fill="none" stroke="#e8e0d4" stroke-width="1.5"/>
+  <text x="775" y="132" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">稼ぐ力を磨く順番</text>
+
+  <circle cx="648" cy="163" r="5" fill="#d97706"/>
+  <text x="663" y="168" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#1c1917">まず本業で成果を出す</text>
+
+  <circle cx="648" cy="198" r="5" fill="#d97706"/>
+  <text x="663" y="203" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#1c1917">専門知識を深める</text>
+
+  <circle cx="648" cy="233" r="5" fill="#d97706"/>
+  <text x="663" y="238" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#1c1917">スキルを収益化する</text>
+
+  <circle cx="648" cy="268" r="5" fill="#d97706"/>
+  <text x="663" y="273" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#1c1917">投資・副業で仕組みを作る</text>
+
+  <!-- 矢印で強調 -->
+  <path d="M 655 175 L 655 185" stroke="#b45309" stroke-width="1.5" fill="none"/>
+  <path d="M 655 210 L 655 220" stroke="#b45309" stroke-width="1.5" fill="none"/>
+  <path d="M 655 245 L 655 255" stroke="#b45309" stroke-width="1.5" fill="none"/>
+
+  <!-- カーネギーの言葉 -->
+  <text x="500" y="385" font-family="'Hiragino Sans', sans-serif" font-size="15" fill="#b45309" text-anchor="middle" letter-spacing="1" opacity="0.85" font-style="italic">「稼ぐことを恥じるな、稼げないことを恥じよ」</text>
+</svg>

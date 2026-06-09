@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+
+  <text x="500" y="46" font-family="sans-serif" font-size="18" font-weight="700" fill="#6b21a8" text-anchor="middle">深さが広さを生む——一点を極めると地平が開く</text>
+
+  <!-- 縦の穴（深掘り） -->
+  <!-- 穴の外枠 -->
+  <rect x="400" y="80" width="200" height="220" rx="4" fill="#f3e8ff" stroke="#c4b5fd" stroke-width="2"/>
+  <!-- 穴の深さを示すグラデーション -->
+  <rect x="412" y="80" width="176" height="50" rx="2" fill="#ede9fe"/>
+  <rect x="412" y="130" width="176" height="50" rx="2" fill="#ddd6fe"/>
+  <rect x="412" y="180" width="176" height="50" rx="2" fill="#c4b5fd"/>
+  <rect x="412" y="230" width="176" height="70" rx="2" fill="#a78bfa"/>
+
+  <text x="500" y="115" font-family="sans-serif" font-size="12" fill="#7c3aed" text-anchor="middle">表面的な知識</text>
+  <text x="500" y="165" font-family="sans-serif" font-size="12" fill="#6d28d9" text-anchor="middle">実践・反復</text>
+  <text x="500" y="215" font-family="sans-serif" font-size="12" fill="#5b21b6" text-anchor="middle">深い理解</text>
+  <text x="500" y="272" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">本質の境地</text>
+
+  <!-- 下部の「地平が広がる」イメージ -->
+  <ellipse cx="500" cy="320" rx="280" ry="30" fill="none" stroke="#8b5cf6" stroke-width="2.5" stroke-dasharray="8,4"/>
+  <ellipse cx="500" cy="320" rx="200" ry="20" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <line x1="220" y1="320" x2="150" y2="320" stroke="#8b5cf6" stroke-width="2.5"/>
+  <polygon points="150,320 168,312 168,328" fill="#8b5cf6"/>
+  <line x1="780" y1="320" x2="850" y2="320" stroke="#8b5cf6" stroke-width="2.5"/>
+  <polygon points="850,320 832,312 832,328" fill="#8b5cf6"/>
+
+  <text x="110" y="315" font-family="sans-serif" font-size="13" fill="#6b21a8" text-anchor="middle">横の広がり</text>
+  <text x="890" y="315" font-family="sans-serif" font-size="13" fill="#6b21a8" text-anchor="middle">横の広がり</text>
+
+  <!-- 縦の矢印（深掘り方向） -->
+  <line x1="500" y1="60" x2="500" y2="82" stroke="#6b21a8" stroke-width="3"/>
+  <polygon points="500,82 491,66 509,66" fill="#6b21a8"/>
+  <text x="500" y="56" font-family="sans-serif" font-size="13" fill="#6b21a8" text-anchor="middle">深く掘る</text>
+
+  <!-- 引用 -->
+  <rect x="80" y="358" width="840" height="44" rx="10" fill="#f3e8ff"/>
+  <text x="500" y="385" font-family="sans-serif" font-size="14" font-weight="700" fill="#6b21a8" text-anchor="middle">「千日の稽古を鍛とし、万日の稽古を錬とす」— 宮本武蔵</text>
+</svg>
