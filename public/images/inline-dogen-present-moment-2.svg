@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+
+  <text x="500" y="46" font-family="sans-serif" font-size="18" font-weight="700" fill="#6b21a8" text-anchor="middle">而今——過去でも未来でもなく、今この瞬間だけが真実</text>
+
+  <!-- 左ブロック：過去（ぼやけた） -->
+  <rect x="60" y="90" width="230" height="200" rx="10" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5" opacity="0.7"/>
+  <text x="175" y="130" font-family="sans-serif" font-size="16" font-weight="700" fill="#9ca3af" text-anchor="middle">過去</text>
+  <text x="175" y="158" font-family="sans-serif" font-size="13" fill="#d1d5db" text-anchor="middle">昨日やったこと</text>
+  <text x="175" y="180" font-family="sans-serif" font-size="13" fill="#d1d5db" text-anchor="middle">過去の失敗</text>
+  <text x="175" y="202" font-family="sans-serif" font-size="13" fill="#d1d5db" text-anchor="middle">後悔・反省</text>
+  <!-- ぼやけを示す波線 -->
+  <path d="M 80 230 Q 120 222 160 230 Q 200 238 240 230 Q 270 222 290 230" fill="none" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="175" y="270" font-family="sans-serif" font-size="11" fill="#d1d5db" text-anchor="middle">記憶の中にしか存在しない</text>
+
+  <!-- 中央ブロック：今（鮮明・強調） -->
+  <rect x="370" y="70" width="260" height="240" rx="14" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="3"/>
+  <!-- 輝きエフェクト -->
+  <rect x="370" y="70" width="260" height="240" rx="14" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.5"/>
+  <text x="500" y="116" font-family="sans-serif" font-size="22" font-weight="900" fill="#6b21a8" text-anchor="middle">今 この瞬間</text>
+  <text x="500" y="148" font-family="sans-serif" font-size="14" fill="#7c3aed" text-anchor="middle">今やっている作業</text>
+  <text x="500" y="172" font-family="sans-serif" font-size="14" fill="#7c3aed" text-anchor="middle">今感じている感覚</text>
+  <text x="500" y="196" font-family="sans-serif" font-size="14" fill="#7c3aed" text-anchor="middle">今の呼吸・今の一歩</text>
+  <circle cx="500" cy="240" r="20" fill="#a855f7"/>
+  <text x="500" y="246" font-family="sans-serif" font-size="14" font-weight="900" fill="#fff" text-anchor="middle">真</text>
+  <text x="500" y="296" font-family="sans-serif" font-size="12" font-weight="700" fill="#7c3aed" text-anchor="middle">「而今」——今だけが存在する</text>
+
+  <!-- 右ブロック：未来（ぼやけた） -->
+  <rect x="710" y="90" width="230" height="200" rx="10" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5" opacity="0.7"/>
+  <text x="825" y="130" font-family="sans-serif" font-size="16" font-weight="700" fill="#9ca3af" text-anchor="middle">未来</text>
+  <text x="825" y="158" font-family="sans-serif" font-size="13" fill="#d1d5db" text-anchor="middle">明日の予定</text>
+  <text x="825" y="180" font-family="sans-serif" font-size="13" fill="#d1d5db" text-anchor="middle">将来の不安</text>
+  <text x="825" y="202" font-family="sans-serif" font-size="13" fill="#d1d5db" text-anchor="middle">結果への期待</text>
+  <path d="M 730 230 Q 770 222 810 230 Q 850 238 890 230 Q 910 222 930 230" fill="none" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="825" y="270" font-family="sans-serif" font-size="11" fill="#d1d5db" text-anchor="middle">まだ存在していない</text>
+
+  <!-- 下部メッセージ -->
+  <rect x="150" y="358" width="700" height="44" rx="10" fill="#6b21a8"/>
+  <text x="500" y="385" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">今この瞬間に意識を向けること——それがシングルタスクの本質</text>
+</svg>

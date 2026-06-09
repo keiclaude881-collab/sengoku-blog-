@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+
+  <text x="500" y="46" font-family="sans-serif" font-size="18" font-weight="700" fill="#6b21a8" text-anchor="middle">「気づいて戻る」サイクル——これが集中力の本質</text>
+
+  <!-- サイクル：大きな円 -->
+  <circle cx="500" cy="220" r="140" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+
+  <!-- ステップ1：今に集中（上） -->
+  <rect x="390" y="58" width="220" height="64" rx="10" fill="#6b21a8" stroke="#4c1d95" stroke-width="2"/>
+  <text x="500" y="85" font-family="sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">① 今に集中</text>
+  <text x="500" y="108" font-family="sans-serif" font-size="12" fill="#e9d5ff" text-anchor="middle">呼吸・作業・この瞬間</text>
+
+  <!-- ステップ2：雑念が浮かぶ（右） -->
+  <rect x="730" y="170" width="200" height="64" rx="10" fill="#f3e8ff" stroke="#c4b5fd" stroke-width="2"/>
+  <text x="830" y="197" font-family="sans-serif" font-size="15" font-weight="700" fill="#6b21a8" text-anchor="middle">② 雑念が浮かぶ</text>
+  <text x="830" y="218" font-family="sans-serif" font-size="12" fill="#7c3aed" text-anchor="middle">考え・感情・記憶</text>
+  <!-- 雑念の吹き出し -->
+  <circle cx="790" cy="148" r="14" fill="#fdf4ff" stroke="#e9d5ff" stroke-width="1.5"/>
+  <text x="790" y="153" font-family="sans-serif" font-size="10" fill="#9ca3af" text-anchor="middle">…</text>
+
+  <!-- ステップ3：気づく（下） -->
+  <rect x="390" y="328" width="220" height="64" rx="10" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="500" y="355" font-family="sans-serif" font-size="16" font-weight="700" fill="#6b21a8" text-anchor="middle">③ 気づく</text>
+  <text x="500" y="378" font-family="sans-serif" font-size="12" fill="#7c3aed" text-anchor="middle">「あ、違う方向に行った」</text>
+
+  <!-- ステップ4：戻る（左） -->
+  <rect x="70" y="170" width="200" height="64" rx="10" fill="#f3e8ff" stroke="#a855f7" stroke-width="2.5"/>
+  <text x="170" y="197" font-family="sans-serif" font-size="15" font-weight="700" fill="#6b21a8" text-anchor="middle">④ 戻る</text>
+  <text x="170" y="218" font-family="sans-serif" font-size="12" fill="#7c3aed" text-anchor="middle">判断せず、ただ戻る</text>
+
+  <!-- 矢印（時計回り） -->
+  <!-- ①→② -->
+  <path d="M 610 100 Q 730 120 740 175" fill="none" stroke="#8b5cf6" stroke-width="2.5" marker-end="url(#arr)"/>
+  <!-- ②→③ -->
+  <path d="M 750 240 Q 740 320 620 350" fill="none" stroke="#8b5cf6" stroke-width="2.5" marker-end="url(#arr)"/>
+  <!-- ③→④ -->
+  <path d="M 388 358 Q 280 340 275 240" fill="none" stroke="#a855f7" stroke-width="2.5" marker-end="url(#arr2)"/>
+  <!-- ④→① -->
+  <path d="M 270 175 Q 280 100 388 88" fill="none" stroke="#6b21a8" stroke-width="3" marker-end="url(#arr3)"/>
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <polygon points="0,0 8,4 0,8" fill="#8b5cf6"/>
+    </marker>
+    <marker id="arr2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <polygon points="0,0 8,4 0,8" fill="#a855f7"/>
+    </marker>
+    <marker id="arr3" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <polygon points="0,0 8,4 0,8" fill="#6b21a8"/>
+    </marker>
+  </defs>
+
+  <!-- 中央メッセージ -->
+  <text x="500" y="210" font-family="sans-serif" font-size="14" font-weight="700" fill="#7c3aed" text-anchor="middle">集中力＝</text>
+  <text x="500" y="232" font-family="sans-serif" font-size="14" font-weight="700" fill="#6b21a8" text-anchor="middle">「戻る力」</text>
+</svg>

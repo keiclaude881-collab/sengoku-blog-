@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <!-- 仕事と休息のサイクルが生産性を高める図 -->
+
+  <!-- Title -->
+  <text x="500" y="42" font-family="'Hiragino Sans', sans-serif" font-size="17" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="1">チャーチルの「戦略的休息」サイクル</text>
+
+  <!-- Left half: 仕事（集中） -->
+  <circle cx="300" cy="220" r="110" fill="#fef3c7" stroke="#b45309" stroke-width="2.5"/>
+  <text x="300" y="205" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#92400e" text-anchor="middle">仕事</text>
+  <text x="300" y="228" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">（深い集中）</text>
+
+  <!-- Sub items inside work circle -->
+  <text x="300" y="252" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">・戦時の意思決定</text>
+  <text x="300" y="270" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">・演説の準備</text>
+  <text x="300" y="288" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">・著述活動</text>
+
+  <!-- Right half: 休息 -->
+  <circle cx="700" cy="220" r="110" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+  <text x="700" y="205" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#92400e" text-anchor="middle">休息</text>
+  <text x="700" y="228" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">（意図的な切替）</text>
+
+  <!-- Sub items inside rest circle -->
+  <text x="700" y="252" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">・昼寝（30分）</text>
+  <text x="700" y="270" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">・絵画（趣味）

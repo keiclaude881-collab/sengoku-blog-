@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <!-- ダムが水を蓄えるイメージ（余裕の可視化） -->
+
+  <!-- ダム本体 -->
+  <rect x="160" y="180" width="280" height="140" rx="4" fill="#d97706" opacity="0.55" stroke="#92400e" stroke-width="2.5"/>
+  <!-- ダムのアーチ装飾 -->
+  <rect x="160" y="180" width="280" height="18" rx="4" fill="#92400e" opacity="0.7"/>
+  <!-- ダム内の水位（高い） -->
+  <rect x="162" y="199" width="276" height="118" rx="0" fill="#f59e0b" opacity="0.25"/>
+  <!-- 水面の波線 -->
+  <path d="M 162 215 Q 205 208 248 215 Q 291 222 334 215 Q 377 208 440 215" stroke="#d97706" stroke-width="2" fill="none" opacity="0.6"/>
+  <text x="300" y="275" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#92400e" text-anchor="middle">内部留保（余裕）</text>
+  <text x="300" y="300" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#b45309" text-anchor="middle">ダムの水 ＝ 蓄えた体力</text>
+
+  <!-- 矢印：ダムから流れ出す（適切な配分） -->
+  <path d="M 445 270 L 530 270" fill="none" stroke="#92400e" stroke-width="3"/>
+  <polygon points="530,261 548,270 530,279" fill="#92400e"/>
+  <text x="487" y="258" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#b45309" text-anchor="middle">必要分だけ</text>
+  <text x="487" y="286" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#b45309" text-anchor="middle">放流</text>
+
+  <!-- 右側：景気の波（上下）と安定した経営 -->
+  <g transform="translate(680, 130)">
+    <!-- 景気の波 -->
+    <path d="M -100 0 Q -60 -50 -20 0 Q 20 50 60 0 Q 100 -50 140 0" stroke="#e8e0d4" stroke-width="2.5" fill="none" stroke-dasharray="8 4"/>
+    <text x="20" y="-60" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle" opacity="0.7">景気の波（外部要因）</text>
+
+    <!-- 安定した経営ライン -->
+    <line x1="-100" y1="60" x2="140" y2="60" stroke="#d97706" stroke-width="3.5" stroke-linecap="round"/>
+    <text x="20" y="82" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">安定した経営ライン</text>
+
+    <!-- ダム効果の表示 -->
+    <rect x="-100" y="95" width="240" height="55" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+    <text x="20" y="120" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">好況時：余裕を蓄える</text>
+    <text x="20" y="140" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">不況時：蓄えを活かす</text>
+  </g>
+
+  <!-- 山から流れ込む川（収入の流れ） -->
+  <polygon points="90,60 140,160 40,160" fill="#b45309" opacity="0.4"/>
+  <polygon points="60,90 110,165 10,165" fill="#92400e" opacity="0.25"/>
+  <text x="80" y="185" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle" opacity="0.8">収入の流れ</text>
+
+  <!-- タイトル -->
+  <text x="500" y="395" font-family="'Hiragino Sans', sans-serif" font-size="15" fill="#b45309" text-anchor="middle" letter-spacing="1" opacity="0.85">ダム式経営——余裕を蓄え、どんな嵐にも揺るがない仕組み</text>
+</svg>
