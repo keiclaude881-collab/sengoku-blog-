@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+
+  <!-- 左縦バー -->
+  <rect x="0" y="0" width="14" height="630" fill="#92400e"/>
+
+  <!-- 電球（価値のシンボル）と上昇グラフ -->
+  <g transform="translate(310,310)" opacity="0.82">
+    <!-- 価格タグ（値下げ禁止） -->
+    <rect x="-130" y="-90" width="110" height="50" rx="8" fill="#e8e0d4" stroke="#92400e" stroke-width="2"/>
+    <text x="-75" y="-58" font-family="'Hiragino Sans', sans-serif" font-size="24" font-weight="700" fill="#92400e" text-anchor="middle">価値</text>
+    <line x1="-130" y1="-55" x2="-20" y2="-55" stroke="#92400e" stroke-width="1.5"/>
+    <!-- 斜め線（値下げNO） -->
+    <line x1="-128" y1="-88" x2="-22" y2="-42" stroke="#92400e" stroke-width="3" opacity="0.5"/>
+
+    <!-- 上昇矢印 -->
+    <path d="M -60 60 C -30 30 20 -10 80 -80" stroke="#d97706" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <polygon points="74,-88 88,-76 76,-68" fill="#d97706"/>
+  </g>
+
+  <!-- コイン積み重ね（右下） -->
+  <g opacity="0.65">
+    <ellipse cx="800" cy="550" rx="50" ry="15" fill="#fbbf24"/>
+    <ellipse cx="800" cy="536" rx="50" ry="15" fill="#fcd34d"/>
+    <ellipse cx="850" cy="506" rx="50" ry="15" fill="#fbbf24"/>
+    <ellipse cx="850" cy="492" rx="50" ry="15" fill="#fcd34d"/>
+    <ellipse cx="850" cy="478" rx="50" ry="15" fill="#fde68a"/>
+    <ellipse cx="970" cy="446" rx="50" ry="15" fill="#fbbf24"/>
+    <ellipse cx="970" cy="432" rx="50" ry="15" fill="#fcd34d"/>
+    <ellipse cx="970" cy="418" rx="50" ry="15" fill="#fde68a"/>
+    <ellipse cx="970" cy="404" rx="50" ry="15" fill="#fef3c7"/>
+  </g>
+
+  <!-- カテゴリラベル -->
+  <rect x="700" y="170" width="140" height="38" rx="19" fill="#fef3c7" stroke="#fde68a"/>
+  <text x="770" y="196" font-family="'Hiragino Sans', sans-serif" font-size="17" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="1">投資・お金</text>
+
+  <!-- タイトル -->
+  <text x="700" y="270" font-family="'Shippori Mincho', serif" font-size="30" font-weight="700" fill="#1c1917" letter-spacing="1">松下幸之助に学ぶ</text>
+  <text x="700" y="312" font-family="'Shippori Mincho', serif" font-size="30" font-weight="700" fill="#1c1917" letter-spacing="1">お金と価値の哲学</text>
+
+  <!-- サブタイトル -->
+  <text x="700" y="360" font-family="'Hiragino Sans', sans-serif" font-size="19" fill="#b45309" letter-spacing="1">「値段を下げない」ことで豊かになる</text>
+
+  <!-- サイト名 -->
+  <text x="100" y="588" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+</svg>

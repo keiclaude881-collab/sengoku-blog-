@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <!-- 承認がモチベーションを高めるサイクル -->
+
+  <!-- Title -->
+  <text x="500" y="42" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="1">承認がモチベーションを高める好循環</text>
+
+  <!-- Center: person figure -->
+  <circle cx="500" cy="215" r="36" fill="#f59e0b" opacity="0.9" stroke="#92400e" stroke-width="2.5"/>
+  <text x="500" y="208" font-family="'Hiragino Sans', sans-serif" font-size="13" font-weight="700" fill="#92400e" text-anchor="middle">やる気</text>
+  <text x="500" y="228" font-family="'Hiragino Sans', sans-serif" font-size="13" font-weight="700" fill="#92400e" text-anchor="middle">UP</text>
+
+  <!-- Node 1: 行動する (top-left) -->
+  <rect x="80" y="75" width="210" height="85" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+  <text x="185" y="108" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">行動する</text>
+  <text x="185" y="130" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">任された仕事に</text>
+  <text x="185" y="148" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">全力で取り組む</text>
+  <!-- Arrow 1 → center -->
+  <path d="M 290 120 C 360 150 410 170 464 195" stroke="#b45309" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <polygon points="459,187 474,197 461,207" fill="#b45309"/>
+
+  <!-- Node 2: ほめられる (top-right) -->
+  <rect x="710" y="75" width="210" height="85" rx="10" fill="#fef3c7" stroke="#92400e" stroke-width="2.5"/>
+  <text x="815" y="108" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">ほめられる</text>
+  <text x="815" y="130" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">「よくやった」と</text>
+  <text x="815" y="148" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">承認される</text>
+  <!-- Arrow 2 ← center (center to 2) -->
+  <path d="M 536 197 C 590 170 650 150 710 120" stroke="#92400e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <polygon points="706,111 720,122 707,132" fill="#92400e"/>
+
+  <!-- Node 3: 自信がつく (bottom-right) -->
+  <rect x="710" y="280" width="210" height="85" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="815" y="313" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">自信がつく</text>
+  <text x="815" y="335" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">「自分にできる」</text>
+  <text x="815" y="353" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">という確信が生まれる</text>
+  <!-- Arrow center → 3 -->
+  <path d="M 536 233 C 590 258 650 270 710 295" stroke="#f59e0b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <polygon points="706,286 720,297 707,307" fill="#f59e0b"/>
+
+  <!-- Node 4: さらに挑戦 (bottom-left) -->
+  <rect x="80" y="280" width="210" height="85" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="185" y="313" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">さらに挑戦</text>
+  <text x="185" y="335" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">より難しい仕事へ</text>
+  <text x="185" y="353" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">自発的に向かう</text>
+  <!-- Arrow 4 → center -->
+  <path d="M 290 322 C 360 302 410 268 464 235" stroke="#d97706" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <polygon points="459,226 474,237 462,247" fill="#d97706"/>
+
+  <!-- Bottom-right to bottom-left arc -->
+  <path d="M 710 340 C 590 390 410 390 290 340" stroke="#e8e0d4" stroke-width="2" fill="none" stroke-dasharray="8 5"/>
+  <polygon points="292,331 278,342 293,352" fill="#e8e0d4"/>
+
+  <!-- Caption -->
+  <text x="500" y="400" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#b45309" text-anchor="middle" opacity="0.85">「ほめてやらねば、人は動かじ」——内発的動機の好循環</text>
+</svg>
