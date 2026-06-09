@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+
+  <text x="500" y="46" font-family="sans-serif" font-size="18" font-weight="700" fill="#6b21a8" text-anchor="middle">「志」を先に決めると、手段が自然に決まる</text>
+
+  <!-- 逆三角形（志が頂点、手段が底辺に広がる） -->
+  <!-- 志（頂点・上部の小さな点） -->
+  <circle cx="500" cy="95" r="30" fill="#6b21a8"/>
+  <text x="500" y="101" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">志</text>
+
+  <!-- 広がる線（志から手段へ） -->
+  <line x1="500" y1="125" x2="200" y2="330" stroke="#8b5cf6" stroke-width="2.5" stroke-dasharray="6,3"/>
+  <line x1="500" y1="125" x2="350" y2="330" stroke="#8b5cf6" stroke-width="2.5" stroke-dasharray="6,3"/>
+  <line x1="500" y1="125" x2="500" y2="330" stroke="#6b21a8" stroke-width="3"/>
+  <line x1="500" y1="125" x2="650" y2="330" stroke="#8b5cf6" stroke-width="2.5" stroke-dasharray="6,3"/>
+  <line x1="500" y1="125" x2="800" y2="330" stroke="#8b5cf6" stroke-width="2.5" stroke-dasharray="6,3"/>
+
+  <!-- 手段ノード -->
+  <rect x="130" y="330" width="140" height="50" rx="8" fill="#f3e8ff" stroke="#c4b5fd" stroke-width="2"/>
+  <text x="200" y="352" font-family="sans-serif" font-size="13" font-weight="700" fill="#6b21a8" text-anchor="middle">学問・読書</text>
+  <text x="200" y="370" font-family="sans-serif" font-size="11" fill="#7c3aed" text-anchor="middle">知識を蓄える</text>
+
+  <rect x="280" y="330" width="140" height="50" rx="8" fill="#f3e8ff" stroke="#c4b5fd" stroke-width="2"/>
+  <text x="350" y="352" font-family="sans-serif" font-size="13" font-weight="700" fill="#6b21a8" text-anchor="middle">人との対話</text>
+  <text x="350" y="370" font-family="sans-serif" font-size="11" fill="#7c3aed" text-anchor="middle">意見を磨く</text>
+
+  <rect x="430" y="330" width="140" height="50" rx="8" fill="#6b21a8"/>
+  <text x="500" y="352" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">行動・実践</text>
+  <text x="500" y="370" font-family="sans-serif" font-size="11" fill="#e9d5ff" text-anchor="middle">今すぐ動く</text>
+
+  <rect x="580" y="330" width="140" height="50" rx="8" fill="#f3e8ff" stroke="#c4b5fd" stroke-width="2"/>
+  <text x="650" y="352" font-family="sans-serif" font-size="13" font-weight="700" fill="#6b21a8" text-anchor="middle">育てる・伝える</text>
+  <text x="650" y="370" font-family="sans-serif" font-size="11" fill="#7c3aed" text-anchor="middle">次世代へ</text>
+
+  <rect x="730" y="330" width="140" height="50" rx="8" fill="#f3e8ff" stroke="#c4b5fd" stroke-width="2"/>
+  <text x="800" y="352" font-family="sans-serif" font-size="13" font-weight="700" fill="#6b21a8" text-anchor="middle">問い続ける</text>
+  <text x="800" y="370" font-family="sans-serif" font-size="11" fill="#7c3aed" text-anchor="middle">本質を見極める</text>
+
+  <!-- 中間ラベル -->
+  <text x="500" y="230" font-family="sans-serif" font-size="13" fill="#9ca3af" text-anchor="middle">志があれば手段は無限に広がる</text>
+
+  <!-- 「志なき学問は剣なき鞘」 -->
+  <rect x="200" y="395" width="600" height="22" rx="6" fill="#ede9fe"/>
+  <text x="500" y="411" font-family="sans-serif" font-size="12" font-weight="700" fill="#6b21a8" text-anchor="middle">「志なき学問は剣なき鞘」——目的なきスキルアップの無意味さ</text>
+</svg>
