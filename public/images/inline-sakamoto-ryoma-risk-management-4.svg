@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <!-- 小さな一歩が積み重なり大きな目標へ近づいていくイメージ -->
+  <g fill="#f59e0b" stroke="#92400e" stroke-width="3" stroke-linejoin="round">
+    <rect x="200" y="290" width="60" height="50" fill="#f59e0b" opacity="0.65"/>
+    <rect x="300" y="260" width="60" height="80" fill="#f59e0b" opacity="0.7"/>
+    <rect x="400" y="220" width="60" height="120" fill="#f59e0b" opacity="0.75"/>
+    <rect x="500" y="175" width="60" height="165" fill="#b45309" opacity="0.65"/>
+    <rect x="600" y="130" width="60" height="210" fill="#b45309" opacity="0.7"/>
+    <rect x="700" y="82" width="60" height="258" fill="#92400e" opacity="0.65"/>
+  </g>
+  <line x1="180" y1="345" x2="820" y2="345" stroke="#d97706" stroke-width="2.5" stroke-dasharray="3 7" opacity="0.5"/>
+  <g stroke="#92400e" stroke-width="3" stroke-linecap="round" fill="none">
+    <path d="M 200 260 Q 420 180 740 60"/>
+    <path d="M 740 60 L 718 64 M 740 60 L 736 82"/>
+  </g>
+</svg>
