@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- 背景 -->
+  <rect width="1200" height="630" fill="#faf7ff"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e9d5ff" stroke-width="3"/>
+  <!-- 左側の紫バー -->
+  <rect x="0" y="0" width="12" height="630" fill="#6b21a8"/>
+
+  <!-- 右側グラフィック：砂時計 -->
+  <!-- 砂時計枠 -->
+  <polygon points="820,120 1100,120 960,310" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="4" stroke-linejoin="round"/>
+  <polygon points="820,510 1100,510 960,320" fill="#ede9fe" stroke="#6b21a8" stroke-width="4" stroke-linejoin="round"/>
+  <!-- 上枠 -->
+  <line x1="800" y1="110" x2="1120" y2="110" stroke="#6b21a8" stroke-width="8" stroke-linecap="round"/>
+  <!-- 下枠 -->
+  <line x1="800" y1="520" x2="1120" y2="520" stroke="#6b21a8" stroke-width="8" stroke-linecap="round"/>
+  <!-- 砂（下部に溜まった部分） -->
+  <polygon points="840,498 1080,498 960,325" fill="#a855f7" opacity="0.5"/>
+  <!-- 落下点 -->
+  <circle cx="960" cy="315" r="8" fill="#6b21a8"/>
+  <!-- 矢印（下向き） -->
+  <line x1="960" y1="325" x2="960" y2="348" stroke="#6b21a8" stroke-width="3" stroke-dasharray="5,4"/>
+  <!-- 輪 -->
+  <circle cx="960" cy="315" r="120" fill="none" stroke="#e9d5ff" stroke-width="2" opacity="0.5"/>
+
+  <!-- カテゴリバッジ -->
+  <rect x="68" y="70" width="160" height="34" rx="17" fill="#ede9fe"/>
+  <text x="148" y="93" font-family="'Noto Sans JP', sans-serif" font-size="16" font-weight="700" fill="#6b21a8" text-anchor="middle">思考・マインド</text>
+
+  <!-- タイトル -->
+  <text x="68" y="200" font-family="'Noto Sans JP', sans-serif" font-size="62" font-weight="900" fill="#6b21a8">吉田松陰の逆算思考</text>
+
+  <!-- サブタイトル -->
+  <text x="68" y="280" font-family="'Noto Sans JP', sans-serif" font-size="36" font-weight="700" fill="#374151">残り時間から逆算して生きる</text>
+
+  <!-- 区切り線 -->
+  <line x1="68" y1="320" x2="750" y2="320" stroke="#e9d5ff" stroke-width="2"/>
+
+  <!-- 説明テキスト -->
+  <text x="68" y="380" font-family="'Noto Sans JP', sans-serif" font-size="24" fill="#6b7280">29歳で処刑された松陰が残したのは、</text>
+  <text x="68" y="415" font-family="'Noto Sans JP', sans-serif" font-size="24" fill="#6b7280">「いつ死んでも悔いのない生き方」だった。</text>
+
+  <!-- 引用 -->
+  <rect x="68" y="460" width="700" height="80" rx="8" fill="#f3e8ff"/>
+  <text x="88" y="496" font-family="'Noto Sans JP', sans-serif" font-size="20" font-weight="700" fill="#6b21a8">「身はたとひ武蔵の野辺に朽ちぬとも」</text>
+  <text x="88" y="524" font-family="'Noto Sans JP', sans-serif" font-size="16" fill="#7c3aed">— 吉田松陰『留魂録』</text>
+
+  <!-- サイト名 -->
+  <text x="68" y="594" font-family="'Noto Sans JP', sans-serif" font-size="18" fill="#9ca3af">偉人ラボ — ijin-lab.com</text>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+  <!-- 問いが次の問いを生む連鎖のイメージ -->
+  <!-- 最初の問いバブル -->
+  <circle cx="160" cy="210" r="52" fill="none" stroke="#6b21a8" stroke-width="3" opacity="0.85"/>
+  <text x="160" y="206" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#6b21a8" text-anchor="middle" opacity="0.9">なぜ？</text>
+  <text x="160" y="228" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#8b5cf6" text-anchor="middle" opacity="0.75">問い①</text>
+  <!-- 矢印1 -->
+  <path d="M 216 210 L 278 210" stroke="#a855f7" stroke-width="2.5" stroke-dasharray="5 5" opacity="0.7"/>
+  <path d="M 274 204 L 284 210 L 274 216" fill="none" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+  <!-- 2番目の問いバブル -->
+  <circle cx="340" cy="210" r="44" fill="none" stroke="#8b5cf6" stroke-width="3" opacity="0.8"/>
+  <text x="340" y="206" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#6b21a8" text-anchor="middle" opacity="0.85">なぜ？</text>
+  <text x="340" y="226" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#8b5cf6" text-anchor="middle" opacity="0.7">問い②</text>
+  <!-- 矢印2 -->
+  <path d="M 388 210 L 446 210" stroke="#a855f7" stroke-width="2.5" stroke-dasharray="5 5" opacity="0.65"/>
+  <path d="M 442 204 L 452 210 L 442 216" fill="none" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.65"/>
+  <!-- 3番目の問いバブル -->
+  <circle cx="500" cy="210" r="36" fill="none" stroke="#8b5cf6" stroke-width="3" opacity="0.75"/>
+  <text x="500" y="206" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#6b21a8" text-anchor="middle" opacity="0.8">なぜ？</text>
+  <text x="500" y="225" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#8b5cf6" text-anchor="middle" opacity="0.65">問い③</text>
+  <!-- 矢印3 -->
+  <path d="M 539 210 L 590 210" stroke="#a855f7" stroke-width="2" stroke-dasharray="4 5" opacity="0.55"/>
+  <path d="M 586 205 L 595 210 L 586 215" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+  <!-- 4番目（より小さく・深く） -->
+  <circle cx="632" cy="210" r="28" fill="none" stroke="#a855f7" stroke-width="2.5" opacity="0.65"/>
+  <text x="632" y="215" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#6b21a8" text-anchor="middle" opacity="0.7">本質</text>
+  <!-- 輝き -->
+  <circle cx="632" cy="210" r="10" fill="#a855f7" opacity="0.18"/>
+  <!-- ラベル -->
+  <text x="500" y="370" font-family="'Hiragino Sans', sans-serif" font-size="15" fill="#6b21a8" text-anchor="middle" opacity="0.55" letter-spacing="2">問いが深まるにつれ、本質が見えてくる</text>
+</svg>

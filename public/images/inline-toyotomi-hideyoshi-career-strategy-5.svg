@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+
+  <!-- 3戦略まとめ図 -->
+  <!-- タイトル -->
+  <text x="500" y="58" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#92400e" text-anchor="middle" font-weight="700">秀吉の出世3戦略</text>
+
+  <!-- 戦略①カード -->
+  <rect x="80" y="90" width="250" height="240" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="80" y="90" width="250" height="44" rx="10" fill="#f59e0b" opacity="0.7"/>
+  <rect x="80" y="116" width="250" height="18" rx="0" fill="#f59e0b" opacity="0.7"/>
+  <text x="205" y="119" font-family="'Hiragino Sans', sans-serif" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">戦略①</text>
+  <text x="205" y="162" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#92400e" text-anchor="middle" font-weight="700">上司の困りごとを</text>
+  <text x="205" y="183" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#92400e" text-anchor="middle" font-weight="700">先読みして解決</text>
+  <text x="205" y="222" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">頼まれる前に動く</text>
+  <text x="205" y="244" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">ペインポイントを探す</text>
+  <text x="205" y="266" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">先回りの習慣を持つ</text>
+
+  <!-- 戦略②カード -->
+  <rect x="375" y="90" width="250" height="240" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="375" y="90" width="250" height="44" rx="10" fill="#f59e0b" opacity="0.7"/>
+  <rect x="375" y="116" width="250" height="18" rx="0" fill="#f59e0b" opacity="0.7"/>
+  <text x="500" y="119" font-family="'Hiragino Sans', sans-serif" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">戦略②</text>
+  <text x="500" y="162" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#92400e" text-anchor="middle" font-weight="700">小さな信頼を</text>
+  <text x="500" y="183" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#92400e" text-anchor="middle" font-weight="700">積み上げる</text>
+  <text x="500" y="222" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">小さな仕事も手を抜かない</text>
+  <text x="500" y="244" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">一つ完璧にやり切る</text>
+  <text x="500" y="266" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">次の機会を生む</text>
+
+  <!-- 戦略③カード -->
+  <rect x="670" y="90" width="250" height="240" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="670" y="90" width="250" height="44" rx="10" fill="#f59e0b" opacity="0.7"/>
+  <rect x="670" y="116" width="250" height="18" rx="0" fill="#f59e0b" opacity="0.7"/>
+  <text x="795" y="119" font-family="'Hiragino Sans', sans-serif" font-size="15" fill="#fff" text-anchor="middle" font-weight="700">戦略③</text>
+  <text x="795" y="162" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#92400e" text-anchor="middle" font-weight="700">居場所を</text>
+  <text x="795" y="183" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#92400e" text-anchor="middle" font-weight="700">自分で作る</text>
+  <text x="795" y="222" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">空白ニーズを見つける</text>
+  <text x="795" y="244" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">誰もやらないことをやる</text>
+  <text x="795" y="266" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">ポジションを創出する</text>
+
+  <!-- 下部まとめ -->
+  <text x="500" y="370" font-family="'Hiragino Sans', sans-serif" font-size="16" fill="#92400e" text-anchor="middle" font-weight="700">出世は「才能」でなく「戦略」である</text>
+</svg>

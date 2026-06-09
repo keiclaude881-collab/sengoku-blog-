@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+
+  <!-- 先読みのイメージ: 相手が動く前にすでに準備済み -->
+  <!-- 時間軸 -->
+  <line x1="100" y1="270" x2="900" y2="270" stroke="#e8e0d4" stroke-width="2"/>
+  <text x="100" y="295" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#b45309">過去</text>
+  <text x="875" y="295" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#b45309">未来</text>
+
+  <!-- 上司（信長）のニーズ発生点 -->
+  <circle cx="560" cy="270" r="12" fill="#92400e" opacity="0.85"/>
+  <text x="560" y="320" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">上司がニーズを感じる</text>
+
+  <!-- 秀吉がすでに準備している点 -->
+  <circle cx="340" cy="270" r="12" fill="#f59e0b" opacity="0.9"/>
+  <text x="340" y="320" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#b45309" text-anchor="middle">秀吉がすでに準備済み</text>
+
+  <!-- 準備の矢印（先読み） -->
+  <path d="M 340 258 C 400 200 480 190 548 258" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="6 4" fill="none" opacity="0.8"/>
+  <polygon points="548,258 535,248 546,238" fill="#f59e0b" opacity="0.8"/>
+
+  <!-- ラベル「先読み」 -->
+  <text x="445" y="185" font-family="'Hiragino Sans', sans-serif" font-size="16" fill="#92400e" text-anchor="middle" font-weight="700">先読み</text>
+
+  <!-- 草履のシンボル（横向き楕円） -->
+  <ellipse cx="340" cy="190" rx="38" ry="22" fill="#f59e0b" opacity="0.35" stroke="#b45309" stroke-width="2"/>
+  <text x="340" y="196" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#92400e" text-anchor="middle">草履</text>
+
+  <!-- 右側: 対比 -->
+  <rect x="700" y="100" width="180" height="55" rx="6" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+  <text x="790" y="122" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle" font-weight="700">頼まれる前に</text>
+  <text x="790" y="143" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle" font-weight="700">やる</text>
+
+  <rect x="700" y="175" width="180" height="55" rx="6" fill="#f5f5f4" stroke="#e8e0d4" stroke-width="1.5"/>
+  <text x="790" y="197" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#a8a29e" text-anchor="middle">頼まれてから</text>
+  <text x="790" y="218" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#a8a29e" text-anchor="middle">やる</text>
+</svg>

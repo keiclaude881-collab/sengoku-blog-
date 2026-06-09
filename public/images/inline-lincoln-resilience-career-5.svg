@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <!-- 3原則まとめのシンプルな構造図 -->
+
+  <!-- Title -->
+  <text x="500" y="48" font-family="'Hiragino Sans', sans-serif" font-size="19" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="1">リンカーンの3原則：逆境に強い人がやっていること</text>
+
+  <!-- Center circle -->
+  <circle cx="500" cy="230" r="58" fill="#f59e0b" opacity="0.9" stroke="#92400e" stroke-width="2.5"/>
+  <text x="500" y="222" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">逆境に</text>
+  <text x="500" y="244" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">強くなる</text>
+
+  <!-- Principle 1 (left) -->
+  <rect x="60" y="155" width="250" height="100" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+  <text x="185" y="188" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">原則①</text>
+  <text x="185" y="212" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">失敗を「情報」として</text>
+  <text x="185" y="232" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">処理する</text>
+  <!-- Connection line -->
+  <line x1="310" y1="205" x2="442" y2="215" stroke="#b45309" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="438,207 452,216 439,225" fill="#b45309"/>
+
+  <!-- Principle 2 (top) -->
+  <rect x="360" y="55" width="280" height="90" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="500" y="85" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">原則②</text>
+  <text x="500" y="109" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">「自分の軸」を</text>
+  <text x="500" y="129" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">持ち続ける</text>
+  <!-- Connection line -->
+  <line x1="500" y1="145" x2="500" y2="172" stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="493,168 500,184 507,168" fill="#d97706"/>
+
+  <!-- Principle 3 (right) -->
+  <rect x="690" y="155" width="250" height="100" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="815" y="188" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">原則③</text>
+  <text x="815" y="212" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">時間軸を「長く」</text>
+  <text x="815" y="232" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">とる</text>
+  <!-- Connection line -->
+  <line x1="690" y1="205" x2="558" y2="218" stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="560,208 546,218 561,228" fill="#d97706"/>
+
+  <!-- Bottom caption -->
+  <text x="500" y="345" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#b45309" text-anchor="middle">51年間の失敗を経て証明された、キャリア逆境の突破法</text>
+  <text x="500" y="370" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle" opacity="0.8">これは才能でも運でもなく、習慣だ</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+
+  <!-- 空白（誰もいないポジション）を自分が埋めるイメージ -->
+  <!-- 組織の既存ポジション -->
+  <g opacity="0.7">
+    <circle cx="200" cy="160" r="38" fill="#e8e0d4" stroke="#b45309" stroke-width="1.5"/>
+    <text x="200" y="165" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">役割A</text>
+
+    <circle cx="350" cy="160" r="38" fill="#e8e0d4" stroke="#b45309" stroke-width="1.5"/>
+    <text x="350" y="165" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">役割B</text>
+
+    <circle cx="200" cy="290" r="38" fill="#e8e0d4" stroke="#b45309" stroke-width="1.5"/>
+    <text x="200" y="295" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">役割C</text>
+
+    <circle cx="350" cy="290" r="38" fill="#e8e0d4" stroke="#b45309" stroke-width="1.5"/>
+    <text x="350" y="295" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">役割D</text>
+  </g>
+
+  <!-- 空白スペース（点線の円） -->
+  <circle cx="500" cy="225" r="52" fill="#fef3c7" stroke="#f59e0b" stroke-width="3" stroke-dasharray="8 5" opacity="0.8"/>
+  <text x="500" y="220" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#92400e" text-anchor="middle">空白</text>
+  <text x="500" y="240" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">誰もやらない</text>
+
+  <!-- 秀吉が空白に入り込む矢印 -->
+  <path d="M 650 225 L 556 225" stroke="#92400e" stroke-width="3" fill="none" opacity="0.85"/>
+  <polygon points="556,225 570,217 570,233" fill="#92400e" opacity="0.85"/>
+
+  <!-- 秀吉（自分） -->
+  <circle cx="700" cy="225" r="45" fill="#f59e0b" opacity="0.85" stroke="#92400e" stroke-width="2.5"/>
+  <text x="700" y="220" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#92400e" text-anchor="middle" font-weight="700">秀吉</text>
+  <text x="700" y="240" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">（自分）</text>
+
+  <!-- 右側テキスト -->
+  <text x="870" y="200" font-family="'Hiragino Sans', sans-serif" font-size="17" fill="#92400e" text-anchor="middle" font-weight="700">空白を見つけ</text>
+  <text x="870" y="226" font-family="'Hiragino Sans', sans-serif" font-size="17" fill="#92400e" text-anchor="middle" font-weight="700">自分が埋める</text>
+</svg>

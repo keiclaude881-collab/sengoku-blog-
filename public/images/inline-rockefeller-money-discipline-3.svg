@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <!-- お金が循環・再投資されていく流れ図 -->
+
+  <!-- Title -->
+  <text x="500" y="42" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#92400e" text-anchor="middle">お金を「使う」ではなく「動かす」——再投資の循環</text>
+  <line x1="100" y1="58" x2="900" y2="58" stroke="#e8e0d4" stroke-width="1.5"/>
+
+  <!-- Circular flow with 4 nodes -->
+  <!-- Center circle -->
+  <circle cx="500" cy="230" r="55" fill="#f59e0b" opacity="0.25" stroke="#d97706" stroke-width="2"/>
+  <text x="500" y="224" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">資産の</text>
+  <text x="500" y="244" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">拡大</text>
+
+  <!-- Node 1: Top - 事業収益 -->
+  <rect x="390" y="80" width="220" height="56" rx="8" fill="#92400e" opacity="0.85"/>
+  <text x="500" y="108" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#fef3c7" text-anchor="middle">① 事業から収益を得る</text>
+  <text x="500" y="128" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#fef3c7" text-anchor="middle">石油精製・販売</text>
+
+  <!-- Node 2: Right - 再投資 -->
+  <rect x="720" y="168" width="200" height="56" rx="8" fill="#b45309" opacity="0.75"/>
+  <text x="820" y="196" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#fef3c7" text-anchor="middle">② 利益を再投資</text>
+  <text x="820" y="216" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#fef3c7" text-anchor="middle">パイプライン・設備拡充</text>
+
+  <!-- Node 3: Bottom - コスト競争力 -->
+  <rect x="390" y="318" width="220" height="56" rx="8" fill="#d97706" opacity="0.7"/>
+  <text x="500" y="346" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#faf7f2" text-anchor="middle">③ コストが下がる</text>
+  <text x="500" y="366" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#faf7f2" text-anchor="middle">競合より安く供給できる</text>
+
+  <!-- Node 4: Left - シェア拡大 -->
+  <rect x="80" y="168" width="200" height="56" rx="8" fill="#f59e0b" opacity="0.65" stroke="#d97706" stroke-width="1.5"/>
+  <text x="180" y="196" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">④ 市場シェア拡大</text>
+  <text x="180" y="216" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#92400e" text-anchor="middle">利益がさらに増える</text>
+
+  <!-- Arrows connecting nodes (clockwise) -->
+  <!-- 1(top) → 2(right) -->
+  <path d="M 610 108 Q 720 140 720 180" fill="none" stroke="#92400e" stroke-width="2.5" stroke-linecap="round"/>
+  <polygon points="712,178 726,192 736,177" fill="#92400e"/>
+
+  <!-- 2(right) → 3(bottom) -->
+  <path d="M 720 224 Q 720 310 610 346" fill="none" stroke="#b45309" stroke-width="2.5" stroke-linecap="round"/>
+  <polygon points="615,338 607,354 595,342" fill="#b45309"/>
+
+  <!-- 3(bottom) → 4(left) -->
+  <path d="M 390 346 Q 280 318 280 224" fill="none" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/>
+  <polygon points="287,224 278,208 270,222" fill="#d97706"/>
+
+  <!-- 4(left) → 1(top) -->
+  <path d="M 280 180 Q 280 108 390 108" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+  <polygon points="388,100 404,108 388,116" fill="#f59e0b"/>
+
+  <!-- Modern application note -->
+  <rect x="600" y="310" width="290" height="68" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="745" y="335" font-family="'Hiragino Sans', sans-serif" font-size="13" font-weight="700" fill="#92400e" text-anchor="middle">現代への応用</text>
+  <text x="745" y="355" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#92400e" text-anchor="middle">配当・運用益を即再投資 →</text>
+  <text x="745" y="372" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#92400e" text-anchor="middle">複利の力を最大化する</text>
+
+  <!-- Bottom label -->
+  <text x="500" y="400" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#b45309" text-anchor="middle" letter-spacing="1" opacity="0.85">消費せず動かし続ける——これが資産を雪だるま式に増やす原理</text>
+</svg>

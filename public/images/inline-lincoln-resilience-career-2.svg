@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <!-- 失敗→分析→次への循環図 -->
+
+  <!-- Circle 1: 失敗 -->
+  <circle cx="220" cy="210" r="80" fill="#fef3c7" stroke="#b45309" stroke-width="2.5"/>
+  <text x="220" y="202" font-family="'Hiragino Sans', sans-serif" font-size="20" font-weight="700" fill="#92400e" text-anchor="middle">失敗</text>
+  <text x="220" y="228" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#b45309" text-anchor="middle">落選・事業破綻</text>
+
+  <!-- Arrow 1→2 -->
+  <path d="M 305 185 C 380 140 430 140 480 165" stroke="#92400e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <polygon points="476,154 492,166 477,176" fill="#92400e"/>
+  <text x="393" y="138" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#b45309" text-anchor="middle">情報として処理</text>
+
+  <!-- Circle 2: 分析 -->
+  <circle cx="500" cy="210" r="80" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+  <text x="500" y="202" font-family="'Hiragino Sans', sans-serif" font-size="20" font-weight="700" fill="#92400e" text-anchor="middle">分析</text>
+  <text x="500" y="228" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#b45309" text-anchor="middle">原因・改善点を探る</text>
+
+  <!-- Arrow 2→3 -->
+  <path d="M 585 235 C 650 270 700 268 750 248" stroke="#92400e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <polygon points="746,237 762,250 747,260" fill="#92400e"/>
+  <text x="670" y="282" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#b45309" text-anchor="middle">学びを次に活かす</text>
+
+  <!-- Circle 3: 次へ -->
+  <circle cx="780" cy="210" r="80" fill="#fef3c7" stroke="#f59e0b" stroke-width="2.5"/>
+  <text x="780" y="202" font-family="'Hiragino Sans', sans-serif" font-size="20" font-weight="700" fill="#92400e" text-anchor="middle">次へ</text>
+  <text x="780" y="228" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#b45309" text-anchor="middle">精度を上げて再挑戦</text>
+
+  <!-- Arrow 3 back to 1 (bottom arc) -->
+  <path d="M 780 292 C 780 360 220 360 220 292" stroke="#d97706" stroke-width="2" fill="none" stroke-dasharray="8 5" stroke-linecap="round"/>
+  <polygon points="218,279 212,294 228,296" fill="#d97706"/>
+
+  <!-- Center label -->
+  <text x="500" y="370" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle" opacity="0.8">繰り返すたびに、精度が上がる</text>
+
+  <!-- Title -->
+  <text x="500" y="400" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#b45309" text-anchor="middle" letter-spacing="1" opacity="0.75">失敗を「感情的な出来事」ではなく「次への情報」に変える思考サイクル</text>
+</svg>
