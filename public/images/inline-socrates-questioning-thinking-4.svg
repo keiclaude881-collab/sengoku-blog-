@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+  <!-- 対話によって思考が整理・深まるイメージ -->
+  <!-- 人物A（左） -->
+  <circle cx="220" cy="160" r="32" fill="none" stroke="#6b21a8" stroke-width="3" opacity="0.8"/>
+  <circle cx="220" cy="160" r="10" fill="#6b21a8" opacity="0.7"/>
+  <!-- 人物Bへの吹き出し（左→右） -->
+  <path d="M 258 155 Q 380 120 480 148" stroke="#8b5cf6" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.65" stroke-dasharray="6 5"/>
+  <path d="M 472 140 L 485 150 L 472 158" fill="none" stroke="#8b5cf6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.65"/>
+  <text x="368" y="112" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#6b21a8" text-anchor="middle" opacity="0.7">「なぜそう思うのですか？」</text>
+  <!-- 人物B（右） -->
+  <circle cx="780" cy="160" r="32" fill="none" stroke="#8b5cf6" stroke-width="3" opacity="0.75"/>
+  <circle cx="780" cy="160" r="10" fill="#8b5cf6" opacity="0.65"/>
+  <!-- 応答（右→左） -->
+  <path d="M 742 172 Q 620 200 520 178" stroke="#a855f7" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.55" stroke-dasharray="5 6"/>
+  <path d="M 528 170 L 515 180 L 527 188" fill="none" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+  <text x="632" y="208" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#8b5cf6" text-anchor="middle" opacity="0.6">「言われてみると……」</text>
+  <!-- 中央：思考の整理（吹き出しから整理されたブロック） -->
+  <rect x="376" y="248" width="248" height="90" rx="10" fill="none" stroke="#6b21a8" stroke-width="2" opacity="0.45"/>
+  <text x="500" y="280" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#6b21a8" text-anchor="middle" opacity="0.75">思考が整理される</text>
+  <line x1="410" y1="294" x2="590" y2="294" stroke="#e9d5ff" stroke-width="1.5" opacity="0.8"/>
+  <text x="500" y="316" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#8b5cf6" text-anchor="middle" opacity="0.6">曖昧→言語化→論理の穴が見える</text>
+  <!-- 左の人物から中央へ矢印 -->
+  <path d="M 240 195 L 380 255" stroke="#6b21a8" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.35" stroke-dasharray="4 5"/>
+  <!-- 右の人物から中央へ矢印 -->
+  <path d="M 760 196 L 624 255" stroke="#8b5cf6" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.35" stroke-dasharray="4 5"/>
+  <!-- ラベル -->
+  <text x="220" y="215" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#6b21a8" text-anchor="middle" opacity="0.6">問う側</text>
+  <text x="780" y="215" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#8b5cf6" text-anchor="middle" opacity="0.6">答える側</text>
+</svg>

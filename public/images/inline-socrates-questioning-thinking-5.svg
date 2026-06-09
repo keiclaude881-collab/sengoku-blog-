@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+  <!-- 3原則をまとめた構造図 -->
+  <!-- 中央の核 -->
+  <circle cx="500" cy="210" r="52" fill="#f3e8ff" stroke="#6b21a8" stroke-width="3" opacity="0.9"/>
+  <text x="500" y="204" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#6b21a8" text-anchor="middle" opacity="0.9">問い続ける</text>
+  <text x="500" y="224" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#6b21a8" text-anchor="middle" opacity="0.9">習慣</text>
+  <!-- 原則① 左上 -->
+  <circle cx="210" cy="130" r="70" fill="none" stroke="#8b5cf6" stroke-width="2.5" opacity="0.75"/>
+  <text x="210" y="116" font-family="'Hiragino Sans', sans-serif" font-size="13" font-weight="700" fill="#6b21a8" text-anchor="middle" opacity="0.85">原則①</text>
+  <text x="210" y="136" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#8b5cf6" text-anchor="middle" opacity="0.75">「わかった気」</text>
+  <text x="210" y="153" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#8b5cf6" text-anchor="middle" opacity="0.75">を疑う</text>
+  <!-- 原則① → 中央の接続線 -->
+  <line x1="278" y1="162" x2="452" y2="185" stroke="#a855f7" stroke-width="2" opacity="0.4" stroke-dasharray="5 5"/>
+  <!-- 原則② 右上 -->
+  <circle cx="790" cy="130" r="70" fill="none" stroke="#8b5cf6" stroke-width="2.5" opacity="0.75"/>
+  <text x="790" y="116" font-family="'Hiragino Sans', sans-serif" font-size="13" font-weight="700" fill="#6b21a8" text-anchor="middle" opacity="0.85">原則②</text>
+  <text x="790" y="136" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#8b5cf6" text-anchor="middle" opacity="0.75">問いの「精度」</text>
+  <text x="790" y="153" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#8b5cf6" text-anchor="middle" opacity="0.75">を上げる</text>
+  <!-- 原則② → 中央の接続線 -->
+  <line x1="722" y1="162" x2="548" y2="185" stroke="#a855f7" stroke-width="2" opacity="0.4" stroke-dasharray="5 5"/>
+  <!-- 原則③ 下中央 -->
+  <circle cx="500" cy="340" r="58" fill="none" stroke="#8b5cf6" stroke-width="2.5" opacity="0.75"/>
+  <text x="500" y="325" font-family="'Hiragino Sans', sans-serif" font-size="13" font-weight="700" fill="#6b21a8" text-anchor="middle" opacity="0.85">原則③</text>
+  <text x="500" y="345" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#8b5cf6" text-anchor="middle" opacity="0.75">「対話」で</text>
+  <text x="500" y="362" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#8b5cf6" text-anchor="middle" opacity="0.75">思考を鮮明に</text>
+  <!-- 原則③ → 中央の接続線 -->
+  <line x1="500" y1="282" x2="500" y2="262" stroke="#a855f7" stroke-width="2" opacity="0.4" stroke-dasharray="5 5"/>
+  <!-- 中央の核内の小さな光点 -->
+  <circle cx="500" cy="210" r="8" fill="#6b21a8" opacity="0.3"/>
+</svg>
