@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#faf7ff"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+  <!-- 左縦バー -->
+  <rect x="0" y="0" width="12" height="630" fill="#6b21a8"/>
+
+  <!-- 問いの連鎖モチーフ（左側装飾） -->
+  <circle cx="260" cy="200" r="60" fill="none" stroke="#6b21a8" stroke-width="3" opacity="0.6"/>
+  <circle cx="260" cy="200" r="20" fill="#6b21a8" opacity="0.18"/>
+  <text x="260" y="208" font-family="'Shippori Mincho', serif" font-size="28" fill="#6b21a8" text-anchor="middle" opacity="0.75">？</text>
+  <path d="M 325 200 L 390 200" stroke="#a855f7" stroke-width="2.5" stroke-dasharray="6 6" opacity="0.5"/>
+  <path d="M 384 193 L 396 200 L 384 207" fill="none" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+  <circle cx="430" cy="200" r="42" fill="none" stroke="#8b5cf6" stroke-width="2.5" opacity="0.5"/>
+  <circle cx="430" cy="200" r="14" fill="#8b5cf6" opacity="0.15"/>
+  <text x="430" y="208" font-family="'Shippori Mincho', serif" font-size="22" fill="#6b21a8" text-anchor="middle" opacity="0.65">？</text>
+  <path d="M 475 200 L 520 200" stroke="#a855f7" stroke-width="2" stroke-dasharray="5 5" opacity="0.4"/>
+  <path d="M 515 194 L 525 200 L 515 206" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+  <circle cx="548" cy="200" r="28" fill="#a855f7" opacity="0.12"/>
+  <circle cx="548" cy="200" r="14" fill="#6b21a8" opacity="0.22"/>
+
+  <!-- カテゴリバッジ -->
+  <rect x="680" y="180" width="124" height="36" rx="18" fill="#f3e8ff" stroke="#e9d5ff" stroke-width="1.5"/>
+  <text x="742" y="204" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#6b21a8" text-anchor="middle" letter-spacing="1">思考・マインド</text>
+
+  <!-- タイトル -->
+  <text x="680" y="290" font-family="'Shippori Mincho', serif" font-size="36" font-weight="700" fill="#1c1917" letter-spacing="1">ソクラテスの</text>
+  <text x="680" y="342" font-family="'Shippori Mincho', serif" font-size="36" font-weight="700" fill="#1c1917" letter-spacing="1">問う力</text>
+
+  <!-- サブタイトル -->
+  <text x="680" y="400" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#44403c" letter-spacing="0.5" opacity="0.8">「無知の知」から学ぶ思考法</text>
+
+  <!-- フッター -->
+  <text x="100" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+</svg>
