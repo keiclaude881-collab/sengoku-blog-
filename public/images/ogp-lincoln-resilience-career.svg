@@ -1,39 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <!-- Background -->
-  <rect width="1200" height="630" fill="#faf7f2"/>
+  <rect width="1200" height="630" fill="#f7faff"/>
   <!-- Border -->
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e8e0d4" stroke-width="3"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#dbeafe" stroke-width="3"/>
   <!-- Left accent bar -->
-  <rect x="0" y="0" width="12" height="630" fill="#92400e"/>
+  <rect x="0" y="0" width="12" height="630" fill="#1e40af"/>
 
   <!-- Category badge -->
-  <rect x="60" y="55" width="172" height="34" rx="17" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
-  <text x="146" y="77" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="2">キャリア・副業</text>
+  <rect x="60" y="55" width="140" height="34" rx="17" fill="#dbeafe" stroke="#bfdbfe" stroke-width="1.5"/>
+  <text x="130" y="77" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#1e40af" text-anchor="middle" letter-spacing="2">仕事・副業</text>
 
   <!-- Main title -->
   <text x="60" y="185" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="52" font-weight="700" fill="#1c1917" letter-spacing="-1">リンカーンの</text>
   <text x="60" y="255" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="52" font-weight="700" fill="#1c1917" letter-spacing="-1">逆境術</text>
 
   <!-- Subtitle -->
-  <text x="60" y="318" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="28" fill="#b45309" letter-spacing="2">失敗を武器にするキャリア戦略</text>
+  <text x="60" y="318" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="28" fill="#2563eb" letter-spacing="2">失敗を武器にするキャリア戦略</text>
 
   <!-- Divider line -->
-  <line x1="60" y1="352" x2="680" y2="352" stroke="#e8e0d4" stroke-width="2"/>
+  <line x1="60" y1="352" x2="680" y2="352" stroke="#dbeafe" stroke-width="2"/>
 
   <!-- Description -->
   <text x="60" y="392" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">事業失敗・選挙落選を繰り返しながら52歳で大統領に。</text>
   <text x="60" y="422" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">逆境を乗り越えた3つの思考法。</text>
 
   <!-- Bottom label -->
-  <text x="60" y="568" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#b45309" font-weight="700" letter-spacing="3">偉人ラボ</text>
+  <text x="60" y="568" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#a8a29e" font-weight="700" letter-spacing="3">偉人ラボ</text>
 
   <!-- Right-side graphic: Career graph rising -->
   <!-- Graph background -->
-  <rect x="780" y="100" width="360" height="300" rx="8" fill="#fef3c7" stroke="#e8e0d4" stroke-width="1.5"/>
+  <rect x="780" y="100" width="360" height="300" rx="8" fill="#dbeafe" stroke="#bfdbfe" stroke-width="1.5"/>
 
   <!-- Graph axes -->
-  <line x1="820" y1="130" x2="820" y2="370" stroke="#d97706" stroke-width="2"/>
-  <line x1="820" y1="370" x2="1110" y2="370" stroke="#d97706" stroke-width="2"/>
+  <line x1="820" y1="130" x2="820" y2="370" stroke="#3b82f6" stroke-width="2"/>
+  <line x1="820" y1="370" x2="1110" y2="370" stroke="#3b82f6" stroke-width="2"/>
 
   <!-- Career line: dips then rises sharply -->
   <path d="M 830 300
@@ -41,25 +41,25 @@
            C 940 356 960 320 990 310
            C 1020 300 1040 330 1060 325
            C 1080 320 1090 270 1110 200"
-        stroke="#92400e" stroke-width="3" fill="none" stroke-linecap="round"/>
+        stroke="#1e40af" stroke-width="3" fill="none" stroke-linecap="round"/>
 
   <!-- Shaded area under final rise -->
   <path d="M 1060 325 C 1080 320 1090 270 1110 200 L 1110 370 L 1060 370 Z"
-        fill="#f59e0b" opacity="0.15"/>
+        fill="#3b82f6" opacity="0.15"/>
 
   <!-- Failure dots -->
-  <circle cx="910" cy="348" r="6" fill="#b45309" opacity="0.8"/>
-  <circle cx="1060" cy="325" r="6" fill="#b45309" opacity="0.8"/>
+  <circle cx="910" cy="348" r="6" fill="#2563eb" opacity="0.8"/>
+  <circle cx="1060" cy="325" r="6" fill="#2563eb" opacity="0.8"/>
 
   <!-- Success star/dot -->
-  <circle cx="1110" cy="200" r="10" fill="#f59e0b" stroke="#92400e" stroke-width="2"/>
+  <circle cx="1110" cy="200" r="10" fill="#3b82f6" stroke="#1e40af" stroke-width="2"/>
 
   <!-- Labels inside graph -->
-  <text x="840" y="155" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#b45309">高</text>
-  <text x="840" y="375" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#b45309">低</text>
-  <text x="960" y="395" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">時間 →</text>
-  <text x="1112" y="192" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="11" font-weight="700" fill="#92400e" text-anchor="start">頂点</text>
+  <text x="840" y="155" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#2563eb">高</text>
+  <text x="840" y="375" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#2563eb">低</text>
+  <text x="960" y="395" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#2563eb" text-anchor="middle">時間 →</text>
+  <text x="1112" y="192" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="11" font-weight="700" fill="#1e40af" text-anchor="start">頂点</text>
 
   <!-- Graph caption -->
-  <text x="960" y="432" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="14" fill="#92400e" text-anchor="middle" font-weight="700">失敗を重ねた末の大統領就任</text>
+  <text x="960" y="432" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="14" fill="#1e40af" text-anchor="middle" font-weight="700">失敗を重ねた末の大統領就任</text>
 </svg>
