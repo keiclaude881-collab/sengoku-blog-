@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f7faff"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#dbeafe" stroke-width="2"/>
+  <rect x="0" y="0" width="12" height="630" fill="#1e40af"/>
+
+  <!-- カテゴリバッジ -->
+  <rect x="68" y="68" width="120" height="36" rx="18" fill="#dbeafe" stroke="#bfdbfe"/>
+  <text x="128" y="92" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#1e40af" text-anchor="middle" letter-spacing="1">仕事・副業</text>
+
+  <!-- タイトル -->
+  <text x="68" y="200" font-family="'Hiragino Sans', sans-serif" font-size="48" font-weight="900" fill="#1c1917">山本五十六に学ぶ</text>
+  <text x="68" y="266" font-family="'Hiragino Sans', sans-serif" font-size="46" font-weight="900" fill="#1e40af">部下を育てる4ステップ</text>
+
+  <!-- 説明 -->
+  <text x="68" y="330" font-family="'Hiragino Sans', sans-serif" font-size="22" fill="#78716c">「やってみせ、言って聞かせて」人を動かす手順</text>
+
+  <!-- 4段の階段 -->
+  <g fill="#1e40af">
+    <rect x="760" y="500" width="85" height="40" opacity="0.45"/>
+    <rect x="845" y="450" width="85" height="90" opacity="0.6"/>
+    <rect x="930" y="380" width="85" height="160" opacity="0.75"/>
+    <rect x="1015" y="295" width="85" height="245" opacity="0.9"/>
+  </g>
+
+  <!-- 人のアイコン -->
+  <g fill="#1e3a8a" opacity="0.8">
+    <circle cx="802" cy="486" r="11"/>
+    <path d="M 788 540 Q 802 512 816 540 Z"/>
+  </g>
+
+  <!-- 成長の矢印 -->
+  <path d="M 745 515 C 850 380, 980 300, 1090 250" stroke="#3b82f6" stroke-width="4" fill="none" stroke-dasharray="8,7" opacity="0.6"/>
+  <path d="M 1090 250 L 1066 256 M 1090 250 L 1080 272" stroke="#3b82f6" stroke-width="4" fill="none" opacity="0.6"/>
+
+  <text x="68" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+</svg>
