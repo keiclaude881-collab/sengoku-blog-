@@ -13,7 +13,7 @@ const { title, description, lesson, slug, ogImage, youtubeId, tags } = Astro.pro
 const thumb = ogImage;
 ---
 
-<a href={`/wisdom/${slug}/`} class="movie-card">
+<a href={`/blog/${slug}/`} class="movie-card">
   <div class="movie-thumb">
     {thumb
       ? <img src={thumb} alt="" loading="lazy" />

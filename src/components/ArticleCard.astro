@@ -21,7 +21,7 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
 ---
 
 <article class="article-card">
-  <a href={`/wisdom/${slug}/`} class="card-link" tabindex="-1" aria-hidden="true"></a>
+  <a href={`/blog/${slug}/`} class="card-link" tabindex="-1" aria-hidden="true"></a>
 
   {ogImage && (
     <div class:list={["card-thumb", { "card-thumb--philosophy": isPhilosophy }]}>
@@ -36,7 +36,7 @@ const formattedDate = date.toLocaleDateString('ja-JP', { year: 'numeric', month:
     </div>
 
     <h3 class="card-title">
-      <a href={`/wisdom/${slug}/`}>{title}</a>
+      <a href={`/blog/${slug}/`}>{title}</a>
     </h3>
 
     {lesson && (

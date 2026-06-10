@@ -85,7 +85,7 @@ const _allCollections = ["whatif", "philosophy"] as const;
 const _allPosts = (await Promise.all(_allCollections.map(c => getCollection(c).catch(() => [])))).flat();
 const _currentPath = Astro.url.pathname.replace(/\/$/, '');
 const _sameCat = _allPosts.filter(p => {
-  const pPath = `/wisdom/${p.collection}/${p.id.replace(/\.mdx?$/, '')}`;
+  const pPath = `/blog/${p.collection}/${p.id.replace(/\.mdx?$/, '')}`;
   return (p.data as any).category === category && pPath !== _currentPath;
 });
 // Fisher-Yates shuffle (build-time, deterministic per build)
@@ -96,24 +96,8 @@ for (let i = _shuffled.length - 1; i > 0; i--) {
 }
 const awaseteYomitai = _shuffled.slice(0, 3).map(p => ({
   title: (p.data as any).title as string,
-  url:   `/wisdom/${p.collection}/${p.id.replace(/\.mdx?$/, '')}/`,
+  url:   `/blog/${p.collection}/${p.id.replace(/\.mdx?$/, '')}/`,
 }));
-
-// 人気記事（サイドバー）: featured優先 → 新着順、自身を除く
-const popularArticles = _allPosts
-  .filter(p => `/wisdom/${p.collection}/${p.id.replace(/\.mdx?$/, '')}` !== _currentPath)
-  .sort((a, b) => {
-    const fa = (a.data as any).featured ? 1 : 0;
-    const fb = (b.data as any).featured ? 1 : 0;
-    if (fb !== fa) return fb - fa;
-    return b.data.date.getTime() - a.data.date.getTime();
-  })
-  .slice(0, 3)
-  .map(p => ({
-    title:    (p.data as any).title as string,
-    category: (p.data as any).category as string,
-    url:      `/wisdom/${p.collection}/${p.id.replace(/\.mdx?$/, '')}/`,
-  }));
 ---
 
 <BaseLayout
@@ -158,7 +142,7 @@ const popularArticles = _allPosts
       <nav class="breadcrumb" aria-label="パンくず">
         <a href="/">ホーム</a>
         <span aria-hidden="true">›</span>
-        <a href="/wisdom/">記事一覧</a>
+        <a href="/blog/">記事一覧</a>
         <span aria-hidden="true">›</span>
         <a href={`/category/${category}/`}>{catLabel[category]}</a>
         <span aria-hidden="true">›</span>
@@ -234,14 +218,24 @@ const popularArticles = _allPosts
           <div class="sidebar-popular">
             <h3 class="sidebar-heading">人気記事</h3>
             <ul class="sidebar-popular-list">
-              {popularArticles.map(p => (
-                <li>
-                  <a href={p.url} class="sidebar-popular-link">
-                    <span class="sidebar-popular-cat">{catLabel[p.category] ?? p.category}</span>
-                    <span class="sidebar-popular-title">{p.title}</span>
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="/blog/whatif/shingen-longlife-if/" class="sidebar-popular-link">
+                  <span class="sidebar-popular-cat">歴史IF</span>
+                  <span class="sidebar-popular-title">もし武田信玄が長生きしていたら</span>
+                </a>
+              </li>
+              <li>
+                <a href="/blog/strategy/retreat-strategy/" class="sidebar-popular-link">
+                  <span class="sidebar-popular-cat">戦略</span>
+                  <span class="sidebar-popular-title">撤退を決断できるか</span>
+                </a>
+              </li>
+              <li>
+                <a href="/blog/leader/yamamoto-isoroku/" class="sidebar-popular-link">
+                  <span class="sidebar-popular-cat">武将の思想</span>
+                  <span class="sidebar-popular-title">やってみせなければ人は動かない</span>
+                </a>
+              </li>
             </ul>
           </div>
         </aside>
@@ -324,7 +318,7 @@ const popularArticles = _allPosts
           <ul class="related-grid" role="list">
             {relatedArticles.map(r => (
               <li>
-                <a href={`/wisdom/${r.slug}/`} class="related-card">
+                <a href={`/blog/${r.slug}/`} class="related-card">
                   <span class="related-cat">{catLabel[r.category] ?? r.category}</span>
                   <p class="related-title">{r.title}</p>
                   <p class="related-desc">{r.description}</p>
@@ -339,7 +333,7 @@ const popularArticles = _allPosts
 
       <!-- 戻るリンク -->
       <nav class="article-nav">
-        <a href="/wisdom/" class="back-link">← 記事一覧に戻る</a>
+        <a href="/blog/" class="back-link">← 記事一覧に戻る</a>
       </nav>
     </div>
   </article>
@@ -376,7 +370,7 @@ const popularArticles = _allPosts
       if (window.history.length > 1) {
         window.history.back();
       } else {
-        window.location.href = '/wisdom/';
+        window.location.href = '/blog/';
       }
     });
   </script>
@@ -411,7 +405,7 @@ const popularArticles = _allPosts
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "ホーム",     "item": `${siteOrigin}/` },
-      { "@type": "ListItem", "position": 2, "name": "記事一覧",   "item": `${siteOrigin}/wisdom/` },
+      { "@type": "ListItem", "position": 2, "name": "記事一覧",   "item": `${siteOrigin}/blog/` },
       { "@type": "ListItem", "position": 3, "name": catLabel[category], "item": `${siteOrigin}/category/${category}/` },
       { "@type": "ListItem", "position": 4, "name": title,        "item": pageUrl },
     ]
