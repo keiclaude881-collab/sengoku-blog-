@@ -1,9 +1,18 @@
 ---
+import fs from "node:fs";
+import path from "node:path";
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const allPosts = (await getCollection("posts"))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+function scrollThumb(ogImage?: string) {
+  if (!ogImage) return null;
+  const thumb = ogImage.replace(/\/ogp-/, "/thumb-").replace(/\.svg$/, ".png");
+  const exists = fs.existsSync(path.join(process.cwd(), "public", thumb));
+  return exists ? thumb : ogImage;
+}
 
 const LABELS: Record<string, string> = {
   money:   "投資・お金",
@@ -120,7 +129,7 @@ const rest     = allPosts.slice(4);
           <a href={`/blog/${p.id.replace(/.mdx?$/, '')}/`} class="scroll-card">
             <span class="scroll-thumb-wrap">
               {p.data.ogImage
-                ? <img src={p.data.ogImage.replace(/\/ogp-/, '/thumb-').replace(/\.svg$/, '.png')} alt="" loading="lazy" class="scroll-thumb" />
+                ? <img src={scrollThumb(p.data.ogImage)} alt="" loading="lazy" class="scroll-thumb" />
                 : <span class="scroll-thumb scroll-thumb--empty" />
               }
             </span>
