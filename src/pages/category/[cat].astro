@@ -1,0 +1,283 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ArticleCard from "../../components/ArticleCard.astro";
+import { THEME_INFO, THEME_ORDER, type ThemeSlug, type CategoryName } from "../../utils/arcMap";
+
+// 5つの悩みカテゴリ + メディア系 + 哲学
+type Cat = ThemeSlug | "philosophy";
+
+export async function getStaticPaths() {
+  const cats: Cat[] = [...THEME_ORDER, "philosophy"];
+  return cats.map(cat => ({ params: { cat } }));
+}
+
+const THEME_CATS: Cat[] = [...THEME_ORDER, "philosophy"];
+
+const { cat } = Astro.params as { cat: Cat };
+
+// 全コレクションから category フィールドでフィルタ
+const ALL_COLLECTIONS = ["whatif","philosophy"] as const;
+const allPosts = (await Promise.all(
+  ALL_COLLECTIONS.map(c => getCollection(c).catch(() => []))
+)).flat().filter(p => p.data.category === cat)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+function slug(col: string, id: string) {
+  return `${col}/${id.replace(/\.mdx?$/, "")}`;
+}
+
+// カテゴリメタ情報
+const MEDIA_META: Record<string, { label: string; icon: string; tagline: string; desc: string }> = {
+  philosophy: {
+    label:   "哲学の知恵",
+    icon:    "哲",
+    tagline: "2500年前の問いが、今日のあなたへの答えだ",
+    desc:    "ニーチェ、キルケゴール、ハイデガー——彼らが格闘した問いは、仕事・人間関係・生きる意味という今日の悩みと同じ構造をしている。",
+  },
+};
+
+const isTheme = THEME_ORDER.includes(cat as ThemeSlug);
+const themeInfo = isTheme ? THEME_INFO[cat as ThemeSlug] : null;
+const mediaInfo = !isTheme ? MEDIA_META[cat] : null;
+
+const label   = themeInfo?.label   ?? mediaInfo?.label   ?? cat;
+const icon    = themeInfo?.icon    ?? mediaInfo?.icon    ?? "●";
+const tagline = themeInfo?.tagline ?? mediaInfo?.tagline ?? "";
+const desc    = themeInfo?.description ?? mediaInfo?.desc ?? "";
+
+const AUDIBLE_URL = "https://www.amazon.co.jp/b/ref=adbl_JP_as_0068?ie=UTF8&node=7471076051&tag=sengokublog20-22";
+const AUDIBLE_COPY: Record<string, string> = {
+  decide:   "決断に迷う夜、孫子はどう答えるか。",
+  lead:     "人を動かすリーダーの言葉を、通勤中に。",
+  recover:  "逆境を越えた者の思考を、耳から学ぶ。",
+  strategy: "戦略の本質は、聴いて初めてわかる。",
+  change:      "自分を変えた者の哲学を、30日間無料で。",
+  philosophy:  "哲学書を通勤中に。ニーチェも、ハイデガーも、耳から入ってくる。",
+};
+const audibleCopy = AUDIBLE_COPY[cat] ?? null;
+---
+
+<BaseLayout
+  title={`${label} | 偉人ラボ`}
+  description={desc}
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": `${label} | 偉人ラボ`,
+    "description": desc,
+    "url": `https://sengoku-blog.vercel.app/category/${cat}/`,
+    "inLanguage": "ja",
+    "isPartOf": { "@id": "https://sengoku-blog.vercel.app/#website" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://sengoku-blog.vercel.app/" },
+        { "@type": "ListItem", "position": 2, "name": label,    "item": `https://sengoku-blog.vercel.app/category/${cat}/` }
+      ]
+    }
+  })} />
+
+  <div class="cat-hero">
+    <div class="container cat-hero-inner">
+      <div class="cat-hero-content">
+        <p class="cat-eyebrow">CATEGORY</p>
+        <h1 class="cat-title">{label}</h1>
+        <p class="cat-hook">{tagline}</p>
+        <p class="cat-desc">{desc}</p>
+        <span class="cat-count">{allPosts.length} 記事</span>
+      </div>
+      <div class="cat-deco" aria-hidden="true">{icon}</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <nav class="breadcrumb" aria-label="パンくず">
+      <a href="/">ホーム</a>
+      <span>›</span>
+      <span aria-current="page">{label}</span>
+    </nav>
+
+    {audibleCopy && (
+      <div class="cat-audible-banner">
+        <p class="cat-audible-copy">{audibleCopy}</p>
+        <a
+          href={AUDIBLE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cat-audible-btn"
+        >📚 Audibleで聴く →</a>
+      </div>
+    )}
+
+    {allPosts.length > 0 ? (
+      <ul class="article-grid" role="list">
+        {allPosts.map(post => (
+          <li>
+            <ArticleCard
+              title={post.data.title}
+              description={post.data.description}
+              date={post.data.date}
+              category={post.data.category}
+              tags={post.data.tags}
+              readingTime={post.data.readingTime}
+              lesson={post.data.lesson}
+              slug={slug(post.collection, post.id)}
+              ogImage={post.data.ogImage}
+            />
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="empty">このカテゴリの記事はまもなく公開されます。</p>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .cat-hero {
+    padding: 4rem 0 3.5rem;
+    background: #1d1d1f;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cat-hero-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cat-hero-content {
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .cat-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .cat-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+  }
+
+  .cat-hook {
+    font-family: var(--font-serif);
+    font-size: clamp(0.9rem, 2vw, 1.15rem);
+    font-weight: 400;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    border-left: 2px solid var(--gold);
+    padding-left: 1rem;
+  }
+
+  .cat-desc {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.5);
+    max-width: 560px;
+  }
+
+  .cat-count {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    border-radius: 2px;
+    padding: 0.25em 0.8em;
+    align-self: flex-start;
+  }
+
+  .cat-deco {
+    font-family: var(--font-serif);
+    font-size: clamp(6rem, 15vw, 14rem);
+    font-weight: 800;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+    user-select: none;
+    flex-shrink: 0;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--ink3);
+    padding: 1.6rem 0;
+  }
+  .breadcrumb a { color: var(--ink3); transition: color 0.2s; }
+  .breadcrumb a:hover { color: var(--gold); }
+
+  .cat-audible-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background: rgba(150, 150, 160, 0.06);
+    border: 1px solid rgba(150, 150, 160, 0.2);
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 1rem 1.4rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .cat-audible-copy {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .cat-audible-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 1.1rem;
+    background: var(--amber);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 3px;
+    white-space: nowrap;
+    transition: background 0.2s;
+    flex-shrink: 0;
+  }
+  .cat-audible-btn:hover { background: var(--amber-dark); }
+
+  .empty {
+    color: var(--ink3);
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    padding: var(--sp-xl);
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .cat-deco { display: none; }
+    .cat-hero { padding: calc(var(--nav-height) + 2rem) 0 2.5rem; }
+  }
+</style>
