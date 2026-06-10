@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <rect x="0" y="0" width="12" height="630" fill="#92400e"/>
+
+  <!-- カテゴリバッジ -->
+  <rect x="68" y="68" width="120" height="36" rx="18" fill="#fef3c7" stroke="#fde68a"/>
+  <text x="128" y="92" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="1">投資・お金</text>
+
+  <!-- タイトル -->
+  <text x="68" y="200" font-family="'Hiragino Sans', sans-serif" font-size="48" font-weight="900" fill="#1c1917">上杉鷹山に学ぶ</text>
+  <text x="68" y="266" font-family="'Hiragino Sans', sans-serif" font-size="46" font-weight="900" fill="#92400e">家計再建3ステップ</text>
+
+  <!-- 説明 -->
+  <text x="68" y="330" font-family="'Hiragino Sans', sans-serif" font-size="22" fill="#78716c">借金20万両を立て直した「仕組み化」家計術</text>
+
+  <!-- 財政グラフ:右肩下がりの赤から右肩上がりの金へ -->
+  <g transform="translate(760,0)">
+    <rect x="0" y="430" width="60" height="110" fill="#dc2626" opacity="0.55"/>
+    <rect x="80" y="380" width="60" height="160" fill="#ef4444" opacity="0.5"/>
+    <rect x="160" y="460" width="60" height="80" fill="#f59e0b" opacity="0.6"/>
+    <rect x="240" y="360" width="60" height="180" fill="#f59e0b" opacity="0.75"/>
+    <rect x="320" y="280" width="60" height="260" fill="#92400e" opacity="0.85"/>
+    <path d="M 30 430 Q 200 520 350 270" stroke="#1c1917" stroke-width="3" fill="none" stroke-dasharray="6,6" opacity="0.4"/>
+    <line x1="-20" y1="540" x2="400" y2="540" stroke="#a8a29e" stroke-width="2"/>
+  </g>
+
+  <text x="68" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+</svg>

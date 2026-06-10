@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f7faff"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#dbeafe" stroke-width="2"/>
+  <rect x="0" y="0" width="12" height="630" fill="#1e40af"/>
+
+  <!-- カテゴリバッジ -->
+  <rect x="68" y="68" width="120" height="36" rx="18" fill="#dbeafe" stroke="#bfdbfe"/>
+  <text x="128" y="92" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#1e40af" text-anchor="middle" letter-spacing="1">仕事・副業</text>
+
+  <!-- タイトル -->
+  <text x="68" y="200" font-family="'Hiragino Sans', sans-serif" font-size="48" font-weight="900" fill="#1c1917">豊田佐吉に学ぶ</text>
+  <text x="68" y="266" font-family="'Hiragino Sans', sans-serif" font-size="46" font-weight="900" fill="#1e40af">「仕組み化」の発想</text>
+
+  <!-- 説明 -->
+  <text x="68" y="330" font-family="'Hiragino Sans', sans-serif" font-size="22" fill="#78716c">異常があれば自動で止まる、自働化の考え方</text>
+
+  <!-- 大きい歯車 -->
+  <g fill="#1e40af" opacity="0.65">
+    <circle cx="900" cy="380" r="66"/>
+    <rect x="891" y="288" width="18" height="26" transform="rotate(0 900 380)"/>
+    <rect x="891" y="288" width="18" height="26" transform="rotate(45 900 380)"/>
+    <rect x="891" y="288" width="18" height="26" transform="rotate(90 900 380)"/>
+    <rect x="891" y="288" width="18" height="26" transform="rotate(135 900 380)"/>
+    <rect x="891" y="288" width="18" height="26" transform="rotate(180 900 380)"/>
+    <rect x="891" y="288" width="18" height="26" transform="rotate(225 900 380)"/>
+    <rect x="891" y="288" width="18" height="26" transform="rotate(270 900 380)"/>
+    <rect x="891" y="288" width="18" height="26" transform="rotate(315 900 380)"/>
+  </g>
+  <circle cx="900" cy="380" r="22" fill="#f7faff"/>
+
+  <!-- 小さい歯車 -->
+  <g fill="#3b82f6" opacity="0.6">
+    <circle cx="1030" cy="280" r="42"/>
+    <rect x="1023" y="216" width="14" height="20" transform="rotate(0 1030 280)"/>
+    <rect x="1023" y="216" width="14" height="20" transform="rotate(60 1030 280)"/>
+    <rect x="1023" y="216" width="14" height="20" transform="rotate(120 1030 280)"/>
+    <rect x="1023" y="216" width="14" height="20" transform="rotate(180 1030 280)"/>
+    <rect x="1023" y="216" width="14" height="20" transform="rotate(240 1030 280)"/>
+    <rect x="1023" y="216" width="14" height="20" transform="rotate(300 1030 280)"/>
+  </g>
+  <circle cx="1030" cy="280" r="14" fill="#f7faff"/>
+
+  <!-- 切れた糸とセンサー -->
+  <line x1="780" y1="480" x2="780" y2="540" stroke="#9ca3af" stroke-width="4" stroke-linecap="round"/>
+  <line x1="780" y1="420" x2="780" y2="460" stroke="#9ca3af" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="780" cy="480" r="14" fill="#dc2626" opacity="0.75"/>
+  <text x="780" y="487" font-family="sans-serif" font-size="18" font-weight="900" fill="#fff" text-anchor="middle">!</text>
+
+  <text x="68" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+</svg>
