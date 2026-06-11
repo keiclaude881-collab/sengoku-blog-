@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#faf7ff"/>
+  <!-- Border -->
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e9d5ff" stroke-width="3"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="12" height="630" fill="#6b21a8"/>
+
+  <!-- Category badge -->
+  <rect x="60" y="55" width="110" height="34" rx="17" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="115" y="77" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#6b21a8" text-anchor="middle" letter-spacing="2">思考法</text>
+
+  <!-- Main title -->
+  <text x="60" y="185" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">葛飾北斎に学ぶ</text>
+  <text x="60" y="255" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">「成長」に終わりはない</text>
+
+  <!-- Subtitle -->
+  <text x="60" y="320" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="28" fill="#7c3aed" letter-spacing="2">70代で名作を生んだ画狂老人の生涯</text>
+
+  <!-- Divider line -->
+  <line x1="60" y1="355" x2="680" y2="355" stroke="#e9d5ff" stroke-width="2"/>
+
+  <!-- Description -->
+  <text x="60" y="395" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">75歳で「七十歳までの作品は取るに足らない」と書き、</text>
+  <text x="60" y="425" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">90歳まで成長を信じ続けた浮世絵師。</text>
+
+  <!-- Bottom label -->
+  <text x="60" y="568" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#7c3aed" font-weight="700" letter-spacing="3">偉人ラボ</text>
+
+  <!-- Right-side graphic: 3-step flow (age-based growth) -->
+  <rect x="800" y="100" width="340" height="320" rx="8" fill="#f3e8ff" stroke="#e9d5ff" stroke-width="1.5"/>
+
+  <text x="970" y="138" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="22" font-weight="700" fill="#6b21a8" text-anchor="middle">北斎の成長宣言</text>
+
+  <!-- Step 1 -->
+  <rect x="850" y="150" width="240" height="66" rx="10" fill="#e9d5ff" stroke="#a855f7" stroke-width="2"/>
+  <text x="970" y="192" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#6b21a8" text-anchor="middle">① 73歳で開眼した</text>
+
+  <!-- Arrow 1 -->
+  <line x1="970" y1="216" x2="970" y2="234" stroke="#7c3aed" stroke-width="4"/>
+  <path d="M 958,228 L 970,240 L 982,228 Z" fill="#7c3aed"/>
+
+  <!-- Step 2 -->
+  <rect x="850" y="240" width="240" height="66" rx="10" fill="#e9d5ff" stroke="#a855f7" stroke-width="2"/>
+  <text x="970" y="282" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#6b21a8" text-anchor="middle">② さらに技を極める</text>
+
+  <!-- Arrow 2 -->
+  <line x1="970" y1="306" x2="970" y2="324" stroke="#7c3aed" stroke-width="4"/>
+  <path d="M 958,318 L 970,330 L 982,318 Z" fill="#7c3aed"/>
+
+  <!-- Step 3 (highlighted) -->
+  <rect x="835" y="330" width="270" height="70" rx="10" fill="#6b21a8"/>
+  <text x="970" y="374" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#f3e8ff" text-anchor="middle">③ 100歳で神域に至る</text>
+</svg>
