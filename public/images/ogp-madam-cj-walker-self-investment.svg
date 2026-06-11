@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#faf7f2"/>
+  <!-- Border -->
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e8e0d4" stroke-width="3"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="12" height="630" fill="#92400e"/>
+
+  <!-- Category badge -->
+  <rect x="60" y="55" width="130" height="34" rx="17" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="125" y="77" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="2">投資・お金</text>
+
+  <!-- Main title -->
+  <text x="60" y="185" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">マダム・ウォーカーに</text>
+  <text x="60" y="255" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">学ぶ「自己投資」</text>
+
+  <!-- Subtitle -->
+  <text x="60" y="320" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="28" fill="#b45309" letter-spacing="2">お金の前に、まず自分に投資する</text>
+
+  <!-- Divider line -->
+  <line x1="60" y1="355" x2="680" y2="355" stroke="#e8e0d4" stroke-width="2"/>
+
+  <!-- Description -->
+  <text x="60" y="395" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">1日1.5ドルの洗濯婦から「全米初の女性大富豪」に。</text>
+  <text x="60" y="425" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">彼女が最初に投資したのは、株でも土地でもなかった。</text>
+
+  <!-- Bottom label -->
+  <text x="60" y="568" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#b45309" font-weight="700" letter-spacing="3">偉人ラボ</text>
+
+  <!-- Right-side graphic: growth flow (skill -> product -> wealth) -->
+  <rect x="800" y="100" width="340" height="320" rx="8" fill="#fef3c7" stroke="#e8e0d4" stroke-width="1.5"/>
+
+  <text x="970" y="130" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">豊かさが生まれる順番</text>
+
+  <!-- Step 1 -->
+  <rect x="890" y="150" width="160" height="50" rx="8" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+  <text x="970" y="180" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">① 自分の経験・スキル</text>
+
+  <!-- Arrow 1 -->
+  <line x1="970" y1="200" x2="970" y2="223" stroke="#b45309" stroke-width="3"/>
+  <path d="M 962,217 L 970,228 L 978,217 Z" fill="#b45309"/>
+
+  <!-- Step 2 -->
+  <rect x="890" y="228" width="160" height="50" rx="8" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+  <text x="970" y="258" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">② 商品・サービス化</text>
+
+  <!-- Arrow 2 -->
+  <line x1="970" y1="278" x2="970" y2="301" stroke="#b45309" stroke-width="3"/>
+  <path d="M 962,295 L 970,306 L 978,295 Z" fill="#b45309"/>
+
+  <!-- Step 3 (highlighted) -->
+  <rect x="875" y="306" width="190" height="62" rx="8" fill="#92400e"/>
+  <text x="970" y="334" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="14" font-weight="700" fill="#fef3c7" text-anchor="middle">③ 資産・雇用が</text>
+  <text x="970" y="355" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="14" font-weight="700" fill="#fef3c7" text-anchor="middle">生まれる</text>
+
+  <text x="970" y="400" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#92400e" text-anchor="middle">マダム・C・J・ウォーカーの軌跡</text>
+</svg>
