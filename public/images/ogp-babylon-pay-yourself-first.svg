@@ -30,38 +30,25 @@
   <!-- Right-side graphic: 10 coins, 1 set aside, growing into wealth -->
   <rect x="800" y="100" width="340" height="320" rx="8" fill="#fef3c7" stroke="#e8e0d4" stroke-width="1.5"/>
 
-  <text x="940" y="122" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">毎月の収入を10等分</text>
+  <text x="970" y="138" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="22" font-weight="700" fill="#92400e" text-anchor="middle">先取り貯蓄のしくみ</text>
 
-  <!-- Coins row 1 -->
-  <circle cx="850" cy="152" r="18" fill="#92400e"/>
-  <text x="850" y="157" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="11" font-weight="700" fill="#fef3c7" text-anchor="middle">1/10</text>
-  <circle cx="895" cy="152" r="18" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
-  <circle cx="940" cy="152" r="18" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
-  <circle cx="985" cy="152" r="18" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
-  <circle cx="1030" cy="152" r="18" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+  <!-- Step 1 -->
+  <rect x="850" y="150" width="240" height="66" rx="10" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+  <text x="970" y="192" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#92400e" text-anchor="middle">収入が入る</text>
 
-  <!-- Coins row 2 -->
-  <circle cx="895" cy="198" r="18" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
-  <circle cx="940" cy="198" r="18" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
-  <circle cx="985" cy="198" r="18" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
-  <circle cx="1030" cy="198" r="18" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+  <!-- Arrow 1 -->
+  <line x1="970" y1="216" x2="970" y2="234" stroke="#b45309" stroke-width="4"/>
+  <path d="M 958,228 L 970,240 L 982,228 Z" fill="#b45309"/>
 
-  <text x="962" y="232" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#92400e" text-anchor="middle">残り9割は生活費へ</text>
+  <!-- Step 2 (highlighted) -->
+  <rect x="835" y="240" width="270" height="66" rx="10" fill="#92400e"/>
+  <text x="970" y="282" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#fef3c7" text-anchor="middle">1割を先取り</text>
 
-  <!-- Arrow down from highlighted coin to plant -->
-  <defs>
-    <marker id="arrowDown" markerWidth="10" markerHeight="10" refX="3" refY="6" orient="auto">
-      <path d="M0,0 L6,0 L3,6 Z" fill="#b45309"/>
-    </marker>
-  </defs>
-  <line x1="850" y1="172" x2="850" y2="295" stroke="#b45309" stroke-width="3" marker-end="url(#arrowDown)"/>
-  <text x="912" y="270" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" font-weight="700" fill="#b45309" text-anchor="middle">そのまま投資へ</text>
+  <!-- Arrow 2 -->
+  <line x1="970" y1="306" x2="970" y2="324" stroke="#b45309" stroke-width="4"/>
+  <path d="M 958,318 L 970,330 L 982,318 Z" fill="#b45309"/>
 
-  <!-- Plant: pot + stem + leaves -->
-  <ellipse cx="850" cy="357" rx="28" ry="10" fill="#92400e"/>
-  <line x1="850" y1="357" x2="850" y2="292" stroke="#16a34a" stroke-width="4" stroke-linecap="round"/>
-  <ellipse cx="833" cy="287" rx="18" ry="9" fill="#22c55e" transform="rotate(-30 833 287)"/>
-  <ellipse cx="867" cy="287" rx="18" ry="9" fill="#22c55e" transform="rotate(30 867 287)"/>
-
-  <text x="850" y="395" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="13" font-weight="700" fill="#92400e" text-anchor="middle">黄金が働く(複利)</text>
+  <!-- Step 3 -->
+  <rect x="850" y="330" width="240" height="70" rx="10" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+  <text x="970" y="374" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#92400e" text-anchor="middle">残り9割で生活</text>
 </svg>

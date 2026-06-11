@@ -3,69 +3,58 @@
   <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
 
   <defs>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+    <marker id="arrowGray" markerWidth="12" markerHeight="12" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#9ca3af"/>
+    </marker>
+    <marker id="arrowAmber" markerWidth="12" markerHeight="12" refX="6" refY="3" orient="auto">
       <path d="M0,0 L6,3 L0,6 Z" fill="#d97706"/>
     </marker>
   </defs>
 
   <!-- Title -->
-  <text x="500" y="42" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#92400e" text-anchor="middle">「先取り貯蓄」と「後回し貯蓄」の違い</text>
-  <line x1="40" y1="58" x2="960" y2="58" stroke="#e8e0d4" stroke-width="1.5"/>
+  <text x="500" y="44" font-family="'Hiragino Sans', sans-serif" font-size="24" font-weight="700" fill="#92400e" text-anchor="middle">「先取り貯蓄」と「後回し貯蓄」の違い</text>
+  <line x1="40" y1="62" x2="960" y2="62" stroke="#e8e0d4" stroke-width="1.5"/>
 
   <!-- Row 1: 後回し型 -->
-  <text x="40" y="92" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#ea580c">よくある発想</text>
+  <text x="40" y="98" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#9ca3af">よくある発想(後回し型)</text>
 
-  <rect x="40" y="105" width="100" height="70" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="90" y="146" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#57534e" text-anchor="middle">収入</text>
+  <rect x="40" y="112" width="270" height="90" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <text x="175" y="165" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">生活費を使う</text>
 
-  <line x1="144" y1="140" x2="186" y2="140" stroke="#9ca3af" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="318" y1="157" x2="358" y2="157" stroke="#9ca3af" stroke-width="4" marker-end="url(#arrowGray)"/>
 
-  <rect x="190" y="105" width="170" height="70" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="275" y="146" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#57534e" text-anchor="middle">生活費・娯楽費</text>
-
-  <line x1="364" y1="140" x2="406" y2="140" stroke="#9ca3af" stroke-width="3" marker-end="url(#arrow)"/>
-
-  <rect x="410" y="105" width="170" height="70" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="495" y="138" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#57534e" text-anchor="middle">残ったら貯金</text>
-  <text x="495" y="158" font-family="'Hiragino Sans', sans-serif" font-size="11" fill="#78716c" text-anchor="middle">(0円になりがち)</text>
+  <rect x="362" y="112" width="270" height="90" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <text x="497" y="165" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">残ったら貯金</text>
 
   <!-- Row 2: 先取り型 -->
-  <text x="40" y="222" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#b45309">バビロンの大富豪の発想</text>
+  <text x="40" y="246" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#b45309">バビロンの大富豪の発想(先取り型)</text>
 
-  <rect x="40" y="235" width="100" height="70" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="90" y="276" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#57534e" text-anchor="middle">収入</text>
+  <rect x="40" y="260" width="270" height="100" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <text x="175" y="318" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">収入が入る</text>
 
-  <line x1="144" y1="270" x2="186" y2="270" stroke="#d97706" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="318" y1="310" x2="358" y2="310" stroke="#d97706" stroke-width="4" marker-end="url(#arrowAmber)"/>
 
-  <rect x="190" y="218" width="190" height="104" rx="8" fill="#fef3c7" stroke="#b45309" stroke-width="3"/>
-  <text x="285" y="262" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">1割をまず貯蓄・投資</text>
-  <text x="285" y="284" font-family="'Hiragino Sans', sans-serif" font-size="11" fill="#b45309" text-anchor="middle">↑ 最初に確保する</text>
-
-  <line x1="384" y1="270" x2="426" y2="270" stroke="#d97706" stroke-width="3" marker-end="url(#arrow)"/>
-
-  <rect x="430" y="235" width="170" height="70" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="515" y="276" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#57534e" text-anchor="middle">残りで生活</text>
-
-  <!-- caption -->
-  <text x="320" y="365" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#78716c" text-anchor="middle">同じ収入でも、「先に分ける」だけで結果が変わる</text>
+  <rect x="362" y="252" width="270" height="116" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="3"/>
+  <text x="497" y="300" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#92400e" text-anchor="middle">1割を先に確保</text>
+  <text x="497" y="334" font-family="'Hiragino Sans', sans-serif" font-size="17" fill="#b45309" text-anchor="middle">→残りで生活する</text>
 
   <!-- Right side: explanation box -->
-  <rect x="650" y="80" width="310" height="280" rx="8" fill="none" stroke="#e8e0d4" stroke-width="1.5"/>
-  <text x="805" y="115" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">バビロンの大富豪の教え</text>
-  <line x1="670" y1="128" x2="940" y2="128" stroke="#e8e0d4" stroke-width="1"/>
+  <rect x="660" y="80" width="300" height="290" rx="10" fill="none" stroke="#e8e0d4" stroke-width="1.5"/>
+  <text x="810" y="120" font-family="'Hiragino Sans', sans-serif" font-size="20" font-weight="700" fill="#92400e" text-anchor="middle">バビロンの大富豪の教え</text>
+  <line x1="680" y1="135" x2="940" y2="135" stroke="#e8e0d4" stroke-width="1"/>
 
-  <circle cx="675" cy="160" r="5" fill="#92400e"/>
-  <text x="690" y="165" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#1c1917">収入の1割は、最初から「ないもの」として扱う</text>
+  <circle cx="690" cy="178" r="6" fill="#92400e"/>
+  <text x="708" y="185" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">1割は最初から</text>
+  <text x="708" y="212" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">「ないもの」にする</text>
 
-  <circle cx="675" cy="198" r="5" fill="#92400e"/>
-  <text x="690" y="203" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#1c1917">残りの9割で生活すれば、自然と工夫が生まれる</text>
+  <circle cx="690" cy="246" r="6" fill="#92400e"/>
+  <text x="708" y="253" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">残り9割で</text>
+  <text x="708" y="280" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">自然と工夫が生まれる</text>
 
-  <circle cx="675" cy="236" r="5" fill="#92400e"/>
-  <text x="690" y="241" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#1c1917">貯めた分は「黄金に働かせる」=投資にまわす</text>
-
-  <circle cx="675" cy="274" r="5" fill="#92400e"/>
-  <text x="690" y="279" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#1c1917">4000年前から伝わる、シンプルだが強力な法則</text>
+  <circle cx="690" cy="314" r="6" fill="#92400e"/>
+  <text x="708" y="321" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">貯めた分は</text>
+  <text x="708" y="348" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">「黄金に働かせる」</text>
 
   <!-- Bottom quote -->
-  <text x="500" y="405" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#b45309" text-anchor="middle" letter-spacing="1" opacity="0.85" font-style="italic">「財布から漏れる前に、まず黄金をつかみ取れ」</text>
+  <text x="500" y="402" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#b45309" text-anchor="middle" letter-spacing="1" opacity="0.85" font-style="italic">「財布から漏れる前に、まず黄金をつかみ取れ」</text>
 </svg>
