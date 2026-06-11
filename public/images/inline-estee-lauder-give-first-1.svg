@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf7f2"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+
+  <defs>
+    <marker id="arrowGray" markerWidth="12" markerHeight="12" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#9ca3af"/>
+    </marker>
+    <marker id="arrowAmber" markerWidth="12" markerHeight="12" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#d97706"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="44" font-family="'Hiragino Sans', sans-serif" font-size="24" font-weight="700" fill="#92400e" text-anchor="middle">「消費」と「先行投資」、お金の使い方の違い</text>
+  <line x1="40" y1="62" x2="960" y2="62" stroke="#e8e0d4" stroke-width="1.5"/>
+
+  <!-- Row 1: 消費型 -->
+  <text x="40" y="98" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#9ca3af">よくある発想(消費型)</text>
+
+  <rect x="40" y="112" width="270" height="90" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <text x="175" y="165" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">広告費を払う</text>
+
+  <line x1="318" y1="157" x2="358" y2="157" stroke="#9ca3af" stroke-width="4" marker-end="url(#arrowGray)"/>
+
+  <rect x="362" y="112" width="270" height="90" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <text x="497" y="165" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">一方的に売り込む</text>
+
+  <!-- Row 2: 先行投資型 -->
+  <text x="40" y="246" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#b45309">ローダーの発想(先行投資型)</text>
+
+  <rect x="40" y="260" width="270" height="100" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <text x="175" y="318" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">商品をまず渡す</text>
+
+  <line x1="318" y1="310" x2="358" y2="310" stroke="#d97706" stroke-width="4" marker-end="url(#arrowAmber)"/>
+
+  <rect x="362" y="252" width="270" height="116" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="3"/>
+  <text x="497" y="300" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#92400e" text-anchor="middle">信頼が生まれる</text>
+  <text x="497" y="334" font-family="'Hiragino Sans', sans-serif" font-size="17" fill="#b45309" text-anchor="middle">→口コミで顧客が増えていく</text>
+
+  <!-- Right side: explanation box -->
+  <rect x="660" y="80" width="300" height="290" rx="10" fill="none" stroke="#e8e0d4" stroke-width="1.5"/>
+  <text x="810" y="120" font-family="'Hiragino Sans', sans-serif" font-size="20" font-weight="700" fill="#92400e" text-anchor="middle">ローダーの軌跡</text>
+  <line x1="680" y1="135" x2="940" y2="135" stroke="#e8e0d4" stroke-width="1"/>
+
+  <circle cx="690" cy="178" r="6" fill="#92400e"/>
+  <text x="708" y="185" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">化学者の叔父のクリームを</text>
+  <text x="708" y="212" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">美容院で実演販売した</text>
+
+  <circle cx="690" cy="246" r="6" fill="#92400e"/>
+  <text x="708" y="253" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">広告費が払えない中</text>
+  <text x="708" y="280" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">無料サンプルを考案した</text>
+
+  <circle cx="690" cy="314" r="6" fill="#92400e"/>
+  <text x="708" y="321" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">無料サンプルが業界標準の</text>
+  <text x="708" y="348" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">マーケティング手法になった</text>
+
+  <!-- Bottom quote -->
+  <text x="500" y="402" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#b45309" text-anchor="middle" letter-spacing="1" opacity="0.85" font-style="italic">「テレフォン、テレグラフ、テル・ア・ウーマン」</text>
+</svg>
