@@ -7,11 +7,6 @@ const LABELS: Record<string, string> = {
   career:  "仕事・副業",
   mindset: "思考法",
 };
-const HREFS: Record<string, string> = {
-  money:   "/money/",
-  career:  "/career/",
-  mindset: "/mindset/",
-};
 
 const url      = Astro.url;
 const catParam = url.searchParams.get("cat") ?? "all";
@@ -71,9 +66,9 @@ const cats = [
                 }
               </div>
               <div class="card-body">
-                <a href={HREFS[p.data.category]} class={`card-cat card-cat--${p.data.category}`}>
+                <span class={`card-cat card-cat--${p.data.category}`}>
                   {LABELS[p.data.category]}
-                </a>
+                </span>
                 <h2 class="card-title">{p.data.title}</h2>
                 {p.data.description && <p class="card-desc">{p.data.description}</p>}
                 <div class="card-foot">
