@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#faf7f2"/>
+  <!-- Border -->
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e8e0d4" stroke-width="3"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="12" height="630" fill="#92400e"/>
+
+  <!-- Category badge -->
+  <rect x="60" y="55" width="130" height="34" rx="17" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="125" y="77" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="2">投資・お金</text>
+
+  <!-- Main title -->
+  <text x="60" y="185" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">広岡浅子に学ぶ</text>
+  <text x="60" y="255" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">「守る」と「増やす」</text>
+
+  <!-- Subtitle -->
+  <text x="60" y="320" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="28" fill="#b45309" letter-spacing="2">投資と保険、目的を分けて考える</text>
+
+  <!-- Divider line -->
+  <line x1="60" y1="355" x2="680" y2="355" stroke="#e8e0d4" stroke-width="2"/>
+
+  <!-- Description -->
+  <text x="60" y="395" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">加島屋の経営危機を「九転十起」で立て直し、</text>
+  <text x="60" y="425" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">最後に生命保険会社・大同生命を創業した女性実業家。</text>
+
+  <!-- Bottom label -->
+  <text x="60" y="568" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#b45309" font-weight="700" letter-spacing="3">偉人ラボ</text>
+
+  <!-- Right-side graphic: money's two roles -->
+  <rect x="800" y="100" width="340" height="320" rx="8" fill="#fef3c7" stroke="#e8e0d4" stroke-width="1.5"/>
+
+  <text x="970" y="138" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="22" font-weight="700" fill="#92400e" text-anchor="middle">お金の2つの役割</text>
+
+  <!-- Box 1: 投資 -->
+  <rect x="835" y="155" width="270" height="92" rx="10" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+  <text x="970" y="197" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="26" font-weight="700" fill="#92400e" text-anchor="middle">投資</text>
+  <text x="970" y="230" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="17" fill="#b45309" text-anchor="middle">→ お金を増やす</text>
+
+  <!-- Separator -->
+  <text x="970" y="265" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#b45309" text-anchor="middle">目的が違う、別の道具</text>
+
+  <!-- Box 2: 保険 (highlighted) -->
+  <rect x="835" y="278" width="270" height="92" rx="10" fill="#92400e"/>
+  <text x="970" y="320" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="26" font-weight="700" fill="#fef3c7" text-anchor="middle">保険</text>
+  <text x="970" y="353" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="17" fill="#fde68a" text-anchor="middle">→ 万一に備える</text>
+</svg>
