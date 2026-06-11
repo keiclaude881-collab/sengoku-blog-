@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#faf7f2"/>
+  <!-- Border -->
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e8e0d4" stroke-width="3"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="12" height="630" fill="#92400e"/>
+
+  <!-- Category badge -->
+  <rect x="60" y="55" width="130" height="34" rx="17" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="125" y="77" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="2">投資・お金</text>
+
+  <!-- Main title -->
+  <text x="60" y="185" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">グラハムに学ぶ</text>
+  <text x="60" y="255" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">「安全余裕率」</text>
+
+  <!-- Subtitle -->
+  <text x="60" y="320" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="28" fill="#b45309" letter-spacing="2">価格と価値のギャップを味方にする</text>
+
+  <!-- Divider line -->
+  <line x1="60" y1="355" x2="680" y2="355" stroke="#e8e0d4" stroke-width="2"/>
+
+  <!-- Description -->
+  <text x="60" y="395" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">暴落しても狼狽売りしない。バフェットの師が説いた、</text>
+  <text x="60" y="425" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">「割安に買う」というたった一つの防御線。</text>
+
+  <!-- Bottom label -->
+  <text x="60" y="568" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#b45309" font-weight="700" letter-spacing="3">偉人ラボ</text>
+
+  <!-- Right-side graphic: Value vs Price bars with margin-of-safety gap -->
+  <rect x="800" y="100" width="340" height="320" rx="8" fill="#fef3c7" stroke="#e8e0d4" stroke-width="1.5"/>
+
+  <!-- Baseline -->
+  <line x1="850" y1="380" x2="1090" y2="380" stroke="#92400e" stroke-width="2"/>
+
+  <!-- 価値 bar (tall) -->
+  <rect x="860" y="150" width="70" height="230" fill="#92400e" opacity="0.8"/>
+  <text x="895" y="135" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" font-weight="700" fill="#92400e" text-anchor="middle">価値</text>
+
+  <!-- 価格 bar (short) -->
+  <rect x="980" y="250" width="70" height="130" fill="#f59e0b" opacity="0.75"/>
+  <text x="1015" y="235" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" font-weight="700" fill="#92400e" text-anchor="middle">価格</text>
+
+  <!-- Margin of safety bracket -->
+  <path d="M 945 150 L 962 150 L 962 250 L 945 250" fill="none" stroke="#b45309" stroke-width="2.5"/>
+  <text x="972" y="196" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="13" font-weight="700" fill="#b45309">安全</text>
+  <text x="972" y="214" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="13" font-weight="700" fill="#b45309">余裕率</text>
+</svg>
