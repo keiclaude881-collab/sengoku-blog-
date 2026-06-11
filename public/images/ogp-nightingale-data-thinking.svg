@@ -30,7 +30,7 @@
   <!-- Right-side graphic: Nightingale's coxcomb (rose) diagram -->
   <rect x="800" y="100" width="340" height="320" rx="8" fill="#f3e8ff" stroke="#e9d5ff" stroke-width="1.5"/>
 
-  <text x="970" y="130" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="14" font-weight="700" fill="#6b21a8" text-anchor="middle">死因の内訳(イメージ図)</text>
+  <text x="970" y="135" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="19" font-weight="700" fill="#6b21a8" text-anchor="middle">死因の内訳(イメージ図)</text>
 
   <!-- Coxcomb wedges: disease (large, light) -->
   <path d="M 970,260 L 970.00,171.00 A 89,89 0 0,1 1014.50,182.92 Z" fill="#c4b5fd" stroke="#a855f7" stroke-width="1" opacity="0.85"/>
@@ -61,8 +61,8 @@
   <path d="M 970,260 L 960.00,242.68 A 20,20 0 0,1 970.00,240.00 Z" fill="#6b21a8"/>
 
   <!-- Legend -->
-  <rect x="845" y="383" width="14" height="14" fill="#c4b5fd" stroke="#a855f7" stroke-width="1"/>
-  <text x="865" y="394" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#6b21a8">感染症による死亡</text>
-  <rect x="845" y="403" width="14" height="14" fill="#6b21a8"/>
-  <text x="865" y="414" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#6b21a8">戦闘による死亡</text>
+  <rect x="828" y="362" width="20" height="20" fill="#c4b5fd" stroke="#a855f7" stroke-width="1"/>
+  <text x="856" y="378" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" font-weight="700" fill="#6b21a8">感染症による死亡</text>
+  <rect x="828" y="392" width="20" height="20" fill="#6b21a8"/>
+  <text x="856" y="408" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" font-weight="700" fill="#6b21a8">戦闘による死亡</text>
 </svg>
