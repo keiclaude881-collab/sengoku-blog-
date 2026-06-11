@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#faf7ff"/>
+  <!-- Border -->
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e9d5ff" stroke-width="3"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="12" height="630" fill="#6b21a8"/>
+
+  <!-- Category badge -->
+  <rect x="60" y="55" width="110" height="34" rx="17" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="115" y="77" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#6b21a8" text-anchor="middle" letter-spacing="2">思考法</text>
+
+  <!-- Main title -->
+  <text x="60" y="185" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">ナイチンゲールに</text>
+  <text x="60" y="255" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">学ぶ「データ思考」</text>
+
+  <!-- Subtitle -->
+  <text x="60" y="320" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="28" fill="#7c3aed" letter-spacing="2">感情ではなく、事実で判断する</text>
+
+  <!-- Divider line -->
+  <line x1="60" y1="355" x2="680" y2="355" stroke="#e9d5ff" stroke-width="2"/>
+
+  <!-- Description -->
+  <text x="60" y="395" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">クリミア戦争で死者の大半は「戦闘」ではなく</text>
+  <text x="60" y="425" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">「不衛生」が原因だと、独自のグラフで示した女性。</text>
+
+  <!-- Bottom label -->
+  <text x="60" y="568" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#7c3aed" font-weight="700" letter-spacing="3">偉人ラボ</text>
+
+  <!-- Right-side graphic: Nightingale's coxcomb (rose) diagram -->
+  <rect x="800" y="100" width="340" height="320" rx="8" fill="#f3e8ff" stroke="#e9d5ff" stroke-width="1.5"/>
+
+  <text x="970" y="130" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="14" font-weight="700" fill="#6b21a8" text-anchor="middle">死因の内訳(イメージ図)</text>
+
+  <!-- Coxcomb wedges: disease (large, light) -->
+  <path d="M 970,260 L 970.00,171.00 A 89,89 0 0,1 1014.50,182.92 Z" fill="#c4b5fd" stroke="#a855f7" stroke-width="1" opacity="0.85"/>
+  <path d="M 970,260 L 1012.50,186.39 A 85,85 0 0,1 1043.61,217.50 Z" fill="#c4b5fd" stroke="#a855f7" stroke-width="1" opacity="0.85"/>
+  <path d="M 970,260 L 1040.15,219.50 A 81,81 0 0,1 1051.00,260.00 Z" fill="#c4b5fd" stroke="#a855f7" stroke-width="1" opacity="0.85"/>
+  <path d="M 970,260 L 1042.00,260.00 A 72,72 0 0,1 1032.35,296.00 Z" fill="#c4b5fd" stroke="#a855f7" stroke-width="1" opacity="0.85"/>
+  <path d="M 970,260 L 1021.96,290.00 A 60,60 0 0,1 1000.00,311.96 Z" fill="#c4b5fd" stroke="#a855f7" stroke-width="1" opacity="0.85"/>
+  <path d="M 970,260 L 994.50,302.44 A 49,49 0 0,1 970.00,309.00 Z" fill="#c4b5fd" stroke="#a855f7" stroke-width="1" opacity="0.85"/>
+  <path d="M 970,260 L 970.00,303.00 A 43,43 0 0,1 948.50,297.24 Z" fill="#c4b5fd" stroke="#a855f7" stroke-width="1" opacity="0.85"/>
+  <path d="M 970,260 L 949.50,295.51 A 41,41 0 0,1 934.49,280.50 Z" fill="#c4b5fd" stroke="#a855f7" stroke-width="1" opacity="0.85"/>
+  <path d="M 970,260 L 931.89,282.00 A 44,44 0 0,1 926.00,260.00 Z" fill="#c4b5fd" stroke="#a855f7" stroke-width="1" opacity="0.85"/>
+  <path d="M 970,260 L 912.00,260.00 A 58,58 0 0,1 919.77,231.00 Z" fill="#c4b5fd" stroke="#a855f7" stroke-width="1" opacity="0.85"/>
+  <path d="M 970,260 L 907.65,224.00 A 72,72 0 0,1 934.00,197.65 Z" fill="#c4b5fd" stroke="#a855f7" stroke-width="1" opacity="0.85"/>
+  <path d="M 970,260 L 928.50,188.12 A 83,83 0 0,1 970.00,177.00 Z" fill="#c4b5fd" stroke="#a855f7" stroke-width="1" opacity="0.85"/>
+
+  <!-- Coxcomb wedges: combat (small, dark) -->
+  <path d="M 970,260 L 970.00,245.00 A 15,15 0 0,1 977.50,247.01 Z" fill="#6b21a8"/>
+  <path d="M 970,260 L 979.50,243.55 A 19,19 0 0,1 986.45,250.50 Z" fill="#6b21a8"/>
+  <path d="M 970,260 L 989.05,249.00 A 22,22 0 0,1 992.00,260.00 Z" fill="#6b21a8"/>
+  <path d="M 970,260 L 984.00,260.00 A 14,14 0 0,1 982.12,267.00 Z" fill="#6b21a8"/>
+  <path d="M 970,260 L 977.79,264.50 A 9,9 0 0,1 974.50,267.79 Z" fill="#6b21a8"/>
+  <path d="M 970,260 L 973.50,266.06 A 7,7 0 0,1 970.00,267.00 Z" fill="#6b21a8"/>
+  <path d="M 970,260 L 970.00,265.00 A 5,5 0 0,1 967.50,264.33 Z" fill="#6b21a8"/>
+  <path d="M 970,260 L 968.00,263.46 A 4,4 0 0,1 966.54,262.00 Z" fill="#6b21a8"/>
+  <path d="M 970,260 L 963.94,263.50 A 7,7 0 0,1 963.00,260.00 Z" fill="#6b21a8"/>
+  <path d="M 970,260 L 958.00,260.00 A 12,12 0 0,1 959.61,254.00 Z" fill="#6b21a8"/>
+  <path d="M 970,260 L 955.28,251.50 A 17,17 0 0,1 961.50,245.28 Z" fill="#6b21a8"/>
+  <path d="M 970,260 L 960.00,242.68 A 20,20 0 0,1 970.00,240.00 Z" fill="#6b21a8"/>
+
+  <!-- Legend -->
+  <rect x="845" y="383" width="14" height="14" fill="#c4b5fd" stroke="#a855f7" stroke-width="1"/>
+  <text x="865" y="394" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#6b21a8">感染症による死亡</text>
+  <rect x="845" y="403" width="14" height="14" fill="#6b21a8"/>
+  <text x="865" y="414" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#6b21a8">戦闘による死亡</text>
+</svg>
