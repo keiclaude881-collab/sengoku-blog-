@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#f7faff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#dbeafe" stroke-width="2"/>
+
+  <defs>
+    <marker id="arrowGray" markerWidth="12" markerHeight="12" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#9ca3af"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="44" font-family="'Hiragino Sans', sans-serif" font-size="24" font-weight="700" fill="#1e40af" text-anchor="middle">「前例がない」と「まず動いてみる」の違い</text>
+  <line x1="40" y1="62" x2="960" y2="62" stroke="#dbeafe" stroke-width="1.5"/>
+
+  <!-- Row 1: 前例主義 -->
+  <text x="40" y="98" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#9ca3af">よくある発想(前例主義)</text>
+
+  <rect x="40" y="112" width="270" height="90" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <text x="175" y="165" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">前例・規定がない</text>
+
+  <line x1="318" y1="157" x2="358" y2="157" stroke="#9ca3af" stroke-width="4" marker-end="url(#arrowGray)"/>
+
+  <rect x="362" y="112" width="270" height="90" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <text x="497" y="165" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">提案を諦める</text>
+
+  <!-- Row 2: ホッパーの発想 -->
+  <text x="40" y="246" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#2563eb">ホッパーの発想(まず動く)</text>
+
+  <rect x="40" y="260" width="270" height="100" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <text x="175" y="318" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">小さく試してみる</text>
+
+  <line x1="318" y1="310" x2="358" y2="310" stroke="#2563eb" stroke-width="4" marker-end="url(#arrowBlue)"/>
+
+  <rect x="362" y="252" width="270" height="116" rx="10" fill="#dbeafe" stroke="#1e40af" stroke-width="3"/>
+  <text x="497" y="300" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#1e40af" text-anchor="middle">結果を見せて提案</text>
+  <text x="497" y="334" font-family="'Hiragino Sans', sans-serif" font-size="17" fill="#2563eb" text-anchor="middle">→ダメなら謝ればいい</text>
+
+  <!-- Right side: explanation box -->
+  <rect x="660" y="80" width="300" height="290" rx="10" fill="none" stroke="#dbeafe" stroke-width="1.5"/>
+  <text x="810" y="120" font-family="'Hiragino Sans', sans-serif" font-size="20" font-weight="700" fill="#1e40af" text-anchor="middle">ホッパーの思考法</text>
+  <line x1="680" y1="135" x2="940" y2="135" stroke="#dbeafe" stroke-width="1"/>
+
+  <circle cx="690" cy="178" r="6" fill="#1e40af"/>
+  <text x="708" y="185" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">「前例がない」は</text>
+  <text x="708" y="212" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">まだ誰もやってないだけ</text>
+
+  <circle cx="690" cy="246" r="6" fill="#1e40af"/>
+  <text x="708" y="253" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">完璧な許可より</text>
+  <text x="708" y="280" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">小さな実証を</text>
+
+  <circle cx="690" cy="314" r="6" fill="#1e40af"/>
+  <text x="708" y="321" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">「いつも通り」を</text>
+  <text x="708" y="348" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">最も疑う</text>
+
+  <!-- Bottom quote -->
+  <text x="500" y="402" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#2563eb" text-anchor="middle" letter-spacing="1" opacity="0.85" font-style="italic">「許可を得るより、謝るほうがずっと簡単だ」</text>
+</svg>
