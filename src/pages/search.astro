@@ -2,13 +2,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const CAT_LABEL: Record<string, string> = {
-  decide:     "決断できない時",
-  lead:       "チームがうまくいかない時",
-  recover:    "逆境・失敗した時",
-  strategy:   "戦略・方向性に迷った時",
-  change:     "自分を変えたい時",
-  philosophy: "哲学の知恵",
-  whatif:     "もしも歴史",
+  money:   "投資・お金",
+  career:  "仕事・副業",
+  mindset: "思考法",
 };
 ---
 
@@ -97,7 +93,7 @@ const CAT_LABEL: Record<string, string> = {
       const li = document.createElement("li");
       li.innerHTML = `
         <a href="${a.slug}" class="search-card">
-          <span class="search-cat">${CAT_LABEL[a.category] || a.category}</span>
+          <span class="search-cat search-cat--${a.category}">${CAT_LABEL[a.category] || a.category}</span>
           <p class="search-card-title">${highlight(a.title, query.trim())}</p>
           <p class="search-card-desc">${highlight(a.description, query.trim())}</p>
           ${a.tags.length ? `<p class="search-card-tags">${a.tags.map(t => `#${t}`).join(" ")}</p>` : ""}
@@ -230,14 +226,19 @@ const CAT_LABEL: Record<string, string> = {
     box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   }
   .search-cat {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: var(--accent);
-    text-transform: uppercase;
-    margin-bottom: 0.35rem;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 0.25rem 0.6rem;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    margin-bottom: 0.5rem;
   }
+  .search-cat--money   { background: #fef3c7; color: #92400e; border-color: #fde68a; }
+  .search-cat--career  { background: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
+  .search-cat--mindset { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; }
   .search-card-title {
     font-family: var(--font-serif);
     font-size: 1rem;
