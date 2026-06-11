@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#faf7ff"/>
+  <!-- Border -->
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e9d5ff" stroke-width="3"/>
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="12" height="630" fill="#6b21a8"/>
+
+  <!-- Category badge -->
+  <rect x="60" y="55" width="110" height="34" rx="17" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="115" y="77" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#6b21a8" text-anchor="middle" letter-spacing="2">思考法</text>
+
+  <!-- Main title -->
+  <text x="60" y="185" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">アウレリウスの</text>
+  <text x="60" y="255" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">「朝の予行演習」</text>
+
+  <!-- Subtitle -->
+  <text x="60" y="320" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="28" fill="#7c3aed" letter-spacing="2">感情に振り回されない思考術</text>
+
+  <!-- Divider line -->
+  <line x1="60" y1="355" x2="680" y2="355" stroke="#e9d5ff" stroke-width="2"/>
+
+  <!-- Description -->
+  <text x="60" y="395" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">ローマ皇帝でありながら、自分のためだけに</text>
+  <text x="60" y="425" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">『自省録』を書き続けた男の、心の整え方。</text>
+
+  <!-- Bottom label -->
+  <text x="60" y="568" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#7c3aed" font-weight="700" letter-spacing="3">偉人ラボ</text>
+
+  <!-- Right-side graphic: sunrise + open journal -->
+  <rect x="800" y="100" width="340" height="320" rx="8" fill="#f3e8ff" stroke="#e9d5ff" stroke-width="1.5"/>
+
+  <!-- Sun rays -->
+  <g stroke="#a855f7" stroke-width="3" stroke-linecap="round" opacity="0.55">
+    <line x1="970" y1="120" x2="970" y2="140"/>
+    <line x1="900" y1="150" x2="915" y2="163"/>
+    <line x1="1040" y1="150" x2="1025" y2="163"/>
+    <line x1="875" y1="200" x2="898" y2="200"/>
+    <line x1="1065" y1="200" x2="1042" y2="200"/>
+  </g>
+  <!-- Sun -->
+  <circle cx="970" cy="200" r="40" fill="#c4b5fd" opacity="0.55"/>
+  <circle cx="970" cy="200" r="26" fill="#a855f7" opacity="0.85"/>
+
+  <!-- Horizon -->
+  <line x1="830" y1="270" x2="1110" y2="270" stroke="#8b5cf6" stroke-width="2" opacity="0.5"/>
+
+  <!-- Open journal -->
+  <polygon points="850,278 965,295 965,390 850,368" fill="#ffffff" stroke="#8b5cf6" stroke-width="2.5" stroke-linejoin="round"/>
+  <polygon points="1090,278 965,295 965,390 1090,368" fill="#ffffff" stroke="#8b5cf6" stroke-width="2.5" stroke-linejoin="round"/>
+  <line x1="965" y1="295" x2="965" y2="390" stroke="#6b21a8" stroke-width="2"/>
+
+  <!-- Journal lines (left page) -->
+  <line x1="865" y1="313" x2="945" y2="318" stroke="#c4b5fd" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="865" y1="330" x2="945" y2="334" stroke="#c4b5fd" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="865" y1="347" x2="940" y2="351" stroke="#c4b5fd" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Journal lines (right page) -->
+  <line x1="995" y1="318" x2="1075" y2="313" stroke="#c4b5fd" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="995" y1="334" x2="1075" y2="330" stroke="#c4b5fd" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="1000" y1="351" x2="1075" y2="347" stroke="#c4b5fd" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Label -->
+  <text x="970" y="412" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" font-weight="700" fill="#6b21a8" text-anchor="middle" letter-spacing="2">自省録</text>
+</svg>
