@@ -19,11 +19,6 @@ const LABELS: Record<string, string> = {
   career:  "仕事・副業",
   mindset: "思考法",
 };
-const HREFS: Record<string, string> = {
-  money:   "/money/",
-  career:  "/career/",
-  mindset: "/mindset/",
-};
 
 function fmt(d: Date) {
   return d.toLocaleDateString("ja-JP", { year: "numeric", month: "short", day: "numeric" });
@@ -65,9 +60,9 @@ const rest     = allPosts.slice(4);
           }
         </div>
         <div class="featured-body">
-          <a href={HREFS[featured.data.category]} class={`feat-cat feat-cat--${featured.data.category}`}>
+          <span class={`feat-cat feat-cat--${featured.data.category}`}>
             {LABELS[featured.data.category]}
-          </a>
+          </span>
           <h2 class="feat-title">{featured.data.title}</h2>
           {featured.data.description && <p class="feat-desc">{featured.data.description}</p>}
           <div class="feat-foot">
@@ -99,9 +94,9 @@ const rest     = allPosts.slice(4);
                 }
               </div>
               <div class="card-body">
-                <a href={HREFS[p.data.category]} class={`card-cat card-cat--${p.data.category}`}>
+                <span class={`card-cat card-cat--${p.data.category}`}>
                   {LABELS[p.data.category]}
-                </a>
+                </span>
                 <h3 class="card-title">{p.data.title}</h3>
                 {p.data.description && <p class="card-desc">{p.data.description}</p>}
                 <time class="card-date">{fmt(p.data.date)}</time>
