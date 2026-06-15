@@ -1,18 +1,9 @@
 ---
-import fs from "node:fs";
-import path from "node:path";
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const allPosts = (await getCollection("posts"))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-
-function scrollThumb(ogImage?: string) {
-  if (!ogImage) return null;
-  const thumb = ogImage.replace(/\/ogp-/, "/thumb-").replace(/\.svg$/, ".png");
-  const exists = fs.existsSync(path.join(process.cwd(), "public", thumb));
-  return exists ? thumb : ogImage;
-}
 
 const LABELS: Record<string, string> = {
   money:   "投資・お金",
@@ -25,21 +16,7 @@ function fmt(d: Date) {
 }
 
 const featured = allPosts.find(p => p.data.featured) ?? allPosts[0];
-const recent   = allPosts.filter(p => p.id !== featured.id).slice(0, 3);
-
-const shownIds = new Set([featured.id, ...recent.map(p => p.id)]);
-const remaining = allPosts.filter(p => !shownIds.has(p.id));
-
-const CATS = [
-  { key: "money",   label: "投資・お金", href: "/money/" },
-  { key: "career",  label: "仕事・副業", href: "/career/" },
-  { key: "mindset", label: "思考法",     href: "/mindset/" },
-] as const;
-
-const categoryGroups = CATS.map(c => ({
-  ...c,
-  posts: remaining.filter(p => p.data.category === c.key),
-}));
+const recent   = allPosts.filter(p => p.id !== featured.id).slice(0, 6);
 ---
 
 <BaseLayout
@@ -93,7 +70,7 @@ const categoryGroups = CATS.map(c => ({
   <section class="recent">
     <div class="section-wrap">
       <div class="section-header">
-        <h2 class="section-title">最近の記事</h2>
+        <h2 class="section-title">新着記事</h2>
         <a href="/blog/" class="section-more">すべて見る →</a>
       </div>
       <ul class="card-grid">
@@ -122,81 +99,7 @@ const categoryGroups = CATS.map(c => ({
   </section>
 )}
 
-<!-- ═══ ARTICLE LISTS BY CATEGORY (horizontal scroll) ═══════════════ -->
-<section class="list-section">
-  {categoryGroups.map(group => group.posts.length > 0 && (
-    <div class="list-block">
-      <div class="section-wrap">
-        <div class="section-header">
-          <h2 class="section-title">{group.label}の記事</h2>
-          <a href={group.href} class="section-more">すべて見る →</a>
-        </div>
-      </div>
-      <ul class="article-scroll">
-        {group.posts.map(p => (
-          <li class="article-scroll-item fade-in">
-            <a href={`/blog/${p.id.replace(/.mdx?$/, '')}/`} class="scroll-card">
-              <span class="scroll-thumb-wrap">
-                {p.data.ogImage
-                  ? <img src={scrollThumb(p.data.ogImage)} alt="" loading="lazy" class="scroll-thumb" />
-                  : <span class="scroll-thumb scroll-thumb--empty" />
-                }
-              </span>
-              <span class="scroll-body">
-                <span class={`article-cat article-cat--${p.data.category}`}>{LABELS[p.data.category]}</span>
-                <span class="scroll-title">{p.data.title}</span>
-                <time class="article-date">{fmt(p.data.date)}</time>
-              </span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  ))}
-</section>
-
 </BaseLayout>
-
-<script>
-  const SPEED_PX_PER_SEC = 80;
-
-  document.querySelectorAll<HTMLElement>('.article-scroll').forEach(scroller => {
-    let userPaused = false;
-    let resumeTimer: ReturnType<typeof setTimeout> | undefined;
-    let inView = false;
-    let lastTime = 0;
-
-    const pauseForUser = () => {
-      userPaused = true;
-      clearTimeout(resumeTimer);
-      resumeTimer = setTimeout(() => { userPaused = false; }, 4000);
-    };
-    ['pointerdown', 'wheel', 'touchstart'].forEach(evt =>
-      scroller.addEventListener(evt, pauseForUser, { passive: true })
-    );
-
-    const step = (time: number) => {
-      const dt = lastTime ? time - lastTime : 0;
-      lastTime = time;
-
-      if (inView && !userPaused) {
-        const max = scroller.scrollWidth - scroller.clientWidth;
-        const next = scroller.scrollLeft + (SPEED_PX_PER_SEC * dt) / 1000;
-        scroller.scrollLeft = next >= max ? 0 : next;
-      } else {
-        lastTime = 0;
-      }
-      requestAnimationFrame(step);
-    };
-
-    new IntersectionObserver(
-      ([entry]) => { inView = entry.isIntersecting; },
-      { threshold: 0.2 }
-    ).observe(scroller);
-
-    requestAnimationFrame(step);
-  });
-</script>
 
 <style>
 /* ── MASTHEAD ── */
@@ -350,8 +253,7 @@ const categoryGroups = CATS.map(c => ({
 
 /* ── CARD GRID ── */
 .recent {
-  padding: 56px 0;
-  border-bottom: 1px solid var(--border);
+  padding: 56px 0 88px;
 }
 .card-grid {
   list-style: none;
@@ -417,91 +319,6 @@ const categoryGroups = CATS.map(c => ({
 }
 .card-date { font-size: 0.7rem; color: var(--ink3); }
 
-/* ── ARTICLE SCROLL (carousel) ── */
-.list-section { padding: 56px 0 88px; }
-.list-block { margin-bottom: 40px; }
-.list-block:last-child { margin-bottom: 0; }
-.article-scroll {
-  list-style: none;
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 4px 2rem 12px;
-  scrollbar-width: none;
-}
-.article-scroll::-webkit-scrollbar { display: none; }
-.article-scroll-item {
-  flex: 0 0 auto;
-  width: 240px;
-}
-.scroll-card {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  height: 100%;
-  text-decoration: none;
-  color: inherit;
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 12px;
-  transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
-}
-.scroll-card:hover {
-  border-color: var(--border-mid);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 28px rgba(28,25,23,0.07);
-}
-.scroll-card:active { transform: translateY(0); }
-.scroll-thumb-wrap {
-  display: block;
-  border-radius: calc(var(--radius) - 6px);
-  overflow: hidden;
-  aspect-ratio: 1 / 1;
-  background: var(--bg3);
-}
-.scroll-thumb { width: 100%; height: 100%; object-fit: cover; display: block; }
-.scroll-thumb--empty { width: 100%; height: 100%; display: block; background: var(--bg3); }
-.scroll-body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  min-width: 0;
-}
-.article-cat {
-  display: inline-flex;
-  align-self: flex-start;
-  align-items: center;
-  font-size: 0.63rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  padding: 0.2rem 0.55rem;
-  border-radius: 100px;
-  white-space: nowrap;
-  border: 1px solid transparent;
-}
-.article-cat--money   { background: #fef3c7; color: #92400e; border-color: #fde68a; }
-.article-cat--career  { background: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
-.article-cat--mindset { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; }
-.scroll-title {
-  font-size: 0.86rem;
-  font-weight: 600;
-  color: var(--ink);
-  line-height: 1.5;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.article-date {
-  font-size: 0.7rem;
-  color: var(--ink3);
-  white-space: nowrap;
-}
-
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .card-grid { grid-template-columns: repeat(2, 1fr); }
@@ -509,15 +326,13 @@ const categoryGroups = CATS.map(c => ({
 }
 @media (max-width: 680px) {
   .featured-card { grid-template-columns: 1fr; gap: 24px; }
-  .masthead, .featured, .recent { padding: 40px 0; }
-  .list-section { padding: 40px 0 64px; }
+  .masthead, .featured { padding: 40px 0; }
+  .recent { padding: 40px 0 64px; }
 }
 @media (max-width: 540px) {
   .card-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
   .masthead-inner, .featured-inner, .section-wrap { padding: 0 1rem; }
-  .article-scroll { padding-left: 1rem; padding-right: 1rem; }
-  .article-scroll-item { width: 200px; }
 }
 </style>
