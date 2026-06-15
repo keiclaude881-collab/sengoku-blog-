@@ -8,25 +8,20 @@ const LABELS: Record<string, string> = {
   mindset: "思考法",
 };
 
-const url      = Astro.url;
-const catParam = url.searchParams.get("cat") ?? "all";
-
 const allPosts = (await getCollection("posts"))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
-const filtered = catParam === "all"
-  ? allPosts
-  : allPosts.filter(p => p.data.category === catParam);
+const filtered = allPosts;
 
 function fmt(d: Date) {
   return d.toLocaleDateString("ja-JP", { year: "numeric", month: "short", day: "numeric" });
 }
 
 const cats = [
-  { key: "all",     label: "すべて" },
-  { key: "money",   label: "投資・お金" },
-  { key: "career",  label: "仕事・副業" },
-  { key: "mindset", label: "思考法" },
+  { key: "all",     label: "すべて",     href: "/blog/" },
+  { key: "money",   label: "投資・お金", href: "/money/" },
+  { key: "career",  label: "仕事・副業", href: "/career/" },
+  { key: "mindset", label: "思考法",     href: "/mindset/" },
 ];
 ---
 
@@ -46,8 +41,8 @@ const cats = [
     <div class="filter-bar">
       {cats.map(c => (
         <a
-          href={c.key === "all" ? "/blog/" : `/blog/?cat=${c.key}`}
-          class:list={["filter-btn", { active: catParam === c.key }]}
+          href={c.href}
+          class:list={["filter-btn", { active: c.key === "all" }]}
         >
           {c.label}
         </a>
