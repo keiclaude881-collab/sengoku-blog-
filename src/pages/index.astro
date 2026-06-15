@@ -24,9 +24,22 @@ function fmt(d: Date) {
   return d.toLocaleDateString("ja-JP", { year: "numeric", month: "short", day: "numeric" });
 }
 
-const featured = allPosts[0];
-const recent   = allPosts.slice(1, 4);
-const rest     = allPosts.slice(4);
+const featured = allPosts.find(p => p.data.featured) ?? allPosts[0];
+const recent   = allPosts.filter(p => p.id !== featured.id).slice(0, 3);
+
+const shownIds = new Set([featured.id, ...recent.map(p => p.id)]);
+const remaining = allPosts.filter(p => !shownIds.has(p.id));
+
+const CATS = [
+  { key: "money",   label: "投資・お金", href: "/money/" },
+  { key: "career",  label: "仕事・副業", href: "/career/" },
+  { key: "mindset", label: "思考法",     href: "/mindset/" },
+] as const;
+
+const categoryGroups = CATS.map(c => ({
+  ...c,
+  posts: remaining.filter(p => p.data.category === c.key),
+}));
 ---
 
 <BaseLayout
@@ -109,46 +122,49 @@ const rest     = allPosts.slice(4);
   </section>
 )}
 
-<!-- ═══ ARTICLE LIST (horizontal scroll) ═══════════════════════ -->
-{rest.length > 0 && (
-  <section class="list-section">
-    <div class="section-wrap">
-      <div class="section-header">
-        <h2 class="section-title">もっと読む</h2>
-        <a href="/blog/" class="section-more">すべて見る →</a>
+<!-- ═══ ARTICLE LISTS BY CATEGORY (horizontal scroll) ═══════════════ -->
+<section class="list-section">
+  {categoryGroups.map(group => group.posts.length > 0 && (
+    <div class="list-block">
+      <div class="section-wrap">
+        <div class="section-header">
+          <h2 class="section-title">{group.label}の記事</h2>
+          <a href={group.href} class="section-more">すべて見る →</a>
+        </div>
       </div>
+      <ul class="article-scroll">
+        {group.posts.map(p => (
+          <li class="article-scroll-item fade-in">
+            <a href={`/blog/${p.id.replace(/.mdx?$/, '')}/`} class="scroll-card">
+              <span class="scroll-thumb-wrap">
+                {p.data.ogImage
+                  ? <img src={scrollThumb(p.data.ogImage)} alt="" loading="lazy" class="scroll-thumb" />
+                  : <span class="scroll-thumb scroll-thumb--empty" />
+                }
+              </span>
+              <span class="scroll-body">
+                <span class={`article-cat article-cat--${p.data.category}`}>{LABELS[p.data.category]}</span>
+                <span class="scroll-title">{p.data.title}</span>
+                <time class="article-date">{fmt(p.data.date)}</time>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
-    <ul class="article-scroll" id="article-scroll">
-      {rest.map(p => (
-        <li class="article-scroll-item fade-in">
-          <a href={`/blog/${p.id.replace(/.mdx?$/, '')}/`} class="scroll-card">
-            <span class="scroll-thumb-wrap">
-              {p.data.ogImage
-                ? <img src={scrollThumb(p.data.ogImage)} alt="" loading="lazy" class="scroll-thumb" />
-                : <span class="scroll-thumb scroll-thumb--empty" />
-              }
-            </span>
-            <span class="scroll-body">
-              <span class={`article-cat article-cat--${p.data.category}`}>{LABELS[p.data.category]}</span>
-              <span class="scroll-title">{p.data.title}</span>
-              <time class="article-date">{fmt(p.data.date)}</time>
-            </span>
-          </a>
-        </li>
-      ))}
-    </ul>
-  </section>
-)}
+  ))}
+</section>
 
 </BaseLayout>
 
 <script>
-  const scroller = document.getElementById('article-scroll');
-  if (scroller) {
+  const SPEED_PX_PER_SEC = 80;
+
+  document.querySelectorAll<HTMLElement>('.article-scroll').forEach(scroller => {
     let userPaused = false;
     let resumeTimer: ReturnType<typeof setTimeout> | undefined;
     let inView = false;
-    let raf = 0;
+    let lastTime = 0;
 
     const pauseForUser = () => {
       userPaused = true;
@@ -158,9 +174,6 @@ const rest     = allPosts.slice(4);
     ['pointerdown', 'wheel', 'touchstart'].forEach(evt =>
       scroller.addEventListener(evt, pauseForUser, { passive: true })
     );
-
-    const SPEED_PX_PER_SEC = 80;
-    let lastTime = 0;
 
     const step = (time: number) => {
       const dt = lastTime ? time - lastTime : 0;
@@ -173,7 +186,7 @@ const rest     = allPosts.slice(4);
       } else {
         lastTime = 0;
       }
-      raf = requestAnimationFrame(step);
+      requestAnimationFrame(step);
     };
 
     new IntersectionObserver(
@@ -181,8 +194,8 @@ const rest     = allPosts.slice(4);
       { threshold: 0.2 }
     ).observe(scroller);
 
-    raf = requestAnimationFrame(step);
-  }
+    requestAnimationFrame(step);
+  });
 </script>
 
 <style>
@@ -406,6 +419,8 @@ const rest     = allPosts.slice(4);
 
 /* ── ARTICLE SCROLL (carousel) ── */
 .list-section { padding: 56px 0 88px; }
+.list-block { margin-bottom: 40px; }
+.list-block:last-child { margin-bottom: 0; }
 .article-scroll {
   list-style: none;
   display: flex;
