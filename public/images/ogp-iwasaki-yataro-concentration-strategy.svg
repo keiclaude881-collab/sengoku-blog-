@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#fde68a" stroke-width="3"/>
+  <rect x="0" y="0" width="12" height="630" fill="#92400e"/>
+
+  <!-- Category badge -->
+  <rect x="60" y="55" width="130" height="34" rx="17" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="125" y="77" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="2">投資・お金</text>
+
+  <!-- Main title -->
+  <text x="60" y="175" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="48" font-weight="700" fill="#1c1917" letter-spacing="-1">船3隻から財閥へ</text>
+
+  <!-- Subtitle -->
+  <text x="60" y="240" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="26" fill="#d97706" letter-spacing="1">岩崎弥太郎に学ぶ「一点突破」の投資戦略</text>
+
+  <!-- Divider -->
+  <line x1="60" y1="272" x2="680" y2="272" stroke="#fde68a" stroke-width="2"/>
+
+  <!-- Description -->
+  <text x="60" y="315" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">手元にあったのは蒸気船3隻だけだった。</text>
+  <text x="60" y="345" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">分散させず、海運に全力を注いだ男の話。</text>
+
+  <!-- Bottom label -->
+  <text x="60" y="568" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#d97706" font-weight="700" letter-spacing="3">偉人ラボ</text>
+
+  <!-- Right graphic: funnel / concentration -->
+  <rect x="780" y="80" width="370" height="400" rx="12" fill="#fef3c7" stroke="#fde68a" stroke-width="1.5"/>
+  <text x="965" y="120" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#92400e" text-anchor="middle">一点突破の軌跡</text>
+
+  <!-- Timeline -->
+  <!-- 1870 -->
+  <circle cx="870" cy="165" r="10" fill="#d97706"/>
+  <line x1="880" y1="165" x2="1110" y2="165" stroke="#fde68a" stroke-width="1"/>
+  <text x="898" y="158" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="13" fill="#92400e">1870年</text>
+  <text x="898" y="178" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#78716c">蒸気船3隻でスタート</text>
+
+  <!-- 1874 -->
+  <circle cx="870" cy="240" r="10" fill="#d97706"/>
+  <line x1="880" y1="240" x2="1110" y2="240" stroke="#fde68a" stroke-width="1"/>
+  <text x="898" y="233" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="13" fill="#92400e">1874年</text>
+  <text x="898" y="253" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#78716c">台湾出兵の輸送を一手に担う</text>
+
+  <!-- 1875 -->
+  <circle cx="870" cy="315" r="10" fill="#d97706"/>
+  <line x1="880" y1="315" x2="1110" y2="315" stroke="#fde68a" stroke-width="1"/>
+  <text x="898" y="308" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="13" fill="#92400e">1875年</text>
+  <text x="898" y="328" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#78716c">郵便汽船三菱として政府と提携</text>
+
+  <!-- 1880s -->
+  <circle cx="870" cy="390" r="14" fill="#92400e"/>
+  <line x1="884" y1="390" x2="1110" y2="390" stroke="#fde68a" stroke-width="1"/>
+  <text x="905" y="383" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="13" font-weight="700" fill="#92400e">1880年代</text>
+  <text x="905" y="400" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#78716c">金融・造船・鉱業へ多角化</text>
+
+  <!-- Vertical timeline bar -->
+  <line x1="870" y1="155" x2="870" y2="400" stroke="#d97706" stroke-width="2"/>
+</svg>
