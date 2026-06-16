@@ -16,8 +16,17 @@ function fmt(d: Date) {
 }
 
 const featured    = allPosts.find(p => p.data.featured) ?? allPosts[0];
-const recent      = allPosts.filter(p => p.id !== featured.id).slice(0, 6);
 const heroImages  = allPosts.filter(p => p.data.ogImage).slice(0, 3);
+
+const CATS = [
+  { key: "money",   label: "投資・お金", href: "/money/",   accent: "#fef3c7", color: "#92400e", border: "#fde68a", num: "① " },
+  { key: "career",  label: "仕事・副業", href: "/career/",  accent: "#dbeafe", color: "#1e40af", border: "#bfdbfe", num: "② " },
+  { key: "mindset", label: "思考法",     href: "/mindset/", accent: "#f3e8ff", color: "#6b21a8", border: "#e9d5ff", num: "③ " },
+];
+const catPosts = CATS.map(c => ({
+  ...c,
+  posts: allPosts.filter(p => p.id !== featured.id && p.data.category === c.key).slice(0, 3),
+}));
 ---
 
 <BaseLayout
@@ -75,39 +84,29 @@ const heroImages  = allPosts.filter(p => p.data.ogImage).slice(0, 3);
   </section>
 )}
 
-<!-- ═══ RECENT GRID ════════════════════════════════════════ -->
-{recent.length > 0 && (
-  <section class="recent">
-    <div class="section-wrap">
-      <div class="section-header">
-        <h2 class="section-title">新着記事</h2>
-        <a href="/blog/" class="section-more">すべて見る →</a>
+<!-- ═══ CATEGORY BLOCKS ═════════════════════════════════════ -->
+<section class="cat-section">
+  <div class="cat-wrap">
+    {catPosts.map(c => (
+      <div class="cat-block" style={`background:${c.accent};border-color:${c.border};`}>
+        <div class="cat-block-head">
+          <span class="cat-block-label" style={`color:${c.color};`}>{c.label}</span>
+          <a href={c.href} class="cat-block-more" style={`color:${c.color};`}>すべて見る →</a>
+        </div>
+        <ol class="cat-block-list">
+          {c.posts.map(p => (
+            <li>
+              <a href={`/blog/${p.id.replace(/\.mdx?$/, '')}/`} class="cat-block-link" style={`--c:${c.color};`}>
+                <span class="cat-block-title">{p.data.title}</span>
+                <time class="cat-block-date">{fmt(p.data.date)}</time>
+              </a>
+            </li>
+          ))}
+        </ol>
       </div>
-      <ul class="card-grid">
-        {recent.map((p, i) => (
-          <li class="card-reveal" data-idx={i}>
-            <a href={`/blog/${p.id.replace(/.mdx?$/, '')}/`} class="card-link">
-              <div class="card-img-wrap">
-                {p.data.ogImage
-                  ? <img src={p.data.ogImage} alt={p.data.title} loading="lazy" class="card-img" />
-                  : <div class="card-img-empty" />
-                }
-              </div>
-              <div class="card-body">
-                <span class={`card-cat card-cat--${p.data.category}`}>
-                  {LABELS[p.data.category]}
-                </span>
-                <h3 class="card-title">{p.data.title}</h3>
-                {p.data.description && <p class="card-desc">{p.data.description}</p>}
-                <time class="card-date">{fmt(p.data.date)}</time>
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
-)}
+    ))}
+  </div>
+</section>
 
 </BaseLayout>
 
@@ -115,15 +114,13 @@ const heroImages  = allPosts.filter(p => p.data.ogImage).slice(0, 3);
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      const li = entry.target as HTMLElement;
-      const idx = parseInt(li.dataset.idx ?? '0', 10);
-      li.style.animationDelay = `${idx * 0.08}s`;
-      li.classList.add('is-visible');
-      observer.unobserve(li);
+      const el = entry.target as HTMLElement;
+      el.classList.add('is-visible');
+      observer.unobserve(el);
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.1 });
 
-  document.querySelectorAll<HTMLElement>('.card-reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll<HTMLElement>('.cat-block').forEach(el => observer.observe(el));
 </script>
 
 <style>
@@ -143,10 +140,6 @@ const heroImages  = allPosts.filter(p => p.data.ogImage).slice(0, 3);
 @keyframes ken-burns {
   from { transform: scale(1.06); }
   to   { transform: scale(1); }
-}
-@keyframes card-reveal {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ── MASTHEAD ── */
@@ -328,106 +321,110 @@ const heroImages  = allPosts.filter(p => p.data.ogImage).slice(0, 3);
 }
 .featured-card:hover .feat-arrow { transform: translateX(4px); }
 
-/* ── SHARED SECTION ── */
-.section-wrap {
+/* ── CATEGORY BLOCKS ── */
+.cat-section { padding: 56px 0 88px; }
+.cat-wrap {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 2rem;
-}
-
-/* ── CARD GRID ── */
-.recent { padding: 56px 0 88px; }
-.card-grid {
-  list-style: none;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 36px 28px;
+  gap: 24px;
 }
 
-/* stagger reveal */
-.card-reveal { opacity: 0; }
-.card-reveal.is-visible { animation: card-reveal 0.5s ease forwards; }
-
-.card-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.3s ease;
-  transform-origin: bottom center;
-}
-.card-link:hover { transform: translateY(-5px) rotate(0.5deg); }
-.card-img-wrap {
-  overflow: hidden;
+.cat-block {
+  border: 1px solid;
   border-radius: var(--radius);
-  aspect-ratio: 16 / 9;
-  background: var(--bg2);
-  margin-bottom: 1rem;
+  padding: 1.6rem 1.5rem;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
 }
-.card-img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  display: block;
-  transition: transform 0.5s ease;
-}
-.card-link:hover .card-img { transform: scale(1.05); }
-.card-img-empty { width: 100%; height: 100%; background: var(--bg3); }
-.card-cat {
-  display: inline-flex;
+.cat-block.is-visible { opacity: 1; transform: translateY(0); }
+.cat-block:nth-child(2) { transition-delay: 0.1s; }
+.cat-block:nth-child(3) { transition-delay: 0.2s; }
+
+.cat-block-head {
+  display: flex;
   align-items: center;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  padding: 0.25rem 0.6rem;
-  border-radius: 100px;
-  text-decoration: none;
-  margin-bottom: 0.6rem;
-  border: 1px solid transparent;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
 }
-.card-cat--money   { background: #fef3c7; color: #92400e; border-color: #fde68a; }
-.card-cat--career  { background: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
-.card-cat--mindset { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; }
-.card-title {
-  font-family: var(--font-serif);
-  font-size: clamp(0.92rem, 1.4vw, 1.05rem);
+.cat-block-label {
+  font-size: 0.78rem;
   font-weight: 700;
-  line-height: 1.6;
+  letter-spacing: 0.08em;
+}
+.cat-block-more {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+  opacity: 0.75;
+  transition: opacity 0.15s;
+}
+.cat-block-more:hover { opacity: 1; }
+
+.cat-block-list {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.cat-block-list li + li {
+  border-top: 1px solid rgba(0,0,0,0.07);
+}
+.cat-block-link {
+  display: block;
+  text-decoration: none;
+  padding: 0.75rem 0;
+  transition: opacity 0.15s;
+}
+.cat-block-link:hover { opacity: 0.7; }
+.cat-block-title {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.55;
   color: var(--ink);
-  margin-bottom: 0.5rem;
-  transition: color 0.2s;
+  margin-bottom: 0.2rem;
 }
-.card-link:hover .card-title { color: var(--ink2); }
-.card-desc {
-  font-size: 0.8rem;
-  line-height: 1.75;
-  color: var(--ink2);
-  margin-bottom: 0.6rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.cat-block-date {
+  font-size: 0.68rem;
+  color: var(--ink3);
 }
-.card-date { font-size: 0.7rem; color: var(--ink3); }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .cat-wrap { grid-template-columns: 1fr; gap: 16px; }
   .featured-card { gap: 32px; }
   .mast-card { width: 200px; }
 }
 @media (max-width: 768px) {
   .masthead-inner { grid-template-columns: 1fr; }
-  .masthead-visual { display: none; }
+  /* show single OGP image below text on mobile */
+  .masthead-visual {
+    position: relative;
+    height: auto;
+    margin-top: 1.5rem;
+  }
+  .mast-card {
+    position: relative;
+    width: 100%;
+    animation: none !important;
+    transform: none !important;
+    box-shadow: 0 8px 24px rgba(28,25,23,0.12);
+  }
+  .mast-card--1,
+  .mast-card--2 { display: none; }
 }
 @media (max-width: 680px) {
   .featured-card { grid-template-columns: 1fr; gap: 24px; }
   .masthead, .featured { padding: 40px 0; }
-  .recent { padding: 40px 0 64px; }
-}
-@media (max-width: 540px) {
-  .card-grid { grid-template-columns: 1fr; }
+  .cat-section { padding: 40px 0 64px; }
 }
 @media (max-width: 480px) {
-  .masthead-inner, .featured-inner, .section-wrap { padding: 0 1rem; }
+  .masthead-inner, .featured-inner, .cat-wrap { padding: 0 1rem; }
 }
 </style>
