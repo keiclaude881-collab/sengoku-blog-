@@ -15,8 +15,9 @@ function fmt(d: Date) {
   return d.toLocaleDateString("ja-JP", { year: "numeric", month: "short", day: "numeric" });
 }
 
-const featured = allPosts.find(p => p.data.featured) ?? allPosts[0];
-const recent   = allPosts.filter(p => p.id !== featured.id).slice(0, 6);
+const featured    = allPosts.find(p => p.data.featured) ?? allPosts[0];
+const recent      = allPosts.filter(p => p.id !== featured.id).slice(0, 6);
+const heroImages  = allPosts.filter(p => p.data.ogImage).slice(0, 3);
 ---
 
 <BaseLayout
@@ -27,13 +28,22 @@ const recent   = allPosts.filter(p => p.id !== featured.id).slice(0, 6);
 <!-- ═══ MASTHEAD ══════════════════════════════════════════ -->
 <section class="masthead">
   <div class="masthead-inner">
-    <p class="masthead-eyebrow">偉人ラボ</p>
-    <h1 class="masthead-heading">偉人の思考で、<br/>現代のお金と仕事を攻略する</h1>
-    <p class="masthead-desc">孫子・ナポレオン・マルクス・アウレリウス——時代を超えた知恵を、投資・副業・キャリアに応用する。</p>
-    <div class="masthead-cats">
-      <a href="/money/"   class="cat-pill cat-pill--money">投資・お金</a>
-      <a href="/career/"  class="cat-pill cat-pill--career">仕事・副業</a>
-      <a href="/mindset/" class="cat-pill cat-pill--mindset">思考法</a>
+    <div class="masthead-text">
+      <p class="masthead-eyebrow">偉人ラボ</p>
+      <h1 class="masthead-heading">偉人の思考で、<br/>現代のお金と仕事を攻略する</h1>
+      <p class="masthead-desc">孫子・ナポレオン・マルクス・アウレリウス——時代を超えた知恵を、投資・副業・キャリアに応用する。</p>
+      <div class="masthead-cats">
+        <a href="/money/"   class="cat-pill cat-pill--money">投資・お金</a>
+        <a href="/career/"  class="cat-pill cat-pill--career">仕事・副業</a>
+        <a href="/mindset/" class="cat-pill cat-pill--mindset">思考法</a>
+      </div>
+    </div>
+    <div class="masthead-visual" aria-hidden="true">
+      {heroImages.map((p, i) => (
+        <div class={`mast-card mast-card--${i}`}>
+          <img src={p.data.ogImage!} alt="" />
+        </div>
+      ))}
     </div>
   </div>
 </section>
@@ -74,8 +84,8 @@ const recent   = allPosts.filter(p => p.id !== featured.id).slice(0, 6);
         <a href="/blog/" class="section-more">すべて見る →</a>
       </div>
       <ul class="card-grid">
-        {recent.map(p => (
-          <li class="fade-in">
+        {recent.map((p, i) => (
+          <li class="card-reveal" data-idx={i}>
             <a href={`/blog/${p.id.replace(/.mdx?$/, '')}/`} class="card-link">
               <div class="card-img-wrap">
                 {p.data.ogImage
@@ -101,16 +111,59 @@ const recent   = allPosts.filter(p => p.id !== featured.id).slice(0, 6);
 
 </BaseLayout>
 
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const li = entry.target as HTMLElement;
+      const idx = parseInt(li.dataset.idx ?? '0', 10);
+      li.style.animationDelay = `${idx * 0.08}s`;
+      li.classList.add('is-visible');
+      observer.unobserve(li);
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll<HTMLElement>('.card-reveal').forEach(el => observer.observe(el));
+</script>
+
 <style>
+/* ── ANIMATIONS ── */
+@keyframes float-0 {
+  0%, 100% { transform: rotate(2deg) translateY(0); }
+  50%       { transform: rotate(2deg) translateY(-14px); }
+}
+@keyframes float-1 {
+  0%, 100% { transform: rotate(-2deg) translateY(0); }
+  50%       { transform: rotate(-2deg) translateY(-18px); }
+}
+@keyframes float-2 {
+  0%, 100% { transform: rotate(0.8deg) translateY(0); }
+  50%       { transform: rotate(0.8deg) translateY(-10px); }
+}
+@keyframes ken-burns {
+  from { transform: scale(1.06); }
+  to   { transform: scale(1); }
+}
+@keyframes card-reveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* ── MASTHEAD ── */
 .masthead {
   padding: 72px 0 56px;
   border-bottom: 1px solid var(--border);
+  background-image: radial-gradient(circle, var(--border) 1.2px, transparent 1.2px);
+  background-size: 22px 22px;
 }
 .masthead-inner {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 3rem;
 }
 .masthead-eyebrow {
   font-size: 0.7rem;
@@ -141,6 +194,33 @@ const recent   = allPosts.filter(p => p.id !== featured.id).slice(0, 6);
   gap: 0.6rem;
   flex-wrap: wrap;
 }
+
+/* floating OGP collage */
+.masthead-visual {
+  position: relative;
+  height: 300px;
+}
+.mast-card {
+  position: absolute;
+  width: 250px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(28,25,23,0.14);
+}
+.mast-card img { width: 100%; display: block; }
+.mast-card--0 {
+  top: 10px; right: 0; z-index: 3;
+  animation: float-0 4s ease-in-out infinite;
+}
+.mast-card--1 {
+  top: 55px; right: 56px; z-index: 2;
+  animation: float-1 5.5s ease-in-out infinite;
+}
+.mast-card--2 {
+  top: 100px; right: 112px; z-index: 1;
+  animation: float-2 7s ease-in-out infinite;
+}
+
 .cat-pill {
   display: inline-flex;
   align-items: center;
@@ -187,9 +267,13 @@ const recent   = allPosts.filter(p => p.id !== featured.id).slice(0, 6);
   object-fit: cover;
   object-position: top center;
   display: block;
+  animation: ken-burns 6s ease-out forwards;
   transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.featured-card:hover .featured-img { transform: scale(1.04); }
+.featured-card:hover .featured-img {
+  animation: none;
+  transform: scale(1.04);
+}
 .featured-img-empty { width: 100%; height: 100%; background: var(--bg3); }
 
 .feat-cat {
@@ -252,20 +336,26 @@ const recent   = allPosts.filter(p => p.id !== featured.id).slice(0, 6);
 }
 
 /* ── CARD GRID ── */
-.recent {
-  padding: 56px 0 88px;
-}
+.recent { padding: 56px 0 88px; }
 .card-grid {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 36px 28px;
 }
+
+/* stagger reveal */
+.card-reveal { opacity: 0; }
+.card-reveal.is-visible { animation: card-reveal 0.5s ease forwards; }
+
 .card-link {
   display: block;
   text-decoration: none;
   color: inherit;
+  transition: transform 0.3s ease;
+  transform-origin: bottom center;
 }
+.card-link:hover { transform: translateY(-5px) rotate(0.5deg); }
 .card-img-wrap {
   overflow: hidden;
   border-radius: var(--radius);
@@ -280,7 +370,7 @@ const recent   = allPosts.filter(p => p.id !== featured.id).slice(0, 6);
   display: block;
   transition: transform 0.5s ease;
 }
-.card-link:hover .card-img { transform: scale(1.04); }
+.card-link:hover .card-img { transform: scale(1.05); }
 .card-img-empty { width: 100%; height: 100%; background: var(--bg3); }
 .card-cat {
   display: inline-flex;
@@ -323,6 +413,11 @@ const recent   = allPosts.filter(p => p.id !== featured.id).slice(0, 6);
 @media (max-width: 900px) {
   .card-grid { grid-template-columns: repeat(2, 1fr); }
   .featured-card { gap: 32px; }
+  .mast-card { width: 200px; }
+}
+@media (max-width: 768px) {
+  .masthead-inner { grid-template-columns: 1fr; }
+  .masthead-visual { display: none; }
 }
 @media (max-width: 680px) {
   .featured-card { grid-template-columns: 1fr; gap: 24px; }
