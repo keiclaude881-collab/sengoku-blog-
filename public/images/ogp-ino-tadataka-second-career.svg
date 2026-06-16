@@ -1,62 +1,62 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f0fdf4"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#bbf7d0" stroke-width="3"/>
-  <rect x="0" y="0" width="12" height="630" fill="#166534"/>
+  <rect width="1200" height="630" fill="#f0f7ff"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#bfdbfe" stroke-width="3"/>
+  <rect x="0" y="0" width="12" height="630" fill="#1e40af"/>
 
   <!-- Category badge -->
-  <rect x="60" y="55" width="130" height="34" rx="17" fill="#dcfce7" stroke="#86efac" stroke-width="1.5"/>
-  <text x="125" y="77" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#166534" text-anchor="middle" letter-spacing="2">仕事・副業</text>
+  <rect x="60" y="55" width="130" height="34" rx="17" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="125" y="77" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#1e40af" text-anchor="middle" letter-spacing="2">仕事・副業</text>
 
   <!-- Main title -->
   <text x="60" y="168" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="44" font-weight="700" fill="#1c1917" letter-spacing="-1">50歳で学び直し、</text>
   <text x="60" y="228" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="44" font-weight="700" fill="#1c1917" letter-spacing="-1">73歳で日本地図を完成させた男</text>
 
   <!-- Subtitle -->
-  <text x="60" y="288" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="24" fill="#16a34a" letter-spacing="1">伊能忠敬に学ぶ「第二のキャリア」の始め方</text>
+  <text x="60" y="288" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="24" fill="#3b82f6" letter-spacing="1">伊能忠敬に学ぶ「第二のキャリア」の始め方</text>
 
   <!-- Divider -->
-  <line x1="60" y1="320" x2="680" y2="320" stroke="#bbf7d0" stroke-width="2"/>
+  <line x1="60" y1="320" x2="680" y2="320" stroke="#bfdbfe" stroke-width="2"/>
 
   <!-- Description -->
   <text x="60" y="360" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#6b7280" letter-spacing="0.5">「もう遅い」と言われた年齢から、</text>
   <text x="60" y="390" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#6b7280" letter-spacing="0.5">地球一周分を歩いて地図を作った。</text>
 
   <!-- Bottom label -->
-  <text x="60" y="568" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#16a34a" font-weight="700" letter-spacing="3">偉人ラボ</text>
+  <text x="60" y="568" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#3b82f6" font-weight="700" letter-spacing="3">偉人ラボ</text>
 
   <!-- Right graphic: timeline/path -->
-  <rect x="780" y="80" width="370" height="430" rx="12" fill="#dcfce7" stroke="#86efac" stroke-width="1.5"/>
-  <text x="965" y="120" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#166534" text-anchor="middle">忠敬のキャリア年表</text>
+  <rect x="780" y="80" width="370" height="430" rx="12" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="965" y="120" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#1e40af" text-anchor="middle">忠敬のキャリア年表</text>
 
   <!-- Phase 1 -->
-  <rect x="820" y="138" width="280" height="64" rx="8" fill="#86efac" stroke="#4ade80" stroke-width="1"/>
-  <text x="960" y="163" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="13" font-weight="700" fill="#166534" text-anchor="middle">〜49歳：商人・名主</text>
-  <text x="960" y="182" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#15803d" text-anchor="middle">傾いた家業を立て直し地域を支える</text>
+  <rect x="820" y="138" width="280" height="64" rx="8" fill="#bfdbfe" stroke="#93c5fd" stroke-width="1"/>
+  <text x="960" y="163" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="13" font-weight="700" fill="#1e40af" text-anchor="middle">〜49歳：商人・名主</text>
+  <text x="960" y="182" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#1d4ed8" text-anchor="middle">傾いた家業を立て直し地域を支える</text>
 
   <!-- Arrow -->
-  <line x1="960" y1="202" x2="960" y2="224" stroke="#4ade80" stroke-width="3"/>
-  <polygon points="952,218 960,230 968,218" fill="#4ade80"/>
+  <line x1="960" y1="202" x2="960" y2="224" stroke="#93c5fd" stroke-width="3"/>
+  <polygon points="952,218 960,230 968,218" fill="#93c5fd"/>
 
   <!-- Phase 2 -->
-  <rect x="820" y="228" width="280" height="64" rx="8" fill="#4ade80" stroke="#22c55e" stroke-width="1.5"/>
-  <text x="960" y="253" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="13" font-weight="700" fill="#14532d" text-anchor="middle">50歳：天文学を学び始める</text>
-  <text x="960" y="272" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#15803d" text-anchor="middle">年下の師匠に弟子入り</text>
+  <rect x="820" y="228" width="280" height="64" rx="8" fill="#93c5fd" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="960" y="253" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="13" font-weight="700" fill="#1e3a8a" text-anchor="middle">50歳：天文学を学び始める</text>
+  <text x="960" y="272" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#1e40af" text-anchor="middle">年下の師匠に弟子入り</text>
 
   <!-- Arrow -->
-  <line x1="960" y1="292" x2="960" y2="314" stroke="#4ade80" stroke-width="3"/>
-  <polygon points="952,308 960,320 968,308" fill="#4ade80"/>
+  <line x1="960" y1="292" x2="960" y2="314" stroke="#93c5fd" stroke-width="3"/>
+  <polygon points="952,308 960,320 968,308" fill="#93c5fd"/>
 
   <!-- Phase 3 -->
-  <rect x="820" y="318" width="280" height="64" rx="8" fill="#22c55e" stroke="#16a34a" stroke-width="1.5"/>
+  <rect x="820" y="318" width="280" height="64" rx="8" fill="#60a5fa" stroke="#3b82f6" stroke-width="1.5"/>
   <text x="960" y="343" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">55〜72歳：全国測量</text>
-  <text x="960" y="362" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#dcfce7" text-anchor="middle">17年間・約40,000km</text>
+  <text x="960" y="362" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#dbeafe" text-anchor="middle">17年間・約40,000km</text>
 
   <!-- Arrow -->
-  <line x1="960" y1="382" x2="960" y2="404" stroke="#4ade80" stroke-width="3"/>
-  <polygon points="952,398 960,410 968,398" fill="#4ade80"/>
+  <line x1="960" y1="382" x2="960" y2="404" stroke="#93c5fd" stroke-width="3"/>
+  <polygon points="952,398 960,410 968,398" fill="#93c5fd"/>
 
   <!-- Phase 4 -->
-  <rect x="810" y="408" width="300" height="68" rx="8" fill="#166534"/>
-  <text x="960" y="436" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="14" font-weight="700" fill="#dcfce7" text-anchor="middle">大日本沿海輿地全図完成</text>
-  <text x="960" y="456" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="11" fill="#86efac" text-anchor="middle">明治時代まで使われた精密地図</text>
+  <rect x="810" y="408" width="300" height="68" rx="8" fill="#1e40af"/>
+  <text x="960" y="436" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="14" font-weight="700" fill="#dbeafe" text-anchor="middle">大日本沿海輿地全図完成</text>
+  <text x="960" y="456" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="11" fill="#bfdbfe" text-anchor="middle">明治時代まで使われた精密地図</text>
 </svg>

@@ -15,17 +15,16 @@ function fmt(d: Date) {
   return d.toLocaleDateString("ja-JP", { year: "numeric", month: "short", day: "numeric" });
 }
 
-const featured    = allPosts.find(p => p.data.featured) ?? allPosts[0];
-const heroImages  = allPosts.filter(p => p.data.ogImage).slice(0, 3);
+const heroImages = allPosts.filter(p => p.data.ogImage).slice(0, 3);
 
 const CATS = [
-  { key: "money",   label: "投資・お金", href: "/money/",   accent: "#fef3c7", color: "#92400e", border: "#fde68a", num: "① " },
-  { key: "career",  label: "仕事・副業", href: "/career/",  accent: "#dbeafe", color: "#1e40af", border: "#bfdbfe", num: "② " },
-  { key: "mindset", label: "思考法",     href: "/mindset/", accent: "#f3e8ff", color: "#6b21a8", border: "#e9d5ff", num: "③ " },
+  { key: "money",   label: "投資・お金", href: "/money/",   accent: "#fef3c7", color: "#92400e", border: "#fde68a" },
+  { key: "career",  label: "仕事・副業", href: "/career/",  accent: "#dbeafe", color: "#1e40af", border: "#bfdbfe" },
+  { key: "mindset", label: "思考法",     href: "/mindset/", accent: "#f3e8ff", color: "#6b21a8", border: "#e9d5ff" },
 ];
 const catPosts = CATS.map(c => ({
   ...c,
-  posts: allPosts.filter(p => p.id !== featured.id && p.data.category === c.key).slice(0, 3),
+  posts: allPosts.filter(p => p.data.category === c.key).slice(0, 3),
 }));
 ---
 
@@ -56,33 +55,6 @@ const catPosts = CATS.map(c => ({
     </div>
   </div>
 </section>
-
-<!-- ═══ FEATURED ══════════════════════════════════════════ -->
-{featured && (
-  <section class="featured">
-    <div class="featured-inner">
-      <a href={`/blog/${featured.id.replace(/\.mdx?$/, '')}/`} class="featured-card">
-        <div class="featured-img-wrap">
-          {featured.data.ogImage
-            ? <img src={featured.data.ogImage} alt={featured.data.title} class="featured-img" />
-            : <div class="featured-img-empty" />
-          }
-        </div>
-        <div class="featured-body">
-          <span class={`feat-cat feat-cat--${featured.data.category}`}>
-            {LABELS[featured.data.category]}
-          </span>
-          <h2 class="feat-title">{featured.data.title}</h2>
-          {featured.data.description && <p class="feat-desc">{featured.data.description}</p>}
-          <div class="feat-foot">
-            <time class="feat-date">{fmt(featured.data.date)}</time>
-            <span class="feat-cta">読む <span class="feat-arrow">→</span></span>
-          </div>
-        </div>
-      </a>
-    </div>
-  </section>
-)}
 
 <!-- ═══ CATEGORY BLOCKS ═════════════════════════════════════ -->
 <section class="cat-section">
@@ -231,96 +203,6 @@ const catPosts = CATS.map(c => ({
 .cat-pill--career  { background: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
 .cat-pill--mindset { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; }
 
-/* ── FEATURED ── */
-.featured {
-  padding: 56px 0;
-  border-bottom: 1px solid var(--border);
-}
-.featured-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-.featured-card {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 52px;
-  align-items: center;
-  text-decoration: none;
-  color: inherit;
-}
-.featured-img-wrap {
-  overflow: hidden;
-  border-radius: var(--radius);
-  aspect-ratio: 16 / 9;
-  background: var(--bg2);
-}
-.featured-img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  display: block;
-  animation: ken-burns 6s ease-out forwards;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.featured-card:hover .featured-img {
-  animation: none;
-  transform: scale(1.04);
-}
-.featured-img-empty { width: 100%; height: 100%; background: var(--bg3); }
-
-.feat-cat {
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  padding: 0.3rem 0.7rem;
-  border-radius: 100px;
-  text-decoration: none;
-  margin-bottom: 1rem;
-  border: 1px solid transparent;
-}
-.feat-cat--money   { background: #fef3c7; color: #92400e; border-color: #fde68a; }
-.feat-cat--career  { background: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
-.feat-cat--mindset { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; }
-
-.feat-title {
-  font-family: var(--font-serif);
-  font-size: clamp(1.25rem, 2.5vw, 1.85rem);
-  font-weight: 700;
-  line-height: 1.5;
-  color: var(--ink);
-  margin-bottom: 1rem;
-}
-.feat-desc {
-  font-size: 0.9rem;
-  line-height: 1.85;
-  color: var(--ink2);
-  margin-bottom: 1.5rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.feat-foot {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.feat-date { font-size: 0.73rem; color: var(--ink3); }
-.feat-cta {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: 0.06em;
-}
-.feat-arrow {
-  display: inline-block;
-  transition: transform 0.2s ease;
-}
-.featured-card:hover .feat-arrow { transform: translateX(4px); }
-
 /* ── CATEGORY BLOCKS ── */
 .cat-section { padding: 56px 0 88px; }
 .cat-wrap {
@@ -398,7 +280,6 @@ const catPosts = CATS.map(c => ({
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .cat-wrap { grid-template-columns: 1fr; gap: 16px; }
-  .featured-card { gap: 32px; }
   .mast-card { width: 200px; }
 }
 @media (max-width: 768px) {
@@ -420,8 +301,7 @@ const catPosts = CATS.map(c => ({
   .mast-card--2 { display: none; }
 }
 @media (max-width: 680px) {
-  .featured-card { grid-template-columns: 1fr; gap: 24px; }
-  .masthead, .featured { padding: 40px 0; }
+  .masthead { padding: 40px 0; }
   .cat-section { padding: 40px 0 64px; }
 }
 @media (max-width: 480px) {
