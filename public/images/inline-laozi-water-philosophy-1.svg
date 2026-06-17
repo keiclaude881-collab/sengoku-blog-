@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="380" viewBox="0 0 1000 380">
+  <rect width="1000" height="380" fill="#faf5ff" rx="12"/>
+  <rect x="0" y="0" width="1000" height="380" rx="12" fill="none" stroke="#e9d5ff" stroke-width="1.5"/>
+
+  <text x="500" y="38" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="15" font-weight="700" fill="#6b21a8" text-anchor="middle">「上善如水」——水はなぜ最高の善とされるのか</text>
+
+  <!-- Mountain obstacles -->
+  <polygon points="160,260 230,130 300,260" fill="#e9d5ff" stroke="#d8b4fe" stroke-width="1"/>
+  <polygon points="430,280 490,170 550,280" fill="#e9d5ff" stroke="#d8b4fe" stroke-width="1"/>
+  <polygon points="650,260 710,150 770,260" fill="#e9d5ff" stroke="#d8b4fe" stroke-width="1"/>
+
+  <!-- Water source -->
+  <circle cx="120" cy="70" r="22" fill="#9333ea"/>
+  <text x="120" y="76" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">水</text>
+
+  <!-- Flowing water path around all obstacles -->
+  <path d="M 120 92 C 140 140, 200 170, 230 220 C 260 270, 330 250, 360 200
+           C 390 150, 460 180, 490 230 C 520 280, 600 250, 630 200
+           C 660 150, 720 180, 750 230 C 780 280, 850 270, 880 310"
+        fill="none" stroke="#9333ea" stroke-width="9" stroke-linecap="round" opacity="0.85"/>
+  <path d="M 120 92 C 140 140, 200 170, 230 220 C 260 270, 330 250, 360 200
+           C 390 150, 460 180, 490 230 C 520 280, 600 250, 630 200
+           C 660 150, 720 180, 750 230 C 780 280, 850 270, 880 310"
+        fill="none" stroke="#c084fc" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Final pool -->
+  <ellipse cx="900" cy="330" rx="80" ry="26" fill="#9333ea" opacity="0.85"/>
+  <text x="900" y="336" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">万物を潤す</text>
+
+  <!-- Labels under obstacles -->
+  <text x="230" y="300" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#6b21a8" text-anchor="middle">障害①岩</text>
+  <text x="490" y="320" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#6b21a8" text-anchor="middle">障害②山</text>
+  <text x="710" y="300" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#6b21a8" text-anchor="middle">障害③崖</text>
+
+  <!-- Bottom note -->
+  <rect x="220" y="346" width="560" height="0" fill="none"/>
+  <text x="500" y="358" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#6b21a8" text-anchor="middle">水は争わず、形を変え、低い場所を選びながら、最後には全てを満たす</text>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="340" viewBox="0 0 1000 340">
+  <rect width="1000" height="340" fill="#faf5ff" rx="12"/>
+  <rect x="0" y="0" width="1000" height="340" rx="12" fill="none" stroke="#e9d5ff" stroke-width="1.5"/>
+
+  <text x="500" y="38" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="15" font-weight="700" fill="#6b21a8" text-anchor="middle">「力でねじ伏せる」vs「水のように合わせる」——職場での対応の違い</text>
+
+  <!-- Left column -->
+  <rect x="50" y="58" width="380" height="240" rx="10" fill="#fff1f2" stroke="#fca5a5" stroke-width="1.5"/>
+  <rect x="50" y="58" width="380" height="44" rx="10" fill="#ef4444"/>
+  <rect x="50" y="88" width="380" height="14" fill="#ef4444"/>
+  <text x="240" y="86" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">剛強：力でねじ伏せる</text>
+
+  <text x="240" y="128" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#991b1b" text-anchor="middle">✗ 正面から対立し論破する</text>
+  <text x="240" y="153" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#991b1b" text-anchor="middle">✗ 自分のやり方を押し通す</text>
+  <text x="240" y="178" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#991b1b" text-anchor="middle">✗ 変化を「敵」として拒む</text>
+  <text x="240" y="203" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#991b1b" text-anchor="middle">✗ 一度の強い力に依存する</text>
+  <rect x="70" y="222" width="340" height="56" rx="8" fill="#fee2e2" stroke="#fca5a5" stroke-width="1"/>
+  <text x="240" y="246" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#7f1d1d" text-anchor="middle">→ 一時的に勝っても</text>
+  <text x="240" y="264" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#7f1d1d" text-anchor="middle">　関係が折れて終わる（剛強は折れる）</text>
+
+  <!-- VS -->
+  <text x="500" y="195" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="22" font-weight="700" fill="#7e22ce" text-anchor="middle">VS</text>
+
+  <!-- Right column -->
+  <rect x="570" y="58" width="380" height="240" rx="10" fill="#f3e8ff" stroke="#e9d5ff" stroke-width="1.5"/>
+  <rect x="570" y="58" width="380" height="44" rx="10" fill="#7e22ce"/>
+  <rect x="570" y="88" width="380" height="14" fill="#7e22ce"/>
+  <text x="760" y="86" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">柔弱：水のように合わせる</text>
+
+  <text x="760" y="128" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#6b21a8" text-anchor="middle">✓ 相手の形に応じて対応を変える</text>
+  <text x="760" y="153" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#6b21a8" text-anchor="middle">✓ 障害を迂回し、低い道を選ぶ</text>
+  <text x="760" y="178" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#6b21a8" text-anchor="middle">✓ 変化を「流れ」として受け入れる</text>
+  <text x="760" y="203" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#6b21a8" text-anchor="middle">✓ 小さな継続で時間をかけて貫く</text>
+  <rect x="590" y="222" width="340" height="56" rx="8" fill="#e9d5ff" stroke="#7e22ce" stroke-width="1"/>
+  <text x="760" y="246" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#581c87" text-anchor="middle">→ しなって生き残り</text>
+  <text x="760" y="264" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#581c87" text-anchor="middle">　最後には石さえ貫く（柔弱は勝つ）</text>
+
+  <text x="500" y="320" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#6b21a8" text-anchor="middle">老子が選んだのは右側——そして2500年語り継がれている</text>
+</svg>

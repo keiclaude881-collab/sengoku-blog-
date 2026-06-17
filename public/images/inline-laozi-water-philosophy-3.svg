@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="340" viewBox="0 0 1000 340">
+  <rect width="1000" height="340" fill="#faf5ff" rx="12"/>
+  <rect x="0" y="0" width="1000" height="340" rx="12" fill="none" stroke="#e9d5ff" stroke-width="1.5"/>
+
+  <text x="500" y="38" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="15" font-weight="700" fill="#6b21a8" text-anchor="middle">「水滴穿石」——柔らかい水が、硬い石に穴を開ける</text>
+
+  <!-- Stage 1 -->
+  <g>
+    <ellipse cx="150" cy="130" rx="16" ry="14" fill="#9333ea"/>
+    <line x1="150" y1="60" x2="150" y2="116" stroke="#c084fc" stroke-width="4" stroke-dasharray="3,4"/>
+    <rect x="95" y="144" width="110" height="80" rx="6" fill="#d6d3d1"/>
+    <text x="150" y="280" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#6b21a8" text-anchor="middle">1日目</text>
+    <text x="150" y="300" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#78716c" text-anchor="middle">石は無傷に見える</text>
+  </g>
+
+  <!-- Arrow -->
+  <polygon points="232,150 252,158 232,166" fill="#c084fc"/>
+
+  <!-- Stage 2 -->
+  <g>
+    <ellipse cx="380" cy="130" rx="16" ry="14" fill="#9333ea"/>
+    <line x1="380" y1="60" x2="380" y2="116" stroke="#c084fc" stroke-width="4" stroke-dasharray="3,4"/>
+    <rect x="325" y="144" width="110" height="80" rx="6" fill="#d6d3d1"/>
+    <ellipse cx="380" cy="148" rx="8" ry="4" fill="#a8a29e"/>
+    <text x="380" y="280" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#6b21a8" text-anchor="middle">1年目</text>
+    <text x="380" y="300" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#78716c" text-anchor="middle">わずかな窪み</text>
+  </g>
+
+  <!-- Arrow -->
+  <polygon points="462,150 482,158 462,166" fill="#c084fc"/>
+
+  <!-- Stage 3 -->
+  <g>
+    <ellipse cx="610" cy="130" rx="16" ry="14" fill="#9333ea"/>
+    <line x1="610" y1="60" x2="610" y2="116" stroke="#c084fc" stroke-width="4" stroke-dasharray="3,4"/>
+    <rect x="555" y="144" width="110" height="80" rx="6" fill="#d6d3d1"/>
+    <ellipse cx="610" cy="152" rx="14" ry="9" fill="#a8a29e"/>
+    <text x="610" y="280" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#6b21a8" text-anchor="middle">10年目</text>
+    <text x="610" y="300" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#78716c" text-anchor="middle">明確なくぼみ</text>
+  </g>
+
+  <!-- Arrow -->
+  <polygon points="692,150 712,158 692,166" fill="#c084fc"/>
+
+  <!-- Stage 4 -->
+  <g>
+    <ellipse cx="850" cy="130" rx="16" ry="14" fill="#9333ea"/>
+    <line x1="850" y1="60" x2="850" y2="116" stroke="#c084fc" stroke-width="4" stroke-dasharray="3,4"/>
+    <path d="M 795 144 H 905 V 224 H 795 Z M 850 144 A 26 40 0 0 0 850 224" fill="#d6d3d1"/>
+    <ellipse cx="850" cy="184" rx="22" ry="40" fill="#faf5ff"/>
+    <text x="850" y="280" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#6b21a8" text-anchor="middle">数十年後</text>
+    <text x="850" y="300" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#78716c" text-anchor="middle">石を貫通する</text>
+  </g>
+</svg>

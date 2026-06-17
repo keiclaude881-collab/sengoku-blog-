@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#faf5ff"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e9d5ff" stroke-width="3"/>
+  <rect x="0" y="0" width="12" height="630" fill="#7e22ce"/>
+
+  <rect x="60" y="55" width="100" height="34" rx="17" fill="#f3e8ff" stroke="#e9d5ff" stroke-width="1.5"/>
+  <text x="110" y="77" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="15" font-weight="700" fill="#6b21a8" text-anchor="middle" letter-spacing="2">思考法</text>
+
+  <text x="60" y="168" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="44" font-weight="700" fill="#1c1917" letter-spacing="-1">老子「上善如水」</text>
+  <text x="60" y="228" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="44" font-weight="700" fill="#1c1917" letter-spacing="-1">水のように生きる思考法</text>
+
+  <text x="60" y="285" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="22" fill="#7e22ce" letter-spacing="0.5">争わずに、最も低い場所で、最も強くなる</text>
+
+  <line x1="60" y1="315" x2="680" y2="315" stroke="#e9d5ff" stroke-width="2"/>
+
+  <text x="60" y="358" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="17" fill="#581c87" letter-spacing="0.5">「上善は水のごとし。水は善く万物を利して争わず」</text>
+  <text x="60" y="388" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="14" fill="#9333ea" letter-spacing="0.3">——老子『道徳経』第8章</text>
+
+  <rect x="60" y="430" width="220" height="68" rx="8" fill="#f3e8ff" stroke="#e9d5ff" stroke-width="1.5"/>
+  <text x="170" y="460" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="15" font-weight="700" fill="#6b21a8" text-anchor="middle">柔弱は剛強に勝つ</text>
+  <text x="170" y="482" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#581c87" text-anchor="middle">水滴は石を穿つ</text>
+
+  <rect x="296" y="430" width="220" height="68" rx="8" fill="#7e22ce"/>
+  <text x="406" y="460" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="15" font-weight="700" fill="#fff" text-anchor="middle">無為自然</text>
+  <text x="406" y="482" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#f3e8ff" text-anchor="middle">流れに逆らわない</text>
+
+  <text x="60" y="572" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="16" fill="#7e22ce" font-weight="700" letter-spacing="3">偉人ラボ</text>
+
+  <!-- Right panel: water flowing down through obstacles -->
+  <rect x="760" y="70" width="400" height="480" rx="12" fill="#f3e8ff" stroke="#e9d5ff" stroke-width="1.5"/>
+  <text x="960" y="112" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="18" font-weight="700" fill="#6b21a8" text-anchor="middle">水は低きに流れ、形を選ばない</text>
+
+  <!-- mountain/obstacle shapes -->
+  <polygon points="800,260 860,150 920,260" fill="#e9d5ff"/>
+  <polygon points="1000,280 1060,180 1120,280" fill="#e9d5ff"/>
+
+  <!-- water path flowing around obstacles, ending in a pool -->
+  <path d="M 960 140 C 940 180, 900 200, 920 240 C 940 280, 980 270, 990 310 C 1000 350, 950 360, 960 400"
+        fill="none" stroke="#9333ea" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
+  <path d="M 960 140 C 940 180, 900 200, 920 240 C 940 280, 980 270, 990 310 C 1000 350, 950 360, 960 400"
+        fill="none" stroke="#c084fc" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- pool at bottom -->
+  <ellipse cx="960" cy="430" rx="150" ry="34" fill="#9333ea" opacity="0.85"/>
+  <ellipse cx="960" cy="425" rx="150" ry="30" fill="#c084fc" opacity="0.5"/>
+  <text x="960" y="431" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">最も低い場所に集まり、満たす</text>
+
+  <rect x="800" y="478" width="320" height="46" rx="8" fill="#7e22ce"/>
+  <text x="960" y="498" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">争わずに、すべてを潤し、すべてを満たす</text>
+  <text x="960" y="516" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#f3e8ff" text-anchor="middle">——これが「上善如水」の哲学</text>
+</svg>
