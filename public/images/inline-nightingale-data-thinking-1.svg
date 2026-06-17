@@ -1,60 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#faf7ff"/>
-  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
-
-  <defs>
-    <marker id="arrowGray" markerWidth="12" markerHeight="12" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#9ca3af"/>
-    </marker>
-    <marker id="arrowPurple" markerWidth="12" markerHeight="12" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#a855f7"/>
-    </marker>
-  </defs>
-
-  <!-- Title -->
-  <text x="500" y="44" font-family="'Hiragino Sans', sans-serif" font-size="24" font-weight="700" fill="#6b21a8" text-anchor="middle">同じ「野戦病院」でも、見方を変えると結論が変わる</text>
-  <line x1="40" y1="62" x2="960" y2="62" stroke="#e9d5ff" stroke-width="1.5"/>
-
-  <!-- Row 1: 感覚的判断 -->
-  <text x="40" y="98" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#9ca3af">よくある発想(感覚的判断)</text>
-
-  <rect x="40" y="112" width="270" height="90" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="175" y="165" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">「戦争だから仕方ない」</text>
-
-  <line x1="318" y1="157" x2="358" y2="157" stroke="#9ca3af" stroke-width="4" marker-end="url(#arrowGray)"/>
-
-  <rect x="362" y="112" width="270" height="90" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="497" y="165" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">対策は「精神論」</text>
-
-  <!-- Row 2: データに基づく判断 -->
-  <text x="40" y="246" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#7c3aed">ナイチンゲールの発想(データ思考)</text>
-
-  <rect x="40" y="260" width="270" height="100" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="175" y="318" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">死因を記録・分類</text>
-
-  <line x1="318" y1="310" x2="358" y2="310" stroke="#a855f7" stroke-width="4" marker-end="url(#arrowPurple)"/>
-
-  <rect x="362" y="252" width="270" height="116" rx="10" fill="#f3e8ff" stroke="#7c3aed" stroke-width="3"/>
-  <text x="497" y="300" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#6b21a8" text-anchor="middle">感染症対策に</text>
-  <text x="497" y="334" font-family="'Hiragino Sans', sans-serif" font-size="17" fill="#7c3aed" text-anchor="middle">資源を集中できる</text>
-
-  <!-- Right side: explanation box -->
-  <rect x="660" y="80" width="300" height="290" rx="10" fill="none" stroke="#e9d5ff" stroke-width="1.5"/>
-  <text x="810" y="120" font-family="'Hiragino Sans', sans-serif" font-size="20" font-weight="700" fill="#6b21a8" text-anchor="middle">ナイチンゲールの思考法</text>
-  <line x1="680" y1="135" x2="940" y2="135" stroke="#e9d5ff" stroke-width="1"/>
-
-  <circle cx="690" cy="178" r="6" fill="#6b21a8"/>
-  <text x="708" y="185" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">印象より先に</text>
-  <text x="708" y="212" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">「数える」</text>
-
-  <circle cx="690" cy="246" r="6" fill="#6b21a8"/>
-  <text x="708" y="253" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">データを誰もが</text>
-  <text x="708" y="280" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">わかる図に変える</text>
-
-  <circle cx="690" cy="314" r="6" fill="#6b21a8"/>
-  <text x="708" y="321" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">事実にもとづいて</text>
-  <text x="708" y="348" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">判断する</text>
-
-  <!-- Bottom quote -->
-  <text x="500" y="402" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#7c3aed" text-anchor="middle" letter-spacing="1" opacity="0.85" font-style="italic">「統計こそ、神の意図を理解するための学問である」</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360">
+  <rect width="1000" height="360" fill="#faf5ff" />
+  <circle cx="500" cy="160" r="70" fill="#e9d5ff" opacity="0.7" />
+  <path d="M460 280 L460 220 L540 220 L540 280" fill="none" stroke="#7e22ce" stroke-width="8" stroke-linecap="round" />
+  <circle cx="500" cy="200" r="22" fill="#9333ea" />
+  <path d="M380 160 Q440 130 470 160" stroke="#d8b4fe" stroke-width="4" fill="none" stroke-dasharray="3 6" />
+  <path d="M530 160 Q560 130 620 160" stroke="#d8b4fe" stroke-width="4" fill="none" stroke-dasharray="3 6" />
 </svg>

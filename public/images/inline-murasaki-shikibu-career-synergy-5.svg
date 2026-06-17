@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#f0f7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#dbeafe" stroke-width="2"/>
+
+  <!-- 観察する目から、宮中の情景を取り込み、再び物語へ戻すイメージ -->
+  <g transform="translate(360,210)" opacity="0.9">
+    <path d="M -70 0 Q 0 -50 70 0 Q 0 50 -70 0 Z" fill="none" stroke="#1e40af" stroke-width="3.5"/>
+    <circle cx="0" cy="0" r="22" fill="#1e40af"/>
+    <circle cx="0" cy="0" r="9" fill="#f0f7ff"/>
+  </g>
+
+  <path d="M 440 200 Q 540 160 620 190" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-dasharray="3 7" opacity="0.6"/>
+  <path d="M 620 230 Q 540 270 440 230" fill="none" stroke="#93c5fd" stroke-width="2.5" stroke-dasharray="3 7" opacity="0.6"/>
+
+  <g transform="translate(700,210)" opacity="0.85">
+    <path d="M -80 -10 L 0 -22 L 80 -10 L 80 30 L 0 18 L -80 30 Z" fill="#bfdbfe" stroke="#1e3a8a" stroke-width="2.5" stroke-linejoin="round"/>
+    <line x1="0" y1="-22" x2="0" y2="18" stroke="#1e3a8a" stroke-width="2"/>
+  </g>
+</svg>

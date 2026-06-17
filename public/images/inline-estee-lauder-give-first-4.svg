@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#fde68a" stroke-width="2"/>
+  <g transform="translate(320,230)">
+    <rect x="-44" y="-30" width="88" height="90" rx="10" fill="#f59e0b" opacity="0.85"/>
+    <rect x="-30" y="-48" width="60" height="22" rx="6" fill="#d97706" opacity="0.85"/>
+  </g>
+  <circle cx="600" cy="170" r="14" fill="#fde68a" opacity="0.8"/>
+  <circle cx="660" cy="210" r="18" fill="#fde68a" opacity="0.7"/>
+  <circle cx="720" cy="260" r="24" fill="#fde68a" opacity="0.6"/>
+  <circle cx="800" cy="320" r="30" fill="#fde68a" opacity="0.5"/>
+  <path d="M 380 220 Q 480 180 600 170" stroke="#d97706" stroke-width="2.5" fill="none" stroke-dasharray="3 6" opacity="0.6"/>
+  <path d="M 600 170 Q 640 190 660 210" stroke="#d97706" stroke-width="2.5" fill="none" stroke-dasharray="3 6" opacity="0.5"/>
+  <path d="M 660 210 Q 690 235 720 260" stroke="#d97706" stroke-width="2.5" fill="none" stroke-dasharray="3 6" opacity="0.45"/>
+  <path d="M 720 260 Q 760 290 800 320" stroke="#d97706" stroke-width="2.5" fill="none" stroke-dasharray="3 6" opacity="0.4"/>
+</svg>

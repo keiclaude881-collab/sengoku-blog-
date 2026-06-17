@@ -1,79 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#faf7f2"/>
-  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
-
-  <!-- Central library building -->
-  <rect x="400" y="150" width="200" height="160" rx="4" fill="#fef3c7" stroke="#92400e" stroke-width="2.5"/>
-  <!-- Roof / Pediment -->
-  <polygon points="385,150 615,150 500,95" fill="#fef3c7" stroke="#92400e" stroke-width="2.5"/>
-  <!-- Pillars -->
-  <line x1="430" y1="150" x2="430" y2="310" stroke="#b45309" stroke-width="3"/>
-  <line x1="470" y1="150" x2="470" y2="310" stroke="#b45309" stroke-width="3"/>
-  <line x1="530" y1="150" x2="530" y2="310" stroke="#b45309" stroke-width="3"/>
-  <line x1="570" y1="150" x2="570" y2="310" stroke="#b45309" stroke-width="3"/>
-  <!-- Door -->
-  <rect x="462" y="240" width="76" height="70" rx="3" fill="#d97706" opacity="0.5" stroke="#92400e" stroke-width="1.5"/>
-  <!-- Windows -->
-  <rect x="415" y="175" width="30" height="30" rx="2" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
-  <rect x="555" y="175" width="30" height="30" rx="2" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
-  <!-- Label -->
-  <text x="500" y="340" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">図書館（知識の殿堂）</text>
-
-  <!-- People connected outward - like a network/radiation -->
-
-  <!-- Person 1 (top-left) -->
-  <circle cx="185" cy="115" r="16" fill="none" stroke="#b45309" stroke-width="2.5"/>
-  <line x1="185" y1="131" x2="185" y2="165" stroke="#b45309" stroke-width="2.5"/>
-  <line x1="185" y1="148" x2="165" y2="163" stroke="#b45309" stroke-width="2"/>
-  <line x1="185" y1="148" x2="205" y2="163" stroke="#b45309" stroke-width="2"/>
-  <line x1="185" y1="165" x2="173" y2="188" stroke="#b45309" stroke-width="2.5"/>
-  <line x1="185" y1="165" x2="197" y2="188" stroke="#b45309" stroke-width="2.5"/>
-  <text x="185" y="208" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#92400e" text-anchor="middle">学ぶ人</text>
-  <!-- Connection line to library -->
-  <line x1="215" y1="145" x2="385" y2="185" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6,4"/>
-
-  <!-- Person 2 (top) -->
-  <circle cx="500" cy="50" r="16" fill="none" stroke="#b45309" stroke-width="2.5"/>
-  <line x1="500" y1="66" x2="500" y2="92" stroke="#b45309" stroke-width="2.5"/>
-  <line x1="500" y1="79" x2="482" y2="91" stroke="#b45309" stroke-width="2"/>
-  <line x1="500" y1="79" x2="518" y2="91" stroke="#b45309" stroke-width="2"/>
-  <line x1="500" y1="92" x2="490" y2="112" stroke="#b45309" stroke-width="2.5"/>
-  <line x1="500" y1="92" x2="510" y2="112" stroke="#b45309" stroke-width="2.5"/>
-  <!-- Connection line to library roof -->
-  <line x1="500" y1="66" x2="500" y2="95" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6,4"/>
-
-  <!-- Person 3 (top-right) -->
-  <circle cx="815" cy="115" r="16" fill="none" stroke="#b45309" stroke-width="2.5"/>
-  <line x1="815" y1="131" x2="815" y2="165" stroke="#b45309" stroke-width="2.5"/>
-  <line x1="815" y1="148" x2="795" y2="163" stroke="#b45309" stroke-width="2"/>
-  <line x1="815" y1="148" x2="835" y2="163" stroke="#b45309" stroke-width="2"/>
-  <line x1="815" y1="165" x2="803" y2="188" stroke="#b45309" stroke-width="2.5"/>
-  <line x1="815" y1="165" x2="827" y2="188" stroke="#b45309" stroke-width="2.5"/>
-  <text x="815" y="208" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#92400e" text-anchor="middle">創る人</text>
-  <!-- Connection line to library -->
-  <line x1="785" y1="145" x2="615" y2="185" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6,4"/>
-
-  <!-- Person 4 (bottom-left) -->
-  <circle cx="200" cy="335" r="16" fill="none" stroke="#b45309" stroke-width="2.5"/>
-  <line x1="200" y1="351" x2="200" y2="385" stroke="#b45309" stroke-width="2.5"/>
-  <line x1="200" y1="368" x2="182" y2="380" stroke="#b45309" stroke-width="2"/>
-  <line x1="200" y1="368" x2="218" y2="380" stroke="#b45309" stroke-width="2"/>
-  <text x="200" y="405" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#92400e" text-anchor="middle">育てる人</text>
-  <!-- Connection line to library -->
-  <line x1="225" y1="325" x2="400" y2="295" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6,4"/>
-
-  <!-- Person 5 (bottom-right) -->
-  <circle cx="800" cy="335" r="16" fill="none" stroke="#b45309" stroke-width="2.5"/>
-  <line x1="800" y1="351" x2="800" y2="385" stroke="#b45309" stroke-width="2.5"/>
-  <line x1="800" y1="368" x2="782" y2="380" stroke="#b45309" stroke-width="2"/>
-  <line x1="800" y1="368" x2="818" y2="380" stroke="#b45309" stroke-width="2"/>
-  <text x="800" y="405" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#92400e" text-anchor="middle">伝える人</text>
-  <!-- Connection line to library -->
-  <line x1="775" y1="325" x2="600" y2="295" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6,4"/>
-
-  <!-- Central glow around library -->
-  <circle cx="500" cy="220" r="165" fill="#f59e0b" opacity="0.05"/>
-
-  <!-- Title at top area of SVG -->
-  <text x="500" y="380" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#b45309" text-anchor="middle" letter-spacing="1" opacity="0.9">知識が広がり、人と人のつながりが生まれる</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="400" viewBox="0 0 1000 400">
+  <rect width="1000" height="400" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="400" fill="none" stroke="#fde68a" stroke-width="2"/>
+  <g opacity="0.9">
+    <rect x="410" y="170" width="180" height="140" fill="#fef3c7" stroke="#92400e" stroke-width="3"/>
+    <polygon points="395,170 605,170 500,115" fill="#fef3c7" stroke="#92400e" stroke-width="3"/>
+    <line x1="440" y1="170" x2="440" y2="310" stroke="#d97706" stroke-width="4"/>
+    <line x1="475" y1="170" x2="475" y2="310" stroke="#d97706" stroke-width="4"/>
+    <line x1="525" y1="170" x2="525" y2="310" stroke="#d97706" stroke-width="4"/>
+    <line x1="560" y1="170" x2="560" y2="310" stroke="#d97706" stroke-width="4"/>
+  </g>
+  <g fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="5 6" opacity="0.6">
+    <path d="M 260 130 Q 340 150 405 190"/>
+    <path d="M 740 130 Q 660 150 595 190"/>
+    <path d="M 260 320 Q 340 290 405 260"/>
+    <path d="M 740 320 Q 660 290 595 260"/>
+  </g>
+  <g opacity="0.85" fill="#d97706">
+    <circle cx="240" cy="115" r="20"/>
+    <circle cx="760" cy="115" r="20"/>
+    <circle cx="240" cy="335" r="20"/>
+    <circle cx="760" cy="335" r="20"/>
+  </g>
 </svg>

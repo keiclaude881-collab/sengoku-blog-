@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#fde68a" stroke-width="2"/>
+  <g fill="#fde68a">
+    <circle cx="180" cy="160" r="26"/>
+    <circle cx="260" cy="120" r="26"/>
+    <circle cx="320" cy="200" r="26"/>
+    <circle cx="220" cy="260" r="26"/>
+    <circle cx="340" cy="290" r="26"/>
+  </g>
+  <line x1="460" y1="80" x2="460" y2="340" stroke="#fde68a" stroke-width="3" stroke-dasharray="4 10"/>
+  <g transform="translate(740,290)">
+    <ellipse cx="0" cy="40" rx="80" ry="16" fill="#d97706"/>
+    <ellipse cx="0" cy="14" rx="80" ry="16" fill="#f59e0b"/>
+    <ellipse cx="0" cy="-12" rx="80" ry="16" fill="#92400e"/>
+    <ellipse cx="0" cy="-38" rx="80" ry="16" fill="#78350f"/>
+  </g>
+</svg>

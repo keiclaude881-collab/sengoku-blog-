@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#fde68a" stroke-width="2"/>
+  <!-- 生活費の盾を手元に置きながら、落ち着いて市場の波を見ている人のイメージ -->
+  <path d="M 560 120 L 950 120 L 950 280 Q 760 360 560 280 Z" fill="#fde68a" opacity="0.7"/>
+  <path d="M 600 160 L 720 220 L 800 150 L 900 240" stroke="#92400e" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="translate(260,230)">
+    <circle cx="0" cy="-40" r="28" fill="#92400e"/>
+    <path d="M -34 30 Q 0 0 34 30 L 34 90 L -34 90 Z" fill="#92400e"/>
+  </g>
+  <path d="M 380 230 L 420 230 L 420 110 L 460 110" fill="none" stroke="#d97706" stroke-width="10" stroke-linecap="round"/>
+  <rect x="380" y="200" width="80" height="60" rx="10" fill="#d97706"/>
+</svg>

@@ -1,60 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#faf7f2"/>
-  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
-
-  <defs>
-    <marker id="arrowGray" markerWidth="12" markerHeight="12" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#9ca3af"/>
-    </marker>
-    <marker id="arrowAmber" markerWidth="12" markerHeight="12" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#d97706"/>
-    </marker>
-  </defs>
-
-  <!-- Title -->
-  <text x="500" y="44" font-family="'Hiragino Sans', sans-serif" font-size="24" font-weight="700" fill="#92400e" text-anchor="middle">「消費型」と「現金確保型」、お金との向き合い方</text>
-  <line x1="40" y1="62" x2="960" y2="62" stroke="#fde68a" stroke-width="1.5"/>
-
-  <!-- Row 1: 消費型 -->
-  <text x="40" y="98" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#9ca3af">よくある発想(消費型)</text>
-
-  <rect x="40" y="112" width="270" height="90" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="175" y="165" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">増えたら使う</text>
-
-  <line x1="318" y1="157" x2="358" y2="157" stroke="#9ca3af" stroke-width="4" marker-end="url(#arrowGray)"/>
-
-  <rect x="362" y="112" width="270" height="90" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="497" y="165" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">崩れても動けない</text>
-
-  <!-- Row 2: 現金確保型 -->
-  <text x="40" y="246" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#92400e">ヘティ・グリーンの発想(確保型)</text>
-
-  <rect x="40" y="260" width="270" height="100" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="175" y="318" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">徹底して切り詰める</text>
-
-  <line x1="318" y1="310" x2="358" y2="310" stroke="#d97706" stroke-width="4" marker-end="url(#arrowAmber)"/>
-
-  <rect x="362" y="252" width="270" height="116" rx="10" fill="#fef3c7" stroke="#92400e" stroke-width="3"/>
-  <text x="497" y="300" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#92400e" text-anchor="middle">現金という「備え」</text>
-  <text x="497" y="334" font-family="'Hiragino Sans', sans-serif" font-size="17" fill="#d97706" text-anchor="middle">→恐慌で買い向かう</text>
-
-  <!-- Right side: explanation box -->
-  <rect x="660" y="80" width="300" height="290" rx="10" fill="none" stroke="#fde68a" stroke-width="1.5"/>
-  <text x="810" y="120" font-family="'Hiragino Sans', sans-serif" font-size="20" font-weight="700" fill="#92400e" text-anchor="middle">ヘティ・グリーンの軌跡</text>
-  <line x1="680" y1="135" x2="940" y2="135" stroke="#fde68a" stroke-width="1"/>
-
-  <circle cx="690" cy="178" r="6" fill="#92400e"/>
-  <text x="708" y="185" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">銀行の暖房でオートミールを</text>
-  <text x="708" y="212" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">温め、極限まで切り詰めた</text>
-
-  <circle cx="690" cy="246" r="6" fill="#92400e"/>
-  <text x="708" y="253" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">1907年恐慌で、現金を</text>
-  <text x="708" y="280" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">持つ自分だけが動けた</text>
-
-  <circle cx="690" cy="314" r="6" fill="#92400e"/>
-  <text x="708" y="321" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">底値で買い、相場が戻ると</text>
-  <text x="708" y="348" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">資産はさらに増えた</text>
-
-  <!-- Bottom quote -->
-  <text x="500" y="402" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#d97706" text-anchor="middle" letter-spacing="1" opacity="0.85" font-style="italic">「恐慌が来たとき、私には現金があった」</text>
+  <rect width="1000" height="420" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#fde68a" stroke-width="2"/>
+  <!-- 守りに入る倹約家と、攻めに出る投資家、対極のイメージが重なる人物像 -->
+  <g transform="translate(360,220)">
+    <circle cx="0" cy="-40" r="30" fill="#92400e"/>
+    <path d="M -40 40 Q 0 0 40 40 L 40 110 L -40 110 Z" fill="#92400e"/>
+    <path d="M -20 90 L 20 70" stroke="#fde68a" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(660,220)">
+    <circle cx="0" cy="-40" r="30" fill="#d97706"/>
+    <path d="M -40 40 Q 0 0 40 40 L 40 110 L -40 110 Z" fill="#d97706"/>
+    <path d="M 20 0 Q 70 -40 110 -80" stroke="#92400e" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M 98 -90 L 122 -84 L 110 -62" stroke="#92400e" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <circle cx="500" cy="180" r="6" fill="#92400e" opacity="0.5"/>
 </svg>

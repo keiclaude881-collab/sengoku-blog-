@@ -1,45 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#faf7ff"/>
-  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
-
-  <text x="500" y="46" font-family="sans-serif" font-size="18" font-weight="700" fill="#6b21a8" text-anchor="middle">残り時間を意識するとき、今日が変わる</text>
-
-  <!-- 砂時計の枠 -->
-  <polygon points="360,80 640,80 500,230" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="3" stroke-linejoin="round"/>
-  <polygon points="360,360 640,360 500,210" fill="#ede9fe" stroke="#6b21a8" stroke-width="3" stroke-linejoin="round"/>
-
-  <!-- 砂時計の砂（上部：残り少ない） -->
-  <polygon points="385,100 500,210 430,130" fill="#a855f7" opacity="0.3"/>
-
-  <!-- 砂時計の砂（下部：溜まった砂） -->
-  <polygon points="380,340 620,340 500,215" fill="#a855f7" opacity="0.6"/>
-
-  <!-- 砂が落ちる点 -->
-  <line x1="500" y1="210" x2="500" y2="230" stroke="#6b21a8" stroke-width="2" stroke-dasharray="3,3"/>
-  <circle cx="500" cy="225" r="4" fill="#6b21a8"/>
-
-  <!-- 上枠 -->
-  <line x1="340" y1="72" x2="660" y2="72" stroke="#6b21a8" stroke-width="6" stroke-linecap="round"/>
-  <!-- 下枠 -->
-  <line x1="340" y1="368" x2="660" y2="368" stroke="#6b21a8" stroke-width="6" stroke-linecap="round"/>
-
-  <!-- 左ラベル -->
-  <rect x="60" y="150" width="200" height="60" rx="10" fill="#f3e8ff" stroke="#c4b5fd" stroke-width="1.5"/>
-  <text x="160" y="178" font-family="sans-serif" font-size="15" font-weight="700" fill="#6b21a8" text-anchor="middle">残り時間</text>
-  <text x="160" y="200" font-family="sans-serif" font-size="12" fill="#7c3aed" text-anchor="middle">意識していますか？</text>
-  <!-- 矢印（左→砂時計上部） -->
-  <line x1="262" y1="180" x2="350" y2="160" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="5,3"/>
-  <polygon points="350,160 334,158 338,172" fill="#8b5cf6"/>
-
-  <!-- 右ラベル -->
-  <rect x="740" y="240" width="200" height="60" rx="10" fill="#6b21a8"/>
-  <text x="840" y="268" font-family="sans-serif" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">今日の行動</text>
-  <text x="840" y="290" font-family="sans-serif" font-size="12" fill="#e9d5ff" text-anchor="middle">優先順位が変わる</text>
-  <!-- 矢印（砂時計下部→右） -->
-  <line x1="648" y1="300" x2="732" y2="272" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="5,3"/>
-  <polygon points="732,272 716,274 720,260" fill="#8b5cf6"/>
-
-  <!-- 底部メッセージ -->
-  <rect x="200" y="385" width="600" height="26" rx="6" fill="#ede9fe"/>
-  <text x="500" y="403" font-family="sans-serif" font-size="13" font-weight="700" fill="#6b21a8" text-anchor="middle">「いつか」ではなく「今日」——松陰が生き続けた理由</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360">
+  <rect width="1000" height="360" fill="#faf5ff" />
+  <polygon points="380,70 620,70 500,180" fill="#f3e8ff" stroke="#9333ea" stroke-width="4" stroke-linejoin="round" />
+  <polygon points="380,310 620,310 500,200" fill="#e9d5ff" stroke="#7e22ce" stroke-width="4" stroke-linejoin="round" />
+  <polygon points="400,90 500,180 440,110" fill="#d8b4fe" opacity="0.7" />
+  <polygon points="395,290 605,290 500,205" fill="#9333ea" opacity="0.6" />
+  <line x1="500" y1="180" x2="500" y2="200" stroke="#6b21a8" stroke-width="3" stroke-dasharray="2 4" />
+  <circle cx="500" cy="195" r="4" fill="#6b21a8" />
+  <line x1="360" y1="62" x2="640" y2="62" stroke="#6b21a8" stroke-width="8" stroke-linecap="round" />
+  <line x1="360" y1="318" x2="640" y2="318" stroke="#6b21a8" stroke-width="8" stroke-linecap="round" />
 </svg>

@@ -1,20 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#faf7ff"/>
+  <rect width="1000" height="420" fill="#faf5ff"/>
   <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
-  <!-- 左の円：自分のもの -->
-  <circle cx="360" cy="210" r="130" fill="#a855f7" opacity="0.18"/>
-  <circle cx="360" cy="210" r="130" fill="none" stroke="#6b21a8" stroke-width="3" opacity="0.8"/>
-  <!-- 右の円：自分のものでない -->
-  <circle cx="640" cy="210" r="130" fill="#e9d5ff" opacity="0.35"/>
-  <circle cx="640" cy="210" r="130" fill="none" stroke="#8b5cf6" stroke-width="2.5" stroke-dasharray="8 6" opacity="0.7"/>
-  <!-- 仕切りライン -->
-  <line x1="500" y1="80" x2="500" y2="340" stroke="#6b21a8" stroke-width="2" stroke-dasharray="6 5" opacity="0.4"/>
-  <!-- 左ラベル -->
-  <text x="360" y="195" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#6b21a8" text-anchor="middle">自分のもの</text>
-  <text x="360" y="222" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#6b21a8" text-anchor="middle" opacity="0.8">判断・欲求・回避</text>
-  <text x="360" y="244" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#6b21a8" text-anchor="middle" opacity="0.8">意志・態度・反応</text>
-  <!-- 右ラベル -->
-  <text x="640" y="195" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#8b5cf6" text-anchor="middle" opacity="0.85">自分のものでない</text>
-  <text x="640" y="222" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#8b5cf6" text-anchor="middle" opacity="0.75">他人の評価・天気</text>
-  <text x="640" y="244" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#8b5cf6" text-anchor="middle" opacity="0.75">過去・病気・景気</text>
+  <circle cx="320" cy="210" r="130" fill="#9333ea" opacity="0.14"/>
+  <circle cx="320" cy="210" r="130" fill="none" stroke="#7e22ce" stroke-width="3" opacity="0.75"/>
+  <g transform="translate(320,210)">
+    <circle cx="0" cy="-26" r="22" fill="#6b21a8" opacity="0.9"/>
+    <path d="M -26 18 Q 0 -6 26 18 L 26 52 Q 0 64 -26 52 Z" fill="#6b21a8" opacity="0.9"/>
+    <line x1="0" y1="64" x2="0" y2="92" stroke="#6b21a8" stroke-width="6" stroke-linecap="round" opacity="0.85"/>
+    <circle cx="0" cy="100" r="8" fill="#6b21a8" opacity="0.85"/>
+  </g>
+  <circle cx="680" cy="210" r="130" fill="#e9d5ff" opacity="0.4"/>
+  <circle cx="680" cy="210" r="130" fill="none" stroke="#d8b4fe" stroke-width="2.5" stroke-dasharray="8 6" opacity="0.7"/>
+  <g opacity="0.7">
+    <circle cx="630" cy="160" r="14" fill="#c084fc" opacity="0.6"/>
+    <circle cx="720" cy="180" r="10" fill="#d8b4fe" opacity="0.6"/>
+    <circle cx="650" cy="250" r="12" fill="#c084fc" opacity="0.55"/>
+    <circle cx="715" cy="260" r="8" fill="#d8b4fe" opacity="0.55"/>
+    <path d="M 600 200 Q 630 170 660 195 Q 690 220 720 200" stroke="#c084fc" stroke-width="2" fill="none" stroke-dasharray="3 6" opacity="0.5"/>
+  </g>
+  <line x1="500" y1="80" x2="500" y2="340" stroke="#9333ea" stroke-width="2" stroke-dasharray="6 5" opacity="0.4"/>
 </svg>

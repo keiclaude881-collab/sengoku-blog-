@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#fde68a" stroke-width="2"/>
+  <path d="M 0 340 Q 500 300 1000 340" fill="none" stroke="#fde68a" stroke-width="3"/>
+  <g transform="translate(220,300)">
+    <path d="M -50 0 L 50 0 L 36 30 L -36 30 Z" fill="#92400e"/>
+    <line x1="0" y1="0" x2="0" y2="-80" stroke="#78350f" stroke-width="4"/>
+    <path d="M 0 -80 L 44 -54 L 0 -46 Z" fill="#d97706"/>
+  </g>
+  <g transform="translate(560,260)">
+    <path d="M -70 0 L 70 0 L 50 40 L -50 40 Z" fill="#d97706"/>
+    <line x1="0" y1="0" x2="0" y2="-110" stroke="#92400e" stroke-width="5"/>
+    <path d="M 0 -110 L 60 -76 L 0 -64 Z" fill="#f59e0b"/>
+  </g>
+  <g transform="translate(840,210)">
+    <path d="M -90 0 L 90 0 L 64 50 L -64 50 Z" fill="#f59e0b"/>
+    <line x1="0" y1="0" x2="0" y2="-140" stroke="#92400e" stroke-width="6"/>
+    <path d="M 0 -140 L 78 -98 L 0 -84 Z" fill="#fde68a"/>
+  </g>
+  <path d="M 240 240 Q 400 180 560 150 Q 700 120 840 70" stroke="#92400e" stroke-width="3" fill="none" stroke-dasharray="2 12" opacity="0.6"/>
+</svg>

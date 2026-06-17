@@ -1,40 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#faf7f2"/>
-  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
-
-  <!-- Title -->
-  <text x="500" y="44" font-family="'Hiragino Sans', sans-serif" font-size="19" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="1">チャーチルの3原則：逆境でこそ力を発揮する仕事術</text>
-
-  <!-- Center circle -->
-  <circle cx="500" cy="225" r="58" fill="#f59e0b" opacity="0.9" stroke="#92400e" stroke-width="2.5"/>
-  <text x="500" y="218" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">逆境で</text>
-  <text x="500" y="240" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">輝く</text>
-
-  <!-- Principle 1 (left) -->
-  <rect x="55" y="155" width="255" height="100" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
-  <text x="183" y="186" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">原則①</text>
-  <text x="183" y="210" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">最悪シナリオを</text>
-  <text x="183" y="230" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">先に描いて備える</text>
-  <line x1="311" y1="205" x2="442" y2="215" stroke="#b45309" stroke-width="2" stroke-linecap="round"/>
-  <polygon points="438,207 452,216 439,225" fill="#b45309"/>
-
-  <!-- Principle 2 (top) -->
-  <rect x="360" y="52" width="280" height="90" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
-  <text x="500" y="83" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">原則②</text>
-  <text x="500" y="107" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">言葉の力で</text>
-  <text x="500" y="127" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">チームを動かす</text>
-  <line x1="500" y1="142" x2="500" y2="167" stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
-  <polygon points="493,163 500,179 507,163" fill="#d97706"/>
-
-  <!-- Principle 3 (right) -->
-  <rect x="690" y="155" width="255" height="100" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
-  <text x="818" y="186" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">原則③</text>
-  <text x="818" y="210" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">休息を戦略的に</text>
-  <text x="818" y="230" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">使って思考を保つ</text>
-  <line x1="690" y1="205" x2="558" y2="218" stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
-  <polygon points="560,208 546,218 561,228" fill="#d97706"/>
-
-  <!-- Bottom caption -->
-  <text x="500" y="345" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#b45309" text-anchor="middle">65歳でWW2の戦時首相となりノーベル文学賞を受賞したチャーチルの実践から</text>
-  <text x="500" y="370" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle" opacity="0.85">「最良の時は常にこれからだ」——逆境を準備期間と捉えた男の仕事術</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="400" viewBox="0 0 1000 400">
+  <rect width="1000" height="400" fill="#f0f7ff"/>
+  <rect x="0" y="0" width="1000" height="400" fill="none" stroke="#dbeafe" stroke-width="2"/>
+  <circle cx="200" cy="280" r="50" fill="#bfdbfe"/>
+  <circle cx="500" cy="120" r="50" fill="#93c5fd"/>
+  <circle cx="800" cy="280" r="50" fill="#3b82f6"/>
+  <path d="M 240 250 Q 370 170 460 145" stroke="#1e40af" stroke-width="4" fill="none" stroke-dasharray="2 9" stroke-linecap="round" opacity="0.7"/>
+  <path d="M 540 145 Q 650 190 760 250" stroke="#1e40af" stroke-width="4" fill="none" stroke-dasharray="2 9" stroke-linecap="round" opacity="0.7"/>
+  <g transform="translate(500,340)" opacity="0.9">
+    <path d="M -40 0 L 0 -45 L 40 0 Z" fill="#1e3a8a"/>
+    <circle cx="0" cy="-55" r="14" fill="#1e3a8a"/>
+  </g>
 </svg>

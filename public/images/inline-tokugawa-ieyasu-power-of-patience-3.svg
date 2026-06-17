@@ -1,26 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
   <rect width="1000" height="420" fill="#faf7ff"/>
   <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
-  <!-- 転んだ後、起き上がって前を向くイメージ -->
-  <line x1="120" y1="330" x2="880" y2="330" stroke="#a855f7" stroke-width="2.5" stroke-dasharray="3 7" opacity="0.5"/>
-  <!-- 転んでいる姿(過去) -->
-  <g transform="translate(330,300)" stroke="#8b5cf6" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.45">
-    <circle cx="-58" cy="-10" r="16" fill="#c4b5fd" opacity="0.6" stroke="none"/>
-    <path d="M -44 -2 L 4 18"/>
-    <path d="M -30 6 L -10 -14 M 4 18 L 30 6"/>
-    <path d="M 4 18 L 40 26 M 4 18 L 24 44"/>
+  <!-- 複数の道の中から、一つの道を選び取るイメージ -->
+  <g stroke="#6b21a8" stroke-width="3" fill="none" stroke-linecap="round">
+    <circle cx="300" cy="320" r="9" fill="#6b21a8"/>
+    <!-- 選ばれなかった道 -->
+    <path d="M 300 320 Q 470 260 700 140" stroke="#8b5cf6" stroke-dasharray="4 8" opacity="0.4"/>
+    <path d="M 300 320 Q 480 360 720 360" stroke="#8b5cf6" stroke-dasharray="4 8" opacity="0.4"/>
+    <!-- 選ばれた道(実線・太い) -->
+    <path d="M 300 320 Q 470 240 720 232" stroke="#6b21a8" stroke-width="4"/>
+    <path d="M 720 232 L 700 222 M 720 232 L 706 248"/>
   </g>
-  <path d="M 130 330 Q 200 300 270 330" stroke="#a855f7" stroke-width="2.5" fill="none" stroke-dasharray="2 6" opacity="0.45"/>
-  <!-- 起き上がり、前を向く姿(現在) -->
-  <g transform="translate(660,254)" stroke="#6b21a8" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="0" cy="-58" r="20" fill="#8b5cf6" opacity="0.5" stroke="none"/>
-    <path d="M 0 -38 L 0 20"/>
-    <path d="M 0 -18 L -28 -2 M 0 -18 L 28 -2"/>
-    <path d="M 0 20 L -22 76 M 0 20 L 22 76"/>
-  </g>
-  <!-- 前へ伸びる矢印 -->
-  <g stroke="#6b21a8" stroke-width="3" stroke-linecap="round" fill="none">
-    <path d="M 760 254 L 840 254"/>
-    <path d="M 840 254 L 826 244 M 840 254 L 826 264"/>
+  <g fill="#8b5cf6">
+    <circle cx="700" cy="140" r="6" opacity="0.4"/>
+    <circle cx="720" cy="360" r="6" opacity="0.4"/>
+    <circle cx="730" cy="226" r="9"/>
   </g>
 </svg>

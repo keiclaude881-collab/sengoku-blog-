@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#fde68a" stroke-width="2"/>
+
+  <!-- 束ねられた三本の矢が、まっすぐ立つイメージ(折れない) -->
+  <g transform="translate(500,230)">
+    <line x1="-40" y1="120" x2="-10" y2="-140" stroke="#92400e" stroke-width="9" stroke-linecap="round"/>
+    <line x1="0" y1="120" x2="0" y2="-150" stroke="#d97706" stroke-width="9" stroke-linecap="round"/>
+    <line x1="40" y1="120" x2="10" y2="-140" stroke="#92400e" stroke-width="9" stroke-linecap="round"/>
+    <polygon points="-10,-140 -28,-100 8,-100" fill="#92400e"/>
+    <polygon points="0,-150 -20,-108 20,-108" fill="#d97706"/>
+    <polygon points="10,-140 -8,-100 28,-100" fill="#92400e"/>
+    <rect x="-48" y="80" width="96" height="28" rx="6" fill="#f59e0b"/>
+  </g>
+
+  <ellipse cx="500" cy="360" rx="120" ry="14" fill="#fde68a" opacity="0.7"/>
+</svg>

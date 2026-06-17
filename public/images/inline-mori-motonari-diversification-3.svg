@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#fde68a" stroke-width="2"/>
+
+  <!-- 一点から三方向へ分かれる矢(三人の息子の役割分担) -->
+  <circle cx="280" cy="210" r="16" fill="#92400e"/>
+
+  <g stroke="#92400e" stroke-width="6" stroke-linecap="round">
+    <line x1="296" y1="210" x2="560" y2="120"/>
+    <line x1="296" y1="210" x2="600" y2="210"/>
+    <line x1="296" y1="210" x2="560" y2="300"/>
+  </g>
+  <g fill="#92400e">
+    <polygon points="560,120 535,128 545,108"/>
+    <polygon points="600,210 575,198 575,222"/>
+    <polygon points="560,300 535,292 545,312"/>
+  </g>
+
+  <circle cx="600" cy="100" r="22" fill="#f59e0b" opacity="0.85"/>
+  <circle cx="640" cy="210" r="22" fill="#d97706" opacity="0.85"/>
+  <circle cx="600" cy="320" r="22" fill="#f59e0b" opacity="0.85"/>
+</svg>

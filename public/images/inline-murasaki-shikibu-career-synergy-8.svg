@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#f0f7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#dbeafe" stroke-width="2"/>
+
+  <!-- 本業と物語が円を描いて行き来するイメージ -->
+  <g transform="translate(500,210)" opacity="0.85">
+    <circle cx="0" cy="0" r="110" fill="none" stroke="#3b82f6" stroke-width="4" stroke-dasharray="14 10" stroke-linecap="round"/>
+    <path d="M 90 -50 L 108 -68 L 118 -44 Z" fill="#3b82f6"/>
+    <path d="M -90 50 L -108 68 L -118 44 Z" fill="#1e40af"/>
+  </g>
+
+  <g transform="translate(380,210)" opacity="0.9">
+    <rect x="-30" y="-30" width="60" height="60" rx="10" fill="#1e40af"/>
+  </g>
+  <g transform="translate(620,210)" opacity="0.9">
+    <path d="M -36 -10 L 0 -24 L 36 -10 L 36 18 L 0 8 L -36 18 Z" fill="#3b82f6" stroke="#1e3a8a" stroke-width="2" stroke-linejoin="round"/>
+  </g>
+</svg>

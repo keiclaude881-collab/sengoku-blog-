@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#fde68a" stroke-width="2"/>
+  <!-- 莫大な遺産を受け継ぎ、資産が積み上がっていくイメージ -->
+  <g transform="translate(500,350)">
+    <rect x="-160" y="-50" width="100" height="50" rx="6" fill="#fde68a"/>
+    <rect x="-30" y="-50" width="100" height="50" rx="6" fill="#fde68a"/>
+    <rect x="100" y="-50" width="100" height="50" rx="6" fill="#fde68a"/>
+    <rect x="-130" y="-100" width="100" height="50" rx="6" fill="#f59e0b"/>
+    <rect x="0" y="-100" width="100" height="50" rx="6" fill="#f59e0b"/>
+    <rect x="-95" y="-150" width="100" height="50" rx="6" fill="#d97706"/>
+    <rect x="-45" y="-200" width="100" height="50" rx="6" fill="#92400e"/>
+  </g>
+  <circle cx="500" cy="105" r="22" fill="#78350f"/>
+</svg>

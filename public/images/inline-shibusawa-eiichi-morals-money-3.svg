@@ -1,70 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#fffbeb" rx="12"/>
-  <rect x="0" y="0" width="1000" height="420" rx="12" fill="none" stroke="#fde68a" stroke-width="1.5"/>
-
-  <text x="500" y="36" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">渋沢栄一が関与した主要事業——500社の「ネットワーク投資」</text>
-
-  <!-- Center node -->
-  <circle cx="500" cy="210" r="52" fill="#d97706"/>
-  <text x="500" y="200" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">渋沢</text>
-  <text x="500" y="220" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">栄一</text>
-
-  <!-- Spoke lines to 8 companies -->
-  <!-- Top -->
-  <line x1="500" y1="158" x2="500" y2="88" stroke="#fde68a" stroke-width="2"/>
-  <!-- Top-right -->
-  <line x1="537" y1="172" x2="620" y2="108" stroke="#fde68a" stroke-width="2"/>
-  <!-- Right -->
-  <line x1="552" y1="210" x2="680" y2="210" stroke="#fde68a" stroke-width="2"/>
-  <!-- Bottom-right -->
-  <line x1="537" y1="248" x2="620" y2="318" stroke="#fde68a" stroke-width="2"/>
-  <!-- Bottom -->
-  <line x1="500" y1="262" x2="500" y2="330" stroke="#fde68a" stroke-width="2"/>
-  <!-- Bottom-left -->
-  <line x1="463" y1="248" x2="380" y2="318" stroke="#fde68a" stroke-width="2"/>
-  <!-- Left -->
-  <line x1="448" y1="210" x2="320" y2="210" stroke="#fde68a" stroke-width="2"/>
-  <!-- Top-left -->
-  <line x1="463" y1="172" x2="380" y2="108" stroke="#fde68a" stroke-width="2"/>
-
-  <!-- Company nodes -->
-  <!-- Top: 第一国立銀行 -->
-  <rect x="415" y="52" width="170" height="46" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
-  <text x="500" y="72" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#92400e" text-anchor="middle">第一国立銀行（1873）</text>
-  <text x="500" y="90" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#a16207" text-anchor="middle">💰 日本初の近代銀行</text>
-
-  <!-- Top-right: 王子製紙 -->
-  <rect x="615" y="72" width="150" height="46" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
-  <text x="690" y="92" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#92400e" text-anchor="middle">王子製紙（1873）</text>
-  <text x="690" y="110" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#a16207" text-anchor="middle">📄 出版・印刷を支える</text>
-
-  <!-- Right: 東京海上保険 -->
-  <rect x="680" y="188" width="165" height="46" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
-  <text x="762" y="208" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#92400e" text-anchor="middle">東京海上保険（1879）</text>
-  <text x="762" y="226" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#a16207" text-anchor="middle">🛡 リスク管理の基盤</text>
-
-  <!-- Bottom-right: 大阪紡績 -->
-  <rect x="618" y="304" width="150" height="46" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
-  <text x="693" y="324" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#92400e" text-anchor="middle">大阪紡績（1882）</text>
-  <text x="693" y="342" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#a16207" text-anchor="middle">🧵 産業革命の繊維業</text>
-
-  <!-- Bottom: 日本郵船 -->
-  <rect x="415" y="330" width="170" height="46" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
-  <text x="500" y="350" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#92400e" text-anchor="middle">日本郵船（1885）</text>
-  <text x="500" y="368" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#a16207" text-anchor="middle">🚢 海外貿易の物流</text>
-
-  <!-- Bottom-left: 東京ガス -->
-  <rect x="232" y="304" width="150" height="46" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
-  <text x="307" y="324" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#92400e" text-anchor="middle">東京ガス（1885）</text>
-  <text x="307" y="342" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#a16207" text-anchor="middle">🔥 都市インフラ整備</text>
-
-  <!-- Left: 帝国ホテル -->
-  <rect x="155" y="188" width="165" height="46" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
-  <text x="237" y="208" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#92400e" text-anchor="middle">帝国ホテル（1887）</text>
-  <text x="237" y="226" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#a16207" text-anchor="middle">🏨 国際都市・東京へ</text>
-
-  <!-- Top-left: 東京証券取引所 -->
-  <rect x="232" y="72" width="155" height="46" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
-  <text x="310" y="92" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#92400e" text-anchor="middle">東京株式取引所（1878）</text>
-  <text x="310" y="110" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#a16207" text-anchor="middle">📈 資本市場の整備</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="400" viewBox="0 0 1000 400">
+  <rect width="1000" height="400" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="400" fill="none" stroke="#fde68a" stroke-width="2"/>
+  <!-- 論語（道徳）と算盤（経済）が天秤で釣り合っているイメージ -->
+  <line x1="500" y1="160" x2="500" y2="230" stroke="#92400e" stroke-width="5"/>
+  <polygon points="500,230 462,278 538,278" fill="#d97706"/>
+  <rect x="445" y="278" width="110" height="14" rx="4" fill="#d97706"/>
+  <line x1="180" y1="160" x2="820" y2="160" stroke="#92400e" stroke-width="6" stroke-linecap="round"/>
+  <line x1="250" y1="160" x2="220" y2="190" stroke="#78350f" stroke-width="2"/>
+  <line x1="250" y1="160" x2="280" y2="190" stroke="#78350f" stroke-width="2"/>
+  <rect x="170" y="190" width="160" height="100" rx="12" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+  <path d="M 220 230 Q 250 210 280 230" stroke="#92400e" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <circle cx="250" cy="255" r="18" fill="#92400e" opacity="0.7"/>
+  <line x1="750" y1="160" x2="720" y2="190" stroke="#78350f" stroke-width="2"/>
+  <line x1="750" y1="160" x2="780" y2="190" stroke="#78350f" stroke-width="2"/>
+  <rect x="670" y="190" width="160" height="100" rx="12" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+  <g stroke="#92400e" stroke-width="3" opacity="0.75">
+    <line x1="700" y1="220" x2="800" y2="220"/>
+    <line x1="700" y1="245" x2="800" y2="245"/>
+    <line x1="700" y1="270" x2="800" y2="270"/>
+  </g>
+  <g fill="#d97706">
+    <circle cx="720" cy="220" r="6"/><circle cx="750" cy="220" r="6"/>
+    <circle cx="730" cy="245" r="6"/><circle cx="770" cy="245" r="6"/>
+    <circle cx="715" cy="270" r="6"/><circle cx="790" cy="270" r="6"/>
+  </g>
 </svg>

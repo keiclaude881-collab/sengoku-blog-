@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#fde68a" stroke-width="2"/>
+  <!-- 左:増えたらすぐ使い切る発想 / 右:現金を備えとして残す発想 -->
+  <g transform="translate(280,230)">
+    <circle cx="0" cy="-30" r="50" fill="#9ca3af" opacity="0.7"/>
+    <path d="M -40 40 Q 0 70 40 40" stroke="#9ca3af" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.7"/>
+  </g>
+  <path d="M 280 60 Q 320 100 280 130" stroke="#9ca3af" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.6"/>
+  <line x1="500" y1="60" x2="500" y2="380" stroke="#fde68a" stroke-width="3" stroke-dasharray="6 8"/>
+  <g transform="translate(720,250)">
+    <rect x="-90" y="-40" width="180" height="120" rx="14" fill="#92400e"/>
+    <circle cx="0" cy="20" r="34" fill="#fde68a"/>
+    <circle cx="0" cy="20" r="16" fill="#d97706"/>
+  </g>
+</svg>

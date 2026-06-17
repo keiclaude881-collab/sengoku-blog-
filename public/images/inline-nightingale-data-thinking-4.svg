@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360">
+  <rect width="1000" height="360" fill="#faf5ff" />
+  <g transform="translate(500,190)">
+    <path d="M0 0 L0 -140 A140 140 0 0 1 99 -99 Z" fill="#d8b4fe" />
+    <path d="M0 0 L99 -99 A140 140 0 0 1 99 99 Z" fill="#e9d5ff" />
+    <path d="M0 0 L99 99 A140 140 0 0 1 0 140 Z" fill="#c084fc" />
+    <path d="M0 0 L0 140 A140 140 0 0 1 -99 99 Z" fill="#9333ea" />
+    <path d="M0 0 L-99 99 A140 140 0 0 1 -99 -99 Z" fill="#7e22ce" />
+    <path d="M0 0 L-99 -99 A140 140 0 0 1 0 -140 Z" fill="#6b21a8" />
+    <circle cx="0" cy="0" r="20" fill="#faf5ff" />
+  </g>
+</svg>

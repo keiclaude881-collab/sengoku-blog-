@@ -1,37 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="360" viewBox="0 0 1000 360">
-  <rect width="1000" height="360" fill="#f0f7ff" rx="12"/>
-  <rect x="0" y="0" width="1000" height="360" rx="12" fill="none" stroke="#bfdbfe" stroke-width="1.5"/>
-
-  <text x="500" y="38" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="15" font-weight="700" fill="#1e40af" text-anchor="middle">「誰もが知る市場」と「誰も知らない市場」——情報の価値の違い</text>
-
-  <!-- Left: crowded known market -->
-  <rect x="60" y="70" width="380" height="220" rx="10" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
-  <text x="250" y="100" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="14" font-weight="700" fill="#1e40af" text-anchor="middle">ヨーロッパ国内市場（既知）</text>
-
-  <!-- many overlapping figures representing crowded competitors -->
-  <circle cx="140" cy="160" r="18" fill="#93c5fd"/>
-  <circle cx="180" cy="180" r="18" fill="#93c5fd"/>
-  <circle cx="220" cy="155" r="18" fill="#93c5fd"/>
-  <circle cx="260" cy="185" r="18" fill="#93c5fd"/>
-  <circle cx="300" cy="160" r="18" fill="#93c5fd"/>
-  <circle cx="340" cy="180" r="18" fill="#93c5fd"/>
-  <text x="250" y="166" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="10" fill="#1e3a8a" text-anchor="middle"> </text>
-
-  <text x="250" y="232" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#1e3a8a" text-anchor="middle">商人多数・情報は誰でも持っている</text>
-  <text x="250" y="254" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#1e3a8a" text-anchor="middle">→ 価格競争が激しい</text>
-  <text x="250" y="276" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#1e3a8a" text-anchor="middle">→ 情報の価値はゼロに近い</text>
-
-  <!-- Right: unknown market -->
-  <rect x="560" y="70" width="380" height="220" rx="10" fill="#1e40af"/>
-  <text x="750" y="100" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="14" font-weight="700" fill="#dbeafe" text-anchor="middle">東方・元朝市場（未知）</text>
-
-  <!-- single figure, isolated -->
-  <circle cx="750" cy="170" r="24" fill="#fbbf24"/>
-  <text x="750" y="177" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#1e40af" text-anchor="middle">独占</text>
-
-  <text x="750" y="232" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#dbeafe" text-anchor="middle">行ったことがあるのはマルコだけ</text>
-  <text x="750" y="254" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#dbeafe" text-anchor="middle">→ 競争相手がいない</text>
-  <text x="750" y="276" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#fbbf24" text-anchor="middle">→ 情報そのものが最大の資産</text>
-
-  <text x="500" y="330" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#1e40af" text-anchor="middle">「東方見聞録」が大ベストセラーになった理由はここにある</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="380" viewBox="0 0 1000 380">
+  <rect width="1000" height="380" fill="#f0f7ff"/>
+  <rect x="0" y="0" width="1000" height="380" fill="none" stroke="#bfdbfe" stroke-width="2"/>
+  <g transform="translate(500,200)" stroke="#93c5fd" stroke-width="2.5" opacity="0.6">
+    <line x1="0" y1="0" x2="0" y2="-120"/>
+    <line x1="0" y1="0" x2="150" y2="60"/>
+    <line x1="0" y1="0" x2="0" y2="130"/>
+    <line x1="0" y1="0" x2="-150" y2="60"/>
+  </g>
+  <g transform="translate(500,200)">
+    <circle cx="0" cy="0" r="34" fill="#1e40af"/>
+    <circle cx="0" cy="-120" r="22" fill="#3b82f6"/>
+    <circle cx="150" cy="60" r="22" fill="#3b82f6"/>
+    <circle cx="0" cy="130" r="22" fill="#3b82f6"/>
+    <circle cx="-150" cy="60" r="22" fill="#3b82f6"/>
+  </g>
+  <g fill="#bfdbfe" opacity="0.7">
+    <circle cx="620" cy="80" r="8"/>
+    <circle cx="380" cy="80" r="8"/>
+  </g>
 </svg>

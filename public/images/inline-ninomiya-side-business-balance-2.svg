@@ -1,10 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#f7faff"/>
+  <rect width="1000" height="420" fill="#f0f7ff"/>
   <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#dbeafe" stroke-width="2"/>
-  
-  <g transform="translate(540,210)" opacity="0.8">
+
+  <!-- 薪を背負いながら歩く少年と、循環する矢印 -->
+  <g transform="translate(540,210)" opacity="0.85">
     <circle cx="0" cy="0" r="84" fill="none" stroke="#3b82f6" stroke-width="4" stroke-dasharray="13 9" stroke-linecap="round"/>
     <path d="M 70 -34 L 86 -52 L 96 -28 Z" fill="#3b82f6"/>
   </g>
-  <text x="540" y="218" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#1e40af" text-anchor="middle" opacity="0.8">circulate</text>
+  <g transform="translate(380,210)" opacity="0.85">
+    <circle cx="0" cy="-58" r="16" fill="#1e40af"/>
+    <path d="M -18 -10 Q 0 -32 18 -10 L 14 50 L -14 50 Z" fill="#1e40af"/>
+    <rect x="6" y="-30" width="30" height="44" rx="6" fill="#93c5fd" transform="rotate(28 6 -30)"/>
+  </g>
 </svg>

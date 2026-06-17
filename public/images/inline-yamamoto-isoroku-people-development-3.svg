@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360">
+  <rect width="1000" height="360" fill="#f0f7ff" />
+  <circle cx="160" cy="180" r="56" fill="#bfdbfe" />
+  <path d="M140 165 L155 195 L185 150" stroke="#1e40af" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M250 180 L330 180" stroke="#93c5fd" stroke-width="4" stroke-dasharray="4 8" />
+  <polygon points="330,180 315,170 315,190" fill="#93c5fd" />
+
+  <circle cx="400" cy="180" r="56" fill="#93c5fd" />
+  <circle cx="380" cy="165" r="14" fill="#1e40af" />
+  <path d="M400 195 L430 220" stroke="#1e40af" stroke-width="6" stroke-linecap="round" />
+  <path d="M490 180 L570 180" stroke="#93c5fd" stroke-width="4" stroke-dasharray="4 8" />
+  <polygon points="570,180 555,170 555,190" fill="#93c5fd" />
+
+  <circle cx="640" cy="180" r="56" fill="#3b82f6" />
+  <path d="M615 185 Q640 210 665 185" stroke="#dbeafe" stroke-width="8" fill="none" stroke-linecap="round" />
+  <circle cx="618" cy="160" r="6" fill="#dbeafe" />
+  <circle cx="662" cy="160" r="6" fill="#dbeafe" />
+  <path d="M730 180 L810 180" stroke="#93c5fd" stroke-width="4" stroke-dasharray="4 8" />
+  <polygon points="810,180 795,170 795,190" fill="#93c5fd" />
+
+  <circle cx="880" cy="180" r="56" fill="#1e3a8a" />
+  <path d="M850 200 Q880 140 910 200" stroke="#dbeafe" stroke-width="8" fill="none" stroke-linecap="round" />
+</svg>

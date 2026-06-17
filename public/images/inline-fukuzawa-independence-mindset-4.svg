@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf5ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+  <!-- 知的独立と経済的独立という2本の柱が屋根を支えるイメージ -->
+  <path d="M 320 180 L 500 90 L 680 180 Z" fill="#d8b4fe"/>
+  <rect x="380" y="180" width="60" height="170" rx="6" fill="#7e22ce"/>
+  <rect x="560" y="180" width="60" height="170" rx="6" fill="#9333ea"/>
+  <rect x="330" y="350" width="340" height="22" rx="6" fill="#6b21a8"/>
+  <circle cx="410" cy="240" r="16" fill="#f3e8ff"/>
+  <circle cx="590" cy="240" r="16" fill="#f3e8ff"/>
+</svg>

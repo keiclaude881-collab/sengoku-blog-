@@ -1,60 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#faf7ff"/>
+  <rect width="1000" height="420" fill="#faf5ff"/>
   <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
-
-  <defs>
-    <marker id="arrowGray" markerWidth="12" markerHeight="12" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#9ca3af"/>
-    </marker>
-    <marker id="arrowPurple" markerWidth="12" markerHeight="12" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#7c3aed"/>
-    </marker>
-  </defs>
-
-  <!-- Title -->
-  <text x="500" y="44" font-family="'Hiragino Sans', sans-serif" font-size="24" font-weight="700" fill="#6b21a8" text-anchor="middle">「評価」と「劣等感」は、イコールではない</text>
-  <line x1="40" y1="62" x2="960" y2="62" stroke="#e9d5ff" stroke-width="1.5"/>
-
-  <!-- Row 1: 振り回される -->
-  <text x="40" y="98" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#9ca3af">よくある発想(振り回される)</text>
-
-  <rect x="40" y="112" width="270" height="90" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="175" y="165" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">否定的な評価を受ける</text>
-
-  <line x1="318" y1="157" x2="358" y2="157" stroke="#9ca3af" stroke-width="4" marker-end="url(#arrowGray)"/>
-
-  <rect x="362" y="112" width="270" height="90" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="497" y="165" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">自分の価値まで疑う</text>
-
-  <!-- Row 2: 切り分け型 -->
-  <text x="40" y="246" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#7c3aed">ルーズベルトの発想(切り分け型)</text>
-
-  <rect x="40" y="260" width="270" height="100" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="175" y="318" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">他人の評価を受け取る</text>
-
-  <line x1="318" y1="310" x2="358" y2="310" stroke="#7c3aed" stroke-width="4" marker-end="url(#arrowPurple)"/>
-
-  <rect x="362" y="252" width="270" height="116" rx="10" fill="#e9d5ff" stroke="#6b21a8" stroke-width="3"/>
-  <text x="497" y="300" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#6b21a8" text-anchor="middle">同意は自分で選べる</text>
-  <text x="497" y="334" font-family="'Hiragino Sans', sans-serif" font-size="17" fill="#7c3aed" text-anchor="middle">→劣等感を抱くかは自分次第</text>
-
-  <!-- Right side: explanation box -->
-  <rect x="660" y="80" width="300" height="290" rx="10" fill="none" stroke="#e9d5ff" stroke-width="1.5"/>
-  <text x="810" y="120" font-family="'Hiragino Sans', sans-serif" font-size="20" font-weight="700" fill="#6b21a8" text-anchor="middle">ルーズベルトの思考法</text>
-  <line x1="680" y1="135" x2="940" y2="135" stroke="#e9d5ff" stroke-width="1"/>
-
-  <circle cx="690" cy="178" r="6" fill="#6b21a8"/>
-  <text x="708" y="185" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">「醜いアヒルの子」と</text>
-  <text x="708" y="212" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">呼ばれた少女時代</text>
-
-  <circle cx="690" cy="246" r="6" fill="#6b21a8"/>
-  <text x="708" y="253" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">批判を覚悟の上で</text>
-  <text x="708" y="280" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">声を上げ続けた</text>
-
-  <circle cx="690" cy="314" r="6" fill="#6b21a8"/>
-  <text x="708" y="321" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">評価と自分の価値を</text>
-  <text x="708" y="348" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">切り分けて考える</text>
-
-  <!-- Bottom quote -->
-  <text x="500" y="402" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#7c3aed" text-anchor="middle" letter-spacing="1" opacity="0.85" font-style="italic">「あなたの同意なしに、劣等感は生まれない」</text>
+  <g transform="translate(440,230)">
+    <circle cx="0" cy="-60" r="26" fill="#7e22ce" opacity="0.85"/>
+    <path d="M -32 -10 Q 0 -34 32 -10 L 32 70 Q 0 86 -32 70 Z" fill="#6b21a8" opacity="0.85"/>
+  </g>
+  <g opacity="0.6">
+    <ellipse cx="700" cy="160" rx="60" ry="30" fill="#d8b4fe"/>
+    <ellipse cx="650" cy="120" rx="20" ry="12" fill="#d8b4fe"/>
+    <ellipse cx="730" cy="110" rx="14" ry="9" fill="#d8b4fe"/>
+  </g>
+  <path d="M 640 175 Q 560 205 480 220" stroke="#c084fc" stroke-width="3" fill="none" stroke-dasharray="3 8" stroke-linecap="round" opacity="0.6"/>
+  <circle cx="440" cy="230" r="160" fill="none" stroke="#d8b4fe" stroke-width="1.5" opacity="0.3"/>
 </svg>

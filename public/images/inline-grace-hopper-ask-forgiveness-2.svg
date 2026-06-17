@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#f0f7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#dbeafe" stroke-width="2"/>
+  <!-- 0と1の羅列から、わかりやすい言葉への翻訳が生まれるイメージ -->
+  <g opacity="0.55">
+    <circle cx="200" cy="150" r="14" fill="#1e3a8a"/>
+    <circle cx="250" cy="190" r="14" fill="#1e3a8a"/>
+    <circle cx="200" cy="240" r="14" fill="#1e3a8a"/>
+    <circle cx="270" cy="270" r="14" fill="#1e3a8a"/>
+    <circle cx="180" cy="300" r="14" fill="#1e3a8a"/>
+  </g>
+  <path d="M 340 220 L 520 220" stroke="#3b82f6" stroke-width="5" stroke-linecap="round"/>
+  <path d="M 520 220 L 494 200 M 520 220 L 494 240" stroke="#3b82f6" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <g transform="translate(720,215)">
+    <rect x="-90" y="-70" width="180" height="140" rx="16" fill="#bfdbfe"/>
+    <circle cx="-40" cy="-10" r="14" fill="#1e40af"/>
+    <rect x="-10" y="-22" width="100" height="14" rx="6" fill="#1e40af"/>
+    <rect x="-10" y="6" width="70" height="14" rx="6" fill="#3b82f6"/>
+  </g>
+</svg>

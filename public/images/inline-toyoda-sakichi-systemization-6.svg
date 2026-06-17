@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#f0f7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#dbeafe" stroke-width="2"/>
+  <!-- 不安定な気合い(波線)が、安定した仕組み(歯車+直線)に変換されるまとめイメージ -->
+  <path d="M 140 240 Q 200 150 260 240 Q 320 330 380 240" stroke="#93c5fd" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.6"/>
+  <g stroke="#3b82f6" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M 420 220 L 540 220"/>
+    <path d="M 540 220 L 526 210 M 540 220 L 526 230"/>
+  </g>
+  <g transform="translate(700,210)" fill="#1e3a8a">
+    <circle cx="0" cy="-90" r="9"/>
+    <circle cx="0" cy="90" r="9"/>
+    <circle cx="90" cy="0" r="9"/>
+    <circle cx="-90" cy="0" r="9"/>
+    <circle cx="64" cy="-64" r="9"/>
+    <circle cx="-64" cy="-64" r="9"/>
+    <circle cx="64" cy="64" r="9"/>
+    <circle cx="-64" cy="64" r="9"/>
+    <circle cx="0" cy="0" r="56" opacity="0.18"/>
+    <circle cx="0" cy="0" r="20"/>
+  </g>
+  <line x1="600" y1="330" x2="820" y2="330" stroke="#bfdbfe" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+</svg>

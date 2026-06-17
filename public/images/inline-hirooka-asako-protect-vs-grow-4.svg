@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360">
+  <rect width="1000" height="360" fill="#fffbeb" />
+  <g>
+    <path d="M260 280 L420 130" stroke="#f59e0b" stroke-width="16" stroke-linecap="round" />
+    <polygon points="420,130 360,140 410,180" fill="#f59e0b" />
+  </g>
+  <g>
+    <path d="M680 120 C620 120 600 150 600 190 C600 250 680 290 680 290 C680 290 760 250 760 190 C760 150 740 120 680 120 Z" fill="#92400e" />
+    <path d="M680 150 L680 260 M635 195 L725 195" stroke="#fef3c7" stroke-width="8" stroke-linecap="round" />
+  </g>
+  <path d="M460 200 L560 200" stroke="#d97706" stroke-width="3" stroke-dasharray="4 8" />
+</svg>

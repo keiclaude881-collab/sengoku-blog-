@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#f0f7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#dbeafe" stroke-width="2"/>
+
+  <!-- 少女が静かに学び、その才能が陰に隠れているイメージ -->
+  <g transform="translate(420,220)" opacity="0.9">
+    <circle cx="0" cy="-70" r="24" fill="none" stroke="#1e3a8a" stroke-width="3.5"/>
+    <path d="M -20 -10 Q 0 -34 20 -10 L 16 70 L -16 70 Z" fill="none" stroke="#1e3a8a" stroke-width="3" stroke-linejoin="round"/>
+  </g>
+  <path d="M 470 130 Q 540 90 600 110" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-dasharray="4 6" opacity="0.6"/>
+
+  <!-- 開かれた書物 -->
+  <g transform="translate(680,260)" opacity="0.85">
+    <path d="M -80 -10 L 0 -22 L 80 -10 L 80 30 L 0 18 L -80 30 Z" fill="#bfdbfe" stroke="#1e40af" stroke-width="2.5" stroke-linejoin="round"/>
+    <line x1="0" y1="-22" x2="0" y2="18" stroke="#1e40af" stroke-width="2"/>
+  </g>
+
+  <!-- 光が陰に隠れるイメージ -->
+  <g stroke="#93c5fd" opacity="0.5">
+    <line x1="420" y1="-70" x2="420" y2="-100" transform="translate(0,220)"/>
+  </g>
+  <circle cx="300" cy="180" r="3" fill="#93c5fd"/>
+  <circle cx="330" cy="150" r="4" fill="#93c5fd"/>
+</svg>

@@ -1,60 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#faf7f2"/>
-  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
-
-  <defs>
-    <marker id="arrowGray" markerWidth="12" markerHeight="12" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#9ca3af"/>
-    </marker>
-    <marker id="arrowAmber" markerWidth="12" markerHeight="12" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#d97706"/>
-    </marker>
-  </defs>
-
-  <!-- Title -->
-  <text x="500" y="44" font-family="'Hiragino Sans', sans-serif" font-size="24" font-weight="700" fill="#92400e" text-anchor="middle">「投資」と「保険」、目的の違い</text>
-  <line x1="40" y1="62" x2="960" y2="62" stroke="#e8e0d4" stroke-width="1.5"/>
-
-  <!-- Row 1: 混同型 -->
-  <text x="40" y="98" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#9ca3af">よくある発想(混同型)</text>
-
-  <rect x="40" y="112" width="270" height="90" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="175" y="165" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">貯蓄性の保険に入る</text>
-
-  <line x1="318" y1="157" x2="358" y2="157" stroke="#9ca3af" stroke-width="4" marker-end="url(#arrowGray)"/>
-
-  <rect x="362" y="112" width="270" height="90" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="497" y="165" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">増えない・守れない</text>
-
-  <!-- Row 2: 分ける型 -->
-  <text x="40" y="246" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#b45309">広岡浅子の発想(分ける型)</text>
-
-  <rect x="40" y="260" width="270" height="100" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="175" y="318" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">投資 → 増やす</text>
-
-  <line x1="318" y1="310" x2="358" y2="310" stroke="#d97706" stroke-width="4" marker-end="url(#arrowAmber)"/>
-
-  <rect x="362" y="252" width="270" height="116" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="3"/>
-  <text x="497" y="300" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#92400e" text-anchor="middle">保険 → 守る</text>
-  <text x="497" y="334" font-family="'Hiragino Sans', sans-serif" font-size="17" fill="#b45309" text-anchor="middle">→目的ごとに使い分ける</text>
-
-  <!-- Right side: explanation box -->
-  <rect x="660" y="80" width="300" height="290" rx="10" fill="none" stroke="#e8e0d4" stroke-width="1.5"/>
-  <text x="810" y="120" font-family="'Hiragino Sans', sans-serif" font-size="20" font-weight="700" fill="#92400e" text-anchor="middle">広岡浅子の思考法</text>
-  <line x1="680" y1="135" x2="940" y2="135" stroke="#e8e0d4" stroke-width="1"/>
-
-  <circle cx="690" cy="178" r="6" fill="#92400e"/>
-  <text x="708" y="185" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">炭鉱・銀行を経て</text>
-  <text x="708" y="212" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">保険会社を創業</text>
-
-  <circle cx="690" cy="246" r="6" fill="#92400e"/>
-  <text x="708" y="253" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">保険は「万一」に</text>
-  <text x="708" y="280" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">備える仕組み</text>
-
-  <circle cx="690" cy="314" r="6" fill="#92400e"/>
-  <text x="708" y="321" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">「増やす」と「守る」を</text>
-  <text x="708" y="348" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">分けて考える</text>
-
-  <!-- Bottom quote -->
-  <text x="500" y="402" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#b45309" text-anchor="middle" letter-spacing="1" opacity="0.85" font-style="italic">「九度転んでも十度起き上がれば、最後の勝利を得る」</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360">
+  <rect width="1000" height="360" fill="#fffbeb" />
+  <rect x="380" y="110" width="240" height="170" rx="16" fill="#fef3c7" stroke="#f59e0b" stroke-width="4" stroke-dasharray="8 8" />
+  <g transform="translate(415,150)">
+    <path d="M0 80 L50 10" stroke="#d97706" stroke-width="10" stroke-linecap="round" />
+    <polygon points="50,10 24,16 38,36" fill="#d97706" />
+  </g>
+  <g transform="translate(540,150)">
+    <path d="M30 0 C5 0 0 25 0 45 C0 70 30 90 30 90 C30 90 60 70 60 45 C60 25 55 0 30 0 Z" fill="#92400e" />
+    <path d="M30 20 L30 70 M12 35 L48 35" stroke="#fef3c7" stroke-width="5" stroke-linecap="round" />
+  </g>
 </svg>

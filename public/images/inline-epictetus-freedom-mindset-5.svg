@@ -1,34 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#faf7ff"/>
+  <rect width="1000" height="420" fill="#faf5ff"/>
   <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
-  <!-- 3つの原則カード -->
-  <!-- カード1 -->
-  <rect x="90" y="130" width="230" height="160" rx="10" fill="#f3e8ff" stroke="#e9d5ff" stroke-width="1.5"/>
-  <rect x="90" y="130" width="230" height="40" rx="10" fill="#6b21a8" opacity="0.85"/>
-  <rect x="90" y="150" width="230" height="20" fill="#6b21a8" opacity="0.85"/>
-  <text x="205" y="157" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">原則①</text>
-  <text x="205" y="206" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#6b21a8" text-anchor="middle" font-weight="700">制御の二分法</text>
-  <text x="205" y="228" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#44403c" text-anchor="middle">「自分のもの」だけに</text>
-  <text x="205" y="246" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#44403c" text-anchor="middle">集中する</text>
-  <!-- カード2 -->
-  <rect x="385" y="130" width="230" height="160" rx="10" fill="#f3e8ff" stroke="#e9d5ff" stroke-width="1.5"/>
-  <rect x="385" y="130" width="230" height="40" rx="10" fill="#8b5cf6" opacity="0.85"/>
-  <rect x="385" y="150" width="230" height="20" fill="#8b5cf6" opacity="0.85"/>
-  <text x="500" y="157" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">原則②</text>
-  <text x="500" y="206" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#6b21a8" text-anchor="middle" font-weight="700">期待を手放す</text>
-  <text x="500" y="228" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#44403c" text-anchor="middle">見方を変えれば</text>
-  <text x="500" y="246" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#44403c" text-anchor="middle">現実が変わる</text>
-  <!-- カード3 -->
-  <rect x="680" y="130" width="230" height="160" rx="10" fill="#f3e8ff" stroke="#e9d5ff" stroke-width="1.5"/>
-  <rect x="680" y="130" width="230" height="40" rx="10" fill="#a855f7" opacity="0.85"/>
-  <rect x="680" y="150" width="230" height="20" fill="#a855f7" opacity="0.85"/>
-  <text x="795" y="157" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">原則③</text>
-  <text x="795" y="206" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#6b21a8" text-anchor="middle" font-weight="700">今に全力を注ぐ</text>
-  <text x="795" y="228" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#44403c" text-anchor="middle">今できることだけが</text>
-  <text x="795" y="246" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#44403c" text-anchor="middle">自分のもの</text>
-  <!-- 接続矢印 -->
-  <path d="M 322 210 L 380 210" stroke="#a855f7" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
-  <path d="M 375 203 L 386 210 L 375 217" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
-  <path d="M 617 210 L 675 210" stroke="#a855f7" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
-  <path d="M 670 203 L 681 210 L 670 217" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+  <circle cx="500" cy="230" r="50" fill="#6b21a8" opacity="0.9"/>
+  <circle cx="500" cy="230" r="22" fill="#faf5ff" opacity="0.9"/>
+  <g opacity="0.85">
+    <circle cx="240" cy="140" r="34" fill="#9333ea" opacity="0.8"/>
+    <path d="M 270 168 Q 380 200 446 218" stroke="#d8b4fe" stroke-width="3" fill="none" stroke-dasharray="4 7" stroke-linecap="round"/>
+    <circle cx="760" cy="140" r="34" fill="#9333ea" opacity="0.8"/>
+    <path d="M 730 168 Q 620 200 554 218" stroke="#d8b4fe" stroke-width="3" fill="none" stroke-dasharray="4 7" stroke-linecap="round"/>
+    <circle cx="500" cy="350" r="34" fill="#9333ea" opacity="0.8"/>
+    <path d="M 500 316 L 500 280" stroke="#d8b4fe" stroke-width="3" fill="none" stroke-dasharray="4 7" stroke-linecap="round"/>
+  </g>
+  <circle cx="500" cy="230" r="130" fill="none" stroke="#d8b4fe" stroke-width="2" opacity="0.3" stroke-dasharray="5 8"/>
 </svg>
