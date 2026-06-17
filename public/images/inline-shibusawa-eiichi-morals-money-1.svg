@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="320" viewBox="0 0 1000 320">
+  <rect width="1000" height="320" fill="#fffbeb" rx="12"/>
+  <rect x="0" y="0" width="1000" height="320" rx="12" fill="none" stroke="#fde68a" stroke-width="1.5"/>
+
+  <text x="500" y="38" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">渋沢栄一の生涯——農家から日本資本主義の設計者へ</text>
+
+  <!-- Timeline rail -->
+  <line x1="60" y1="110" x2="940" y2="110" stroke="#fde68a" stroke-width="3"/>
+
+  <!-- Phase 1 -->
+  <circle cx="120" cy="110" r="14" fill="#d97706"/>
+  <text x="120" y="115" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+  <rect x="60" y="130" width="120" height="100" rx="8" fill="#fef3c7" stroke="#fde68a" stroke-width="1.5"/>
+  <text x="120" y="153" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" font-weight="700" fill="#92400e" text-anchor="middle">1840〜1867年</text>
+  <line x1="120" y1="124" x2="120" y2="130" stroke="#d97706" stroke-width="2"/>
+  <text x="120" y="172" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#78350f" text-anchor="middle">農家の子・志士</text>
+  <text x="120" y="192" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#a16207" text-anchor="middle">藍染・養蚕業で</text>
+  <text x="120" y="208" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#a16207" text-anchor="middle">商業の基礎を学ぶ</text>
+  <text x="120" y="224" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="10" fill="#d97706" text-anchor="middle">幕末に尊王攘夷運動へ</text>
+
+  <!-- Arrow 1-2 -->
+  <polygon points="225,107 240,110 225,113" fill="#d97706"/>
+
+  <!-- Phase 2 -->
+  <circle cx="360" cy="110" r="14" fill="#d97706"/>
+  <text x="360" y="115" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+  <rect x="290" y="130" width="140" height="100" rx="8" fill="#fef3c7" stroke="#fde68a" stroke-width="1.5"/>
+  <line x1="360" y1="124" x2="360" y2="130" stroke="#d97706" stroke-width="2"/>
+  <text x="360" y="153" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" font-weight="700" fill="#92400e" text-anchor="middle">1867〜1873年</text>
+  <text x="360" y="172" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#78350f" text-anchor="middle">パリ万博・大蔵省</text>
+  <text x="360" y="192" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#a16207" text-anchor="middle">フランスで株式会社</text>
+  <text x="360" y="208" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#a16207" text-anchor="middle">・銀行制度を体験</text>
+  <text x="360" y="224" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="10" fill="#d97706" text-anchor="middle">明治政府官僚として財政整備</text>
+
+  <!-- Arrow 2-3 -->
+  <polygon points="455,107 470,110 455,113" fill="#d97706"/>
+
+  <!-- Phase 3 -->
+  <circle cx="620" cy="110" r="14" fill="#92400e"/>
+  <text x="620" y="115" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+  <rect x="540" y="130" width="160" height="100" rx="8" fill="#fde68a" stroke="#d97706" stroke-width="1.5"/>
+  <line x1="620" y1="124" x2="620" y2="130" stroke="#92400e" stroke-width="2"/>
+  <text x="620" y="153" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" font-weight="700" fill="#92400e" text-anchor="middle">1873〜1916年</text>
+  <text x="620" y="172" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#78350f" text-anchor="middle">実業家・産業育成</text>
+  <text x="620" y="192" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#92400e" text-anchor="middle">銀行・製紙・紡績・</text>
+  <text x="620" y="208" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#92400e" text-anchor="middle">ガスなど500社以上</text>
+  <text x="620" y="224" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="10" fill="#92400e" text-anchor="middle">「共同出資」で日本を豊かに</text>
+
+  <!-- Arrow 3-4 -->
+  <polygon points="725,107 740,110 725,113" fill="#d97706"/>
+
+  <!-- Phase 4 -->
+  <circle cx="880" cy="110" r="14" fill="#92400e"/>
+  <text x="880" y="115" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+  <rect x="810" y="130" width="140" height="100" rx="8" fill="#fde68a" stroke="#d97706" stroke-width="1.5"/>
+  <line x1="880" y1="124" x2="880" y2="130" stroke="#92400e" stroke-width="2"/>
+  <text x="880" y="153" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" font-weight="700" fill="#92400e" text-anchor="middle">1916〜1931年</text>
+  <text x="880" y="172" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#78350f" text-anchor="middle">社会事業・晩年</text>
+  <text x="880" y="192" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#92400e" text-anchor="middle">福祉・教育・外交に</text>
+  <text x="880" y="208" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#92400e" text-anchor="middle">尽力。91歳で没</text>
+  <text x="880" y="224" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="10" fill="#92400e" text-anchor="middle">2024年〜1万円札に</text>
+
+  <!-- Bottom note -->
+  <text x="500" y="282" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#92400e" text-anchor="middle">農家の子が90年かけて「日本の経済インフラ」を設計した</text>
+</svg>
