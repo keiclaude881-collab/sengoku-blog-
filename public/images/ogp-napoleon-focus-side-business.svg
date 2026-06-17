@@ -1,33 +1,45 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f7f9fc"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#dfe7f3" stroke-width="2"/>
+  <rect width="1200" height="630" fill="#f0f7ff"/>
 
-  <!-- 二角帽（ナポレオン）シルエット -->
-  <path d="M 230 360
-           C 230 320 290 270 360 270
-           C 430 270 490 320 490 360
-           C 430 340 380 350 360 360
-           C 340 350 290 340 230 360 Z"
-        fill="#1e3a8a" opacity="0.85"/>
-  <ellipse cx="360" cy="358" rx="50" ry="10" fill="#1e3a8a" opacity="0.6"/>
-  <circle cx="360" cy="318" r="6" fill="#fcd34d"/>
+  <!-- scattered faint targets, representing too many scattered efforts -->
+  <g opacity="0.25">
+    <circle cx="180" cy="160" r="36" fill="none" stroke="#93c5fd" stroke-width="4"/>
+    <circle cx="180" cy="160" r="18" fill="none" stroke="#93c5fd" stroke-width="4"/>
+    <circle cx="250" cy="480" r="30" fill="none" stroke="#93c5fd" stroke-width="4"/>
+    <circle cx="250" cy="480" r="14" fill="none" stroke="#93c5fd" stroke-width="4"/>
+    <circle cx="120" cy="350" r="24" fill="none" stroke="#93c5fd" stroke-width="4"/>
+  </g>
 
-  <!-- 的（ターゲット）と矢 -->
-  <circle cx="900" cy="450" r="100" fill="none" stroke="#1e40af" stroke-width="3" opacity="0.4"/>
-  <circle cx="900" cy="450" r="70" fill="none" stroke="#1e40af" stroke-width="3" opacity="0.55"/>
-  <circle cx="900" cy="450" r="40" fill="none" stroke="#1e40af" stroke-width="3" opacity="0.6"/>
-  <circle cx="900" cy="450" r="12" fill="#1e40af"/>
-  <line x1="744" y1="540" x2="894" y2="456" stroke="#1c1917" stroke-width="4"/>
-  <path d="M 894 456 L 876 448 L 884 466 Z" fill="#1c1917"/>
-  <path d="M 744 540 L 760 532 L 756 548 Z" fill="#1c1917" opacity="0.7"/>
+  <!-- bicorne hat silhouette, simplified, large left -->
+  <g transform="translate(330,300)">
+    <path d="M -190 30
+             C -190 -40 -110 -90 0 -90
+             C 110 -90 190 -40 190 30
+             C 130 -10 60 10 0 18
+             C -60 10 -130 -10 -190 30 Z"
+          fill="#1e3a8a"/>
+    <ellipse cx="0" cy="32" rx="190" ry="20" fill="#1e3a8a" opacity="0.7"/>
+    <circle cx="0" cy="-46" r="9" fill="#bfdbfe"/>
+    <path d="M -20 -50 Q 0 -66 20 -50" stroke="#bfdbfe" stroke-width="4" fill="none"/>
+  </g>
 
-  <!-- カテゴリラベル -->
-  <rect x="660" y="180" width="120" height="36" rx="18" fill="#dbeafe" stroke="#bfdbfe"/>
-  <text x="720" y="204" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#1e40af" text-anchor="middle" letter-spacing="1">仕事・副業</text>
+  <!-- single large precise target on the right, with arrow striking center -->
+  <g transform="translate(880,330)">
+    <circle r="160" fill="none" stroke="#1e40af" stroke-width="5" opacity="0.5"/>
+    <circle r="115" fill="none" stroke="#1e40af" stroke-width="5" opacity="0.65"/>
+    <circle r="70" fill="none" stroke="#1e40af" stroke-width="5" opacity="0.8"/>
+    <circle r="26" fill="#1e40af"/>
+    <circle r="10" fill="#bfdbfe"/>
+  </g>
 
-  <!-- タイトル -->
-  <text x="660" y="262" font-family="'Shippori Mincho', serif" font-size="32" font-weight="700" fill="#1c1917" letter-spacing="1">ナポレオンの</text>
-  <text x="660" y="308" font-family="'Shippori Mincho', serif" font-size="32" font-weight="700" fill="#1c1917" letter-spacing="1">「選択と集中」</text>
+  <!-- single arrow flying straight and true into the bullseye -->
+  <line x1="500" y1="450" x2="858" y2="346" stroke="#1c1917" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 858 346 L 832 338 L 840 364 Z" fill="#1c1917"/>
+  <path d="M 500 450 L 522 440 L 514 462 Z" fill="#1c1917" opacity="0.7"/>
 
-  <text x="100" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+  <!-- straight focused motion lines -->
+  <line x1="440" y1="500" x2="560" y2="470" stroke="#93c5fd" stroke-width="3" stroke-dasharray="6,8" opacity="0.6"/>
+  <line x1="420" y1="540" x2="540" y2="510" stroke="#93c5fd" stroke-width="3" stroke-dasharray="6,8" opacity="0.4"/>
+
+  <ellipse cx="330" cy="500" rx="150" ry="16" fill="#bfdbfe" opacity="0.4"/>
 </svg>

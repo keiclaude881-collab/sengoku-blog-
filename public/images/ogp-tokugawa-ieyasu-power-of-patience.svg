@@ -1,31 +1,57 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#faf7ff"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+  <defs>
+    <linearGradient id="bgGradT" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#faf5ff"/>
+      <stop offset="1" stop-color="#f3e8ff"/>
+    </linearGradient>
+    <linearGradient id="treeGrad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#7e22ce"/>
+      <stop offset="1" stop-color="#9333ea"/>
+    </linearGradient>
+  </defs>
 
-  <!-- 静かに満ちていく月のイメージ(機が熟すのを待つ) -->
-  <g transform="translate(330,440)" opacity="0.8">
-    <circle cx="0" cy="0" r="92" fill="none" stroke="#a855f7" stroke-width="3" opacity="0.5"/>
-    <path d="M 0 -68 A 68 68 0 1 0 0 68 A 50 50 0 1 1 0 -68 Z" fill="#6b21a8" opacity="0.7"/>
-    <circle cx="118" cy="-62" r="5" fill="#a855f7" opacity="0.6"/>
-    <circle cx="98" cy="-92" r="3" fill="#a855f7" opacity="0.5"/>
+  <rect width="1200" height="630" fill="url(#bgGradT)"/>
+
+  <!-- soft moon-phase rings, symbolizing patient cycles -->
+  <circle cx="980" cy="160" r="120" fill="#e9d5ff" opacity="0.4"/>
+  <circle cx="160" cy="520" r="90" fill="#e9d5ff" opacity="0.35"/>
+
+  <!-- ground -->
+  <rect x="0" y="520" width="1200" height="110" fill="#6b21a8" opacity="0.1"/>
+  <path d="M0 520 Q 600 500 1200 520 L 1200 630 L 0 630 Z" fill="#7e22ce" opacity="0.12"/>
+
+  <!-- three growth stages left to right: seed, sprout, full tree -->
+  <!-- stage 1: seed -->
+  <g transform="translate(230,560)">
+    <ellipse cx="0" cy="0" rx="16" ry="20" fill="#7e22ce" opacity="0.55"/>
   </g>
 
-  <!-- 静かに伸びる一本の道(布石を打ち続ける) -->
-  <g transform="translate(870,420)" opacity="0.7">
-    <path d="M -100 80 L 90 -90" stroke="#6b21a8" stroke-width="3" stroke-dasharray="4 8" stroke-linecap="round"/>
-    <circle cx="-100" cy="80" r="6" fill="#6b21a8"/>
-    <circle cx="-30" cy="10" r="6" fill="#a855f7" opacity="0.7"/>
-    <circle cx="40" cy="-60" r="6" fill="#a855f7" opacity="0.5"/>
-    <path d="M 90 -90 L 60 -86 M 90 -90 L 86 -60" stroke="#6b21a8" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- stage 2: sprout -->
+  <g transform="translate(560,560)">
+    <path d="M 0 0 C -6 -40, -30 -55, -46 -70" stroke="#7e22ce" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.7"/>
+    <path d="M 0 0 C 6 -36, 26 -48, 40 -62" stroke="#7e22ce" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.7"/>
+    <ellipse cx="-46" cy="-74" rx="20" ry="13" fill="#9333ea" opacity="0.75" transform="rotate(-35 -46 -74)"/>
+    <ellipse cx="40" cy="-66" rx="18" ry="12" fill="#9333ea" opacity="0.75" transform="rotate(30 40 -66)"/>
+    <ellipse cx="0" cy="0" rx="14" ry="8" fill="#6b21a8" opacity="0.5"/>
   </g>
 
-  <!-- カテゴリラベル -->
-  <rect x="700" y="170" width="148" height="36" rx="18" fill="#f3e8ff" stroke="#e9d5ff"/>
-  <text x="774" y="194" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#6b21a8" text-anchor="middle" letter-spacing="1">思考法 / 戦略</text>
+  <!-- stage 3: full tree, largest, anchoring right third -->
+  <g transform="translate(940,560)">
+    <rect x="-14" y="-160" width="28" height="160" rx="10" fill="url(#treeGrad)"/>
+    <circle cx="0" cy="-210" r="95" fill="#9333ea" opacity="0.85"/>
+    <circle cx="-70" cy="-170" r="60" fill="#a855f7" opacity="0.7"/>
+    <circle cx="72" cy="-175" r="65" fill="#a855f7" opacity="0.7"/>
+    <circle cx="0" cy="-260" r="55" fill="#c084fc" opacity="0.6"/>
+  </g>
 
-  <!-- タイトル -->
-  <text x="700" y="262" font-family="'Shippori Mincho', serif" font-size="30" font-weight="700" fill="#1c1917" letter-spacing="1">徳川家康に学ぶ</text>
-  <text x="700" y="304" font-family="'Shippori Mincho', serif" font-size="30" font-weight="700" fill="#1c1917" letter-spacing="1">「待つ力」という戦略</text>
+  <!-- dotted path connecting the three stages, symbolizing the long quiet wait -->
+  <path d="M 230 560 Q 400 540 560 560 Q 760 580 940 560" stroke="#9333ea" stroke-width="3" fill="none" stroke-dasharray="3 14" opacity="0.45" stroke-linecap="round"/>
 
-  <text x="100" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+  <!-- sun/light motif rising slowly above, symbolizing the right moment finally arriving -->
+  <g transform="translate(940,260)" opacity="0.5">
+    <circle r="34" fill="none" stroke="#d8b4fe" stroke-width="4"/>
+    <line x1="0" y1="-52" x2="0" y2="-66" stroke="#d8b4fe" stroke-width="4" stroke-linecap="round"/>
+    <line x1="36" y1="-36" x2="46" y2="-46" stroke="#d8b4fe" stroke-width="4" stroke-linecap="round"/>
+    <line x1="-36" y1="-36" x2="-46" y2="-46" stroke="#d8b4fe" stroke-width="4" stroke-linecap="round"/>
+  </g>
 </svg>

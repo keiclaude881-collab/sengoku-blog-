@@ -1,65 +1,63 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#faf7ff"/>
-  <!-- Border -->
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e9d5ff" stroke-width="3"/>
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="12" height="630" fill="#6b21a8"/>
+  <defs>
+    <linearGradient id="maBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f3e8ff"/>
+      <stop offset="100%" stop-color="#faf5ff"/>
+    </linearGradient>
+  </defs>
 
-  <!-- Category badge -->
-  <rect x="60" y="55" width="110" height="34" rx="17" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5"/>
-  <text x="115" y="77" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#6b21a8" text-anchor="middle" letter-spacing="2">思考法</text>
+  <rect width="1200" height="630" fill="url(#maBg)"/>
 
-  <!-- Main title -->
-  <text x="60" y="185" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">アウレリウスの</text>
-  <text x="60" y="255" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">「朝の予行演習」</text>
-
-  <!-- Subtitle -->
-  <text x="60" y="320" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="28" fill="#7c3aed" letter-spacing="2">感情に振り回されない思考術</text>
-
-  <!-- Divider line -->
-  <line x1="60" y1="355" x2="680" y2="355" stroke="#e9d5ff" stroke-width="2"/>
-
-  <!-- Description -->
-  <text x="60" y="395" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">ローマ皇帝でありながら、自分のためだけに</text>
-  <text x="60" y="425" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">『自省録』を書き続けた男の、心の整え方。</text>
-
-  <!-- Bottom label -->
-  <text x="60" y="568" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#7c3aed" font-weight="700" letter-spacing="3">偉人ラボ</text>
-
-  <!-- Right-side graphic: sunrise + open journal -->
-  <rect x="800" y="100" width="340" height="320" rx="8" fill="#f3e8ff" stroke="#e9d5ff" stroke-width="1.5"/>
-
-  <!-- Sun rays -->
-  <g stroke="#a855f7" stroke-width="3" stroke-linecap="round" opacity="0.55">
-    <line x1="970" y1="120" x2="970" y2="140"/>
-    <line x1="900" y1="150" x2="915" y2="163"/>
-    <line x1="1040" y1="150" x2="1025" y2="163"/>
-    <line x1="875" y1="200" x2="898" y2="200"/>
-    <line x1="1065" y1="200" x2="1042" y2="200"/>
+  <!-- sun rising over horizon -->
+  <g>
+    <circle cx="600" cy="300" r="190" fill="#e9d5ff" opacity="0.5"/>
+    <circle cx="600" cy="300" r="120" fill="#d8b4fe" opacity="0.55"/>
+    <circle cx="600" cy="300" r="70" fill="#9333ea"/>
   </g>
-  <!-- Sun -->
-  <circle cx="970" cy="200" r="40" fill="#c4b5fd" opacity="0.55"/>
-  <circle cx="970" cy="200" r="26" fill="#a855f7" opacity="0.85"/>
 
-  <!-- Horizon -->
-  <line x1="830" y1="270" x2="1110" y2="270" stroke="#8b5cf6" stroke-width="2" opacity="0.5"/>
+  <!-- sun rays -->
+  <g stroke="#9333ea" stroke-width="5" stroke-linecap="round" opacity="0.45">
+    <line x1="600" y1="120" x2="600" y2="160"/>
+    <line x1="600" y1="440" x2="600" y2="480"/>
+    <line x1="420" y1="300" x2="460" y2="300"/>
+    <line x1="740" y1="300" x2="780" y2="300"/>
+    <line x1="473" y1="173" x2="500" y2="200"/>
+    <line x1="727" y1="173" x2="700" y2="200"/>
+    <line x1="473" y1="427" x2="500" y2="400"/>
+    <line x1="727" y1="427" x2="700" y2="400"/>
+  </g>
 
-  <!-- Open journal -->
-  <polygon points="850,278 965,295 965,390 850,368" fill="#ffffff" stroke="#8b5cf6" stroke-width="2.5" stroke-linejoin="round"/>
-  <polygon points="1090,278 965,295 965,390 1090,368" fill="#ffffff" stroke="#8b5cf6" stroke-width="2.5" stroke-linejoin="round"/>
-  <line x1="965" y1="295" x2="965" y2="390" stroke="#6b21a8" stroke-width="2"/>
+  <!-- horizon line -->
+  <line x1="0" y1="470" x2="1200" y2="470" stroke="#7e22ce" stroke-width="2" opacity="0.4"/>
 
-  <!-- Journal lines (left page) -->
-  <line x1="865" y1="313" x2="945" y2="318" stroke="#c4b5fd" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="865" y1="330" x2="945" y2="334" stroke="#c4b5fd" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="865" y1="347" x2="940" y2="351" stroke="#c4b5fd" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- open journal resting below horizon, foreground -->
+  <g>
+    <polygon points="280,490 590,460 590,610 280,640" fill="#ffffff" stroke="#7e22ce" stroke-width="3" stroke-linejoin="round"/>
+    <polygon points="920,490 610,460 610,610 920,640" fill="#ffffff" stroke="#7e22ce" stroke-width="3" stroke-linejoin="round"/>
+    <line x1="600" y1="460" x2="600" y2="625" stroke="#6b21a8" stroke-width="2.5"/>
 
-  <!-- Journal lines (right page) -->
-  <line x1="995" y1="318" x2="1075" y2="313" stroke="#c4b5fd" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="995" y1="334" x2="1075" y2="330" stroke="#c4b5fd" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="1000" y1="351" x2="1075" y2="347" stroke="#c4b5fd" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="320" y1="500" x2="555" y2="490" stroke="#d8b4fe" stroke-width="4" stroke-linecap="round"/>
+    <line x1="320" y1="525" x2="555" y2="515" stroke="#d8b4fe" stroke-width="4" stroke-linecap="round"/>
+    <line x1="320" y1="550" x2="545" y2="540" stroke="#d8b4fe" stroke-width="4" stroke-linecap="round"/>
+    <line x1="320" y1="575" x2="525" y2="566" stroke="#d8b4fe" stroke-width="4" stroke-linecap="round"/>
 
-  <!-- Label -->
-  <text x="970" y="412" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" font-weight="700" fill="#6b21a8" text-anchor="middle" letter-spacing="2">自省録</text>
+    <line x1="645" y1="490" x2="880" y2="500" stroke="#d8b4fe" stroke-width="4" stroke-linecap="round"/>
+    <line x1="645" y1="515" x2="880" y2="525" stroke="#d8b4fe" stroke-width="4" stroke-linecap="round"/>
+    <line x1="655" y1="540" x2="870" y2="550" stroke="#d8b4fe" stroke-width="4" stroke-linecap="round"/>
+    <line x1="675" y1="566" x2="850" y2="575" stroke="#d8b4fe" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <!-- floating calm clouds -->
+  <g fill="#ffffff" opacity="0.7">
+    <ellipse cx="150" cy="200" rx="70" ry="26"/>
+    <ellipse cx="210" cy="186" rx="48" ry="22"/>
+    <ellipse cx="1020" cy="220" rx="80" ry="28"/>
+    <ellipse cx="950" cy="206" rx="50" ry="22"/>
+  </g>
+
+  <!-- small bird silhouettes - calm sky -->
+  <g stroke="#7e22ce" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.5">
+    <path d="M 860 140 Q 875 125 890 140 Q 905 125 920 140"/>
+    <path d="M 920 175 Q 932 163 944 175 Q 956 163 968 175"/>
+  </g>
 </svg>

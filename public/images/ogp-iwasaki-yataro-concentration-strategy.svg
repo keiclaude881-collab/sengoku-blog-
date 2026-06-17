@@ -1,57 +1,60 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#fffbeb"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#fde68a" stroke-width="3"/>
-  <rect x="0" y="0" width="12" height="630" fill="#92400e"/>
+  <defs>
+    <linearGradient id="iyBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+    <linearGradient id="iySea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#iyBg)"/>
 
-  <!-- Category badge -->
-  <rect x="60" y="55" width="130" height="34" rx="17" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
-  <text x="125" y="77" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="2">投資・お金</text>
+  <!-- sea -->
+  <rect x="0" y="430" width="1200" height="200" fill="url(#iySea)"/>
+  <path d="M 0 430 C 200 410, 400 450, 600 430 C 800 410, 1000 450, 1200 430 L 1200 460 C 1000 480, 800 440, 600 460 C 400 480, 200 440, 0 460 Z" fill="#f59e0b" opacity="0.5"/>
 
-  <!-- Main title -->
-  <text x="60" y="175" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="48" font-weight="700" fill="#1c1917" letter-spacing="-1">船3隻から財閥へ</text>
+  <!-- sun -->
+  <circle cx="600" cy="160" r="80" fill="#f59e0b" opacity="0.85"/>
+  <circle cx="600" cy="160" r="110" fill="#fde68a" opacity="0.4"/>
 
-  <!-- Subtitle -->
-  <text x="60" y="240" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="26" fill="#d97706" letter-spacing="1">岩崎弥太郎に学ぶ「一点突破」の投資戦略</text>
+  <!-- three small ships on the left, converging toward one point (dispersed starting resources) -->
+  <g opacity="0.9">
+    <g transform="translate(150,330)">
+      <path d="M -40 20 L 40 20 L 28 40 L -28 40 Z" fill="#92400e"/>
+      <line x1="0" y1="20" x2="0" y2="-30" stroke="#78350f" stroke-width="4"/>
+      <path d="M 0 -28 L 34 -8 L 0 4 Z" fill="#d97706"/>
+    </g>
+    <g transform="translate(230,370)">
+      <path d="M -36 18 L 36 18 L 26 36 L -26 36 Z" fill="#92400e"/>
+      <line x1="0" y1="18" x2="0" y2="-26" stroke="#78350f" stroke-width="4"/>
+      <path d="M 0 -24 L 30 -6 L 0 4 Z" fill="#d97706"/>
+    </g>
+    <g transform="translate(150,400)">
+      <path d="M -32 16 L 32 16 L 23 32 L -23 32 Z" fill="#92400e"/>
+      <line x1="0" y1="16" x2="0" y2="-22" stroke="#78350f" stroke-width="4"/>
+      <path d="M 0 -20 L 26 -5 L 0 3 Z" fill="#d97706"/>
+    </g>
+  </g>
 
-  <!-- Divider -->
-  <line x1="60" y1="272" x2="680" y2="272" stroke="#fde68a" stroke-width="2"/>
+  <!-- converging funnel lines from the three ships into one path -->
+  <path d="M 150 330 C 350 350, 550 380, 760 400" fill="none" stroke="#92400e" stroke-width="2" stroke-dasharray="6 8" opacity="0.5"/>
+  <path d="M 230 370 C 400 380, 580 390, 760 400" fill="none" stroke="#92400e" stroke-width="2" stroke-dasharray="6 8" opacity="0.5"/>
+  <path d="M 150 400 C 350 400, 560 400, 760 400" fill="none" stroke="#92400e" stroke-width="2" stroke-dasharray="6 8" opacity="0.5"/>
 
-  <!-- Description -->
-  <text x="60" y="315" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">手元にあったのは蒸気船3隻だけだった。</text>
-  <text x="60" y="345" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">分散させず、海運に全力を注いだ男の話。</text>
+  <!-- one large, powerful steamship on the right (concentrated resources, the result) -->
+  <g transform="translate(950,400)">
+    <path d="M -160 60 L 160 60 L 120 120 L -120 120 Z" fill="#78350f"/>
+    <rect x="-70" y="-20" width="140" height="80" fill="#92400e"/>
+    <rect x="-30" y="-70" width="14" height="56" fill="#78350f"/>
+    <rect x="30" y="-70" width="14" height="56" fill="#78350f"/>
+    <circle cx="-23" cy="-82" r="14" fill="#92400e" opacity="0.6"/>
+    <circle cx="37" cy="-82" r="14" fill="#92400e" opacity="0.6"/>
+    <rect x="-110" y="0" width="220" height="14" fill="#d97706"/>
+  </g>
 
-  <!-- Bottom label -->
-  <text x="60" y="568" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#d97706" font-weight="700" letter-spacing="3">偉人ラボ</text>
-
-  <!-- Right graphic: funnel / concentration -->
-  <rect x="780" y="80" width="370" height="400" rx="12" fill="#fef3c7" stroke="#fde68a" stroke-width="1.5"/>
-  <text x="965" y="120" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#92400e" text-anchor="middle">一点突破の軌跡</text>
-
-  <!-- Timeline -->
-  <!-- 1870 -->
-  <circle cx="870" cy="165" r="10" fill="#d97706"/>
-  <line x1="880" y1="165" x2="1110" y2="165" stroke="#fde68a" stroke-width="1"/>
-  <text x="898" y="158" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="13" fill="#92400e">1870年</text>
-  <text x="898" y="178" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#78716c">蒸気船3隻でスタート</text>
-
-  <!-- 1874 -->
-  <circle cx="870" cy="240" r="10" fill="#d97706"/>
-  <line x1="880" y1="240" x2="1110" y2="240" stroke="#fde68a" stroke-width="1"/>
-  <text x="898" y="233" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="13" fill="#92400e">1874年</text>
-  <text x="898" y="253" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#78716c">台湾出兵の輸送を一手に担う</text>
-
-  <!-- 1875 -->
-  <circle cx="870" cy="315" r="10" fill="#d97706"/>
-  <line x1="880" y1="315" x2="1110" y2="315" stroke="#fde68a" stroke-width="1"/>
-  <text x="898" y="308" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="13" fill="#92400e">1875年</text>
-  <text x="898" y="328" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#78716c">郵便汽船三菱として政府と提携</text>
-
-  <!-- 1880s -->
-  <circle cx="870" cy="390" r="14" fill="#92400e"/>
-  <line x1="884" y1="390" x2="1110" y2="390" stroke="#fde68a" stroke-width="1"/>
-  <text x="905" y="383" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="13" font-weight="700" fill="#92400e">1880年代</text>
-  <text x="905" y="400" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#78716c">金融・造船・鉱業へ多角化</text>
-
-  <!-- Vertical timeline bar -->
-  <line x1="870" y1="155" x2="870" y2="400" stroke="#d97706" stroke-width="2"/>
+  <!-- rising arrow above the large ship emphasizing growth from concentration -->
+  <path d="M 950 250 L 950 150" stroke="#78350f" stroke-width="8" stroke-linecap="round"/>
+  <polygon points="950,120 925,160 975,160" fill="#78350f"/>
 </svg>

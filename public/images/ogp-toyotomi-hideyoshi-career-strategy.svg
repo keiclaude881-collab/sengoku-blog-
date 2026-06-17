@@ -1,40 +1,56 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f7faff"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#dbeafe" stroke-width="2"/>
+  <defs>
+    <linearGradient id="bgGradH" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0f7ff"/>
+      <stop offset="1" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
 
-  <!-- 左縦バー -->
-  <rect x="0" y="0" width="12" height="630" fill="#1e40af"/>
+  <rect width="1200" height="630" fill="url(#bgGradH)"/>
 
-  <!-- 装飾モチーフ: 階段シルエット(秀吉の出世) -->
-  <g opacity="0.18" transform="translate(80,180)">
-    <rect x="0" y="200" width="80" height="40" fill="#1e40af"/>
-    <rect x="80" y="160" width="80" height="80" fill="#1e40af"/>
-    <rect x="160" y="120" width="80" height="120" fill="#1e40af"/>
-    <rect x="240" y="80" width="80" height="160" fill="#1e40af"/>
-    <rect x="320" y="40" width="80" height="200" fill="#1e40af"/>
+  <circle cx="180" cy="160" r="100" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="1060" cy="500" r="90" fill="#bfdbfe" opacity="0.3"/>
+
+  <!-- ascending staircase from bottom-left to top-right -->
+  <g fill="#1e40af">
+    <rect x="120" y="500" width="130" height="40" opacity="0.4"/>
+    <rect x="250" y="440" width="130" height="100" opacity="0.5"/>
+    <rect x="380" y="370" width="130" height="170" opacity="0.6"/>
+    <rect x="510" y="290" width="130" height="250" opacity="0.7"/>
+    <rect x="640" y="200" width="130" height="340" opacity="0.8"/>
+    <rect x="770" y="100" width="130" height="440" opacity="0.92"/>
   </g>
 
-  <!-- 家紋モチーフ(五七の桐・簡略化) -->
-  <g transform="translate(900,340)" opacity="0.15">
-    <ellipse cx="0" cy="-60" rx="18" ry="28" fill="#1e40af"/>
-    <ellipse cx="-34" cy="-44" rx="16" ry="24" fill="#1e40af"/>
-    <ellipse cx="34" cy="-44" rx="16" ry="24" fill="#1e40af"/>
-    <ellipse cx="-58" cy="-20" rx="13" ry="19" fill="#1e40af"/>
-    <ellipse cx="58" cy="-20" rx="13" ry="19" fill="#1e40af"/>
-    <rect x="-4" y="-20" width="8" height="80" rx="3" fill="#1e40af"/>
+  <!-- single figure climbing, small at base growing into a crowned silhouette at top -->
+  <g transform="translate(185,486)" opacity="0.85">
+    <circle cx="0" cy="-22" r="11" fill="#1e3a8a"/>
+    <path d="M -14 0 Q 0 -22 14 0 L 14 26 L -14 26 Z" fill="#1e3a8a"/>
   </g>
 
-  <!-- カテゴリバッジ -->
-  <rect x="680" y="170" width="130" height="36" rx="18" fill="#dbeafe" stroke="#bfdbfe" stroke-width="1.5"/>
-  <text x="745" y="194" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#1e40af" text-anchor="middle" letter-spacing="1">仕事・副業</text>
+  <!-- figure at the top of the staircase, larger, with a simple crown/triumph shape -->
+  <g transform="translate(835,76)">
+    <path d="M -22 -8 L -14 -28 L -6 -10 L 0 -32 L 6 -10 L 14 -28 L 22 -8 Z" fill="#f59e0b" opacity="0.9"/>
+    <circle cx="0" cy="22" r="26" fill="#1e3a8a"/>
+    <path d="M -34 80 Q 0 14 34 80 L 34 130 L -34 130 Z" fill="#1e3a8a"/>
+  </g>
 
-  <!-- タイトル -->
-  <text x="680" y="270" font-family="'Shippori Mincho', 'Hiragino Mincho ProN', serif" font-size="32" font-weight="700" fill="#1c1917" letter-spacing="1">豊臣秀吉の出世戦略</text>
-  <text x="680" y="318" font-family="'Shippori Mincho', 'Hiragino Mincho ProN', serif" font-size="22" font-weight="400" fill="#44403c" letter-spacing="1">農民から天下人へ</text>
+  <!-- radiating sun behind the summit figure, symbolizing reaching the top -->
+  <g transform="translate(835,76)" stroke="#f59e0b" stroke-width="4" stroke-linecap="round" opacity="0.45">
+    <line x1="0" y1="-70" x2="0" y2="-92"/>
+    <line x1="50" y1="-50" x2="66" y2="-66"/>
+    <line x1="-50" y1="-50" x2="-66" y2="-66"/>
+    <line x1="70" y1="0" x2="94" y2="0"/>
+    <line x1="-70" y1="0" x2="-94" y2="0"/>
+  </g>
 
-  <!-- サブタイトル -->
-  <text x="680" y="370" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1e40af" letter-spacing="0.5">先読み・信頼・居場所づくりの3原則</text>
+  <!-- dotted ascending path tracing the climb -->
+  <path d="M 185 486 Q 400 430 510 360 Q 650 280 835 130" stroke="#3b82f6" stroke-width="3" fill="none" stroke-dasharray="3 12" opacity="0.5" stroke-linecap="round"/>
 
-  <!-- サイト名 -->
-  <text x="100" y="585" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+  <!-- small footholds / dots marking the steps of the journey -->
+  <g fill="#3b82f6" opacity="0.6">
+    <circle cx="315" cy="410" r="7"/>
+    <circle cx="445" cy="340" r="7"/>
+    <circle cx="575" cy="270" r="7"/>
+    <circle cx="705" cy="180" r="7"/>
+  </g>
 </svg>

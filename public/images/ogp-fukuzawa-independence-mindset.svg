@@ -1,54 +1,58 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#faf7ff"/>
-  <!-- Border -->
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e9d5ff" stroke-width="3"/>
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="12" height="630" fill="#6b21a8"/>
+  <defs>
+    <radialGradient id="fz-glow" cx="38%" cy="55%" r="65%">
+      <stop offset="0%" stop-color="#f3e8ff"/>
+      <stop offset="100%" stop-color="#faf5ff"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#fz-glow)"/>
 
-  <!-- Category badge -->
-  <rect x="60" y="55" width="110" height="34" rx="17" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5"/>
-  <text x="115" y="77" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#6b21a8" text-anchor="middle" letter-spacing="2">思考法</text>
+  <!-- distant chaos: smoke bursts and stray sparks, upper right, kept far from the desk -->
+  <g opacity="0.45">
+    <circle cx="940" cy="150" r="60" fill="#d8b4fe"/>
+    <circle cx="1010" cy="120" r="40" fill="#e9d5ff"/>
+    <circle cx="1020" cy="200" r="50" fill="#d8b4fe"/>
+    <circle cx="900" cy="210" r="36" fill="#e9d5ff"/>
+  </g>
+  <g stroke="#9333ea" stroke-width="4" stroke-linecap="round" opacity="0.4">
+    <line x1="1080" y1="90" x2="1110" y2="70"/>
+    <line x1="1100" y1="150" x2="1135" y2="140"/>
+    <line x1="860" y1="120" x2="830" y2="100"/>
+  </g>
 
-  <!-- Main title -->
-  <text x="60" y="185" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">福沢諭吉に学ぶ</text>
-  <text x="60" y="255" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">「独立自尊」という土台</text>
+  <!-- calm desk scene, lower left to center: open book under a steady lamp light -->
+  <g transform="translate(430,440)">
+    <!-- desk -->
+    <rect x="-220" y="40" width="440" height="22" rx="6" fill="#7e22ce" opacity="0.25"/>
+    <!-- open book -->
+    <path d="M -150 30 C -90 8 -30 8 0 22 L 0 -10 C -30 -24 -90 -24 -150 -2 Z" fill="#9333ea" opacity="0.85"/>
+    <path d="M 150 30 C 90 8 30 8 0 22 L 0 -10 C 30 -24 90 -24 150 -2 Z" fill="#7e22ce" opacity="0.85"/>
+    <path d="M -150 30 C -90 8 -30 8 0 22 M 150 30 C 90 8 30 8 0 22" stroke="#f3e8ff" stroke-width="2" fill="none" opacity="0.5"/>
+  </g>
 
-  <!-- Subtitle -->
-  <text x="60" y="320" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="28" fill="#7c3aed" letter-spacing="2">砲声の中でも、講義を続けた理由</text>
+  <!-- steady lamp light above the book, calm and unwavering -->
+  <g transform="translate(430,250)">
+    <circle cx="0" cy="0" r="100" fill="#f3e8ff" opacity="0.55"/>
+    <circle cx="0" cy="0" r="68" fill="#e9d5ff" opacity="0.7"/>
+    <circle cx="0" cy="0" r="36" fill="#fde68a" opacity="0.9"/>
+    <circle cx="0" cy="0" r="16" fill="#fff7e0"/>
+  </g>
+  <!-- lamp stand -->
+  <path d="M 430 286 L 430 380" stroke="#6b21a8" stroke-width="6" opacity="0.6"/>
+  <path d="M 400 380 L 460 380" stroke="#6b21a8" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
 
-  <!-- Divider line -->
-  <line x1="60" y1="355" x2="680" y2="355" stroke="#e9d5ff" stroke-width="2"/>
+  <!-- a protective dashed boundary around the calm scene, echoing "undisturbed" -->
+  <path d="M 130 560 C 130 320 280 160 480 150 C 640 142 740 230 760 360" fill="none" stroke="#d8b4fe" stroke-width="3" stroke-dasharray="2 14" opacity="0.6"/>
 
-  <!-- Description -->
-  <text x="60" y="395" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">上野で戦闘が起きる江戸の大混乱の中、</text>
-  <text x="60" y="425" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">福沢諭吉はいつも通り経済学の講義を続けた。</text>
+  <!-- small steady figure seated at the desk -->
+  <g transform="translate(560,470)">
+    <ellipse cx="0" cy="40" rx="46" ry="10" fill="#6b21a8" opacity="0.12"/>
+    <path d="M -34 36 C -34 -2 -26 -28 0 -28 C 26 -28 34 -2 34 36 Z" fill="#6b21a8" opacity="0.85"/>
+    <circle cx="0" cy="-46" r="26" fill="#e9d5ff"/>
+  </g>
 
-  <!-- Bottom label -->
-  <text x="60" y="568" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#7c3aed" font-weight="700" letter-spacing="3">偉人ラボ</text>
-
-  <!-- Right-side graphic: 3-step flow -->
-  <rect x="800" y="100" width="340" height="320" rx="8" fill="#f3e8ff" stroke="#e9d5ff" stroke-width="1.5"/>
-
-  <text x="970" y="138" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="22" font-weight="700" fill="#6b21a8" text-anchor="middle">独立自尊の3ステップ</text>
-
-  <!-- Step 1 -->
-  <rect x="850" y="150" width="240" height="66" rx="10" fill="#e9d5ff" stroke="#a855f7" stroke-width="2"/>
-  <text x="970" y="192" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#6b21a8" text-anchor="middle">①世間は大混乱</text>
-
-  <!-- Arrow 1 -->
-  <line x1="970" y1="216" x2="970" y2="234" stroke="#7c3aed" stroke-width="4"/>
-  <path d="M 958,228 L 970,240 L 982,228 Z" fill="#7c3aed"/>
-
-  <!-- Step 2 -->
-  <rect x="850" y="240" width="240" height="66" rx="10" fill="#e9d5ff" stroke="#a855f7" stroke-width="2"/>
-  <text x="970" y="282" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#6b21a8" text-anchor="middle">②いつも通り続ける</text>
-
-  <!-- Arrow 2 -->
-  <line x1="970" y1="306" x2="970" y2="324" stroke="#7c3aed" stroke-width="4"/>
-  <path d="M 958,318 L 970,330 L 982,318 Z" fill="#7c3aed"/>
-
-  <!-- Step 3 (highlighted) -->
-  <rect x="835" y="330" width="270" height="70" rx="10" fill="#6b21a8"/>
-  <text x="970" y="374" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#f3e8ff" text-anchor="middle">③積み上げが力になる</text>
+  <!-- decorative motes -->
+  <circle cx="170" cy="160" r="14" fill="#d8b4fe" opacity="0.6"/>
+  <circle cx="1100" cy="500" r="20" fill="#9333ea" opacity="0.25"/>
+  <circle cx="220" cy="520" r="10" fill="#9333ea" opacity="0.3"/>
 </svg>

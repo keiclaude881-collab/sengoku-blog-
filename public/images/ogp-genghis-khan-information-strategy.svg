@@ -1,38 +1,71 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f7faff"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#dbeafe" stroke-width="2"/>
+  <defs>
+    <radialGradient id="gk-glow" cx="62%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#dbeafe"/>
+      <stop offset="100%" stop-color="#f0f7ff"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#gk-glow)"/>
 
-  <!-- 草原と地平線 -->
-  <rect x="0" y="470" width="1200" height="160" fill="#dbeafe" opacity="0.5"/>
-  <line x1="0" y1="470" x2="1200" y2="470" stroke="#3b82f6" stroke-width="2" opacity="0.5"/>
+  <!-- horizon -->
+  <rect x="0" y="470" width="1200" height="160" fill="#bfdbfe" opacity="0.4"/>
+  <line x1="0" y1="470" x2="1200" y2="470" stroke="#3b82f6" stroke-width="2" opacity="0.4"/>
 
-  <!-- 騎馬のシルエット（簡略化） -->
-  <g transform="translate(300,420)" opacity="0.85">
-    <ellipse cx="0" cy="40" rx="64" ry="22" fill="#1e40af" opacity="0.25"/>
-    <path d="M -60 36 Q -60 4 -28 -2 L 10 -2 Q 30 -2 40 18 L 40 36 Z" fill="#1e3a8a"/>
-    <rect x="-10" y="-34" width="14" height="36" rx="4" fill="#1e3a8a"/>
-    <circle cx="-3" cy="-44" r="11" fill="#1e3a8a"/>
-    <line x1="40" y1="10" x2="78" y2="-22" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round"/>
+  <!-- wide network of outposts converging toward center (information funneling) -->
+  <g stroke="#3b82f6" stroke-width="3" fill="none" opacity="0.55" stroke-linecap="round">
+    <path d="M 150 160 L 600 330" stroke-dasharray="8 7"/>
+    <path d="M 200 460 L 600 330" stroke-dasharray="8 7"/>
+    <path d="M 1060 150 L 600 330" stroke-dasharray="8 7"/>
+    <path d="M 1040 460 L 600 330" stroke-dasharray="8 7"/>
+    <path d="M 600 80 L 600 330" stroke-dasharray="8 7"/>
+  </g>
+  <!-- outpost nodes -->
+  <g fill="#1e40af">
+    <circle cx="150" cy="160" r="14"/>
+    <circle cx="200" cy="460" r="14"/>
+    <circle cx="1060" cy="150" r="14"/>
+    <circle cx="1040" cy="460" r="14"/>
+    <circle cx="600" cy="80" r="14"/>
+  </g>
+  <g fill="#93c5fd" opacity="0.7">
+    <circle cx="150" cy="160" r="26"/>
+    <circle cx="200" cy="460" r="26"/>
+    <circle cx="1060" cy="150" r="26"/>
+    <circle cx="1040" cy="460" r="26"/>
+    <circle cx="600" cy="80" r="26"/>
+  </g>
+  <g fill="#1e40af">
+    <circle cx="150" cy="160" r="11"/>
+    <circle cx="200" cy="460" r="11"/>
+    <circle cx="1060" cy="150" r="11"/>
+    <circle cx="1040" cy="460" r="11"/>
+    <circle cx="600" cy="80" r="11"/>
   </g>
 
-  <!-- 伝達ルート（点線の矢印群） -->
-  <g stroke="#3b82f6" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round">
-    <path d="M 470 360 L 620 320" stroke-dasharray="8 7"/>
-    <path d="M 470 400 L 640 420" stroke-dasharray="8 7"/>
-    <path d="M 470 440 L 600 480" stroke-dasharray="8 7"/>
+  <!-- central command hub (large, glowing) -->
+  <circle cx="600" cy="330" r="70" fill="#bfdbfe" opacity="0.7"/>
+  <circle cx="600" cy="330" r="46" fill="#3b82f6"/>
+  <circle cx="600" cy="330" r="20" fill="#1e3a8a"/>
+
+  <!-- mounted rider silhouette, foreground, riding toward the hub -->
+  <g transform="translate(330,430)" opacity="0.95">
+    <ellipse cx="0" cy="46" rx="74" ry="24" fill="#1e40af" opacity="0.2"/>
+    <path d="M -68 40 Q -68 4 -32 -4 L 14 -4 Q 36 -4 48 20 L 48 40 Z" fill="#1e3a8a"/>
+    <rect x="-12" y="-40" width="16" height="42" rx="5" fill="#1e3a8a"/>
+    <circle cx="-4" cy="-52" r="13" fill="#1e3a8a"/>
+    <line x1="48" y1="12" x2="92" y2="-24" stroke="#1e3a8a" stroke-width="5" stroke-linecap="round"/>
+    <!-- legs -->
+    <path d="M -40 30 L -54 56" stroke="#1e3a8a" stroke-width="9" stroke-linecap="round"/>
+    <path d="M 20 30 L 30 58" stroke="#1e3a8a" stroke-width="9" stroke-linecap="round"/>
   </g>
-  <circle cx="470" cy="400" r="10" fill="#3b82f6"/>
-  <circle cx="650" cy="320" r="7" fill="#1e40af"/>
-  <circle cx="660" cy="420" r="7" fill="#1e40af"/>
-  <circle cx="615" cy="490" r="7" fill="#1e40af"/>
+  <!-- speed lines behind the rider -->
+  <g stroke="#3b82f6" stroke-width="4" stroke-linecap="round" opacity="0.4">
+    <line x1="170" y1="420" x2="230" y2="412"/>
+    <line x1="160" y1="450" x2="220" y2="446"/>
+    <line x1="180" y1="478" x2="232" y2="470"/>
+  </g>
 
-  <!-- カテゴリラベル -->
-  <rect x="700" y="180" width="120" height="36" rx="18" fill="#dbeafe" stroke="#bfdbfe"/>
-  <text x="760" y="204" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#1e40af" text-anchor="middle" letter-spacing="1">仕事・副業</text>
-
-  <!-- タイトル -->
-  <text x="700" y="280" font-family="'Shippori Mincho', serif" font-size="32" font-weight="700" fill="#1c1917" letter-spacing="1">チンギス・ハンに学ぶ</text>
-  <text x="700" y="324" font-family="'Shippori Mincho', serif" font-size="32" font-weight="700" fill="#1c1917" letter-spacing="1">「情報戦略」</text>
-
-  <text x="100" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+  <!-- decorative motes -->
+  <circle cx="1120" cy="560" r="20" fill="#93c5fd" opacity="0.5"/>
+  <circle cx="980" cy="560" r="12" fill="#3b82f6" opacity="0.4"/>
 </svg>

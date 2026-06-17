@@ -1,67 +1,43 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#faf7f2"/>
-  <!-- Border -->
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e8e0d4" stroke-width="3"/>
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="12" height="630" fill="#92400e"/>
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
-  <!-- Category badge -->
-  <rect x="60" y="55" width="130" height="34" rx="17" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
-  <text x="125" y="77" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="2">投資・お金</text>
+  <!-- soft background coin circles -->
+  <circle cx="150" cy="120" r="60" fill="#fde68a" opacity="0.5"/>
+  <circle cx="1080" cy="500" r="90" fill="#fde68a" opacity="0.5"/>
+  <circle cx="1020" cy="100" r="40" fill="#f59e0b" opacity="0.25"/>
 
-  <!-- Main title -->
-  <text x="60" y="185" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="52" font-weight="700" fill="#1c1917" letter-spacing="-1">ロックフェラーの</text>
-  <text x="60" y="255" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="52" font-weight="700" fill="#1c1917" letter-spacing="-1">お金の哲学</text>
+  <!-- pie chart: income split into three slices (donation / savings / living) -->
+  <g transform="translate(600,330)">
+    <circle r="190" fill="#fde68a" opacity="0.55"/>
+    <path d="M 0 0 L 0 -190 A 190 190 0 0 1 164.5 -95 Z" fill="#92400e"/>
+    <path d="M 0 0 L 164.5 -95 A 190 190 0 0 1 164.5 95 Z" fill="#d97706"/>
+    <path d="M 0 0 L 164.5 95 A 190 190 0 1 1 0 -190 Z" fill="#f59e0b"/>
+    <circle r="78" fill="#fffbeb"/>
+    <circle r="78" fill="none" stroke="#f59e0b" stroke-width="4" opacity="0.6"/>
+  </g>
 
-  <!-- Subtitle -->
-  <text x="60" y="320" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="28" fill="#b45309" letter-spacing="2">比率で管理し、動かし、目的を持つ</text>
+  <!-- coin stack rising, left side -->
+  <g transform="translate(280,470)">
+    <ellipse cx="0" cy="20" rx="58" ry="16" fill="#92400e"/>
+    <rect x="-58" y="-2" width="116" height="22" rx="11" fill="#d97706"/>
+    <ellipse cx="0" cy="-2" rx="58" ry="16" fill="#f59e0b"/>
+    <ellipse cx="0" cy="-26" rx="50" ry="14" fill="#92400e"/>
+    <rect x="-50" y="-48" width="100" height="22" rx="11" fill="#d97706"/>
+    <ellipse cx="0" cy="-48" rx="50" ry="14" fill="#f59e0b"/>
+    <ellipse cx="0" cy="-70" rx="42" ry="12" fill="#92400e"/>
+    <rect x="-42" y="-90" width="84" height="20" rx="10" fill="#d97706"/>
+    <ellipse cx="0" cy="-90" rx="42" ry="12" fill="#fde68a"/>
+  </g>
 
-  <!-- Divider line -->
-  <line x1="60" y1="355" x2="680" y2="355" stroke="#e8e0d4" stroke-width="2"/>
-
-  <!-- Description -->
-  <text x="60" y="395" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">16歳から守り続けた「収入の10%ルール」が示す、</text>
-  <text x="60" y="425" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">収入に関わらずお金を資産に変える思考法。</text>
-
-  <!-- Bottom label -->
-  <text x="60" y="568" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#b45309" font-weight="700" letter-spacing="3">偉人ラボ</text>
-
-  <!-- Right-side graphic: Oil barrel + coin stack + circle chart -->
-  <!-- Oil barrel -->
-  <rect x="850" y="140" width="120" height="160" rx="12" fill="#fef3c7" stroke="#92400e" stroke-width="2.5"/>
-  <ellipse cx="910" cy="140" rx="60" ry="16" fill="#fef3c7" stroke="#92400e" stroke-width="2.5"/>
-  <ellipse cx="910" cy="300" rx="60" ry="16" fill="#d97706" opacity="0.5" stroke="#92400e" stroke-width="1.5"/>
-  <!-- Barrel bands -->
-  <line x1="850" y1="190" x2="970" y2="190" stroke="#92400e" stroke-width="2" opacity="0.5"/>
-  <line x1="850" y1="240" x2="970" y2="240" stroke="#92400e" stroke-width="2" opacity="0.5"/>
-  <!-- Barrel label -->
-  <text x="910" y="222" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">石油</text>
-
-  <!-- Coin stack -->
-  <ellipse cx="1080" cy="430" rx="50" ry="14" fill="#f59e0b" opacity="0.9" stroke="#d97706" stroke-width="1.5"/>
-  <rect x="1030" y="408" width="100" height="24" fill="#f59e0b" opacity="0.9"/>
-  <rect x="1030" y="408" width="100" height="24" fill="none" stroke="#d97706" stroke-width="1.5"/>
-  <ellipse cx="1080" cy="408" rx="50" ry="14" fill="#f59e0b" stroke="#d97706" stroke-width="1.5"/>
-
-  <ellipse cx="1080" cy="388" rx="50" ry="14" fill="#d97706" opacity="0.9" stroke="#b45309" stroke-width="1.5"/>
-  <rect x="1030" y="366" width="100" height="24" fill="#d97706" opacity="0.9"/>
-  <rect x="1030" y="366" width="100" height="24" fill="none" stroke="#b45309" stroke-width="1.5"/>
-  <ellipse cx="1080" cy="366" rx="50" ry="14" fill="#d97706" stroke="#b45309" stroke-width="1.5"/>
-
-  <ellipse cx="1080" cy="347" rx="50" ry="14" fill="#b45309" opacity="0.9" stroke="#92400e" stroke-width="1.5"/>
-  <rect x="1030" y="325" width="100" height="24" fill="#b45309" opacity="0.9"/>
-  <rect x="1030" y="325" width="100" height="24" fill="none" stroke="#92400e" stroke-width="1.5"/>
-  <ellipse cx="1080" cy="325" rx="50" ry="14" fill="#b45309" stroke="#92400e" stroke-width="1.5"/>
-
-  <text x="1080" y="462" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" fill="#92400e" text-anchor="middle">資産</text>
-
-  <!-- 10% badge -->
-  <circle cx="910" cy="420" r="65" fill="#92400e" opacity="0.85"/>
-  <text x="910" y="410" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="32" font-weight="700" fill="#fef3c7" text-anchor="middle">10%</text>
-  <text x="910" y="445" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#fef3c7" text-anchor="middle">ルール</text>
-
-  <!-- Arrow from oil barrel to coins -->
-  <path d="M 960 280 Q 1000 320 1020 355" fill="none" stroke="#92400e" stroke-width="2.5" stroke-dasharray="8,4"/>
-  <polygon points="1013,348 1025,360 1032,346" fill="#92400e"/>
+  <!-- small upward arrow suggesting growth -->
+  <g transform="translate(940,400)" stroke="#92400e" stroke-width="6" stroke-linecap="round" fill="none">
+    <path d="M -70 70 L -10 10 L 50 50 L 110 -30"/>
+    <path d="M 110 -30 L 82 -28 M 110 -30 L 108 -2"/>
+  </g>
 </svg>

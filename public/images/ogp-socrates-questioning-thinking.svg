@@ -1,34 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#faf7ff"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e9d5ff" stroke-width="2"/>
-  <!-- 左縦バー -->
-  <rect x="0" y="0" width="12" height="630" fill="#6b21a8"/>
+  <defs>
+    <linearGradient id="bgGrad8" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#f3e8ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGrad8)"/>
 
-  <!-- 問いの連鎖モチーフ（左側装飾） -->
-  <circle cx="260" cy="200" r="60" fill="none" stroke="#6b21a8" stroke-width="3" opacity="0.6"/>
-  <circle cx="260" cy="200" r="20" fill="#6b21a8" opacity="0.18"/>
-  <text x="260" y="208" font-family="'Shippori Mincho', serif" font-size="28" fill="#6b21a8" text-anchor="middle" opacity="0.75">？</text>
-  <path d="M 325 200 L 390 200" stroke="#a855f7" stroke-width="2.5" stroke-dasharray="6 6" opacity="0.5"/>
-  <path d="M 384 193 L 396 200 L 384 207" fill="none" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
-  <circle cx="430" cy="200" r="42" fill="none" stroke="#8b5cf6" stroke-width="2.5" opacity="0.5"/>
-  <circle cx="430" cy="200" r="14" fill="#8b5cf6" opacity="0.15"/>
-  <text x="430" y="208" font-family="'Shippori Mincho', serif" font-size="22" fill="#6b21a8" text-anchor="middle" opacity="0.65">？</text>
-  <path d="M 475 200 L 520 200" stroke="#a855f7" stroke-width="2" stroke-dasharray="5 5" opacity="0.4"/>
-  <path d="M 515 194 L 525 200 L 515 206" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
-  <circle cx="548" cy="200" r="28" fill="#a855f7" opacity="0.12"/>
-  <circle cx="548" cy="200" r="14" fill="#6b21a8" opacity="0.22"/>
+  <circle cx="1080" cy="500" r="100" fill="#e9d5ff" opacity="0.5"/>
+  <circle cx="120" cy="120" r="70" fill="#e9d5ff" opacity="0.5"/>
 
-  <!-- カテゴリバッジ -->
-  <rect x="680" y="180" width="124" height="36" rx="18" fill="#f3e8ff" stroke="#e9d5ff" stroke-width="1.5"/>
-  <text x="742" y="204" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#6b21a8" text-anchor="middle" letter-spacing="1">思考・マインド</text>
+  <!-- chain of question-mark-shaped curls, growing larger, spiraling rightward and upward -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M 180 420 Q 140 380 170 340 Q 200 300 250 320 Q 300 340 280 390 Q 264 426 220 426" stroke="#d8b4fe" stroke-width="10" opacity="0.7"/>
+    <circle cx="218" cy="464" r="8" fill="#d8b4fe" opacity="0.7"/>
 
-  <!-- タイトル -->
-  <text x="680" y="290" font-family="'Shippori Mincho', serif" font-size="36" font-weight="700" fill="#1c1917" letter-spacing="1">ソクラテスの</text>
-  <text x="680" y="342" font-family="'Shippori Mincho', serif" font-size="36" font-weight="700" fill="#1c1917" letter-spacing="1">問う力</text>
+    <path d="M 360 380 Q 300 330 340 280 Q 380 230 450 258 Q 520 286 494 350 Q 472 398 410 398" stroke="#9333ea" stroke-width="13" opacity="0.8"/>
+    <circle cx="406" cy="448" r="10" fill="#9333ea" opacity="0.8"/>
 
-  <!-- サブタイトル -->
-  <text x="680" y="400" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#44403c" letter-spacing="0.5" opacity="0.8">「無知の知」から学ぶ思考法</text>
+    <path d="M 600 330 Q 520 260 580 190 Q 640 120 730 156 Q 820 192 786 276 Q 758 340 670 340" stroke="#7e22ce" stroke-width="17" opacity="0.9"/>
+    <circle cx="664" cy="408" r="13" fill="#7e22ce" opacity="0.9"/>
 
-  <!-- フッター -->
-  <text x="100" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+    <path d="M 900 270 Q 800 180 880 90 Q 960 0 1070 44" stroke="#6b21a8" stroke-width="20" opacity="0.95"/>
+    <circle cx="1080" cy="60" r="16" fill="#6b21a8" opacity="0.95"/>
+  </g>
+
+  <!-- small dotted connector arcs hinting at dialogue / chain reaction -->
+  <g stroke="#a855f7" stroke-width="2" fill="none" opacity="0.4" stroke-dasharray="4 8">
+    <path d="M 240 470 Q 320 500 400 460"/>
+    <path d="M 440 460 Q 520 480 600 400"/>
+  </g>
 </svg>

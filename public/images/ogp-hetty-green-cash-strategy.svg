@@ -1,54 +1,55 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#faf7f2"/>
-  <!-- Border -->
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e8e0d4" stroke-width="3"/>
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="12" height="630" fill="#92400e"/>
+  <defs>
+    <radialGradient id="hg-glow" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="100%" stop-color="#fffbeb"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#hg-glow)"/>
 
-  <!-- Category badge -->
-  <rect x="60" y="55" width="130" height="34" rx="17" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
-  <text x="125" y="77" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="2">投資・お金</text>
+  <!-- turbulent crashing waves (panic/crisis) surrounding but not reaching the vault -->
+  <g fill="#fde68a" opacity="0.6">
+    <path d="M 0 380 Q 90 320 180 380 T 360 380 T 540 380 L 540 630 L 0 630 Z"/>
+  </g>
+  <g fill="#f59e0b" opacity="0.45">
+    <path d="M 660 400 Q 760 340 860 400 T 1060 400 T 1260 400 L 1260 630 L 660 630 Z"/>
+  </g>
+  <g stroke="#d97706" stroke-width="4" fill="none" opacity="0.5" stroke-linecap="round">
+    <path d="M 30 300 Q 110 260 190 300"/>
+    <path d="M 950 280 Q 1030 240 1110 280"/>
+    <path d="M 60 220 Q 120 195 180 220"/>
+  </g>
 
-  <!-- Main title -->
-  <text x="60" y="185" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">ヘティ・グリーンに学ぶ</text>
-  <text x="60" y="255" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">「現金を持つ」という戦略</text>
+  <!-- calm clear zone around the vault -->
+  <circle cx="600" cy="330" r="210" fill="#fffbeb" opacity="0.85"/>
+  <circle cx="600" cy="330" r="210" fill="none" stroke="#fde68a" stroke-width="3" stroke-dasharray="2 14" opacity="0.7"/>
 
-  <!-- Subtitle -->
-  <text x="60" y="320" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="28" fill="#d97706" letter-spacing="2">なぜ「ケチ」が恐慌で買い向かえたのか</text>
+  <!-- solid standing vault/strongbox, unmoved -->
+  <g transform="translate(600,360)">
+    <ellipse cx="0" cy="150" rx="150" ry="20" fill="#92400e" opacity="0.15"/>
+    <rect x="-130" y="-110" width="260" height="240" rx="14" fill="#92400e"/>
+    <rect x="-110" y="-90" width="220" height="200" rx="10" fill="#b45309"/>
+    <!-- dial wheel, plain shape -->
+    <circle cx="0" cy="-10" r="46" fill="#fde68a" stroke="#78350f" stroke-width="6"/>
+    <circle cx="0" cy="-10" r="14" fill="#78350f"/>
+    <line x1="0" y1="-10" x2="0" y2="-44" stroke="#78350f" stroke-width="5" stroke-linecap="round"/>
+    <line x1="0" y1="-10" x2="26" y2="-10" stroke="#78350f" stroke-width="5" stroke-linecap="round"/>
+    <!-- handle -->
+    <rect x="-50" y="70" width="100" height="18" rx="9" fill="#78350f"/>
+  </g>
 
-  <!-- Divider line -->
-  <line x1="60" y1="355" x2="680" y2="355" stroke="#fde68a" stroke-width="2"/>
+  <!-- coins stacked beside the vault, steady -->
+  <g transform="translate(400,500)">
+    <ellipse cx="0" cy="20" rx="46" ry="14" fill="#d97706"/>
+    <ellipse cx="0" cy="0" rx="46" ry="14" fill="#f59e0b"/>
+    <ellipse cx="0" cy="-20" rx="46" ry="14" fill="#fbbf24"/>
+  </g>
+  <g transform="translate(820,500)">
+    <ellipse cx="0" cy="14" rx="40" ry="12" fill="#d97706"/>
+    <ellipse cx="0" cy="-4" rx="40" ry="12" fill="#fbbf24"/>
+  </g>
 
-  <!-- Description -->
-  <text x="60" y="395" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">世界一のケチと呼ばれた大富豪は、</text>
-  <text x="60" y="425" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">銀行の暖房でオートミールを温めていた。</text>
-
-  <!-- Bottom label -->
-  <text x="60" y="568" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#d97706" font-weight="700" letter-spacing="3">偉人ラボ</text>
-
-  <!-- Right-side graphic: 3-step flow -->
-  <rect x="800" y="100" width="340" height="320" rx="8" fill="#fef3c7" stroke="#fde68a" stroke-width="1.5"/>
-
-  <text x="970" y="138" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="22" font-weight="700" fill="#92400e" text-anchor="middle">「現金を持つ」戦略</text>
-
-  <!-- Step 1 -->
-  <rect x="850" y="150" width="240" height="66" rx="10" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>
-  <text x="970" y="192" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#92400e" text-anchor="middle">①徹底した倹約</text>
-
-  <!-- Arrow 1 -->
-  <line x1="970" y1="216" x2="970" y2="234" stroke="#d97706" stroke-width="4"/>
-  <path d="M 958,228 L 970,240 L 982,228 Z" fill="#d97706"/>
-
-  <!-- Step 2 -->
-  <rect x="850" y="240" width="240" height="66" rx="10" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>
-  <text x="970" y="282" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#92400e" text-anchor="middle">②現金を確保する</text>
-
-  <!-- Arrow 2 -->
-  <line x1="970" y1="306" x2="970" y2="324" stroke="#d97706" stroke-width="4"/>
-  <path d="M 958,318 L 970,330 L 982,318 Z" fill="#d97706"/>
-
-  <!-- Step 3 (highlighted) -->
-  <rect x="835" y="330" width="270" height="70" rx="10" fill="#92400e"/>
-  <text x="970" y="374" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#fef3c7" text-anchor="middle">③恐慌で買い向かう</text>
+  <!-- decorative motes -->
+  <circle cx="170" cy="140" r="16" fill="#fde68a" opacity="0.6"/>
+  <circle cx="1100" cy="150" r="20" fill="#f59e0b" opacity="0.4"/>
 </svg>

@@ -1,42 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f7faff"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#dbeafe" stroke-width="2"/>
+  <rect width="1200" height="630" fill="#f0f7ff"/>
 
-  <!-- 二宮金次郎像シルエット: 薪を背負い本を読む少年 -->
-  <g transform="translate(330,300)" opacity="0.85">
-    <ellipse cx="0" cy="232" rx="78" ry="18" fill="#1e40af" opacity="0.18"/>
-    <!-- 薪の束 -->
-    <g transform="rotate(-18 0 30)">
-      <rect x="-58" y="-6" width="120" height="22" rx="6" fill="#92400e" opacity="0.7"/>
-      <rect x="-50" y="20" width="120" height="22" rx="6" fill="#a8744f" opacity="0.7"/>
-      <rect x="-58" y="46" width="120" height="22" rx="6" fill="#92400e" opacity="0.65"/>
+  <!-- ground -->
+  <ellipse cx="600" cy="560" rx="380" ry="20" fill="#bfdbfe" opacity="0.5"/>
+  <line x1="200" y1="560" x2="1000" y2="560" stroke="#93c5fd" stroke-width="2" opacity="0.5"/>
+
+  <!-- balance scale, symbolizing 分度 (measured balance) between main work and side work -->
+  <g transform="translate(600,280)">
+    <line x1="0" y1="-130" x2="0" y2="180" stroke="#1e3a8a" stroke-width="8" stroke-linecap="round"/>
+    <path d="M -170 -90 L 170 -90" stroke="#1e40af" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="0" cy="-130" r="14" fill="#1e3a8a"/>
+    <polygon points="0,170 -36,200 36,200" fill="#1e3a8a"/>
+    <rect x="-90" y="195" width="180" height="16" rx="6" fill="#1e3a8a"/>
+
+    <!-- left pan: book (lifework / reading) -->
+    <line x1="-170" y1="-90" x2="-170" y2="-10" stroke="#3b82f6" stroke-width="3"/>
+    <path d="M -230 -10 Q -170 20 -110 -10 L -110 6 Q -170 36 -230 6 Z" fill="#dbeafe" stroke="#1e40af" stroke-width="3.5"/>
+    <path d="M -195 -28 L -160 -16 L -160 8 L -195 -4 Z" fill="#ffffff" stroke="#1e40af" stroke-width="2.5"/>
+    <path d="M -160 -16 L -125 -28 L -125 -4 L -160 8 Z" fill="#f0f7ff" stroke="#1e40af" stroke-width="2.5"/>
+
+    <!-- right pan: firewood bundle (main work / labor) -->
+    <line x1="170" y1="-90" x2="170" y2="-10" stroke="#3b82f6" stroke-width="3"/>
+    <path d="M 110 -10 Q 170 20 230 -10 L 230 6 Q 170 36 110 6 Z" fill="#dbeafe" stroke="#1e40af" stroke-width="3.5"/>
+    <g stroke="#92400e" stroke-width="9" stroke-linecap="round" opacity="0.85">
+      <line x1="125" y1="-22" x2="215" y2="-26"/>
+      <line x1="125" y1="-10" x2="215" y2="-14"/>
+      <line x1="125" y1="2" x2="215" y2="-2"/>
     </g>
-    <!-- 体 -->
-    <path d="M -34 70 Q -34 30 0 26 Q 34 30 34 70 L 34 190 Q 0 206 -34 190 Z" fill="#1e3a8a" opacity="0.78"/>
-    <!-- 頭 -->
-    <circle cx="0" cy="2" r="26" fill="#1e3a8a" opacity="0.78"/>
-    <!-- 本 -->
-    <path d="M -30 130 L 6 122 L 6 152 L -30 160 Z" fill="#dbeafe" opacity="0.9"/>
-    <path d="M 6 122 L 38 130 L 38 160 L 6 152 Z" fill="#bfdbfe" opacity="0.9"/>
-    <line x1="6" y1="122" x2="6" y2="152" stroke="#3b82f6" stroke-width="1.5" opacity="0.6"/>
   </g>
 
-  <!-- 推譲の概念: 余剰が積み上がるイメージ -->
-  <g opacity="0.85">
-    <rect x="700" y="500" width="60" height="40" rx="4" fill="#3b82f6"/>
-    <rect x="710" y="452" width="60" height="40" rx="4" fill="#2563eb"/>
-    <rect x="720" y="404" width="60" height="40" rx="4" fill="#1e40af"/>
-    <rect x="730" y="356" width="60" height="40" rx="4" fill="#1e3a8a"/>
+  <!-- small footpath / circular arrow suggesting steady ongoing cycle -->
+  <g transform="translate(600,470)" opacity="0.6">
+    <path d="M -90 0 A 90 28 0 1 1 90 0" fill="none" stroke="#3b82f6" stroke-width="4" stroke-dasharray="2,12" stroke-linecap="round"/>
+    <path d="M 90 0 A 90 28 0 1 1 -90 0" fill="none" stroke="#3b82f6" stroke-width="4" stroke-dasharray="2,12" stroke-linecap="round"/>
+    <path d="M -90 0 L -78 -14 L -66 4 Z" fill="#3b82f6"/>
+    <path d="M 90 0 L 78 14 L 66 -4 Z" fill="#3b82f6"/>
   </g>
-  <text x="900" y="470" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#1e3a8a" text-anchor="middle" opacity="0.8">分度 ＋ 推譲</text>
 
-  <!-- カテゴリラベル -->
-  <rect x="660" y="180" width="120" height="36" rx="18" fill="#dbeafe" stroke="#bfdbfe"/>
-  <text x="720" y="204" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#1e40af" text-anchor="middle" letter-spacing="1">仕事・副業</text>
-
-  <!-- タイトル -->
-  <text x="660" y="280" font-family="'Shippori Mincho', serif" font-size="30" font-weight="700" fill="#1c1917" letter-spacing="1">二宮尊徳に学ぶ</text>
-  <text x="660" y="322" font-family="'Shippori Mincho', serif" font-size="30" font-weight="700" fill="#1c1917" letter-spacing="1">「本業と副業」の両立</text>
-
-  <text x="100" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+  <circle cx="240" cy="180" r="6" fill="#93c5fd" opacity="0.6"/>
+  <circle cx="290" cy="230" r="4" fill="#93c5fd" opacity="0.5"/>
+  <circle cx="960" cy="180" r="6" fill="#93c5fd" opacity="0.6"/>
+  <circle cx="910" cy="230" r="4" fill="#93c5fd" opacity="0.5"/>
 </svg>

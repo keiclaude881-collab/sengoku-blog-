@@ -1,45 +1,46 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <!-- 背景 -->
-  <rect width="1200" height="630" fill="#faf7ff"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e9d5ff" stroke-width="3"/>
-  <!-- 左側の紫バー -->
-  <rect x="0" y="0" width="12" height="630" fill="#6b21a8"/>
+  <rect width="1200" height="630" fill="#faf5ff"/>
 
-  <!-- 右側グラフィック：二本の刀と円 -->
-  <circle cx="960" cy="315" r="180" fill="none" stroke="#e9d5ff" stroke-width="3"/>
-  <circle cx="960" cy="315" r="140" fill="none" stroke="#d8b4fe" stroke-width="1.5"/>
-  <!-- 刀1（右斜め） -->
-  <line x1="870" y1="180" x2="1050" y2="450" stroke="#6b21a8" stroke-width="6" stroke-linecap="round"/>
-  <polygon points="870,180 860,168 882,172" fill="#6b21a8"/>
-  <!-- 刀2（左斜め） -->
-  <line x1="1050" y1="180" x2="870" y2="450" stroke="#8b5cf6" stroke-width="4" stroke-linecap="round"/>
-  <polygon points="1050,180 1062,168 1040,172" fill="#8b5cf6"/>
-  <!-- 中心点 -->
-  <circle cx="960" cy="315" r="8" fill="#a855f7"/>
-  <circle cx="960" cy="315" r="3" fill="#fff"/>
+  <!-- faint concentric circles behind figure: focus/dojo -->
+  <circle cx="600" cy="330" r="230" fill="none" stroke="#e9d5ff" stroke-width="3"/>
+  <circle cx="600" cy="330" r="170" fill="none" stroke="#d8b4fe" stroke-width="2"/>
+  <circle cx="600" cy="330" r="110" fill="none" stroke="#d8b4fe" stroke-width="1.5" opacity="0.7"/>
 
-  <!-- カテゴリバッジ -->
-  <rect x="68" y="70" width="160" height="34" rx="17" fill="#ede9fe"/>
-  <text x="148" y="93" font-family="'Noto Sans JP', sans-serif" font-size="16" font-weight="700" fill="#6b21a8" text-anchor="middle">思考・マインド</text>
+  <!-- ground -->
+  <ellipse cx="600" cy="540" rx="320" ry="20" fill="#e9d5ff" opacity="0.6"/>
+  <line x1="180" y1="540" x2="1020" y2="540" stroke="#d8b4fe" stroke-width="2" opacity="0.6"/>
 
-  <!-- タイトル -->
-  <text x="68" y="200" font-family="'Noto Sans JP', sans-serif" font-size="62" font-weight="900" fill="#6b21a8">宮本武蔵の哲学</text>
+  <!-- single swordsman silhouette, mid-stance, sword raised -->
+  <g transform="translate(600,330)">
+    <!-- head -->
+    <circle cx="0" cy="-150" r="34" fill="#6b21a8"/>
+    <!-- body -->
+    <path d="M -40 -110 Q -42 -40 -34 60 L 34 60 Q 42 -40 40 -110 Q 0 -130 -40 -110 Z" fill="#6b21a8"/>
+    <!-- legs / stance -->
+    <path d="M -34 60 L -64 200 L -36 210 L -10 78 Z" fill="#6b21a8"/>
+    <path d="M 34 60 L 56 200 L 28 210 L 14 78 Z" fill="#6b21a8"/>
+    <!-- raised arm holding sword -->
+    <path d="M 30 -90 L 100 -160 L 88 -176 L 18 -110 Z" fill="#6b21a8"/>
+    <!-- sword blade -->
+    <line x1="100" y1="-160" x2="220" y2="-280" stroke="#9333ea" stroke-width="10" stroke-linecap="round"/>
+    <line x1="220" y1="-280" x2="245" y2="-305" stroke="#7e22ce" stroke-width="6" stroke-linecap="round"/>
+    <!-- other arm, low guard -->
+    <path d="M -30 -90 L -90 -40 L -78 -22 L -16 -78 Z" fill="#6b21a8"/>
+    <line x1="-90" y1="-40" x2="-150" y2="20" stroke="#9333ea" stroke-width="8" stroke-linecap="round"/>
+  </g>
 
-  <!-- サブタイトル -->
-  <text x="68" y="280" font-family="'Noto Sans JP', sans-serif" font-size="36" font-weight="700" fill="#374151">自分の基準を作る</text>
+  <!-- motion lines suggesting solitary practice -->
+  <path d="M 760 160 Q 820 140 870 100" fill="none" stroke="#d8b4fe" stroke-width="3" stroke-dasharray="6,8" opacity="0.7"/>
+  <path d="M 800 210 Q 850 195 890 165" fill="none" stroke="#d8b4fe" stroke-width="3" stroke-dasharray="6,8" opacity="0.5"/>
 
-  <!-- 区切り線 -->
-  <line x1="68" y1="320" x2="700" y2="320" stroke="#e9d5ff" stroke-width="2"/>
+  <!-- single distant path/road, symbolizing "own path" walked alone -->
+  <path d="M 600 560 C 600 480 600 400 600 330" stroke="#9333ea" stroke-width="3" stroke-dasharray="3,10" opacity="0.4" fill="none"/>
 
-  <!-- 説明テキスト -->
-  <text x="68" y="380" font-family="'Noto Sans JP', sans-serif" font-size="24" fill="#6b7280">60回以上の決闘で無敗。強さの本質は</text>
-  <text x="68" y="415" font-family="'Noto Sans JP', sans-serif" font-size="24" fill="#6b7280">「昨日の自分を超える」思考法にあった。</text>
-
-  <!-- 引用 -->
-  <rect x="68" y="460" width="680" height="80" rx="8" fill="#f3e8ff"/>
-  <text x="88" y="496" font-family="'Noto Sans JP', sans-serif" font-size="20" font-weight="700" fill="#6b21a8">「千日の稽古を鍛とし、万日の稽古を錬とす」</text>
-  <text x="88" y="524" font-family="'Noto Sans JP', sans-serif" font-size="16" fill="#7c3aed">— 宮本武蔵『五輪書』</text>
-
-  <!-- サイト名 -->
-  <text x="68" y="594" font-family="'Noto Sans JP', sans-serif" font-size="18" fill="#9ca3af">偉人ラボ — ijin-lab.com</text>
+  <!-- scattered minimal dust/energy particles -->
+  <circle cx="300" cy="220" r="5" fill="#d8b4fe" opacity="0.6"/>
+  <circle cx="270" cy="280" r="3.5" fill="#d8b4fe" opacity="0.5"/>
+  <circle cx="930" cy="240" r="4" fill="#d8b4fe" opacity="0.6"/>
+  <circle cx="960" cy="300" r="5" fill="#d8b4fe" opacity="0.5"/>
+  <circle cx="340" cy="450" r="4" fill="#d8b4fe" opacity="0.4"/>
+  <circle cx="900" cy="460" r="4.5" fill="#d8b4fe" opacity="0.4"/>
 </svg>

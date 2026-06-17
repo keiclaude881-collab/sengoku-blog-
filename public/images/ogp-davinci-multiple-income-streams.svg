@@ -1,34 +1,59 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f7faff"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#dbeafe" stroke-width="2"/>
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0f7ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
-  <!-- ウィトルウィウス的人体図モチーフ（簡略） -->
-  <g transform="translate(330,360)" opacity="0.75">
-    <circle cx="0" cy="0" r="110" fill="none" stroke="#1e40af" stroke-width="2.5" opacity="0.65"/>
-    <rect x="-92" y="-92" width="184" height="184" fill="none" stroke="#3b82f6" stroke-width="2.5" opacity="0.65"/>
-    <circle cx="0" cy="-58" r="16" fill="#1e3a8a" opacity="0.7"/>
-    <line x1="0" y1="-42" x2="0" y2="40" stroke="#1e3a8a" stroke-width="6" opacity="0.7" stroke-linecap="round"/>
-    <line x1="0" y1="-20" x2="-72" y2="-58" stroke="#1e3a8a" stroke-width="6" opacity="0.7" stroke-linecap="round"/>
-    <line x1="0" y1="-20" x2="72" y2="-58" stroke="#1e3a8a" stroke-width="6" opacity="0.7" stroke-linecap="round"/>
-    <line x1="0" y1="40" x2="-50" y2="108" stroke="#1e3a8a" stroke-width="6" opacity="0.7" stroke-linecap="round"/>
-    <line x1="0" y1="40" x2="50" y2="108" stroke="#1e3a8a" stroke-width="6" opacity="0.7" stroke-linecap="round"/>
+  <!-- A single source point on the left -->
+  <circle cx="220" cy="315" r="46" fill="#1e3a8a"/>
+  <circle cx="220" cy="315" r="70" fill="none" stroke="#1e40af" stroke-width="2" opacity="0.4"/>
+
+  <!-- Multiple branching paths fanning out to the right, each ending in a different symbolic tool/icon -->
+  <g fill="none" stroke="#3b82f6" stroke-width="5" stroke-linecap="round" opacity="0.7">
+    <path d="M 260 300 C 450 200 650 150 880 130"/>
+    <path d="M 260 310 C 450 270 650 250 880 260"/>
+    <path d="M 260 320 C 450 330 650 350 880 390"/>
+    <path d="M 260 330 C 450 420 650 480 880 520"/>
   </g>
 
-  <!-- 複数分野を表す重なる円（掛け算のメタファー） -->
-  <g opacity="0.8">
-    <circle cx="730" cy="400" r="62" fill="#3b82f6" opacity="0.6"/>
-    <circle cx="800" cy="400" r="62" fill="#1e40af" opacity="0.55"/>
-    <circle cx="765" cy="350" r="62" fill="#1e3a8a" opacity="0.5"/>
+  <!-- Endpoint 1: paintbrush / palette (art) -->
+  <g transform="translate(910,120)">
+    <circle cx="0" cy="0" r="34" fill="#bfdbfe"/>
+    <ellipse cx="0" cy="0" rx="22" ry="16" fill="#93c5fd"/>
+    <circle cx="-8" cy="-5" r="3.5" fill="#1e40af"/>
+    <circle cx="6" cy="-6" r="3.5" fill="#3b82f6"/>
+    <circle cx="0" cy="6" r="3.5" fill="#1e3a8a"/>
   </g>
-  <text x="765" y="408" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#1e3a8a" text-anchor="middle" opacity="0.8">掛け算</text>
 
-  <!-- カテゴリラベル -->
-  <rect x="660" y="180" width="120" height="36" rx="18" fill="#dbeafe" stroke="#bfdbfe"/>
-  <text x="720" y="204" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#1e40af" text-anchor="middle" letter-spacing="1">仕事・副業</text>
+  <!-- Endpoint 2: gear (engineering/invention) -->
+  <g transform="translate(910,255)">
+    <circle cx="0" cy="0" r="34" fill="#bfdbfe"/>
+    <circle cx="0" cy="0" r="18" fill="none" stroke="#1e40af" stroke-width="6"/>
+    <g fill="#1e40af">
+      <rect x="-4" y="-26" width="8" height="12"/>
+      <rect x="-4" y="14" width="8" height="12"/>
+      <rect x="-26" y="-4" width="12" height="8"/>
+      <rect x="14" y="-4" width="12" height="8"/>
+    </g>
+  </g>
 
-  <!-- タイトル -->
-  <text x="660" y="280" font-family="'Shippori Mincho', serif" font-size="32" font-weight="700" fill="#1c1917" letter-spacing="1">ダ・ヴィンチに学ぶ</text>
-  <text x="660" y="324" font-family="'Shippori Mincho', serif" font-size="32" font-weight="700" fill="#1c1917" letter-spacing="1">「複線化」戦略</text>
+  <!-- Endpoint 3: compass/blueprint (architecture) -->
+  <g transform="translate(910,388)">
+    <circle cx="0" cy="0" r="34" fill="#bfdbfe"/>
+    <path d="M 0 -20 L -16 18 L 16 18 Z" fill="none" stroke="#1e40af" stroke-width="5" stroke-linejoin="round"/>
+    <circle cx="0" cy="-20" r="4" fill="#1e40af"/>
+  </g>
 
-  <text x="100" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+  <!-- Endpoint 4: anatomical wing/feather (study of nature, flight) -->
+  <g transform="translate(910,520)">
+    <circle cx="0" cy="0" r="34" fill="#bfdbfe"/>
+    <path d="M -20 14 C -10 -20 14 -22 22 -14 C 6 -10 0 6 -4 18 C -10 14 -16 16 -20 14 Z" fill="#1e40af"/>
+  </g>
+
+  <!-- Faint Vitruvian-style circle/square motif behind the source, nodding to da Vinci -->
+  <circle cx="220" cy="315" r="150" fill="none" stroke="#93c5fd" stroke-width="2" opacity="0.45"/>
+  <rect x="115" y="210" width="210" height="210" fill="none" stroke="#bfdbfe" stroke-width="2" opacity="0.45"/>
 </svg>

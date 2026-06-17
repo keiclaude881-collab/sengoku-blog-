@@ -1,54 +1,53 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#faf7ff"/>
-  <!-- Border -->
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e9d5ff" stroke-width="3"/>
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="12" height="630" fill="#6b21a8"/>
+  <defs>
+    <linearGradient id="hkSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f3e8ff"/>
+      <stop offset="100%" stop-color="#faf5ff"/>
+    </linearGradient>
+    <linearGradient id="hkWave" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9333ea"/>
+      <stop offset="100%" stop-color="#6b21a8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#hkSky)"/>
 
-  <!-- Category badge -->
-  <rect x="60" y="55" width="110" height="34" rx="17" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5"/>
-  <text x="115" y="77" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#6b21a8" text-anchor="middle" letter-spacing="2">思考法</text>
+  <!-- rising sun -->
+  <circle cx="930" cy="190" r="95" fill="#d8b4fe" opacity="0.55"/>
+  <circle cx="930" cy="190" r="62" fill="#9333ea"/>
 
-  <!-- Main title -->
-  <text x="60" y="185" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">葛飾北斎に学ぶ</text>
-  <text x="60" y="255" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">「成長」に終わりはない</text>
+  <!-- concentric growth rings, symbolizing limitless expansion -->
+  <circle cx="280" cy="430" r="260" fill="none" stroke="#d8b4fe" stroke-width="2" opacity="0.5"/>
+  <circle cx="280" cy="430" r="190" fill="none" stroke="#d8b4fe" stroke-width="2" opacity="0.6"/>
+  <circle cx="280" cy="430" r="120" fill="none" stroke="#d8b4fe" stroke-width="2" opacity="0.7"/>
 
-  <!-- Subtitle -->
-  <text x="60" y="320" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="28" fill="#7c3aed" letter-spacing="2">70代で名作を生んだ画狂老人の生涯</text>
+  <!-- great-wave-inspired rising wave, curling and climbing higher -->
+  <path d="M -20 560 C 120 560, 160 460, 260 420 C 330 392, 350 320, 300 270
+           C 360 300, 380 360, 330 410 C 420 380, 470 300, 430 230
+           C 510 270, 530 360, 470 420 C 560 380, 600 280, 540 200
+           C 640 250, 660 360, 580 430 C 700 410, 760 340, 820 330
+           C 900 318, 980 360, 1040 420 L 1220 420 L 1220 630 L -20 630 Z"
+        fill="url(#hkWave)"/>
 
-  <!-- Divider line -->
-  <line x1="60" y1="355" x2="680" y2="355" stroke="#e9d5ff" stroke-width="2"/>
+  <!-- foam droplets climbing upward -->
+  <circle cx="300" cy="262" r="10" fill="#e9d5ff"/>
+  <circle cx="332" cy="238" r="6" fill="#e9d5ff"/>
+  <circle cx="430" cy="222" r="11" fill="#e9d5ff"/>
+  <circle cx="466" cy="196" r="6" fill="#e9d5ff"/>
+  <circle cx="540" cy="192" r="12" fill="#e9d5ff"/>
+  <circle cx="580" cy="160" r="7" fill="#e9d5ff"/>
+  <circle cx="640" cy="222" r="5" fill="#e9d5ff"/>
+  <circle cx="700" cy="270" r="8" fill="#e9d5ff"/>
 
-  <!-- Description -->
-  <text x="60" y="395" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">75歳で「七十歳までの作品は取るに足らない」と書き、</text>
-  <text x="60" y="425" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">90歳まで成長を信じ続けた浮世絵師。</text>
+  <!-- foam curls on the crest -->
+  <path d="M 250 430 C 270 410, 300 410, 310 430" fill="none" stroke="#f3e8ff" stroke-width="6" stroke-linecap="round" opacity="0.8"/>
+  <path d="M 380 400 C 400 380, 430 380, 440 400" fill="none" stroke="#f3e8ff" stroke-width="6" stroke-linecap="round" opacity="0.8"/>
+  <path d="M 490 390 C 510 370, 540 370, 550 390" fill="none" stroke="#f3e8ff" stroke-width="6" stroke-linecap="round" opacity="0.8"/>
 
-  <!-- Bottom label -->
-  <text x="60" y="568" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#7c3aed" font-weight="700" letter-spacing="3">偉人ラボ</text>
+  <!-- small distant mountain silhouette, low and calm, contrasted with the towering wave -->
+  <polygon points="980,420 1060,330 1140,420" fill="#c084fc" opacity="0.5"/>
+  <polygon points="1020,420 1075,355 1140,420" fill="#a855f7" opacity="0.4"/>
 
-  <!-- Right-side graphic: 3-step flow (age-based growth) -->
-  <rect x="800" y="100" width="340" height="320" rx="8" fill="#f3e8ff" stroke="#e9d5ff" stroke-width="1.5"/>
-
-  <text x="970" y="138" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="22" font-weight="700" fill="#6b21a8" text-anchor="middle">北斎の成長宣言</text>
-
-  <!-- Step 1 -->
-  <rect x="850" y="150" width="240" height="66" rx="10" fill="#e9d5ff" stroke="#a855f7" stroke-width="2"/>
-  <text x="970" y="192" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#6b21a8" text-anchor="middle">① 73歳で開眼した</text>
-
-  <!-- Arrow 1 -->
-  <line x1="970" y1="216" x2="970" y2="234" stroke="#7c3aed" stroke-width="4"/>
-  <path d="M 958,228 L 970,240 L 982,228 Z" fill="#7c3aed"/>
-
-  <!-- Step 2 -->
-  <rect x="850" y="240" width="240" height="66" rx="10" fill="#e9d5ff" stroke="#a855f7" stroke-width="2"/>
-  <text x="970" y="282" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#6b21a8" text-anchor="middle">② さらに技を極める</text>
-
-  <!-- Arrow 2 -->
-  <line x1="970" y1="306" x2="970" y2="324" stroke="#7c3aed" stroke-width="4"/>
-  <path d="M 958,318 L 970,330 L 982,318 Z" fill="#7c3aed"/>
-
-  <!-- Step 3 (highlighted) -->
-  <rect x="835" y="330" width="270" height="70" rx="10" fill="#6b21a8"/>
-  <text x="970" y="374" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#f3e8ff" text-anchor="middle">③ 100歳で神域に至る</text>
+  <!-- birds, suggesting open sky / no ceiling -->
+  <path d="M 760 130 q 14 -14 28 0 q 14 -14 28 0" fill="none" stroke="#7e22ce" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 820 95 q 10 -10 20 0 q 10 -10 20 0" fill="none" stroke="#7e22ce" stroke-width="4" stroke-linecap="round"/>
 </svg>

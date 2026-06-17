@@ -1,44 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f7f9fc"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#dfe7f3" stroke-width="2"/>
+  <defs>
+    <linearGradient id="msBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0f7ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#msBg)"/>
 
-  <!-- ルネサンス風横顔シルエット -->
-  <path d="M 260 230
-           C 300 210 350 215 372 250
-           C 388 276 386 300 398 312
-           C 408 322 398 332 384 332
-           C 380 350 372 366 358 378
-           L 358 470 L 264 470
-           C 264 410 250 360 250 320
-           C 248 280 240 250 260 230 Z"
-        fill="#1e3a8a" opacity="0.82"/>
-  <circle cx="356" cy="270" r="5" fill="#f7f9fc"/>
+  <!-- main road (the main job) running straight across -->
+  <rect x="0" y="460" width="1200" height="50" fill="#1e40af" opacity="0.85"/>
+  <line x1="0" y1="485" x2="1200" y2="485" stroke="#dbeafe" stroke-width="4" stroke-dasharray="26 22"/>
 
-  <!-- チェスの駒 -->
-  <g opacity="0.8">
-    <rect x="700" y="430" width="60" height="14" rx="3" fill="#1e40af"/>
-    <rect x="715" y="380" width="30" height="50" fill="#1e40af"/>
-    <circle cx="730" cy="368" r="16" fill="#1e40af"/>
-  </g>
-  <g opacity="0.5">
-    <rect x="800" y="430" width="60" height="14" rx="3" fill="#3b82f6"/>
-    <path d="M 815 430 L 845 430 L 838 386 L 822 386 Z" fill="#3b82f6"/>
-    <rect x="820" y="362" width="20" height="24" fill="#3b82f6"/>
-  </g>
+  <!-- a smaller side path branching off, narrower and careful (the side hustle) -->
+  <path d="M 700 480 C 820 470, 920 380, 1040 280 C 1090 240, 1130 210, 1160 170"
+        fill="none" stroke="#3b82f6" stroke-width="20" stroke-linecap="round" opacity="0.85"/>
+  <path d="M 700 480 C 820 470, 920 380, 1040 280 C 1090 240, 1130 210, 1160 170"
+        fill="none" stroke="#93c5fd" stroke-width="6" stroke-linecap="round"/>
 
-  <!-- ノートPC -->
-  <g opacity="0.7">
-    <rect x="900" y="470" width="160" height="14" rx="3" fill="#1e3a8a"/>
-    <path d="M 920 470 L 1040 470 L 1030 380 L 930 380 Z" fill="none" stroke="#1e3a8a" stroke-width="3"/>
+  <!-- a large protective shield placed at the fork, symbolizing risk management before the branch -->
+  <g transform="translate(700,330)">
+    <path d="M 0 -90 C 50 -75, 95 -70, 95 -70 C 95 0, 60 70, 0 100 C -60 70, -95 0, -95 -70 C -95 -70, -50 -75, 0 -90 Z"
+          fill="#1e3a8a"/>
+    <path d="M 0 -65 C 35 -55, 65 -50, 65 -50 C 65 5, 40 55, 0 78 C -40 55, -65 5, -65 -50 C -65 -50, -35 -55, 0 -65 Z"
+          fill="#3b82f6" opacity="0.6"/>
   </g>
 
-  <!-- カテゴリラベル -->
-  <rect x="700" y="180" width="120" height="36" rx="18" fill="#dbeafe" stroke="#bfdbfe"/>
-  <text x="760" y="204" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#1e40af" text-anchor="middle" letter-spacing="1">仕事・副業</text>
+  <!-- balance scale floating above the shield, the calculation of what could be lost vs gained -->
+  <g transform="translate(700,150)">
+    <line x1="0" y1="-20" x2="0" y2="30" stroke="#1e3a8a" stroke-width="6"/>
+    <line x1="-90" y1="-20" x2="90" y2="-20" stroke="#1e3a8a" stroke-width="6"/>
+    <circle cx="0" cy="-20" r="8" fill="#1e3a8a"/>
+    <line x1="-90" y1="-20" x2="-90" y2="10" stroke="#1e3a8a" stroke-width="3"/>
+    <line x1="90" y1="-20" x2="90" y2="14" stroke="#1e3a8a" stroke-width="3"/>
+    <path d="M -120 10 A 30 22 0 0 0 -60 10 Z" fill="#bfdbfe" stroke="#1e3a8a" stroke-width="3"/>
+    <path d="M 60 14 A 30 22 0 0 0 120 14 Z" fill="#93c5fd" stroke="#1e3a8a" stroke-width="3"/>
+    <rect x="-10" y="30" width="20" height="48" fill="#1e3a8a"/>
+  </g>
 
-  <!-- タイトル -->
-  <text x="700" y="280" font-family="'Shippori Mincho', serif" font-size="32" font-weight="700" fill="#1c1917" letter-spacing="1">マキャベリの</text>
-  <text x="700" y="324" font-family="'Shippori Mincho', serif" font-size="32" font-weight="700" fill="#1c1917" letter-spacing="1">副業で失敗しない原則</text>
-
-  <text x="100" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+  <!-- small milestone markers along the side path, the gradual cautious steps -->
+  <circle cx="900" cy="350" r="11" fill="#1e40af"/>
+  <circle cx="1040" cy="280" r="11" fill="#1e40af"/>
+  <circle cx="1160" cy="170" r="14" fill="#1e3a8a" stroke="#bfdbfe" stroke-width="3"/>
 </svg>

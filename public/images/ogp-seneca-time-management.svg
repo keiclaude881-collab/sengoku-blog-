@@ -1,35 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#faf7ff"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e9d5ff" stroke-width="2"/>
-  <rect x="0" y="0" width="12" height="630" fill="#6b21a8"/>
+  <defs>
+    <linearGradient id="bgGrad5" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#f3e8ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGrad5)"/>
 
-  <!-- カテゴリバッジ -->
-  <rect x="68" y="68" width="100" height="36" rx="18" fill="#f3e8ff" stroke="#e9d5ff"/>
-  <text x="118" y="92" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#6b21a8" text-anchor="middle" letter-spacing="1">思考法</text>
+  <!-- background soft circles -->
+  <circle cx="140" cy="500" r="100" fill="#e9d5ff" opacity="0.5"/>
+  <circle cx="1080" cy="120" r="70" fill="#e9d5ff" opacity="0.5"/>
 
-  <!-- タイトル -->
-  <text x="68" y="200" font-family="'Hiragino Sans', sans-serif" font-size="48" font-weight="900" fill="#1c1917">セネカに学ぶ</text>
-  <text x="68" y="266" font-family="'Hiragino Sans', sans-serif" font-size="46" font-weight="900" fill="#6b21a8">「時間管理」の本質</text>
-
-  <!-- 説明 -->
-  <text x="68" y="330" font-family="'Hiragino Sans', sans-serif" font-size="22" fill="#78716c">人生は短いのではない、浪費しているだけだ</text>
-
-  <!-- 砂時計(漏れる砂) -->
-  <g transform="translate(950,330)">
-    <polygon points="-110,-160 110,-160 0,0" fill="none" stroke="#6b21a8" stroke-width="5"/>
-    <polygon points="-110,160 110,160 0,0" fill="none" stroke="#6b21a8" stroke-width="5"/>
-    <line x1="-130" y1="-160" x2="130" y2="-160" stroke="#6b21a8" stroke-width="8" stroke-linecap="round"/>
-    <line x1="-130" y1="160" x2="130" y2="160" stroke="#6b21a8" stroke-width="8" stroke-linecap="round"/>
-    <polygon points="-90,-145 90,-145 0,-25" fill="#a855f7" opacity="0.5"/>
-    <polygon points="-70,145 70,145 0,40" fill="#a855f7" opacity="0.4"/>
-    <circle cx="0" cy="0" r="6" fill="#6b21a8"/>
-    <!-- 漏れる砂 -->
-    <circle cx="60" cy="-40" r="5" fill="#a855f7" opacity="0.6"/>
-    <circle cx="92" cy="10" r="6" fill="#a855f7" opacity="0.5"/>
-    <circle cx="118" cy="60" r="5" fill="#a855f7" opacity="0.4"/>
-    <circle cx="138" cy="105" r="4" fill="#a855f7" opacity="0.3"/>
-    <path d="M 50 -50 Q 100 30 145 110" stroke="#a855f7" stroke-width="2" stroke-dasharray="3,5" fill="none" opacity="0.4"/>
+  <!-- large hourglass, sand draining: upper mostly empty, lower filling -->
+  <g transform="translate(600,315)">
+    <path d="M -130 -230 L 130 -230 L 130 -210 L 20 -10 L 20 10 L 130 210 L 130 230 L -130 230 L -130 210 L -20 10 L -20 -10 L -130 -210 Z"
+          fill="none" stroke="#6b21a8" stroke-width="8" stroke-linejoin="round"/>
+    <!-- top sand (mostly empty, draining) -->
+    <path d="M -70 -160 L 70 -160 L 16 -50 L -16 -50 Z" fill="#9333ea" opacity="0.55"/>
+    <!-- falling stream -->
+    <line x1="0" y1="-10" x2="0" y2="10" stroke="#9333ea" stroke-width="5"/>
+    <!-- bottom sand, larger pile already fallen -->
+    <path d="M -118 218 L 118 218 L 118 212 L 16 16 L -16 16 L -118 212 Z" fill="#7e22ce" opacity="0.4"/>
+    <path d="M -90 200 Q 0 150 90 200 L 90 212 L -90 212 Z" fill="#7e22ce" opacity="0.75"/>
+    <path d="M -55 165 Q 0 130 55 165 L 50 200 L -50 200 Z" fill="#6b21a8" opacity="0.7"/>
   </g>
 
-  <text x="68" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+  <!-- subtle radiating sundial-like tick marks around the hourglass -->
+  <g stroke="#9333ea" stroke-width="3" opacity="0.35" stroke-linecap="round">
+    <line x1="600" y1="40" x2="600" y2="70"/>
+    <line x1="600" y1="560" x2="600" y2="590"/>
+    <line x1="320" y1="315" x2="350" y2="315"/>
+    <line x1="850" y1="315" x2="880" y2="315"/>
+    <line x1="410" y1="120" x2="430" y2="140"/>
+    <line x1="790" y1="120" x2="770" y2="140"/>
+    <line x1="410" y1="510" x2="430" y2="490"/>
+    <line x1="790" y1="510" x2="770" y2="490"/>
+  </g>
 </svg>
