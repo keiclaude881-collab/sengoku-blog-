@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="340" viewBox="0 0 1000 340">
+  <rect width="1000" height="340" fill="#f0f7ff" rx="12"/>
+  <rect x="0" y="0" width="1000" height="340" rx="12" fill="none" stroke="#bfdbfe" stroke-width="1.5"/>
+
+  <text x="500" y="38" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="15" font-weight="700" fill="#1e40af" text-anchor="middle">「慣れた市場で消耗する」vs「未知の市場を切り拓く」——現代のキャリア選択</text>
+
+  <!-- Left column -->
+  <rect x="50" y="58" width="380" height="230" rx="10" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+  <rect x="50" y="58" width="380" height="44" rx="10" fill="#60a5fa"/>
+  <rect x="50" y="88" width="380" height="14" fill="#60a5fa"/>
+  <text x="240" y="86" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">慣れた市場に留まる</text>
+
+  <text x="240" y="128" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#1e40af" text-anchor="middle">同業者が多く、競争が激しい</text>
+  <text x="240" y="153" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#1e40af" text-anchor="middle">情報の価値が下がりやすい</text>
+  <text x="240" y="178" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#1e40af" text-anchor="middle">安定はあるが差別化が難しい</text>
+  <rect x="70" y="208" width="340" height="60" rx="8" fill="#dbeafe" stroke="#93c5fd" stroke-width="1"/>
+  <text x="240" y="232" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#1e3a8a" text-anchor="middle">→ 安心だが、価値の証明に</text>
+  <text x="240" y="252" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#1e3a8a" text-anchor="middle">　常に時間がかかる</text>
+
+  <!-- VS -->
+  <text x="500" y="190" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="22" font-weight="700" fill="#1e40af" text-anchor="middle">VS</text>
+
+  <!-- Right column -->
+  <rect x="570" y="58" width="380" height="230" rx="10" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+  <rect x="570" y="58" width="380" height="44" rx="10" fill="#1e40af"/>
+  <rect x="570" y="88" width="380" height="14" fill="#1e40af"/>
+  <text x="760" y="86" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">マルコ・ポーロ式：未知を開拓</text>
+
+  <text x="760" y="128" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#1e40af" text-anchor="middle">先行者がいないため競争がない</text>
+  <text x="760" y="153" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#1e40af" text-anchor="middle">最初に得た情報そのものが資産</text>
+  <text x="760" y="178" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#1e40af" text-anchor="middle">リスクは大きいが独自性も大きい</text>
+  <rect x="590" y="208" width="340" height="60" rx="8" fill="#93c5fd"/>
+  <text x="760" y="232" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#1e3a8a" text-anchor="middle">→ 一度確立すれば、長期間</text>
+  <text x="760" y="252" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#1e3a8a" text-anchor="middle">　誰にも代えられない存在になる</text>
+
+  <text x="500" y="320" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#1e40af" text-anchor="middle">マルコ・ポーロが選んだのは右側——そして700年語り継がれる名を残した</text>
+</svg>

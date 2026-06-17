@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f0f7ff"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#bfdbfe" stroke-width="3"/>
+  <rect x="0" y="0" width="12" height="630" fill="#1e40af"/>
+
+  <rect x="60" y="55" width="130" height="34" rx="17" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="125" y="77" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="15" font-weight="700" fill="#1e40af" text-anchor="middle" letter-spacing="2">仕事・副業</text>
+
+  <text x="60" y="168" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="42" font-weight="700" fill="#1c1917" letter-spacing="-1">17歳で誰も知らない</text>
+  <text x="60" y="228" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="42" font-weight="700" fill="#1c1917" letter-spacing="-1">市場へ飛び込んだ男</text>
+
+  <text x="60" y="285" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="22" fill="#3b82f6" letter-spacing="0.5">マルコ・ポーロに学ぶ「未知の市場を切り拓く」キャリア戦略</text>
+
+  <line x1="60" y1="315" x2="680" y2="315" stroke="#bfdbfe" stroke-width="2"/>
+
+  <text x="60" y="358" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="17" fill="#1e3a8a" letter-spacing="0.5">24年間、誰も足を踏み入れなかった東方を歩き、</text>
+  <text x="60" y="388" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="17" fill="#1e3a8a" letter-spacing="0.5">「情報」そのものを資産にした商人の物語。</text>
+
+  <text x="60" y="572" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="16" fill="#3b82f6" font-weight="700" letter-spacing="3">偉人ラボ</text>
+
+  <!-- Right panel: silk road route map -->
+  <rect x="760" y="70" width="400" height="480" rx="12" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="960" y="110" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="17" font-weight="700" fill="#1e40af" text-anchor="middle">ヴェネチアから元朝までの旅路</text>
+
+  <!-- route line -->
+  <path d="M 810 160 C 860 180, 880 230, 920 260 C 970 300, 1000 280, 1040 320 C 1080 360, 1060 410, 1100 450"
+        fill="none" stroke="#3b82f6" stroke-width="4" stroke-dasharray="8,6"/>
+
+  <!-- waypoints -->
+  <circle cx="810" cy="160" r="10" fill="#1e40af"/>
+  <text x="838" y="155" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#1e40af">ヴェネチア</text>
+  <text x="838" y="172" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="10" fill="#1d4ed8">出発（17歳）</text>
+
+  <circle cx="920" cy="260" r="8" fill="#3b82f6"/>
+  <text x="935" y="256" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#1e40af">中東・ペルシア</text>
+
+  <circle cx="1040" cy="320" r="8" fill="#3b82f6"/>
+  <text x="858" y="335" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#1e40af">中央アジア</text>
+  <line x1="965" y1="320" x2="1032" y2="320" stroke="#93c5fd" stroke-width="1"/>
+
+  <circle cx="1100" cy="450" r="12" fill="#1e40af"/>
+  <text x="1020" y="478" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#1e40af">元朝（中国）</text>
+  <text x="1015" y="495" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="10" fill="#1d4ed8">24年間滞在・記録</text>
+
+  <rect x="800" y="510" width="320" height="34" rx="8" fill="#1e40af"/>
+  <text x="960" y="532" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">距離：約24,000km・往復24年</text>
+</svg>
