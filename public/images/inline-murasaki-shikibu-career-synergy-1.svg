@@ -1,60 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#f7faff"/>
+  <rect width="1000" height="420" fill="#f0f7ff"/>
   <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#dbeafe" stroke-width="2"/>
 
-  <defs>
-    <marker id="arrowGray" markerWidth="12" markerHeight="12" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#9ca3af"/>
-    </marker>
-    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#2563eb"/>
-    </marker>
-  </defs>
+  <!-- 本業とライフワークが、別の箱か重なる箱か、分岐するイメージ -->
+  <g transform="translate(500,150)" opacity="0.9">
+    <rect x="-40" y="-40" width="80" height="80" rx="12" fill="#1e40af"/>
+  </g>
 
-  <!-- Title -->
-  <text x="500" y="44" font-family="'Hiragino Sans', sans-serif" font-size="24" font-weight="700" fill="#1e40af" text-anchor="middle">「分ける」発想と「重ねる」発想、本業と副業の関係</text>
-  <line x1="40" y1="62" x2="960" y2="62" stroke="#dbeafe" stroke-width="1.5"/>
+  <path d="M 460 200 Q 380 250 320 290" fill="none" stroke="#93c5fd" stroke-width="2.5" stroke-dasharray="4 6" opacity="0.7"/>
+  <path d="M 540 200 Q 620 250 680 290" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-dasharray="4 6" opacity="0.7"/>
 
-  <!-- Row 1: 分ける型 -->
-  <text x="40" y="98" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#9ca3af">よくある発想(分ける型)</text>
+  <g transform="translate(280,330)" opacity="0.8">
+    <rect x="-50" y="-30" width="44" height="60" rx="8" fill="none" stroke="#93c5fd" stroke-width="3"/>
+    <rect x="6" y="-30" width="44" height="60" rx="8" fill="none" stroke="#93c5fd" stroke-width="3"/>
+  </g>
 
-  <rect x="40" y="112" width="270" height="90" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="175" y="165" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">本業は本業</text>
-
-  <line x1="318" y1="157" x2="358" y2="157" stroke="#9ca3af" stroke-width="4" marker-end="url(#arrowGray)"/>
-
-  <rect x="362" y="112" width="270" height="90" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="497" y="165" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">副業・趣味は別物</text>
-
-  <!-- Row 2: 重ねる型 -->
-  <text x="40" y="246" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#1e40af">紫式部の発想(重ねる型)</text>
-
-  <rect x="40" y="260" width="270" height="100" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="175" y="318" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">本業で経験を積む</text>
-
-  <line x1="318" y1="310" x2="358" y2="310" stroke="#2563eb" stroke-width="4" marker-end="url(#arrowBlue)"/>
-
-  <rect x="362" y="252" width="270" height="116" rx="10" fill="#dbeafe" stroke="#1e40af" stroke-width="3"/>
-  <text x="497" y="300" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#1e40af" text-anchor="middle">ライフワークの材料に</text>
-  <text x="497" y="334" font-family="'Hiragino Sans', sans-serif" font-size="17" fill="#2563eb" text-anchor="middle">→評判が次の仕事を連れてくる</text>
-
-  <!-- Right side: explanation box -->
-  <rect x="660" y="80" width="300" height="290" rx="10" fill="none" stroke="#dbeafe" stroke-width="1.5"/>
-  <text x="810" y="120" font-family="'Hiragino Sans', sans-serif" font-size="20" font-weight="700" fill="#1e40af" text-anchor="middle">紫式部の軌跡</text>
-  <line x1="680" y1="135" x2="940" y2="135" stroke="#dbeafe" stroke-width="1"/>
-
-  <circle cx="690" cy="178" r="6" fill="#1e40af"/>
-  <text x="708" y="185" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">漢学の才能を、女性ゆえに</text>
-  <text x="708" y="212" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">人前では隠していた</text>
-
-  <circle cx="690" cy="246" r="6" fill="#1e40af"/>
-  <text x="708" y="253" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">夫を亡くした悲しみから</text>
-  <text x="708" y="280" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">源氏物語を書き始めた</text>
-
-  <circle cx="690" cy="314" r="6" fill="#1e40af"/>
-  <text x="708" y="321" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">物語の評判がきっかけで</text>
-  <text x="708" y="348" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">彰子サロンへの出仕が決定</text>
-
-  <!-- Bottom quote -->
-  <text x="500" y="402" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#2563eb" text-anchor="middle" letter-spacing="1" opacity="0.85" font-style="italic">「口惜しう、男子にて持たらぬこそ幸ひなかりけれ」</text>
+  <g transform="translate(700,330)" opacity="0.85">
+    <circle cx="-22" cy="0" r="38" fill="#bfdbfe" opacity="0.8"/>
+    <circle cx="22" cy="0" r="38" fill="#3b82f6" opacity="0.8"/>
+  </g>
 </svg>

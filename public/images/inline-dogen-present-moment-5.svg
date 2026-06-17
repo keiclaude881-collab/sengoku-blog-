@@ -1,48 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#faf7ff"/>
+  <rect width="1000" height="420" fill="#faf5ff"/>
   <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
-
-  <text x="500" y="46" font-family="sans-serif" font-size="18" font-weight="700" fill="#6b21a8" text-anchor="middle">道元の3原則——集中力を「戻る練習」で育てる</text>
-
-  <!-- 原則1 -->
-  <rect x="50" y="80" width="280" height="180" rx="12" fill="#f3e8ff" stroke="#c4b5fd" stroke-width="2"/>
-  <rect x="50" y="80" width="280" height="44" rx="12" fill="#6b21a8"/>
-  <rect x="50" y="112" width="280" height="12" rx="0" fill="#6b21a8"/>
-  <text x="190" y="108" font-family="sans-serif" font-size="15" font-weight="900" fill="#fff" text-anchor="middle">原則① 而今</text>
-  <text x="190" y="156" font-family="sans-serif" font-size="13" font-weight="700" fill="#6b21a8" text-anchor="middle">今この作業だけに集中</text>
-  <line x1="80" y1="170" x2="300" y2="170" stroke="#e9d5ff" stroke-width="1"/>
-  <text x="190" y="192" font-family="sans-serif" font-size="12" fill="#7c3aed" text-anchor="middle">過去でも未来でもなく</text>
-  <text x="190" y="210" font-family="sans-serif" font-size="12" fill="#7c3aed" text-anchor="middle">今の一点に意識を向ける</text>
-  <text x="190" y="232" font-family="sans-serif" font-size="11" fill="#9ca3af" text-anchor="middle">▶ シングルタスク・通知オフ</text>
-  <text x="190" y="248" font-family="sans-serif" font-size="11" fill="#9ca3af" text-anchor="middle">▶ タブを閉じる</text>
-
-  <!-- 原則2 -->
-  <rect x="360" y="80" width="280" height="180" rx="12" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="2"/>
-  <rect x="360" y="80" width="280" height="44" rx="12" fill="#7c3aed"/>
-  <rect x="360" y="112" width="280" height="12" rx="0" fill="#7c3aed"/>
-  <text x="500" y="108" font-family="sans-serif" font-size="15" font-weight="900" fill="#fff" text-anchor="middle">原則② 気づいて戻る</text>
-  <text x="500" y="156" font-family="sans-serif" font-size="13" font-weight="700" fill="#6b21a8" text-anchor="middle">雑念を消すより「戻る練習」</text>
-  <line x1="390" y1="170" x2="610" y2="170" stroke="#e9d5ff" stroke-width="1"/>
-  <text x="500" y="192" font-family="sans-serif" font-size="12" fill="#7c3aed" text-anchor="middle">雑念が浮かぶのは自然なこと</text>
-  <text x="500" y="210" font-family="sans-serif" font-size="12" fill="#7c3aed" text-anchor="middle">気づいて判断せず戻るだけ</text>
-  <text x="500" y="232" font-family="sans-serif" font-size="11" fill="#9ca3af" text-anchor="middle">▶ ポモドーロ・テクニック</text>
-  <text x="500" y="248" font-family="sans-serif" font-size="11" fill="#9ca3af" text-anchor="middle">▶ マインドフルネス実践</text>
-
-  <!-- 原則3 -->
-  <rect x="670" y="80" width="280" height="180" rx="12" fill="#f3e8ff" stroke="#a855f7" stroke-width="2"/>
-  <rect x="670" y="80" width="280" height="44" rx="12" fill="#a855f7"/>
-  <rect x="670" y="112" width="280" height="12" rx="0" fill="#a855f7"/>
-  <text x="810" y="108" font-family="sans-serif" font-size="15" font-weight="900" fill="#fff" text-anchor="middle">原則③ 日常が修行</text>
-  <text x="810" y="156" font-family="sans-serif" font-size="13" font-weight="700" fill="#6b21a8" text-anchor="middle">普通の時間の質を上げる</text>
-  <line x1="700" y1="170" x2="920" y2="170" stroke="#e9d5ff" stroke-width="1"/>
-  <text x="810" y="192" font-family="sans-serif" font-size="12" fill="#7c3aed" text-anchor="middle">食事・歩行・会議・家事</text>
-  <text x="810" y="210" font-family="sans-serif" font-size="12" fill="#7c3aed" text-anchor="middle">すべてに意識を注ぐ</text>
-  <text x="810" y="232" font-family="sans-serif" font-size="11" fill="#9ca3af" text-anchor="middle">▶ ながら作業をやめる</text>
-  <text x="810" y="248" font-family="sans-serif" font-size="11" fill="#9ca3af" text-anchor="middle">▶ 通勤・食事を「只管」に</text>
-
-  <!-- 下部まとめ -->
-  <rect x="50" y="296" width="900" height="100" rx="12" fill="#6b21a8"/>
-  <text x="500" y="332" font-family="sans-serif" font-size="16" font-weight="900" fill="#fff" text-anchor="middle">集中力は「鍛える」より「戻る練習」で育つ</text>
-  <line x1="100" y1="344" x2="900" y2="344" stroke="#a855f7" stroke-width="1" opacity="0.6"/>
-  <text x="500" y="368" font-family="sans-serif" font-size="13" fill="#e9d5ff" text-anchor="middle">「只管打坐」——ただひたすら今ここに。道元が800年前に示したマインドフルネスの核心</text>
+  <circle cx="500" cy="220" r="36" fill="#6b21a8" opacity="0.9"/>
+  <circle cx="500" cy="220" r="16" fill="#faf5ff" opacity="0.9"/>
+  <g opacity="0.8">
+    <circle cx="270" cy="120" r="30" fill="#9333ea" opacity="0.8"/>
+    <path d="M 312 152 Q 410 190 466 208" stroke="#d8b4fe" stroke-width="3" fill="none" stroke-dasharray="3 7" stroke-linecap="round"/>
+    <circle cx="730" cy="120" r="30" fill="#9333ea" opacity="0.8"/>
+    <path d="M 688 152 Q 590 190 534 208" stroke="#d8b4fe" stroke-width="3" fill="none" stroke-dasharray="3 7" stroke-linecap="round"/>
+    <circle cx="500" cy="340" r="30" fill="#9333ea" opacity="0.8"/>
+    <path d="M 500 310 L 500 256" stroke="#d8b4fe" stroke-width="3" fill="none" stroke-dasharray="3 7" stroke-linecap="round"/>
+  </g>
+  <circle cx="500" cy="220" r="120" fill="none" stroke="#d8b4fe" stroke-width="2" opacity="0.3" stroke-dasharray="5 8"/>
 </svg>

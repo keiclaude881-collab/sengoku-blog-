@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#fde68a" stroke-width="2"/>
+  <!-- 余白を持った盾が、嵐から静かに守っているイメージ -->
+  <g stroke="#fde68a" stroke-width="3" fill="none" opacity="0.7">
+    <path d="M 120 120 L 200 170"/>
+    <path d="M 860 110 L 780 165"/>
+    <path d="M 150 320 L 230 280"/>
+    <path d="M 840 330 L 760 285"/>
+  </g>
+  <path d="M 500 100 L 620 140 L 620 250 Q 620 330 500 370 Q 380 330 380 250 L 380 140 Z" fill="#92400e"/>
+  <path d="M 500 130 L 595 162 L 595 250 Q 595 312 500 344 Q 405 312 405 250 L 405 162 Z" fill="#fde68a"/>
+  <circle cx="500" cy="240" r="38" fill="#d97706"/>
+</svg>

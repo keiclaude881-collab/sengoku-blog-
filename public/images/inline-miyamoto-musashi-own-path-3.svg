@@ -1,44 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#faf7ff"/>
+  <rect width="1000" height="420" fill="#faf5ff"/>
   <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
 
-  <text x="500" y="46" font-family="sans-serif" font-size="18" font-weight="700" fill="#6b21a8" text-anchor="middle">型を学び、型を超え、独自の道へ</text>
+  <!-- 守破離：三段階の階段が独自の道へ伸びていくイメージ -->
+  <rect x="100" y="260" width="200" height="80" rx="8" fill="#f3e8ff" stroke="#d8b4fe" stroke-width="2"/>
 
-  <!-- 三段階の階段 -->
-  <!-- 守（基礎） -->
-  <rect x="100" y="260" width="200" height="80" rx="8" fill="#f3e8ff" stroke="#c4b5fd" stroke-width="2"/>
-  <text x="200" y="296" font-family="sans-serif" font-size="22" font-weight="900" fill="#6b21a8" text-anchor="middle">守</text>
-  <text x="200" y="318" font-family="sans-serif" font-size="13" fill="#7c3aed" text-anchor="middle">基本を守る</text>
-  <text x="200" y="334" font-family="sans-serif" font-size="11" fill="#9ca3af" text-anchor="middle">型を徹底的に学ぶ</text>
+  <path d="M 310 300 Q 360 240 400 200" fill="none" stroke="#9333ea" stroke-width="2.5" stroke-dasharray="6,3"/>
+  <polygon points="400,200 388,218 408,214" fill="#9333ea"/>
 
-  <!-- 矢印1 -->
-  <path d="M 310 300 Q 360 240 400 200" fill="none" stroke="#8b5cf6" stroke-width="2.5" stroke-dasharray="6,3"/>
-  <polygon points="400,200 388,218 408,214" fill="#8b5cf6"/>
+  <rect x="390" y="160" width="220" height="80" rx="8" fill="#e9d5ff" stroke="#9333ea" stroke-width="2.5"/>
 
-  <!-- 破（応用） -->
-  <rect x="390" y="160" width="220" height="80" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2.5"/>
-  <text x="500" y="196" font-family="sans-serif" font-size="22" font-weight="900" fill="#6b21a8" text-anchor="middle">破</text>
-  <text x="500" y="218" font-family="sans-serif" font-size="13" fill="#7c3aed" text-anchor="middle">型を破る</text>
-  <text x="500" y="234" font-family="sans-serif" font-size="11" fill="#9ca3af" text-anchor="middle">応用・工夫を加える</text>
+  <path d="M 620 200 Q 670 150 710 110" fill="none" stroke="#7e22ce" stroke-width="2.5" stroke-dasharray="6,3"/>
+  <polygon points="710,110 697,128 717,124" fill="#7e22ce"/>
 
-  <!-- 矢印2 -->
-  <path d="M 620 200 Q 670 150 710 110" fill="none" stroke="#6b21a8" stroke-width="2.5" stroke-dasharray="6,3"/>
-  <polygon points="710,110 697,128 717,124" fill="#6b21a8"/>
-
-  <!-- 離（独自） -->
-  <rect x="700" y="60" width="220" height="80" rx="8" fill="#6b21a8" stroke="#4c1d95" stroke-width="2"/>
-  <text x="810" y="96" font-family="sans-serif" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle">離</text>
-  <text x="810" y="118" font-family="sans-serif" font-size="13" fill="#e9d5ff" text-anchor="middle">型を離れる</text>
-  <text x="810" y="134" font-family="sans-serif" font-size="11" fill="#d8b4fe" text-anchor="middle">独自の道を作る</text>
+  <rect x="700" y="60" width="220" height="80" rx="8" fill="#6b21a8"/>
 
   <!-- 光の放射（独自の道から） -->
-  <line x1="810" y1="60" x2="810" y2="30" stroke="#a855f7" stroke-width="2" opacity="0.6"/>
-  <line x1="830" y1="65" x2="855" y2="40" stroke="#a855f7" stroke-width="2" opacity="0.6"/>
-  <line x1="790" y1="65" x2="765" y2="40" stroke="#a855f7" stroke-width="2" opacity="0.6"/>
-  <line x1="840" y1="75" x2="870" y2="60" stroke="#a855f7" stroke-width="1.5" opacity="0.4"/>
-  <line x1="780" y1="75" x2="750" y2="60" stroke="#a855f7" stroke-width="1.5" opacity="0.4"/>
+  <g stroke="#a855f7" opacity="0.65">
+    <line x1="810" y1="60" x2="810" y2="28" stroke-width="2.5"/>
+    <line x1="838" y1="68" x2="864" y2="42" stroke-width="2.5"/>
+    <line x1="782" y1="68" x2="756" y2="42" stroke-width="2.5"/>
+    <line x1="858" y1="82" x2="890" y2="66" stroke-width="2"/>
+    <line x1="762" y1="82" x2="730" y2="66" stroke-width="2"/>
+  </g>
 
-  <!-- 下部メッセージ -->
-  <rect x="150" y="360" width="700" height="44" rx="10" fill="#f3e8ff"/>
-  <text x="500" y="387" font-family="sans-serif" font-size="14" font-weight="700" fill="#6b21a8" text-anchor="middle">武蔵は二天一流を創始——既存の型を超えた先に独自の流派があった</text>
+  <!-- 三段の足跡を示す丸 -->
+  <circle cx="200" cy="300" r="9" fill="#9333ea" opacity="0.8"/>
+  <circle cx="500" cy="200" r="9" fill="#7e22ce" opacity="0.85"/>
+  <circle cx="810" cy="100" r="9" fill="#ffffff"/>
 </svg>

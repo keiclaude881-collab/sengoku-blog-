@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#f0f7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#dbeafe" stroke-width="2"/>
+
+  <!-- 「分ける」発想:離れた二つの図形 / 「重ねる」発想:重なる二つの円 -->
+  <g transform="translate(280,210)" opacity="0.8">
+    <rect x="-90" y="-60" width="80" height="120" rx="12" fill="none" stroke="#93c5fd" stroke-width="3.5"/>
+    <rect x="30" y="-60" width="80" height="120" rx="12" fill="none" stroke="#93c5fd" stroke-width="3.5"/>
+  </g>
+
+  <line x1="460" y1="210" x2="540" y2="210" stroke="#3b82f6" stroke-width="2.5" stroke-dasharray="2 8" opacity="0.5"/>
+
+  <g transform="translate(720,210)" opacity="0.9">
+    <circle cx="-35" cy="0" r="70" fill="#bfdbfe" opacity="0.7"/>
+    <circle cx="35" cy="0" r="70" fill="#3b82f6" opacity="0.7"/>
+  </g>
+</svg>

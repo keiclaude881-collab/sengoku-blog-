@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#fde68a" stroke-width="2"/>
+
+  <!-- 一つのカゴに全部の卵を入れ、落として割れるイメージ -->
+  <g transform="translate(360,230)">
+    <path d="M -90 0 L -70 70 Q -70 90 -50 90 L 50 90 Q 70 90 70 70 L 90 0 Z" fill="none" stroke="#92400e" stroke-width="4" stroke-linejoin="round"/>
+    <line x1="-95" y1="0" x2="95" y2="0" stroke="#92400e" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="-30" cy="40" rx="16" ry="22" fill="#f59e0b" opacity="0.85"/>
+    <ellipse cx="10" cy="50" rx="16" ry="22" fill="#d97706" opacity="0.85"/>
+    <ellipse cx="40" cy="35" rx="16" ry="22" fill="#f59e0b" opacity="0.85"/>
+  </g>
+
+  <path d="M 360 -60 L 360 60" stroke="#d97706" stroke-width="2.5" stroke-dasharray="4 6" opacity="0.6"/>
+
+  <!-- 落下して割れる -->
+  <g transform="translate(700,250)">
+    <ellipse cx="0" cy="0" rx="22" ry="28" fill="none" stroke="#dc2626" stroke-width="3"/>
+    <path d="M -10 -10 L 4 4 L -6 10 L 10 22" stroke="#dc2626" stroke-width="2.5" fill="none"/>
+  </g>
+  <ellipse cx="700" cy="300" rx="40" ry="8" fill="#fde68a" opacity="0.8"/>
+</svg>

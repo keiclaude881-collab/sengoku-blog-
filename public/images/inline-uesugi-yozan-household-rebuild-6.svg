@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#fef3c7" stroke-width="2"/>
+  <!-- 意志(揺れる炎)が、安定した自動化の歯車に変わるまとめイメージ -->
+  <g transform="translate(280,220)" fill="#fde68a" opacity="0.8">
+    <path d="M 0 -70 Q 26 -30 14 0 Q 30 10 22 40 Q 0 64 -22 40 Q -30 10 -14 0 Q -26 -30 0 -70 Z"/>
+  </g>
+  <g stroke="#d97706" stroke-width="2.5" fill="none" stroke-dasharray="3 7" opacity="0.55">
+    <path d="M 420 210 Q 520 210 600 210"/>
+    <path d="M 600 210 L 586 200 M 600 210 L 586 220"/>
+  </g>
+  <g transform="translate(740,210)" fill="#92400e">
+    <circle cx="0" cy="-78" r="9"/>
+    <circle cx="0" cy="78" r="9"/>
+    <circle cx="78" cy="0" r="9"/>
+    <circle cx="-78" cy="0" r="9"/>
+    <circle cx="55" cy="-55" r="9"/>
+    <circle cx="-55" cy="-55" r="9"/>
+    <circle cx="55" cy="55" r="9"/>
+    <circle cx="-55" cy="55" r="9"/>
+    <circle cx="0" cy="0" r="48" opacity="0.2"/>
+    <circle cx="0" cy="0" r="18"/>
+  </g>
+  <line x1="120" y1="340" x2="920" y2="340" stroke="#f59e0b" stroke-width="2" opacity="0.35"/>
+</svg>

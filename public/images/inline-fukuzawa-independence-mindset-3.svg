@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf5ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+  <!-- 揺れる嵐の中で、まっすぐ立ち続ける一本の柱のイメージ -->
+  <g stroke="#d8b4fe" stroke-width="3" fill="none" opacity="0.6">
+    <path d="M 120 120 Q 200 90 260 130"/>
+    <path d="M 700 110 Q 780 80 850 130"/>
+    <path d="M 150 320 Q 230 350 290 310"/>
+    <path d="M 680 330 Q 760 360 830 310"/>
+  </g>
+  <rect x="465" y="90" width="70" height="260" rx="6" fill="#6b21a8"/>
+  <circle cx="500" cy="70" r="26" fill="#7e22ce"/>
+  <path d="M 440 350 L 560 350" stroke="#6b21a8" stroke-width="10" stroke-linecap="round"/>
+</svg>

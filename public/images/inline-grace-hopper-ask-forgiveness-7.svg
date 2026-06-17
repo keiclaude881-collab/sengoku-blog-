@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#f0f7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#dbeafe" stroke-width="2"/>
+  <!-- 足跡のない雪原に、最初の一歩を踏み出す足跡が伸びていくイメージ -->
+  <ellipse cx="500" cy="260" rx="420" ry="110" fill="#dbeafe"/>
+  <g fill="#1e40af" opacity="0.85">
+    <ellipse cx="260" cy="280" rx="10" ry="16"/>
+    <ellipse cx="320" cy="260" rx="10" ry="16"/>
+    <ellipse cx="390" cy="245" rx="10" ry="16"/>
+    <ellipse cx="470" cy="235" rx="10" ry="16"/>
+    <ellipse cx="560" cy="228" rx="10" ry="16"/>
+    <ellipse cx="660" cy="222" rx="10" ry="16"/>
+  </g>
+  <circle cx="660" cy="180" r="22" fill="#1e3a8a"/>
+</svg>

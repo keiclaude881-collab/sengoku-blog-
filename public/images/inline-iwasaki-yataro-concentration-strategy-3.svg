@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#fde68a" stroke-width="2"/>
+  <path d="M 0 320 Q 500 290 1000 320" fill="none" stroke="#fde68a" stroke-width="3"/>
+  <g transform="translate(280,280)">
+    <path d="M -60 0 L 60 0 L 44 36 L -44 36 Z" fill="#d97706"/>
+    <line x1="0" y1="0" x2="0" y2="-90" stroke="#92400e" stroke-width="4"/>
+    <path d="M 0 -90 L 50 -60 L 0 -50 Z" fill="#f59e0b"/>
+  </g>
+  <g transform="translate(500,290)">
+    <path d="M -60 0 L 60 0 L 44 36 L -44 36 Z" fill="#d97706"/>
+    <line x1="0" y1="0" x2="0" y2="-90" stroke="#92400e" stroke-width="4"/>
+    <path d="M 0 -90 L 50 -60 L 0 -50 Z" fill="#f59e0b"/>
+  </g>
+  <g transform="translate(720,280)">
+    <path d="M -60 0 L 60 0 L 44 36 L -44 36 Z" fill="#d97706"/>
+    <line x1="0" y1="0" x2="0" y2="-90" stroke="#92400e" stroke-width="4"/>
+    <path d="M 0 -90 L 50 -60 L 0 -50 Z" fill="#f59e0b"/>
+  </g>
+</svg>

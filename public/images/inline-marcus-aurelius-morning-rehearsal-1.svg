@@ -1,59 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#faf7ff"/>
-  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
-
-  <defs>
-    <marker id="arrow" markerWidth="12" markerHeight="12" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#a855f7"/>
-    </marker>
-  </defs>
-
-  <!-- Title -->
-  <text x="500" y="44" font-family="'Hiragino Sans', sans-serif" font-size="24" font-weight="700" fill="#6b21a8" text-anchor="middle">「出来事」と「感情」のあいだにあるもの</text>
-  <line x1="40" y1="62" x2="960" y2="62" stroke="#e9d5ff" stroke-width="1.5"/>
-
-  <!-- Box 1: 出来事 -->
-  <rect x="40" y="165" width="150" height="100" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="115" y="208" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">出来事</text>
-  <text x="115" y="240" font-family="'Hiragino Sans', sans-serif" font-size="15" fill="#78716c" text-anchor="middle">(同僚の態度)</text>
-
-  <!-- Arrow 1 -->
-  <line x1="194" y1="215" x2="226" y2="215" stroke="#a855f7" stroke-width="4" marker-end="url(#arrow)"/>
-
-  <!-- Box 2: 判断・解釈（強調） -->
-  <rect x="232" y="140" width="200" height="150" rx="10" fill="#f3e8ff" stroke="#6b21a8" stroke-width="3"/>
-  <text x="332" y="195" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#6b21a8" text-anchor="middle">自分の判断</text>
-  <text x="332" y="223" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#6b21a8" text-anchor="middle">・解釈</text>
-  <text x="332" y="262" font-family="'Hiragino Sans', sans-serif" font-size="15" fill="#7c3aed" text-anchor="middle">↑ここだけが変えられる</text>
-
-  <!-- Arrow 2 -->
-  <line x1="438" y1="215" x2="470" y2="215" stroke="#a855f7" stroke-width="4" marker-end="url(#arrow)"/>
-
-  <!-- Box 3: 感情・反応 -->
-  <rect x="476" y="165" width="150" height="100" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="551" y="208" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">感情・反応</text>
-  <text x="551" y="240" font-family="'Hiragino Sans', sans-serif" font-size="15" fill="#78716c" text-anchor="middle">(イライラ・不安)</text>
-
-  <!-- caption -->
-  <text x="332" y="330" font-family="'Hiragino Sans', sans-serif" font-size="16" fill="#78716c" text-anchor="middle">同じ出来事でも、判断が変われば感情も変わる</text>
-
-  <!-- Right side: explanation box -->
-  <rect x="650" y="85" width="310" height="285" rx="10" fill="none" stroke="#e9d5ff" stroke-width="1.5"/>
-  <text x="805" y="122" font-family="'Hiragino Sans', sans-serif" font-size="20" font-weight="700" fill="#6b21a8" text-anchor="middle">アウレリウスの考え方</text>
-  <line x1="670" y1="136" x2="940" y2="136" stroke="#e9d5ff" stroke-width="1"/>
-
-  <circle cx="690" cy="178" r="6" fill="#6b21a8"/>
-  <text x="708" y="185" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">出来事自体は</text>
-  <text x="708" y="212" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">良くも悪くもない</text>
-
-  <circle cx="690" cy="246" r="6" fill="#6b21a8"/>
-  <text x="708" y="253" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">反応を生むのは</text>
-  <text x="708" y="280" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">自分の解釈</text>
-
-  <circle cx="690" cy="314" r="6" fill="#6b21a8"/>
-  <text x="708" y="321" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">朝の予行演習で</text>
-  <text x="708" y="348" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">動揺しにくくなる</text>
-
-  <!-- Bottom quote -->
-  <text x="500" y="402" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#7c3aed" text-anchor="middle" letter-spacing="1" opacity="0.85" font-style="italic">「『害された』と思わなければ、害されてはいない」</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="380" viewBox="0 0 1000 380">
+  <rect width="1000" height="380" fill="#faf5ff"/>
+  <rect x="0" y="0" width="1000" height="380" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+  <g transform="translate(360,220)" opacity="0.8" fill="#7e22ce">
+    <circle cx="0" cy="-70" r="20"/>
+    <path d="M -26 -34 Q 0 -56 26 -34 L 22 50 Q 0 66 -22 50 Z"/>
+  </g>
+  <g stroke="#9333ea" stroke-width="2" opacity="0.45" stroke-dasharray="3 6">
+    <path d="M 400 130 Q 460 90 520 130" fill="none"/>
+  </g>
+  <g fill="#d8b4fe" opacity="0.7">
+    <circle cx="560" cy="150" r="16"/>
+    <circle cx="610" cy="180" r="12"/>
+    <circle cx="650" cy="140" r="10"/>
+  </g>
+  <g transform="translate(720,230)" opacity="0.6" stroke="#6b21a8" stroke-width="2.5" stroke-linecap="round">
+    <path d="M -10 -40 Q 30 -60 30 -10" fill="none"/>
+  </g>
+  <circle cx="750" cy="195" r="6" fill="#6b21a8" opacity="0.6"/>
 </svg>

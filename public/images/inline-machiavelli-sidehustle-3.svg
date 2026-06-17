@@ -6,5 +6,10 @@
     <circle cx="0" cy="0" r="84" fill="none" stroke="#3b82f6" stroke-width="4" stroke-dasharray="13 9" stroke-linecap="round"/>
     <path d="M 70 -34 L 86 -52 L 96 -28 Z" fill="#3b82f6"/>
   </g>
-  <text x="540" y="218" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#1e40af" text-anchor="middle" opacity="0.8">circulate</text>
+  <circle cx="540" cy="210" r="10" fill="#1e40af" opacity="0.6"/>
+  <g transform="translate(300,290)" opacity="0.55" fill="#3b82f6">
+    <circle cx="0" cy="0" r="9"/>
+    <circle cx="30" cy="6" r="9"/>
+    <circle cx="60" cy="-4" r="9"/>
+  </g>
 </svg>

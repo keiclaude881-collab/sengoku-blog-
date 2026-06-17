@@ -1,69 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#faf7f2"/>
-  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
-  <!-- 収入を3分割（寄付・貯蓄・生活費）する円グラフ風の図 -->
-
-  <!-- Title -->
-  <text x="500" y="42" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#92400e" text-anchor="middle">ロックフェラーの収入3分割ルール</text>
-  <line x1="100" y1="58" x2="900" y2="58" stroke="#e8e0d4" stroke-width="1.5"/>
-
-  <!-- Pie chart: center 300,240 radius 130 -->
-  <!-- 10% 寄付: 0 to 36deg -->
-  <!-- 20% 貯蓄: 36 to 108deg -->
-  <!-- 70% 生活費: 108 to 360deg -->
-
-  <!-- 生活費 70% (108deg to 360deg) -->
-  <path d="M 300 240 L 300 110 A 130 130 0 1 1 178.7 305 Z" fill="#f59e0b" opacity="0.35" stroke="#d97706" stroke-width="2"/>
-
-  <!-- 貯蓄 20% (36deg to 108deg) -->
-  <path d="M 300 240 L 405.2 164.3 A 130 130 0 0 1 260.1 113.3 Z" fill="#d97706" opacity="0.6" stroke="#b45309" stroke-width="2"/>
-
-  <!-- 寄付 10% (0deg to 36deg) — 12時から時計回り36度 -->
-  <path d="M 300 240 L 300 110 A 130 130 0 0 1 405.2 164.3 Z" fill="#92400e" opacity="0.8" stroke="#92400e" stroke-width="2"/>
-
-  <!-- Center dot -->
-  <circle cx="300" cy="240" r="6" fill="#92400e"/>
-
-  <!-- Legend lines and labels -->
-  <!-- 寄付 10% -->
-  <line x1="355" y1="155" x2="420" y2="130" stroke="#92400e" stroke-width="1.5"/>
-  <rect x="420" y="110" width="130" height="40" rx="4" fill="#92400e" opacity="0.8"/>
-  <text x="485" y="127" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#fef3c7" text-anchor="middle">寄付 10%</text>
-  <text x="485" y="145" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#fef3c7" text-anchor="middle">最初の給料から徹底</text>
-
-  <!-- 貯蓄 20% -->
-  <line x1="310" y1="125" x2="390" y2="95" stroke="#b45309" stroke-width="1.5"/>
-  <rect x="390" y="75" width="130" height="40" rx="4" fill="#d97706" opacity="0.7"/>
-  <text x="455" y="92" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#faf7f2" text-anchor="middle">貯蓄 20%</text>
-  <text x="455" y="110" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#faf7f2" text-anchor="middle">将来への先取り</text>
-
-  <!-- 生活費 70% -->
-  <line x1="210" y1="310" x2="170" y2="340" stroke="#d97706" stroke-width="1.5"/>
-  <rect x="70" y="325" width="130" height="40" rx="4" fill="#f59e0b" opacity="0.5" stroke="#d97706" stroke-width="1.5"/>
-  <text x="135" y="342" font-family="'Hiragino Sans', sans-serif" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">生活費 70%</text>
-  <text x="135" y="360" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#92400e" text-anchor="middle">質素に暮らす</text>
-
-  <!-- Right side: rule explanation -->
-  <rect x="560" y="90" width="360" height="250" rx="8" fill="none" stroke="#e8e0d4" stroke-width="1.5"/>
-  <text x="740" y="122" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">比率管理のポイント</text>
-  <line x1="580" y1="135" x2="900" y2="135" stroke="#e8e0d4" stroke-width="1"/>
-
-  <circle cx="585" cy="167" r="5" fill="#92400e"/>
-  <text x="600" y="172" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#1c1917">収入が10倍になっても比率は不変</text>
-
-  <circle cx="585" cy="205" r="5" fill="#92400e"/>
-  <text x="600" y="210" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#1c1917">習慣が崩れにくい仕組みになる</text>
-
-  <circle cx="585" cy="243" r="5" fill="#92400e"/>
-  <text x="600" y="248" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#1c1917">16歳から死ぬまで続けた</text>
-
-  <circle cx="585" cy="281" r="5" fill="#92400e"/>
-  <text x="600" y="286" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#1c1917">家計簿に毎日記録し続けた</text>
-
-  <line x1="575" y1="182" x2="575" y2="192" stroke="#b45309" stroke-width="1.5"/>
-  <line x1="575" y1="220" x2="575" y2="230" stroke="#b45309" stroke-width="1.5"/>
-  <line x1="575" y1="258" x2="575" y2="268" stroke="#b45309" stroke-width="1.5"/>
-
-  <!-- Bottom quote -->
-  <text x="500" y="390" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#b45309" text-anchor="middle" letter-spacing="1" opacity="0.85" font-style="italic">「最初の10セントのうち1セントを神のために取り分けた」</text>
+  <rect width="1000" height="420" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#fde68a" stroke-width="2"/>
+  <!-- 少年が小さな硬貨を瓶に分けて貯めていくイメージ -->
+  <g transform="translate(330,250)">
+    <circle cx="0" cy="-100" r="32" fill="#fde68a"/>
+    <path d="M -30 -20 Q 0 -56 30 -20 L 26 70 Q 0 92 -26 70 Z" fill="#f59e0b" opacity="0.85"/>
+  </g>
+  <g fill="#d97706">
+    <circle cx="460" cy="130" r="15"/>
+    <circle cx="510" cy="175" r="15"/>
+    <circle cx="455" cy="215" r="15"/>
+  </g>
+  <g transform="translate(720,250)">
+    <path d="M -75 -60 L 75 -60 L 75 70 Q 75 90 55 90 L -55 90 Q -75 90 -75 70 Z" fill="none" stroke="#92400e" stroke-width="3" stroke-linejoin="round"/>
+    <line x1="-75" y1="-26" x2="75" y2="-26" stroke="#92400e" stroke-width="2.5" opacity="0.6"/>
+    <circle cx="0" cy="28" r="16" fill="#f59e0b" opacity="0.75"/>
+  </g>
+  <path d="M 535 175 L 630 235" stroke="#d97706" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round" opacity="0.7"/>
 </svg>

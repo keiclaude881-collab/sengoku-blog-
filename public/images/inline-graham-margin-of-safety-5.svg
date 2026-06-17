@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#fde68a" stroke-width="2"/>
+  <!-- 価格が下がるほど、価値との間の余白(安全余裕率)が広がっていくイメージ -->
+  <line x1="120" y1="360" x2="900" y2="360" stroke="#92400e" stroke-width="3"/>
+  <rect x="180" y="120" width="70" height="240" fill="#92400e"/>
+  <rect x="400" y="220" width="70" height="140" fill="#f59e0b"/>
+  <rect x="620" y="270" width="70" height="90" fill="#fde68a" stroke="#d97706" stroke-width="3"/>
+  <path d="M 250 200 L 400 200" stroke="#d97706" stroke-width="3" stroke-dasharray="3 8"/>
+  <path d="M 250 280 L 620 280" stroke="#d97706" stroke-width="3" stroke-dasharray="3 8"/>
+  <path d="M 820 200 L 880 200 L 880 280 L 820 280" fill="none" stroke="#d97706" stroke-width="3"/>
+  <circle cx="900" cy="240" r="14" fill="#d97706"/>
+</svg>

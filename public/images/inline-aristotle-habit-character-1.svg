@@ -1,54 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="360" viewBox="0 0 1000 360">
-  <rect width="1000" height="360" fill="#faf8ff" rx="12"/>
-  <rect x="0" y="0" width="1000" height="360" rx="12" fill="none" stroke="#e9d5ff" stroke-width="1.5"/>
-
-  <text x="500" y="44" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="17" font-weight="700" fill="#6b21a8" text-anchor="middle">「目標ベース思考」と「習慣ベース思考」の違い</text>
-
-  <!-- LEFT: 目標ベース -->
-  <rect x="40" y="68" width="420" height="260" rx="10" fill="#e0e7ff" stroke="#818cf8" stroke-width="1.5"/>
-  <text x="250" y="100" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="15" font-weight="700" fill="#3730a3" text-anchor="middle">目標ベース思考</text>
-
-  <!-- Goal box -->
-  <rect x="100" y="115" width="300" height="44" rx="8" fill="#6366f1" stroke="#4338ca" stroke-width="1"/>
-  <text x="250" y="141" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">「体重を5kg落としたい」</text>
-
-  <!-- Arrow -->
-  <line x1="250" y1="159" x2="250" y2="185" stroke="#818cf8" stroke-width="2"/>
-  <polygon points="243,179 250,191 257,179" fill="#818cf8"/>
-
-  <rect x="80" y="190" width="340" height="44" rx="8" fill="#c7d2fe" stroke="#818cf8" stroke-width="1"/>
-  <text x="250" y="216" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#3730a3" text-anchor="middle">達成するまで頑張る</text>
-
-  <!-- Arrow -->
-  <line x1="250" y1="234" x2="250" y2="258" stroke="#818cf8" stroke-width="2"/>
-  <polygon points="243,252 250,264 257,252" fill="#818cf8"/>
-
-  <rect x="80" y="262" width="340" height="44" rx="8" fill="#fee2e2" stroke="#fca5a5" stroke-width="1"/>
-  <text x="250" y="288" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#991b1b" text-anchor="middle">達成 → 習慣が途切れる or 挫折</text>
-
-  <!-- Divider -->
-  <line x1="500" y1="60" x2="500" y2="310" stroke="#e9d5ff" stroke-width="2" stroke-dasharray="5,4"/>
-  <text x="500" y="338" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#c4b5fd" text-anchor="middle">VS</text>
-
-  <!-- RIGHT: 習慣ベース -->
-  <rect x="540" y="68" width="420" height="260" rx="10" fill="#f3e8ff" stroke="#c084fc" stroke-width="1.5"/>
-  <text x="750" y="100" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="15" font-weight="700" fill="#6b21a8" text-anchor="middle">習慣ベース思考（アリストテレス式）</text>
-
-  <!-- Identity box -->
-  <rect x="590" y="115" width="320" height="44" rx="8" fill="#7c3aed" stroke="#6d28d9" stroke-width="1"/>
-  <text x="750" y="141" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">「健康的な習慣を持つ人間だ」</text>
-
-  <!-- Arrow -->
-  <line x1="750" y1="159" x2="750" y2="185" stroke="#c084fc" stroke-width="2"/>
-  <polygon points="743,179 750,191 757,179" fill="#c084fc"/>
-
-  <rect x="580" y="190" width="340" height="44" rx="8" fill="#e9d5ff" stroke="#c084fc" stroke-width="1"/>
-  <text x="750" y="216" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#6b21a8" text-anchor="middle">その人間がする行動を毎日1回繰り返す</text>
-
-  <!-- Arrow -->
-  <line x1="750" y1="234" x2="750" y2="258" stroke="#c084fc" stroke-width="2"/>
-  <polygon points="743,252 750,264 757,252" fill="#c084fc"/>
-
-  <rect x="580" y="262" width="340" height="44" rx="8" fill="#dcfce7" stroke="#86efac" stroke-width="1"/>
-  <text x="750" y="288" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#166534" text-anchor="middle">繰り返しが人格に変わっていく</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="380" viewBox="0 0 1000 380">
+  <rect width="1000" height="380" fill="#faf5ff"/>
+  <rect x="0" y="0" width="1000" height="380" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+  <g transform="translate(500,190)" opacity="0.85">
+    <circle cx="0" cy="0" r="92" fill="none" stroke="#d8b4fe" stroke-width="10" stroke-dasharray="3 14" stroke-linecap="round"/>
+    <circle cx="0" cy="-50" r="20" fill="#9333ea"/>
+    <path d="M -16 -10 Q 0 -32 16 -10 L 16 28 L -16 28 Z" fill="#7e22ce"/>
+  </g>
+  <g stroke="#9333ea" stroke-width="3" fill="none" opacity="0.55" stroke-linecap="round">
+    <path d="M 280 280 Q 260 230 300 200"/>
+    <path d="M 296 192 L 300 200 L 308 196"/>
+  </g>
+  <g stroke="#9333ea" stroke-width="3" fill="none" opacity="0.4" stroke-linecap="round">
+    <path d="M 720 100 Q 740 150 700 180"/>
+    <path d="M 706 172 L 700 180 L 692 174"/>
+  </g>
 </svg>

@@ -1,74 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#faf7f2"/>
-  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
-
-  <!-- Title -->
-  <text x="500" y="45" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#92400e" text-anchor="middle">お金の流れ「稼ぐ → 増やす → 使い切る」</text>
-  <line x1="100" y1="62" x2="900" y2="62" stroke="#e8e0d4" stroke-width="1.5"/>
-
-  <!-- Stage 1: 稼ぐ -->
-  <rect x="80" y="100" width="220" height="180" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
-  <rect x="80" y="100" width="220" height="44" rx="8" fill="#d97706" opacity="0.6"/>
-  <rect x="80" y="130" width="220" height="14" rx="0" fill="#d97706" opacity="0.6"/>
-  <text x="190" y="130" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#faf7f2" text-anchor="middle">① 稼ぐ</text>
-
-  <!-- Person working -->
-  <circle cx="145" cy="185" r="18" fill="none" stroke="#92400e" stroke-width="2.5"/>
-  <line x1="145" y1="203" x2="145" y2="240" stroke="#92400e" stroke-width="2.5"/>
-  <line x1="145" y1="218" x2="125" y2="232" stroke="#92400e" stroke-width="2"/>
-  <line x1="145" y1="218" x2="165" y2="232" stroke="#92400e" stroke-width="2"/>
-  <line x1="145" y1="240" x2="133" y2="262" stroke="#92400e" stroke-width="2.5"/>
-  <line x1="145" y1="240" x2="157" y2="262" stroke="#92400e" stroke-width="2.5"/>
-
-  <text x="225" y="190" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">労働収入</text>
-  <text x="225" y="210" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">事業収入</text>
-  <text x="225" y="250" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle" font-style="italic">稼ぐ力を磨く</text>
-
-  <!-- Arrow 1 -->
-  <path d="M 305 190 L 375 190" fill="none" stroke="#92400e" stroke-width="3"/>
-  <polygon points="375,181 393,190 375,199" fill="#92400e"/>
-  <text x="349" y="178" font-family="'Hiragino Sans', sans-serif" font-size="11" fill="#b45309" text-anchor="middle">仕組み化</text>
-
-  <!-- Stage 2: 増やす -->
-  <rect x="390" y="100" width="220" height="180" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
-  <rect x="390" y="100" width="220" height="44" rx="8" fill="#b45309" opacity="0.7"/>
-  <rect x="390" y="130" width="220" height="14" rx="0" fill="#b45309" opacity="0.7"/>
-  <text x="500" y="130" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#faf7f2" text-anchor="middle">② 増やす</text>
-
-  <!-- Growing bar chart -->
-  <rect x="415" y="240" width="28" height="30" fill="#f59e0b" opacity="0.8" stroke="#d97706" stroke-width="1"/>
-  <rect x="455" y="220" width="28" height="50" fill="#f59e0b" opacity="0.8" stroke="#d97706" stroke-width="1"/>
-  <rect x="495" y="195" width="28" height="75" fill="#d97706" opacity="0.8" stroke="#b45309" stroke-width="1"/>
-  <rect x="535" y="170" width="28" height="100" fill="#b45309" opacity="0.8" stroke="#92400e" stroke-width="1"/>
-  <line x1="410" y1="275" x2="575" y2="275" stroke="#92400e" stroke-width="1.5"/>
-
-  <text x="500" y="300" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle" font-style="italic">複利で雪だるま式に</text>
-
-  <!-- Arrow 2 -->
-  <path d="M 615 190 L 685 190" fill="none" stroke="#92400e" stroke-width="3"/>
-  <polygon points="685,181 703,190 685,199" fill="#92400e"/>
-  <text x="649" y="178" font-family="'Hiragino Sans', sans-serif" font-size="11" fill="#b45309" text-anchor="middle">目的を決める</text>
-
-  <!-- Stage 3: 使い切る -->
-  <rect x="700" y="100" width="220" height="180" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
-  <rect x="700" y="100" width="220" height="44" rx="8" fill="#92400e" opacity="0.85"/>
-  <rect x="700" y="130" width="220" height="14" rx="0" fill="#92400e" opacity="0.85"/>
-  <text x="810" y="130" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#fef3c7" text-anchor="middle">③ 使い切る</text>
-
-  <!-- Coins going to library/people -->
-  <circle cx="740" cy="190" r="16" fill="#f59e0b" opacity="0.8" stroke="#92400e" stroke-width="2"/>
-  <text x="740" y="196" font-family="'Hiragino Sans', sans-serif" font-size="13" font-weight="700" fill="#92400e" text-anchor="middle">$</text>
-  <path d="M 756 183 Q 785 160 810 165" fill="none" stroke="#92400e" stroke-width="2"/>
-  <polygon points="810,157 820,167 808,172" fill="#92400e"/>
-
-  <!-- Library mini -->
-  <rect x="808" y="162" width="50" height="35" fill="none" stroke="#92400e" stroke-width="1.5"/>
-  <polygon points="800,162 866,162 833,142" fill="none" stroke="#92400e" stroke-width="1.5"/>
-  <text x="833" y="210" font-family="'Hiragino Sans', sans-serif" font-size="11" fill="#92400e" text-anchor="middle">社会貢献</text>
-
-  <text x="750" y="240" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">教育・文化</text>
-  <text x="810" y="260" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle" font-style="italic">「裕福なまま死ぬことは恥」</text>
-
-  <!-- Bottom label -->
-  <text x="500" y="395" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#b45309" text-anchor="middle" letter-spacing="1" opacity="0.9">カーネギーが実践した、お金の三段階の哲学</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="400" viewBox="0 0 1000 400">
+  <rect width="1000" height="400" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="400" fill="none" stroke="#fde68a" stroke-width="2"/>
+  <g opacity="0.85">
+    <circle cx="180" cy="200" r="50" fill="#92400e"/>
+  </g>
+  <path d="M 250 200 L 360 200" stroke="#d97706" stroke-width="4" fill="none" stroke-dasharray="3 9" stroke-linecap="round" opacity="0.7"/>
+  <path d="M 348 188 L 360 200 L 348 212" stroke="#d97706" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <g opacity="0.85">
+    <circle cx="450" cy="200" r="62" fill="#d97706"/>
+  </g>
+  <path d="M 535 200 L 645 200" stroke="#f59e0b" stroke-width="4" fill="none" stroke-dasharray="3 9" stroke-linecap="round" opacity="0.7"/>
+  <path d="M 633 188 L 645 200 L 633 212" stroke="#f59e0b" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <g opacity="0.85">
+    <circle cx="780" cy="160" r="26" fill="#fde68a"/>
+    <circle cx="850" cy="200" r="22" fill="#fde68a"/>
+    <circle cx="800" cy="250" r="20" fill="#fde68a"/>
+    <circle cx="720" cy="240" r="18" fill="#fde68a"/>
+  </g>
 </svg>

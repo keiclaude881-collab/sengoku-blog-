@@ -1,60 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#faf7f2"/>
-  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
-  <!-- 他者の評価軸と自分の軸の対比図 -->
-
-  <!-- Divider -->
-  <line x1="500" y1="40" x2="500" y2="380" stroke="#e8e0d4" stroke-width="2" stroke-dasharray="10 5"/>
-
-  <!-- Left side: 他者の評価軸 -->
-  <rect x="60" y="60" width="400" height="290" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" opacity="0.5"/>
-  <text x="260" y="100" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#b45309" text-anchor="middle">他者の評価軸</text>
-
-  <!-- Left axis: vertical bar with ticks -->
-  <line x1="180" y1="130" x2="180" y2="310" stroke="#d97706" stroke-width="3"/>
-  <!-- Ticks -->
-  <line x1="170" y1="150" x2="190" y2="150" stroke="#d97706" stroke-width="2"/>
-  <text x="160" y="155" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#92400e" text-anchor="end">高</text>
-  <line x1="170" y1="210" x2="190" y2="210" stroke="#d97706" stroke-width="2"/>
-  <line x1="170" y1="270" x2="190" y2="270" stroke="#d97706" stroke-width="2"/>
-  <text x="160" y="275" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#92400e" text-anchor="end">低</text>
-  <!-- Arrow up -->
-  <polygon points="180,122 174,140 186,140" fill="#d97706"/>
-
-  <!-- External labels on left side -->
-  <rect x="210" y="140" width="200" height="30" rx="6" fill="#f59e0b" opacity="0.3" stroke="#d97706" stroke-width="1"/>
-  <text x="310" y="160" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">SNSのフォロワー数</text>
-  <rect x="210" y="185" width="200" height="30" rx="6" fill="#f59e0b" opacity="0.3" stroke="#d97706" stroke-width="1"/>
-  <text x="310" y="205" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">年収・役職・肩書き</text>
-  <rect x="210" y="230" width="200" height="30" rx="6" fill="#f59e0b" opacity="0.3" stroke="#d97706" stroke-width="1"/>
-  <text x="310" y="250" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">他者との比較・順位</text>
-  <rect x="210" y="275" width="200" height="30" rx="6" fill="#f59e0b" opacity="0.3" stroke="#d97706" stroke-width="1"/>
-  <text x="310" y="295" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">「勝ち組」か「負け組」か</text>
-
-  <!-- Left caption -->
-  <text x="260" y="375" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle" opacity="0.8">振り回されると消耗する</text>
-
-  <!-- Right side: 自分の軸 -->
-  <rect x="540" y="60" width="400" height="290" rx="10" fill="#fef3c7" stroke="#92400e" stroke-width="2" opacity="0.6"/>
-  <text x="740" y="100" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#92400e" text-anchor="middle">自分の軸</text>
-
-  <!-- Right: compass-like icon -->
-  <circle cx="660" cy="215" r="50" fill="none" stroke="#b45309" stroke-width="2.5"/>
-  <line x1="660" y1="165" x2="660" y2="265" stroke="#b45309" stroke-width="1.5" opacity="0.4"/>
-  <line x1="610" y1="215" x2="710" y2="215" stroke="#b45309" stroke-width="1.5" opacity="0.4"/>
-  <!-- Needle pointing up (to own north) -->
-  <polygon points="660,170 654,210 666,210" fill="#92400e"/>
-  <polygon points="660,260 654,220 666,220" fill="#d97706" opacity="0.5"/>
-  <circle cx="660" cy="215" r="6" fill="#f59e0b" stroke="#92400e" stroke-width="2"/>
-
-  <!-- Right labels -->
-  <rect x="730" y="150" width="180" height="30" rx="6" fill="#fef3c7" stroke="#92400e" stroke-width="1.5"/>
-  <text x="820" y="170" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">何のために働くか</text>
-  <rect x="730" y="195" width="180" height="30" rx="6" fill="#fef3c7" stroke="#92400e" stroke-width="1.5"/>
-  <text x="820" y="215" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">何を実現したいか</text>
-  <rect x="730" y="240" width="180" height="30" rx="6" fill="#fef3c7" stroke="#92400e" stroke-width="1.5"/>
-  <text x="820" y="260" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">自分の信念に沿っているか</text>
-
-  <!-- Right caption -->
-  <text x="740" y="375" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#92400e" text-anchor="middle" font-weight="700" opacity="0.9">リンカーンはここを持ち続けた</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360">
+  <rect width="1000" height="360" fill="#f0f7ff" />
+  <line x1="500" y1="60" x2="500" y2="300" stroke="#bfdbfe" stroke-width="3" stroke-dasharray="8 8" />
+  <g opacity="0.8">
+    <rect x="120" y="120" width="60" height="30" rx="6" fill="#93c5fd" />
+    <rect x="200" y="160" width="60" height="30" rx="6" fill="#93c5fd" />
+    <rect x="140" y="200" width="60" height="30" rx="6" fill="#93c5fd" />
+    <rect x="230" y="100" width="60" height="30" rx="6" fill="#93c5fd" />
+    <circle cx="190" cy="160" r="10" fill="#bfdbfe" />
+  </g>
+  <g>
+    <circle cx="780" cy="190" r="70" fill="none" stroke="#1e40af" stroke-width="5" />
+    <line x1="780" y1="130" x2="780" y2="250" stroke="#bfdbfe" stroke-width="2" />
+    <line x1="720" y1="190" x2="840" y2="190" stroke="#bfdbfe" stroke-width="2" />
+    <polygon points="780,140 768,195 792,195" fill="#1e3a8a" />
+    <polygon points="780,240 768,185 792,185" fill="#3b82f6" opacity="0.5" />
+    <circle cx="780" cy="190" r="8" fill="#1e40af" />
+  </g>
 </svg>

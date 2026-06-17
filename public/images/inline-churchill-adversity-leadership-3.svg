@@ -1,40 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#faf7f2"/>
-  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
-  <!-- 言葉が人々に広がる波紋のイメージ -->
-
-  <!-- Title -->
-  <text x="500" y="42" font-family="'Hiragino Sans', sans-serif" font-size="17" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="1">リーダーの言葉が組織の空気を変える</text>
-
-  <!-- Center: speaker icon -->
-  <circle cx="500" cy="210" r="38" fill="#92400e"/>
-  <text x="500" y="218" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#faf7f2" text-anchor="middle">言葉</text>
-
-  <!-- Ripple circles -->
-  <circle cx="500" cy="210" r="70" fill="none" stroke="#b45309" stroke-width="2.5" opacity="0.8"/>
-  <circle cx="500" cy="210" r="105" fill="none" stroke="#d97706" stroke-width="2" opacity="0.6"/>
-  <circle cx="500" cy="210" r="145" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.45"/>
-  <circle cx="500" cy="210" r="190" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.3"/>
-
-  <!-- People icons at ripple edges -->
-  <!-- Near circle people -->
-  <circle cx="430" cy="148" r="14" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
-  <text x="430" y="153" font-family="'Hiragino Sans', sans-serif" font-size="11" fill="#92400e" text-anchor="middle">部下</text>
-  <circle cx="570" cy="148" r="14" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
-  <text x="570" y="153" font-family="'Hiragino Sans', sans-serif" font-size="11" fill="#92400e" text-anchor="middle">同僚</text>
-  <circle cx="430" cy="272" r="14" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
-  <text x="430" y="277" font-family="'Hiragino Sans', sans-serif" font-size="11" fill="#92400e" text-anchor="middle">チーム</text>
-  <circle cx="570" cy="272" r="14" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
-  <text x="570" y="277" font-family="'Hiragino Sans', sans-serif" font-size="11" fill="#92400e" text-anchor="middle">上司</text>
-
-  <!-- Outer circle people -->
-  <circle cx="355" cy="210" r="14" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
-  <text x="355" y="215" font-family="'Hiragino Sans', sans-serif" font-size="11" fill="#92400e" text-anchor="middle">組織</text>
-  <circle cx="645" cy="210" r="14" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
-  <text x="645" y="215" font-family="'Hiragino Sans', sans-serif" font-size="11" fill="#92400e" text-anchor="middle">社会</text>
-
-  <!-- Quote from Churchill -->
-  <rect x="60" y="356" width="880" height="46" rx="8" fill="#fef3c7" stroke="#b45309" stroke-width="1.5" opacity="0.9"/>
-  <text x="500" y="376" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">「我々は浜辺で戦う、草原で戦う、決して降伏しない」 ― チャーチルの言葉が国民の士気を変えた</text>
-  <text x="500" y="394" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">絶望的状況でも希望を語るリーダーの言葉は、チームの空気を根底から変える</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="400" viewBox="0 0 1000 400">
+  <rect width="1000" height="400" fill="#f0f7ff"/>
+  <rect x="0" y="0" width="1000" height="400" fill="none" stroke="#dbeafe" stroke-width="2"/>
+  <circle cx="500" cy="200" r="36" fill="#1e3a8a"/>
+  <circle cx="500" cy="200" r="68" fill="none" stroke="#1e40af" stroke-width="3" opacity="0.8"/>
+  <circle cx="500" cy="200" r="102" fill="none" stroke="#3b82f6" stroke-width="2.5" opacity="0.6"/>
+  <circle cx="500" cy="200" r="140" fill="none" stroke="#93c5fd" stroke-width="2" opacity="0.45"/>
+  <circle cx="500" cy="200" r="180" fill="none" stroke="#bfdbfe" stroke-width="1.5" opacity="0.35"/>
+  <g fill="#3b82f6" opacity="0.85">
+    <circle cx="430" cy="135" r="13"/>
+    <circle cx="570" cy="135" r="13"/>
+    <circle cx="430" cy="265" r="13"/>
+    <circle cx="570" cy="265" r="13"/>
+    <circle cx="350" cy="200" r="11"/>
+    <circle cx="650" cy="200" r="11"/>
+  </g>
 </svg>

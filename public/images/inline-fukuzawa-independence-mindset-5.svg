@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#faf5ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
+  <!-- 左:あちこちに振り回される矢印 / 右:まっすぐ積み上がる塔 -->
+  <g transform="translate(280,210)" opacity="0.8">
+    <circle cx="0" cy="0" r="10" fill="#9ca3af"/>
+    <path d="M 10 -4 Q 70 -70 0 -120" stroke="#9ca3af" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M 10 4 Q 80 60 -20 120" stroke="#9ca3af" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M -10 0 Q -90 10 -100 -60" stroke="#9ca3af" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </g>
+  <line x1="500" y1="60" x2="500" y2="360" stroke="#e9d5ff" stroke-width="2" stroke-dasharray="6 8"/>
+  <g transform="translate(700,350)">
+    <rect x="-70" y="-40" width="140" height="40" rx="6" fill="#d8b4fe"/>
+    <rect x="-58" y="-90" width="116" height="40" rx="6" fill="#9333ea"/>
+    <rect x="-46" y="-140" width="92" height="40" rx="6" fill="#7e22ce"/>
+    <rect x="-32" y="-188" width="64" height="40" rx="6" fill="#6b21a8"/>
+  </g>
+</svg>

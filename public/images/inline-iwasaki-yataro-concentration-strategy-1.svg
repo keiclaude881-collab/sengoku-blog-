@@ -1,41 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="360" viewBox="0 0 1000 360">
-  <rect width="1000" height="360" fill="#fffbeb" rx="12"/>
-  <rect x="0" y="0" width="1000" height="360" rx="12" fill="none" stroke="#fde68a" stroke-width="1.5"/>
-
-  <text x="500" y="44" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="17" font-weight="700" fill="#92400e" text-anchor="middle">「分散型」アプローチ vs「一点突破型」アプローチ</text>
-
-  <!-- LEFT: 分散型 -->
-  <rect x="40" y="68" width="420" height="262" rx="10" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
-  <text x="250" y="100" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="15" font-weight="700" fill="#1e40af" text-anchor="middle">分散型アプローチ</text>
-
-  <!-- Multiple thin bars -->
-  <rect x="80" y="120" width="300" height="28" rx="6" fill="#93c5fd"/>
-  <text x="230" y="139" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#1e40af" text-anchor="middle">A事業 (25%)</text>
-  <rect x="80" y="156" width="300" height="28" rx="6" fill="#93c5fd"/>
-  <text x="230" y="175" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#1e40af" text-anchor="middle">B事業 (25%)</text>
-  <rect x="80" y="192" width="300" height="28" rx="6" fill="#93c5fd"/>
-  <text x="230" y="211" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#1e40af" text-anchor="middle">C事業 (25%)</text>
-  <rect x="80" y="228" width="300" height="28" rx="6" fill="#93c5fd"/>
-  <text x="230" y="247" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#1e40af" text-anchor="middle">D事業 (25%)</text>
-
-  <text x="230" y="298" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#1e40af" text-anchor="middle">リスク分散 → 平均的なリターン</text>
-
-  <!-- Divider -->
-  <line x1="500" y1="60" x2="500" y2="310" stroke="#fde68a" stroke-width="2" stroke-dasharray="5,4"/>
-  <text x="500" y="338" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#d97706" text-anchor="middle">VS</text>
-
-  <!-- RIGHT: 一点突破 -->
-  <rect x="540" y="68" width="420" height="262" rx="10" fill="#fef3c7" stroke="#fde68a" stroke-width="1.5"/>
-  <text x="750" y="100" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">岩崎弥太郎式：一点突破型</text>
-
-  <!-- Single dominant bar -->
-  <rect x="580" y="120" width="340" height="100" rx="8" fill="#d97706"/>
-  <text x="750" y="168" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="18" font-weight="700" fill="#fff" text-anchor="middle">海運事業 (100%)</text>
-
-  <!-- Arrow down -->
-  <line x1="750" y1="230" x2="750" y2="256" stroke="#d97706" stroke-width="2"/>
-  <polygon points="743,250 750,262 757,250" fill="#d97706"/>
-
-  <rect x="600" y="260" width="300" height="40" rx="8" fill="#92400e"/>
-  <text x="750" y="284" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" font-weight="700" fill="#fef3c7" text-anchor="middle">集中 → 市場制覇 → 多角化</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#fde68a" stroke-width="2"/>
+  <g transform="translate(300,210)" stroke="#f59e0b" stroke-width="5" stroke-linecap="round" opacity="0.75">
+    <line x1="0" y1="0" x2="-90" y2="-70"/>
+    <line x1="0" y1="0" x2="-100" y2="10"/>
+    <line x1="0" y1="0" x2="-70" y2="90"/>
+    <line x1="0" y1="0" x2="20" y2="-100"/>
+  </g>
+  <circle cx="300" cy="210" r="10" fill="#92400e"/>
+  <g transform="translate(720,210)" stroke="#d97706" stroke-width="8" stroke-linecap="round">
+    <line x1="0" y1="0" x2="130" y2="0"/>
+  </g>
+  <circle cx="720" cy="210" r="12" fill="#78350f"/>
+  <circle cx="850" cy="210" r="14" fill="#92400e"/>
 </svg>

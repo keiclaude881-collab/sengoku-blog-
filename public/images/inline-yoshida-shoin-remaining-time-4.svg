@@ -1,67 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#faf7ff"/>
-  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e9d5ff" stroke-width="2"/>
-
-  <text x="500" y="46" font-family="sans-serif" font-size="18" font-weight="700" fill="#6b21a8" text-anchor="middle">知識は人から人へ——連鎖する学びの力</text>
-
-  <!-- 松陰（起点） -->
-  <circle cx="130" cy="210" r="36" fill="#6b21a8"/>
-  <text x="130" y="206" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">吉田</text>
-  <text x="130" y="222" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">松陰</text>
-
-  <!-- 矢印1 -->
-  <path d="M 170 210 Q 220 170 260 190" fill="none" stroke="#8b5cf6" stroke-width="3"/>
-  <polygon points="260,190 244,186 248,200" fill="#8b5cf6"/>
-  <!-- 知識の波紋 -->
-  <circle cx="130" cy="210" r="50" fill="none" stroke="#d8b4fe" stroke-width="1.5" opacity="0.5"/>
-  <circle cx="130" cy="210" r="68" fill="none" stroke="#d8b4fe" stroke-width="1" opacity="0.3"/>
-
-  <!-- 第1世代（松下村塾の弟子たち） -->
-  <circle cx="310" cy="150" r="28" fill="#7c3aed"/>
-  <text x="310" y="146" font-family="sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">高杉</text>
-  <text x="310" y="162" font-family="sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">晋作</text>
-
-  <circle cx="310" cy="270" r="28" fill="#7c3aed"/>
-  <text x="310" y="266" font-family="sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">久坂</text>
-  <text x="310" y="282" font-family="sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">玄瑞</text>
-
-  <!-- 矢印2 -->
-  <path d="M 340 155 Q 390 140 430 160" fill="none" stroke="#a855f7" stroke-width="2.5"/>
-  <polygon points="430,160 415,152 416,166" fill="#a855f7"/>
-  <path d="M 340 265 Q 390 270 430 255" fill="none" stroke="#a855f7" stroke-width="2.5"/>
-  <polygon points="430,255 415,250 417,264" fill="#a855f7"/>
-
-  <!-- 第2世代 -->
-  <circle cx="480" cy="130" r="24" fill="#a855f7"/>
-  <text x="480" y="126" font-family="sans-serif" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle">伊藤</text>
-  <text x="480" y="140" font-family="sans-serif" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle">博文</text>
-
-  <circle cx="480" cy="210" r="24" fill="#a855f7"/>
-  <text x="480" y="206" font-family="sans-serif" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle">山縣</text>
-  <text x="480" y="220" font-family="sans-serif" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle">有朋</text>
-
-  <circle cx="480" cy="290" r="24" fill="#a855f7"/>
-  <text x="480" y="286" font-family="sans-serif" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle">木戸</text>
-  <text x="480" y="300" font-family="sans-serif" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle">孝允</text>
-
-  <!-- 矢印3 -->
-  <path d="M 506 135 Q 570 130 620 150" fill="none" stroke="#c4b5fd" stroke-width="2"/>
-  <polygon points="620,150 605,144 607,158" fill="#c4b5fd"/>
-  <path d="M 506 210 Q 570 210 620 200" fill="none" stroke="#c4b5fd" stroke-width="2"/>
-  <polygon points="620,200 605,196 607,210" fill="#c4b5fd"/>
-  <path d="M 506 285 Q 570 280 620 260" fill="none" stroke="#c4b5fd" stroke-width="2"/>
-  <polygon points="620,260 606,258 609,272" fill="#c4b5fd"/>
-
-  <!-- 明治維新 -->
-  <rect x="650" y="140" width="200" height="110" rx="12" fill="#6b21a8"/>
-  <text x="750" y="180" font-family="sans-serif" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle">明治維新</text>
-  <text x="750" y="204" font-family="sans-serif" font-size="12" fill="#e9d5ff" text-anchor="middle">日本を変えた</text>
-  <text x="750" y="222" font-family="sans-serif" font-size="12" fill="#e9d5ff" text-anchor="middle">一人の意志の連鎖</text>
-
-  <!-- 輝き -->
-  <circle cx="750" cy="195" r="75" fill="none" stroke="#d8b4fe" stroke-width="1.5" opacity="0.4"/>
-
-  <!-- 底部メッセージ -->
-  <rect x="150" y="360" width="700" height="44" rx="10" fill="#f3e8ff"/>
-  <text x="500" y="387" font-family="sans-serif" font-size="14" font-weight="700" fill="#6b21a8" text-anchor="middle">教えることで学ぶ——アウトプットが最大の成長エンジン</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360">
+  <rect width="1000" height="360" fill="#faf5ff" />
+  <circle cx="130" cy="190" r="36" fill="#6b21a8" />
+  <circle cx="130" cy="190" r="52" fill="none" stroke="#d8b4fe" stroke-width="2" opacity="0.5" />
+  <path d="M170 190 Q220 150 260 170" stroke="#9333ea" stroke-width="4" fill="none" />
+  <polygon points="260,170 244,166 248,180" fill="#9333ea" />
+  <circle cx="300" cy="130" r="28" fill="#7e22ce" />
+  <circle cx="300" cy="250" r="28" fill="#7e22ce" />
+  <path d="M330 135 Q390 120 430 140" stroke="#9333ea" stroke-width="3" fill="none" />
+  <polygon points="430,140 415,132 416,146" fill="#9333ea" />
+  <path d="M330 245 Q390 250 430 235" stroke="#9333ea" stroke-width="3" fill="none" />
+  <polygon points="430,235 415,230 417,244" fill="#9333ea" />
+  <circle cx="470" cy="110" r="24" fill="#9333ea" />
+  <circle cx="470" cy="190" r="24" fill="#9333ea" />
+  <circle cx="470" cy="270" r="24" fill="#9333ea" />
+  <path d="M496 115 Q560 110 610 130" stroke="#c084fc" stroke-width="2" fill="none" />
+  <path d="M496 190 Q560 190 610 180" stroke="#c084fc" stroke-width="2" fill="none" />
+  <path d="M496 265 Q560 260 610 240" stroke="#c084fc" stroke-width="2" fill="none" />
+  <rect x="640" y="130" width="200" height="110" rx="14" fill="#6b21a8" />
+  <circle cx="740" cy="185" r="60" fill="none" stroke="#d8b4fe" stroke-width="2" opacity="0.4" />
 </svg>

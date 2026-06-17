@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#f0f7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#dbeafe" stroke-width="2"/>
+  <!-- 「気をつける」(あいまいな雲)から「仕組み」(チェックの歯車)への変換 -->
+  <g transform="translate(280,200)" fill="#bfdbfe" opacity="0.6">
+    <ellipse cx="0" cy="0" rx="90" ry="56"/>
+    <ellipse cx="-60" cy="20" rx="50" ry="34"/>
+    <ellipse cx="60" cy="16" rx="54" ry="36"/>
+  </g>
+  <g stroke="#3b82f6" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M 400 210 L 600 210"/>
+    <path d="M 600 210 L 586 200 M 600 210 L 586 220"/>
+  </g>
+  <g transform="translate(740,210)">
+    <rect x="-90" y="-90" width="180" height="180" rx="20" fill="#1e40af" opacity="0.12"/>
+    <rect x="-60" y="-50" width="120" height="26" rx="6" fill="#3b82f6" opacity="0.8"/>
+    <rect x="-60" y="-10" width="120" height="26" rx="6" fill="#1e40af" opacity="0.8"/>
+    <rect x="-60" y="30" width="120" height="26" rx="6" fill="#1e3a8a" opacity="0.8"/>
+    <path d="M -48 -37 L -40 -29 L -24 -47" stroke="#f0f7ff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M -48 3 L -40 11 L -24 -7" stroke="#f0f7ff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M -48 43 L -40 51 L -24 33" stroke="#f0f7ff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

@@ -1,40 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="340" viewBox="0 0 1000 340">
-  <rect width="1000" height="340" fill="#fffbeb" rx="12"/>
-  <rect x="0" y="0" width="1000" height="340" rx="12" fill="none" stroke="#fde68a" stroke-width="1.5"/>
-
-  <text x="500" y="38" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle">「短期利益最大化」vs「道徳経済合一」——渋沢が選んだのはどちらか</text>
-
-  <!-- Left column: 短期利益主義 -->
-  <rect x="50" y="58" width="380" height="240" rx="10" fill="#fff1f2" stroke="#fca5a5" stroke-width="1.5"/>
-  <rect x="50" y="58" width="380" height="44" rx="10" fill="#ef4444"/>
-  <rect x="50" y="88" width="380" height="14" rx="0" fill="#ef4444"/>
-  <text x="240" y="86" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">短期利益最大化モデル</text>
-
-  <text x="240" y="128" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#991b1b" text-anchor="middle">✗ 株主利益だけを追う</text>
-  <text x="240" y="153" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#991b1b" text-anchor="middle">✗ 競合を潰して市場支配</text>
-  <text x="240" y="178" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#991b1b" text-anchor="middle">✗ 社会コストを外部化</text>
-  <text x="240" y="203" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#991b1b" text-anchor="middle">✗ 社員・地域を犠牲にする</text>
-  <rect x="70" y="222" width="340" height="56" rx="8" fill="#fee2e2" stroke="#fca5a5" stroke-width="1"/>
-  <text x="240" y="246" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#7f1d1d" text-anchor="middle">→ 短期的に利益が出ても</text>
-  <text x="240" y="264" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#7f1d1d" text-anchor="middle">　社会の信用を失い持続困難</text>
-
-  <!-- VS -->
-  <text x="500" y="195" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="22" font-weight="700" fill="#d97706" text-anchor="middle">VS</text>
-
-  <!-- Right column: 渋沢栄一式 -->
-  <rect x="570" y="58" width="380" height="240" rx="10" fill="#fef3c7" stroke="#fde68a" stroke-width="1.5"/>
-  <rect x="570" y="58" width="380" height="44" rx="10" fill="#d97706"/>
-  <rect x="570" y="88" width="380" height="14" rx="0" fill="#d97706"/>
-  <text x="760" y="86" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">渋沢栄一式：道徳経済合一</text>
-
-  <text x="760" y="128" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#92400e" text-anchor="middle">✓ 道徳と利益を同時に追う</text>
-  <text x="760" y="153" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#92400e" text-anchor="middle">✓ 共同出資で産業全体を育てる</text>
-  <text x="760" y="178" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#92400e" text-anchor="middle">✓ 社会インフラへ積極的に投資</text>
-  <text x="760" y="203" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#92400e" text-anchor="middle">✓ 社員・地域を共に豊かにする</text>
-  <rect x="590" y="222" width="340" height="56" rx="8" fill="#fde68a" stroke="#d97706" stroke-width="1"/>
-  <text x="760" y="246" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#78350f" text-anchor="middle">→ 91年間にわたり信頼を集め</text>
-  <text x="760" y="264" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#78350f" text-anchor="middle">　現代まで影響力が続く</text>
-
-  <!-- Bottom note -->
-  <text x="500" y="320" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#92400e" text-anchor="middle">渋沢が選んだのは右側——そして実際に日本経済の基盤を作った</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="400" viewBox="0 0 1000 400">
+  <rect width="1000" height="400" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="400" fill="none" stroke="#fde68a" stroke-width="2"/>
+  <!-- 中心の人物から8方向に広がるネットワーク投資のイメージ（業種ごとの異なる形のアイコン、文字なし） -->
+  <circle cx="500" cy="200" r="48" fill="#92400e"/>
+  <circle cx="500" cy="200" r="20" fill="#fde68a"/>
+  <g stroke="#fde68a" stroke-width="2.5" opacity="0.8">
+    <line x1="500" y1="152" x2="500" y2="90"/>
+    <line x1="534" y1="166" x2="600" y2="118"/>
+    <line x1="548" y1="200" x2="640" y2="200"/>
+    <line x1="534" y1="234" x2="600" y2="282"/>
+    <line x1="500" y1="248" x2="500" y2="310"/>
+    <line x1="466" y1="234" x2="400" y2="282"/>
+    <line x1="452" y1="200" x2="360" y2="200"/>
+    <line x1="466" y1="166" x2="400" y2="118"/>
+  </g>
+  <g fill="#f59e0b" opacity="0.85">
+    <rect x="470" y="55" width="60" height="38" rx="6"/>
+    <circle cx="620" cy="105" r="26"/>
+    <polygon points="675,178 705,200 675,222 645,200"/>
+    <rect x="585" y="265" width="58" height="38" rx="19"/>
+    <path d="M 480 318 L 520 318 L 530 340 L 470 340 Z"/>
+    <rect x="370" y="265" width="58" height="38" rx="6"/>
+    <polygon points="330,178 360,200 330,222 300,200"/>
+    <circle cx="375" cy="105" r="26"/>
+  </g>
 </svg>

@@ -1,60 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#faf7f2"/>
-  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
-
-  <defs>
-    <marker id="arrowGray" markerWidth="12" markerHeight="12" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#9ca3af"/>
-    </marker>
-    <marker id="arrowAmber" markerWidth="12" markerHeight="12" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#d97706"/>
-    </marker>
-  </defs>
-
-  <!-- Title -->
-  <text x="500" y="44" font-family="'Hiragino Sans', sans-serif" font-size="24" font-weight="700" fill="#92400e" text-anchor="middle">「ばらまく」と「築く」、富の使い方の違い</text>
-  <line x1="40" y1="62" x2="960" y2="62" stroke="#e8e0d4" stroke-width="1.5"/>
-
-  <!-- Row 1: 使い切り型 -->
-  <text x="40" y="98" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#9ca3af">よくある発想(使い切り型)</text>
-
-  <rect x="40" y="112" width="270" height="90" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="175" y="165" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">大金が手に入る</text>
-
-  <line x1="318" y1="157" x2="358" y2="157" stroke="#9ca3af" stroke-width="4" marker-end="url(#arrowGray)"/>
-
-  <rect x="362" y="112" width="270" height="90" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="497" y="165" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">一気に配る・使う</text>
-
-  <!-- Row 2: 築く型 -->
-  <text x="40" y="246" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#b45309">マンサ・ムーサの教訓(築く型)</text>
-
-  <rect x="40" y="260" width="270" height="100" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <text x="175" y="318" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#57534e" text-anchor="middle">量とペースを設計する</text>
-
-  <line x1="318" y1="310" x2="358" y2="310" stroke="#d97706" stroke-width="4" marker-end="url(#arrowAmber)"/>
-
-  <rect x="362" y="252" width="270" height="116" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="3"/>
-  <text x="497" y="300" font-family="'Hiragino Sans', sans-serif" font-size="22" font-weight="700" fill="#92400e" text-anchor="middle">長く残るものに配分</text>
-  <text x="497" y="334" font-family="'Hiragino Sans', sans-serif" font-size="17" fill="#b45309" text-anchor="middle">→価値が何世紀も続く</text>
-
-  <!-- Right side: explanation box -->
-  <rect x="660" y="80" width="300" height="290" rx="10" fill="none" stroke="#e8e0d4" stroke-width="1.5"/>
-  <text x="810" y="120" font-family="'Hiragino Sans', sans-serif" font-size="20" font-weight="700" fill="#92400e" text-anchor="middle">マンサ・ムーサの軌跡</text>
-  <line x1="680" y1="135" x2="940" y2="135" stroke="#e8e0d4" stroke-width="1"/>
-
-  <circle cx="690" cy="178" r="6" fill="#92400e"/>
-  <text x="708" y="185" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">黄金と塩の交易で</text>
-  <text x="708" y="212" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">史上最大の富を築いた</text>
-
-  <circle cx="690" cy="246" r="6" fill="#92400e"/>
-  <text x="708" y="253" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">メッカ巡礼で金をばらまき</text>
-  <text x="708" y="280" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">相場を12年暴落させた</text>
-
-  <circle cx="690" cy="314" r="6" fill="#92400e"/>
-  <text x="708" y="321" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">トンブクトゥに大学を築き</text>
-  <text x="708" y="348" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#1c1917">数世紀残る財産にした</text>
-
-  <!-- Bottom quote -->
-  <text x="500" y="402" font-family="'Hiragino Sans', sans-serif" font-size="18" fill="#b45309" text-anchor="middle" letter-spacing="1" opacity="0.85" font-style="italic">「与えすぎた金が、自分の富の価値を下げた」</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="380" viewBox="0 0 1000 380">
+  <rect width="1000" height="380" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="380" fill="none" stroke="#fde68a" stroke-width="2"/>
+  <g transform="translate(420,210)" opacity="0.85">
+    <rect x="-70" y="-50" width="140" height="100" rx="14" fill="#fde68a"/>
+    <circle cx="0" cy="-6" r="30" fill="#f59e0b"/>
+  </g>
+  <g stroke="#d97706" stroke-width="2.5" opacity="0.6" stroke-linecap="round">
+    <path d="M 520 200 L 600 200" fill="none"/>
+    <path d="M 588 188 L 602 200 L 588 212" fill="none" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(700,210)" opacity="0.8">
+    <circle cx="-30" cy="0" r="22" fill="#f59e0b"/>
+    <circle cx="20" cy="-10" r="16" fill="#fde68a"/>
+    <circle cx="55" cy="14" r="12" fill="#fde68a"/>
+  </g>
+  <g stroke="#92400e" stroke-width="2" opacity="0.4" stroke-dasharray="3 5">
+    <path d="M 700 130 Q 720 100 750 110" fill="none"/>
+  </g>
 </svg>

@@ -1,69 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
-  <rect width="1000" height="420" fill="#faf7f2"/>
-  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#e8e0d4" stroke-width="2"/>
-  <!-- 3哲学をシンプルにまとめた構造図 -->
-
-  <!-- Title -->
-  <text x="500" y="42" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#92400e" text-anchor="middle">ロックフェラーの3つのお金哲学</text>
-  <line x1="100" y1="58" x2="900" y2="58" stroke="#e8e0d4" stroke-width="1.5"/>
-
-  <!-- Philosophy 1 -->
-  <rect x="60" y="82" width="266" height="270" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
-  <rect x="60" y="82" width="266" height="54" rx="10" fill="#92400e" opacity="0.85"/>
-  <rect x="60" y="118" width="266" height="18" rx="0" fill="#92400e" opacity="0.85"/>
-  <text x="193" y="106" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#fef3c7" text-anchor="middle">哲学① 比率で管理する</text>
-  <text x="193" y="122" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#fef3c7" text-anchor="middle">10%ルールを一生守り続ける</text>
-
-  <!-- Icon: pie chart symbol -->
-  <circle cx="193" cy="184" r="36" fill="none" stroke="#d97706" stroke-width="2.5" opacity="0.7"/>
-  <path d="M 193 148 A 36 36 0 0 1 229 184 L 193 184 Z" fill="#92400e" opacity="0.6"/>
-  <path d="M 229 184 A 36 36 0 0 1 193 220 L 193 184 Z" fill="#d97706" opacity="0.5"/>
-  <path d="M 193 220 A 36 36 0 1 1 193 148 L 193 184 Z" fill="#f59e0b" opacity="0.4"/>
-
-  <text x="193" y="256" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">収入が変わっても</text>
-  <text x="193" y="275" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">同じ割合を守る</text>
-  <text x="193" y="303" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle" font-style="italic">→ 先取り積立を「率」で設定</text>
-  <text x="193" y="320" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle" font-style="italic">習慣が崩れにくくなる</text>
-
-  <!-- Philosophy 2 -->
-  <rect x="367" y="82" width="266" height="270" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
-  <rect x="367" y="82" width="266" height="54" rx="10" fill="#b45309" opacity="0.8"/>
-  <rect x="367" y="118" width="266" height="18" rx="0" fill="#b45309" opacity="0.8"/>
-  <text x="500" y="106" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#fef3c7" text-anchor="middle">哲学② お金を動かす</text>
-  <text x="500" y="122" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#fef3c7" text-anchor="middle">利益を消費せず再投資に循環させる</text>
-
-  <!-- Icon: circular arrows -->
-  <circle cx="500" cy="184" r="36" fill="none" stroke="#b45309" stroke-width="2.5" opacity="0.5" stroke-dasharray="4 4"/>
-  <path d="M 500 150 A 34 34 0 0 1 534 184" fill="none" stroke="#b45309" stroke-width="3" stroke-linecap="round"/>
-  <polygon points="530,176 540,187 526,191" fill="#b45309"/>
-  <path d="M 534 184 A 34 34 0 0 1 500 218" fill="none" stroke="#b45309" stroke-width="3" stroke-linecap="round"/>
-  <path d="M 500 218 A 34 34 0 0 1 466 184" fill="none" stroke="#b45309" stroke-width="3" stroke-linecap="round"/>
-  <path d="M 466 184 A 34 34 0 0 1 500 150" fill="none" stroke="#b45309" stroke-width="3" stroke-linecap="round"/>
-  <polygon points="502,150 494,136 510,138" fill="#b45309"/>
-
-  <text x="500" y="256" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">得た利益を</text>
-  <text x="500" y="275" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">次の投資へ回す</text>
-  <text x="500" y="303" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle" font-style="italic">→ 配当を即再投資</text>
-  <text x="500" y="320" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle" font-style="italic">複利の力を最大化</text>
-
-  <!-- Philosophy 3 -->
-  <rect x="674" y="82" width="266" height="270" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
-  <rect x="674" y="82" width="266" height="54" rx="10" fill="#d97706" opacity="0.75"/>
-  <rect x="674" y="118" width="266" height="18" rx="0" fill="#d97706" opacity="0.75"/>
-  <text x="807" y="106" font-family="'Hiragino Sans', sans-serif" font-size="15" font-weight="700" fill="#faf7f2" text-anchor="middle">哲学③ 目的を先に決める</text>
-  <text x="807" y="122" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#faf7f2" text-anchor="middle">「何のために稼ぐか」を言語化する</text>
-
-  <!-- Icon: target/bullseye -->
-  <circle cx="807" cy="184" r="36" fill="none" stroke="#d97706" stroke-width="2.5" opacity="0.5"/>
-  <circle cx="807" cy="184" r="24" fill="none" stroke="#b45309" stroke-width="2" opacity="0.6"/>
-  <circle cx="807" cy="184" r="12" fill="#92400e" opacity="0.65"/>
-  <circle cx="807" cy="184" r="4" fill="#fef3c7"/>
-
-  <text x="807" y="256" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">10代から寄付・社会貢献を</text>
-  <text x="807" y="275" font-family="'Hiragino Sans', sans-serif" font-size="13" fill="#92400e" text-anchor="middle">「目的」として設定</text>
-  <text x="807" y="303" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle" font-style="italic">→ 資産ゴールを金額と期限で</text>
-  <text x="807" y="320" font-family="'Hiragino Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle" font-style="italic">言語化してみる</text>
-
-  <!-- Bottom label -->
-  <text x="500" y="393" font-family="'Hiragino Sans', sans-serif" font-size="14" fill="#b45309" text-anchor="middle" letter-spacing="1" opacity="0.85">習慣の「量」より「継続性」——それがロックフェラーの本質的な教え</text>
+  <rect width="1000" height="420" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#fde68a" stroke-width="2"/>
+  <!-- 3つの輪が支え合い、一本の太い柱として積み上がるイメージ -->
+  <g fill="#f59e0b" opacity="0.85">
+    <circle cx="380" cy="280" r="40"/>
+    <circle cx="500" cy="280" r="40"/>
+    <circle cx="620" cy="280" r="40"/>
+  </g>
+  <g fill="none" stroke="#92400e" stroke-width="3">
+    <circle cx="380" cy="280" r="40"/>
+    <circle cx="500" cy="280" r="40"/>
+    <circle cx="620" cy="280" r="40"/>
+  </g>
+  <rect x="460" y="110" width="80" height="150" rx="10" fill="#d97706" opacity="0.85"/>
+  <path d="M 500 110 L 478 80 L 522 80 Z" fill="#92400e"/>
 </svg>

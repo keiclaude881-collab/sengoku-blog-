@@ -1,10 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
   <rect width="1000" height="420" fill="#f7faff"/>
   <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#dbeafe" stroke-width="2"/>
-  
-  <g transform="translate(540,210)" opacity="0.8">
-    <circle cx="0" cy="0" r="84" fill="none" stroke="#3b82f6" stroke-width="4" stroke-dasharray="13 9" stroke-linecap="round"/>
-    <path d="M 70 -34 L 86 -52 L 96 -28 Z" fill="#3b82f6"/>
+  <!-- 矢印が円を描き、情報が循環していくイメージ -->
+  <g transform="translate(500,210)" opacity="0.85">
+    <circle cx="0" cy="0" r="100" fill="none" stroke="#3b82f6" stroke-width="4" stroke-dasharray="14 10" stroke-linecap="round"/>
+    <path d="M 84 -42 L 102 -62 L 112 -36 Z" fill="#3b82f6"/>
   </g>
-  <text x="540" y="218" font-family="'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#1e40af" text-anchor="middle" opacity="0.8">circulate</text>
+  <g opacity="0.9">
+    <circle cx="500" cy="110" r="9" fill="#1e40af"/>
+    <circle cx="600" cy="210" r="9" fill="#1e3a8a"/>
+    <circle cx="500" cy="310" r="9" fill="#1e40af"/>
+    <circle cx="400" cy="210" r="9" fill="#1e3a8a"/>
+  </g>
+  <circle cx="500" cy="210" r="16" fill="#bfdbfe" stroke="#1e40af" stroke-width="3"/>
 </svg>

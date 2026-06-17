@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360">
+  <rect width="1000" height="360" fill="#faf5ff" />
+  <g opacity="0.45">
+    <polygon points="280,220 230,140 280,160 320,100 360,160 410,140 360,220" fill="#e9d5ff" stroke="#d8b4fe" stroke-width="4" />
+    <circle cx="265" cy="235" r="10" fill="#d8b4fe" />
+    <circle cx="320" cy="245" r="10" fill="#d8b4fe" />
+    <circle cx="375" cy="235" r="10" fill="#d8b4fe" />
+  </g>
+  <g>
+    <circle cx="700" cy="190" r="90" fill="#9333ea" />
+    <circle cx="700" cy="190" r="40" fill="#faf5ff" />
+    <g fill="#9333ea">
+      <rect x="688" y="80" width="24" height="36" rx="4" />
+      <rect x="688" y="264" width="24" height="36" rx="4" />
+      <rect x="580" y="178" width="36" height="24" rx="4" />
+      <rect x="784" y="178" width="36" height="24" rx="4" />
+      <rect x="620" y="108" width="24" height="36" rx="4" transform="rotate(-45 632 126)" />
+      <rect x="756" y="108" width="24" height="36" rx="4" transform="rotate(45 768 126)" />
+      <rect x="620" y="236" width="24" height="36" rx="4" transform="rotate(45 632 254)" />
+      <rect x="756" y="236" width="24" height="36" rx="4" transform="rotate(-45 768 254)" />
+    </g>
+    <circle cx="700" cy="190" r="20" fill="#7e22ce" />
+  </g>
+  <path d="M440 200 C500 175 540 175 600 195" stroke="#6b21a8" stroke-width="6" fill="none" stroke-linecap="round" />
+  <polygon points="600,195 585,184 583,208" fill="#6b21a8" />
+</svg>

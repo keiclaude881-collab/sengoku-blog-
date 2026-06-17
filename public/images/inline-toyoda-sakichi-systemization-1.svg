@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#f0f7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#dbeafe" stroke-width="2"/>
+  <!-- 同じ作業を繰り返す人の上に、波のように上下する結果のグラフ -->
+  <path d="M 160 280 Q 260 180 360 280 Q 460 380 560 280 Q 660 180 760 280 Q 820 340 860 280"
+        fill="none" stroke="#3b82f6" stroke-width="4" stroke-linecap="round" opacity="0.75"/>
+  <circle cx="260" cy="180" r="8" fill="#1e40af"/>
+  <circle cx="460" cy="380" r="8" fill="#bfdbfe"/>
+  <circle cx="660" cy="180" r="8" fill="#1e40af"/>
+  <g transform="translate(500,110)" fill="#1e3a8a" opacity="0.7">
+    <circle cx="0" cy="0" r="20"/>
+    <path d="M -26 30 Q 0 8 26 30 L 26 56 L -26 56 Z"/>
+  </g>
+  <line x1="120" y1="320" x2="880" y2="320" stroke="#93c5fd" stroke-width="2" stroke-dasharray="3 7" opacity="0.6"/>
+</svg>

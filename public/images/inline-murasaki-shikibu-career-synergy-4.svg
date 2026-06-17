@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#f0f7ff"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#dbeafe" stroke-width="2"/>
+
+  <!-- 物語(巻物)の評判が広がり、宮中の門(就職)へつながるイメージ -->
+  <g transform="translate(300,240)" opacity="0.85">
+    <path d="M -80 -10 L 0 -22 L 80 -10 L 80 30 L 0 18 L -80 30 Z" fill="#bfdbfe" stroke="#1e40af" stroke-width="2.5" stroke-linejoin="round"/>
+    <line x1="0" y1="-22" x2="0" y2="18" stroke="#1e40af" stroke-width="2"/>
+  </g>
+
+  <g stroke="#3b82f6" opacity="0.55">
+    <path d="M 400 220 Q 460 180 520 190" fill="none" stroke-width="2.5" stroke-dasharray="3 7"/>
+    <path d="M 400 250 Q 460 270 520 250" fill="none" stroke-width="2.5" stroke-dasharray="3 7"/>
+  </g>
+
+  <!-- 宮中の門 -->
+  <g transform="translate(700,260)" opacity="0.9">
+    <path d="M -70 40 L -70 -30 Q -70 -70 0 -70 Q 70 -70 70 -30 L 70 40 Z" fill="none" stroke="#1e3a8a" stroke-width="5" stroke-linejoin="round"/>
+    <line x1="0" y1="-70" x2="0" y2="40" stroke="#1e3a8a" stroke-width="3"/>
+  </g>
+</svg>

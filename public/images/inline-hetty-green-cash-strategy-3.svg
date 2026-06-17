@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#fffbeb"/>
+  <rect x="0" y="0" width="1000" height="420" fill="none" stroke="#fde68a" stroke-width="2"/>
+  <!-- 銀行の暖房の上に置かれた鍋ひとつで質素に暮らす倹約家のイメージ -->
+  <rect x="300" y="280" width="400" height="20" rx="4" fill="#92400e"/>
+  <g stroke="#92400e" stroke-width="10">
+    <line x1="340" y1="280" x2="340" y2="220"/>
+    <line x1="660" y1="280" x2="660" y2="220"/>
+  </g>
+  <rect x="320" y="200" width="360" height="22" rx="4" fill="#92400e"/>
+  <ellipse cx="500" cy="195" rx="60" ry="22" fill="#d97706"/>
+  <path d="M 460 195 Q 500 160 540 195" stroke="#fde68a" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <circle cx="500" cy="350" r="26" fill="#78350f"/>
+</svg>
