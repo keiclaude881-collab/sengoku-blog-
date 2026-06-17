@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="380" viewBox="0 0 1000 380">
+  <rect width="1000" height="380" fill="#f0f7ff" rx="12"/>
+  <rect x="0" y="0" width="1000" height="380" rx="12" fill="none" stroke="#bfdbfe" stroke-width="1.5"/>
+
+  <text x="500" y="38" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="15" font-weight="700" fill="#1e40af" text-anchor="middle">ヴェネチアから元朝（中国）まで——マルコ・ポーロが歩いた旅路</text>
+
+  <!-- route path -->
+  <path d="M 90 230 C 160 200, 220 260, 290 230 C 360 200, 420 250, 490 220 C 560 190, 620 240, 690 210 C 760 180, 830 230, 910 200"
+        fill="none" stroke="#3b82f6" stroke-width="5" stroke-dasharray="10,7"/>
+
+  <!-- Start: Venice -->
+  <circle cx="90" cy="230" r="16" fill="#1e40af"/>
+  <text x="90" y="236" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">出発</text>
+  <rect x="35" y="270" width="110" height="56" rx="8" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="90" y="290" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#1e40af" text-anchor="middle">ヴェネチア</text>
+  <text x="90" y="308" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#1d4ed8" text-anchor="middle">17歳・1271年</text>
+
+  <!-- waypoint: 中東 -->
+  <circle cx="290" cy="230" r="10" fill="#3b82f6"/>
+  <rect x="235" y="270" width="110" height="56" rx="8" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="290" y="290" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#1e40af" text-anchor="middle">中東・ペルシア</text>
+  <text x="290" y="308" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#1d4ed8" text-anchor="middle">交易語を習得</text>
+
+  <!-- waypoint: パミール高原 -->
+  <circle cx="490" cy="220" r="10" fill="#3b82f6"/>
+  <rect x="435" y="260" width="110" height="56" rx="8" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="490" y="280" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#1e40af" text-anchor="middle">パミール高原</text>
+  <text x="490" y="298" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#1d4ed8" text-anchor="middle">過酷な山岳路</text>
+
+  <!-- waypoint: 中央アジア -->
+  <circle cx="690" cy="210" r="10" fill="#3b82f6"/>
+  <rect x="635" y="250" width="110" height="56" rx="8" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="690" y="270" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#1e40af" text-anchor="middle">中央アジア</text>
+  <text x="690" y="288" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#1d4ed8" text-anchor="middle">隊商路を進む</text>
+
+  <!-- End: 元朝 -->
+  <circle cx="910" cy="200" r="18" fill="#1e40af"/>
+  <text x="910" y="206" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">到着</text>
+  <rect x="850" y="240" width="120" height="66" rx="8" fill="#1e40af"/>
+  <text x="910" y="262" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">元朝（中国）</text>
+  <text x="910" y="280" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#dbeafe" text-anchor="middle">21歳・1275年</text>
+  <text x="910" y="297" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="10" fill="#bfdbfe" text-anchor="middle">フビライ・ハンに仕える</text>
+
+  <!-- Bottom -->
+  <text x="500" y="352" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" fill="#1e40af" text-anchor="middle">片道約24,000km・3年半。誰も「正解の地図」を持っていない道だった</text>
+</svg>
