@@ -1,44 +1,81 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f7faff"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#dbeafe" stroke-width="2"/>
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0f7ff"/>
+      <stop offset="1" stop-color="#dbeafe"/>
+    </linearGradient>
+    <linearGradient id="personGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#1e40af"/>
+    </linearGradient>
+  </defs>
 
-  <!-- 「人」が連なって石垣・城を成すイメージ(人は城、人は石垣、人は堀) -->
-  <g transform="translate(360,440)" opacity="0.85">
-    <g transform="translate(-96,-12)">
-      <circle cx="0" cy="-34" r="13" fill="#1e40af" opacity="0.7"/>
-      <path d="M -16 6 Q 0 -16 16 6 L 16 30 L -16 30 Z" fill="#1e40af" opacity="0.6"/>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <circle cx="150" cy="120" r="90" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="1080" cy="520" r="130" fill="#bfdbfe" opacity="0.3"/>
+
+  <rect x="0" y="500" width="1200" height="130" fill="#1e3a8a" opacity="0.08"/>
+
+  <!-- People forming a human wall / fortress: 人は城、人は石垣、人は堀 -->
+  <g opacity="0.9">
+    <g transform="translate(330,430)">
+      <circle cx="0" cy="-58" r="26" fill="url(#personGrad)"/>
+      <path d="M -38 30 Q 0 -34 38 30 L 38 78 L -38 78 Z" fill="#1e40af"/>
     </g>
-    <g transform="translate(-32,-12)">
-      <circle cx="0" cy="-34" r="13" fill="#1e40af" opacity="0.7"/>
-      <path d="M -16 6 Q 0 -16 16 6 L 16 30 L -16 30 Z" fill="#1e40af" opacity="0.6"/>
+    <g transform="translate(450,420)">
+      <circle cx="0" cy="-58" r="26" fill="url(#personGrad)"/>
+      <path d="M -38 30 Q 0 -34 38 30 L 38 78 L -38 78 Z" fill="#1e3a8a"/>
     </g>
-    <g transform="translate(32,-12)">
-      <circle cx="0" cy="-34" r="13" fill="#1e40af" opacity="0.7"/>
-      <path d="M -16 6 Q 0 -16 16 6 L 16 30 L -16 30 Z" fill="#1e40af" opacity="0.6"/>
+    <g transform="translate(570,430)">
+      <circle cx="0" cy="-58" r="26" fill="url(#personGrad)"/>
+      <path d="M -38 30 Q 0 -34 38 30 L 38 78 L -38 78 Z" fill="#1e40af"/>
     </g>
-    <g transform="translate(96,-12)">
-      <circle cx="0" cy="-34" r="13" fill="#1e40af" opacity="0.7"/>
-      <path d="M -16 6 Q 0 -16 16 6 L 16 30 L -16 30 Z" fill="#1e40af" opacity="0.6"/>
+    <g transform="translate(690,420)">
+      <circle cx="0" cy="-58" r="26" fill="url(#personGrad)"/>
+      <path d="M -38 30 Q 0 -34 38 30 L 38 78 L -38 78 Z" fill="#1e3a8a"/>
     </g>
-    <rect x="-130" y="40" width="260" height="14" rx="4" fill="#1e3a8a" opacity="0.5"/>
-    <rect x="-110" y="58" width="220" height="12" rx="4" fill="#1e3a8a" opacity="0.4"/>
+    <g transform="translate(810,430)">
+      <circle cx="0" cy="-58" r="26" fill="url(#personGrad)"/>
+      <path d="M -38 30 Q 0 -34 38 30 L 38 78 L -38 78 Z" fill="#1e40af"/>
+    </g>
   </g>
 
-  <!-- 風林火山の旗を象徴する四つの帯 -->
-  <g transform="translate(870,400)" opacity="0.75">
-    <rect x="-70" y="-90" width="26" height="180" rx="4" fill="#1e40af" opacity="0.65"/>
-    <rect x="-32" y="-90" width="26" height="180" rx="4" fill="#3b82f6" opacity="0.6"/>
-    <rect x="6" y="-90" width="26" height="180" rx="4" fill="#dc2626" opacity="0.55"/>
-    <rect x="44" y="-90" width="26" height="180" rx="4" fill="#1e3a8a" opacity="0.65"/>
+  <g opacity="0.95">
+    <g transform="translate(390,470)">
+      <circle cx="0" cy="-50" r="22" fill="#60a5fa"/>
+      <path d="M -32 26 Q 0 -28 32 26 L 32 66 L -32 66 Z" fill="#3b82f6"/>
+    </g>
+    <g transform="translate(510,478)">
+      <circle cx="0" cy="-50" r="22" fill="#60a5fa"/>
+      <path d="M -32 26 Q 0 -28 32 26 L 32 66 L -32 66 Z" fill="#3b82f6"/>
+    </g>
+    <g transform="translate(630,470)">
+      <circle cx="0" cy="-50" r="22" fill="#60a5fa"/>
+      <path d="M -32 26 Q 0 -28 32 26 L 32 66 L -32 66 Z" fill="#3b82f6"/>
+    </g>
+    <g transform="translate(750,478)">
+      <circle cx="0" cy="-50" r="22" fill="#60a5fa"/>
+      <path d="M -32 26 Q 0 -28 32 26 L 32 66 L -32 66 Z" fill="#3b82f6"/>
+    </g>
   </g>
 
-  <!-- カテゴリラベル -->
-  <rect x="700" y="170" width="148" height="36" rx="18" fill="#dbeafe" stroke="#bfdbfe"/>
-  <text x="774" y="194" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#1e40af" text-anchor="middle" letter-spacing="1">仕事・副業 / 戦略</text>
+  <!-- central raised figure, helmet silhouette -->
+  <g transform="translate(600,330)">
+    <path d="M -30 -64 Q 0 -90 30 -64 L 30 -50 L -30 -50 Z" fill="#1e3a8a"/>
+    <circle cx="0" cy="-30" r="30" fill="#1e40af"/>
+    <path d="M -44 38 Q 0 -22 44 38 L 44 96 L -44 96 Z" fill="#1e3a8a"/>
+    <path d="M -50 -8 L -68 -40 M 50 -8 L 68 -40" stroke="#1e3a8a" stroke-width="8" stroke-linecap="round"/>
+  </g>
 
-  <!-- タイトル -->
-  <text x="700" y="262" font-family="'Shippori Mincho', serif" font-size="30" font-weight="700" fill="#1c1917" letter-spacing="1">武田信玄に学ぶ</text>
-  <text x="700" y="304" font-family="'Shippori Mincho', serif" font-size="30" font-weight="700" fill="#1c1917" letter-spacing="1">「人を活かす」マネジメント</text>
+  <g transform="translate(1040,200)" opacity="0.8">
+    <rect x="-14" y="-90" width="22" height="180" rx="6" fill="#1e40af"/>
+    <rect x="16" y="-90" width="22" height="180" rx="6" fill="#3b82f6"/>
+    <rect x="46" y="-90" width="22" height="180" rx="6" fill="#93c5fd"/>
+  </g>
 
-  <text x="100" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+  <g transform="translate(600,330)" fill="none" stroke="#3b82f6" opacity="0.25" stroke-width="3">
+    <circle r="180"/>
+    <circle r="230"/>
+  </g>
 </svg>

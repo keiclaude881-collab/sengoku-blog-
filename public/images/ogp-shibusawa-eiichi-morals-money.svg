@@ -1,82 +1,55 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#fffbeb"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#fde68a" stroke-width="3"/>
-  <rect x="0" y="0" width="12" height="630" fill="#d97706"/>
+  <defs>
+    <linearGradient id="bgGrad6" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGrad6)"/>
 
-  <!-- Category badge -->
-  <rect x="60" y="55" width="130" height="34" rx="17" fill="#fef3c7" stroke="#fde68a" stroke-width="1.5"/>
-  <text x="125" y="77" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="2">投資・お金</text>
+  <circle cx="1080" cy="130" r="80" fill="#fde68a" opacity="0.4"/>
+  <circle cx="120" cy="520" r="70" fill="#fde68a" opacity="0.4"/>
 
-  <!-- Main title -->
-  <text x="60" y="168" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="44" font-weight="700" fill="#1c1917" letter-spacing="-1">渋沢栄一「論語と算盤」</text>
-  <text x="60" y="228" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="44" font-weight="700" fill="#1c1917" letter-spacing="-1">道徳と経済を両立させた男</text>
+  <!-- large balance scale: book (morals) vs coin (money), perfectly balanced -->
+  <g transform="translate(600,300)">
+    <!-- stand -->
+    <path d="M -16 320 L 16 320 L 6 60 L -6 60 Z" fill="#92400e"/>
+    <ellipse cx="0" cy="324" rx="90" ry="16" fill="#78350f"/>
+    <circle cx="0" cy="40" r="16" fill="#92400e"/>
 
-  <!-- Subtitle -->
-  <text x="60" y="285" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="22" fill="#d97706" letter-spacing="0.5">明治日本の資本主義を設計した偉人の投資哲学</text>
+    <!-- beam -->
+    <rect x="-230" y="32" width="460" height="12" rx="6" fill="#92400e"/>
 
-  <!-- Divider -->
-  <line x1="60" y1="315" x2="680" y2="315" stroke="#fde68a" stroke-width="2"/>
+    <!-- left chain + pan -->
+    <line x1="-200" y1="40" x2="-200" y2="110" stroke="#78350f" stroke-width="3"/>
+    <line x1="-160" y1="40" x2="-160" y2="110" stroke="#78350f" stroke-width="3"/>
+    <path d="M -226 110 Q -180 150 -134 110 L -134 100 Q -180 132 -226 100 Z" fill="#d97706"/>
 
-  <!-- Quote -->
-  <text x="60" y="358" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="17" fill="#78350f" letter-spacing="0.5">「道徳なき経済は罪悪、</text>
-  <text x="60" y="388" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="17" fill="#78350f" letter-spacing="0.5">　経済なき道徳は寝言である」</text>
-  <text x="60" y="420" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="14" fill="#a16207" letter-spacing="0.3">——渋沢栄一『論語と算盤』1916年</text>
+    <!-- left pan content: open book (morals) -->
+    <g transform="translate(-180,80)">
+      <path d="M -46 -8 Q 0 -22 46 -8 L 46 14 Q 0 0 -46 14 Z" fill="#fde68a" stroke="#92400e" stroke-width="2.5"/>
+      <line x1="0" y1="-14" x2="0" y2="12" stroke="#92400e" stroke-width="2" opacity="0.6"/>
+    </g>
 
-  <!-- Stats row -->
-  <rect x="60" y="455" width="145" height="68" rx="8" fill="#fef3c7" stroke="#fde68a" stroke-width="1.5"/>
-  <text x="132" y="482" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="28" font-weight="700" fill="#92400e" text-anchor="middle">500社</text>
-  <text x="132" y="507" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#78350f" text-anchor="middle">設立・育成に関与</text>
+    <!-- right chain + pan -->
+    <line x1="200" y1="40" x2="200" y2="110" stroke="#78350f" stroke-width="3"/>
+    <line x1="160" y1="40" x2="160" y2="110" stroke="#78350f" stroke-width="3"/>
+    <path d="M 134 110 Q 180 150 226 110 L 226 100 Q 180 132 134 100 Z" fill="#d97706"/>
 
-  <rect x="218" y="455" width="145" height="68" rx="8" fill="#fef3c7" stroke="#fde68a" stroke-width="1.5"/>
-  <text x="290" y="482" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="28" font-weight="700" fill="#92400e" text-anchor="middle">91歳</text>
-  <text x="290" y="507" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#78350f" text-anchor="middle">まで現役で活動</text>
+    <!-- right pan content: coin stack (money) -->
+    <g transform="translate(180,72)">
+      <ellipse cx="0" cy="20" rx="38" ry="11" fill="#92400e"/>
+      <rect x="-38" y="2" width="76" height="18" fill="#d97706"/>
+      <ellipse cx="0" cy="2" rx="38" ry="11" fill="#f59e0b"/>
+      <ellipse cx="0" cy="-12" rx="32" ry="9" fill="#92400e"/>
+      <rect x="-32" y="-26" width="64" height="14" fill="#d97706"/>
+      <ellipse cx="0" cy="-26" rx="32" ry="9" fill="#fde68a"/>
+    </g>
+  </g>
 
-  <rect x="376" y="455" width="180" height="68" rx="8" fill="#d97706"/>
-  <text x="466" y="482" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">1万円札の顔</text>
-  <text x="466" y="507" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#fef3c7" text-anchor="middle">2024年〜新紙幣</text>
-
-  <!-- Bottom label -->
-  <text x="60" y="572" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="16" fill="#d97706" font-weight="700" letter-spacing="3">偉人ラボ</text>
-
-  <!-- Right panel: balance scale -->
-  <rect x="760" y="70" width="400" height="480" rx="12" fill="#fef3c7" stroke="#fde68a" stroke-width="1.5"/>
-  <text x="960" y="112" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="18" font-weight="700" fill="#92400e" text-anchor="middle">論語と算盤のバランス</text>
-
-  <!-- Balance beam -->
-  <line x1="960" y1="235" x2="960" y2="300" stroke="#92400e" stroke-width="4"/>
-  <line x1="820" y1="235" x2="1100" y2="235" stroke="#92400e" stroke-width="5"/>
-
-  <!-- Fulcrum -->
-  <polygon points="960,300 935,340 985,340" fill="#d97706"/>
-  <rect x="925" y="340" width="70" height="14" rx="4" fill="#d97706"/>
-
-  <!-- Left pan: 論語 -->
-  <line x1="820" y1="235" x2="820" y2="252" stroke="#78350f" stroke-width="2"/>
-  <rect x="778" y="252" width="84" height="84" rx="8" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
-  <text x="820" y="285" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="20" font-weight="700" fill="#92400e" text-anchor="middle">論語</text>
-  <text x="820" y="308" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#78350f" text-anchor="middle">道徳・仁義</text>
-
-  <!-- Right pan: 算盤 -->
-  <line x1="1100" y1="235" x2="1100" y2="252" stroke="#78350f" stroke-width="2"/>
-  <rect x="1058" y="252" width="84" height="84" rx="8" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
-  <text x="1100" y="285" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="20" font-weight="700" fill="#92400e" text-anchor="middle">算盤</text>
-  <text x="1100" y="308" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#78350f" text-anchor="middle">経済・利益</text>
-
-  <!-- = sign -->
-  <text x="960" y="358" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="14" fill="#78350f" text-anchor="middle">▼ 道徳経済合一 ▼</text>
-
-  <!-- Items left -->
-  <text x="820" y="390" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#92400e" text-anchor="middle">仁・義・礼・智・信</text>
-  <text x="820" y="410" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#78350f" text-anchor="middle">長期的な信頼</text>
-  <text x="820" y="430" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#78350f" text-anchor="middle">社会への貢献</text>
-
-  <!-- Items right -->
-  <text x="1100" y="390" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#92400e" text-anchor="middle">収益・効率・成長</text>
-  <text x="1100" y="410" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#78350f" text-anchor="middle">投資・資金調達</text>
-  <text x="1100" y="430" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="12" fill="#78350f" text-anchor="middle">産業の育成</text>
-
-  <!-- Bottom message -->
-  <rect x="795" y="458" width="330" height="44" rx="8" fill="#d97706"/>
-  <text x="960" y="476" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">この二つは矛盾しない——渋沢の信念</text>
-  <text x="960" y="494" font-family="'Hiragino Sans','Noto Sans CJK JP',sans-serif" font-size="11" fill="#fef3c7" text-anchor="middle">両立して初めて「持続する経営」が生まれる</text>
+  <!-- gentle rays from the fulcrum suggesting harmony -->
+  <g stroke="#d97706" stroke-width="2" opacity="0.3">
+    <line x1="600" y1="240" x2="560" y2="190"/>
+    <line x1="600" y1="240" x2="640" y2="190"/>
+  </g>
 </svg>

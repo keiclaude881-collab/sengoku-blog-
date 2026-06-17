@@ -1,29 +1,81 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#faf7f2"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e8e0d4" stroke-width="2"/>
-  <rect x="0" y="0" width="12" height="630" fill="#92400e"/>
+  <defs>
+    <linearGradient id="bgGradY" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffbeb"/>
+      <stop offset="1" stop-color="#fef3c7"/>
+    </linearGradient>
+  </defs>
 
-  <!-- カテゴリバッジ -->
-  <rect x="68" y="68" width="120" height="36" rx="18" fill="#fef3c7" stroke="#fde68a"/>
-  <text x="128" y="92" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="1">投資・お金</text>
+  <rect width="1200" height="630" fill="url(#bgGradY)"/>
 
-  <!-- タイトル -->
-  <text x="68" y="200" font-family="'Hiragino Sans', sans-serif" font-size="48" font-weight="900" fill="#1c1917">上杉鷹山に学ぶ</text>
-  <text x="68" y="266" font-family="'Hiragino Sans', sans-serif" font-size="46" font-weight="900" fill="#92400e">家計再建3ステップ</text>
+  <circle cx="150" cy="140" r="100" fill="#fde68a" opacity="0.4"/>
+  <circle cx="1070" cy="520" r="120" fill="#fde68a" opacity="0.35"/>
 
-  <!-- 説明 -->
-  <text x="68" y="330" font-family="'Hiragino Sans', sans-serif" font-size="22" fill="#78716c">借金20万両を立て直した「仕組み化」家計術</text>
+  <!-- ground -->
+  <rect x="0" y="520" width="1200" height="110" fill="#92400e" opacity="0.08"/>
 
-  <!-- 財政グラフ:右肩下がりの赤から右肩上がりの金へ -->
-  <g transform="translate(760,0)">
-    <rect x="0" y="430" width="60" height="110" fill="#dc2626" opacity="0.55"/>
-    <rect x="80" y="380" width="60" height="160" fill="#ef4444" opacity="0.5"/>
-    <rect x="160" y="460" width="60" height="80" fill="#f59e0b" opacity="0.6"/>
-    <rect x="240" y="360" width="60" height="180" fill="#f59e0b" opacity="0.75"/>
-    <rect x="320" y="280" width="60" height="260" fill="#92400e" opacity="0.85"/>
-    <path d="M 30 430 Q 200 520 350 270" stroke="#1c1917" stroke-width="3" fill="none" stroke-dasharray="6,6" opacity="0.4"/>
-    <line x1="-20" y1="540" x2="400" y2="540" stroke="#a8a29e" stroke-width="2"/>
+  <!-- balance scale: left side weighed down by debt block, right side rising with coin stacks -->
+  <g transform="translate(600,260)">
+    <rect x="-6" y="0" width="12" height="220" fill="#92400e"/>
+    <ellipse cx="0" cy="226" rx="70" ry="14" fill="#92400e" opacity="0.5"/>
+
+    <!-- beam, tilted: left down, right up -->
+    <g transform="rotate(-7)">
+      <rect x="-330" y="-8" width="660" height="14" rx="7" fill="#92400e"/>
+      <!-- left pan, lower -->
+      <g transform="translate(-300,60)">
+        <line x1="0" y1="-60" x2="0" y2="0" stroke="#92400e" stroke-width="4"/>
+        <path d="M -60 0 Q 0 50 60 0 Z" fill="#d97706" opacity="0.85"/>
+        <rect x="-34" y="-46" width="68" height="46" rx="6" fill="#78350f" opacity="0.85"/>
+      </g>
+      <!-- right pan, higher -->
+      <g transform="translate(300,-50)">
+        <line x1="0" y1="-10" x2="0" y2="50" stroke="#92400e" stroke-width="4"/>
+        <path d="M -60 50 Q 0 100 60 50 Z" fill="#d97706" opacity="0.85"/>
+        <ellipse cx="-26" cy="36" rx="20" ry="8" fill="#f59e0b"/>
+        <ellipse cx="0" cy="28" rx="20" ry="8" fill="#fbbf24"/>
+        <ellipse cx="26" cy="36" rx="20" ry="8" fill="#f59e0b"/>
+        <ellipse cx="0" cy="14" rx="20" ry="8" fill="#fde68a"/>
+      </g>
+    </g>
   </g>
 
-  <text x="68" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+  <!-- rising coin stack growing left to right, symbolizing rebuild over steps -->
+  <g opacity="0.95">
+    <g transform="translate(170,530)">
+      <ellipse rx="34" ry="10" fill="#f59e0b"/>
+      <ellipse cy="-14" rx="34" ry="10" fill="#fbbf24"/>
+    </g>
+    <g transform="translate(280,510)">
+      <ellipse rx="34" ry="10" fill="#f59e0b"/>
+      <ellipse cy="-14" rx="34" ry="10" fill="#fbbf24"/>
+      <ellipse cy="-28" rx="34" ry="10" fill="#fde68a"/>
+    </g>
+    <g transform="translate(390,480)">
+      <ellipse rx="34" ry="10" fill="#d97706"/>
+      <ellipse cy="-14" rx="34" ry="10" fill="#f59e0b"/>
+      <ellipse cy="-28" rx="34" ry="10" fill="#fbbf24"/>
+      <ellipse cy="-42" rx="34" ry="10" fill="#fde68a"/>
+    </g>
+  </g>
+
+  <!-- small upward sprout near the coin stacks, symbolizing growth from rebuilding -->
+  <g transform="translate(390,432)" opacity="0.8">
+    <path d="M 0 0 C -6 -26, -22 -34, -32 -44" stroke="#78350f" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M 0 0 C 6 -22, 18 -28, 28 -38" stroke="#78350f" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="-32" cy="-46" rx="13" ry="8" fill="#d97706" transform="rotate(-30 -32 -46)"/>
+    <ellipse cx="28" cy="-40" rx="11" ry="7" fill="#d97706" transform="rotate(25 28 -40)"/>
+  </g>
+
+  <!-- upward arrow on right side, symbolizing financial recovery trajectory -->
+  <path d="M 880 540 Q 980 460 1080 320" stroke="#92400e" stroke-width="5" fill="none" stroke-linecap="round" stroke-dasharray="2 16" opacity="0.5"/>
+  <path d="M 1080 320 L 1054 332 M 1080 320 L 1072 348" stroke="#92400e" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- small additional coin in upper right, distant goal -->
+  <g transform="translate(1080,300)" opacity="0.9">
+    <ellipse rx="40" ry="12" fill="#d97706"/>
+    <ellipse cy="-16" rx="40" ry="12" fill="#f59e0b"/>
+    <ellipse cy="-32" rx="40" ry="12" fill="#fbbf24"/>
+    <ellipse cy="-48" rx="40" ry="12" fill="#fde68a"/>
+  </g>
 </svg>

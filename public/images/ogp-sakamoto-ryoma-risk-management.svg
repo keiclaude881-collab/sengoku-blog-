@@ -1,24 +1,40 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#faf7f2"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <defs>
+    <linearGradient id="bgGrad3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGrad3)"/>
 
-  <!-- 船が波を越えて進むイメージ -->
-  <g transform="translate(330,380)" opacity="0.8">
-    <path d="M -130 20 Q -80 -10 0 -60 Q 80 -10 130 20 Z" fill="#f59e0b" opacity="0.7"/>
-    <path d="M 0 -60 L 0 -160" stroke="#92400e" stroke-width="4" stroke-linecap="round"/>
-    <path d="M 0 -160 L 80 -110 L 0 -90 Z" fill="#b45309" opacity="0.8"/>
-    <path d="M -160 30 Q -80 10 0 30 Q 80 10 160 30" stroke="#d97706" stroke-width="3" fill="none" stroke-dasharray="5 8" opacity="0.6"/>
-    <path d="M -170 60 Q -80 40 0 60 Q 80 40 170 60" stroke="#d97706" stroke-width="2.5" fill="none" stroke-dasharray="4 9" opacity="0.4"/>
+  <!-- sun -->
+  <circle cx="980" cy="140" r="70" fill="#fde68a" opacity="0.8"/>
+  <circle cx="980" cy="140" r="46" fill="#f59e0b" opacity="0.6"/>
+
+  <!-- waves -->
+  <g fill="none" stroke="#d97706">
+    <path d="M -20 470 Q 100 440 220 470 Q 340 500 460 470 Q 580 440 700 470 Q 820 500 940 470 Q 1060 440 1220 470" stroke-width="4" opacity="0.5"/>
+    <path d="M -20 520 Q 100 490 220 520 Q 340 550 460 520 Q 580 490 700 520 Q 820 550 940 520 Q 1060 490 1220 520" stroke-width="4" opacity="0.4"/>
+    <path d="M -20 570 Q 100 540 220 570 Q 340 600 460 570 Q 580 540 700 570 Q 820 600 940 570 Q 1060 540 1220 570" stroke-width="4" opacity="0.3"/>
   </g>
 
-  <!-- カテゴリラベル -->
-  <rect x="700" y="170" width="128" height="36" rx="18" fill="#fef3c7" stroke="#fde68a"/>
-  <text x="764" y="194" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="1">投資・お金</text>
+  <!-- ship sailing forward -->
+  <g transform="translate(560,420)">
+    <path d="M -130 30 Q -70 -10 0 -60 Q 70 -10 130 30 Z" fill="#92400e"/>
+    <path d="M 0 -60 L 0 -190" stroke="#78350f" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 0 -190 L 85 -135 L 0 -110 Z" fill="#f59e0b"/>
+    <path d="M 0 -160 L -60 -110 L 0 -95 Z" fill="#d97706" opacity="0.85"/>
+  </g>
 
-  <!-- タイトル -->
-  <text x="700" y="262" font-family="'Shippori Mincho', serif" font-size="29" font-weight="700" fill="#1c1917" letter-spacing="1">坂本龍馬に学ぶ</text>
-  <text x="700" y="304" font-family="'Shippori Mincho', serif" font-size="29" font-weight="700" fill="#1c1917" letter-spacing="1">「リスクのとり方と</text>
-  <text x="700" y="344" font-family="'Shippori Mincho', serif" font-size="29" font-weight="700" fill="#1c1917" letter-spacing="1">逃げ道の作り方」</text>
+  <!-- small secondary boat (escape route) -->
+  <g transform="translate(850,470) scale(0.55)">
+    <path d="M -130 30 Q -70 -10 0 -60 Q 70 -10 130 30 Z" fill="#d97706" opacity="0.8"/>
+    <path d="M 0 -60 L 0 -160" stroke="#92400e" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 0 -160 L 70 -118 L 0 -100 Z" fill="#fde68a"/>
+  </g>
 
-  <text x="100" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+  <!-- dashed route line forking into two paths (risk + escape route) -->
+  <path d="M 250 380 Q 400 330 560 360" stroke="#92400e" stroke-width="3" fill="none" stroke-dasharray="6 8" opacity="0.6"/>
+  <path d="M 560 360 Q 700 400 850 470" stroke="#92400e" stroke-width="3" fill="none" stroke-dasharray="6 8" opacity="0.6"/>
+  <circle cx="250" cy="380" r="8" fill="#78350f"/>
 </svg>

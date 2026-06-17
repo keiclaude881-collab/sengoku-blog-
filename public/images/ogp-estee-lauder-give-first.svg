@@ -1,54 +1,55 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#faf7f2"/>
-  <!-- Border -->
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e8e0d4" stroke-width="3"/>
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="12" height="630" fill="#92400e"/>
+  <defs>
+    <radialGradient id="el-glow" cx="38%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="100%" stop-color="#fffbeb"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#el-glow)"/>
 
-  <!-- Category badge -->
-  <rect x="60" y="55" width="130" height="34" rx="17" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
-  <text x="125" y="77" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="2">投資・お金</text>
+  <!-- expanding ripples from the gift, suggesting returns spreading outward -->
+  <circle cx="430" cy="345" r="120" fill="none" stroke="#fde68a" stroke-width="4" opacity="0.6"/>
+  <circle cx="430" cy="345" r="190" fill="none" stroke="#fde68a" stroke-width="4" opacity="0.45"/>
+  <circle cx="430" cy="345" r="260" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.3"/>
 
-  <!-- Main title -->
-  <text x="60" y="185" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">エスティ・ローダーに学ぶ</text>
-  <text x="60" y="255" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">「先に与える」という技術</text>
+  <!-- open hand offering a small bottle (give first) -->
+  <g transform="translate(430,360)">
+    <!-- palm -->
+    <path d="M -110 40 C -110 -10 -70 -30 0 -30 C 70 -30 110 -10 110 40 C 110 80 70 96 0 96 C -70 96 -110 80 -110 40 Z" fill="#f59e0b" opacity="0.85"/>
+    <!-- fingers -->
+    <rect x="-92" y="-6" width="26" height="58" rx="13" fill="#f59e0b" opacity="0.85"/>
+    <rect x="-50" y="-22" width="26" height="74" rx="13" fill="#f59e0b" opacity="0.9"/>
+    <rect x="-6" y="-30" width="26" height="82" rx="13" fill="#f59e0b" opacity="0.95"/>
+    <rect x="38" y="-22" width="26" height="74" rx="13" fill="#f59e0b" opacity="0.9"/>
+    <rect x="78" y="-6" width="24" height="58" rx="12" fill="#f59e0b" opacity="0.85"/>
+  </g>
 
-  <!-- Subtitle -->
-  <text x="60" y="320" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="28" fill="#b45309" letter-spacing="2">広告費ゼロから世界的ブランドを築いた戦略</text>
+  <!-- small perfume bottle resting above the palm -->
+  <g transform="translate(430,250)">
+    <rect x="-26" y="-10" width="52" height="70" rx="10" fill="#fde68a" stroke="#92400e" stroke-width="3"/>
+    <rect x="-12" y="-34" width="24" height="28" rx="6" fill="#d97706"/>
+    <rect x="-8" y="-46" width="16" height="16" rx="4" fill="#92400e"/>
+    <line x1="-26" y1="20" x2="26" y2="20" stroke="#92400e" stroke-width="2" opacity="0.4"/>
+  </g>
 
-  <!-- Divider line -->
-  <line x1="60" y1="355" x2="680" y2="355" stroke="#e8e0d4" stroke-width="2"/>
+  <!-- sparkle accents around the gift -->
+  <g fill="#d97706" opacity="0.7">
+    <circle cx="320" cy="210" r="6"/>
+    <circle cx="560" cy="220" r="8"/>
+    <circle cx="300" cy="420" r="5"/>
+  </g>
 
-  <!-- Description -->
-  <text x="60" y="395" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">広告費を払う代わりに、商品サンプルを</text>
-  <text x="60" y="425" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">無料で配り、世界的化粧品ブランドを築いた。</text>
+  <!-- growth side: coins/graph rising from the gesture, on the right -->
+  <g transform="translate(880,420)">
+    <rect x="-30" y="-40" width="60" height="40" rx="6" fill="#fde68a" stroke="#92400e" stroke-width="2"/>
+    <rect x="50" y="-90" width="60" height="90" rx="6" fill="#f59e0b" stroke="#92400e" stroke-width="2"/>
+    <rect x="130" y="-150" width="60" height="150" rx="6" fill="#d97706" stroke="#92400e" stroke-width="2"/>
+    <path d="M -30 -150 L 30 -110 L 90 -130 L 190 -190" stroke="#92400e" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M 175 -200 L 190 -190 L 178 -174 Z" fill="#92400e"/>
+  </g>
 
-  <!-- Bottom label -->
-  <text x="60" y="568" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#b45309" font-weight="700" letter-spacing="3">偉人ラボ</text>
-
-  <!-- Right-side graphic: 3-step flow (give first -> trust -> return) -->
-  <rect x="800" y="100" width="340" height="320" rx="8" fill="#fef3c7" stroke="#e8e0d4" stroke-width="1.5"/>
-
-  <text x="970" y="138" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="22" font-weight="700" fill="#92400e" text-anchor="middle">先に与える3ステップ</text>
-
-  <!-- Step 1 -->
-  <rect x="850" y="150" width="240" height="66" rx="10" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
-  <text x="970" y="192" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#92400e" text-anchor="middle">① 広告費が払えない</text>
-
-  <!-- Arrow 1 -->
-  <line x1="970" y1="216" x2="970" y2="234" stroke="#b45309" stroke-width="4"/>
-  <path d="M 958,228 L 970,240 L 982,228 Z" fill="#b45309"/>
-
-  <!-- Step 2 -->
-  <rect x="850" y="240" width="240" height="66" rx="10" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
-  <text x="970" y="282" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#92400e" text-anchor="middle">② サンプルを先に渡す</text>
-
-  <!-- Arrow 2 -->
-  <line x1="970" y1="306" x2="970" y2="324" stroke="#b45309" stroke-width="4"/>
-  <path d="M 958,318 L 970,330 L 982,318 Z" fill="#b45309"/>
-
-  <!-- Step 3 (highlighted) -->
-  <rect x="835" y="330" width="270" height="70" rx="10" fill="#92400e"/>
-  <text x="970" y="374" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#fef3c7" text-anchor="middle">③ 信頼と売上が後から返る</text>
+  <!-- decorative coin dots -->
+  <circle cx="1080" cy="160" r="22" fill="#fde68a" stroke="#d97706" stroke-width="3" opacity="0.8"/>
+  <circle cx="1130" cy="220" r="14" fill="#f59e0b" opacity="0.6"/>
+  <circle cx="150" cy="540" r="20" fill="#fde68a" opacity="0.6"/>
 </svg>

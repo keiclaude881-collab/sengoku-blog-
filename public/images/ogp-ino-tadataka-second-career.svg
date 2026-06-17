@@ -1,62 +1,57 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f0f7ff"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#bfdbfe" stroke-width="3"/>
-  <rect x="0" y="0" width="12" height="630" fill="#1e40af"/>
+  <defs>
+    <linearGradient id="itBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0f7ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#itBg)"/>
 
-  <!-- Category badge -->
-  <rect x="60" y="55" width="130" height="34" rx="17" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
-  <text x="125" y="77" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#1e40af" text-anchor="middle" letter-spacing="2">仕事・副業</text>
+  <!-- distant rolling hills, suggesting the long walking journey across the land -->
+  <path d="M -20 460 C 200 400, 380 440, 600 410 C 820 380, 1000 420, 1220 390 L 1220 630 L -20 630 Z" fill="#bfdbfe" opacity="0.6"/>
+  <path d="M -20 510 C 250 470, 460 500, 700 480 C 900 462, 1050 490, 1220 470 L 1220 630 L -20 630 Z" fill="#93c5fd" opacity="0.5"/>
 
-  <!-- Main title -->
-  <text x="60" y="168" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="44" font-weight="700" fill="#1c1917" letter-spacing="-1">50歳で学び直し、</text>
-  <text x="60" y="228" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="44" font-weight="700" fill="#1c1917" letter-spacing="-1">73歳で日本地図を完成させた男</text>
+  <!-- dotted footpath winding across the whole scene, the 40,000km survey route -->
+  <path d="M 160 470 C 260 430, 320 380, 420 360 C 520 340, 560 280, 660 260
+           C 760 240, 820 300, 920 280 C 1000 264, 1040 320, 1120 300"
+        fill="none" stroke="#1e40af" stroke-width="4" stroke-dasharray="3 14" stroke-linecap="round" opacity="0.85"/>
 
-  <!-- Subtitle -->
-  <text x="60" y="288" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="24" fill="#3b82f6" letter-spacing="1">伊能忠敬に学ぶ「第二のキャリア」の始め方</text>
+  <!-- footprints along the early part of the path -->
+  <circle cx="200" cy="458" r="5" fill="#1e3a8a" opacity="0.6"/>
+  <circle cx="240" cy="442" r="5" fill="#1e3a8a" opacity="0.6"/>
+  <circle cx="290" cy="412" r="5" fill="#1e3a8a" opacity="0.6"/>
+  <circle cx="340" cy="388" r="5" fill="#1e3a8a" opacity="0.6"/>
 
-  <!-- Divider -->
-  <line x1="60" y1="320" x2="680" y2="320" stroke="#bfdbfe" stroke-width="2"/>
+  <!-- starting point: a modest merchant house silhouette (first career) -->
+  <g transform="translate(160,470)" opacity="0.9">
+    <polygon points="-50,0 0,-46 50,0" fill="#1e40af"/>
+    <rect x="-42" y="0" width="84" height="48" fill="#1e40af"/>
+    <rect x="-12" y="14" width="24" height="34" fill="#dbeafe"/>
+  </g>
 
-  <!-- Description -->
-  <text x="60" y="360" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#6b7280" letter-spacing="0.5">「もう遅い」と言われた年齢から、</text>
-  <text x="60" y="390" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#6b7280" letter-spacing="0.5">地球一周分を歩いて地図を作った。</text>
+  <!-- midpoint marker: an astronomical quadrant / measuring instrument (the turning point of learning) -->
+  <g transform="translate(660,260)" opacity="0.95">
+    <circle cx="0" cy="0" r="46" fill="none" stroke="#1e40af" stroke-width="6"/>
+    <line x1="0" y1="0" x2="0" y2="-46" stroke="#1e40af" stroke-width="4"/>
+    <line x1="0" y1="0" x2="38" y2="22" stroke="#1e40af" stroke-width="4"/>
+    <circle cx="0" cy="0" r="6" fill="#1e3a8a"/>
+  </g>
 
-  <!-- Bottom label -->
-  <text x="60" y="568" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#3b82f6" font-weight="700" letter-spacing="3">偉人ラボ</text>
+  <!-- endpoint: a completed map/compass rose (the finished national map) -->
+  <g transform="translate(1120,300)">
+    <circle cx="0" cy="0" r="88" fill="#1e3a8a"/>
+    <circle cx="0" cy="0" r="88" fill="none" stroke="#bfdbfe" stroke-width="3"/>
+    <polygon points="0,-70 14,0 0,70 -14,0" fill="#dbeafe"/>
+    <polygon points="-70,0 0,14 70,0 0,-14" fill="#93c5fd"/>
+    <polygon points="0,-44 8,0 0,44 -8,0" fill="#f0f7ff"/>
+    <circle cx="0" cy="0" r="8" fill="#1e40af" stroke="#f0f7ff" stroke-width="2"/>
+  </g>
 
-  <!-- Right graphic: timeline/path -->
-  <rect x="780" y="80" width="370" height="430" rx="12" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
-  <text x="965" y="120" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#1e40af" text-anchor="middle">忠敬のキャリア年表</text>
-
-  <!-- Phase 1 -->
-  <rect x="820" y="138" width="280" height="64" rx="8" fill="#bfdbfe" stroke="#93c5fd" stroke-width="1"/>
-  <text x="960" y="163" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="13" font-weight="700" fill="#1e40af" text-anchor="middle">〜49歳：商人・名主</text>
-  <text x="960" y="182" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#1d4ed8" text-anchor="middle">傾いた家業を立て直し地域を支える</text>
-
-  <!-- Arrow -->
-  <line x1="960" y1="202" x2="960" y2="224" stroke="#93c5fd" stroke-width="3"/>
-  <polygon points="952,218 960,230 968,218" fill="#93c5fd"/>
-
-  <!-- Phase 2 -->
-  <rect x="820" y="228" width="280" height="64" rx="8" fill="#93c5fd" stroke="#60a5fa" stroke-width="1.5"/>
-  <text x="960" y="253" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="13" font-weight="700" fill="#1e3a8a" text-anchor="middle">50歳：天文学を学び始める</text>
-  <text x="960" y="272" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#1e40af" text-anchor="middle">年下の師匠に弟子入り</text>
-
-  <!-- Arrow -->
-  <line x1="960" y1="292" x2="960" y2="314" stroke="#93c5fd" stroke-width="3"/>
-  <polygon points="952,308 960,320 968,308" fill="#93c5fd"/>
-
-  <!-- Phase 3 -->
-  <rect x="820" y="318" width="280" height="64" rx="8" fill="#60a5fa" stroke="#3b82f6" stroke-width="1.5"/>
-  <text x="960" y="343" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">55〜72歳：全国測量</text>
-  <text x="960" y="362" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="12" fill="#dbeafe" text-anchor="middle">17年間・約40,000km</text>
-
-  <!-- Arrow -->
-  <line x1="960" y1="382" x2="960" y2="404" stroke="#93c5fd" stroke-width="3"/>
-  <polygon points="952,398 960,410 968,398" fill="#93c5fd"/>
-
-  <!-- Phase 4 -->
-  <rect x="810" y="408" width="300" height="68" rx="8" fill="#1e40af"/>
-  <text x="960" y="436" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="14" font-weight="700" fill="#dbeafe" text-anchor="middle">大日本沿海輿地全図完成</text>
-  <text x="960" y="456" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="11" fill="#bfdbfe" text-anchor="middle">明治時代まで使われた精密地図</text>
+  <!-- stars above the quadrant, since the survey relied on celestial observation -->
+  <g fill="#1e40af" opacity="0.7">
+    <circle cx="600" cy="120" r="4"/>
+    <circle cx="650" cy="90" r="3"/>
+    <circle cx="710" cy="110" r="4"/>
+    <circle cx="760" cy="150" r="3"/>
+  </g>
 </svg>

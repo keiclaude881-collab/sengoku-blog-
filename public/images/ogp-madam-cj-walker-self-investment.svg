@@ -1,54 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#faf7f2"/>
-  <!-- Border -->
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e8e0d4" stroke-width="3"/>
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="12" height="630" fill="#92400e"/>
+  <defs>
+    <linearGradient id="cwBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#cwBg)"/>
 
-  <!-- Category badge -->
-  <rect x="60" y="55" width="130" height="34" rx="17" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
-  <text x="125" y="77" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="2">投資・お金</text>
+  <!-- single seed at the bottom left, the modest starting "capital" (her own experience) -->
+  <ellipse cx="160" cy="520" rx="22" ry="30" fill="#92400e"/>
 
-  <!-- Main title -->
-  <text x="60" y="185" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">マダム・ウォーカーに</text>
-  <text x="60" y="255" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">学ぶ「自己投資」</text>
+  <!-- a stem growing upward and branching into many nodes, representing growth from self into a network -->
+  <path d="M 160 492 C 160 420, 200 380, 260 340" stroke="#92400e" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M 260 340 C 320 300, 360 320, 420 280" stroke="#92400e" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M 260 340 C 300 300, 280 250, 320 210" stroke="#92400e" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M 420 280 C 480 250, 540 260, 600 220" stroke="#92400e" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M 420 280 C 460 320, 520 320, 570 350" stroke="#92400e" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 600 220 C 660 190, 720 200, 780 170" stroke="#92400e" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 600 220 C 650 250, 700 250, 750 280" stroke="#92400e" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M 780 170 C 830 150, 880 160, 930 140" stroke="#92400e" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M 780 170 C 820 200, 870 200, 920 230" stroke="#92400e" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M 750 280 C 800 300, 850 290, 900 320" stroke="#92400e" stroke-width="5" fill="none" stroke-linecap="round"/>
 
-  <!-- Subtitle -->
-  <text x="60" y="320" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="28" fill="#b45309" letter-spacing="2">お金の前に、まず自分に投資する</text>
+  <!-- growing circular nodes at each branch tip, symbolizing the thousands of women in her network -->
+  <circle cx="320" cy="210" r="16" fill="#f59e0b"/>
+  <circle cx="570" cy="350" r="16" fill="#f59e0b"/>
+  <circle cx="750" cy="280" r="18" fill="#f59e0b"/>
+  <circle cx="930" cy="140" r="20" fill="#d97706"/>
+  <circle cx="920" cy="230" r="18" fill="#d97706"/>
+  <circle cx="900" cy="320" r="18" fill="#d97706"/>
+  <circle cx="1010" cy="170" r="14" fill="#fde68a" stroke="#92400e" stroke-width="2"/>
+  <circle cx="1000" cy="260" r="14" fill="#fde68a" stroke="#92400e" stroke-width="2"/>
+  <circle cx="1040" cy="320" r="12" fill="#fde68a" stroke="#92400e" stroke-width="2"/>
 
-  <!-- Divider line -->
-  <line x1="60" y1="355" x2="680" y2="355" stroke="#e8e0d4" stroke-width="2"/>
+  <!-- larger glowing sun-like center near the top, representing the wealth and light that emerged -->
+  <circle cx="700" cy="120" r="60" fill="#f59e0b" opacity="0.25"/>
 
-  <!-- Description -->
-  <text x="60" y="395" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">1日1.5ドルの洗濯婦から「全米初の女性大富豪」に。</text>
-  <text x="60" y="425" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">彼女が最初に投資したのは、株でも土地でもなかった。</text>
-
-  <!-- Bottom label -->
-  <text x="60" y="568" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#b45309" font-weight="700" letter-spacing="3">偉人ラボ</text>
-
-  <!-- Right-side graphic: growth flow (skill -> product -> wealth) -->
-  <rect x="800" y="100" width="340" height="320" rx="8" fill="#fef3c7" stroke="#e8e0d4" stroke-width="1.5"/>
-
-  <text x="970" y="138" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="22" font-weight="700" fill="#92400e" text-anchor="middle">豊かさが生まれる順番</text>
-
-  <!-- Step 1 -->
-  <rect x="850" y="150" width="240" height="66" rx="10" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
-  <text x="970" y="192" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#92400e" text-anchor="middle">① 自分の経験</text>
-
-  <!-- Arrow 1 -->
-  <line x1="970" y1="216" x2="970" y2="234" stroke="#b45309" stroke-width="4"/>
-  <path d="M 958,228 L 970,240 L 982,228 Z" fill="#b45309"/>
-
-  <!-- Step 2 -->
-  <rect x="850" y="240" width="240" height="66" rx="10" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
-  <text x="970" y="282" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#92400e" text-anchor="middle">② 商品・サービス化</text>
-
-  <!-- Arrow 2 -->
-  <line x1="970" y1="306" x2="970" y2="324" stroke="#b45309" stroke-width="4"/>
-  <path d="M 958,318 L 970,330 L 982,318 Z" fill="#b45309"/>
-
-  <!-- Step 3 (highlighted) -->
-  <rect x="835" y="330" width="270" height="70" rx="10" fill="#92400e"/>
-  <text x="970" y="374" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#fef3c7" text-anchor="middle">③ 資産・雇用</text>
+  <!-- ground line -->
+  <ellipse cx="160" cy="540" rx="80" ry="14" fill="#92400e" opacity="0.2"/>
 </svg>

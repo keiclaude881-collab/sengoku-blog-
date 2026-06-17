@@ -1,49 +1,54 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <!-- 背景 -->
-  <rect width="1200" height="630" fill="#faf7ff"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e9d5ff" stroke-width="3"/>
-  <!-- 左側の紫バー -->
-  <rect x="0" y="0" width="12" height="630" fill="#6b21a8"/>
+  <defs>
+    <linearGradient id="bgGradF" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#faf5ff"/>
+      <stop offset="1" stop-color="#f3e8ff"/>
+    </linearGradient>
+    <radialGradient id="flameGrad" cx="0.5" cy="0.7" r="0.6">
+      <stop offset="0" stop-color="#fde68a"/>
+      <stop offset="0.5" stop-color="#d8b4fe"/>
+      <stop offset="1" stop-color="#9333ea"/>
+    </radialGradient>
+  </defs>
 
-  <!-- 右側グラフィック：砂時計 -->
-  <!-- 砂時計枠 -->
-  <polygon points="820,120 1100,120 960,310" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="4" stroke-linejoin="round"/>
-  <polygon points="820,510 1100,510 960,320" fill="#ede9fe" stroke="#6b21a8" stroke-width="4" stroke-linejoin="round"/>
-  <!-- 上枠 -->
-  <line x1="800" y1="110" x2="1120" y2="110" stroke="#6b21a8" stroke-width="8" stroke-linecap="round"/>
-  <!-- 下枠 -->
-  <line x1="800" y1="520" x2="1120" y2="520" stroke="#6b21a8" stroke-width="8" stroke-linecap="round"/>
-  <!-- 砂（下部に溜まった部分） -->
-  <polygon points="840,498 1080,498 960,325" fill="#a855f7" opacity="0.5"/>
-  <!-- 落下点 -->
-  <circle cx="960" cy="315" r="8" fill="#6b21a8"/>
-  <!-- 矢印（下向き） -->
-  <line x1="960" y1="325" x2="960" y2="348" stroke="#6b21a8" stroke-width="3" stroke-dasharray="5,4"/>
-  <!-- 輪 -->
-  <circle cx="960" cy="315" r="120" fill="none" stroke="#e9d5ff" stroke-width="2" opacity="0.5"/>
+  <rect width="1200" height="630" fill="url(#bgGradF)"/>
 
-  <!-- カテゴリバッジ -->
-  <rect x="68" y="70" width="160" height="34" rx="17" fill="#ede9fe"/>
-  <text x="148" y="93" font-family="'Noto Sans JP', sans-serif" font-size="16" font-weight="700" fill="#6b21a8" text-anchor="middle">思考・マインド</text>
+  <circle cx="200" cy="500" r="110" fill="#e9d5ff" opacity="0.4"/>
+  <circle cx="1040" cy="150" r="90" fill="#e9d5ff" opacity="0.35"/>
 
-  <!-- タイトル -->
-  <text x="68" y="200" font-family="'Noto Sans JP', sans-serif" font-size="62" font-weight="900" fill="#6b21a8">吉田松陰の逆算思考</text>
+  <!-- hourglass, left of center -->
+  <g transform="translate(400,315)">
+    <polygon points="-130,-200 130,-200 10,-10" fill="#f3e8ff" stroke="#9333ea" stroke-width="5" stroke-linejoin="round"/>
+    <polygon points="-130,200 130,200 10,10" fill="#e9d5ff" stroke="#7e22ce" stroke-width="5" stroke-linejoin="round"/>
+    <line x1="-150" y1="-210" x2="150" y2="-210" stroke="#7e22ce" stroke-width="10" stroke-linecap="round"/>
+    <line x1="-150" y1="210" x2="150" y2="210" stroke="#7e22ce" stroke-width="10" stroke-linecap="round"/>
+    <!-- sand settled at bottom, mostly run out -->
+    <polygon points="-50,190 50,190 10,40" fill="#a855f7" opacity="0.55"/>
+    <!-- thin remaining trickle -->
+    <line x1="10" y1="0" x2="10" y2="35" stroke="#7e22ce" stroke-width="3" stroke-dasharray="2 4" opacity="0.6"/>
+  </g>
 
-  <!-- サブタイトル -->
-  <text x="68" y="280" font-family="'Noto Sans JP', sans-serif" font-size="36" font-weight="700" fill="#374151">残り時間から逆算して生きる</text>
+  <!-- small candle/flame motif rising to the right, symbolizing 志 (the will that outlasts time) -->
+  <g transform="translate(840,360)">
+    <rect x="-16" y="0" width="32" height="170" rx="6" fill="#ede9fe"/>
+    <rect x="-16" y="0" width="32" height="170" rx="6" fill="none" stroke="#c084fc" stroke-width="3"/>
+    <path d="M 0 -10 C -22 -50, 18 -70, 0 -110 C -16 -78, 22 -56, 0 -10 Z" fill="url(#flameGrad)"/>
+  </g>
 
-  <!-- 区切り線 -->
-  <line x1="68" y1="320" x2="750" y2="320" stroke="#e9d5ff" stroke-width="2"/>
+  <!-- soft radiating glow behind the flame -->
+  <circle cx="840" cy="280" r="90" fill="#fde68a" opacity="0.18"/>
+  <circle cx="840" cy="280" r="140" fill="#fde68a" opacity="0.1"/>
 
-  <!-- 説明テキスト -->
-  <text x="68" y="380" font-family="'Noto Sans JP', sans-serif" font-size="24" fill="#6b7280">29歳で処刑された松陰が残したのは、</text>
-  <text x="68" y="415" font-family="'Noto Sans JP', sans-serif" font-size="24" fill="#6b7280">「いつ死んでも悔いのない生き方」だった。</text>
+  <!-- a trailing line of small lights to the right, symbolizing the flame passed to many students -->
+  <g fill="#9333ea" opacity="0.6">
+    <circle cx="970" cy="430" r="10"/>
+    <circle cx="1040" cy="460" r="8"/>
+    <circle cx="1100" cy="495" r="6"/>
+  </g>
+  <path d="M 856 380 Q 920 420 970 430" stroke="#9333ea" stroke-width="2.5" fill="none" stroke-dasharray="2 8" opacity="0.4"/>
+  <path d="M 970 430 Q 1010 448 1040 460" stroke="#9333ea" stroke-width="2.5" fill="none" stroke-dasharray="2 8" opacity="0.4"/>
+  <path d="M 1040 460 Q 1072 480 1100 495" stroke="#9333ea" stroke-width="2.5" fill="none" stroke-dasharray="2 8" opacity="0.4"/>
 
-  <!-- 引用 -->
-  <rect x="68" y="460" width="700" height="80" rx="8" fill="#f3e8ff"/>
-  <text x="88" y="496" font-family="'Noto Sans JP', sans-serif" font-size="20" font-weight="700" fill="#6b21a8">「身はたとひ武蔵の野辺に朽ちぬとも」</text>
-  <text x="88" y="524" font-family="'Noto Sans JP', sans-serif" font-size="16" fill="#7c3aed">— 吉田松陰『留魂録』</text>
-
-  <!-- サイト名 -->
-  <text x="68" y="594" font-family="'Noto Sans JP', sans-serif" font-size="18" fill="#9ca3af">偉人ラボ — ijin-lab.com</text>
+  <!-- horizon ground line -->
+  <rect x="0" y="560" width="1200" height="70" fill="#6b21a8" opacity="0.07"/>
 </svg>

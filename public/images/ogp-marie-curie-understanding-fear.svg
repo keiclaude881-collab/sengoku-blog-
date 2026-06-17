@@ -1,54 +1,61 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#faf7ff"/>
-  <!-- Border -->
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e9d5ff" stroke-width="3"/>
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="12" height="630" fill="#6b21a8"/>
+  <defs>
+    <radialGradient id="mcGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#d8b4fe" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#e9d5ff" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#f3e8ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
 
-  <!-- Category badge -->
-  <rect x="60" y="55" width="110" height="34" rx="17" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5"/>
-  <text x="115" y="77" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#6b21a8" text-anchor="middle" letter-spacing="2">思考法</text>
+  <rect width="1200" height="630" fill="#faf5ff"/>
 
-  <!-- Main title -->
-  <text x="60" y="185" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">キュリー夫人に学ぶ</text>
-  <text x="60" y="255" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">「理解」という思考法</text>
+  <!-- left half: murky unknown (darker, fading shapes) -->
+  <g opacity="0.35">
+    <circle cx="230" cy="230" r="70" fill="#9333ea" opacity="0.25"/>
+    <circle cx="330" cy="380" r="50" fill="#7e22ce" opacity="0.2"/>
+    <circle cx="170" cy="430" r="36" fill="#9333ea" opacity="0.22"/>
+    <path d="M 120 150 Q 200 100 280 150 Q 220 200 120 150 Z" fill="#6b21a8" opacity="0.15"/>
+  </g>
 
-  <!-- Subtitle -->
-  <text x="60" y="320" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="28" fill="#7c3aed" letter-spacing="2">「恐れるな、ただ理解せよ」と説いた科学者</text>
+  <!-- center: glowing flask radiating light (understanding dissolves fear) -->
+  <circle cx="600" cy="315" r="260" fill="url(#mcGlow)"/>
 
-  <!-- Divider line -->
-  <line x1="60" y1="355" x2="680" y2="355" stroke="#e9d5ff" stroke-width="2"/>
+  <!-- radiating light rays -->
+  <g stroke="#9333ea" stroke-width="3" stroke-linecap="round" opacity="0.5">
+    <line x1="600" y1="80" x2="600" y2="130"/>
+    <line x1="600" y1="500" x2="600" y2="550"/>
+    <line x1="420" y1="150" x2="455" y2="185"/>
+    <line x1="780" y1="150" x2="745" y2="185"/>
+    <line x1="420" y1="480" x2="455" y2="445"/>
+    <line x1="780" y1="480" x2="745" y2="445"/>
+  </g>
 
-  <!-- Description -->
-  <text x="60" y="395" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">学問への道を閉ざされながらも独学を貫き、</text>
-  <text x="60" y="425" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">誰も理解していない放射能の研究に挑んだ科学者。</text>
+  <!-- flask -->
+  <g>
+    <rect x="572" y="190" width="56" height="70" rx="6" fill="#f3e8ff" stroke="#7e22ce" stroke-width="4"/>
+    <path d="M 572 260 L 540 400 Q 538 420 560 420 L 640 420 Q 662 420 660 400 L 628 260 Z" fill="#f3e8ff" stroke="#7e22ce" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M 552 340 Q 600 320 648 340 L 656 390 Q 658 408 644 408 L 556 408 Q 542 408 544 390 Z" fill="#9333ea" opacity="0.85"/>
+    <circle cx="600" cy="310" r="5" fill="#7e22ce"/>
+    <circle cx="615" cy="330" r="4" fill="#7e22ce"/>
+    <circle cx="585" cy="335" r="3.5" fill="#7e22ce"/>
+  </g>
 
-  <!-- Bottom label -->
-  <text x="60" y="568" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#7c3aed" font-weight="700" letter-spacing="3">偉人ラボ</text>
+  <!-- bubbles rising -->
+  <circle cx="560" cy="160" r="6" fill="#d8b4fe" opacity="0.7"/>
+  <circle cx="650" cy="130" r="9" fill="#d8b4fe" opacity="0.6"/>
+  <circle cx="600" cy="100" r="5" fill="#d8b4fe" opacity="0.6"/>
 
-  <!-- Right-side graphic: 3-step flow (fear -> understand -> manageable) -->
-  <rect x="800" y="100" width="340" height="320" rx="8" fill="#f3e8ff" stroke="#e9d5ff" stroke-width="1.5"/>
+  <!-- right half: clear, ordered shapes (understanding / clarity) -->
+  <g>
+    <circle cx="980" cy="220" r="46" fill="none" stroke="#9333ea" stroke-width="3.5" opacity="0.7"/>
+    <circle cx="980" cy="220" r="22" fill="#d8b4fe" opacity="0.8"/>
+    <circle cx="1060" cy="380" r="34" fill="none" stroke="#7e22ce" stroke-width="3.5" opacity="0.7"/>
+    <circle cx="1060" cy="380" r="14" fill="#9333ea" opacity="0.8"/>
+    <circle cx="900" cy="420" r="26" fill="none" stroke="#9333ea" stroke-width="3" opacity="0.6"/>
+    <circle cx="900" cy="420" r="10" fill="#d8b4fe" opacity="0.8"/>
+    <line x1="980" y1="266" x2="1060" y2="346" stroke="#7e22ce" stroke-width="2" stroke-dasharray="4,5" opacity="0.5"/>
+    <line x1="940" y1="240" x2="900" y2="394" stroke="#7e22ce" stroke-width="2" stroke-dasharray="4,5" opacity="0.5"/>
+  </g>
 
-  <text x="970" y="138" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="22" font-weight="700" fill="#6b21a8" text-anchor="middle">不安を変える3ステップ</text>
-
-  <!-- Step 1 -->
-  <rect x="850" y="150" width="240" height="66" rx="10" fill="#e9d5ff" stroke="#a855f7" stroke-width="2"/>
-  <text x="970" y="192" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#6b21a8" text-anchor="middle">① なんとなく怖い</text>
-
-  <!-- Arrow 1 -->
-  <line x1="970" y1="216" x2="970" y2="234" stroke="#7c3aed" stroke-width="4"/>
-  <path d="M 958,228 L 970,240 L 982,228 Z" fill="#7c3aed"/>
-
-  <!-- Step 2 -->
-  <rect x="850" y="240" width="240" height="66" rx="10" fill="#e9d5ff" stroke="#a855f7" stroke-width="2"/>
-  <text x="970" y="282" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#6b21a8" text-anchor="middle">② 理解しようとする</text>
-
-  <!-- Arrow 2 -->
-  <line x1="970" y1="306" x2="970" y2="324" stroke="#7c3aed" stroke-width="4"/>
-  <path d="M 958,318 L 970,330 L 982,318 Z" fill="#7c3aed"/>
-
-  <!-- Step 3 (highlighted) -->
-  <rect x="835" y="330" width="270" height="70" rx="10" fill="#6b21a8"/>
-  <text x="970" y="374" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#f3e8ff" text-anchor="middle">③ 対処できることに変わる</text>
+  <ellipse cx="600" cy="560" rx="120" ry="14" fill="#d8b4fe" opacity="0.4"/>
 </svg>

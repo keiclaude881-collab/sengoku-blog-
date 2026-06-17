@@ -1,49 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <!-- 背景 -->
-  <rect width="1200" height="630" fill="#faf7ff"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e9d5ff" stroke-width="3"/>
-  <!-- 左側の紫バー -->
-  <rect x="0" y="0" width="12" height="630" fill="#6b21a8"/>
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#f3e8ff"/>
+    </linearGradient>
+    <linearGradient id="figGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9333ea"/>
+      <stop offset="100%" stop-color="#581c87"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
-  <!-- 右側グラフィック：座禅する人物と波紋 -->
-  <circle cx="960" cy="315" r="200" fill="none" stroke="#e9d5ff" stroke-width="3"/>
-  <circle cx="960" cy="315" r="155" fill="none" stroke="#ddd6fe" stroke-width="2"/>
-  <circle cx="960" cy="315" r="110" fill="none" stroke="#c4b5fd" stroke-width="2"/>
-  <!-- 座禅シルエット -->
-  <!-- 頭 -->
-  <circle cx="960" cy="240" r="30" fill="#6b21a8"/>
-  <!-- 胴体 -->
-  <ellipse cx="960" cy="320" rx="72" ry="48" fill="#6b21a8"/>
-  <!-- 脚 -->
-  <ellipse cx="960" cy="358" rx="95" ry="24" fill="#4c1d95"/>
-  <!-- 手 -->
-  <ellipse cx="960" cy="332" rx="44" ry="15" fill="#5b21b6"/>
-  <!-- 中心点の輝き -->
-  <circle cx="960" cy="315" r="10" fill="#a855f7" opacity="0.8"/>
-  <circle cx="960" cy="315" r="4" fill="#fff"/>
+  <!-- Concentric ripples spreading from the center, representing stillness radiating outward -->
+  <circle cx="600" cy="345" r="90" fill="none" stroke="#c4b5fd" stroke-width="2.5" opacity="0.9"/>
+  <circle cx="600" cy="345" r="150" fill="none" stroke="#c4b5fd" stroke-width="2" opacity="0.7"/>
+  <circle cx="600" cy="345" r="210" fill="none" stroke="#ddd6fe" stroke-width="1.5" opacity="0.55"/>
+  <circle cx="600" cy="345" r="270" fill="none" stroke="#ede9fe" stroke-width="1.5" opacity="0.4"/>
 
-  <!-- カテゴリバッジ -->
-  <rect x="68" y="70" width="160" height="34" rx="17" fill="#ede9fe"/>
-  <text x="148" y="93" font-family="'Noto Sans JP', sans-serif" font-size="16" font-weight="700" fill="#6b21a8" text-anchor="middle">思考・マインド</text>
+  <!-- Seated meditation (zazen) silhouette, centered -->
+  <g transform="translate(600,345)">
+    <circle cx="0" cy="-150" r="34" fill="url(#figGrad)"/>
+    <path d="M -88 60 C -88 -40 -64 -100 0 -100 C 64 -100 88 -40 88 60 Z" fill="url(#figGrad)"/>
+    <ellipse cx="0" cy="100" rx="118" ry="28" fill="#4c1d95"/>
+    <ellipse cx="0" cy="48" rx="52" ry="18" fill="#6b21a8"/>
+  </g>
 
-  <!-- タイトル -->
-  <text x="68" y="200" font-family="'Noto Sans JP', sans-serif" font-size="56" font-weight="900" fill="#6b21a8">道元の禅的集中力</text>
+  <!-- Soft glowing point above the figure's head, signifying clarity/awareness -->
+  <circle cx="600" cy="170" r="10" fill="#c084fc" opacity="0.9"/>
+  <circle cx="600" cy="170" r="20" fill="#c084fc" opacity="0.3"/>
 
-  <!-- サブタイトル -->
-  <text x="68" y="278" font-family="'Noto Sans JP', sans-serif" font-size="34" font-weight="700" fill="#374151">只管打坐——今この瞬間に</text>
+  <!-- Minimalist temple roofline silhouette in the far background -->
+  <g fill="#e9d5ff" opacity="0.6">
+    <polygon points="60,150 240,150 150,90"/>
+    <rect x="90" y="150" width="120" height="14"/>
+    <polygon points="960,140 1140,140 1050,80"/>
+    <rect x="990" y="140" width="120" height="14"/>
+  </g>
 
-  <!-- 区切り線 -->
-  <line x1="68" y1="318" x2="700" y2="318" stroke="#e9d5ff" stroke-width="2"/>
-
-  <!-- 説明テキスト -->
-  <text x="68" y="374" font-family="'Noto Sans JP', sans-serif" font-size="22" fill="#6b7280">雑念を消すのではなく「気づいて戻る」。</text>
-  <text x="68" y="408" font-family="'Noto Sans JP', sans-serif" font-size="22" fill="#6b7280">800年前の禅が教える現代のマインドフルネス。</text>
-
-  <!-- 引用 -->
-  <rect x="68" y="450" width="680" height="80" rx="8" fill="#f3e8ff"/>
-  <text x="88" y="486" font-family="'Noto Sans JP', sans-serif" font-size="20" font-weight="700" fill="#6b21a8">「而今の山水は、古仏の道現成なり」</text>
-  <text x="88" y="514" font-family="'Noto Sans JP', sans-serif" font-size="16" fill="#7c3aed">— 道元『正法眼蔵』山水経</text>
-
-  <!-- サイト名 -->
-  <text x="68" y="594" font-family="'Noto Sans JP', sans-serif" font-size="18" fill="#9ca3af">偉人ラボ — ijin-lab.com</text>
+  <!-- A single thin branch with a few falling leaves/petals drifting down, symbolizing the present moment passing quietly -->
+  <path d="M 1020 230 C 1060 250 1090 290 1110 340" fill="none" stroke="#a855f7" stroke-width="3" opacity="0.5"/>
+  <g fill="#c4b5fd" opacity="0.8">
+    <ellipse cx="980" cy="420" rx="9" ry="5" transform="rotate(30 980 420)"/>
+    <ellipse cx="1050" cy="480" rx="9" ry="5" transform="rotate(-15 1050 480)"/>
+    <ellipse cx="160" cy="460" rx="9" ry="5" transform="rotate(20 160 460)"/>
+  </g>
 </svg>

@@ -1,54 +1,73 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#f7faff"/>
-  <!-- Border -->
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#dbeafe" stroke-width="3"/>
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="12" height="630" fill="#1e40af"/>
+  <defs>
+    <radialGradient id="gh-glow" cx="55%" cy="48%" r="65%">
+      <stop offset="0%" stop-color="#dbeafe"/>
+      <stop offset="100%" stop-color="#f0f7ff"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#gh-glow)"/>
 
-  <!-- Category badge -->
-  <rect x="60" y="55" width="130" height="34" rx="17" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
-  <text x="125" y="77" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="15" font-weight="700" fill="#1e40af" text-anchor="middle" letter-spacing="2">仕事・副業</text>
+  <!-- circuit-board pattern in the background (computing pioneer) -->
+  <g stroke="#93c5fd" stroke-width="3" fill="none" opacity="0.45">
+    <path d="M 80 100 L 80 180 L 160 180"/>
+    <path d="M 1120 120 L 1120 200 L 1040 200"/>
+    <path d="M 1000 520 L 1000 460 L 1080 460"/>
+    <path d="M 140 540 L 140 480 L 220 480"/>
+  </g>
+  <g fill="#3b82f6" opacity="0.5">
+    <circle cx="80" cy="100" r="7"/>
+    <circle cx="160" cy="180" r="7"/>
+    <circle cx="1120" cy="120" r="7"/>
+    <circle cx="1040" cy="200" r="7"/>
+    <circle cx="1000" cy="520" r="7"/>
+    <circle cx="1080" cy="460" r="7"/>
+    <circle cx="140" cy="540" r="7"/>
+    <circle cx="220" cy="480" r="7"/>
+  </g>
 
-  <!-- Main title -->
-  <text x="60" y="185" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">グレース・ホッパーに</text>
-  <text x="60" y="255" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="50" font-weight="700" fill="#1c1917" letter-spacing="-1">学ぶ「まず動く」力</text>
+  <!-- ground line -->
+  <line x1="0" y1="500" x2="1200" y2="500" stroke="#bfdbfe" stroke-width="2" opacity="0.5"/>
 
-  <!-- Subtitle -->
-  <text x="60" y="320" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="28" fill="#2563eb" letter-spacing="2">「前例がない」を理由にしない</text>
+  <!-- broken gate / barrier, left half standing, right half toppled -->
+  <g opacity="0.85">
+    <rect x="280" y="300" width="22" height="200" rx="6" fill="#1e40af"/>
+    <rect x="280" y="300" width="170" height="22" rx="6" fill="#1e40af"/>
+    <!-- fallen section, rotated -->
+    <g transform="translate(620,470) rotate(58)">
+      <rect x="0" y="-11" width="170" height="22" rx="6" fill="#3b82f6" opacity="0.8"/>
+    </g>
+    <rect x="600" y="430" width="20" height="70" rx="6" fill="#3b82f6" opacity="0.8"/>
+  </g>
 
-  <!-- Divider line -->
-  <line x1="60" y1="355" x2="680" y2="355" stroke="#dbeafe" stroke-width="2"/>
+  <!-- figure striding forward through the broken gate, confident -->
+  <g transform="translate(760,420)">
+    <ellipse cx="0" cy="100" rx="60" ry="14" fill="#1e3a8a" opacity="0.15"/>
+    <!-- back leg, stepping -->
+    <path d="M -10 60 L -50 110" stroke="#1e40af" stroke-width="16" stroke-linecap="round"/>
+    <!-- front leg, forward stride -->
+    <path d="M 14 60 L 60 100" stroke="#1e3a8a" stroke-width="16" stroke-linecap="round"/>
+    <!-- torso -->
+    <path d="M -36 60 C -36 0 -28 -40 0 -40 C 28 -40 36 0 36 60 Z" fill="#1e40af"/>
+    <!-- arm swinging forward -->
+    <path d="M 26 0 L 64 -20" stroke="#1e3a8a" stroke-width="14" stroke-linecap="round"/>
+    <!-- head -->
+    <circle cx="0" cy="-66" r="30" fill="#bfdbfe"/>
+    <!-- small officer cap suggestion (simple shape, no insignia text) -->
+    <path d="M -28 -82 Q 0 -100 28 -82 L 24 -72 L -24 -72 Z" fill="#1e3a8a"/>
+  </g>
 
-  <!-- Description -->
-  <text x="60" y="395" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">COBOLを生み出し、海軍准将になった伝説のプログラマー。</text>
-  <text x="60" y="425" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="18" fill="#78716c" letter-spacing="0.5">「許可を待つより、まず動け」という言葉を残した。</text>
+  <!-- motion lines behind the figure -->
+  <g stroke="#3b82f6" stroke-width="4" stroke-linecap="round" opacity="0.4">
+    <line x1="640" y1="370" x2="700" y2="362"/>
+    <line x1="630" y1="400" x2="690" y2="396"/>
+    <line x1="650" y1="430" x2="700" y2="426"/>
+  </g>
 
-  <!-- Bottom label -->
-  <text x="60" y="568" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="16" fill="#2563eb" font-weight="700" letter-spacing="3">偉人ラボ</text>
+  <!-- forward arrow path suggesting "go first, ask later" -->
+  <path d="M 850 480 C 950 460 1030 420 1080 360" stroke="#2563eb" stroke-width="4" fill="none" stroke-dasharray="3 12" opacity="0.5" stroke-linecap="round"/>
+  <path d="M 1066 372 L 1080 360 L 1086 378 Z" fill="#2563eb" opacity="0.6"/>
 
-  <!-- Right-side graphic: 3-step flow (try small -> show result -> become the new precedent) -->
-  <rect x="800" y="100" width="340" height="320" rx="8" fill="#eff6ff" stroke="#dbeafe" stroke-width="1.5"/>
-
-  <text x="970" y="138" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="22" font-weight="700" fill="#1e40af" text-anchor="middle">「前例」のつくり方</text>
-
-  <!-- Step 1 -->
-  <rect x="850" y="150" width="240" height="66" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
-  <text x="970" y="192" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#1e40af" text-anchor="middle">① 小さく試す</text>
-
-  <!-- Arrow 1 -->
-  <line x1="970" y1="216" x2="970" y2="234" stroke="#2563eb" stroke-width="4"/>
-  <path d="M 958,228 L 970,240 L 982,228 Z" fill="#2563eb"/>
-
-  <!-- Step 2 -->
-  <rect x="850" y="240" width="240" height="66" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
-  <text x="970" y="282" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#1e40af" text-anchor="middle">② 結果を見せる</text>
-
-  <!-- Arrow 2 -->
-  <line x1="970" y1="306" x2="970" y2="324" stroke="#2563eb" stroke-width="4"/>
-  <path d="M 958,318 L 970,330 L 982,318 Z" fill="#2563eb"/>
-
-  <!-- Step 3 (highlighted) -->
-  <rect x="835" y="330" width="270" height="70" rx="10" fill="#1e40af"/>
-  <text x="970" y="374" font-family="'Hiragino Sans', 'Noto Sans CJK JP', sans-serif" font-size="20" font-weight="700" fill="#eff6ff" text-anchor="middle">③ 新しい前例になる</text>
+  <!-- decorative motes -->
+  <circle cx="180" cy="140" r="16" fill="#93c5fd" opacity="0.5"/>
+  <circle cx="1140" cy="560" r="20" fill="#93c5fd" opacity="0.4"/>
 </svg>

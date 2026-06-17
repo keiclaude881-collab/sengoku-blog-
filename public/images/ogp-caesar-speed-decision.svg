@@ -1,35 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#faf8fc"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#ecdffa" stroke-width="2"/>
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#f3e8ff"/>
+    </linearGradient>
+    <linearGradient id="riverGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c4b5fd"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
-  <!-- 月桂冠のシルエット -->
-  <g transform="translate(330,330)" opacity="0.8">
-    <circle cx="0" cy="0" r="80" fill="none" stroke="#9333ea" stroke-width="6" opacity="0.65"/>
-    <path d="M -56 -50 Q -90 -10 -56 50" fill="none" stroke="#6b21a8" stroke-width="5" opacity="0.7" stroke-linecap="round"/>
-    <path d="M 56 -50 Q 90 -10 56 50" fill="none" stroke="#6b21a8" stroke-width="5" opacity="0.7" stroke-linecap="round"/>
-    <ellipse cx="-66" cy="-28" rx="9" ry="16" fill="#6b21a8" opacity="0.6" transform="rotate(-30 -66 -28)"/>
-    <ellipse cx="-78" cy="6" rx="9" ry="16" fill="#6b21a8" opacity="0.6" transform="rotate(-5 -78 6)"/>
-    <ellipse cx="-66" cy="36" rx="9" ry="16" fill="#6b21a8" opacity="0.6" transform="rotate(25 -66 36)"/>
-    <ellipse cx="66" cy="-28" rx="9" ry="16" fill="#6b21a8" opacity="0.6" transform="rotate(30 66 -28)"/>
-    <ellipse cx="78" cy="6" rx="9" ry="16" fill="#6b21a8" opacity="0.6" transform="rotate(5 78 6)"/>
-    <ellipse cx="66" cy="36" rx="9" ry="16" fill="#6b21a8" opacity="0.6" transform="rotate(-25 66 36)"/>
+  <!-- A river (Rubicon) crossing the frame diagonally -->
+  <path d="M -50 250 C 250 320 500 240 750 320 C 950 380 1100 330 1250 380 L 1250 480 C 1100 430 950 480 750 420 C 500 340 250 420 -50 350 Z" fill="url(#riverGrad)" opacity="0.55"/>
+  <path d="M -50 280 C 250 350 500 270 750 350 C 950 410 1100 360 1250 410" fill="none" stroke="#7e22ce" stroke-width="3" opacity="0.4"/>
+
+  <!-- Many faint, scattered, undecided paths on the left bank -->
+  <g stroke="#d8b4fe" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round">
+    <path d="M 150 540 C 200 480 170 430 220 380"/>
+    <path d="M 220 560 C 260 500 230 440 270 390"/>
+    <path d="M 300 555 C 320 490 280 450 320 400"/>
   </g>
 
-  <!-- スピード線（速さの象徴） -->
-  <g stroke="#9333ea" stroke-width="5" stroke-linecap="round" opacity="0.75">
-    <line x1="640" y1="380" x2="760" y2="380"/>
-    <line x1="640" y1="410" x2="730" y2="410"/>
-    <line x1="640" y1="440" x2="700" y2="440"/>
+  <!-- One bold, single, straight arrow crossing decisively to the right bank -->
+  <path d="M 280 470 L 980 200" fill="none" stroke="#6b21a8" stroke-width="10" stroke-linecap="round"/>
+  <polygon points="980,200 925,206 952,250" fill="#6b21a8"/>
+
+  <!-- A simple bridge silhouette over the river marking the crossing point -->
+  <path d="M 560 300 Q 660 230 760 300" fill="none" stroke="#581c87" stroke-width="6" opacity="0.5"/>
+
+  <!-- Standard/banner silhouette on the far bank, signifying the decisive destination reached -->
+  <g transform="translate(1020,170)">
+    <rect x="-4" y="-90" width="8" height="190" fill="#581c87"/>
+    <path d="M 4 -90 L 70 -65 L 4 -40 Z" fill="#9333ea"/>
   </g>
-  <path d="M 760 350 L 830 380 L 760 410 Z" fill="#6b21a8" opacity="0.7"/>
 
-  <!-- カテゴリラベル -->
-  <rect x="660" y="180" width="100" height="36" rx="18" fill="#f3e8ff" stroke="#e9d5ff"/>
-  <text x="710" y="204" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#6b21a8" text-anchor="middle" letter-spacing="1">思考法</text>
-
-  <!-- タイトル -->
-  <text x="660" y="280" font-family="'Shippori Mincho', serif" font-size="32" font-weight="700" fill="#1c1917" letter-spacing="1">カエサルの「速さ」</text>
-  <text x="660" y="324" font-family="'Shippori Mincho', serif" font-size="32" font-weight="700" fill="#1c1917" letter-spacing="1">に学ぶ意思決定</text>
-
-  <text x="100" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+  <!-- Concentric rings on the left bank suggesting hesitation / circling thought -->
+  <circle cx="240" cy="430" r="60" fill="none" stroke="#ddd6fe" stroke-width="3" opacity="0.6"/>
+  <circle cx="240" cy="430" r="95" fill="none" stroke="#ede9fe" stroke-width="2" opacity="0.5"/>
 </svg>

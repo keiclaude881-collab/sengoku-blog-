@@ -1,31 +1,49 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#faf7f2"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#e8e0d4" stroke-width="2"/>
+  <defs>
+    <radialGradient id="fr-glow" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="100%" stop-color="#fffbeb"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#fr-glow)"/>
 
-  <!-- 円形メダリオン（フランクリンの肖像をイメージ） -->
-  <circle cx="330" cy="315" r="170" fill="none" stroke="#d97706" stroke-width="3" opacity="0.5"/>
-  <circle cx="330" cy="315" r="140" fill="#f59e0b" opacity="0.4"/>
-  <circle cx="330" cy="270" r="46" fill="#92400e" opacity="0.85"/>
-  <path d="M 264 380 Q 330 320 396 380 L 396 430 L 264 430 Z" fill="#92400e" opacity="0.85"/>
+  <!-- jar of coins (savings habit) on the left -->
+  <g transform="translate(390,400)">
+    <path d="M -110 -190 L -126 130 C -126 158 -70 172 0 172 C 70 172 126 158 126 130 L 110 -190 Z" fill="#fde68a" opacity="0.45" stroke="#d97706" stroke-width="4"/>
+    <path d="M -118 -200 L 118 -200 L 110 -150 L -110 -150 Z" fill="#f59e0b" opacity="0.6"/>
+    <!-- coin stack inside jar -->
+    <ellipse cx="0" cy="90" rx="92" ry="20" fill="#d97706"/>
+    <ellipse cx="0" cy="55" rx="86" ry="20" fill="#f59e0b"/>
+    <ellipse cx="0" cy="20" rx="78" ry="20" fill="#fbbf24"/>
+    <ellipse cx="0" cy="-12" rx="68" ry="18" fill="#fde68a"/>
+    <!-- coin falling in -->
+    <circle cx="40" cy="-260" r="26" fill="#fbbf24" stroke="#92400e" stroke-width="3"/>
+    <line x1="40" y1="-234" x2="40" y2="-205" stroke="#d97706" stroke-width="3" stroke-dasharray="4 6" opacity="0.6"/>
+  </g>
 
-  <!-- コイン -->
-  <circle cx="430" cy="470" r="22" fill="#fbbf24" stroke="#92400e" stroke-width="2"/>
-  <circle cx="470" cy="488" r="22" fill="#fbbf24" stroke="#92400e" stroke-width="2"/>
-  <circle cx="408" cy="498" r="22" fill="#fbbf24" stroke="#92400e" stroke-width="2"/>
+  <!-- growing plant beside the jar (compounding) -->
+  <g transform="translate(610,520)">
+    <path d="M 0 0 C 0 -60 -14 -100 -8 -150" stroke="#92400e" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <ellipse cx="-30" cy="-120" rx="34" ry="18" fill="#d97706" opacity="0.8" transform="rotate(-30 -30 -120)"/>
+    <ellipse cx="18" cy="-150" rx="34" ry="18" fill="#f59e0b" opacity="0.8" transform="rotate(20 18 -150)"/>
+    <ellipse cx="-10" cy="-185" rx="30" ry="16" fill="#fbbf24" opacity="0.85" transform="rotate(-10 -10 -185)"/>
+    <circle cx="-6" cy="-205" r="16" fill="#fde68a"/>
+  </g>
 
-  <!-- 上昇する棒グラフ -->
-  <rect x="760" y="470" width="46" height="70" fill="#f59e0b"/>
-  <rect x="826" y="440" width="46" height="100" fill="#d97706"/>
-  <rect x="892" y="400" width="46" height="140" fill="#b45309"/>
-  <rect x="958" y="350" width="46" height="190" fill="#92400e"/>
+  <!-- rising bar chart on the right (compound growth over time) -->
+  <g>
+    <rect x="800" y="470" width="56" height="80" rx="6" fill="#fde68a" stroke="#92400e" stroke-width="2"/>
+    <rect x="876" y="420" width="56" height="130" rx="6" fill="#f59e0b" stroke="#92400e" stroke-width="2"/>
+    <rect x="952" y="350" width="56" height="200" rx="6" fill="#d97706" stroke="#92400e" stroke-width="2"/>
+    <rect x="1028" y="260" width="56" height="290" rx="6" fill="#92400e"/>
+  </g>
 
-  <!-- カテゴリラベル -->
-  <rect x="760" y="170" width="120" height="36" rx="18" fill="#fef3c7" stroke="#fde68a"/>
-  <text x="820" y="194" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="1">投資・お金</text>
+  <!-- gentle arc connecting jar to growth, like a habit-to-result path -->
+  <path d="M 470 280 C 600 180 760 180 870 260" stroke="#d97706" stroke-width="3" fill="none" stroke-dasharray="2 12" opacity="0.5" stroke-linecap="round"/>
+  <path d="M 858 248 L 870 260 L 854 270 Z" fill="#d97706" opacity="0.6"/>
 
-  <!-- タイトル -->
-  <text x="760" y="252" font-family="'Shippori Mincho', serif" font-size="34" font-weight="700" fill="#1c1917" letter-spacing="1">フランクリンの</text>
-  <text x="760" y="298" font-family="'Shippori Mincho', serif" font-size="34" font-weight="700" fill="#1c1917" letter-spacing="1">お金の習慣</text>
-
-  <text x="100" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+  <!-- decorative coin dots -->
+  <circle cx="160" cy="160" r="18" fill="#fde68a" opacity="0.7"/>
+  <circle cx="1130" cy="150" r="24" fill="#fde68a" opacity="0.6"/>
+  <circle cx="1100" cy="580" r="14" fill="#f59e0b" opacity="0.5"/>
 </svg>

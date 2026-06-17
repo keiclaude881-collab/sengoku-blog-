@@ -1,50 +1,84 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f7faff"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#dbeafe" stroke-width="2"/>
-  <rect x="0" y="0" width="12" height="630" fill="#1e40af"/>
+  <defs>
+    <linearGradient id="bgGradS" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0f7ff"/>
+      <stop offset="1" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
 
-  <!-- カテゴリバッジ -->
-  <rect x="68" y="68" width="120" height="36" rx="18" fill="#dbeafe" stroke="#bfdbfe"/>
-  <text x="128" y="92" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#1e40af" text-anchor="middle" letter-spacing="1">仕事・副業</text>
+  <rect width="1200" height="630" fill="url(#bgGradS)"/>
 
-  <!-- タイトル -->
-  <text x="68" y="200" font-family="'Hiragino Sans', sans-serif" font-size="48" font-weight="900" fill="#1c1917">豊田佐吉に学ぶ</text>
-  <text x="68" y="266" font-family="'Hiragino Sans', sans-serif" font-size="46" font-weight="900" fill="#1e40af">「仕組み化」の発想</text>
+  <circle cx="1080" cy="120" r="110" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="120" cy="540" r="100" fill="#bfdbfe" opacity="0.3"/>
 
-  <!-- 説明 -->
-  <text x="68" y="330" font-family="'Hiragino Sans', sans-serif" font-size="22" fill="#78716c">異常があれば自動で止まる、自働化の考え方</text>
-
-  <!-- 大きい歯車 -->
-  <g fill="#1e40af" opacity="0.65">
-    <circle cx="900" cy="380" r="66"/>
-    <rect x="891" y="288" width="18" height="26" transform="rotate(0 900 380)"/>
-    <rect x="891" y="288" width="18" height="26" transform="rotate(45 900 380)"/>
-    <rect x="891" y="288" width="18" height="26" transform="rotate(90 900 380)"/>
-    <rect x="891" y="288" width="18" height="26" transform="rotate(135 900 380)"/>
-    <rect x="891" y="288" width="18" height="26" transform="rotate(180 900 380)"/>
-    <rect x="891" y="288" width="18" height="26" transform="rotate(225 900 380)"/>
-    <rect x="891" y="288" width="18" height="26" transform="rotate(270 900 380)"/>
-    <rect x="891" y="288" width="18" height="26" transform="rotate(315 900 380)"/>
+  <!-- large gear, left -->
+  <g transform="translate(340,330)" fill="#1e40af" opacity="0.7">
+    <circle r="110"/>
+    <rect x="-15" y="-148" width="30" height="40" transform="rotate(0)"/>
+    <rect x="-15" y="-148" width="30" height="40" transform="rotate(45)"/>
+    <rect x="-15" y="-148" width="30" height="40" transform="rotate(90)"/>
+    <rect x="-15" y="-148" width="30" height="40" transform="rotate(135)"/>
+    <rect x="-15" y="-148" width="30" height="40" transform="rotate(180)"/>
+    <rect x="-15" y="-148" width="30" height="40" transform="rotate(225)"/>
+    <rect x="-15" y="-148" width="30" height="40" transform="rotate(270)"/>
+    <rect x="-15" y="-148" width="30" height="40" transform="rotate(315)"/>
   </g>
-  <circle cx="900" cy="380" r="22" fill="#f7faff"/>
+  <circle cx="340" cy="330" r="40" fill="#f0f7ff"/>
 
-  <!-- 小さい歯車 -->
-  <g fill="#3b82f6" opacity="0.6">
-    <circle cx="1030" cy="280" r="42"/>
-    <rect x="1023" y="216" width="14" height="20" transform="rotate(0 1030 280)"/>
-    <rect x="1023" y="216" width="14" height="20" transform="rotate(60 1030 280)"/>
-    <rect x="1023" y="216" width="14" height="20" transform="rotate(120 1030 280)"/>
-    <rect x="1023" y="216" width="14" height="20" transform="rotate(180 1030 280)"/>
-    <rect x="1023" y="216" width="14" height="20" transform="rotate(240 1030 280)"/>
-    <rect x="1023" y="216" width="14" height="20" transform="rotate(300 1030 280)"/>
+  <!-- medium gear, meshing top right of large gear -->
+  <g transform="translate(540,210)" fill="#3b82f6" opacity="0.75">
+    <circle r="72"/>
+    <rect x="-10" y="-98" width="20" height="28" transform="rotate(0)"/>
+    <rect x="-10" y="-98" width="20" height="28" transform="rotate(60)"/>
+    <rect x="-10" y="-98" width="20" height="28" transform="rotate(120)"/>
+    <rect x="-10" y="-98" width="20" height="28" transform="rotate(180)"/>
+    <rect x="-10" y="-98" width="20" height="28" transform="rotate(240)"/>
+    <rect x="-10" y="-98" width="20" height="28" transform="rotate(300)"/>
   </g>
-  <circle cx="1030" cy="280" r="14" fill="#f7faff"/>
+  <circle cx="540" cy="210" r="26" fill="#f0f7ff"/>
 
-  <!-- 切れた糸とセンサー -->
-  <line x1="780" y1="480" x2="780" y2="540" stroke="#9ca3af" stroke-width="4" stroke-linecap="round"/>
-  <line x1="780" y1="420" x2="780" y2="460" stroke="#9ca3af" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="780" cy="480" r="14" fill="#dc2626" opacity="0.75"/>
-  <text x="780" y="487" font-family="sans-serif" font-size="18" font-weight="900" fill="#fff" text-anchor="middle">!</text>
+  <!-- small gear, bottom -->
+  <g transform="translate(470,460)" fill="#60a5fa" opacity="0.75">
+    <circle r="46"/>
+    <rect x="-7" y="-62" width="14" height="20" transform="rotate(0)"/>
+    <rect x="-7" y="-62" width="14" height="20" transform="rotate(72)"/>
+    <rect x="-7" y="-62" width="14" height="20" transform="rotate(144)"/>
+    <rect x="-7" y="-62" width="14" height="20" transform="rotate(216)"/>
+    <rect x="-7" y="-62" width="14" height="20" transform="rotate(288)"/>
+  </g>
+  <circle cx="470" cy="460" r="16" fill="#f0f7ff"/>
 
-  <text x="68" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+  <!-- woven cloth / thread motif flowing to the right -->
+  <g transform="translate(800,330)" opacity="0.85">
+    <path d="M -40 -120 L -40 120" stroke="#93c5fd" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 0 -120 L 0 120" stroke="#93c5fd" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 40 -120 L 40 -40" stroke="#93c5fd" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 40 0 L 40 120" stroke="#93c5fd" stroke-width="6" stroke-linecap="round" opacity="0.4"/>
+    <path d="M -60 -80 L 60 -80" stroke="#bfdbfe" stroke-width="6" stroke-linecap="round"/>
+    <path d="M -60 -20 L 60 -20" stroke="#bfdbfe" stroke-width="6" stroke-linecap="round"/>
+    <path d="M -60 40 L 60 40" stroke="#bfdbfe" stroke-width="6" stroke-linecap="round"/>
+    <path d="M -60 100 L 60 100" stroke="#bfdbfe" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <!-- broken thread point with stop indicator: the 自働化 concept (machine halts on anomaly) -->
+  <g transform="translate(840,-10)" opacity="0.95">
+    <line x1="0" y1="40" x2="0" y2="90" stroke="#9ca3af" stroke-width="5" stroke-linecap="round" transform="translate(0,260)"/>
+    <line x1="0" y1="130" x2="0" y2="170" stroke="#9ca3af" stroke-width="5" stroke-linecap="round" transform="translate(0,260)"/>
+  </g>
+  <g transform="translate(840,330)">
+    <circle r="30" fill="#dc2626" opacity="0.8"/>
+    <rect x="-6" y="-14" width="12" height="18" rx="3" fill="#fff"/>
+    <circle cx="0" cy="12" r="3.5" fill="#fff"/>
+  </g>
+
+  <!-- concentric halo around stop sensor, signifying detection radius -->
+  <circle cx="840" cy="330" r="56" fill="none" stroke="#dc2626" stroke-width="2.5" opacity="0.3"/>
+  <circle cx="840" cy="330" r="80" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.18"/>
+
+  <!-- small upward arrow motifs, symbolizing kaizen / continuous improvement -->
+  <g stroke="#1e40af" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5">
+    <path d="M 1040 520 L 1040 460 M 1040 460 L 1024 478 M 1040 460 L 1056 478"/>
+    <path d="M 1100 540 L 1100 500 M 1100 500 L 1088 514 M 1100 500 L 1112 514"/>
+    <path d="M 980 540 L 980 510 M 980 510 L 970 522 M 980 510 L 990 522"/>
+  </g>
 </svg>

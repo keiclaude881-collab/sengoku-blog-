@@ -1,38 +1,59 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f7faff"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#dbeafe" stroke-width="2"/>
+  <defs>
+    <linearGradient id="bgGrad4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0f7ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGrad4)"/>
 
-  <!-- 大軍(大きな円の集合)を、小さな一点が突き抜けるイメージ -->
-  <g transform="translate(360,420)" opacity="0.7">
-    <circle cx="-70" cy="-70" r="58" fill="#3b82f6"/>
-    <circle cx="80" cy="-50" r="50" fill="#3b82f6"/>
-    <circle cx="10" cy="50" r="64" fill="#3b82f6"/>
-    <circle cx="-100" cy="60" r="44" fill="#3b82f6"/>
-    <circle cx="110" cy="70" r="40" fill="#3b82f6"/>
+  <!-- large army (many small triangles, right side) vs small focused force (left) -->
+  <g opacity="0.55" fill="#93c5fd">
+    <path d="M 760 470 L 780 420 L 800 470 Z"/>
+    <path d="M 800 470 L 820 420 L 840 470 Z"/>
+    <path d="M 840 470 L 860 420 L 880 470 Z"/>
+    <path d="M 880 470 L 900 420 L 920 470 Z"/>
+    <path d="M 920 470 L 940 420 L 960 470 Z"/>
+    <path d="M 960 470 L 980 420 L 1000 470 Z"/>
+    <path d="M 1000 470 L 1020 420 L 1040 470 Z"/>
+    <path d="M 1040 470 L 1060 420 L 1080 470 Z"/>
+    <path d="M 780 510 L 800 460 L 820 510 Z"/>
+    <path d="M 820 510 L 840 460 L 860 510 Z"/>
+    <path d="M 860 510 L 880 460 L 900 510 Z"/>
+    <path d="M 900 510 L 920 460 L 940 510 Z"/>
+    <path d="M 940 510 L 960 460 L 980 510 Z"/>
+    <path d="M 980 510 L 1000 460 L 1020 510 Z"/>
+    <path d="M 1020 510 L 1040 460 L 1060 510 Z"/>
+    <path d="M 840 550 L 860 500 L 880 550 Z"/>
+    <path d="M 880 550 L 900 500 L 920 550 Z"/>
+    <path d="M 920 550 L 940 500 L 960 550 Z"/>
+    <path d="M 960 550 L 980 500 L 1000 550 Z"/>
   </g>
-  <g transform="translate(360,420)">
-    <path d="M -150 90 L 130 -110" stroke="#dc2626" stroke-width="4" stroke-linecap="round" opacity="0.75"/>
-    <circle cx="130" cy="-110" r="11" fill="#dc2626"/>
-    <path d="M 130 -110 L 150 -132 L 158 -108 Z" fill="#dc2626" opacity="0.85"/>
+
+  <!-- single focused spear / point breaking through, from left -->
+  <g transform="translate(330,430)">
+    <path d="M -260 60 L 220 -10 L 240 0 L 220 10 L -260 80 Z" fill="#1e3a8a"/>
+    <path d="M 220 -10 L 300 0 L 220 10 Z" fill="#1e40af"/>
+    <circle cx="-260" cy="70" r="34" fill="#3b82f6"/>
+    <circle cx="-200" cy="55" r="22" fill="#3b82f6" opacity="0.85"/>
+    <circle cx="-150" cy="42" r="16" fill="#3b82f6" opacity="0.7"/>
   </g>
 
-  <!-- 六文銭(真田家の家紋モチーフ) -->
-  <g transform="translate(870,470)" opacity="0.7">
-    <circle cx="-60" cy="0" r="15" fill="none" stroke="#1e40af" stroke-width="3"/>
-    <circle cx="-20" cy="0" r="15" fill="none" stroke="#1e40af" stroke-width="3"/>
-    <circle cx="20" cy="0" r="15" fill="none" stroke="#1e40af" stroke-width="3"/>
-    <circle cx="60" cy="0" r="15" fill="none" stroke="#1e40af" stroke-width="3"/>
-    <circle cx="-40" cy="34" r="15" fill="none" stroke="#1e40af" stroke-width="3"/>
-    <circle cx="40" cy="34" r="15" fill="none" stroke="#1e40af" stroke-width="3"/>
+  <!-- impact burst where the point meets the mass -->
+  <g transform="translate(640,415)" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round" opacity="0.8">
+    <path d="M 0 0 L 30 -30"/>
+    <path d="M 0 0 L 40 0"/>
+    <path d="M 0 0 L 30 30"/>
+    <path d="M 0 0 L -10 -40"/>
+    <path d="M 0 0 L -10 40"/>
   </g>
 
-  <!-- カテゴリラベル -->
-  <rect x="700" y="170" width="148" height="36" rx="18" fill="#dbeafe" stroke="#bfdbfe"/>
-  <text x="774" y="194" font-family="'Hiragino Sans', sans-serif" font-size="16" font-weight="700" fill="#1e40af" text-anchor="middle" letter-spacing="1">仕事・副業 / 戦略</text>
-
-  <!-- タイトル -->
-  <text x="700" y="262" font-family="'Shippori Mincho', serif" font-size="30" font-weight="700" fill="#1c1917" letter-spacing="1">真田幸村に学ぶ</text>
-  <text x="700" y="304" font-family="'Shippori Mincho', serif" font-size="30" font-weight="700" fill="#1c1917" letter-spacing="1">「弱者の戦略」</text>
-
-  <text x="100" y="580" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
+  <!-- compass motif top-left, choosing direction -->
+  <g transform="translate(190,150)">
+    <circle r="80" fill="none" stroke="#1e40af" stroke-width="4" opacity="0.7"/>
+    <circle r="56" fill="#bfdbfe" opacity="0.6"/>
+    <path d="M 0 -60 L 14 0 L 0 60 L -14 0 Z" fill="#1e3a8a"/>
+    <path d="M -60 0 L 0 12 L 60 0 L 0 -12 Z" fill="#3b82f6" opacity="0.7"/>
+    <circle r="8" fill="#1e3a8a"/>
+  </g>
 </svg>
