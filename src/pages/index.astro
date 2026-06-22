@@ -26,6 +26,45 @@ const catPosts = CATS.map(c => ({
   ...c,
   posts: allPosts.filter(p => p.data.category === c.key).slice(0, 3),
 }));
+
+function findPost(slug: string) {
+  return allPosts.find(p => p.id.replace(/\.mdx?$/, "") === slug);
+}
+function catMeta(key: string) {
+  return CATS.find(c => c.key === key)!;
+}
+
+const heroCtaPost = findPost("sunzi-investment-principles") ?? allPosts[0];
+
+const painPoints = [
+  {
+    catKey: "money",
+    text: "新NISAを始めたけど、これで合ってるのか正直不安……",
+    slug: "babylon-pay-yourself-first",
+  },
+  {
+    catKey: "mindset",
+    text: "相場が荒れると、つい売ってしまいそうで怖い",
+    slug: "stoicism-index-investing",
+  },
+  {
+    catKey: "career",
+    text: "会社員のままでいいのか、副業も気になっている",
+    slug: "toyotomi-hideyoshi-career-strategy",
+  },
+].map(p => ({ ...p, post: findPost(p.slug), cat: catMeta(p.catKey) }));
+
+const startHereSlugs = [
+  "sunzi-investment-principles",
+  "stoicism-index-investing",
+  "toyotomi-hideyoshi-career-strategy",
+  "babylon-pay-yourself-first",
+  "date-masamune-personal-branding",
+];
+const startHerePosts = startHereSlugs
+  .map(slug => findPost(slug))
+  .filter((p): p is NonNullable<typeof p> => Boolean(p))
+  .map(p => ({ post: p, cat: catMeta(p.data.category) }));
 ---
 
 <BaseLayout
@@ -38,19 +77,62 @@ const catPosts = CATS.map(c => ({
   <div class="masthead-inner">
     <div class="masthead-text">
       <p class="masthead-eyebrow">偉人ラボ</p>
-      <h1 class="masthead-heading">偉人の思考で、<br/>現代のお金と仕事を攻略する</h1>
-      <p class="masthead-desc">孫子・ナポレオン・マルクス・アウレリウス——時代を超えた知恵を、投資・副業・キャリアに応用する。</p>
+      <h1 class="masthead-heading">賢者の答えは、<br/>もう2500年前に<br/>出ている。</h1>
+      <p class="masthead-desc">情報があふれるほど、何を信じればいいか分からなくなる。だから、時代を超えて生き残った「本物の知恵」だけを、今日からできる1つの行動に翻訳しています。</p>
       <div class="masthead-cats">
         <a href="/money/"   class="cat-pill cat-pill--money">投資・お金</a>
         <a href="/career/"  class="cat-pill cat-pill--career">仕事・副業</a>
         <a href="/mindset/" class="cat-pill cat-pill--mindset">思考法</a>
       </div>
+      {heroCtaPost && (
+        <a href={`/blog/${heroCtaPost.id.replace(/\.mdx?$/, '')}/`} class="masthead-cta">
+          まずこの1記事から読む <span class="cta-arrow">→</span>
+        </a>
+      )}
     </div>
     <div class="masthead-visual" aria-hidden="true">
       {heroImages.map((p, i) => (
         <div class={`mast-card mast-card--${i}`}>
           <img src={p.data.ogImage!} alt="" />
         </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PAIN POINTS ═══════════════════════════════════════════ -->
+<section class="pain-section">
+  <div class="pain-wrap">
+    <p class="pain-eyebrow">こんな悩み、ありませんか</p>
+    <div class="pain-grid">
+      {painPoints.map(p => p.post && (
+        <a href={`/blog/${p.post.id.replace(/\.mdx?$/, '')}/`} class="pain-card" style={`--c:${p.cat.color};--bg:${p.cat.accent};--bd:${p.cat.border};`}>
+          <span class="pain-badge">{p.cat.label}</span>
+          <p class="pain-text">{p.text}</p>
+          <span class="pain-link">答えを読む →</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══ START HERE ═════════════════════════════════════════ -->
+<section class="start-section">
+  <div class="start-wrap">
+    <div class="start-head">
+      <p class="start-eyebrow">まずはここから</p>
+      <h2 class="start-heading">最初に読むなら、この5記事</h2>
+    </div>
+    <div class="start-grid">
+      {startHerePosts.map(({ post, cat }) => (
+        <a href={`/blog/${post.id.replace(/\.mdx?$/, '')}/`} class="start-card">
+          {post.data.ogImage && <img src={post.data.ogImage} alt="" class="start-img" />}
+          <div class="start-body">
+            <span class="start-badge" style={`color:${cat.color};background:${cat.accent};border-color:${cat.border};`}>{cat.label}</span>
+            <p class="start-title">{post.data.title}</p>
+            <p class="start-desc">{post.data.description}</p>
+          </div>
+        </a>
       ))}
     </div>
   </div>
@@ -77,6 +159,33 @@ const catPosts = CATS.map(c => ({
         </ol>
       </div>
     ))}
+  </div>
+</section>
+
+<!-- ═══ AUTHOR MINI PROFILE ═══════════════════════════════ -->
+<section class="profile-section">
+  <a href="/about/" class="profile-card">
+    <img src="/images/profile-avatar.svg" alt="温故" class="profile-avatar" />
+    <div class="profile-body">
+      <p class="profile-role">この記事を書いた人</p>
+      <p class="profile-name">温故（おんこ）<span class="profile-handle">| 偉人ラボ運営</span></p>
+      <p class="profile-bio">
+        歴史上の偉人や思想家の言葉を読み込み、「お金」「キャリア」「思考法」のヒントに翻訳して発信中。座右の銘は「温故知新」。
+      </p>
+      <span class="profile-link">プロフィールをもっと見る →</span>
+    </div>
+  </a>
+</section>
+
+<!-- ═══ FINAL CTA ══════════════════════════════════════════ -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <h2 class="final-cta-heading">今日、何か一つだけ試してみる。</h2>
+    <p class="final-cta-desc">読んで終わりにせず、今日からできる1つの行動だけ持って帰ってください。</p>
+    <div class="final-cta-actions">
+      <a href="/blog/" class="final-cta-btn">記事一覧を見る →</a>
+      <a href="/contact/" class="final-cta-ghost">お問い合わせ</a>
+    </div>
   </div>
 </section>
 
@@ -158,7 +267,23 @@ const catPosts = CATS.map(c => ({
   display: flex;
   gap: 0.6rem;
   flex-wrap: wrap;
+  margin-bottom: 1.6rem;
 }
+.masthead-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.15s, gap 0.15s;
+}
+.masthead-cta:hover { opacity: 0.8; gap: 0.7rem; }
+.masthead-cta .cta-arrow { transition: transform 0.15s; }
 
 /* floating OGP collage */
 .masthead-visual {
@@ -277,10 +402,235 @@ const catPosts = CATS.map(c => ({
   color: var(--ink3);
 }
 
+/* ── PAIN POINTS ── */
+.pain-section { padding: 0 0 72px; }
+.pain-wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; }
+.pain-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 1.2rem;
+}
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.pain-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 1.5rem 1.4rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.pain-card:hover { border-color: var(--c); transform: translateY(-2px); }
+.pain-badge {
+  display: inline-flex;
+  align-self: flex-start;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.7rem;
+  border-radius: 100px;
+  background: var(--bg);
+  color: var(--c);
+  border: 1px solid var(--bd);
+}
+.pain-text {
+  font-family: var(--font-serif);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--ink);
+  flex: 1;
+}
+.pain-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--c);
+}
+
+/* ── START HERE ── */
+.start-section { padding: 0 0 72px; }
+.start-wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; }
+.start-head { margin-bottom: 1.6rem; }
+.start-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 0.6rem;
+}
+.start-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  font-weight: 700;
+  color: var(--ink);
+}
+.start-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+.start-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.start-card:hover { border-color: var(--border-mid); transform: translateY(-2px); }
+.start-img { width: 100%; aspect-ratio: 1200 / 630; object-fit: cover; display: block; }
+.start-body { padding: 1rem 1.1rem 1.2rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.start-badge {
+  align-self: flex-start;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 100px;
+  border: 1px solid transparent;
+}
+.start-title {
+  font-family: var(--font-serif);
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1.55;
+  color: var(--ink);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.start-desc {
+  font-size: 0.74rem;
+  line-height: 1.7;
+  color: var(--ink3);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── AUTHOR PROFILE ── */
+.profile-section { padding: 0 0 56px; }
+.profile-card {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.6rem 2rem;
+  display: flex;
+  gap: 1.4rem;
+  align-items: flex-start;
+  text-decoration: none;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.profile-avatar {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: block;
+}
+.profile-body { min-width: 0; }
+.profile-role {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin: 0 0 0.4rem;
+}
+.profile-name {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 0.6rem;
+}
+.profile-handle {
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--ink3);
+  margin-left: 0.4rem;
+}
+.profile-bio {
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: var(--ink2);
+  margin: 0 0 0.8rem;
+  max-width: 560px;
+}
+.profile-link {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ── FINAL CTA ── */
+.final-cta { padding: 0 0 88px; }
+.final-cta-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+.final-cta-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.8rem;
+}
+.final-cta-desc {
+  font-size: 0.9rem;
+  color: var(--ink2);
+  margin-bottom: 1.6rem;
+}
+.final-cta-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.final-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem 1.8rem;
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+.final-cta-btn:hover { opacity: 0.8; }
+.final-cta-ghost {
+  font-size: 0.84rem;
+  color: var(--ink3);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  transition: color 0.15s;
+}
+.final-cta-ghost:hover { color: var(--ink2); }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .cat-wrap { grid-template-columns: 1fr; gap: 16px; }
   .mast-card { width: 200px; }
+  .pain-grid { grid-template-columns: 1fr; }
+  .start-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
   .masthead-inner { grid-template-columns: 1fr; }
@@ -299,12 +649,15 @@ const catPosts = CATS.map(c => ({
   }
   .mast-card--1,
   .mast-card--2 { display: none; }
+  .profile-card { flex-direction: column; align-items: center; text-align: center; }
 }
 @media (max-width: 680px) {
   .masthead { padding: 40px 0; }
   .cat-section { padding: 40px 0 64px; }
+  .pain-section, .start-section { padding: 0 0 48px; }
 }
 @media (max-width: 480px) {
-  .masthead-inner, .featured-inner, .cat-wrap { padding: 0 1rem; }
+  .masthead-inner, .featured-inner, .cat-wrap, .pain-wrap, .start-wrap, .profile-card, .final-cta-inner { padding-left: 1rem; padding-right: 1rem; }
+  .start-grid { grid-template-columns: 1fr; }
 }
 </style>
