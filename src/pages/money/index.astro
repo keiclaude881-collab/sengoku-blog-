@@ -11,8 +11,10 @@ const posts = allPosts
 const journey = JOURNEYS.money;
 const bySlug = new Map(posts.map(p => [p.id.replace(/\.mdx?$/, ""), p]));
 
-const stages = journey.stages.map(stage => ({
+const STEP_ICONS = ["💭", "🏦", "📈", "🎁"];
+const stages = journey.stages.map((stage, i) => ({
   ...stage,
+  icon: STEP_ICONS[i],
   posts: stage.slugs.map(s => bySlug.get(s)).filter((p): p is typeof posts[number] => Boolean(p)),
 }));
 
@@ -44,10 +46,11 @@ function fmt(d: Date) {
       {stages.map((stage, i) => (
         <section class="stage">
           <div class="stage-rail">
-            <span class="stage-num">{stage.step}</span>
+            <span class="stage-num"><span class="stage-num-icon">{stage.icon}</span><span class="stage-num-digit">{stage.step}</span></span>
             {i < stages.length - 1 && <span class="stage-line" />}
           </div>
           <div class="stage-body">
+            <span class="stage-step-label">STEP {stage.step}</span>
             <h2 class="stage-title">{stage.title}</h2>
             <p class="stage-lead">{stage.lead}</p>
             {stage.posts.length > 0 && (
@@ -162,32 +165,49 @@ function fmt(d: Date) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 40px;
+  width: 64px;
 }
 .stage-num {
-  width: 40px;
-  height: 40px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-  background: #fef3c7;
+  background: linear-gradient(160deg, #fef3c7, #fff 85%);
   color: #92400e;
-  border: 1px solid #fde68a;
+  border: 1.5px solid #fde68a;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-serif);
-  font-weight: 700;
-  font-size: 1.05rem;
+  gap: 1px;
   flex-shrink: 0;
+  box-shadow: 0 8px 18px -8px rgba(146, 64, 14, 0.4);
+}
+.stage-num-icon { font-size: 1.5rem; line-height: 1; }
+.stage-num-digit {
+  font-family: var(--font-serif);
+  font-weight: 800;
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
 }
 .stage-line {
   flex: 1;
-  width: 1px;
-  background: var(--border);
-  margin: 6px 0;
-  min-height: 24px;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to bottom, #fde68a, var(--border));
+  margin: 8px 0;
+  min-height: 28px;
 }
 .stage-body { flex: 1; padding-bottom: 3.2rem; min-width: 0; }
 .stage--rest .stage-body { padding-bottom: 0; }
+.stage-step-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #92400e;
+  margin-bottom: 0.3rem;
+}
 .stage-title {
   font-family: var(--font-serif);
   font-size: 1.3rem;
@@ -253,7 +273,8 @@ function fmt(d: Date) {
 @media (max-width: 640px) {
   .card-grid { grid-template-columns: 1fr; }
   .stage { gap: 14px; }
-  .stage-rail { width: 32px; }
-  .stage-num { width: 32px; height: 32px; font-size: 0.9rem; }
+  .stage-rail { width: 48px; }
+  .stage-num { width: 48px; height: 48px; }
+  .stage-num-icon { font-size: 1.15rem; }
 }
 </style>

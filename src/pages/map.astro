@@ -56,11 +56,35 @@ const CATEGORY_COLORS: Record<string, [string, string, string]> = {
   career: ["#dbeafe", "#1e40af", "#bfdbfe"],
   mindset: ["#f3e8ff", "#6b21a8", "#e9d5ff"],
 };
+const CATEGORY_ICONS: Record<string, string> = {
+  money: "💰",
+  career: "🧱",
+  mindset: "🦋",
+};
+
+const THOUGHT_ICONS: Record<string, string> = {
+  "self-control": "🧘",
+  "own-standard": "🪶",
+  "information-strategy": "🗺️",
+  "people-development": "🌱",
+  "saving-discipline": "🪙",
+  "morals-giving": "🤲",
+};
+
+const ERA_ICONS: Record<string, string> = {
+  ancient: "🏛️",
+  medieval: "🏰",
+  sengoku: "⛩️",
+  edo: "🎏",
+  bakumatsu: "⚓",
+  modern: "🏙️",
+};
 
 const thoughtGroups = THOUGHT_GROUPS.map(g => ({
   key: g.key,
   label: g.label,
   caption: g.tagline,
+  icon: THOUGHT_ICONS[g.key],
   colors: THOUGHT_COLORS[g.key],
   chips: Object.entries(FIGURES)
     .filter(([, m]) => m.thought === g.key)
@@ -72,6 +96,7 @@ const eraGroups = ERA_GROUPS.map(g => ({
   key: g.key,
   label: g.label,
   caption: g.period,
+  icon: ERA_ICONS[g.key],
   colors: ERA_COLORS[g.key],
   chips: Object.entries(FIGURES)
     .filter(([, m]) => m.era === g.key)
@@ -85,6 +110,7 @@ const themeGroups = CATEGORY_ORDER.flatMap(cat =>
     key: `${cat}-step${stage.step}`,
     label: `${CATEGORY_LABEL[cat]} STEP${stage.step}`,
     caption: stage.title,
+    icon: CATEGORY_ICONS[cat],
     colors: CATEGORY_COLORS[cat],
     chips: stage.slugs.map(buildChip).filter((c): c is ChipData => Boolean(c)),
   }))
@@ -108,17 +134,22 @@ const themeGroups = CATEGORY_ORDER.flatMap(cat =>
     </div>
 
     <div class="map-tabs" role="tablist" aria-label="偉人マップの分類">
-      <button type="button" class="map-tab is-active" data-tab="thought" role="tab" aria-selected="true">思想のつながり</button>
-      <button type="button" class="map-tab" data-tab="era" role="tab" aria-selected="false">時代のつながり</button>
-      <button type="button" class="map-tab" data-tab="theme" role="tab" aria-selected="false">テーマのつながり</button>
+      <button type="button" class="map-tab is-active" data-tab="thought" role="tab" aria-selected="true"><span class="map-tab-icon">🧠</span>思想のつながり</button>
+      <button type="button" class="map-tab" data-tab="era" role="tab" aria-selected="false"><span class="map-tab-icon">🕰️</span>時代のつながり</button>
+      <button type="button" class="map-tab" data-tab="theme" role="tab" aria-selected="false"><span class="map-tab-icon">🧭</span>テーマのつながり</button>
     </div>
 
     <div class="map-panel" data-panel="thought">
       <div class="group-grid">
         {thoughtGroups.map(g => (
           <section class="group-card" style={`--g-bg:${g.colors[0]}; --g-fg:${g.colors[1]}; --g-border:${g.colors[2]};`}>
-            <h2 class="group-title">{g.label}</h2>
-            <p class="group-caption">{g.caption}</p>
+            <div class="group-head">
+              <span class="group-icon" aria-hidden="true">{g.icon}</span>
+              <div>
+                <h2 class="group-title">{g.label}</h2>
+                <p class="group-caption">{g.caption}</p>
+              </div>
+            </div>
             <div class="chip-row">
               {g.chips.map(c => (
                 <a
@@ -141,8 +172,13 @@ const themeGroups = CATEGORY_ORDER.flatMap(cat =>
       <div class="group-grid">
         {eraGroups.map(g => (
           <section class="group-card" style={`--g-bg:${g.colors[0]}; --g-fg:${g.colors[1]}; --g-border:${g.colors[2]};`}>
-            <h2 class="group-title">{g.label}</h2>
-            <p class="group-caption">{g.caption}</p>
+            <div class="group-head">
+              <span class="group-icon" aria-hidden="true">{g.icon}</span>
+              <div>
+                <h2 class="group-title">{g.label}</h2>
+                <p class="group-caption">{g.caption}</p>
+              </div>
+            </div>
             <div class="chip-row">
               {g.chips.map(c => (
                 <a
@@ -165,8 +201,13 @@ const themeGroups = CATEGORY_ORDER.flatMap(cat =>
       <div class="group-grid">
         {themeGroups.map(g => (
           <section class="group-card" style={`--g-bg:${g.colors[0]}; --g-fg:${g.colors[1]}; --g-border:${g.colors[2]};`}>
-            <h2 class="group-title">{g.label}</h2>
-            <p class="group-caption">{g.caption}</p>
+            <div class="group-head">
+              <span class="group-icon" aria-hidden="true">{g.icon}</span>
+              <div>
+                <h2 class="group-title">{g.label}</h2>
+                <p class="group-caption">{g.caption}</p>
+              </div>
+            </div>
             <div class="chip-row">
               {g.chips.map(c => (
                 <a
@@ -294,8 +335,14 @@ const themeGroups = CATEGORY_ORDER.flatMap(cat =>
   cursor: pointer;
   transition: color 0.15s, border-color 0.15s;
 }
+.map-tab-icon { font-size: 1rem; margin-right: 0.4rem; }
 .map-tab:hover { color: var(--ink2); }
-.map-tab.is-active { color: var(--ink); border-bottom-color: var(--ink); }
+.map-tab.is-active {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+  background: var(--bg2);
+  border-radius: 8px 8px 0 0;
+}
 
 .group-grid {
   display: grid;
@@ -303,45 +350,70 @@ const themeGroups = CATEGORY_ORDER.flatMap(cat =>
   gap: 20px;
 }
 .group-card {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--bg2);
-  padding: 1.5rem 1.6rem;
+  position: relative;
+  border: 1.5px solid var(--g-border);
+  border-radius: calc(var(--radius) + 6px);
+  background: linear-gradient(165deg, var(--g-bg) 0%, var(--bg2) 72%);
+  padding: 1.7rem 1.8rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.group-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px -12px rgba(28, 25, 23, 0.18);
+}
+.group-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  margin-bottom: 1.3rem;
+}
+.group-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--g-border);
 }
 .group-title {
   font-family: var(--font-serif);
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 0.3rem;
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--g-fg);
+  margin-bottom: 0.25rem;
 }
 .group-caption {
   font-size: 0.78rem;
   color: var(--ink3);
-  margin-bottom: 1.1rem;
 }
 .chip-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 9px;
 }
 .figure-chip {
   display: inline-flex;
   align-items: center;
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.82rem;
+  font-weight: 700;
   text-decoration: none;
-  padding: 0.4rem 0.85rem;
+  padding: 0.5rem 1rem;
   border-radius: 100px;
-  background: var(--g-bg);
+  background: rgba(255, 255, 255, 0.85);
   color: var(--g-fg);
-  border: 1px solid var(--g-border);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border: 1.5px solid var(--g-border);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 .figure-chip:hover,
 .figure-chip:focus-visible {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(28, 25, 23, 0.12);
+  transform: translateY(-3px) scale(1.05);
+  background: var(--g-fg);
+  color: #fff;
+  box-shadow: 0 8px 18px -4px rgba(28, 25, 23, 0.3);
 }
 
 .figure-tooltip {
