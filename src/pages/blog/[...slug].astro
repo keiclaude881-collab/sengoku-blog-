@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import AuthorProfile from "../../components/AuthorProfile.astro";
+import NextDoors from "../../components/NextDoors.astro";
 
 const LABELS: Record<string, string> = {
   money:   "投資・お金",
@@ -188,6 +189,9 @@ const breadcrumbSchema = {
         ))}
       </div>
     )}
+
+    <!-- Next Doors -->
+    <NextDoors slug={post.id.replace(/\.mdx?$/, '')} />
 
     <!-- Related -->
     {related.length > 0 && (

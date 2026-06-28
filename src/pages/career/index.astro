@@ -1,10 +1,23 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { JOURNEYS } from "../../data/journeys.ts";
 
-const posts = (await getCollection("posts"))
+const allPosts = await getCollection("posts");
+const posts = allPosts
   .filter(p => p.data.category === "career")
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const journey = JOURNEYS.career;
+const bySlug = new Map(posts.map(p => [p.id.replace(/\.mdx?$/, ""), p]));
+
+const stages = journey.stages.map(stage => ({
+  ...stage,
+  posts: stage.slugs.map(s => bySlug.get(s)).filter((p): p is typeof posts[number] => Boolean(p)),
+}));
+
+const assigned = new Set(journey.stages.flatMap(s => s.slugs));
+const rest = posts.filter(p => !assigned.has(p.id.replace(/\.mdx?$/, "")));
 
 function fmt(d: Date) {
   return d.toLocaleDateString("ja-JP", { year: "numeric", month: "short", day: "numeric" });
@@ -25,32 +38,78 @@ function fmt(d: Date) {
       <p class="cat-count">{posts.length}件の記事</p>
     </div>
 
-    {posts.length > 0 ? (
-      <ul class="card-grid">
-        {posts.map(p => (
-          <li class="fade-in">
-            <a href={`/blog/${p.id.replace(/.mdx?$/, '')}/`} class="card-link">
-              <div class="card-img-wrap">
-                {p.data.ogImage
-                  ? <img src={p.data.ogImage} alt={p.data.title} loading="lazy" class="card-img" />
-                  : <div class="card-img-empty" />
-                }
-              </div>
-              <div class="card-body">
-                <h2 class="card-title">{p.data.title}</h2>
-                {p.data.description && <p class="card-desc">{p.data.description}</p>}
-                <div class="card-foot">
-                  <time class="card-date">{fmt(p.data.date)}</time>
-                  <span class="card-time">{p.data.readingTime}分で読める</span>
-                </div>
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
-    ) : (
-      <p class="empty">記事を準備中です。</p>
+    <p class="journey-intro">{journey.intro}</p>
+
+    <div class="journey">
+      {stages.map((stage, i) => (
+        <section class="stage">
+          <div class="stage-rail">
+            <span class="stage-num">{stage.step}</span>
+            {i < stages.length - 1 && <span class="stage-line" />}
+          </div>
+          <div class="stage-body">
+            <h2 class="stage-title">{stage.title}</h2>
+            <p class="stage-lead">{stage.lead}</p>
+            {stage.posts.length > 0 && (
+              <ul class="card-grid">
+                {stage.posts.map(p => (
+                  <li class="fade-in">
+                    <a href={`/blog/${p.id.replace(/\.mdx?$/, '')}/`} class="card-link">
+                      <div class="card-img-wrap">
+                        {p.data.ogImage
+                          ? <img src={p.data.ogImage} alt={p.data.title} loading="lazy" class="card-img" />
+                          : <div class="card-img-empty" />
+                        }
+                      </div>
+                      <div class="card-body">
+                        <h3 class="card-title">{p.data.title}</h3>
+                        {p.data.description && <p class="card-desc">{p.data.description}</p>}
+                        <div class="card-foot">
+                          <time class="card-date">{fmt(p.data.date)}</time>
+                          <span class="card-time">{p.data.readingTime}分で読める</span>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    {rest.length > 0 && (
+      <section class="stage stage--rest">
+        <div class="stage-body">
+          <h2 class="stage-title">そのほかの記事</h2>
+          <ul class="card-grid">
+            {rest.map(p => (
+              <li class="fade-in">
+                <a href={`/blog/${p.id.replace(/\.mdx?$/, '')}/`} class="card-link">
+                  <div class="card-img-wrap">
+                    {p.data.ogImage
+                      ? <img src={p.data.ogImage} alt={p.data.title} loading="lazy" class="card-img" />
+                      : <div class="card-img-empty" />
+                    }
+                  </div>
+                  <div class="card-body">
+                    <h3 class="card-title">{p.data.title}</h3>
+                    {p.data.description && <p class="card-desc">{p.data.description}</p>}
+                    <div class="card-foot">
+                      <time class="card-date">{fmt(p.data.date)}</time>
+                      <span class="card-time">{p.data.readingTime}分で読める</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
     )}
+
+    {posts.length === 0 && <p class="empty">記事を準備中です。</p>}
   </div>
 </div>
 
@@ -58,7 +117,7 @@ function fmt(d: Date) {
 
 <style>
 .cat-page { padding: 52px 0 88px; }
-.cat-header { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+.cat-header { margin-bottom: 1.6rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
 .cat-badge {
   display: inline-flex;
   align-items: center;
@@ -87,11 +146,68 @@ function fmt(d: Date) {
   margin-bottom: 0.8rem;
 }
 .cat-count { font-size: 0.78rem; color: var(--ink3); }
+
+.journey-intro {
+  font-size: 0.92rem;
+  line-height: 1.9;
+  color: var(--ink2);
+  max-width: 640px;
+  margin: 0 0 3rem;
+}
+
+.journey { display: flex; flex-direction: column; }
+.stage { display: flex; gap: 24px; }
+.stage-rail {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40px;
+}
+.stage-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #dbeafe;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.05rem;
+  flex-shrink: 0;
+}
+.stage-line {
+  flex: 1;
+  width: 1px;
+  background: var(--border);
+  margin: 6px 0;
+  min-height: 24px;
+}
+.stage-body { flex: 1; padding-bottom: 3.2rem; min-width: 0; }
+.stage--rest .stage-body { padding-bottom: 0; }
+.stage-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+.stage-lead {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--ink3);
+  margin-bottom: 1.6rem;
+  max-width: 560px;
+}
+
 .card-grid {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 36px 28px;
+  gap: 32px 24px;
 }
 .card-link { display: block; text-decoration: none; color: inherit; }
 .card-img-wrap {
@@ -134,5 +250,10 @@ function fmt(d: Date) {
 .card-time { font-size: 0.68rem; color: var(--ink3); }
 .empty { text-align: center; color: var(--ink3); padding: 4rem 0; }
 @media (max-width: 900px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 540px) { .card-grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .stage { gap: 14px; }
+  .stage-rail { width: 32px; }
+  .stage-num { width: 32px; height: 32px; font-size: 0.9rem; }
+}
 </style>

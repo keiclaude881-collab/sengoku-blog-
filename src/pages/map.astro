@@ -1,0 +1,380 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { ERA_GROUPS, THOUGHT_GROUPS, FIGURES } from "../data/figureMap.ts";
+import { JOURNEYS } from "../data/journeys.ts";
+
+const allPosts = await getCollection("posts");
+const bySlug = new Map(allPosts.map(p => [p.id.replace(/\.mdx?$/, ""), p]));
+
+interface ChipData {
+  slug: string;
+  name: string;
+  title: string;
+  desc: string;
+  href: string;
+}
+
+function buildChip(slug: string): ChipData | null {
+  const post = bySlug.get(slug);
+  const meta = FIGURES[slug];
+  if (!post || !meta) return null;
+  return {
+    slug,
+    name: meta.name,
+    title: post.data.title,
+    desc: post.data.description ?? "",
+    href: `/blog/${slug}/`,
+  };
+}
+
+const THOUGHT_COLORS: Record<string, [string, string, string]> = {
+  "self-control": ["#fee2e2", "#991b1b", "#fecaca"],
+  "own-standard": ["#dbeafe", "#1e40af", "#bfdbfe"],
+  "information-strategy": ["#dcfce7", "#166534", "#bbf7d0"],
+  "people-development": ["#fef3c7", "#92400e", "#fde68a"],
+  "saving-discipline": ["#e0e7ff", "#3730a3", "#c7d2fe"],
+  "morals-giving": ["#f3e8ff", "#6b21a8", "#e9d5ff"],
+};
+
+const ERA_COLORS: Record<string, [string, string, string]> = {
+  ancient: ["#fef3c7", "#92400e", "#fde68a"],
+  medieval: ["#e0e7ff", "#3730a3", "#c7d2fe"],
+  sengoku: ["#fee2e2", "#991b1b", "#fecaca"],
+  edo: ["#dcfce7", "#166534", "#bbf7d0"],
+  bakumatsu: ["#ffe4e6", "#9f1239", "#fecdd3"],
+  modern: ["#dbeafe", "#1e40af", "#bfdbfe"],
+};
+
+const CATEGORY_LABEL: Record<string, string> = {
+  money: "投資・お金",
+  career: "仕事・副業",
+  mindset: "思考法",
+};
+const CATEGORY_COLORS: Record<string, [string, string, string]> = {
+  money: ["#fef3c7", "#92400e", "#fde68a"],
+  career: ["#dbeafe", "#1e40af", "#bfdbfe"],
+  mindset: ["#f3e8ff", "#6b21a8", "#e9d5ff"],
+};
+
+const thoughtGroups = THOUGHT_GROUPS.map(g => ({
+  key: g.key,
+  label: g.label,
+  caption: g.tagline,
+  colors: THOUGHT_COLORS[g.key],
+  chips: Object.entries(FIGURES)
+    .filter(([, m]) => m.thought === g.key)
+    .map(([slug]) => buildChip(slug))
+    .filter((c): c is ChipData => Boolean(c)),
+}));
+
+const eraGroups = ERA_GROUPS.map(g => ({
+  key: g.key,
+  label: g.label,
+  caption: g.period,
+  colors: ERA_COLORS[g.key],
+  chips: Object.entries(FIGURES)
+    .filter(([, m]) => m.era === g.key)
+    .map(([slug]) => buildChip(slug))
+    .filter((c): c is ChipData => Boolean(c)),
+}));
+
+const CATEGORY_ORDER: ("money" | "career" | "mindset")[] = ["money", "career", "mindset"];
+const themeGroups = CATEGORY_ORDER.flatMap(cat =>
+  JOURNEYS[cat].stages.map(stage => ({
+    key: `${cat}-step${stage.step}`,
+    label: `${CATEGORY_LABEL[cat]} STEP${stage.step}`,
+    caption: stage.title,
+    colors: CATEGORY_COLORS[cat],
+    chips: stage.slugs.map(buildChip).filter((c): c is ChipData => Boolean(c)),
+  }))
+);
+---
+
+<BaseLayout
+  title="偉人マップ | 偉人ラボ"
+  description="64人の偉人たちを「思想」「時代」「テーマ」で結ぶ、偉人ラボの全体マップ。気になる偉人をクリックして、その人物の記事へ。"
+>
+
+<div class="map-page">
+  <div class="container">
+    <div class="map-header">
+      <span class="map-eyebrow">FIGURE MAP</span>
+      <h1 class="map-title">偉人マップ</h1>
+      <p class="map-desc">
+        ここに登場する偉人たちは、互いに無関係ではない。同じ思想を持ち、同じ時代を生き、同じ問いに別の答えを出した者たちがいる。
+        タブを切り替えて、つながりを辿ってみてほしい。気になる偉人をクリックすれば、その人物の記事に飛べる。
+      </p>
+    </div>
+
+    <div class="map-tabs" role="tablist" aria-label="偉人マップの分類">
+      <button type="button" class="map-tab is-active" data-tab="thought" role="tab" aria-selected="true">思想のつながり</button>
+      <button type="button" class="map-tab" data-tab="era" role="tab" aria-selected="false">時代のつながり</button>
+      <button type="button" class="map-tab" data-tab="theme" role="tab" aria-selected="false">テーマのつながり</button>
+    </div>
+
+    <div class="map-panel" data-panel="thought">
+      <div class="group-grid">
+        {thoughtGroups.map(g => (
+          <section class="group-card" style={`--g-bg:${g.colors[0]}; --g-fg:${g.colors[1]}; --g-border:${g.colors[2]};`}>
+            <h2 class="group-title">{g.label}</h2>
+            <p class="group-caption">{g.caption}</p>
+            <div class="chip-row">
+              {g.chips.map(c => (
+                <a
+                  href={c.href}
+                  class="figure-chip"
+                  data-name={c.name}
+                  data-title={c.title}
+                  data-desc={c.desc}
+                >
+                  {c.name}
+                </a>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+
+    <div class="map-panel" data-panel="era" hidden>
+      <div class="group-grid">
+        {eraGroups.map(g => (
+          <section class="group-card" style={`--g-bg:${g.colors[0]}; --g-fg:${g.colors[1]}; --g-border:${g.colors[2]};`}>
+            <h2 class="group-title">{g.label}</h2>
+            <p class="group-caption">{g.caption}</p>
+            <div class="chip-row">
+              {g.chips.map(c => (
+                <a
+                  href={c.href}
+                  class="figure-chip"
+                  data-name={c.name}
+                  data-title={c.title}
+                  data-desc={c.desc}
+                >
+                  {c.name}
+                </a>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+
+    <div class="map-panel" data-panel="theme" hidden>
+      <div class="group-grid">
+        {themeGroups.map(g => (
+          <section class="group-card" style={`--g-bg:${g.colors[0]}; --g-fg:${g.colors[1]}; --g-border:${g.colors[2]};`}>
+            <h2 class="group-title">{g.label}</h2>
+            <p class="group-caption">{g.caption}</p>
+            <div class="chip-row">
+              {g.chips.map(c => (
+                <a
+                  href={c.href}
+                  class="figure-chip"
+                  data-name={c.name}
+                  data-title={c.title}
+                  data-desc={c.desc}
+                >
+                  {c.name}
+                </a>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="figure-tooltip" class="figure-tooltip" role="tooltip" hidden>
+  <p class="figure-tooltip-name"></p>
+  <p class="figure-tooltip-title"></p>
+  <p class="figure-tooltip-desc"></p>
+</div>
+
+</BaseLayout>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>(".map-tab");
+  const panels = document.querySelectorAll<HTMLElement>(".map-panel");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      const target = tab.dataset.tab;
+      tabs.forEach(t => {
+        const isActive = t === tab;
+        t.classList.toggle("is-active", isActive);
+        t.setAttribute("aria-selected", String(isActive));
+      });
+      panels.forEach(p => {
+        p.hidden = p.dataset.panel !== target;
+      });
+    });
+  });
+
+  const tooltip = document.getElementById("figure-tooltip") as HTMLElement;
+  const tooltipName = tooltip.querySelector(".figure-tooltip-name") as HTMLElement;
+  const tooltipTitle = tooltip.querySelector(".figure-tooltip-title") as HTMLElement;
+  const tooltipDesc = tooltip.querySelector(".figure-tooltip-desc") as HTMLElement;
+
+  function showTooltip(chip: HTMLElement) {
+    tooltipName.textContent = chip.dataset.name ?? "";
+    tooltipTitle.textContent = chip.dataset.title ?? "";
+    tooltipDesc.textContent = chip.dataset.desc ?? "";
+    tooltip.hidden = false;
+
+    const rect = chip.getBoundingClientRect();
+    const tipRect = tooltip.getBoundingClientRect();
+    let left = rect.left + rect.width / 2 - tipRect.width / 2;
+    left = Math.max(12, Math.min(left, window.innerWidth - tipRect.width - 12));
+    let top = rect.top - tipRect.height - 10;
+    if (top < 8) top = rect.bottom + 10;
+
+    tooltip.style.left = `${left + window.scrollX}px`;
+    tooltip.style.top = `${top + window.scrollY}px`;
+  }
+
+  function hideTooltip() {
+    tooltip.hidden = true;
+  }
+
+  document.querySelectorAll<HTMLElement>(".figure-chip").forEach(chip => {
+    chip.addEventListener("mouseenter", () => showTooltip(chip));
+    chip.addEventListener("mouseleave", hideTooltip);
+    chip.addEventListener("focus", () => showTooltip(chip));
+    chip.addEventListener("blur", hideTooltip);
+  });
+</script>
+
+<style>
+.map-page { padding: 52px 0 88px; }
+.map-header { max-width: 680px; margin: 0 auto 2.4rem; text-align: center; }
+.map-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+.map-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 4.5vw, 2.9rem);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+.map-desc {
+  font-size: 0.92rem;
+  line-height: 1.9;
+  color: var(--ink2);
+}
+
+.map-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2.6rem;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.map-tab {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink3);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0.8rem 1.1rem;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.map-tab:hover { color: var(--ink2); }
+.map-tab.is-active { color: var(--ink); border-bottom-color: var(--ink); }
+
+.group-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.group-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg2);
+  padding: 1.5rem 1.6rem;
+}
+.group-title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+.group-caption {
+  font-size: 0.78rem;
+  color: var(--ink3);
+  margin-bottom: 1.1rem;
+}
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.figure-chip {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.4rem 0.85rem;
+  border-radius: 100px;
+  background: var(--g-bg);
+  color: var(--g-fg);
+  border: 1px solid var(--g-border);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.figure-chip:hover,
+.figure-chip:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(28, 25, 23, 0.12);
+}
+
+.figure-tooltip {
+  position: absolute;
+  z-index: 200;
+  max-width: 280px;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  pointer-events: none;
+  box-shadow: 0 12px 28px rgba(28, 25, 23, 0.28);
+}
+.figure-tooltip-name {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+.figure-tooltip-title {
+  font-size: 0.74rem;
+  opacity: 0.85;
+  margin-bottom: 0.35rem;
+}
+.figure-tooltip-desc {
+  font-size: 0.74rem;
+  line-height: 1.6;
+  opacity: 0.75;
+}
+
+@media (max-width: 760px) {
+  .group-grid { grid-template-columns: 1fr; }
+  .map-tabs { gap: 0; }
+  .map-tab { flex: 1; padding: 0.8rem 0.4rem; font-size: 0.78rem; text-align: center; }
+}
+</style>
