@@ -21,6 +21,11 @@ const LABELS: Record<string, string> = {
   career: "仕事・副業",
   mindset: "思考法",
 };
+const DOOR_COLORS: Record<string, [string, string, string]> = {
+  money: ["#fef3c7", "#92400e", "#fde68a"],
+  career: ["#dbeafe", "#1e40af", "#bfdbfe"],
+  mindset: ["#f3e8ff", "#6b21a8", "#e9d5ff"],
+};
 ---
 
 {items.length > 0 && (
@@ -29,7 +34,11 @@ const LABELS: Record<string, string> = {
     <h2 class="next-doors-title">この記事の答えの続きは、ここにある</h2>
     <div class="door-grid">
       {items.map(({ hook, post }) => post && (
-        <a href={`/blog/${post.id.replace(/\.mdx?$/, '')}/`} class="door-card">
+        <a
+          href={`/blog/${post.id.replace(/\.mdx?$/, '')}/`}
+          class="door-card"
+          style={`--d-bg:${DOOR_COLORS[post.data.category][0]};--d-fg:${DOOR_COLORS[post.data.category][1]};--d-bd:${DOOR_COLORS[post.data.category][2]};`}
+        >
           <span class="door-frame" aria-hidden="true">
             <span class="door-panel">
               <span class="door-handle"></span>
@@ -79,35 +88,37 @@ const LABELS: Record<string, string> = {
   gap: 16px;
   text-decoration: none;
   color: inherit;
-  background: var(--bg2);
-  border: 1px solid var(--border);
+  background: linear-gradient(135deg, var(--d-bg) 0%, var(--bg2) 65%);
+  border: 1.5px solid var(--d-bd);
+  border-left: 4px solid var(--d-fg);
   border-radius: var(--radius);
   padding: 1.4rem;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 .door-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 26px rgba(28, 25, 23, 0.1);
-  border-color: var(--border-mid);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px -8px rgba(28, 25, 23, 0.18);
+  border-color: var(--d-fg);
 }
 .door-frame {
   flex: 0 0 auto;
-  width: 30px;
-  height: 46px;
-  border: 2px solid var(--ink3);
+  width: 32px;
+  height: 50px;
+  border: 2px solid var(--d-fg);
   border-radius: 4px 4px 2px 2px;
   display: flex;
   align-items: center;
   padding: 3px;
+  background: rgba(255, 255, 255, 0.5);
   transition: transform 0.3s ease;
   transform-origin: left center;
 }
-.door-card:hover .door-frame { transform: perspective(120px) rotateY(28deg); }
+.door-card:hover .door-frame { transform: perspective(120px) rotateY(32deg); }
 .door-panel {
   position: relative;
   width: 100%;
   height: 100%;
-  background: var(--bg3);
+  background: var(--d-bg);
   border-radius: 2px;
 }
 .door-handle {
@@ -117,7 +128,7 @@ const LABELS: Record<string, string> = {
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: var(--ink2);
+  background: var(--d-fg);
   transform: translateY(-50%);
 }
 .door-body { flex: 1; min-width: 0; }
@@ -150,8 +161,8 @@ const LABELS: Record<string, string> = {
 }
 .door-cta {
   font-size: 0.74rem;
-  font-weight: 600;
-  color: var(--ink2);
+  font-weight: 700;
+  color: var(--d-fg);
 }
 
 @media (max-width: 640px) {
