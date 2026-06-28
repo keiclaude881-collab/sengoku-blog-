@@ -1,0 +1,160 @@
+---
+import { getCollection } from "astro:content";
+import { NEXT_DOORS } from "../data/nextDoors.ts";
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+const doors = NEXT_DOORS[slug] ?? [];
+
+const allPosts = await getCollection("posts");
+const bySlug = new Map(allPosts.map(p => [p.id.replace(/\.mdx?$/, ""), p]));
+
+const items = doors
+  .map(d => ({ ...d, post: bySlug.get(d.slug) }))
+  .filter(d => Boolean(d.post));
+
+const LABELS: Record<string, string> = {
+  money: "投資・お金",
+  career: "仕事・副業",
+  mindset: "思考法",
+};
+---
+
+{items.length > 0 && (
+  <section class="next-doors">
+    <p class="next-doors-eyebrow">次の扉</p>
+    <h2 class="next-doors-title">この記事の答えの続きは、ここにある</h2>
+    <div class="door-grid">
+      {items.map(({ hook, post }) => post && (
+        <a href={`/blog/${post.id.replace(/\.mdx?$/, '')}/`} class="door-card">
+          <span class="door-frame" aria-hidden="true">
+            <span class="door-panel">
+              <span class="door-handle"></span>
+            </span>
+          </span>
+          <span class="door-body">
+            <p class="door-hook">{hook}</p>
+            <span class={`door-cat door-cat--${post.data.category}`}>{LABELS[post.data.category]}</span>
+            <p class="door-target">{post.data.title}</p>
+            <span class="door-cta">扉を開く →</span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+.next-doors {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+}
+.next-doors-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 0.5rem;
+}
+.next-doors-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1.6rem;
+}
+.door-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.door-card {
+  display: flex;
+  gap: 16px;
+  text-decoration: none;
+  color: inherit;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.door-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(28, 25, 23, 0.1);
+  border-color: var(--border-mid);
+}
+.door-frame {
+  flex: 0 0 auto;
+  width: 30px;
+  height: 46px;
+  border: 2px solid var(--ink3);
+  border-radius: 4px 4px 2px 2px;
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  transition: transform 0.3s ease;
+  transform-origin: left center;
+}
+.door-card:hover .door-frame { transform: perspective(120px) rotateY(28deg); }
+.door-panel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--bg3);
+  border-radius: 2px;
+}
+.door-handle {
+  position: absolute;
+  right: 3px;
+  top: 50%;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--ink2);
+  transform: translateY(-50%);
+}
+.door-body { flex: 1; min-width: 0; }
+.door-hook {
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: var(--ink);
+  margin-bottom: 0.8rem;
+}
+.door-cat {
+  display: inline-flex;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.18rem 0.55rem;
+  border-radius: 100px;
+  border: 1px solid transparent;
+  margin-bottom: 0.5rem;
+}
+.door-cat--money   { background: #fef3c7; color: #92400e; border-color: #fde68a; }
+.door-cat--career  { background: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
+.door-cat--mindset { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; }
+.door-target {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+}
+.door-cta {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--ink2);
+}
+
+@media (max-width: 640px) {
+  .door-grid { grid-template-columns: 1fr; }
+}
+</style>
