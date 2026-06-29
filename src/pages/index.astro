@@ -39,35 +39,30 @@ const heroCtaPost = findPost("sunzi-investment-principles") ?? allPosts[0];
 const painPoints = [
   {
     catKey: "money",
-    icon: "💰",
     worry: "お金の不安がある",
     text: "新NISAを始めたけど、これで合ってるのか正直不安……",
     slug: "babylon-pay-yourself-first",
   },
   {
     catKey: "career",
-    icon: "🧱",
     worry: "仕事に詰まっている",
     text: "頑張っているのに評価されない。今のままでいいのか分からない",
     slug: "kuroda-kanbei-win-without-fighting",
   },
   {
     catKey: "mindset",
-    icon: "🦋",
     worry: "自分を変えたい",
     text: "今の自分のままでいいのか、それとも変わるべきなのか",
     slug: "hokusai-growth-no-limit",
   },
   {
     catKey: "mindset",
-    icon: "😓",
     worry: "人間関係に疲れた",
     text: "気を遣いすぎて疲れる。距離感がいつもうまくいかない",
     slug: "dale-carnegie-workplace-relationships",
   },
   {
     catKey: "mindset",
-    icon: "🌫️",
     worry: "将来が見えない",
     text: "このままで大丈夫なのか、誰にも答えを聞けない",
     slug: "yoshida-shoin-remaining-time",
@@ -128,7 +123,6 @@ const startHerePosts = startHereSlugs
     <div class="pain-grid">
       {painPoints.map(p => p.post && (
         <a href={`/blog/${p.post.id.replace(/\.mdx?$/, '')}/`} class="pain-card" style={`--c:${p.cat.color};--bg:${p.cat.accent};--bd:${p.cat.border};`}>
-          <span class="pain-icon" aria-hidden="true">{p.icon}</span>
           <span class="pain-badge">{p.cat.label}</span>
           <p class="pain-worry">{p.worry}</p>
           <p class="pain-text">{p.text}</p>
@@ -449,44 +443,22 @@ const startHerePosts = startHereSlugs
   gap: 18px;
 }
 .pain-card {
-  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
-  padding: 1.8rem 1.6rem;
+  padding: 1.7rem 1.6rem;
   background: var(--bg);
-  border: 1.5px solid var(--bd);
-  border-radius: calc(var(--radius) + 4px);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--c);
+  border-radius: var(--radius);
   text-decoration: none;
-  overflow: hidden;
-  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-}
-.pain-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 100% 0%, rgba(255,255,255,0.55), transparent 60%);
-  pointer-events: none;
+  transition: border-color 0.15s, transform 0.15s;
 }
 .pain-card:hover {
-  border-color: var(--c);
-  transform: translateY(-5px) scale(1.015);
-  box-shadow: 0 18px 34px -10px rgba(28, 25, 23, 0.22);
+  border-color: var(--border-mid);
+  border-left-color: var(--c);
+  transform: translateY(-2px);
 }
-.pain-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  font-size: 1.7rem;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid var(--bd);
-  margin-bottom: 0.2rem;
-  transition: transform 0.25s ease;
-}
-.pain-card:hover .pain-icon { transform: scale(1.12) rotate(-4deg); }
 .pain-badge {
   display: inline-flex;
   align-self: flex-start;
@@ -495,13 +467,13 @@ const startHerePosts = startHereSlugs
   letter-spacing: 0.06em;
   padding: 0.3rem 0.7rem;
   border-radius: 100px;
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--bg);
   color: var(--c);
   border: 1px solid var(--bd);
 }
 .pain-worry {
   font-family: var(--font-serif);
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 800;
   line-height: 1.45;
   color: var(--ink);
