@@ -88,37 +88,35 @@ const DOOR_COLORS: Record<string, [string, string, string]> = {
   gap: 16px;
   text-decoration: none;
   color: inherit;
-  background: linear-gradient(135deg, var(--d-bg) 0%, var(--bg2) 65%);
-  border: 1.5px solid var(--d-bd);
+  background: var(--bg2);
+  border: 1px solid var(--border);
   border-left: 4px solid var(--d-fg);
   border-radius: var(--radius);
   padding: 1.4rem;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 .door-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px -8px rgba(28, 25, 23, 0.18);
-  border-color: var(--d-fg);
+  transform: translateY(-3px);
+  border-color: var(--border-mid);
 }
 .door-frame {
   flex: 0 0 auto;
-  width: 32px;
-  height: 50px;
-  border: 2px solid var(--d-fg);
+  width: 30px;
+  height: 46px;
+  border: 2px solid var(--ink3);
   border-radius: 4px 4px 2px 2px;
   display: flex;
   align-items: center;
   padding: 3px;
-  background: rgba(255, 255, 255, 0.5);
   transition: transform 0.3s ease;
   transform-origin: left center;
 }
-.door-card:hover .door-frame { transform: perspective(120px) rotateY(32deg); }
+.door-card:hover .door-frame { transform: perspective(120px) rotateY(28deg); }
 .door-panel {
   position: relative;
   width: 100%;
   height: 100%;
-  background: var(--d-bg);
+  background: var(--bg3);
   border-radius: 2px;
 }
 .door-handle {
@@ -128,7 +126,7 @@ const DOOR_COLORS: Record<string, [string, string, string]> = {
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: var(--d-fg);
+  background: var(--ink2);
   transform: translateY(-50%);
 }
 .door-body { flex: 1; min-width: 0; }
