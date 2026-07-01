@@ -5,81 +5,42 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const allPosts = (await getCollection("posts"))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
-const LABELS: Record<string, string> = {
-  money:   "投資・お金",
-  career:  "仕事・副業",
-  mindset: "思考法",
-};
-
-function fmt(d: Date) {
-  return d.toLocaleDateString("ja-JP", { year: "numeric", month: "short", day: "numeric" });
-}
-
 const heroImages = allPosts.filter(p => p.data.ogImage).slice(0, 3);
-
-const CATS = [
-  { key: "money",   label: "投資・お金", href: "/money/",   accent: "#fef3c7", color: "#92400e", border: "#fde68a" },
-  { key: "career",  label: "仕事・副業", href: "/career/",  accent: "#dbeafe", color: "#1e40af", border: "#bfdbfe" },
-  { key: "mindset", label: "思考法",     href: "/mindset/", accent: "#f3e8ff", color: "#6b21a8", border: "#e9d5ff" },
-];
-const catPosts = CATS.map(c => ({
-  ...c,
-  posts: allPosts.filter(p => p.data.category === c.key).slice(0, 3),
-}));
 
 function findPost(slug: string) {
   return allPosts.find(p => p.id.replace(/\.mdx?$/, "") === slug);
 }
-function catMeta(key: string) {
-  return CATS.find(c => c.key === key)!;
-}
 
 const heroCtaPost = findPost("sunzi-investment-principles") ?? allPosts[0];
+const featuredPost = findPost("sunzi-investment-principles") ?? allPosts[0];
 
-const painPoints = [
+const figureQuotes = [
   {
-    catKey: "money",
-    worry: "お金の不安がある",
-    text: "新NISAを始めたけど、これで合ってるのか正直不安……",
-    slug: "babylon-pay-yourself-first",
+    slug: "sunzi-investment-principles",
+    name: "孫子",
+    quote: "勝ちに行くより、負けない仕組みを作れ。それが最善の戦略だ。",
   },
   {
-    catKey: "career",
-    worry: "仕事に詰まっている",
-    text: "頑張っているのに評価されない。今のままでいいのか分からない",
-    slug: "kuroda-kanbei-win-without-fighting",
+    slug: "marcus-aurelius-morning-rehearsal",
+    name: "マルクス・アウレリウス",
+    quote: "今日、嫌な人に出会うかもしれない。それでも揺れない自分でいられるか。",
   },
   {
-    catKey: "mindset",
-    worry: "自分を変えたい",
-    text: "今の自分のままでいいのか、それとも変わるべきなのか",
-    slug: "hokusai-growth-no-limit",
+    slug: "napoleon-focus-side-business",
+    name: "ナポレオン",
+    quote: "一点に絞れない者は、何も手に入れられない。",
   },
   {
-    catKey: "mindset",
-    worry: "人間関係に疲れた",
-    text: "気を遣いすぎて疲れる。距離感がいつもうまくいかない",
-    slug: "dale-carnegie-workplace-relationships",
-  },
-  {
-    catKey: "mindset",
-    worry: "将来が見えない",
-    text: "このままで大丈夫なのか、誰にも答えを聞けない",
     slug: "yoshida-shoin-remaining-time",
+    name: "吉田松陰",
+    quote: "残り時間を数えてから、今日何をするかを決めよ。",
   },
-].map(p => ({ ...p, post: findPost(p.slug), cat: catMeta(p.catKey) }));
-
-const startHereSlugs = [
-  "sunzi-investment-principles",
-  "stoicism-index-investing",
-  "toyotomi-hideyoshi-career-strategy",
-  "babylon-pay-yourself-first",
-  "date-masamune-personal-branding",
-];
-const startHerePosts = startHereSlugs
-  .map(slug => findPost(slug))
-  .filter((p): p is NonNullable<typeof p> => Boolean(p))
-  .map(p => ({ post: p, cat: catMeta(p.data.category) }));
+  {
+    slug: "fukuzawa-independence-mindset",
+    name: "福沢諭吉",
+    quote: "砲声が轟く中でも、いつもの授業を続けた。それが独立自尊の意味だ。",
+  },
+].map((f, i) => ({ ...f, post: findPost(f.slug), delay: `${i * 0.12}s` }));
 ---
 
 <BaseLayout
@@ -99,11 +60,6 @@ const startHerePosts = startHereSlugs
         <a href="/career/"  class="cat-pill cat-pill--career">仕事・副業</a>
         <a href="/mindset/" class="cat-pill cat-pill--mindset">思考法</a>
       </div>
-      {heroCtaPost && (
-        <a href={`/blog/${heroCtaPost.id.replace(/\.mdx?$/, '')}/`} class="masthead-cta">
-          まずこの1記事から読む <span class="cta-arrow">→</span>
-        </a>
-      )}
     </div>
     <div class="masthead-visual" aria-hidden="true">
       {heroImages.map((p, i) => (
@@ -115,67 +71,48 @@ const startHerePosts = startHereSlugs
   </div>
 </section>
 
-<!-- ═══ PAIN POINTS ═══════════════════════════════════════════ -->
-<section class="pain-section">
-  <div class="pain-wrap">
-    <p class="pain-eyebrow">こんな悩み、ありませんか</p>
-    <h2 class="pain-heading">今の自分に近いものを、選んでください。</h2>
-    <div class="pain-grid">
-      {painPoints.map(p => p.post && (
-        <a href={`/blog/${p.post.id.replace(/\.mdx?$/, '')}/`} class="pain-card" style={`--c:${p.cat.color};--bg:${p.cat.accent};--bd:${p.cat.border};`}>
-          <span class="pain-badge">{p.cat.label}</span>
-          <p class="pain-worry">{p.worry}</p>
-          <p class="pain-text">{p.text}</p>
-          <span class="pain-link">答えを読む <span class="pain-link-arrow">→</span></span>
-        </a>
-      ))}
-    </div>
-  </div>
-</section>
-
-<!-- ═══ START HERE ═════════════════════════════════════════ -->
-<section class="start-section">
-  <div class="start-wrap">
-    <div class="start-head">
-      <p class="start-eyebrow">まずはここから</p>
-      <h2 class="start-heading">最初に読むなら、この5記事</h2>
-    </div>
-    <div class="start-grid">
-      {startHerePosts.map(({ post, cat }) => (
-        <a href={`/blog/${post.id.replace(/\.mdx?$/, '')}/`} class="start-card">
-          {post.data.ogImage && <img src={post.data.ogImage} alt="" class="start-img" />}
-          <div class="start-body">
-            <span class="start-badge" style={`color:${cat.color};background:${cat.accent};border-color:${cat.border};`}>{cat.label}</span>
-            <p class="start-title">{post.data.title}</p>
-            <p class="start-desc">{post.data.description}</p>
-          </div>
-        </a>
-      ))}
-    </div>
-  </div>
-</section>
-
-<!-- ═══ CATEGORY BLOCKS ═════════════════════════════════════ -->
-<section class="cat-section">
-  <div class="cat-wrap">
-    {catPosts.map(c => (
-      <div class="cat-block" style={`background:${c.accent};border-color:${c.border};`}>
-        <div class="cat-block-head">
-          <span class="cat-block-label" style={`color:${c.color};`}>{c.label}</span>
-          <a href={c.href} class="cat-block-more" style={`color:${c.color};`}>すべて見る →</a>
+<!-- ═══ FEATURED ═══════════════════════════════════════════ -->
+{featuredPost && (
+<section class="featured-section">
+  <div class="featured-wrap">
+    <p class="sec-eyebrow">今日の1記事</p>
+    <a href={`/blog/${featuredPost.id.replace(/\.mdx?$/, '')}/`} class="featured-card">
+      {featuredPost.data.ogImage && (
+        <div class="featured-img-wrap">
+          <img src={featuredPost.data.ogImage} alt="" class="featured-img" />
         </div>
-        <ol class="cat-block-list">
-          {c.posts.map(p => (
-            <li>
-              <a href={`/blog/${p.id.replace(/\.mdx?$/, '')}/`} class="cat-block-link" style={`--c:${c.color};`}>
-                <span class="cat-block-title">{p.data.title}</span>
-                <time class="cat-block-date">{fmt(p.data.date)}</time>
-              </a>
-            </li>
-          ))}
-        </ol>
+      )}
+      <div class="featured-body">
+        <p class="featured-label">PICK UP</p>
+        <h2 class="featured-title">{featuredPost.data.title}</h2>
+        <p class="featured-desc">{featuredPost.data.description}</p>
+        <span class="featured-cta">読む <span class="featured-arrow">→</span></span>
       </div>
-    ))}
+    </a>
+  </div>
+</section>
+)}
+
+<!-- ═══ FIGURES ═══════════════════════════════════════════ -->
+<section class="figures-section">
+  <div class="figures-wrap">
+    <p class="sec-eyebrow">偉人たちの言葉</p>
+    <h2 class="figures-heading">答えは、すでに残されている</h2>
+    <ul class="figure-list" id="figure-list">
+      {figureQuotes.map((f, i) => f.post && (
+        <li class="figure-item" style={`--delay:${f.delay}`}>
+          <a href={`/blog/${f.post.id.replace(/\.mdx?$/, '')}/`} class="figure-link">
+            <span class="figure-index">{String(i + 1).padStart(2, "0")}</span>
+            <span class="figure-name">{f.name}</span>
+            <q class="figure-quote">{f.quote}</q>
+            <span class="figure-read">読む <span class="figure-arrow">→</span></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <div class="figures-foot">
+      <a href="/blog/" class="figures-all">すべての記事を読む →</a>
+    </div>
   </div>
 </section>
 
@@ -209,20 +146,29 @@ const startHerePosts = startHereSlugs
 </BaseLayout>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const el = entry.target as HTMLElement;
-      el.classList.add('is-visible');
-      observer.unobserve(el);
+  // featured card: animate in on next frame (avoids headless opacity:0 flash)
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.querySelector<HTMLElement>('.featured-card')?.classList.add('is-visible');
     });
-  }, { threshold: 0.1 });
+  });
 
-  document.querySelectorAll<HTMLElement>('.cat-block').forEach(el => observer.observe(el));
+  // figure list: stagger on scroll-into-view
+  const list = document.getElementById('figure-list');
+  if (list) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        list.classList.add('is-loaded');
+        obs.unobserve(list);
+      });
+    }, { threshold: 0.08 });
+    obs.observe(list);
+  }
 </script>
 
 <style>
-/* ── ANIMATIONS ── */
+/* ── KEYFRAMES ── */
 @keyframes float-0 {
   0%, 100% { transform: rotate(2deg) translateY(0); }
   50%       { transform: rotate(2deg) translateY(-14px); }
@@ -238,6 +184,18 @@ const startHerePosts = startHereSlugs
 @keyframes ken-burns {
   from { transform: scale(1.06); }
   to   { transform: scale(1); }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes line-grow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
 }
 
 /* ── MASTHEAD ── */
@@ -284,25 +242,7 @@ const startHerePosts = startHereSlugs
   display: flex;
   gap: 0.6rem;
   flex-wrap: wrap;
-  margin-bottom: 1.6rem;
 }
-.masthead-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.8rem 1.6rem;
-  background: var(--ink);
-  color: #fff;
-  font-size: 0.85rem;
-  font-weight: 600;
-  border-radius: 100px;
-  text-decoration: none;
-  transition: opacity 0.15s, gap 0.15s;
-}
-.masthead-cta:hover { opacity: 0.8; gap: 0.7rem; }
-.masthead-cta .cta-arrow { transition: transform 0.15s; }
-
-/* floating OGP collage */
 .masthead-visual {
   position: relative;
   height: 300px;
@@ -315,18 +255,9 @@ const startHerePosts = startHereSlugs
   box-shadow: 0 16px 48px rgba(28,25,23,0.14);
 }
 .mast-card img { width: 100%; display: block; }
-.mast-card--0 {
-  top: 10px; right: 0; z-index: 3;
-  animation: float-0 4s ease-in-out infinite;
-}
-.mast-card--1 {
-  top: 55px; right: 56px; z-index: 2;
-  animation: float-1 5.5s ease-in-out infinite;
-}
-.mast-card--2 {
-  top: 100px; right: 112px; z-index: 1;
-  animation: float-2 7s ease-in-out infinite;
-}
+.mast-card--0 { top: 10px; right: 0; z-index: 3; animation: float-0 4s ease-in-out infinite; }
+.mast-card--1 { top: 55px; right: 56px; z-index: 2; animation: float-1 5.5s ease-in-out infinite; }
+.mast-card--2 { top: 100px; right: 112px; z-index: 1; animation: float-2 7s ease-in-out infinite; }
 
 .cat-pill {
   display: inline-flex;
@@ -345,221 +276,236 @@ const startHerePosts = startHereSlugs
 .cat-pill--career  { background: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
 .cat-pill--mindset { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; }
 
-/* ── CATEGORY BLOCKS ── */
-.cat-section { padding: 56px 0 88px; }
-.cat-wrap {
+/* ── EYEBROW (shared) ── */
+.sec-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 0.8rem;
+}
+
+/* ── FEATURED ── */
+.featured-section {
+  padding: 64px 0 0;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 64px;
+}
+.featured-wrap {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 2rem;
+}
+.featured-card {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.cat-block {
-  border: 1px solid;
-  border-radius: var(--radius);
-  padding: 1.6rem 1.5rem;
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.45s ease, transform 0.45s ease;
-}
-.cat-block.is-visible { opacity: 1; transform: translateY(0); }
-.cat-block:nth-child(2) { transition-delay: 0.1s; }
-.cat-block:nth-child(3) { transition-delay: 0.2s; }
-
-.cat-block-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.2rem;
-}
-.cat-block-label {
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-}
-.cat-block-more {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-decoration: none;
-  opacity: 0.75;
-  transition: opacity 0.15s;
-}
-.cat-block-more:hover { opacity: 1; }
-
-.cat-block-list {
-  list-style: none;
-  margin: 0; padding: 0;
-  display: flex;
-  flex-direction: column;
+  grid-template-columns: 1fr 1fr;
   gap: 0;
-}
-.cat-block-list li + li {
-  border-top: 1px solid rgba(0,0,0,0.07);
-}
-.cat-block-link {
-  display: block;
-  text-decoration: none;
-  padding: 0.75rem 0;
-  transition: opacity 0.15s;
-}
-.cat-block-link:hover { opacity: 0.7; }
-.cat-block-title {
-  display: block;
-  font-family: var(--font-serif);
-  font-size: 0.86rem;
-  font-weight: 700;
-  line-height: 1.55;
-  color: var(--ink);
-  margin-bottom: 0.2rem;
-}
-.cat-block-date {
-  font-size: 0.68rem;
-  color: var(--ink3);
-}
-
-/* ── PAIN POINTS ── */
-.pain-section { padding: 0 0 72px; }
-.pain-wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; }
-.pain-eyebrow {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ink3);
-  margin-bottom: 0.6rem;
-}
-.pain-heading {
-  font-family: var(--font-serif);
-  font-size: clamp(1.2rem, 2.4vw, 1.5rem);
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 1.6rem;
-}
-.pain-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 18px;
-}
-.pain-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-  padding: 1.7rem 1.6rem;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-left: 4px solid var(--c);
-  border-radius: var(--radius);
-  text-decoration: none;
-  transition: border-color 0.15s, transform 0.15s;
-}
-.pain-card:hover {
-  border-color: var(--border-mid);
-  border-left-color: var(--c);
-  transform: translateY(-2px);
-}
-.pain-badge {
-  display: inline-flex;
-  align-self: flex-start;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  padding: 0.3rem 0.7rem;
-  border-radius: 100px;
-  background: var(--bg);
-  color: var(--c);
-  border: 1px solid var(--bd);
-}
-.pain-worry {
-  font-family: var(--font-serif);
-  font-size: 1.3rem;
-  font-weight: 800;
-  line-height: 1.45;
-  color: var(--ink);
-  letter-spacing: -0.01em;
-}
-.pain-text {
-  font-size: 0.82rem;
-  line-height: 1.75;
-  color: var(--ink2);
-  flex: 1;
-}
-.pain-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--c);
-}
-.pain-link-arrow { display: inline-block; transition: transform 0.2s ease; }
-.pain-card:hover .pain-link-arrow { transform: translateX(4px); }
-
-/* ── START HERE ── */
-.start-section { padding: 0 0 72px; }
-.start-wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; }
-.start-head { margin-bottom: 1.6rem; }
-.start-eyebrow {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ink3);
-  margin-bottom: 0.6rem;
-}
-.start-heading {
-  font-family: var(--font-serif);
-  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
-  font-weight: 700;
-  color: var(--ink);
-}
-.start-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
-}
-.start-card {
-  display: flex;
-  flex-direction: column;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
   text-decoration: none;
-  transition: border-color 0.15s, transform 0.15s;
+  color: inherit;
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
-.start-card:hover { border-color: var(--border-mid); transform: translateY(-2px); }
-.start-img { width: 100%; aspect-ratio: 1200 / 630; object-fit: cover; display: block; }
-.start-body { padding: 1rem 1.1rem 1.2rem; display: flex; flex-direction: column; gap: 0.5rem; }
-.start-badge {
-  align-self: flex-start;
-  font-size: 0.62rem;
+.featured-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.featured-img-wrap {
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: var(--bg2);
+}
+.featured-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  animation: ken-burns 10s ease both;
+  transition: transform 0.6s ease;
+}
+.featured-card:hover .featured-img { transform: scale(1.04); }
+.featured-body {
+  padding: 2.4rem 2.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  background: var(--bg);
+  border-left: 1px solid var(--border);
+}
+.featured-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  padding: 0.25rem 0.6rem;
-  border-radius: 100px;
-  border: 1px solid transparent;
+  letter-spacing: 0.22em;
+  color: var(--ink3);
 }
-.start-title {
+.featured-title {
   font-family: var(--font-serif);
-  font-size: 0.84rem;
+  font-size: clamp(1.05rem, 1.8vw, 1.4rem);
   font-weight: 700;
-  line-height: 1.55;
+  line-height: 1.6;
   color: var(--ink);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.featured-desc {
+  font-size: 0.84rem;
+  line-height: 1.8;
+  color: var(--ink2);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.start-desc {
-  font-size: 0.74rem;
-  line-height: 1.7;
-  color: var(--ink3);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.featured-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 0.4rem;
 }
+.featured-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.featured-card:hover .featured-arrow { transform: translateX(5px); }
+
+/* ── FIGURES ── */
+.figures-section { padding: 64px 0 0; }
+.figures-wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.figures-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 2.8rem;
+  letter-spacing: -0.02em;
+}
+
+.figure-list {
+  list-style: none;
+  border-top: 1px solid var(--border);
+}
+.figure-item {
+  border-bottom: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(24px);
+}
+.figure-list.is-loaded .figure-item {
+  animation: slide-up 0.55s ease both;
+  animation-delay: var(--delay);
+}
+
+.figure-link {
+  display: grid;
+  grid-template-columns: 2.4rem 14rem 1fr auto;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 1.5rem 0.4rem;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  transition: background 0.15s;
+}
+.figure-link::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 0; bottom: 0;
+  width: 3px;
+  background: var(--ink);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.2s ease;
+}
+.figure-link:hover::before { transform: scaleY(1); }
+.figure-link:hover { background: var(--bg2); margin: 0 -2rem; padding-left: 2rem; padding-right: 2rem; }
+
+.figure-index {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--ink3);
+  transition: color 0.15s;
+}
+.figure-link:hover .figure-index { color: var(--ink); }
+
+.figure-name {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+.figure-quote {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--ink2);
+  quotes: none;
+  position: relative;
+}
+.figure-quote::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -3px;
+  height: 1px;
+  width: 100%;
+  background: var(--ink3);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+  transition-delay: calc(var(--delay, 0s) + 0.35s);
+}
+.figure-list.is-loaded .figure-quote::after { transform: scaleX(1); }
+
+.figure-read {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.figure-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.figure-link:hover .figure-arrow { transform: translateX(5px); }
+
+.figures-foot {
+  padding: 2rem 0 2.4rem;
+  border-top: 1px solid var(--border);
+  margin-top: 0;
+}
+.figures-all {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--ink2);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  transition: color 0.15s;
+}
+.figures-all:hover { color: var(--ink); }
 
 /* ── AUTHOR PROFILE ── */
 .profile-section { padding: 0 0 56px; }
@@ -574,13 +520,7 @@ const startHerePosts = startHereSlugs
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
-.profile-avatar {
-  flex-shrink: 0;
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  display: block;
-}
+.profile-avatar { flex-shrink: 0; width: 64px; height: 64px; border-radius: 50%; display: block; }
 .profile-body { min-width: 0; }
 .profile-role {
   font-size: 0.66rem;
@@ -590,40 +530,14 @@ const startHerePosts = startHereSlugs
   color: var(--ink3);
   margin: 0 0 0.4rem;
 }
-.profile-name {
-  font-family: var(--font-serif);
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-  margin: 0 0 0.6rem;
-}
-.profile-handle {
-  font-size: 0.74rem;
-  font-weight: 500;
-  color: var(--ink3);
-  margin-left: 0.4rem;
-}
-.profile-bio {
-  font-size: 0.8rem;
-  line-height: 1.8;
-  color: var(--ink2);
-  margin: 0 0 0.8rem;
-  max-width: 560px;
-}
-.profile-link {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--ink);
-}
+.profile-name { font-family: var(--font-serif); font-size: 1rem; font-weight: 700; color: var(--ink); margin: 0 0 0.6rem; }
+.profile-handle { font-size: 0.74rem; font-weight: 500; color: var(--ink3); margin-left: 0.4rem; }
+.profile-bio { font-size: 0.8rem; line-height: 1.8; color: var(--ink2); margin: 0 0 0.8rem; max-width: 560px; }
+.profile-link { font-size: 0.78rem; font-weight: 600; color: var(--ink); }
 
 /* ── FINAL CTA ── */
 .final-cta { padding: 0 0 88px; }
-.final-cta-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 2rem;
-  text-align: center;
-}
+.final-cta-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; text-align: center; }
 .final-cta-heading {
   font-family: var(--font-serif);
   font-size: clamp(1.4rem, 3vw, 2rem);
@@ -631,18 +545,8 @@ const startHerePosts = startHereSlugs
   color: var(--ink);
   margin-bottom: 0.8rem;
 }
-.final-cta-desc {
-  font-size: 0.9rem;
-  color: var(--ink2);
-  margin-bottom: 1.6rem;
-}
-.final-cta-actions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
+.final-cta-desc { font-size: 0.9rem; color: var(--ink2); margin-bottom: 1.6rem; }
+.final-cta-actions { display: flex; justify-content: center; align-items: center; gap: 1rem; flex-wrap: wrap; }
 .final-cta-btn {
   display: inline-flex;
   align-items: center;
@@ -668,37 +572,27 @@ const startHerePosts = startHereSlugs
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  .cat-wrap { grid-template-columns: 1fr; gap: 16px; }
-  .mast-card { width: 200px; }
-  .pain-grid { grid-template-columns: 1fr; }
-  .start-grid { grid-template-columns: repeat(2, 1fr); }
+  .figure-link { grid-template-columns: 2rem 1fr; grid-template-rows: auto auto; gap: 0.5rem 1rem; }
+  .figure-name { font-size: 1.1rem; }
+  .figure-quote { display: none; }
+  .figure-read { grid-column: 2; }
 }
 @media (max-width: 768px) {
   .masthead-inner { grid-template-columns: 1fr; }
-  /* show single OGP image below text on mobile */
-  .masthead-visual {
-    position: relative;
-    height: auto;
-    margin-top: 1.5rem;
-  }
-  .mast-card {
-    position: relative;
-    width: 100%;
-    animation: none !important;
-    transform: none !important;
-    box-shadow: 0 8px 24px rgba(28,25,23,0.12);
-  }
-  .mast-card--1,
-  .mast-card--2 { display: none; }
+  .masthead-visual { position: relative; height: auto; margin-top: 1.5rem; }
+  .mast-card { position: relative; width: 100%; animation: none !important; transform: none !important; box-shadow: 0 8px 24px rgba(28,25,23,0.12); }
+  .mast-card--1, .mast-card--2 { display: none; }
+  .featured-card { grid-template-columns: 1fr; }
+  .featured-body { border-left: none; border-top: 1px solid var(--border); padding: 1.6rem; }
   .profile-card { flex-direction: column; align-items: center; text-align: center; }
 }
-@media (max-width: 680px) {
+@media (max-width: 640px) {
   .masthead { padding: 40px 0; }
-  .cat-section { padding: 40px 0 64px; }
-  .pain-section, .start-section { padding: 0 0 48px; }
+  .featured-section, .figures-section { padding-top: 48px; }
+  .figure-link::before { left: -1rem; }
+  .figure-link:hover { margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
 }
 @media (max-width: 480px) {
-  .masthead-inner, .featured-inner, .cat-wrap, .pain-wrap, .start-wrap, .profile-card, .final-cta-inner { padding-left: 1rem; padding-right: 1rem; }
-  .start-grid { grid-template-columns: 1fr; }
+  .masthead-inner, .featured-wrap, .figures-wrap, .final-cta-inner { padding-left: 1rem; padding-right: 1rem; }
 }
 </style>
