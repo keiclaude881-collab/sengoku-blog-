@@ -72,17 +72,10 @@ const figureQuotes = [
   <div class="featured-wrap">
     <p class="sec-eyebrow">今日の1記事</p>
     <a href={`/blog/${featuredPost.id.replace(/\.mdx?$/, '')}/`} class="featured-card">
-      {featuredPost.data.ogImage && (
-        <div class="featured-img-wrap">
-          <img src={featuredPost.data.ogImage} alt="" class="featured-img" />
-        </div>
-      )}
-      <div class="featured-body">
-        <p class="featured-label">PICK UP</p>
-        <h2 class="featured-title">{featuredPost.data.title}</h2>
-        <p class="featured-desc">{featuredPost.data.description}</p>
-        <span class="featured-cta">読む <span class="featured-arrow">→</span></span>
-      </div>
+      <p class="featured-label">PICK UP</p>
+      <h2 class="featured-title">{featuredPost.data.title}</h2>
+      <p class="featured-desc">{featuredPost.data.description}</p>
+      <span class="featured-cta">読む <span class="featured-arrow">→</span></span>
     </a>
   </div>
 </section>
@@ -111,29 +104,14 @@ const figureQuotes = [
   </div>
 </section>
 
-<!-- ═══ AUTHOR MINI PROFILE ═══════════════════════════════ -->
-<section class="profile-section">
-  <a href="/about/" class="profile-card">
-    <img src="/images/profile-avatar.svg" alt="温故" class="profile-avatar" />
-    <div class="profile-body">
-      <p class="profile-role">この記事を書いた人</p>
-      <p class="profile-name">温故（おんこ）<span class="profile-handle">| 偉人ラボ運営</span></p>
-      <p class="profile-bio">
-        歴史上の偉人や思想家の言葉を読み込み、「お金」「キャリア」「思考法」のヒントに翻訳して発信中。座右の銘は「温故知新」。
-      </p>
-      <span class="profile-link">プロフィールをもっと見る →</span>
-    </div>
-  </a>
-</section>
-
 <!-- ═══ FINAL CTA ══════════════════════════════════════════ -->
 <section class="final-cta">
   <div class="final-cta-inner">
     <h2 class="final-cta-heading">今日、何か一つだけ試してみる。</h2>
     <p class="final-cta-desc">読んで終わりにせず、今日からできる1つの行動だけ持って帰ってください。</p>
     <div class="final-cta-actions">
-      <a href="/blog/" class="final-cta-btn">記事一覧を見る →</a>
-      <a href="/contact/" class="final-cta-ghost">お問い合わせ</a>
+      <a href="/blog/" class="final-cta-link">記事一覧を見る →</a>
+      <a href="/contact/" class="final-cta-link final-cta-link--sub">お問い合わせ</a>
     </div>
   </div>
 </section>
@@ -277,9 +255,8 @@ const figureQuotes = [
 
 /* ── FEATURED ── */
 .featured-section {
-  padding: 64px 0 0;
+  padding: 64px 0;
   border-bottom: 1px solid var(--border);
-  padding-bottom: 64px;
 }
 .featured-wrap {
   max-width: var(--max-width);
@@ -287,44 +264,19 @@ const figureQuotes = [
   padding: 0 2rem;
 }
 .featured-card {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
+  display: block;
+  max-width: 680px;
   text-decoration: none;
   color: inherit;
+  border-left: 3px solid var(--ink);
+  padding: 1.6rem 2rem;
   opacity: 0;
-  transform: translateY(36px);
+  transform: translateY(24px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 .featured-card.is-visible {
   opacity: 1;
   transform: translateY(0);
-}
-.featured-img-wrap {
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-  background: var(--bg2);
-}
-.featured-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  animation: ken-burns 10s ease both;
-  transition: transform 0.6s ease;
-}
-.featured-card:hover .featured-img { transform: scale(1.04); }
-.featured-body {
-  padding: 2.4rem 2.8rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
-  background: var(--bg);
-  border-left: 1px solid var(--border);
 }
 .featured-label {
   font-family: var(--font-mono);
@@ -332,22 +284,22 @@ const figureQuotes = [
   font-weight: 700;
   letter-spacing: 0.22em;
   color: var(--ink3);
+  margin-bottom: 0.9rem;
 }
 .featured-title {
   font-family: var(--font-serif);
-  font-size: clamp(1.05rem, 1.8vw, 1.4rem);
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
   font-weight: 700;
-  line-height: 1.6;
+  line-height: 1.55;
   color: var(--ink);
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  margin-bottom: 0.9rem;
+  letter-spacing: -0.01em;
 }
 .featured-desc {
-  font-size: 0.84rem;
-  line-height: 1.8;
+  font-size: 0.9rem;
+  line-height: 1.85;
   color: var(--ink2);
+  margin-bottom: 1.2rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -357,16 +309,19 @@ const figureQuotes = [
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   font-weight: 700;
   color: var(--ink);
-  margin-top: 0.4rem;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  transition: opacity 0.15s;
 }
+.featured-card:hover .featured-cta { opacity: 0.65; }
 .featured-arrow {
   display: inline-block;
   transition: transform 0.2s ease;
 }
-.featured-card:hover .featured-arrow { transform: translateX(5px); }
+.featured-card:hover .featured-arrow { transform: translateX(4px); }
 
 /* ── FIGURES ── */
 .figures-section { padding: 64px 0 0; }
@@ -495,34 +450,6 @@ const figureQuotes = [
 }
 .figures-all:hover { color: var(--ink); }
 
-/* ── AUTHOR PROFILE ── */
-.profile-section { padding: 0 0 56px; }
-.profile-card {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 1.6rem 2rem;
-  display: flex;
-  gap: 1.4rem;
-  align-items: flex-start;
-  text-decoration: none;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-.profile-avatar { flex-shrink: 0; width: 64px; height: 64px; border-radius: 50%; display: block; }
-.profile-body { min-width: 0; }
-.profile-role {
-  font-size: 0.66rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink3);
-  margin: 0 0 0.4rem;
-}
-.profile-name { font-family: var(--font-serif); font-size: 1rem; font-weight: 700; color: var(--ink); margin: 0 0 0.6rem; }
-.profile-handle { font-size: 0.74rem; font-weight: 500; color: var(--ink3); margin-left: 0.4rem; }
-.profile-bio { font-size: 0.8rem; line-height: 1.8; color: var(--ink2); margin: 0 0 0.8rem; max-width: 560px; }
-.profile-link { font-size: 0.78rem; font-weight: 600; color: var(--ink); }
-
 /* ── FINAL CTA ── */
 .final-cta { padding: 0 0 88px; }
 .final-cta-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; text-align: center; }
@@ -534,29 +461,21 @@ const figureQuotes = [
   margin-bottom: 0.8rem;
 }
 .final-cta-desc { font-size: 0.9rem; color: var(--ink2); margin-bottom: 1.6rem; }
-.final-cta-actions { display: flex; justify-content: center; align-items: center; gap: 1rem; flex-wrap: wrap; }
-.final-cta-btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.8rem 1.8rem;
-  background: var(--ink);
-  color: #fff;
-  font-size: 0.85rem;
-  font-weight: 600;
-  border-radius: 100px;
-  text-decoration: none;
-  transition: opacity 0.15s;
-}
-.final-cta-btn:hover { opacity: 0.8; }
-.final-cta-ghost {
-  font-size: 0.84rem;
-  color: var(--ink3);
+.final-cta-actions { display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.final-cta-link {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink);
   text-decoration: none;
   border-bottom: 1px solid currentColor;
-  padding-bottom: 1px;
-  transition: color 0.15s;
+  padding-bottom: 2px;
+  transition: opacity 0.15s;
 }
-.final-cta-ghost:hover { color: var(--ink2); }
+.final-cta-link:hover { opacity: 0.55; }
+.final-cta-link--sub {
+  font-weight: 400;
+  color: var(--ink3);
+}
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
@@ -568,9 +487,7 @@ const figureQuotes = [
 @media (max-width: 768px) {
   .masthead-inner { grid-template-columns: 1fr; }
   .masthead-quote { display: none; }
-  .featured-card { grid-template-columns: 1fr; }
-  .featured-body { border-left: none; border-top: 1px solid var(--border); padding: 1.6rem; }
-  .profile-card { flex-direction: column; align-items: center; text-align: center; }
+  .featured-card { padding: 1.2rem 1.4rem; }
 }
 @media (max-width: 640px) {
   .masthead { padding: 40px 0; }
