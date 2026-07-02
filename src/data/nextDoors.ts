@@ -264,4 +264,16 @@ export const NEXT_DOORS: Record<string, NextDoor[]> = {
     { slug: "seneca-time-management", hook: "残り時間から逆算して生きた吉田松陰の先には、人生は浪費されているだけだと説いたセネカがいる。" },
     { slug: "yamamoto-isoroku-people-development", hook: "限られた時間で多くの弟子を育てた松陰の答えの続きは、部下を育てる4ステップを説いた山本五十六が知っている。" },
   ],
+  "takahashi-korekiyo-recession-money": [
+    { slug: "hetty-green-cash-strategy", hook: "不況の嵐でマストを守れと説いた高橋是清の先には、現金を最大の武器にしたヘティ・グリーンがいる。" },
+    { slug: "uesugi-yozan-household-rebuild", hook: "家計防衛の発想の続きは、借金まみれの藩を倹約と仕組みで立て直した上杉鷹山が知っている。" },
+  ],
+  "inamori-kazuo-work-equation": [
+    { slug: "yamamoto-isoroku-people-development", hook: "「考え方 × 熱意 × 能力」を説いた稲盛の先には、人を育てる4つのステップを体現した山本五十六がいる。" },
+    { slug: "shibusawa-eiichi-morals-money", hook: "仕事の哲学を極めた答えの続きは、道徳と算盤を両立させ経済と倫理は矛盾しないと示した渋沢栄一が知っている。" },
+  ],
+  "frankl-meaning-in-suffering": [
+    { slug: "epictetus-freedom-mindset", hook: "思考の最後の自由を発見したフランクルの先には、奴隷の身分でも内なる自由を持ち続けたエピクテトスがいる。" },
+    { slug: "seneca-time-management", hook: "意味を持って生きることを説いたフランクルの答えの続きは、人生の時間を無駄にするなと説いたセネカが知っている。" },
+  ],
 };
