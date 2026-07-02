@@ -203,6 +203,10 @@ const themeGroups = withIndex(CATEGORY_ORDER.flatMap(cat =>
       </div>
     </div>
   </div>
+
+  <div class="map-philosophy-link">
+    <a href="/philosophy/" class="philosophy-link">著者の哲学を読む →</a>
+  </div>
 </div>
 
 <div id="figure-tooltip" class="figure-tooltip" role="tooltip" hidden>
@@ -405,6 +409,22 @@ const themeGroups = withIndex(CATEGORY_ORDER.flatMap(cat =>
   line-height: 1.6;
   opacity: 0.75;
 }
+
+.map-philosophy-link {
+  text-align: center;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.philosophy-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink3);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.15s;
+}
+.philosophy-link:hover { color: var(--ink); }
 
 @media (max-width: 760px) {
   .group-grid { grid-template-columns: 1fr; }

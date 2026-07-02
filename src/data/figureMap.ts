@@ -102,4 +102,7 @@ export const FIGURES: Record<string, FigureMeta> = {
   "uesugi-yozan-household-rebuild": { name: "上杉鷹山", era: "edo", thought: "saving-discipline" },
   "yamamoto-isoroku-people-development": { name: "山本五十六", era: "modern", thought: "people-development" },
   "yoshida-shoin-remaining-time": { name: "吉田松陰", era: "bakumatsu", thought: "own-standard" },
+  "takahashi-korekiyo-recession-money": { name: "高橋是清", era: "modern", thought: "information-strategy" },
+  "inamori-kazuo-work-equation": { name: "稲盛和夫", era: "modern", thought: "people-development" },
+  "frankl-meaning-in-suffering": { name: "フランクル", era: "modern", thought: "self-control" },
 };
