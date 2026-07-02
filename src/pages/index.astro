@@ -5,8 +5,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const allPosts = (await getCollection("posts"))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
-const heroImages = allPosts.filter(p => p.data.ogImage).slice(0, 3);
-
 function findPost(slug: string) {
   return allPosts.find(p => p.id.replace(/\.mdx?$/, "") === slug);
 }
@@ -61,12 +59,9 @@ const figureQuotes = [
         <a href="/mindset/" class="cat-pill cat-pill--mindset">思考法</a>
       </div>
     </div>
-    <div class="masthead-visual" aria-hidden="true">
-      {heroImages.map((p, i) => (
-        <div class={`mast-card mast-card--${i}`}>
-          <img src={p.data.ogImage!} alt="" />
-        </div>
-      ))}
+    <div class="masthead-quote" aria-hidden="true">
+      <p class="masthead-big-quote">「知恵は、<br/>時代を<br/>越える。」</p>
+      <p class="masthead-quote-attr">— 2500年の問いから</p>
     </div>
   </div>
 </section>
@@ -169,18 +164,6 @@ const figureQuotes = [
 
 <style>
 /* ── KEYFRAMES ── */
-@keyframes float-0 {
-  0%, 100% { transform: rotate(2deg) translateY(0); }
-  50%       { transform: rotate(2deg) translateY(-14px); }
-}
-@keyframes float-1 {
-  0%, 100% { transform: rotate(-2deg) translateY(0); }
-  50%       { transform: rotate(-2deg) translateY(-18px); }
-}
-@keyframes float-2 {
-  0%, 100% { transform: rotate(0.8deg) translateY(0); }
-  50%       { transform: rotate(0.8deg) translateY(-10px); }
-}
 @keyframes ken-burns {
   from { transform: scale(1.06); }
   to   { transform: scale(1); }
@@ -202,8 +185,6 @@ const figureQuotes = [
 .masthead {
   padding: 72px 0 56px;
   border-bottom: 1px solid var(--border);
-  background-image: radial-gradient(circle, var(--border) 1.2px, transparent 1.2px);
-  background-size: 22px 22px;
 }
 .masthead-inner {
   max-width: var(--max-width);
@@ -243,21 +224,28 @@ const figureQuotes = [
   gap: 0.6rem;
   flex-wrap: wrap;
 }
-.masthead-visual {
-  position: relative;
-  height: 300px;
+.masthead-quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 3.5rem;
+  border-left: 1px solid var(--border-mid);
 }
-.mast-card {
-  position: absolute;
-  width: 250px;
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: 0 16px 48px rgba(28,25,23,0.14);
+.masthead-big-quote {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  margin-bottom: 1.4rem;
 }
-.mast-card img { width: 100%; display: block; }
-.mast-card--0 { top: 10px; right: 0; z-index: 3; animation: float-0 4s ease-in-out infinite; }
-.mast-card--1 { top: 55px; right: 56px; z-index: 2; animation: float-1 5.5s ease-in-out infinite; }
-.mast-card--2 { top: 100px; right: 112px; z-index: 1; animation: float-2 7s ease-in-out infinite; }
+.masthead-quote-attr {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink3);
+}
 
 .cat-pill {
   display: inline-flex;
@@ -579,9 +567,7 @@ const figureQuotes = [
 }
 @media (max-width: 768px) {
   .masthead-inner { grid-template-columns: 1fr; }
-  .masthead-visual { position: relative; height: auto; margin-top: 1.5rem; }
-  .mast-card { position: relative; width: 100%; animation: none !important; transform: none !important; box-shadow: 0 8px 24px rgba(28,25,23,0.12); }
-  .mast-card--1, .mast-card--2 { display: none; }
+  .masthead-quote { display: none; }
   .featured-card { grid-template-columns: 1fr; }
   .featured-body { border-left: none; border-top: 1px solid var(--border); padding: 1.6rem; }
   .profile-card { flex-direction: column; align-items: center; text-align: center; }
