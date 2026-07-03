@@ -276,4 +276,16 @@ export const NEXT_DOORS: Record<string, NextDoor[]> = {
     { slug: "epictetus-freedom-mindset", hook: "思考の最後の自由を発見したフランクルの先には、奴隷の身分でも内なる自由を持ち続けたエピクテトスがいる。" },
     { slug: "seneca-time-management", hook: "意味を持って生きることを説いたフランクルの答えの続きは、人生の時間を無駄にするなと説いたセネカが知っている。" },
   ],
+  "takeda-shingen-if-he-survived": [
+    { slug: "sunzi-investment-principles", hook: "「もしも」を先に想定した信玄の発想の根には、先に勝つ態勢を整えてから戦えと説いた孫子がいる。" },
+    { slug: "tokugawa-ieyasu-power-of-patience", hook: "もしも思考で戦略を練った信玄の対極には、焦らず待つことで最後に天下を取った家康がいる。" },
+  ],
+  "napoleon-russia-campaign-failure": [
+    { slug: "epictetus-freedom-mindset", hook: "過信で失敗したナポレオンの先には、制御できることだけに集中する哲学で自由を保ったエピクテトスがいる。" },
+    { slug: "tokugawa-ieyasu-power-of-patience", hook: "速く動きすぎた天才の対極には、焦らず待ち続けることで信長・秀吉の後に天下を取った家康がいる。" },
+  ],
+  "oda-nobunaga-1570-reversal-strategy": [
+    { slug: "lincoln-resilience-career", hook: "包囲網の中で逆転した信長の先には、何度も失敗してもキャリアを立て直したリンカーンがいる。" },
+    { slug: "sanada-yukimura-underdog-strategy", hook: "逆境での逆転戦略の答えの続きは、圧倒的な不利の中から強者に挑んだ真田幸村が知っている。" },
+  ],
 };
