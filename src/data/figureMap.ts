@@ -105,4 +105,7 @@ export const FIGURES: Record<string, FigureMeta> = {
   "takahashi-korekiyo-recession-money": { name: "高橋是清", era: "modern", thought: "information-strategy" },
   "inamori-kazuo-work-equation": { name: "稲盛和夫", era: "modern", thought: "people-development" },
   "frankl-meaning-in-suffering": { name: "フランクル", era: "modern", thought: "self-control" },
+  "takeda-shingen-if-he-survived": { name: "武田信玄", era: "sengoku", thought: "information-strategy" },
+  "napoleon-russia-campaign-failure": { name: "ナポレオン", era: "modern", thought: "self-control" },
+  "oda-nobunaga-1570-reversal-strategy": { name: "織田信長", era: "sengoku", thought: "people-development" },
 };

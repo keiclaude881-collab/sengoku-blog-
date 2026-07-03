@@ -39,6 +39,7 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
           "sanada-yukimura-underdog-strategy",
           "katsu-kaishu-career-change-timing",
           "edison-reskilling-too-late",
+          "oda-nobunaga-1570-reversal-strategy",
         ],
       },
       {
@@ -151,6 +152,7 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
           "marcus-aurelius-morning-rehearsal",
           "marie-curie-understanding-fear",
           "stoicism-index-investing",
+          "napoleon-russia-campaign-failure",
         ],
       },
       {
@@ -164,6 +166,7 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
           "seneca-time-management",
           "socrates-questioning-thinking",
           "tokugawa-ieyasu-power-of-patience",
+          "takeda-shingen-if-he-survived",
         ],
       },
       {
