@@ -48,6 +48,7 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
         lead: "情報・行動・戦略を使って、壁を越えて動き出す段階。",
         slugs: [
           "grace-hopper-ask-forgiveness",
+          "kitasato-shibasaburo-own-research",
           "genghis-khan-information-strategy",
           "marco-polo-unknown-market",
           "napoleon-focus-side-business",
@@ -122,6 +123,7 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
         slugs: [
           "carnegie-wealth-philosophy",
           "estee-lauder-give-first",
+          "bill-gates-giving-pledge",
           "mansa-musa-spending-power",
           "takahashi-korekiyo-recession-money",
         ],
@@ -164,6 +166,7 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
         slugs: [
           "caesar-speed-decision",
           "nightingale-data-thinking",
+          "darwin-change-your-mind",
           "oda-nobunaga-adapt-to-change",
           "seneca-time-management",
           "socrates-questioning-thinking",
