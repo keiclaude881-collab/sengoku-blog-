@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#f3e8ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- tree of life / branching thought tree -->
+  <!-- trunk -->
+  <rect x="570" y="380" width="60" height="220" fill="#a855f7" opacity="0.6" rx="8"/>
+
+  <!-- main branches -->
+  <path d="M 600 400 C 480 350 360 280 260 200" fill="none" stroke="#9333ea" stroke-width="10" stroke-linecap="round"/>
+  <path d="M 600 400 C 720 350 840 280 940 200" fill="none" stroke="#9333ea" stroke-width="10" stroke-linecap="round"/>
+  <path d="M 600 440 C 520 400 440 360 340 320" fill="none" stroke="#7c3aed" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 600 440 C 680 400 760 360 860 320" fill="none" stroke="#7c3aed" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- sub-branches -->
+  <path d="M 260 200 C 210 160 170 120 130 90" fill="none" stroke="#c084fc" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 260 200 C 230 150 220 100 230 60" fill="none" stroke="#c084fc" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 940 200 C 990 160 1030 120 1070 90" fill="none" stroke="#c084fc" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 940 200 C 970 150 980 100 970 60" fill="none" stroke="#c084fc" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- leaf circles at tips -->
+  <g fill="#d8b4fe" opacity="0.8">
+    <circle cx="130" cy="90" r="22"/>
+    <circle cx="230" cy="60" r="18"/>
+    <circle cx="340" cy="320" r="15"/>
+    <circle cx="860" cy="320" r="15"/>
+    <circle cx="1070" cy="90" r="22"/>
+    <circle cx="970" cy="60" r="18"/>
+  </g>
+  <g fill="#a855f7" opacity="0.7">
+    <circle cx="130" cy="90" r="12"/>
+    <circle cx="230" cy="60" r="10"/>
+    <circle cx="1070" cy="90" r="12"/>
+    <circle cx="970" cy="60" r="10"/>
+  </g>
+
+  <!-- arrow showing change/revision - crossing out old branch, replacing with new -->
+  <g stroke="#6b21a8" stroke-width="5" stroke-linecap="round" opacity="0.6">
+    <line x1="340" y1="300" x2="380" y2="340"/>
+    <line x1="380" y1="300" x2="340" y2="340"/>
+  </g>
+  <path d="M 360 350 C 400 380 440 370 470 350" fill="none" stroke="#6b21a8" stroke-width="5" stroke-linecap="round"/>
+  <polygon points="470,350 448,338 454,362" fill="#6b21a8"/>
+
+  <!-- background faint circles -->
+  <circle cx="200" cy="450" r="80" fill="none" stroke="#e9d5ff" stroke-width="2" opacity="0.6"/>
+  <circle cx="1000" cy="450" r="70" fill="none" stroke="#e9d5ff" stroke-width="2" opacity="0.5"/>
+</svg>

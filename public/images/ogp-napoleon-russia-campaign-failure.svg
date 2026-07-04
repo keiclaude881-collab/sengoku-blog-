@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e1b2e"/>
+      <stop offset="60%" stop-color="#2d1b4e"/>
+      <stop offset="100%" stop-color="#3b1f6a"/>
+    </linearGradient>
+    <linearGradient id="snowGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ede9fe"/>
+      <stop offset="100%" stop-color="#f3e8ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- snow ground -->
+  <path d="M 0 480 C 200 460 400 490 600 470 C 800 450 1000 480 1200 465 L 1200 630 L 0 630 Z" fill="url(#snowGrad)" opacity="0.8"/>
+  <path d="M 0 510 C 300 490 600 520 900 505 C 1050 498 1150 510 1200 505 L 1200 630 L 0 630 Z" fill="#f3e8ff" opacity="0.6"/>
+
+  <!-- retreating soldiers silhouettes (left to right, going backward) -->
+  <g fill="#6b21a8" opacity="0.7">
+    <!-- soldier 1 hunched -->
+    <circle cx="200" cy="430" r="18"/>
+    <path d="M 188 448 C 180 470 175 490 182 510 L 195 510 L 192 475 L 210 448 Z" />
+    <path d="M 182 510 L 168 530 M 195 510 L 198 532" stroke="#6b21a8" stroke-width="5" fill="none" stroke-linecap="round"/>
+  </g>
+  <g fill="#7c3aed" opacity="0.6">
+    <circle cx="380" cy="436" r="16"/>
+    <path d="M 370 452 C 362 472 358 492 364 510 L 376 510 L 374 476 L 390 452 Z" />
+    <path d="M 364 510 L 352 530 M 376 510 L 380 532" stroke="#7c3aed" stroke-width="5" fill="none" stroke-linecap="round"/>
+  </g>
+  <g fill="#8b5cf6" opacity="0.5">
+    <circle cx="560" cy="440" r="14"/>
+    <path d="M 552 454 C 546 472 543 490 548 508 L 558 508 L 557 476 L 568 454 Z" />
+    <path d="M 548 508 L 538 528 M 558 508 L 562 530" stroke="#8b5cf6" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </g>
+  <g fill="#a855f7" opacity="0.4">
+    <circle cx="720" cy="444" r="12"/>
+    <path d="M 714 456 C 709 472 707 490 711 506 L 720 506 L 719 478 L 728 456 Z" />
+    <path d="M 711 506 L 703 524 M 720 506 L 724 526" stroke="#a855f7" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- arrow pointing backward/left (retreat) -->
+  <path d="M 950 350 L 200 350" fill="none" stroke="#c084fc" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
+  <polygon points="200,350 238,330 238,370" fill="#c084fc" opacity="0.5"/>
+
+  <!-- Moscow in distance (burned) -->
+  <g transform="translate(1050,300)" opacity="0.4">
+    <rect x="-40" y="-120" width="80" height="120" fill="#4c1d95"/>
+    <polygon points="-50,-120 0,-180 50,-120" fill="#4c1d95"/>
+    <rect x="-20" y="-120" width="40" height="120" fill="#5b21b6"/>
+    <polygon points="-25,-120 0,-165 25,-120" fill="#7c3aed"/>
+    <!-- fire -->
+    <path d="M 0 -185 C 10 -200 20 -215 10 -230 C 5 -215 -5 -200 0 -185 Z" fill="#f59e0b" opacity="0.7"/>
+    <path d="M 10 -180 C 18 -195 25 -210 16 -222 C 11 -210 2 -196 10 -180 Z" fill="#d97706" opacity="0.7"/>
+  </g>
+
+  <!-- snowflakes -->
+  <g fill="#e9d5ff" opacity="0.4">
+    <circle cx="100" cy="150" r="4"/>
+    <circle cx="300" cy="100" r="3"/>
+    <circle cx="500" cy="180" r="4"/>
+    <circle cx="700" cy="120" r="3"/>
+    <circle cx="900" cy="160" r="4"/>
+    <circle cx="150" cy="300" r="3"/>
+    <circle cx="450" cy="260" r="3"/>
+    <circle cx="850" cy="290" r="3"/>
+    <circle cx="1100" cy="220" r="4"/>
+  </g>
+</svg>
