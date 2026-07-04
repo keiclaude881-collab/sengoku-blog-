@@ -296,4 +296,16 @@ export const NEXT_DOORS: Record<string, NextDoor[]> = {
     { slug: "honda-seiroku-money-allocation", hook: "ゲットーから資産を積み上げたロスチャイルドの先には、4分の1貯蓄法でゼロから財産を作った本多静六がいる。" },
     { slug: "madam-cj-walker-self-investment", hook: "制約の中から富を作ったロスチャイルドの先には、差別の時代にアメリカ初の黒人女性富豪になったウォーカー夫人がいる。" },
   ],
+  "kitasato-shibasaburo-own-research": [
+    { slug: "fukuzawa-independence-mindset", hook: "北里を私財で支援した福沢諭吉の「独立自尊」——組織に頼らず自らの旗を立てる精神の源泉がここにある。" },
+    { slug: "grace-hopper-ask-forgiveness", hook: "組織の壁を自力で突破した北里の先には、「許しを乞え、許可を求めるな」と言い放ったグレース・ホッパーがいる。" },
+  ],
+  "bill-gates-giving-pledge": [
+    { slug: "carnegie-wealth-philosophy", hook: "ゲイツに「富の使い方」を教えたカーネギーの哲学——100年前に書かれた「富の福音」が現代フィランソロピーの原型になった。" },
+    { slug: "estee-lauder-give-first", hook: "「先に与える」ことで事業を拡大した先輩——エスティ・ローダーが証明した、give-firstの力。" },
+  ],
+  "darwin-change-your-mind": [
+    { slug: "nightingale-data-thinking", hook: "証拠に基づいて意見を更新し続けたダーウィンの先には、データで医療を革命したナイチンゲールがいる。" },
+    { slug: "socrates-questioning-thinking", hook: "「自分が間違っているかもしれない」と問い続けることの意味——ソクラテスの問答法が同じ原理で辿り着く先。" },
+  ],
 };

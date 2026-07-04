@@ -110,4 +110,7 @@ export const FIGURES: Record<string, FigureMeta> = {
   "oda-nobunaga-1570-reversal-strategy": { name: "織田信長", era: "sengoku", thought: "people-development" },
   "zhuge-liang-manager-isolation": { name: "諸葛孔明", era: "ancient", thought: "people-development" },
   "rothschild-zero-to-wealth": { name: "マイヤー・ロスチャイルド", era: "modern", thought: "saving-discipline" },
+  "kitasato-shibasaburo-own-research": { name: "北里柴三郎", era: "bakumatsu", thought: "own-standard" },
+  "bill-gates-giving-pledge": { name: "ビル・ゲイツ", era: "modern", thought: "morals-giving" },
+  "darwin-change-your-mind": { name: "チャールズ・ダーウィン", era: "modern", thought: "own-standard" },
 };
