@@ -108,4 +108,6 @@ export const FIGURES: Record<string, FigureMeta> = {
   "takeda-shingen-if-he-survived": { name: "武田信玄", era: "sengoku", thought: "information-strategy" },
   "napoleon-russia-campaign-failure": { name: "ナポレオン", era: "modern", thought: "self-control" },
   "oda-nobunaga-1570-reversal-strategy": { name: "織田信長", era: "sengoku", thought: "people-development" },
+  "zhuge-liang-manager-isolation": { name: "諸葛孔明", era: "ancient", thought: "people-development" },
+  "rothschild-zero-to-wealth": { name: "マイヤー・ロスチャイルド", era: "modern", thought: "saving-discipline" },
 };

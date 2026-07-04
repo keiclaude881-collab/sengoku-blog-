@@ -288,4 +288,12 @@ export const NEXT_DOORS: Record<string, NextDoor[]> = {
     { slug: "lincoln-resilience-career", hook: "包囲網の中で逆転した信長の先には、何度も失敗してもキャリアを立て直したリンカーンがいる。" },
     { slug: "sanada-yukimura-underdog-strategy", hook: "逆境での逆転戦略の答えの続きは、圧倒的な不利の中から強者に挑んだ真田幸村が知っている。" },
   ],
+  "zhuge-liang-manager-isolation": [
+    { slug: "yamamoto-isoroku-people-development", hook: "機能不全の組織で働き続けた孔明の先には、「やってみせ、言って聞かせて」で人を動かし続けた山本五十六がいる。" },
+    { slug: "inamori-kazuo-work-equation", hook: "「なぜ働くのか」を問い続けた孔明の答えの続きは、京セラとJALを再建した稲盛和夫の仕事の方程式にある。" },
+  ],
+  "rothschild-zero-to-wealth": [
+    { slug: "honda-seiroku-money-allocation", hook: "ゲットーから資産を積み上げたロスチャイルドの先には、4分の1貯蓄法でゼロから財産を作った本多静六がいる。" },
+    { slug: "madam-cj-walker-self-investment", hook: "制約の中から富を作ったロスチャイルドの先には、差別の時代にアメリカ初の黒人女性富豪になったウォーカー夫人がいる。" },
+  ],
 };

@@ -67,6 +67,7 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
           "toyoda-sakichi-systemization",
           "ino-tadataka-second-career",
           "inamori-kazuo-work-equation",
+          "zhuge-liang-manager-isolation",
         ],
       },
     ],
@@ -111,6 +112,7 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
           "hetty-green-cash-strategy",
           "sakamoto-ryoma-risk-management",
           "iwasaki-yataro-concentration-strategy",
+          "rothschild-zero-to-wealth",
         ],
       },
       {
