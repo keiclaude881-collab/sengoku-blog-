@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+    <linearGradient id="flowGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- large hand releasing coins/wealth upward-right -->
+  <g transform="translate(350,380)" opacity="0.8">
+    <!-- palm -->
+    <path d="M -80 80 C -80 0 -60 -40 0 -50 C 60 -40 80 0 80 80 Z" fill="#f59e0b"/>
+    <!-- fingers -->
+    <rect x="-70" y="-80" width="22" height="90" rx="10" fill="#f59e0b"/>
+    <rect x="-38" y="-100" width="22" height="110" rx="10" fill="#f59e0b"/>
+    <rect x="-6" y="-108" width="22" height="120" rx="10" fill="#f59e0b"/>
+    <rect x="26" y="-100" width="22" height="112" rx="10" fill="#f59e0b"/>
+    <rect x="55" y="-80" width="22" height="92" rx="10" fill="#f59e0b"/>
+  </g>
+
+  <!-- coins/wealth flying upward and to the right (giving) -->
+  <g fill="#92400e" opacity="0.7">
+    <circle cx="480" cy="240" r="24"/>
+    <circle cx="580" cy="180" r="20"/>
+    <circle cx="680" cy="130" r="22"/>
+    <circle cx="760" cy="100" r="18"/>
+    <circle cx="860" cy="140" r="16"/>
+    <circle cx="940" cy="110" r="20"/>
+    <circle cx="1020" cy="160" r="14"/>
+  </g>
+  <g fill="#fde68a" opacity="0.6">
+    <circle cx="480" cy="240" r="14"/>
+    <circle cx="580" cy="180" r="11"/>
+    <circle cx="680" cy="130" r="12"/>
+    <circle cx="760" cy="100" r="10"/>
+    <circle cx="860" cy="140" r="9"/>
+    <circle cx="940" cy="110" r="11"/>
+    <circle cx="1020" cy="160" r="8"/>
+  </g>
+
+  <!-- arc trajectory -->
+  <path d="M 420 280 C 520 200 700 120 940 110" fill="none" stroke="#d97706" stroke-width="4" stroke-dasharray="12 8" opacity="0.5"/>
+
+  <!-- receiving figures at right (people benefiting) -->
+  <g transform="translate(1050,340)" fill="#d97706" opacity="0.6">
+    <circle cx="-40" cy="-20" r="18"/>
+    <path d="M -55 -2 C -55 -40 -48 -52 -40 -52 C -32 -52 -25 -40 -25 -2 Z"/>
+    <circle cx="40" cy="-20" r="18"/>
+    <path d="M 25 -2 C 25 -40 32 -52 40 -52 C 48 -52 55 -40 55 -2 Z"/>
+    <circle cx="0" cy="-28" r="18"/>
+    <path d="M -15 -10 C -15 -48 -8 -60 0 -60 C 8 -60 15 -48 15 -10 Z"/>
+  </g>
+
+  <!-- upward arrows (societal uplift) -->
+  <g stroke="#f59e0b" stroke-width="5" stroke-linecap="round" opacity="0.4">
+    <line x1="1010" y1="400" x2="1010" y2="320"/>
+    <line x1="1050" y1="420" x2="1050" y2="340"/>
+    <line x1="1090" y1="400" x2="1090" y2="320"/>
+  </g>
+  <g fill="#f59e0b" opacity="0.4">
+    <polygon points="1010,320 1000,344 1020,344"/>
+    <polygon points="1050,340 1040,364 1060,364"/>
+    <polygon points="1090,320 1080,344 1100,344"/>
+  </g>
+
+  <!-- background decorative circles -->
+  <circle cx="200" cy="150" r="80" fill="none" stroke="#fde68a" stroke-width="2" opacity="0.4"/>
+  <circle cx="200" cy="150" r="120" fill="none" stroke="#fde68a" stroke-width="1" opacity="0.25"/>
+</svg>

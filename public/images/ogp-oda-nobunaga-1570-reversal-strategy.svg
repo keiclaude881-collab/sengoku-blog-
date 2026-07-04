@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0f7ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- many arrows approaching from left (enemy forces) -->
+  <g stroke="#93c5fd" stroke-width="6" stroke-linecap="round" opacity="0.6">
+    <line x1="80" y1="200" x2="380" y2="270"/>
+    <line x1="80" y1="280" x2="380" y2="310"/>
+    <line x1="80" y1="360" x2="380" y2="350"/>
+    <line x1="80" y1="440" x2="380" y2="390"/>
+    <line x1="80" y1="520" x2="380" y2="430"/>
+  </g>
+  <g fill="#93c5fd" opacity="0.6">
+    <polygon points="380,270 342,252 348,278"/>
+    <polygon points="380,310 342,292 348,318"/>
+    <polygon points="380,350 342,332 348,358"/>
+    <polygon points="380,390 342,372 348,398"/>
+    <polygon points="380,430 342,412 348,438"/>
+  </g>
+
+  <!-- reversal formation: arrows turning and striking back -->
+  <g stroke="#1e40af" stroke-width="10" stroke-linecap="round" opacity="0.85">
+    <!-- main reversal arrows fanning out from center to right -->
+    <line x1="500" y1="315" x2="900" y2="180"/>
+    <line x1="500" y1="315" x2="900" y2="270"/>
+    <line x1="500" y1="315" x2="900" y2="360"/>
+    <line x1="500" y1="315" x2="900" y2="450"/>
+    <line x1="500" y1="315" x2="760" y2="130"/>
+    <line x1="500" y1="315" x2="760" y2="500"/>
+  </g>
+  <g fill="#1e40af" opacity="0.85">
+    <polygon points="900,180 858,172 866,200"/>
+    <polygon points="900,270 858,260 862,290"/>
+    <polygon points="900,360 858,348 862,378"/>
+    <polygon points="900,450 858,440 862,470"/>
+    <polygon points="760,130 726,134 740,160"/>
+    <polygon points="760,500 730,492 738,520"/>
+  </g>
+
+  <!-- command figure at center pivot point -->
+  <g transform="translate(500,315)">
+    <circle cx="0" cy="-32" r="24" fill="#1e40af"/>
+    <path d="M -32 80 C -32 10 -22 -8 0 -8 C 22 -8 32 10 32 80 Z" fill="#1e40af"/>
+    <!-- sword upward -->
+    <line x1="0" y1="-8" x2="0" y2="-100" stroke="#93c5fd" stroke-width="6" stroke-linecap="round"/>
+    <polygon points="0,-100 -8,-80 8,-80" fill="#93c5fd"/>
+  </g>
+
+  <!-- arc showing the reversal sweep -->
+  <path d="M 380 270 C 420 290 460 305 500 315 C 540 325 560 330 580 340" fill="none" stroke="#2563eb" stroke-width="4" stroke-dasharray="10 6" opacity="0.5"/>
+
+  <!-- decorative background -->
+  <circle cx="1050" cy="150" r="80" fill="none" stroke="#bfdbfe" stroke-width="2" opacity="0.5"/>
+  <circle cx="150" cy="530" r="60" fill="none" stroke="#bfdbfe" stroke-width="2" opacity="0.4"/>
+</svg>
