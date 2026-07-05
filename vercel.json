@@ -1,6 +1,156 @@
 {
   "redirects": [
     {
+      "source": "/blog/whatif/shingen-longlife-if",
+      "destination": "/blog/takeda-shingen-if-he-survived/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/shingen-longlife-if/",
+      "destination": "/blog/takeda-shingen-if-he-survived/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/napoleon-russia-if",
+      "destination": "/blog/napoleon-russia-campaign-failure/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/napoleon-russia-if/",
+      "destination": "/blog/napoleon-russia-campaign-failure/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/oda-nobunaga-tenka-if",
+      "destination": "/blog/oda-nobunaga-1570-reversal-strategy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/oda-nobunaga-tenka-if/",
+      "destination": "/blog/oda-nobunaga-1570-reversal-strategy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/honnoji-if",
+      "destination": "/blog/oda-nobunaga-adapt-to-change/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/honnoji-if/",
+      "destination": "/blog/oda-nobunaga-adapt-to-change/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/ieyasu-sekigahara-lose-if",
+      "destination": "/blog/tokugawa-ieyasu-power-of-patience/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/ieyasu-sekigahara-lose-if/",
+      "destination": "/blog/tokugawa-ieyasu-power-of-patience/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/katsuyori-nagashino-if",
+      "destination": "/blog/takeda-shingen-if-he-survived/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/katsuyori-nagashino-if/",
+      "destination": "/blog/takeda-shingen-if-he-survived/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/osaka-toyotomi-win-if",
+      "destination": "/blog/toyotomi-hideyoshi-career-strategy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/osaka-toyotomi-win-if/",
+      "destination": "/blog/toyotomi-hideyoshi-career-strategy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/sekigahara-if-west",
+      "destination": "/blog/tokugawa-ieyasu-power-of-patience/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/sekigahara-if-west/",
+      "destination": "/blog/tokugawa-ieyasu-power-of-patience/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/ryoma-longlife-if",
+      "destination": "/blog/sakamoto-ryoma-risk-management/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/ryoma-longlife-if/",
+      "destination": "/blog/sakamoto-ryoma-risk-management/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/ryoma-survival-if",
+      "destination": "/blog/sakamoto-ryoma-risk-management/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/ryoma-survival-if/",
+      "destination": "/blog/sakamoto-ryoma-risk-management/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/alexander-longlife-if",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/alexander-longlife-if/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/cao-cao-if",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/cao-cao-if/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/hannibal-rome-if",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/hannibal-rome-if/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/midway-if",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/midway-if/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/normandy-fail-if",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/normandy-fail-if/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/blog/battle/anegawa",
       "destination": "/",
       "permanent": true
@@ -262,12 +412,12 @@
     },
     {
       "source": "/blog/leader/caesar",
-      "destination": "/",
+      "destination": "/blog/caesar-speed-decision/",
       "permanent": true
     },
     {
       "source": "/blog/leader/caesar/",
-      "destination": "/",
+      "destination": "/blog/caesar-speed-decision/",
       "permanent": true
     },
     {
@@ -282,12 +432,12 @@
     },
     {
       "source": "/blog/leader/chinggis",
-      "destination": "/",
+      "destination": "/blog/genghis-khan-information-strategy/",
       "permanent": true
     },
     {
       "source": "/blog/leader/chinggis/",
-      "destination": "/",
+      "destination": "/blog/genghis-khan-information-strategy/",
       "permanent": true
     },
     {
@@ -302,22 +452,22 @@
     },
     {
       "source": "/blog/leader/hideyoshi",
-      "destination": "/",
+      "destination": "/blog/toyotomi-hideyoshi-career-strategy/",
       "permanent": true
     },
     {
       "source": "/blog/leader/hideyoshi/",
-      "destination": "/",
+      "destination": "/blog/toyotomi-hideyoshi-career-strategy/",
       "permanent": true
     },
     {
       "source": "/blog/leader/ieyasu",
-      "destination": "/",
+      "destination": "/blog/tokugawa-ieyasu-power-of-patience/",
       "permanent": true
     },
     {
       "source": "/blog/leader/ieyasu/",
-      "destination": "/",
+      "destination": "/blog/tokugawa-ieyasu-power-of-patience/",
       "permanent": true
     },
     {
@@ -332,12 +482,12 @@
     },
     {
       "source": "/blog/leader/masamune",
-      "destination": "/",
+      "destination": "/blog/date-masamune-personal-branding/",
       "permanent": true
     },
     {
       "source": "/blog/leader/masamune/",
-      "destination": "/",
+      "destination": "/blog/date-masamune-personal-branding/",
       "permanent": true
     },
     {
@@ -352,32 +502,32 @@
     },
     {
       "source": "/blog/leader/napoleon",
-      "destination": "/",
+      "destination": "/blog/napoleon-focus-side-business/",
       "permanent": true
     },
     {
       "source": "/blog/leader/napoleon/",
-      "destination": "/",
+      "destination": "/blog/napoleon-focus-side-business/",
       "permanent": true
     },
     {
       "source": "/blog/leader/nobunaga",
-      "destination": "/",
+      "destination": "/blog/oda-nobunaga-adapt-to-change/",
       "permanent": true
     },
     {
       "source": "/blog/leader/nobunaga/",
-      "destination": "/",
+      "destination": "/blog/oda-nobunaga-adapt-to-change/",
       "permanent": true
     },
     {
       "source": "/blog/leader/sanada",
-      "destination": "/",
+      "destination": "/blog/sanada-yukimura-underdog-strategy/",
       "permanent": true
     },
     {
       "source": "/blog/leader/sanada/",
-      "destination": "/",
+      "destination": "/blog/sanada-yukimura-underdog-strategy/",
       "permanent": true
     },
     {
@@ -392,12 +542,12 @@
     },
     {
       "source": "/blog/leader/shingen",
-      "destination": "/",
+      "destination": "/blog/takeda-shingen-if-he-survived/",
       "permanent": true
     },
     {
       "source": "/blog/leader/shingen/",
-      "destination": "/",
+      "destination": "/blog/takeda-shingen-if-he-survived/",
       "permanent": true
     },
     {
@@ -412,52 +562,12 @@
     },
     {
       "source": "/blog/leader/yamamoto-isoroku",
-      "destination": "/",
+      "destination": "/blog/yamamoto-isoroku-people-development/",
       "permanent": true
     },
     {
       "source": "/blog/leader/yamamoto-isoroku/",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/blog/leader/:slug*",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/blog/strategy/:slug*",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/blog/business/:slug*",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/blog/movie/:slug*",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/blog/anime/:slug*",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/blog/books/:slug*",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/blog/novel/:slug*",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/blog/sports/:slug*",
-      "destination": "/",
+      "destination": "/blog/yamamoto-isoroku-people-development/",
       "permanent": true
     },
     {
@@ -542,12 +652,12 @@
     },
     {
       "source": "/blog/caesar",
-      "destination": "/",
+      "destination": "/blog/caesar-speed-decision/",
       "permanent": true
     },
     {
       "source": "/blog/caesar/",
-      "destination": "/",
+      "destination": "/blog/caesar-speed-decision/",
       "permanent": true
     },
     {
@@ -562,12 +672,12 @@
     },
     {
       "source": "/blog/chinggis",
-      "destination": "/",
+      "destination": "/blog/genghis-khan-information-strategy/",
       "permanent": true
     },
     {
       "source": "/blog/chinggis/",
-      "destination": "/",
+      "destination": "/blog/genghis-khan-information-strategy/",
       "permanent": true
     },
     {
@@ -582,22 +692,22 @@
     },
     {
       "source": "/blog/hideyoshi",
-      "destination": "/",
+      "destination": "/blog/toyotomi-hideyoshi-career-strategy/",
       "permanent": true
     },
     {
       "source": "/blog/hideyoshi/",
-      "destination": "/",
+      "destination": "/blog/toyotomi-hideyoshi-career-strategy/",
       "permanent": true
     },
     {
       "source": "/blog/ieyasu",
-      "destination": "/",
+      "destination": "/blog/tokugawa-ieyasu-power-of-patience/",
       "permanent": true
     },
     {
       "source": "/blog/ieyasu/",
-      "destination": "/",
+      "destination": "/blog/tokugawa-ieyasu-power-of-patience/",
       "permanent": true
     },
     {
@@ -612,12 +722,12 @@
     },
     {
       "source": "/blog/masamune",
-      "destination": "/",
+      "destination": "/blog/date-masamune-personal-branding/",
       "permanent": true
     },
     {
       "source": "/blog/masamune/",
-      "destination": "/",
+      "destination": "/blog/date-masamune-personal-branding/",
       "permanent": true
     },
     {
@@ -632,42 +742,42 @@
     },
     {
       "source": "/blog/napoleon",
-      "destination": "/",
+      "destination": "/blog/napoleon-focus-side-business/",
       "permanent": true
     },
     {
       "source": "/blog/napoleon/",
-      "destination": "/",
+      "destination": "/blog/napoleon-focus-side-business/",
       "permanent": true
     },
     {
       "source": "/blog/nobunaga",
-      "destination": "/",
+      "destination": "/blog/oda-nobunaga-adapt-to-change/",
       "permanent": true
     },
     {
       "source": "/blog/nobunaga/",
-      "destination": "/",
+      "destination": "/blog/oda-nobunaga-adapt-to-change/",
       "permanent": true
     },
     {
       "source": "/blog/sanada",
-      "destination": "/",
+      "destination": "/blog/sanada-yukimura-underdog-strategy/",
       "permanent": true
     },
     {
       "source": "/blog/sanada/",
-      "destination": "/",
+      "destination": "/blog/sanada-yukimura-underdog-strategy/",
       "permanent": true
     },
     {
       "source": "/blog/shingen",
-      "destination": "/",
+      "destination": "/blog/takeda-shingen-if-he-survived/",
       "permanent": true
     },
     {
       "source": "/blog/shingen/",
-      "destination": "/",
+      "destination": "/blog/takeda-shingen-if-he-survived/",
       "permanent": true
     },
     {
@@ -892,12 +1002,12 @@
     },
     {
       "source": "/blog/machiavelli",
-      "destination": "/",
+      "destination": "/blog/machiavelli-sidehustle/",
       "permanent": true
     },
     {
       "source": "/blog/machiavelli/",
-      "destination": "/",
+      "destination": "/blog/machiavelli-sidehustle/",
       "permanent": true
     },
     {
@@ -942,12 +1052,12 @@
     },
     {
       "source": "/blog/nobunaga-innovation",
-      "destination": "/",
+      "destination": "/blog/oda-nobunaga-adapt-to-change/",
       "permanent": true
     },
     {
       "source": "/blog/nobunaga-innovation/",
-      "destination": "/",
+      "destination": "/blog/oda-nobunaga-adapt-to-change/",
       "permanent": true
     },
     {
@@ -1302,32 +1412,32 @@
     },
     {
       "source": "/blog/honnoji-if",
-      "destination": "/",
+      "destination": "/blog/oda-nobunaga-adapt-to-change/",
       "permanent": true
     },
     {
       "source": "/blog/honnoji-if/",
-      "destination": "/",
+      "destination": "/blog/oda-nobunaga-adapt-to-change/",
       "permanent": true
     },
     {
       "source": "/blog/ieyasu-sekigahara-lose-if",
-      "destination": "/",
+      "destination": "/blog/tokugawa-ieyasu-power-of-patience/",
       "permanent": true
     },
     {
       "source": "/blog/ieyasu-sekigahara-lose-if/",
-      "destination": "/",
+      "destination": "/blog/tokugawa-ieyasu-power-of-patience/",
       "permanent": true
     },
     {
       "source": "/blog/katsuyori-nagashino-if",
-      "destination": "/",
+      "destination": "/blog/takeda-shingen-if-he-survived/",
       "permanent": true
     },
     {
       "source": "/blog/katsuyori-nagashino-if/",
-      "destination": "/",
+      "destination": "/blog/takeda-shingen-if-he-survived/",
       "permanent": true
     },
     {
@@ -1342,12 +1452,12 @@
     },
     {
       "source": "/blog/napoleon-russia-if",
-      "destination": "/",
+      "destination": "/blog/napoleon-russia-campaign-failure/",
       "permanent": true
     },
     {
       "source": "/blog/napoleon-russia-if/",
-      "destination": "/",
+      "destination": "/blog/napoleon-russia-campaign-failure/",
       "permanent": true
     },
     {
@@ -1362,62 +1472,62 @@
     },
     {
       "source": "/blog/oda-nobunaga-tenka-if",
-      "destination": "/",
+      "destination": "/blog/oda-nobunaga-1570-reversal-strategy/",
       "permanent": true
     },
     {
       "source": "/blog/oda-nobunaga-tenka-if/",
-      "destination": "/",
+      "destination": "/blog/oda-nobunaga-1570-reversal-strategy/",
       "permanent": true
     },
     {
       "source": "/blog/osaka-toyotomi-win-if",
-      "destination": "/",
+      "destination": "/blog/toyotomi-hideyoshi-career-strategy/",
       "permanent": true
     },
     {
       "source": "/blog/osaka-toyotomi-win-if/",
-      "destination": "/",
+      "destination": "/blog/toyotomi-hideyoshi-career-strategy/",
       "permanent": true
     },
     {
       "source": "/blog/ryoma-longlife-if",
-      "destination": "/",
+      "destination": "/blog/sakamoto-ryoma-risk-management/",
       "permanent": true
     },
     {
       "source": "/blog/ryoma-longlife-if/",
-      "destination": "/",
+      "destination": "/blog/sakamoto-ryoma-risk-management/",
       "permanent": true
     },
     {
       "source": "/blog/ryoma-survival-if",
-      "destination": "/",
+      "destination": "/blog/sakamoto-ryoma-risk-management/",
       "permanent": true
     },
     {
       "source": "/blog/ryoma-survival-if/",
-      "destination": "/",
+      "destination": "/blog/sakamoto-ryoma-risk-management/",
       "permanent": true
     },
     {
       "source": "/blog/sekigahara-if-west",
-      "destination": "/",
+      "destination": "/blog/tokugawa-ieyasu-power-of-patience/",
       "permanent": true
     },
     {
       "source": "/blog/sekigahara-if-west/",
-      "destination": "/",
+      "destination": "/blog/tokugawa-ieyasu-power-of-patience/",
       "permanent": true
     },
     {
       "source": "/blog/shingen-longlife-if",
-      "destination": "/",
+      "destination": "/blog/takeda-shingen-if-he-survived/",
       "permanent": true
     },
     {
       "source": "/blog/shingen-longlife-if/",
-      "destination": "/",
+      "destination": "/blog/takeda-shingen-if-he-survived/",
       "permanent": true
     },
     {
@@ -1492,12 +1602,12 @@
     },
     {
       "source": "/blog/zhuge-liang",
-      "destination": "/",
+      "destination": "/blog/zhuge-liang-manager-isolation/",
       "permanent": true
     },
     {
       "source": "/blog/zhuge-liang/",
-      "destination": "/",
+      "destination": "/blog/zhuge-liang-manager-isolation/",
       "permanent": true
     },
     {
@@ -1512,12 +1622,12 @@
     },
     {
       "source": "/blog/yamamoto-isoroku",
-      "destination": "/",
+      "destination": "/blog/yamamoto-isoroku-people-development/",
       "permanent": true
     },
     {
       "source": "/blog/yamamoto-isoroku/",
-      "destination": "/",
+      "destination": "/blog/yamamoto-isoroku-people-development/",
       "permanent": true
     },
     {
@@ -1532,12 +1642,12 @@
     },
     {
       "source": "/blog/shibusawa-eiichi",
-      "destination": "/",
+      "destination": "/blog/shibusawa-eiichi-morals-money/",
       "permanent": true
     },
     {
       "source": "/blog/shibusawa-eiichi/",
-      "destination": "/",
+      "destination": "/blog/shibusawa-eiichi-morals-money/",
       "permanent": true
     },
     {
@@ -1552,12 +1662,12 @@
     },
     {
       "source": "/blog/sunzi-business",
-      "destination": "/",
+      "destination": "/blog/sunzi-investment-principles/",
       "permanent": true
     },
     {
       "source": "/blog/sunzi-business/",
-      "destination": "/",
+      "destination": "/blog/sunzi-investment-principles/",
       "permanent": true
     },
     {
@@ -1682,12 +1792,12 @@
     },
     {
       "source": "/blog/kuroda-kanbei",
-      "destination": "/",
+      "destination": "/blog/kuroda-kanbei-win-without-fighting/",
       "permanent": true
     },
     {
       "source": "/blog/kuroda-kanbei/",
-      "destination": "/",
+      "destination": "/blog/kuroda-kanbei-win-without-fighting/",
       "permanent": true
     },
     {
@@ -1702,12 +1812,12 @@
     },
     {
       "source": "/blog/mouri",
-      "destination": "/",
+      "destination": "/blog/mori-motonari-diversification/",
       "permanent": true
     },
     {
       "source": "/blog/mouri/",
-      "destination": "/",
+      "destination": "/blog/mori-motonari-diversification/",
       "permanent": true
     },
     {
@@ -1797,6 +1907,51 @@
     },
     {
       "source": "/blog/gustav-adolf/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/whatif/:slug*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/leader/:slug*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/strategy/:slug*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/business/:slug*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/movie/:slug*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/anime/:slug*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/books/:slug*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/novel/:slug*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sports/:slug*",
       "destination": "/",
       "permanent": true
     }
