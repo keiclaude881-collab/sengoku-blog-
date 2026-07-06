@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#312e81"/>
+    </linearGradient>
+    <linearGradient id="lightGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- mountain silhouette -->
+  <path d="M 0 630 L 300 280 L 460 400 L 600 200 L 740 380 L 900 300 L 1200 630 Z"
+        fill="#1e1b4b" opacity="0.6"/>
+  <path d="M 0 630 L 200 420 L 400 500 L 600 200 L 800 480 L 1000 420 L 1200 630 Z"
+        fill="#312e81" opacity="0.4"/>
+
+  <!-- lightning bolt (Zarathustra symbol) -->
+  <path d="M 620 80 L 560 300 L 610 300 L 550 520 L 680 260 L 630 260 Z"
+        fill="url(#lightGrad)" opacity="0.9"/>
+
+  <!-- lone figure at mountain peak -->
+  <g transform="translate(600,175)" fill="#a78bfa" opacity="0.85">
+    <circle cx="0" cy="-34" r="18"/>
+    <path d="M -22 50 C -22 -10 -14 -16 0 -16 C 14 -16 22 -10 22 50 Z"/>
+  </g>
+
+  <!-- radial glow around lightning -->
+  <circle cx="600" cy="300" r="180" fill="none" stroke="#7c3aed" stroke-width="2" opacity="0.2"/>
+  <circle cx="600" cy="300" r="280" fill="none" stroke="#6d28d9" stroke-width="1" opacity="0.1"/>
+
+  <!-- stars -->
+  <g fill="#c4b5fd" opacity="0.5">
+    <circle cx="120" cy="80" r="3"/>
+    <circle cx="280" cy="50" r="2"/>
+    <circle cx="450" cy="100" r="2.5"/>
+    <circle cx="850" cy="60" r="3"/>
+    <circle cx="1000" cy="90" r="2"/>
+    <circle cx="1100" cy="140" r="2.5"/>
+    <circle cx="80" cy="200" r="2"/>
+    <circle cx="1050" cy="250" r="3"/>
+    <circle cx="180" cy="160" r="1.5"/>
+    <circle cx="950" cy="170" r="2"/>
+  </g>
+
+  <!-- decorative arc -->
+  <path d="M 200 580 Q 600 460 1000 580" fill="none" stroke="#7c3aed" stroke-width="2" opacity="0.3"/>
+</svg>

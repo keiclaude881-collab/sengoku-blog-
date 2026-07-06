@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- compound growth curve: slow then exponential -->
+  <!-- grid -->
+  <g stroke="#fde68a" stroke-width="1" opacity="0.5">
+    <line x1="160" y1="130" x2="1080" y2="130"/>
+    <line x1="160" y1="260" x2="1080" y2="260"/>
+    <line x1="160" y1="390" x2="1080" y2="390"/>
+    <line x1="160" y1="510" x2="1080" y2="510"/>
+  </g>
+  <!-- axes -->
+  <line x1="160" y1="100" x2="160" y2="540" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+  <line x1="140" y1="510" x2="1100" y2="510" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- exponential growth curve -->
+  <path d="M 180 490 C 300 480 420 470 540 450 C 660 420 750 370 840 290 C 920 220 980 160 1060 100"
+        fill="none" stroke="#d97706" stroke-width="9" stroke-linecap="round"/>
+
+  <!-- shaded area under curve -->
+  <path d="M 180 490 C 300 480 420 470 540 450 C 660 420 750 370 840 290 C 920 220 980 160 1060 100 L 1060 510 L 180 510 Z"
+        fill="#f59e0b" opacity="0.09"/>
+
+  <!-- time axis labels: years -->
+  <g font-family="sans-serif" font-size="22" fill="#d97706" opacity="0.7">
+    <text x="180" y="548">0</text>
+    <text x="360" y="548">10</text>
+    <text x="540" y="548">20</text>
+    <text x="720" y="548">30</text>
+    <text x="900" y="548">40</text>
+    <text x="1060" y="548">50年</text>
+  </g>
+
+  <!-- key inflection marker -->
+  <circle cx="720" cy="400" r="12" fill="#f59e0b"/>
+  <line x1="720" y1="130" x2="720" y2="510" stroke="#f59e0b" stroke-width="2" stroke-dasharray="10 6" opacity="0.6"/>
+
+  <!-- coin motifs at the end of curve -->
+  <g opacity="0.3">
+    <circle cx="1060" cy="100" r="48" fill="none" stroke="#d97706" stroke-width="4"/>
+    <text x="1060" y="108" text-anchor="middle" font-size="30" fill="#d97706">¥</text>
+    <circle cx="980" cy="160" r="34" fill="none" stroke="#92400e" stroke-width="3"/>
+    <text x="980" y="168" text-anchor="middle" font-size="22" fill="#92400e">¥</text>
+    <circle cx="900" cy="220" r="24" fill="none" stroke="#92400e" stroke-width="2"/>
+    <text x="900" y="228" text-anchor="middle" font-size="16" fill="#92400e">¥</text>
+  </g>
+
+  <!-- small person silhouette (patient investor) -->
+  <g transform="translate(250,390)" fill="#92400e" opacity="0.4">
+    <circle cx="0" cy="-28" r="20"/>
+    <path d="M -26 60 C -26 0 -18 -8 0 -8 C 18 -8 26 0 26 60 Z"/>
+  </g>
+
+  <!-- decorative background circle -->
+  <circle cx="170" cy="560" r="70" fill="none" stroke="#fde68a" stroke-width="2" opacity="0.3"/>
+</svg>
