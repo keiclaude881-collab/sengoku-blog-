@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- gate structure (traditional torii/gate) -->
+  <g stroke="#92400e" stroke-width="8" stroke-linecap="round" fill="none">
+    <!-- left pillar -->
+    <line x1="420" y1="160" x2="420" y2="500"/>
+    <!-- right pillar -->
+    <line x1="780" y1="160" x2="780" y2="500"/>
+    <!-- top crossbar -->
+    <line x1="380" y1="200" x2="820" y2="200"/>
+    <!-- second crossbar -->
+    <line x1="400" y1="250" x2="800" y2="250"/>
+  </g>
+
+  <!-- gate open (hinged panels swinging outward) -->
+  <rect x="425" y="260" width="140" height="230" rx="4" fill="#fde68a" stroke="#d97706" stroke-width="4" opacity="0.6" transform="rotate(-35 425 260)"/>
+  <rect x="635" y="260" width="140" height="230" rx="4" fill="#fde68a" stroke="#d97706" stroke-width="4" opacity="0.6" transform="rotate(35 775 260)"/>
+
+  <!-- coins/goods flowing through the open gate -->
+  <g fill="#d97706" opacity="0.75">
+    <circle cx="600" cy="330" r="22"/>
+    <circle cx="560" cy="390" r="18"/>
+    <circle cx="640" cy="400" r="16"/>
+    <circle cx="590" cy="460" r="20"/>
+    <circle cx="620" cy="280" r="14"/>
+  </g>
+  <g fill="#fde68a" opacity="0.6">
+    <circle cx="600" cy="330" r="12"/>
+    <circle cx="560" cy="390" r="10"/>
+    <circle cx="640" cy="400" r="9"/>
+    <circle cx="590" cy="460" r="11"/>
+    <circle cx="620" cy="280" r="8"/>
+  </g>
+
+  <!-- arrows pointing inward from both sides (merchants coming freely) -->
+  <g stroke="#f59e0b" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.6">
+    <line x1="80" y1="320" x2="380" y2="320"/>
+    <line x1="820" y1="320" x2="1120" y2="320"/>
+  </g>
+  <polygon points="380,320 345,304 345,336" fill="#f59e0b" opacity="0.6"/>
+  <polygon points="820,320 855,304 855,336" fill="#f59e0b" opacity="0.6"/>
+
+  <!-- small merchant figures on both sides -->
+  <g fill="#92400e" opacity="0.35">
+    <circle cx="160" cy="290" r="18"/>
+    <path d="M -22 50 C -22 0 -14 -8 0 -8 C 14 -8 22 0 22 50 Z" transform="translate(160,308)"/>
+    <circle cx="1040" cy="290" r="18"/>
+    <path d="M -22 50 C -22 0 -14 -8 0 -8 C 14 -8 22 0 22 50 Z" transform="translate(1040,308)"/>
+  </g>
+
+  <!-- decorative yen symbols -->
+  <g opacity="0.2">
+    <circle cx="200" cy="150" r="50" fill="none" stroke="#d97706" stroke-width="3"/>
+    <text x="200" y="160" text-anchor="middle" font-size="34" fill="#d97706">¥</text>
+    <circle cx="1000" cy="150" r="40" fill="none" stroke="#92400e" stroke-width="3"/>
+    <text x="1000" y="158" text-anchor="middle" font-size="26" fill="#92400e">¥</text>
+  </g>
+
+  <!-- background dots -->
+  <g fill="#fde68a" opacity="0.3">
+    <circle cx="100" cy="500" r="8"/>
+    <circle cx="1100" cy="480" r="7"/>
+    <circle cx="300" cy="560" r="6"/>
+    <circle cx="900" cy="560" r="6"/>
+  </g>
+</svg>
