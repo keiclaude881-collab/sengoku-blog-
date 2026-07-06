@@ -1,0 +1,247 @@
+---
+import { getCollection } from "astro:content";
+
+const POPULAR_SLUGS = [
+  "caesar-speed-decision",
+  "einstein-compound-interest-ideco",
+  "aristotle-habit-character",
+  "napoleon-russia-campaign-failure",
+  "dale-carnegie-workplace-relationships",
+];
+
+const allPosts = await getCollection("posts");
+const popularPosts = POPULAR_SLUGS
+  .map(slug => {
+    const post = allPosts.find(p => p.id.replace(/\.mdx?$/, "") === slug);
+    return post ? { slug, title: post.data.title, ogImage: post.data.ogImage, category: post.data.category } : null;
+  })
+  .filter((p): p is NonNullable<typeof p> => p !== null);
+
+const LABELS: Record<string, string> = { money: "投資・お金", career: "仕事・副業", mindset: "思考法" };
+---
+
+<aside class="sidebar">
+
+  <!-- プロフィールボックス -->
+  <div class="sb-profile">
+    <img src="/images/profile-avatar.svg" alt="温故" class="sb-avatar" />
+    <p class="sb-name">温故（おんこ）</p>
+    <p class="sb-concept">偉人の思考で現代の悩みを解決する</p>
+    <p class="sb-bio">歴史上の偉人や思想家の言葉を読み込み、「お金」「キャリア」「思考法」のヒントに翻訳して発信中。</p>
+    <a href="/about/" class="sb-about-link">詳しいプロフィール →</a>
+  </div>
+
+  <!-- よく読まれている記事 -->
+  <div class="sb-popular">
+    <h3 class="sb-section-title">よく読まれている記事</h3>
+    <ul class="sb-popular-list">
+      {popularPosts.map(p => (
+        <li class="sb-popular-item">
+          <a href={`/blog/${p.slug}/`} class="sb-popular-link">
+            <div class="sb-popular-img">
+              {p.ogImage
+                ? <img src={p.ogImage} alt={p.title} loading="lazy" />
+                : <div class="sb-popular-img-placeholder" />
+              }
+            </div>
+            <div class="sb-popular-body">
+              <span class={`sb-popular-cat sb-popular-cat--${p.category}`}>{LABELS[p.category]}</span>
+              <p class="sb-popular-title">{p.title}</p>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <!-- カテゴリ一覧 -->
+  <div class="sb-cats">
+    <h3 class="sb-section-title">カテゴリ</h3>
+    <ul class="sb-cat-list">
+      <li>
+        <a href="/money/" class="sb-cat-link sb-cat--money">
+          <span class="sb-cat-icon">💴</span>
+          <span>投資・お金</span>
+          <span class="sb-cat-arrow">→</span>
+        </a>
+      </li>
+      <li>
+        <a href="/career/" class="sb-cat-link sb-cat--career">
+          <span class="sb-cat-icon">💼</span>
+          <span>仕事・副業</span>
+          <span class="sb-cat-arrow">→</span>
+        </a>
+      </li>
+      <li>
+        <a href="/mindset/" class="sb-cat-link sb-cat--mindset">
+          <span class="sb-cat-icon">🧠</span>
+          <span>思考法</span>
+          <span class="sb-cat-arrow">→</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+
+<style>
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+/* ── プロフィール ── */
+.sb-profile {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.6rem;
+  text-align: center;
+}
+.sb-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 0.8rem;
+  border: 2px solid var(--border);
+}
+.sb-name {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+.sb-concept {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink3);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+.sb-bio {
+  font-size: 0.78rem;
+  color: var(--ink2);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+.sb-about-link {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.45rem 1.1rem;
+  border: 1px solid var(--border-mid);
+  border-radius: 100px;
+  transition: background 0.15s;
+}
+.sb-about-link:hover { background: var(--bg3); }
+
+/* ── 人気記事 ── */
+.sb-popular {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.4rem;
+}
+.sb-section-title {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+.sb-popular-list { list-style: none; }
+.sb-popular-item:not(:last-child) {
+  border-bottom: 1px solid var(--border);
+}
+.sb-popular-link {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  padding: 0.85rem 0;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s;
+}
+.sb-popular-link:hover { opacity: 0.72; }
+.sb-popular-img {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--bg3);
+}
+.sb-popular-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.sb-popular-img-placeholder { width: 100%; height: 100%; background: var(--bg3); }
+.sb-popular-body {
+  flex: 1;
+  min-width: 0;
+}
+.sb-popular-cat {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 100px;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.04em;
+}
+.sb-popular-cat--money   { background: #fef3c7; color: #92400e; }
+.sb-popular-cat--career  { background: #dbeafe; color: #1e40af; }
+.sb-popular-cat--mindset { background: #f3e8ff; color: #6b21a8; }
+.sb-popular-title {
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.55;
+  color: var(--ink);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── カテゴリ ── */
+.sb-cats {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.4rem;
+}
+.sb-cat-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.sb-cat-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  transition: opacity 0.15s;
+  border: 1px solid transparent;
+}
+.sb-cat-link:hover { opacity: 0.8; }
+.sb-cat-icon { font-size: 1rem; }
+.sb-cat-arrow { margin-left: auto; font-size: 0.75rem; opacity: 0.5; }
+.sb-cat--money   { background: #fef3c7; border-color: #fde68a; color: #92400e; }
+.sb-cat--career  { background: #dbeafe; border-color: #bfdbfe; color: #1e40af; }
+.sb-cat--mindset { background: #f3e8ff; border-color: #e9d5ff; color: #6b21a8; }
+</style>
