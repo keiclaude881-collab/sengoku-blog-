@@ -10,14 +10,16 @@
 }
 
 .prose h2 {
-  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  font-size: clamp(1.25rem, 2.5vw, 1.65rem);
   font-weight: 700;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   margin-top: 3.5rem;
   margin-bottom: 1.2rem;
-  padding-bottom: 0.6rem;
-  border-bottom: 1px solid var(--rule);
+  padding: 0.45rem 0 0.45rem 1rem;
+  border-left: 4px solid #d97706;
+  border-bottom: none;
   color: var(--text);
+  line-height: 1.45;
 }
 
 .prose h3 {
@@ -163,4 +165,66 @@
   font-weight: 400;
   letter-spacing: 0.05em;
   color: var(--text-sub);
+}
+
+/* ── 読者の悩みボックス ── */
+.reader-q-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  padding: 1.4rem 1.8rem;
+  margin: 0 0 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  line-height: 1.9;
+  color: #1e3a8a;
+}
+.reader-q-box .rq-label {
+  font-weight: 700;
+  font-size: 0.97rem;
+  margin-bottom: 0.7rem;
+  color: #1d4ed8;
+  display: block;
+}
+.reader-q-box ul {
+  margin: 0 0 0.8rem;
+  padding-left: 1.4rem;
+}
+.reader-q-box li {
+  margin-bottom: 0.3rem;
+  line-height: 1.75;
+}
+.reader-q-box p:last-child {
+  margin: 0;
+  font-weight: 600;
+  color: #1e40af;
+  font-size: 0.88rem;
+}
+
+/* ── 結論先出しボックス ── */
+.conclusion-box {
+  background: #fffbeb;
+  border: 2px solid #fbbf24;
+  border-radius: 8px;
+  padding: 1.4rem 1.8rem;
+  margin: 0 0 2.4rem;
+  font-family: var(--font-sans);
+}
+.conclusion-box .cb-label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #92400e;
+  margin-bottom: 0.7rem;
+}
+.conclusion-box p:not(.cb-label) {
+  font-size: 0.97rem;
+  line-height: 1.75;
+  color: var(--ink);
+  margin: 0;
+}
+.conclusion-box strong {
+  color: #92400e;
 }

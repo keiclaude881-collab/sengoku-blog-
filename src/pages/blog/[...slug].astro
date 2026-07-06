@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import AuthorProfile from "../../components/AuthorProfile.astro";
 import NextDoors from "../../components/NextDoors.astro";
+import Sidebar from "../../components/Sidebar.astro";
 
 const LABELS: Record<string, string> = {
   money:   "投資・お金",
@@ -90,7 +91,8 @@ const breadcrumbSchema = {
 <div class="progress-bar" id="progress-bar"></div>
 
 <article class="article-wrap">
-  <div class="container article-container">
+  <div class="container article-outer">
+  <div class="article-main">
 
     <!-- Header -->
     <header class="article-header">
@@ -217,7 +219,11 @@ const breadcrumbSchema = {
 
     <AuthorProfile />
 
-  </div>
+  </div><!-- /.article-main -->
+
+  <Sidebar />
+
+  </div><!-- /.article-outer -->
 </article>
 
 </BaseLayout>
@@ -246,7 +252,16 @@ const breadcrumbSchema = {
 
 /* ── Article layout ── */
 .article-wrap { padding: 48px 0 80px; }
-.article-container { max-width: 800px; }
+
+/* 2-column grid: main content + sidebar */
+.article-outer {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 3rem;
+  align-items: start;
+  max-width: 1160px;
+}
+.article-main { min-width: 0; max-width: 800px; }
 
 .breadcrumb {
   display: flex;
@@ -520,12 +535,24 @@ const breadcrumbSchema = {
   color: var(--ink);
 }
 
+/* Sidebar sticky positioning */
+:global(.sidebar) {
+  position: sticky;
+  top: calc(var(--nav-height) + 1.5rem);
+}
+
 /* ── Responsive ── */
+@media (max-width: 1000px) {
+  .article-outer {
+    grid-template-columns: 1fr;
+  }
+  :global(.sidebar) { display: none; }
+  .article-main { max-width: 100%; }
+}
 @media (max-width: 900px) {
   .related-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 540px) {
   .related-grid { grid-template-columns: 1fr; }
-  .article-container { max-width: 100%; }
 }
 </style>
