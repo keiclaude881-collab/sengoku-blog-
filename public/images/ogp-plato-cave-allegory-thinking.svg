@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="caveGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0c0a09"/>
+      <stop offset="100%" stop-color="#1c1917"/>
+    </linearGradient>
+    <linearGradient id="lightGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fef9c3"/>
+      <stop offset="60%" stop-color="#fde68a"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <radialGradient id="fireGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fde68a" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#f59e0b" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#92400e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="exitGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fef9c3" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#fef9c3" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="caveClip">
+      <path d="M 0 0 L 1200 0 L 1200 630 L 0 630 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- cave background -->
+  <rect width="1200" height="630" fill="url(#caveGrad)"/>
+
+  <!-- cave walls (arch shape) -->
+  <path d="M 0 0 L 160 0 L 160 400 Q 160 500 260 560 L 260 630 L 0 630 Z" fill="#292524" opacity="0.9"/>
+  <path d="M 1200 0 L 1040 0 L 1040 400 Q 1040 500 940 560 L 940 630 L 1200 630 Z" fill="#292524" opacity="0.9"/>
+  <path d="M 160 0 L 1040 0 L 1040 180 Q 600 260 160 180 Z" fill="#292524" opacity="0.85"/>
+
+  <!-- cave floor -->
+  <rect x="0" y="590" width="1200" height="40" fill="#1c1917"/>
+
+  <!-- fire (light source behind prisoners) -->
+  <ellipse cx="600" cy="420" rx="80" ry="40" fill="url(#fireGlow)" opacity="0.9"/>
+  <ellipse cx="600" cy="405" rx="50" ry="30" fill="#fde68a" opacity="0.7"/>
+  <ellipse cx="600" cy="395" rx="30" ry="20" fill="#fef9c3" opacity="0.85"/>
+
+  <!-- shadow projections on far wall -->
+  <g opacity="0.35">
+    <!-- shadow figures on the wall -->
+    <ellipse cx="380" cy="110" rx="18" ry="22" fill="#57534e"/>
+    <path d="M 365 132 C 365 100 395 100 395 132 L 395 165 L 365 165 Z" fill="#57534e"/>
+    <ellipse cx="500" cy="100" rx="22" ry="28" fill="#57534e"/>
+    <path d="M 480 128 C 480 96 520 96 520 128 L 520 168 L 480 168 Z" fill="#57534e"/>
+    <ellipse cx="620" cy="108" rx="16" ry="20" fill="#57534e"/>
+    <path d="M 606 128 C 606 100 634 100 634 128 L 634 162 L 606 162 Z" fill="#57534e"/>
+    <ellipse cx="720" cy="103" rx="20" ry="25" fill="#57534e"/>
+    <path d="M 702 128 C 702 96 738 96 738 128 L 738 168 L 702 168 Z" fill="#57534e"/>
+  </g>
+
+  <!-- prisoners sitting on floor, facing wall -->
+  <g fill="#292524" opacity="0.8">
+    <!-- prisoner 1 -->
+    <circle cx="370" cy="530" r="16"/>
+    <path d="M 354 546 C 354 520 386 520 386 546 L 386 580 L 354 580 Z"/>
+    <!-- prisoner 2 -->
+    <circle cx="470" cy="530" r="16"/>
+    <path d="M 454 546 C 454 520 486 520 486 546 L 486 580 L 454 580 Z"/>
+    <!-- prisoner 3 -->
+    <circle cx="570" cy="528" r="16"/>
+    <path d="M 554 544 C 554 518 586 518 586 544 L 586 580 L 554 580 Z"/>
+    <!-- prisoner 4 -->
+    <circle cx="670" cy="530" r="16"/>
+    <path d="M 654 546 C 654 520 686 520 686 546 L 686 580 L 654 580 Z"/>
+  </g>
+
+  <!-- exit opening (top right, bright) -->
+  <ellipse cx="980" cy="100" rx="100" ry="70" fill="url(#exitGlow)" opacity="0.9"/>
+  <ellipse cx="980" cy="100" rx="70" ry="50" fill="#fef9c3" opacity="0.7"/>
+  <ellipse cx="980" cy="100" rx="45" ry="32" fill="#fef9c3" opacity="0.9"/>
+
+  <!-- single freed figure walking toward light -->
+  <g fill="#78716c" opacity="0.9">
+    <circle cx="860" cy="380" r="14"/>
+    <path d="M 848 394 C 848 372 872 372 872 394 L 875 440 L 845 440 Z"/>
+    <!-- arm reaching toward light -->
+    <line x1="872" y1="405" x2="900" y2="385" stroke="#78716c" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <!-- light rays from exit -->
+  <g stroke="#fef9c3" stroke-width="1.5" opacity="0.2">
+    <line x1="980" y1="100" x2="750" y2="300"/>
+    <line x1="980" y1="100" x2="780" y2="400"/>
+    <line x1="980" y1="100" x2="820" y2="500"/>
+    <line x1="980" y1="100" x2="700" y2="450"/>
+  </g>
+
+  <!-- chain/shackle hint at prisoners' feet -->
+  <g stroke="#44403c" stroke-width="3" fill="none" opacity="0.6">
+    <path d="M 354 578 Q 420 600 454 578"/>
+    <path d="M 454 578 Q 520 600 554 578"/>
+    <path d="M 554 578 Q 620 600 654 578"/>
+  </g>
+</svg>
