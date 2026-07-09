@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0f9ff"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
+    </linearGradient>
+    <linearGradient id="beltGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="carGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e3a5f"/>
+      <stop offset="100%" stop-color="#0c1a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- assembly line belt (long horizontal conveyor) -->
+  <rect x="60" y="340" width="1080" height="28" rx="6" fill="url(#beltGrad)" opacity="0.85"/>
+  <!-- belt texture (moving lines) -->
+  <g stroke="#7dd3fc" stroke-width="1.5" opacity="0.3">
+    <line x1="140" y1="340" x2="140" y2="368"/>
+    <line x1="240" y1="340" x2="240" y2="368"/>
+    <line x1="340" y1="340" x2="340" y2="368"/>
+    <line x1="440" y1="340" x2="440" y2="368"/>
+    <line x1="540" y1="340" x2="540" y2="368"/>
+    <line x1="640" y1="340" x2="640" y2="368"/>
+    <line x1="740" y1="340" x2="740" y2="368"/>
+    <line x1="840" y1="340" x2="840" y2="368"/>
+    <line x1="940" y1="340" x2="940" y2="368"/>
+    <line x1="1040" y1="340" x2="1040" y2="368"/>
+  </g>
+
+  <!-- roller wheels on belt ends -->
+  <circle cx="85" cy="354" r="28" fill="#0369a1" opacity="0.7"/>
+  <circle cx="1115" cy="354" r="28" fill="#0369a1" opacity="0.7"/>
+  <circle cx="85" cy="354" r="14" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="1115" cy="354" r="14" fill="#0ea5e9" opacity="0.5"/>
+
+  <!-- cars on assembly line (3 stages: frame → partial → complete) -->
+  <!-- stage 1: basic frame (left) -->
+  <g transform="translate(200, 290)">
+    <!-- chassis only -->
+    <rect x="-60" y="20" width="120" height="30" rx="4" fill="#94a3b8" opacity="0.7"/>
+    <circle cx="-40" cy="52" r="14" fill="#475569"/>
+    <circle cx="40" cy="52" r="14" fill="#475569"/>
+    <!-- label -->
+    <text x="0" y="-5" text-anchor="middle" font-size="13" fill="#0369a1" opacity="0.7">①フレーム</text>
+  </g>
+
+  <!-- stage 2: partial body (center-left) -->
+  <g transform="translate(480, 285)">
+    <rect x="-65" y="20" width="130" height="35" rx="4" fill="#64748b" opacity="0.8"/>
+    <rect x="-45" y="-5" width="90" height="30" rx="6" fill="#475569" opacity="0.7"/>
+    <circle cx="-45" cy="58" r="15" fill="#334155"/>
+    <circle cx="45" cy="58" r="15" fill="#334155"/>
+    <text x="0" y="-18" text-anchor="middle" font-size="13" fill="#0369a1" opacity="0.7">②ボディ</text>
+  </g>
+
+  <!-- stage 3: complete Model T (center-right) -->
+  <g transform="translate(760, 278)">
+    <!-- complete black car -->
+    <rect x="-70" y="22" width="140" height="38" rx="5" fill="url(#carGrad)"/>
+    <rect x="-50" y="-2" width="100" height="28" rx="8" fill="#1e3a5f"/>
+    <!-- windows -->
+    <rect x="-42" y="0" width="34" height="22" rx="3" fill="#7dd3fc" opacity="0.4"/>
+    <rect x="-2" y="0" width="34" height="22" rx="3" fill="#7dd3fc" opacity="0.4"/>
+    <!-- wheels -->
+    <circle cx="-48" cy="64" r="17" fill="#0c1a2e"/>
+    <circle cx="-48" cy="64" r="9" fill="#334155"/>
+    <circle cx="48" cy="64" r="17" fill="#0c1a2e"/>
+    <circle cx="48" cy="64" r="9" fill="#334155"/>
+    <text x="0" y="-18" text-anchor="middle" font-size="13" fill="#0284c7" font-weight="bold" opacity="0.85">③完成</text>
+  </g>
+
+  <!-- completed cars moving right to output -->
+  <g transform="translate(1010, 282)" opacity="0.6">
+    <rect x="-55" y="22" width="110" height="36" rx="5" fill="#0c1a2e"/>
+    <rect x="-40" y="-2" width="80" height="26" rx="6" fill="#1e3a5f"/>
+    <circle cx="-36" cy="60" r="14" fill="#0c1a2e"/>
+    <circle cx="36" cy="60" r="14" fill="#0c1a2e"/>
+  </g>
+
+  <!-- right arrow (output flow) -->
+  <g stroke="#0284c7" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5">
+    <line x1="1100" y1="260" x2="1160" y2="260"/>
+    <polygon points="1160,260 1138,248 1138,272" fill="#0284c7"/>
+  </g>
+
+  <!-- worker figures at each station -->
+  <g fill="#0369a1" opacity="0.55">
+    <!-- worker 1 -->
+    <circle cx="200" cy="240" r="13"/>
+    <path d="M 189 253 C 189 232 211 232 211 253 L 214 295 L 186 295 Z"/>
+    <!-- worker 2 -->
+    <circle cx="480" cy="238" r="13"/>
+    <path d="M 469 251 C 469 230 491 230 491 251 L 494 293 L 466 293 Z"/>
+    <!-- worker 3 -->
+    <circle cx="760" cy="235" r="13"/>
+    <path d="M 749 248 C 749 227 771 227 771 248 L 774 290 L 746 290 Z"/>
+  </g>
+
+  <!-- "x8 faster" efficiency badge -->
+  <rect x="480" y="430" width="240" height="60" rx="10" fill="#0369a1" opacity="0.12"/>
+  <text x="600" y="457" text-anchor="middle" font-size="15" fill="#0369a1" opacity="0.6">組立時間</text>
+  <text x="600" y="480" text-anchor="middle" font-size="22" fill="#0369a1" font-weight="bold" opacity="0.75">12時間 → 93分</text>
+
+  <!-- decorative background circles -->
+  <circle cx="100" cy="150" r="60" fill="#e0f2fe" opacity="0.5"/>
+  <circle cx="1100" cy="480" r="50" fill="#bae6fd" opacity="0.4"/>
+
+  <!-- title accent line -->
+  <line x1="60" y1="180" x2="400" y2="180" stroke="#0284c7" stroke-width="3" opacity="0.2"/>
+</svg>
