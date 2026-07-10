@@ -308,4 +308,74 @@ export const NEXT_DOORS: Record<string, NextDoor[]> = {
     { slug: "nightingale-data-thinking", hook: "証拠に基づいて意見を更新し続けたダーウィンの先には、データで医療を革命したナイチンゲールがいる。" },
     { slug: "socrates-questioning-thinking", hook: "「自分が間違っているかもしれない」と問い続けることの意味——ソクラテスの問答法が同じ原理で辿り着く先。" },
   ],
+
+  // ── バッチ1 ──
+  "buffett-investment-philosophy": [
+    { slug: "graham-margin-of-safety", hook: "バフェットに「割安株」という武器を渡した師がいる——ベンジャミン・グラハムの安全マージンがなければ、バフェットは存在しなかった。" },
+    { slug: "einstein-compound-interest-ideco", hook: "60年間買い続けた力の正体は複利だ——アインシュタインが「人類最大の発明」と呼んだ時間の魔法がここにある。" },
+  ],
+  "nietzsche-amor-fati-suffering": [
+    { slug: "frankl-meaning-in-suffering", hook: "苦しみを愛したニーチェの先には、収容所の中で「苦しみに意味を見出す」思想を生み出したフランクルがいる。" },
+    { slug: "epictetus-freedom-mindset", hook: "運命を愛せという答えの続きは、奴隷の身分でも内なる自由を手放さなかったエピクテトスが知っている。" },
+  ],
+  "oda-nobunaga-rakuichi-money": [
+    { slug: "adam-smith-wealth-of-nations", hook: "楽市楽座で市場を解放した信長の先には、同じ「見えざる手」を理論化したアダム・スミスがいる。" },
+    { slug: "tokugawa-ieyasu-money-defense", hook: "信長の「攻め」の市場設計を受け継いだ時代の先には、その富を「守り」の財政で260年保ち続けた家康がいる。" },
+  ],
+
+  // ── バッチ2 ──
+  "munger-mental-models": [
+    { slug: "buffett-investment-philosophy", hook: "マンガーが「多分野の格子」を教えたパートナーの先には、60年間割安株を買い続けたバフェットがいる。" },
+    { slug: "aristotle-habit-character", hook: "多分野を横断して知恵を積む発想の根には、習慣の繰り返しが人格を作ると説いたアリストテレスがいる。" },
+  ],
+  "plato-cave-allegory-thinking": [
+    { slug: "socrates-questioning-thinking", hook: "洞窟の比喩でスタートラインを示したプラトンの先には、問い続けることそのものを哲学にした師ソクラテスがいる。" },
+    { slug: "nietzsche-amor-fati-suffering", hook: "幻想の外に出る苦しさを描いたプラトンの答えの続きは、その苦しみを愛せと言ったニーチェが知っている。" },
+  ],
+  "jobs-connecting-the-dots": [
+    { slug: "murasaki-shikibu-career-synergy", hook: "点をつないでキャリアを作ったジョブズの先には、自分の人生経験そのものを作品に変えた紫式部がいる。" },
+    { slug: "davinci-multiple-income-streams", hook: "異分野の点がつながる発想の続きは、スキルの掛け算で複数の収入源を作ったダ・ヴィンチが知っている。" },
+  ],
+
+  // ── バッチ3 ──
+  "adler-purpose-theory-mindset": [
+    { slug: "frankl-meaning-in-suffering", hook: "「目的」が人を動かすというアドラーの先には、どんな苦しみの中にも意味を見出せると説いたフランクルがいる。" },
+    { slug: "freud-unconscious-mindset", hook: "アドラーが出発点とし、そして離れた師がいる——フロイトの無意識論が3大心理学の原点だ。" },
+  ],
+  "drucker-self-management-career": [
+    { slug: "aristotle-habit-character", hook: "「強みに集中せよ」と説いたドラッカーの先には、強みは習慣の繰り返しから生まれると説いたアリストテレスがいる。" },
+    { slug: "inamori-kazuo-work-equation", hook: "自己管理を仕事の核心に置いたドラッカーの答えの続きは、「考え方 × 熱意 × 能力」の方程式を説いた稲盛和夫が知っている。" },
+  ],
+  "adam-smith-wealth-of-nations": [
+    { slug: "oda-nobunaga-rakuichi-money", hook: "「見えざる手」を理論化したアダム・スミスの先には、同じ自由市場の思想を日本で実践した織田信長がいる。" },
+    { slug: "shibusawa-eiichi-morals-money", hook: "富を道徳と切り離さなかったスミスの答えの続きは、道徳と算盤を両立させた渋沢栄一が知っている。" },
+  ],
+
+  // ── バッチ4 ──
+  "jung-shadow-introvert-mindset": [
+    { slug: "freud-unconscious-mindset", hook: "ユングが出発点とし、そして独自の道を歩み始めた師がいる——フロイトの無意識論が3大心理学の原点だ。" },
+    { slug: "adler-purpose-theory-mindset", hook: "シャドウを統合する旅の先には、過去ではなく「目的」で自分を動かすアドラーの目的論がある。" },
+  ],
+  "ford-model-t-focus-strategy": [
+    { slug: "toyoda-sakichi-systemization", hook: "大量生産の仕組みを作ったフォードの先には、「カイゼン」という別の答えで生産を革命した豊田佐吉がいる。" },
+    { slug: "drucker-self-management-career", hook: "集中と専門化で成果を出したフォードの答えの続きは、「強みに集中せよ」と説いたドラッカーが知っている。" },
+  ],
+  "tokugawa-ieyasu-money-defense": [
+    { slug: "uesugi-yozan-household-rebuild", hook: "守りの財政で260年の安定を作った家康の先には、同じ守りの思想で借金まみれの藩を立て直した上杉鷹山がいる。" },
+    { slug: "hetty-green-cash-strategy", hook: "「備えがある者は暴落を恐れない」という家康の答えの続きは、現金を最大の武器にしたヘティ・グリーンが知っている。" },
+  ],
+
+  // ── バッチ5 ──
+  "freud-unconscious-mindset": [
+    { slug: "jung-shadow-introvert-mindset", hook: "フロイトの弟子として出発し、独自の心理学を作った男がいる——シャドウと個性化の旅を歩んだユングがいる。" },
+    { slug: "adler-purpose-theory-mindset", hook: "フロイトから離れた先にいるもう一人の巨人がいる——原因ではなく目的で人間を見たアドラーがいる。" },
+  ],
+  "alexander-strategic-learning-career": [
+    { slug: "aristotle-habit-character", hook: "アレクサンダーに思考法を授けた師がいる——習慣と人格の関係を体系化したアリストテレスがいる。" },
+    { slug: "caesar-speed-decision", hook: "学んだことを即決断に変えたアレクサンダーの先には、同じ速さで歴史を動かしたカエサルがいる。" },
+  ],
+  "jp-morgan-crisis-capital": [
+    { slug: "hetty-green-cash-strategy", hook: "同じ時代に同じ原則を生きた女性がいる——現金を最大の武器にしたヘティ・グリーンがいる。" },
+    { slug: "buffett-investment-philosophy", hook: "危機に動ける準備を整えた先には、暴落をチャンスと言い続けた20世紀最大の投資家バフェットがいる。" },
+  ],
 };
