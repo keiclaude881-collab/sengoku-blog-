@@ -71,11 +71,6 @@
 
   <!-- dot labels (small) -->
   <g fill="#1e40af" font-size="11" text-anchor="middle" opacity="0.7">
-    <text x="580" y="148">中退</text>
-    <text x="720" y="258">Mac</text>
-    <text x="820" y="412">追放</text>
-    <text x="950" y="432">NeXT</text>
-    <text x="1060" y="340">復帰</text>
   </g>
 
   <!-- decorative scattered dots (right, destination) -->

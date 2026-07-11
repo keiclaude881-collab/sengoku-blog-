@@ -28,17 +28,10 @@
   <path d="M 600 340 Q 740 180 860 340" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-dasharray="10,6" opacity="0.3"/>
 
   <!-- left label: 苦しみ -->
-  <rect x="190" y="300" width="140" height="52" rx="8" fill="#4c1d95" opacity="0.7"/>
-  <text x="260" y="322" text-anchor="middle" font-size="16" fill="#e9d5ff" font-weight="bold">苦しみ</text>
-  <text x="260" y="342" text-anchor="middle" font-size="12" fill="#c4b5fd" opacity="0.8">欲望未充足</text>
 
   <!-- right label: 退屈 -->
-  <rect x="870" y="300" width="140" height="52" rx="8" fill="#6d28d9" opacity="0.6"/>
-  <text x="940" y="322" text-anchor="middle" font-size="16" fill="#e9d5ff" font-weight="bold">退屈</text>
-  <text x="940" y="342" text-anchor="middle" font-size="12" fill="#c4b5fd" opacity="0.8">欲望の不在</text>
 
   <!-- center top: 欲望 label on bob -->
-  <text x="600" y="346" text-anchor="middle" font-size="15" fill="#f5f3ff" font-weight="bold">欲望</text>
 
   <!-- cycle arrows below bob -->
   <!-- left arrow -->
@@ -49,7 +42,6 @@
   <polygon points="840,430 820,415 825,440" fill="#a78bfa" opacity="0.45"/>
 
   <!-- "満足" text -->
-  <text x="600" y="415" text-anchor="middle" font-size="13" fill="#7c3aed" opacity="0.6">→ 満足 → 次の欲望</text>
 
   <!-- desire chain (small circles below) -->
   <g opacity="0.3">
@@ -63,7 +55,6 @@
     <line x1="684" y1="500" x2="716" y2="500" stroke="#4c1d95" stroke-width="2"/>
     <circle cx="736" cy="500" r="32" fill="#3b0764"/>
   </g>
-  <text x="600" y="556" text-anchor="middle" font-size="12" fill="#6d28d9" opacity="0.45">欲望は満たされた瞬間、次の欲望として生まれ変わる</text>
 
   <!-- decorative dots -->
   <g fill="#c4b5fd" opacity="0.2">

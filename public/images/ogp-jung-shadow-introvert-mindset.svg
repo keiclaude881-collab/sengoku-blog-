@@ -44,8 +44,6 @@
   </g>
 
   <!-- persona label -->
-  <text x="340" y="390" text-anchor="middle" font-size="20" fill="#c4b5fd" opacity="0.6" font-family="serif">ペルソナ</text>
-  <text x="340" y="414" text-anchor="middle" font-size="14" fill="#c4b5fd" opacity="0.4" font-family="serif">（表の顔）</text>
 
   <!-- SHADOW side (right, dark) -->
   <!-- figure in shadow -->
@@ -57,8 +55,6 @@
   <ellipse cx="900" cy="370" rx="60" ry="18" fill="#1e1b4b" opacity="0.7"/>
 
   <!-- shadow label -->
-  <text x="860" y="390" text-anchor="middle" font-size="20" fill="#7c3aed" opacity="0.6" font-family="serif">シャドウ</text>
-  <text x="860" y="414" text-anchor="middle" font-size="14" fill="#7c3aed" opacity="0.4" font-family="serif">（影の自己）</text>
 
   <!-- integration arrows (center, merging) -->
   <g stroke="#a855f7" stroke-width="3" fill="none" opacity="0.5">
@@ -69,7 +65,6 @@
   <circle cx="600" cy="315" r="8" fill="#c4b5fd" opacity="0.9"/>
 
   <!-- integration label -->
-  <text x="600" y="365" text-anchor="middle" font-size="16" fill="#c4b5fd" opacity="0.55" font-family="serif">個性化（統合）</text>
 
   <!-- stars / dots decoration -->
   <g fill="#c4b5fd" opacity="0.3">

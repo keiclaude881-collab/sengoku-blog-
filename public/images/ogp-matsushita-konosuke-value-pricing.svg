@@ -9,7 +9,6 @@
   <g transform="translate(310,310)" opacity="0.82">
     <!-- 価格タグ（値下げ禁止） -->
     <rect x="-130" y="-90" width="110" height="50" rx="8" fill="#e8e0d4" stroke="#92400e" stroke-width="2"/>
-    <text x="-75" y="-58" font-family="'Hiragino Sans', sans-serif" font-size="24" font-weight="700" fill="#92400e" text-anchor="middle">価値</text>
     <line x1="-130" y1="-55" x2="-20" y2="-55" stroke="#92400e" stroke-width="1.5"/>
     <!-- 斜め線（値下げNO） -->
     <line x1="-128" y1="-88" x2="-22" y2="-42" stroke="#92400e" stroke-width="3" opacity="0.5"/>
@@ -34,15 +33,10 @@
 
   <!-- カテゴリラベル -->
   <rect x="700" y="170" width="140" height="38" rx="19" fill="#fef3c7" stroke="#fde68a"/>
-  <text x="770" y="196" font-family="'Hiragino Sans', sans-serif" font-size="17" font-weight="700" fill="#92400e" text-anchor="middle" letter-spacing="1">投資・お金</text>
 
   <!-- タイトル -->
-  <text x="700" y="270" font-family="'Shippori Mincho', serif" font-size="30" font-weight="700" fill="#1c1917" letter-spacing="1">松下幸之助に学ぶ</text>
-  <text x="700" y="312" font-family="'Shippori Mincho', serif" font-size="30" font-weight="700" fill="#1c1917" letter-spacing="1">お金と価値の哲学</text>
 
   <!-- サブタイトル -->
-  <text x="700" y="360" font-family="'Hiragino Sans', sans-serif" font-size="19" fill="#b45309" letter-spacing="1">「値段を下げない」ことで豊かになる</text>
 
   <!-- サイト名 -->
-  <text x="100" y="588" font-family="'Hiragino Sans', sans-serif" font-size="20" fill="#a8a29e" letter-spacing="3">偉人ラボ</text>
 </svg>

@@ -58,9 +58,7 @@
   <!-- decorative yen symbols -->
   <g opacity="0.2">
     <circle cx="200" cy="150" r="50" fill="none" stroke="#d97706" stroke-width="3"/>
-    <text x="200" y="160" text-anchor="middle" font-size="34" fill="#d97706">¥</text>
     <circle cx="1000" cy="150" r="40" fill="none" stroke="#92400e" stroke-width="3"/>
-    <text x="1000" y="158" text-anchor="middle" font-size="26" fill="#92400e">¥</text>
   </g>
 
   <!-- background dots -->

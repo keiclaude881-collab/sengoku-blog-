@@ -81,7 +81,6 @@
       <circle cx="155" cy="115" r="4"/>
     </g>
     <!-- label -->
-    <text x="80" y="-12" text-anchor="middle" font-size="13" fill="#92400e" font-weight="bold" opacity="0.7">1907年 恐慌</text>
   </g>
 
   <!-- right side: coin stack (reserve/capital) -->
@@ -97,7 +96,6 @@
     <rect x="-45" y="-160" width="90" height="60" fill="#d97706" opacity="0.5"/>
     <ellipse cx="0" cy="-160" rx="45" ry="12" fill="#fbbf24" opacity="0.7"/>
     <!-- "信頼資本" label -->
-    <text x="0" y="-185" text-anchor="middle" font-size="15" fill="#92400e" font-weight="bold" opacity="0.75">信頼資本</text>
   </g>
 
   <!-- stability arrows (upward, center-left) -->
@@ -111,9 +109,6 @@
   </g>
 
   <!-- year badge -->
-  <rect x="440" y="500" width="320" height="58" rx="10" fill="#d97706" opacity="0.12"/>
-  <text x="600" y="525" text-anchor="middle" font-size="14" fill="#92400e" opacity="0.6">民間銀行家が一人で止めた</text>
-  <text x="600" y="548" text-anchor="middle" font-size="20" fill="#92400e" font-weight="bold" opacity="0.75">1907年 金融パニック</text>
 
   <!-- decorative background elements -->
   <g fill="#fde68a" opacity="0.2">

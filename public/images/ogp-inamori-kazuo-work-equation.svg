@@ -56,8 +56,6 @@
 
   <!-- × symbols between bars -->
   <g fill="#93c5fd" font-size="52" font-weight="bold" text-anchor="middle" opacity="0.8">
-    <text x="535" y="310">×</text>
-    <text x="675" y="290">×</text>
   </g>
 
   <!-- = Result arrow pointing right -->
