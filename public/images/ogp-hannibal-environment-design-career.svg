@@ -1,86 +1,34 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#eff6ff"/>
       <stop offset="100%" stop-color="#dbeafe"/>
     </linearGradient>
-    <linearGradient id="centerGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#1e40af"/>
-      <stop offset="100%" stop-color="#1d4ed8"/>
-    </linearGradient>
   </defs>
-
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- battle field background (subtle grid / plains) -->
-  <g stroke="#bfdbfe" stroke-width="1" opacity="0.2">
-    <line x1="0" y1="380" x2="1200" y2="380"/>
-    <line x1="0" y1="420" x2="1200" y2="420"/>
-    <line x1="0" y1="460" x2="1200" y2="460"/>
-  </g>
-
-  <!-- Cannae encirclement diagram (center) -->
-  <!-- outer Carthaginian wings (blue) forming the encirclement -->
-  <!-- Left wing -->
-  <path d="M 280 210 Q 220 310 260 430 Q 350 490 480 500" fill="none" stroke="#1e40af" stroke-width="5" stroke-linecap="round" opacity="0.75"/>
-  <!-- Right wing -->
-  <path d="M 920 210 Q 980 310 940 430 Q 850 490 720 500" fill="none" stroke="#1e40af" stroke-width="5" stroke-linecap="round" opacity="0.75"/>
-  <!-- weak center bulge (convex toward Rome) -->
-  <path d="M 280 210 Q 600 280 920 210" fill="none" stroke="#1e40af" stroke-width="3" stroke-dasharray="12,7" opacity="0.5"/>
-
-  <!-- Roman army mass (center, red) being compressed -->
-  <ellipse cx="600" cy="360" rx="130" ry="85" fill="#dc2626" opacity="0.18"/>
-  <ellipse cx="600" cy="360" rx="90" ry="58" fill="#dc2626" opacity="0.22"/>
-  <ellipse cx="600" cy="360" rx="55" ry="34" fill="#dc2626" opacity="0.28"/>
-  <!-- Roman force arrows pointing inward (compression) -->
-  <g stroke="#dc2626" stroke-width="2" opacity="0.4" fill="#dc2626">
-    <line x1="440" y1="320" x2="480" y2="345"/>
-    <polygon points="480,345 462,328 473,352"/>
-    <line x1="760" y1="320" x2="720" y2="345"/>
-    <polygon points="720,345 730,322 743,346"/>
-    <line x1="600" y1="250" x2="600" y2="285"/>
-    <polygon points="600,285 592,265 608,265"/>
-    <line x1="600" y1="475" x2="600" y2="440"/>
-    <polygon points="600,440 592,460 608,460"/>
-  </g>
-  <!-- "ローマ軍" label -->
-
-  <!-- Hannibal force labels -->
-  <!-- Left cavalry -->
-
-  <!-- Right cavalry -->
-
-  <!-- Center (weak, convex label) -->
-
-  <!-- encirclement arrows closing in at bottom -->
-  <g stroke="#1e40af" stroke-width="3" fill="#1e40af" opacity="0.5">
-    <!-- left wing closing bottom -->
-    <line x1="380" y1="490" x2="440" y2="490"/>
-    <polygon points="440,490 422,481 422,499"/>
-    <!-- right wing closing bottom -->
-    <line x1="820" y1="490" x2="760" y2="490"/>
-    <polygon points="760,490 778,481 778,499"/>
-  </g>
-
-  <!-- "包囲完了" label bottom center -->
-
-  <!-- "4万 vs 8万" badge -->
-  <rect x="460" y="560" width="280" height="48" rx="10" fill="#1e40af" opacity="0.12"/>
-
-  <!-- elephant silhouettes (left background) -->
-  <g transform="translate(88, 168)" opacity="0.18" fill="#1e40af">
-    <ellipse cx="0" cy="30" rx="35" ry="22"/>
-    <ellipse cx="20" cy="12" rx="18" ry="14"/>
-    <rect x="-5" y="42" width="10" height="28" rx="3"/>
-    <rect x="10" y="42" width="10" height="28" rx="3"/>
-    <rect x="-18" y="42" width="10" height="28" rx="3"/>
-    <rect x="22" y="42" width="10" height="28" rx="3"/>
-    <path d="M 30 12 Q 50 0 55 20" stroke="#1e40af" stroke-width="4" fill="none"/>
-  </g>
-
-  <!-- decorative bg circles -->
-  <g fill="#bfdbfe" opacity="0.25">
-    <circle cx="100" cy="560" r="50"/>
-    <circle cx="1100" cy="100" r="45"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#bfdbfe" opacity="0.15"/>
+  <circle cx="1120" cy="550" r="190" fill="#bfdbfe" opacity="0.12"/>
+  <!-- Pincer encirclement (Cannae) -->
+  <!-- center: enemy force -->
+  <circle cx="600" cy="315" r="55" fill="#1e40af" opacity="0.80"/>
+  <circle cx="600" cy="315" r="32" fill="#3b82f6" opacity="0.60"/>
+  <!-- three encircling arrows (left, right, top) -->
+  <!-- left arrow curving right -->
+  <path d="M 200,315 C 200,160 420,120 530,280"
+        fill="none" stroke="#3b82f6" stroke-width="16" stroke-linecap="round" opacity="0.78"/>
+  <polygon points="535,265 512,300 555,298" fill="#3b82f6" opacity="0.85"/>
+  <!-- right arrow curving left -->
+  <path d="M 1000,315 C 1000,160 780,120 670,280"
+        fill="none" stroke="#3b82f6" stroke-width="16" stroke-linecap="round" opacity="0.78"/>
+  <polygon points="665,265 688,300 645,298" fill="#3b82f6" opacity="0.85"/>
+  <!-- bottom arrow curving up -->
+  <path d="M 600,530 C 800,530 850,440 660,375"
+        fill="none" stroke="#60a5fa" stroke-width="14" stroke-linecap="round" opacity="0.72"/>
+  <polygon points="650,362 675,395 635,392" fill="#60a5fa" opacity="0.82"/>
+  <!-- decorative dots for "army units" -->
+  <g fill="#bfdbfe" opacity="0.50">
+    <circle cx="200" cy="315" r="18"/>
+    <circle cx="1000" cy="315" r="18"/>
+    <circle cx="600" cy="530" r="18"/>
   </g>
 </svg>

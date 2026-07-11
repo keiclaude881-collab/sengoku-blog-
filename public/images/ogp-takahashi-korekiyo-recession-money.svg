@@ -1,58 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#fffbeb"/>
       <stop offset="100%" stop-color="#fef3c7"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- economic chart: falling then rising due to policy -->
-  <!-- gridlines -->
-  <g stroke="#fde68a" stroke-width="1" opacity="0.5">
-    <line x1="160" y1="150" x2="1060" y2="150"/>
-    <line x1="160" y1="270" x2="1060" y2="270"/>
-    <line x1="160" y1="390" x2="1060" y2="390"/>
-    <line x1="160" y1="510" x2="1060" y2="510"/>
-  </g>
-  <!-- y-axis -->
-  <line x1="160" y1="100" x2="160" y2="540" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
-  <!-- x-axis -->
-  <line x1="140" y1="510" x2="1080" y2="510" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
-
-  <!-- declining phase (recession) -->
-  <path d="M 200 180 C 300 220 380 280 500 420" fill="none" stroke="#92400e" stroke-width="8" stroke-linecap="round" opacity="0.7"/>
-
-  <!-- intervention point marker -->
-  <line x1="500" y1="120" x2="500" y2="500" stroke="#f59e0b" stroke-width="3" stroke-dasharray="10 6" opacity="0.7"/>
-  <circle cx="500" cy="420" r="14" fill="#f59e0b"/>
-
-  <!-- recovery phase (rising after policy) -->
-  <path d="M 500 420 C 620 360 740 280 900 180" fill="none" stroke="#d97706" stroke-width="10" stroke-linecap="round"/>
-
-  <!-- upward arrow at recovery end -->
-  <path d="M 900 180 C 950 140 1000 120 1040 100" fill="none" stroke="#92400e" stroke-width="10" stroke-linecap="round"/>
-  <polygon points="1040,100 1005,110 1018,140" fill="#92400e"/>
-
-  <!-- government spending arrows injected at intervention -->
-  <g fill="#f59e0b" opacity="0.7">
-    <rect x="430" y="340" width="16" height="60" rx="4"/>
-    <polygon points="438,340 422,368 454,368"/>
-    <rect x="460" y="350" width="16" height="50" rx="4"/>
-    <polygon points="468,350 452,378 484,378"/>
-    <rect x="490" y="330" width="16" height="70" rx="4"/>
-    <polygon points="498,330 482,360 514,360"/>
-  </g>
-
-  <!-- shaded recession area -->
-  <path d="M 200 180 C 300 220 380 280 500 420 L 500 510 L 200 510 Z" fill="#92400e" opacity="0.07"/>
-
-  <!-- recovery area highlighted -->
-  <path d="M 500 420 C 620 360 740 280 900 180 L 900 510 L 500 510 Z" fill="#f59e0b" opacity="0.08"/>
-
-  <!-- decorative yen/coin motifs -->
-  <g opacity="0.25">
-    <circle cx="900" cy="120" r="45" fill="none" stroke="#d97706" stroke-width="4"/>
-    <circle cx="240" cy="120" r="35" fill="none" stroke="#92400e" stroke-width="3"/>
-  </g>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#fde68a" opacity="0.12"/>
+  <circle cx="1120" cy="550" r="190" fill="#fde68a" opacity="0.10"/>
+  <!-- Recovery J-curve (recession then recovery) -->
+  <!-- axes -->
+  <line x1="180" y1="520" x2="1020" y2="520" stroke="#92400e" stroke-width="4" opacity="0.30"/>
+  <line x1="180" y1="100"  x2="180" y2="520"  stroke="#92400e" stroke-width="4" opacity="0.30"/>
+  <!-- J-curve path: start mid-high, drop deep, then sharply rise -->
+  <path d="M 200,230 C 320,230 380,480 480,490 C 580,500 680,380 820,150 L 960,95"
+        fill="none" stroke="#d97706" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity="0.88"/>
+  <!-- dot at bottom of curve (recession trough) -->
+  <circle cx="480" cy="492" r="16" fill="#92400e" opacity="0.75"/>
+  <!-- arrow at recovery end -->
+  <polygon points="975,88 948,118 962,136" fill="#d97706" opacity="0.88"/>
+  <!-- glow at recovery high (upward moment) -->
+  <circle cx="960" cy="95" r="32" fill="#fbbf24" opacity="0.20"/>
+  <circle cx="960" cy="95" r="18" fill="#fbbf24" opacity="0.40"/>
 </svg>

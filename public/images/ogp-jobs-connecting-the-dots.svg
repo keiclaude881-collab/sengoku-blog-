@@ -1,98 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f8fafc"/>
-      <stop offset="100%" stop-color="#f1f5f9"/>
-    </linearGradient>
-    <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.3"/>
-      <stop offset="50%" stop-color="#3b82f6" stop-opacity="0.7"/>
-      <stop offset="100%" stop-color="#1d4ed8" stop-opacity="0.9"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- scattered early dots (left side, disconnected) -->
-  <g fill="#cbd5e1" opacity="0.6">
-    <circle cx="120" cy="180" r="10"/>
-    <circle cx="180" cy="420" r="8"/>
-    <circle cx="90" cy="330" r="7"/>
-    <circle cx="230" cy="260" r="9"/>
-    <circle cx="150" cy="500" r="7"/>
-  </g>
-
-  <!-- connecting path (left to right, progressive) -->
-  <!-- faint early connections -->
-  <g stroke="#cbd5e1" stroke-width="2" fill="none" opacity="0.4">
-    <path d="M 120 180 Q 170 220 230 260"/>
-    <path d="M 230 260 Q 200 340 180 420"/>
-  </g>
-
-  <!-- mid-stage connections becoming clearer -->
-  <g stroke="#93c5fd" stroke-width="2.5" fill="none" opacity="0.6">
-    <path d="M 350 200 Q 420 240 480 290"/>
-    <path d="M 480 290 Q 510 380 490 450"/>
-    <path d="M 350 200 Q 380 310 350 430"/>
-  </g>
-
-  <!-- mid dots -->
-  <g fill="#93c5fd" opacity="0.75">
-    <circle cx="350" cy="200" r="14"/>
-    <circle cx="480" cy="290" r="12"/>
-    <circle cx="490" cy="450" r="11"/>
-    <circle cx="350" cy="430" r="10"/>
-  </g>
-
-  <!-- main connected path (center to right, vivid) -->
-  <path d="M 580 170 Q 660 200 720 280 Q 780 360 820 430 Q 870 480 950 450 Q 1010 420 1060 360"
-        stroke="url(#lineGrad)" stroke-width="4" fill="none"/>
-
-  <!-- key connecting dots (vivid) -->
-  <g fill="#3b82f6">
-    <circle cx="580" cy="170" r="18"/>
-    <circle cx="720" cy="280" r="22"/>
-    <circle cx="820" cy="430" r="18"/>
-    <circle cx="950" cy="450" r="16"/>
-    <circle cx="1060" cy="360" r="20"/>
-  </g>
-
-  <!-- dot highlights (white center) -->
-  <g fill="white" opacity="0.6">
-    <circle cx="580" cy="170" r="8"/>
-    <circle cx="720" cy="280" r="10"/>
-    <circle cx="820" cy="430" r="8"/>
-    <circle cx="950" cy="450" r="7"/>
-    <circle cx="1060" cy="360" r="9"/>
-  </g>
-
-  <!-- glow on center dot -->
-  <circle cx="720" cy="280" r="42" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.2"/>
-  <circle cx="720" cy="280" r="60" fill="none" stroke="#93c5fd" stroke-width="1" opacity="0.1"/>
-
-  <!-- dot labels (small) -->
-  <g fill="#1e40af" font-size="11" text-anchor="middle" opacity="0.7">
-  </g>
-
-  <!-- decorative scattered dots (right, destination) -->
-  <g fill="#1d4ed8" opacity="0.15">
-    <circle cx="1100" cy="200" r="6"/>
-    <circle cx="1140" cy="430" r="5"/>
-    <circle cx="1080" cy="520" r="7"/>
-  </g>
-
-  <!-- arrow at end suggesting future -->
-  <g stroke="#1d4ed8" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.5">
-    <line x1="1060" y1="360" x2="1140" y2="300"/>
-    <line x1="1140" y1="300" x2="1120" y2="272"/>
-    <line x1="1140" y1="300" x2="1112" y2="316"/>
-  </g>
-
-  <!-- subtle grid lines -->
-  <g stroke="#e2e8f0" stroke-width="1" opacity="0.5">
-    <line x1="0" y1="210" x2="1200" y2="210"/>
-    <line x1="0" y1="420" x2="1200" y2="420"/>
-    <line x1="300" y1="0" x2="300" y2="630"/>
-    <line x1="600" y1="0" x2="600" y2="630"/>
-    <line x1="900" y1="0" x2="900" y2="630"/>
-  </g>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#bfdbfe" opacity="0.15"/>
+  <circle cx="1120" cy="550" r="190" fill="#bfdbfe" opacity="0.12"/>
+  <!-- Three dots connecting into a star (connect the dots) -->
+  <!-- connection lines (dashed) -->
+  <line x1="340" y1="440" x2="600" y2="170" stroke="#3b82f6" stroke-width="6" stroke-dasharray="14,8" opacity="0.55"/>
+  <line x1="860" y1="440" x2="600" y2="170" stroke="#3b82f6" stroke-width="6" stroke-dasharray="14,8" opacity="0.55"/>
+  <line x1="340" y1="440" x2="860" y2="440" stroke="#3b82f6" stroke-width="6" stroke-dasharray="14,8" opacity="0.55"/>
+  <!-- three source dots -->
+  <circle cx="340" cy="440" r="34" fill="#3b82f6" opacity="0.75"/>
+  <circle cx="860" cy="440" r="34" fill="#3b82f6" opacity="0.75"/>
+  <circle cx="600" cy="170" r="34" fill="#3b82f6" opacity="0.75"/>
+  <!-- inner dots -->
+  <circle cx="340" cy="440" r="18" fill="#bfdbfe" opacity="0.80"/>
+  <circle cx="860" cy="440" r="18" fill="#bfdbfe" opacity="0.80"/>
+  <circle cx="600" cy="170" r="18" fill="#bfdbfe" opacity="0.80"/>
+  <!-- convergence star at centroid (~600,350) -->
+  <circle cx="600" cy="350" r="60" fill="#1e40af" opacity="0.75"/>
+  <circle cx="600" cy="350" r="36" fill="#60a5fa" opacity="0.80"/>
+  <circle cx="600" cy="350" r="18" fill="#bfdbfe" opacity="0.90"/>
+  <!-- glow -->
+  <circle cx="600" cy="350" r="90" fill="#dbeafe" opacity="0.25"/>
 </svg>

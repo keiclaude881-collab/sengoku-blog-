@@ -1,88 +1,43 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#1e293b"/>
-    </linearGradient>
-    <linearGradient id="nodeGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#38bdf8"/>
-      <stop offset="100%" stop-color="#0284c7"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- lattice connection lines (background) -->
-  <g stroke="#334155" stroke-width="1.5" opacity="0.5">
-    <!-- horizontal -->
-    <line x1="200" y1="160" x2="440" y2="160"/>
-    <line x1="440" y1="160" x2="680" y2="160"/>
-    <line x1="680" y1="160" x2="920" y2="160"/>
-    <line x1="200" y1="315" x2="440" y2="315"/>
-    <line x1="440" y1="315" x2="680" y2="315"/>
-    <line x1="680" y1="315" x2="920" y2="315"/>
-    <line x1="320" y1="470" x2="560" y2="470"/>
-    <line x1="560" y1="470" x2="800" y2="470"/>
-    <!-- vertical -->
-    <line x1="200" y1="160" x2="200" y2="315"/>
-    <line x1="440" y1="160" x2="440" y2="315"/>
-    <line x1="440" y1="315" x2="560" y2="470"/>
-    <line x1="680" y1="160" x2="680" y2="315"/>
-    <line x1="680" y1="315" x2="800" y2="470"/>
-    <line x1="920" y1="160" x2="920" y2="315"/>
-    <!-- diagonal -->
-    <line x1="200" y1="160" x2="440" y2="315"/>
-    <line x1="440" y1="160" x2="200" y2="315"/>
-    <line x1="680" y1="160" x2="920" y2="315"/>
-    <line x1="920" y1="160" x2="680" y2="315"/>
-    <line x1="440" y1="315" x2="320" y2="470"/>
-    <line x1="560" y1="470" x2="680" y2="315"/>
-    <line x1="800" y1="470" x2="920" y2="315"/>
-  </g>
-
-  <!-- highlighted active connections -->
-  <g stroke="#38bdf8" stroke-width="2.5" opacity="0.7">
-    <line x1="440" y1="160" x2="680" y2="315"/>
-    <line x1="680" y1="315" x2="560" y2="470"/>
-    <line x1="440" y1="315" x2="680" y2="315"/>
-  </g>
-
-  <!-- nodes (outer ring, dim) -->
-  <g fill="#1e40af" opacity="0.5">
-    <circle cx="200" cy="160" r="22"/>
-    <circle cx="920" cy="160" r="22"/>
-    <circle cx="200" cy="315" r="22"/>
-    <circle cx="920" cy="315" r="22"/>
-    <circle cx="320" cy="470" r="22"/>
-    <circle cx="800" cy="470" r="22"/>
-  </g>
-
-  <!-- nodes (mid, semi-active) -->
-  <g fill="#1d4ed8" opacity="0.7">
-    <circle cx="440" cy="160" r="26"/>
-    <circle cx="440" cy="315" r="26"/>
-    <circle cx="800" cy="315" r="26"/>
-  </g>
-
-  <!-- nodes (active, highlighted) -->
-  <circle cx="680" cy="160" r="30" fill="url(#nodeGrad)" opacity="0.9"/>
-  <circle cx="680" cy="315" r="36" fill="url(#nodeGrad)"/>
-  <circle cx="560" cy="470" r="30" fill="url(#nodeGrad)" opacity="0.9"/>
-
-  <!-- center node glow -->
-  <circle cx="680" cy="315" r="58" fill="none" stroke="#38bdf8" stroke-width="2" opacity="0.25"/>
-  <circle cx="680" cy="315" r="80" fill="none" stroke="#0284c7" stroke-width="1" opacity="0.12"/>
-
-  <!-- label dots inside nodes -->
-  <g fill="#0f172a" font-family="serif" text-anchor="middle" opacity="0.9">
-  </g>
-
-  <!-- decorative small dots -->
-  <g fill="#475569" opacity="0.4">
-    <circle cx="100" cy="80" r="4"/>
-    <circle cx="1100" cy="100" r="3"/>
-    <circle cx="150" cy="540" r="3"/>
-    <circle cx="1050" cy="520" r="4"/>
-    <circle cx="600" cy="60" r="3"/>
-    <circle cx="600" cy="580" r="3"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#ddd6fe" opacity="0.15"/>
+  <circle cx="1120" cy="550" r="190" fill="#ddd6fe" opacity="0.12"/>
+  <!-- Hexagonal lattice (lattice of mental models) -->
+  <!-- define single hex helper as reusable paths -->
+  <!-- center hex at (600,315) -->
+  <polygon points="600,255 652,285 652,345 600,375 548,345 548,285"
+           fill="#8b5cf6" opacity="0.60" stroke="#ddd6fe" stroke-width="4"/>
+  <!-- top-left hex (around 496,195) -->
+  <polygon points="496,135 548,165 548,225 496,255 444,225 444,165"
+           fill="#a78bfa" opacity="0.45" stroke="#ddd6fe" stroke-width="3"/>
+  <!-- top-right hex (around 704,195) -->
+  <polygon points="704,135 756,165 756,225 704,255 652,225 652,165"
+           fill="#a78bfa" opacity="0.45" stroke="#ddd6fe" stroke-width="3"/>
+  <!-- left hex (around 392,315) -->
+  <polygon points="392,255 444,285 444,345 392,375 340,345 340,285"
+           fill="#7c3aed" opacity="0.40" stroke="#ddd6fe" stroke-width="3"/>
+  <!-- right hex (around 808,315) -->
+  <polygon points="808,255 860,285 860,345 808,375 756,345 756,285"
+           fill="#7c3aed" opacity="0.40" stroke="#ddd6fe" stroke-width="3"/>
+  <!-- bottom-left hex (around 496,435) -->
+  <polygon points="496,375 548,405 548,465 496,495 444,465 444,405"
+           fill="#a78bfa" opacity="0.45" stroke="#ddd6fe" stroke-width="3"/>
+  <!-- bottom-right hex (around 704,435) -->
+  <polygon points="704,375 756,405 756,465 704,495 652,465 652,405"
+           fill="#a78bfa" opacity="0.45" stroke="#ddd6fe" stroke-width="3"/>
+  <!-- connection lines between hex centers -->
+  <g stroke="#8b5cf6" stroke-width="5" opacity="0.35">
+    <line x1="600" y1="315" x2="496" y2="195"/>
+    <line x1="600" y1="315" x2="704" y2="195"/>
+    <line x1="600" y1="315" x2="392" y2="315"/>
+    <line x1="600" y1="315" x2="808" y2="315"/>
+    <line x1="600" y1="315" x2="496" y2="435"/>
+    <line x1="600" y1="315" x2="704" y2="435"/>
   </g>
 </svg>

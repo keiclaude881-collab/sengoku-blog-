@@ -1,89 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#fffbeb"/>
       <stop offset="100%" stop-color="#fef3c7"/>
     </linearGradient>
-    <linearGradient id="handGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#d97706"/>
-      <stop offset="100%" stop-color="#92400e"/>
-    </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- division of labor: 5 specialized worker nodes in a row -->
-  <!-- worker 1 -->
-  <g transform="translate(160,220)">
-    <circle cx="0" cy="0" r="30" fill="#fde68a" stroke="#d97706" stroke-width="3"/>
-    <circle cx="0" cy="-52" r="16" fill="#92400e" opacity="0.7"/>
-    <path d="M -14 -36 C -14 -50 14 -50 14 -36 L 18 0 L -18 0 Z" fill="#92400e" opacity="0.6"/>
-    <!-- tool symbol -->
-  </g>
-
-  <!-- worker 2 -->
-  <g transform="translate(360,220)">
-    <circle cx="0" cy="0" r="30" fill="#fde68a" stroke="#d97706" stroke-width="3"/>
-    <circle cx="0" cy="-52" r="16" fill="#92400e" opacity="0.7"/>
-    <path d="M -14 -36 C -14 -50 14 -50 14 -36 L 18 0 L -18 0 Z" fill="#92400e" opacity="0.6"/>
-  </g>
-
-  <!-- worker 3 (center, highlighted) -->
-  <g transform="translate(600,200)">
-    <circle cx="0" cy="0" r="38" fill="#f59e0b" stroke="#92400e" stroke-width="4"/>
-    <circle cx="0" cy="-62" r="20" fill="#78350f" opacity="0.85"/>
-    <path d="M -18 -42 C -18 -62 18 -62 18 -42 L 22 0 L -22 0 Z" fill="#78350f" opacity="0.7"/>
-  </g>
-
-  <!-- worker 4 -->
-  <g transform="translate(840,220)">
-    <circle cx="0" cy="0" r="30" fill="#fde68a" stroke="#d97706" stroke-width="3"/>
-    <circle cx="0" cy="-52" r="16" fill="#92400e" opacity="0.7"/>
-    <path d="M -14 -36 C -14 -50 14 -50 14 -36 L 18 0 L -18 0 Z" fill="#92400e" opacity="0.6"/>
-  </g>
-
-  <!-- worker 5 -->
-  <g transform="translate(1040,220)">
-    <circle cx="0" cy="0" r="30" fill="#fde68a" stroke="#d97706" stroke-width="3"/>
-    <circle cx="0" cy="-52" r="16" fill="#92400e" opacity="0.7"/>
-    <path d="M -14 -36 C -14 -50 14 -50 14 -36 L 18 0 L -18 0 Z" fill="#92400e" opacity="0.6"/>
-  </g>
-
-  <!-- flow arrows between workers (left to right) -->
-  <g stroke="#f59e0b" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.7">
-    <line x1="195" y1="220" x2="325" y2="220"/>
-    <polygon points="325,220 305,210 305,230" fill="#f59e0b"/>
-    <line x1="395" y1="220" x2="525" y2="220"/>
-    <polygon points="525,220 505,210 505,230" fill="#f59e0b"/>
-    <line x1="645" y1="220" x2="765" y2="220"/>
-    <polygon points="765,220 745,210 745,230" fill="#f59e0b"/>
-    <line x1="875" y1="220" x2="1005" y2="220" />
-    <polygon points="1005,220 985,210 985,230" fill="#f59e0b"/>
-  </g>
-
-  <!-- output: coin/product at the end -->
-  <g transform="translate(1120, 340)">
-    <circle cx="0" cy="0" r="42" fill="#d97706" opacity="0.9"/>
-    <circle cx="0" cy="0" r="32" fill="#fde68a" opacity="0.8"/>
-  </g>
-  <!-- arrow to output coin -->
-  <line x1="1070" y1="255" x2="1090" y2="310" stroke="#d97706" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
-
-  <!-- invisible hand (large, decorative, transparent) -->
-  <g opacity="0.06">
-    <path d="M 600 80 C 450 120 300 200 280 400 Q 290 520 600 540 Q 910 520 920 400 C 900 200 750 120 600 80 Z"
-          fill="#d97706"/>
-  </g>
-
-  <!-- "x240" efficiency label -->
-  <g transform="translate(600,430)">
-    <rect x="-70" y="-24" width="140" height="48" rx="8" fill="#d97706" opacity="0.15"/>
-  </g>
-
-  <!-- decorative background dots -->
-  <g fill="#fde68a" opacity="0.4">
-    <circle cx="80" cy="500" r="30"/>
-    <circle cx="1140" cy="120" r="25"/>
-    <circle cx="100" cy="120" r="20"/>
-    <circle cx="1120" cy="500" r="22"/>
-  </g>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#fde68a" opacity="0.12"/>
+  <circle cx="1120" cy="550" r="190" fill="#fde68a" opacity="0.10"/>
+  <!-- Balance scales -->
+  <!-- stand pole -->
+  <rect x="587" y="410" width="26" height="115" rx="5" fill="#92400e" opacity="0.75"/>
+  <ellipse cx="600" cy="528" rx="100" ry="16" fill="#92400e" opacity="0.45"/>
+  <!-- pivot -->
+  <circle cx="600" cy="410" r="20" fill="#d97706"/>
+  <circle cx="600" cy="410" r="9" fill="#92400e"/>
+  <!-- beam (slight tilt: left 12px lower) -->
+  <line x1="215" y1="397" x2="985" y2="382" stroke="#92400e" stroke-width="16" stroke-linecap="round" opacity="0.85"/>
+  <!-- left chain -->
+  <line x1="298" y1="394" x2="298" y2="462" stroke="#d97706" stroke-width="5" stroke-dasharray="9,5" opacity="0.9"/>
+  <!-- right chain -->
+  <line x1="902" y1="383" x2="902" y2="445" stroke="#d97706" stroke-width="5" stroke-dasharray="9,5" opacity="0.9"/>
+  <!-- left pan (lower) -->
+  <path d="M185,462 Q298,476 411,462" fill="none" stroke="#d97706" stroke-width="9" stroke-linecap="round"/>
+  <!-- left coin stack (3) -->
+  <ellipse cx="298" cy="460" rx="64" ry="11" fill="#fbbf24" opacity="0.65"/>
+  <ellipse cx="298" cy="448" rx="64" ry="11" fill="#fbbf24" opacity="0.78"/>
+  <ellipse cx="298" cy="436" rx="64" ry="11" fill="#fde68a" opacity="0.90"/>
+  <!-- right pan (higher) -->
+  <path d="M789,445 Q902,459 1015,445" fill="none" stroke="#d97706" stroke-width="9" stroke-linecap="round"/>
+  <!-- right coin stack (2) -->
+  <ellipse cx="902" cy="443" rx="58" ry="11" fill="#fbbf24" opacity="0.60"/>
+  <ellipse cx="902" cy="431" rx="58" ry="11" fill="#fde68a" opacity="0.72"/>
 </svg>

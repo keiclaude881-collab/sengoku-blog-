@@ -1,75 +1,40 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f0f7ff"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
       <stop offset="100%" stop-color="#dbeafe"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- gear large left -->
-  <g transform="translate(220,310)" opacity="0.5">
-    <circle cx="0" cy="0" r="100" fill="none" stroke="#3b82f6" stroke-width="18"/>
-    <circle cx="0" cy="0" r="34" fill="#bfdbfe"/>
-    <g fill="#3b82f6">
-      <rect x="-12" y="-128" width="24" height="36" rx="4"/>
-      <rect x="-12" y="92" width="24" height="36" rx="4"/>
-      <rect x="-128" y="-12" width="36" height="24" rx="4"/>
-      <rect x="92" y="-12" width="36" height="24" rx="4"/>
-      <g transform="rotate(45)">
-        <rect x="-12" y="-128" width="24" height="36" rx="4"/>
-        <rect x="-12" y="92" width="24" height="36" rx="4"/>
-        <rect x="-128" y="-12" width="36" height="24" rx="4"/>
-        <rect x="92" y="-12" width="36" height="24" rx="4"/>
-      </g>
-    </g>
-  </g>
-
-  <!-- gear small right -->
-  <g transform="translate(980,280)" opacity="0.5">
-    <circle cx="0" cy="0" r="70" fill="none" stroke="#1e40af" stroke-width="14"/>
-    <circle cx="0" cy="0" r="24" fill="#dbeafe"/>
-    <g fill="#1e40af">
-      <rect x="-9" y="-90" width="18" height="26" rx="3"/>
-      <rect x="-9" y="64" width="18" height="26" rx="3"/>
-      <rect x="-90" y="-9" width="26" height="18" rx="3"/>
-      <rect x="64" y="-9" width="26" height="18" rx="3"/>
-      <g transform="rotate(45)">
-        <rect x="-9" y="-90" width="18" height="26" rx="3"/>
-        <rect x="-9" y="64" width="18" height="26" rx="3"/>
-        <rect x="-90" y="-9" width="26" height="18" rx="3"/>
-        <rect x="64" y="-9" width="26" height="18" rx="3"/>
-      </g>
-    </g>
-  </g>
-
-  <!-- equation: Result = Attitude × Effort × Ability -->
-  <!-- Three rising bars representing the three multiplied factors -->
-  <g opacity="0.85">
-    <!-- Attitude bar -->
-    <rect x="420" y="280" width="90" height="280" fill="#3b82f6" rx="6"/>
-    <!-- Effort bar (tallest) -->
-    <rect x="560" y="160" width="90" height="400" fill="#1e40af" rx="6"/>
-    <!-- Ability bar -->
-    <rect x="700" y="220" width="90" height="340" fill="#2563eb" rx="6"/>
-  </g>
-
-  <!-- × symbols between bars -->
-  <g fill="#93c5fd" font-size="52" font-weight="bold" text-anchor="middle" opacity="0.8">
-  </g>
-
-  <!-- = Result arrow pointing right -->
-  <path d="M 820 310 L 960 310" fill="none" stroke="#1e40af" stroke-width="10" stroke-linecap="round"/>
-  <polygon points="960,310 928,292 928,328" fill="#1e40af"/>
-
-  <!-- star/result at end -->
-  <g transform="translate(1000,310)" fill="#f59e0b" opacity="0.8">
-    <polygon points="0,-36 9,-12 34,-12 14,5 22,30 0,16 -22,30 -14,5 -34,-12 -9,-12" />
-  </g>
-
-  <!-- baseline -->
-  <rect x="400" y="560" width="430" height="4" fill="#bfdbfe" rx="2"/>
-
-  <!-- background accent -->
-  <circle cx="600" cy="80" r="50" fill="#bfdbfe" opacity="0.3"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#bfdbfe" opacity="0.15"/>
+  <circle cx="1120" cy="550" r="190" fill="#bfdbfe" opacity="0.12"/>
+  <!-- Flame (熱意 × 能力 × 考え方) -->
+  <defs>
+    <radialGradient id="flame" cx="50%" cy="80%" r="60%">
+      <stop offset="0%"   stop-color="#fbbf24" stop-opacity="0.95"/>
+      <stop offset="50%"  stop-color="#f97316" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#1e40af" stop-opacity="0.0"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#bfdbfe" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#bfdbfe" stop-opacity="0.0"/>
+    </radialGradient>
+  </defs>
+  <!-- outer glow -->
+  <ellipse cx="600" cy="370" rx="220" ry="250" fill="url(#glow)"/>
+  <!-- main flame shape -->
+  <path d="M 600,110 C 700,180 760,250 720,340 C 690,400 650,420 600,440
+           C 550,420 510,400 480,340 C 440,250 500,180 600,110 Z"
+        fill="url(#flame)"/>
+  <!-- inner flame (lighter center) -->
+  <path d="M 600,185 C 650,230 670,280 650,335 C 635,370 620,390 600,400
+           C 580,390 565,370 550,335 C 530,280 550,230 600,185 Z"
+        fill="#fde68a" opacity="0.65"/>
+  <!-- three base dots (三要素) -->
+  <circle cx="510" cy="490" r="18" fill="#3b82f6" opacity="0.55"/>
+  <circle cx="600" cy="500" r="18" fill="#3b82f6" opacity="0.55"/>
+  <circle cx="690" cy="490" r="18" fill="#3b82f6" opacity="0.55"/>
+  <!-- connecting lines between base dots -->
+  <line x1="510" y1="490" x2="600" y2="500" stroke="#3b82f6" stroke-width="3" opacity="0.40"/>
+  <line x1="600" y1="500" x2="690" y2="490" stroke="#3b82f6" stroke-width="3" opacity="0.40"/>
 </svg>
