@@ -1,58 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#faf5ff"/>
-      <stop offset="100%" stop-color="#f3e8ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- forking path: one path fades (historical), one continues (hypothetical) -->
-  <!-- origin point -->
-  <circle cx="260" cy="315" r="20" fill="#9333ea"/>
-
-  <!-- path that ends (historical - what actually happened) -->
-  <path d="M 280 315 C 400 300 480 280 560 270" fill="none" stroke="#c084fc" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
-  <!-- path fades into X mark -->
-  <g opacity="0.5">
-    <line x1="545" y1="255" x2="575" y2="285" stroke="#7c3aed" stroke-width="8" stroke-linecap="round"/>
-    <line x1="575" y1="255" x2="545" y2="285" stroke="#7c3aed" stroke-width="8" stroke-linecap="round"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#ddd6fe" opacity="0.15"/>
+  <circle cx="1120" cy="550" r="190" fill="#ddd6fe" opacity="0.12"/>
+  <!-- Military fan / Gunbai (軍配 - war fan used by generals) -->
+  <!-- handle -->
+  <rect x="583" y="430" width="34" height="140" rx="10" fill="#6b21a8" opacity="0.80"/>
+  <!-- handle grip wrapping -->
+  <rect x="575" y="460" width="50" height="12" rx="4" fill="#ddd6fe" opacity="0.45"/>
+  <rect x="575" y="490" width="50" height="12" rx="4" fill="#ddd6fe" opacity="0.45"/>
+  <rect x="575" y="520" width="50" height="12" rx="4" fill="#ddd6fe" opacity="0.45"/>
+  <!-- fan body (large semicircle) -->
+  <path d="M 280,430 A 320,320 0 0,1 920,430 Z" fill="#8b5cf6" opacity="0.72"/>
+  <!-- fan top edge arc -->
+  <path d="M 280,430 A 320,320 0 0,1 920,430" fill="none" stroke="#ddd6fe" stroke-width="8" opacity="0.55"/>
+  <!-- radial lines (fan ribs) -->
+  <g stroke="#ddd6fe" stroke-width="5" opacity="0.40">
+    <line x1="600" y1="430" x2="280" y2="430"/>
+    <line x1="600" y1="430" x2="310" y2="290"/>
+    <line x1="600" y1="430" x2="400" y2="155"/>
+    <line x1="600" y1="430" x2="520" y2="112"/>
+    <line x1="600" y1="430" x2="600" y2="110"/>
+    <line x1="600" y1="430" x2="680" y2="112"/>
+    <line x1="600" y1="430" x2="800" y2="155"/>
+    <line x1="600" y1="430" x2="890" y2="290"/>
+    <line x1="600" y1="430" x2="920" y2="430"/>
   </g>
-
-  <!-- hypothetical path continuing upward (what if he had survived) -->
-  <path d="M 280 315 C 420 300 560 260 720 200 C 860 148 980 130 1120 110" fill="none" stroke="#6b21a8" stroke-width="10" stroke-linecap="round"/>
-  <!-- dotted to indicate hypothetical/counterfactual -->
-  <path d="M 600 250 C 720 200 860 148 980 130 C 1040 120 1080 115 1120 110" fill="none" stroke="#a855f7" stroke-width="10" stroke-dasharray="18 10" stroke-linecap="round" opacity="0.7"/>
-
-  <!-- arrow at end of hypothetical path -->
-  <polygon points="1120,110 1080,102 1086,128" fill="#a855f7" opacity="0.7"/>
-
-  <!-- question mark at hypothetical end -->
-
-  <!-- divergence label dots -->
-  <circle cx="560" cy="270" r="8" fill="#d8b4fe" opacity="0.7"/>
-
-  <!-- timeline bar at bottom -->
-  <line x1="120" y1="480" x2="1080" y2="480" stroke="#e9d5ff" stroke-width="3"/>
-  <!-- tick at fork point -->
-  <line x1="400" y1="465" x2="400" y2="495" stroke="#a855f7" stroke-width="4"/>
-
-  <!-- figure on the path (Takeda Shingen silhouette) -->
-  <g transform="translate(260,255)" fill="#6b21a8" opacity="0.8">
-    <circle cx="0" cy="0" r="22"/>
-    <path d="M -28 90 C -28 20 -18 0 0 0 C 18 0 28 20 28 90 Z"/>
-    <!-- samurai helmet hint -->
-    <path d="M -28 -22 C -20 -45 20 -45 28 -22" fill="none" stroke="#9333ea" stroke-width="5"/>
-  </g>
-
-  <!-- ghost/shadow figure on hypothetical path -->
-  <g transform="translate(760,188)" fill="#d8b4fe" opacity="0.35">
-    <circle cx="0" cy="0" r="22"/>
-    <path d="M -28 90 C -28 20 -18 0 0 0 C 18 0 28 20 28 90 Z"/>
-    <path d="M -28 -22 C -20 -45 20 -45 28 -22" fill="none" stroke="#e9d5ff" stroke-width="5"/>
-  </g>
-
-  <!-- background rings -->
-  <circle cx="900" cy="420" r="100" fill="none" stroke="#e9d5ff" stroke-width="2" opacity="0.5"/>
-  <circle cx="200" cy="160" r="70" fill="none" stroke="#e9d5ff" stroke-width="1.5" opacity="0.4"/>
+  <!-- decorative circle in fan center -->
+  <circle cx="600" cy="310" r="70" fill="none" stroke="#ddd6fe" stroke-width="6" opacity="0.35"/>
+  <circle cx="600" cy="310" r="35" fill="#ddd6fe" opacity="0.20"/>
 </svg>

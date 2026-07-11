@@ -1,71 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#fffbeb"/>
       <stop offset="100%" stop-color="#fef3c7"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- gate structure (traditional torii/gate) -->
-  <g stroke="#92400e" stroke-width="8" stroke-linecap="round" fill="none">
-    <!-- left pillar -->
-    <line x1="420" y1="160" x2="420" y2="500"/>
-    <!-- right pillar -->
-    <line x1="780" y1="160" x2="780" y2="500"/>
-    <!-- top crossbar -->
-    <line x1="380" y1="200" x2="820" y2="200"/>
-    <!-- second crossbar -->
-    <line x1="400" y1="250" x2="800" y2="250"/>
-  </g>
-
-  <!-- gate open (hinged panels swinging outward) -->
-  <rect x="425" y="260" width="140" height="230" rx="4" fill="#fde68a" stroke="#d97706" stroke-width="4" opacity="0.6" transform="rotate(-35 425 260)"/>
-  <rect x="635" y="260" width="140" height="230" rx="4" fill="#fde68a" stroke="#d97706" stroke-width="4" opacity="0.6" transform="rotate(35 775 260)"/>
-
-  <!-- coins/goods flowing through the open gate -->
-  <g fill="#d97706" opacity="0.75">
-    <circle cx="600" cy="330" r="22"/>
-    <circle cx="560" cy="390" r="18"/>
-    <circle cx="640" cy="400" r="16"/>
-    <circle cx="590" cy="460" r="20"/>
-    <circle cx="620" cy="280" r="14"/>
-  </g>
-  <g fill="#fde68a" opacity="0.6">
-    <circle cx="600" cy="330" r="12"/>
-    <circle cx="560" cy="390" r="10"/>
-    <circle cx="640" cy="400" r="9"/>
-    <circle cx="590" cy="460" r="11"/>
-    <circle cx="620" cy="280" r="8"/>
-  </g>
-
-  <!-- arrows pointing inward from both sides (merchants coming freely) -->
-  <g stroke="#f59e0b" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.6">
-    <line x1="80" y1="320" x2="380" y2="320"/>
-    <line x1="820" y1="320" x2="1120" y2="320"/>
-  </g>
-  <polygon points="380,320 345,304 345,336" fill="#f59e0b" opacity="0.6"/>
-  <polygon points="820,320 855,304 855,336" fill="#f59e0b" opacity="0.6"/>
-
-  <!-- small merchant figures on both sides -->
-  <g fill="#92400e" opacity="0.35">
-    <circle cx="160" cy="290" r="18"/>
-    <path d="M -22 50 C -22 0 -14 -8 0 -8 C 14 -8 22 0 22 50 Z" transform="translate(160,308)"/>
-    <circle cx="1040" cy="290" r="18"/>
-    <path d="M -22 50 C -22 0 -14 -8 0 -8 C 14 -8 22 0 22 50 Z" transform="translate(1040,308)"/>
-  </g>
-
-  <!-- decorative yen symbols -->
-  <g opacity="0.2">
-    <circle cx="200" cy="150" r="50" fill="none" stroke="#d97706" stroke-width="3"/>
-    <circle cx="1000" cy="150" r="40" fill="none" stroke="#92400e" stroke-width="3"/>
-  </g>
-
-  <!-- background dots -->
-  <g fill="#fde68a" opacity="0.3">
-    <circle cx="100" cy="500" r="8"/>
-    <circle cx="1100" cy="480" r="7"/>
-    <circle cx="300" cy="560" r="6"/>
-    <circle cx="900" cy="560" r="6"/>
-  </g>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#fde68a" opacity="0.12"/>
+  <circle cx="1120" cy="550" r="190" fill="#fde68a" opacity="0.10"/>
+  <!-- Open gate (楽市楽座) with coins flowing through -->
+  <!-- left pillar -->
+  <rect x="370" y="140" width="50" height="380" rx="8" fill="#92400e" opacity="0.75"/>
+  <!-- right pillar -->
+  <rect x="780" y="140" width="50" height="380" rx="8" fill="#92400e" opacity="0.75"/>
+  <!-- top crossbeam -->
+  <rect x="330" y="130" width="540" height="32" rx="6" fill="#92400e" opacity="0.80"/>
+  <!-- second beam (lower) -->
+  <rect x="370" y="190" width="460" height="22" rx="5" fill="#92400e" opacity="0.60"/>
+  <!-- coins cascading through the open gate (3 diagonal streams) -->
+  <!-- stream 1 (left-center) -->
+  <circle cx="500" cy="280" r="22" fill="#fbbf24" opacity="0.80"/>
+  <circle cx="515" cy="340" r="22" fill="#d97706"  opacity="0.75"/>
+  <circle cx="500" cy="400" r="22" fill="#fbbf24" opacity="0.70"/>
+  <circle cx="510" cy="460" r="22" fill="#d97706"  opacity="0.65"/>
+  <!-- stream 2 (center) -->
+  <circle cx="600" cy="265" r="24" fill="#fde68a" opacity="0.85"/>
+  <circle cx="605" cy="330" r="24" fill="#fbbf24" opacity="0.80"/>
+  <circle cx="600" cy="395" r="24" fill="#fde68a" opacity="0.75"/>
+  <circle cx="598" cy="460" r="24" fill="#fbbf24" opacity="0.70"/>
+  <!-- stream 3 (right-center) -->
+  <circle cx="700" cy="280" r="22" fill="#d97706"  opacity="0.80"/>
+  <circle cx="690" cy="345" r="22" fill="#fbbf24" opacity="0.75"/>
+  <circle cx="700" cy="410" r="22" fill="#d97706"  opacity="0.70"/>
+  <circle cx="695" cy="470" r="22" fill="#fbbf24" opacity="0.65"/>
+  <!-- open space indication -->
+  <rect x="420" y="222" width="360" height="278" fill="#fffbeb" opacity="0.15"/>
 </svg>

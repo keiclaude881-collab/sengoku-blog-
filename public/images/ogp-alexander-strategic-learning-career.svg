@@ -1,113 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#eff6ff"/>
       <stop offset="100%" stop-color="#dbeafe"/>
     </linearGradient>
-    <linearGradient id="helmetGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#3b82f6"/>
-      <stop offset="100%" stop-color="#1e40af"/>
-    </linearGradient>
-    <linearGradient id="scrollGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#fef3c7"/>
-      <stop offset="100%" stop-color="#fde68a"/>
-    </linearGradient>
-    <linearGradient id="mapGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#bfdbfe"/>
-      <stop offset="100%" stop-color="#93c5fd"/>
-    </linearGradient>
   </defs>
-
-  <!-- background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- map/territory background (center) -->
-  <rect x="280" y="160" width="640" height="360" rx="12" fill="url(#mapGrad)" opacity="0.35"/>
-  <!-- map lines suggesting territory -->
-  <g stroke="#3b82f6" stroke-width="1" opacity="0.15" fill="none">
-    <path d="M 320 200 L 500 180 L 680 210 L 820 190 L 880 240"/>
-    <path d="M 300 300 L 450 280 L 600 310 L 750 290 L 880 320"/>
-    <path d="M 320 400 L 480 380 L 640 410 L 800 390 L 880 420"/>
-    <line x1="400" y1="160" x2="380" y2="520"/>
-    <line x1="560" y1="160" x2="560" y2="520"/>
-    <line x1="720" y1="160" x2="740" y2="520"/>
-  </g>
-
-  <!-- conquest route arrow (left to right across map) -->
-  <g fill="none" stroke="#1e40af" stroke-width="3" opacity="0.4" stroke-dasharray="12,6">
-    <path d="M 320 315 Q 450 280 600 315 Q 750 350 880 315"/>
-  </g>
-  <!-- arrowhead -->
-  <polygon points="880,315 858,303 858,327" fill="#1e40af" opacity="0.4"/>
-
-  <!-- destination dots along route -->
-  <g fill="#1e40af" opacity="0.45">
-    <circle cx="360" cy="315" r="7"/>
-    <circle cx="500" cy="288" r="7"/>
-    <circle cx="650" cy="318" r="7"/>
-    <circle cx="800" cy="345" r="7"/>
-    <circle cx="880" cy="315" r="7"/>
-  </g>
-  <!-- city labels -->
-  <g font-size="11" fill="#1e40af" opacity="0.5" text-anchor="middle">
-  </g>
-
-  <!-- left side: helmet (Alexander's Corinthian helmet) -->
-  <g transform="translate(130, 210)">
-    <!-- helmet dome -->
-    <path d="M 0 -90 Q -60 -90 -70 -20 L -65 30 Q -50 60 0 70 Q 50 60 65 30 L 70 -20 Q 60 -90 0 -90 Z"
-          fill="url(#helmetGrad)" opacity="0.85"/>
-    <!-- cheek guards -->
-    <path d="M -65 0 L -80 50 L -50 55 L -40 10 Z" fill="#1e40af" opacity="0.7"/>
-    <path d="M 65 0 L 80 50 L 50 55 L 40 10 Z" fill="#1e40af" opacity="0.7"/>
-    <!-- nasal guard -->
-    <rect x="-6" y="-40" width="12" height="50" rx="3" fill="#1d4ed8" opacity="0.6"/>
-    <!-- crest / plume -->
-    <path d="M 0 -90 Q 10 -130 0 -160 Q -10 -130 0 -90" fill="#bfdbfe" opacity="0.7"/>
-    <ellipse cx="0" cy="-125" rx="8" ry="35" fill="#60a5fa" opacity="0.5"/>
-  </g>
-
-  <!-- right side: scroll (knowledge/Aristotle) -->
-  <g transform="translate(1050, 250)">
-    <!-- scroll body -->
-    <rect x="-55" y="-70" width="110" height="130" rx="4" fill="url(#scrollGrad)" opacity="0.9"/>
-    <!-- top roller -->
-    <ellipse cx="0" cy="-70" rx="55" ry="14" fill="#fbbf24" opacity="0.85"/>
-    <!-- bottom roller -->
-    <ellipse cx="0" cy="60" rx="55" ry="14" fill="#fbbf24" opacity="0.85"/>
-    <!-- text lines on scroll -->
-    <g stroke="#92400e" stroke-width="1.5" opacity="0.35">
-      <line x1="-35" y1="-40" x2="35" y2="-40"/>
-      <line x1="-35" y1="-20" x2="35" y2="-20"/>
-      <line x1="-35" y1="0" x2="35" y2="0"/>
-      <line x1="-35" y1="20" x2="35" y2="20"/>
-      <line x1="-35" y1="40" x2="35" y2="40"/>
-    </g>
-    <!-- label -->
-  </g>
-
-  <!-- spear (bottom center, angled) -->
-  <g opacity="0.3">
-    <line x1="500" y1="560" x2="700" y2="420" stroke="#1e40af" stroke-width="4" stroke-linecap="round"/>
-    <polygon points="700,420 682,435 695,448" fill="#1e40af"/>
-  </g>
-
-  <!-- shield (bottom left area) -->
-  <g transform="translate(300, 510)" opacity="0.25">
-    <path d="M 0 -50 L 45 -30 L 45 15 Q 45 45 0 55 Q -45 45 -45 15 L -45 -30 Z"
-          fill="#3b82f6"/>
-    <path d="M 0 -35 L 32 -20 L 32 10 Q 32 32 0 40 Q -32 32 -32 10 L -32 -20 Z"
-          fill="#bfdbfe" opacity="0.5"/>
-  </g>
-
-  <!-- "師と現場" annotation badge -->
-  <rect x="430" y="490" width="340" height="60" rx="10" fill="#1e40af" opacity="0.1"/>
-
-  <!-- decorative clouds / bg elements -->
-  <g fill="#bfdbfe" opacity="0.3">
-    <circle cx="100" cy="100" r="45"/>
-    <circle cx="160" cy="85" r="35"/>
-    <circle cx="1100" cy="120" r="40"/>
-    <circle cx="1050" cy="105" r="28"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#bfdbfe" opacity="0.15"/>
+  <circle cx="1120" cy="550" r="190" fill="#bfdbfe" opacity="0.12"/>
+  <!-- Corinthian helmet (side profile facing right) -->
+  <!-- helmet dome -->
+  <path d="M 420,460 Q 380,300 420,180 Q 460,80 600,60 Q 740,80 780,180 Q 820,300 780,460 Z"
+        fill="#3b82f6" opacity="0.80"/>
+  <!-- cheek guards (left side shadow) -->
+  <path d="M 420,320 Q 390,370 400,460 L 440,460 Q 440,380 460,330 Z"
+        fill="#1e40af" opacity="0.55"/>
+  <!-- face opening (cut out) -->
+  <path d="M 440,190 Q 440,440 490,460 L 580,460 Q 540,420 520,340 Q 500,260 510,190 Z"
+        fill="#eff6ff" opacity="0.90"/>
+  <!-- nasal guard -->
+  <rect x="592" y="160" width="22" height="240" rx="6" fill="#1e40af" opacity="0.70"/>
+  <!-- brow ridge -->
+  <path d="M 510,190 Q 560,170 640,175 Q 700,178 740,195" fill="none" stroke="#1e40af" stroke-width="10" opacity="0.55"/>
+  <!-- crest/plume (top, flowing back) -->
+  <path d="M 600,62 Q 650,30 750,20 Q 850,15 920,50 Q 870,65 780,80 Q 720,88 680,100 Q 640,70 600,62"
+        fill="#bfdbfe" opacity="0.80"/>
+  <!-- plume feather lines -->
+  <g stroke="#93c5fd" stroke-width="2" opacity="0.5">
+    <line x1="650" y1="38" x2="660" y2="90"/>
+    <line x1="700" y1="28" x2="710" y2="88"/>
+    <line x1="750" y1="25" x2="755" y2="82"/>
+    <line x1="800" y1="30" x2="800" y2="78"/>
+    <line x1="850" y1="40" x2="840" y2="72"/>
   </g>
 </svg>

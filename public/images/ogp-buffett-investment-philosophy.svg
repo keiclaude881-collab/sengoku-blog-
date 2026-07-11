@@ -1,53 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#fffbeb"/>
       <stop offset="100%" stop-color="#fef3c7"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- compound growth curve: slow then exponential -->
-  <!-- grid -->
-  <g stroke="#fde68a" stroke-width="1" opacity="0.5">
-    <line x1="160" y1="130" x2="1080" y2="130"/>
-    <line x1="160" y1="260" x2="1080" y2="260"/>
-    <line x1="160" y1="390" x2="1080" y2="390"/>
-    <line x1="160" y1="510" x2="1080" y2="510"/>
-  </g>
-  <!-- axes -->
-  <line x1="160" y1="100" x2="160" y2="540" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
-  <line x1="140" y1="510" x2="1100" y2="510" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
-
-  <!-- exponential growth curve -->
-  <path d="M 180 490 C 300 480 420 470 540 450 C 660 420 750 370 840 290 C 920 220 980 160 1060 100"
-        fill="none" stroke="#d97706" stroke-width="9" stroke-linecap="round"/>
-
-  <!-- shaded area under curve -->
-  <path d="M 180 490 C 300 480 420 470 540 450 C 660 420 750 370 840 290 C 920 220 980 160 1060 100 L 1060 510 L 180 510 Z"
-        fill="#f59e0b" opacity="0.09"/>
-
-  <!-- time axis labels: years -->
-  <g font-family="sans-serif" font-size="22" fill="#d97706" opacity="0.7">
-  </g>
-
-  <!-- key inflection marker -->
-  <circle cx="720" cy="400" r="12" fill="#f59e0b"/>
-  <line x1="720" y1="130" x2="720" y2="510" stroke="#f59e0b" stroke-width="2" stroke-dasharray="10 6" opacity="0.6"/>
-
-  <!-- coin motifs at the end of curve -->
-  <g opacity="0.3">
-    <circle cx="1060" cy="100" r="48" fill="none" stroke="#d97706" stroke-width="4"/>
-    <circle cx="980" cy="160" r="34" fill="none" stroke="#92400e" stroke-width="3"/>
-    <circle cx="900" cy="220" r="24" fill="none" stroke="#92400e" stroke-width="2"/>
-  </g>
-
-  <!-- small person silhouette (patient investor) -->
-  <g transform="translate(250,390)" fill="#92400e" opacity="0.4">
-    <circle cx="0" cy="-28" r="20"/>
-    <path d="M -26 60 C -26 0 -18 -8 0 -8 C 18 -8 26 0 26 60 Z"/>
-  </g>
-
-  <!-- decorative background circle -->
-  <circle cx="170" cy="560" r="70" fill="none" stroke="#fde68a" stroke-width="2" opacity="0.3"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#fde68a" opacity="0.12"/>
+  <circle cx="1120" cy="550" r="190" fill="#fde68a" opacity="0.10"/>
+  <!-- Growing bar chart -->
+  <defs>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <!-- base line -->
+  <line x1="175" y1="522" x2="985" y2="522" stroke="#92400e" stroke-width="4" stroke-linecap="round" opacity="0.4"/>
+  <!-- 5 bars (heights: 130 195 270 355 430) bottoms at y=522 -->
+  <rect x="230" y="392" width="90" height="130" rx="7" fill="url(#bar)" opacity="0.65"/>
+  <rect x="368" y="327" width="90" height="195" rx="7" fill="url(#bar)" opacity="0.72"/>
+  <rect x="506" y="252" width="90" height="270" rx="7" fill="url(#bar)" opacity="0.80"/>
+  <rect x="644" y="167" width="90" height="355" rx="7" fill="url(#bar)" opacity="0.88"/>
+  <rect x="782" y="092" width="90" height="430" rx="7" fill="url(#bar)" opacity="0.95"/>
+  <!-- trend line -->
+  <polyline points="275,392 413,327 551,252 689,167 827,92"
+            fill="none" stroke="#92400e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.75"/>
+  <!-- trend dots -->
+  <circle cx="275" cy="392" r="9" fill="#92400e" opacity="0.8"/>
+  <circle cx="413" cy="327" r="9" fill="#92400e" opacity="0.8"/>
+  <circle cx="551" cy="252" r="9" fill="#92400e" opacity="0.8"/>
+  <circle cx="689" cy="167" r="9" fill="#92400e" opacity="0.8"/>
+  <circle cx="827" cy="92"  r="9" fill="#92400e" opacity="0.8"/>
+  <!-- upward arrow at last bar top -->
+  <polygon points="827,68 812,96 842,96" fill="#92400e" opacity="0.8"/>
 </svg>

@@ -1,72 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#faf5ff"/>
       <stop offset="100%" stop-color="#ede9fe"/>
     </linearGradient>
-    <linearGradient id="pendulumGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#7c3aed"/>
-      <stop offset="100%" stop-color="#4c1d95"/>
-    </linearGradient>
   </defs>
-
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- pendulum pivot bar -->
-  <rect x="460" y="80" width="280" height="10" rx="5" fill="#6d28d9" opacity="0.5"/>
-
-  <!-- pendulum string -->
-  <line x1="600" y1="90" x2="600" y2="310" stroke="#7c3aed" stroke-width="3" opacity="0.6"/>
-
-  <!-- pendulum bob (sphere) -->
-  <circle cx="600" cy="340" r="42" fill="url(#pendulumGrad)" opacity="0.85"/>
-  <circle cx="583" cy="324" r="12" fill="#c4b5fd" opacity="0.35"/>
-
-  <!-- left arc: 苦しみ side -->
-  <path d="M 340 340 Q 460 180 600 340" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="10,6" opacity="0.3"/>
-  <!-- right arc: 退屈 side -->
-  <path d="M 600 340 Q 740 180 860 340" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-dasharray="10,6" opacity="0.3"/>
-
-  <!-- left label: 苦しみ -->
-
-  <!-- right label: 退屈 -->
-
-  <!-- center top: 欲望 label on bob -->
-
-  <!-- cycle arrows below bob -->
-  <!-- left arrow -->
-  <path d="M 540 420 Q 430 470 360 430" fill="none" stroke="#7c3aed" stroke-width="2.5" opacity="0.45" stroke-linecap="round"/>
-  <polygon points="360,430 380,415 375,440" fill="#7c3aed" opacity="0.45"/>
-  <!-- right arrow -->
-  <path d="M 660 420 Q 770 470 840 430" fill="none" stroke="#a78bfa" stroke-width="2.5" opacity="0.45" stroke-linecap="round"/>
-  <polygon points="840,430 820,415 825,440" fill="#a78bfa" opacity="0.45"/>
-
-  <!-- "満足" text -->
-
-  <!-- desire chain (small circles below) -->
-  <g opacity="0.3">
-    <circle cx="440" cy="500" r="16" fill="#7c3aed"/>
-    <line x1="458" y1="500" x2="488" y2="500" stroke="#7c3aed" stroke-width="2"/>
-    <circle cx="504" cy="500" r="20" fill="#7c3aed"/>
-    <line x1="526" y1="500" x2="556" y2="500" stroke="#7c3aed" stroke-width="2"/>
-    <circle cx="576" cy="500" r="24" fill="#6d28d9"/>
-    <line x1="602" y1="500" x2="634" y2="500" stroke="#6d28d9" stroke-width="2"/>
-    <circle cx="654" cy="500" r="28" fill="#4c1d95"/>
-    <line x1="684" y1="500" x2="716" y2="500" stroke="#4c1d95" stroke-width="2"/>
-    <circle cx="736" cy="500" r="32" fill="#3b0764"/>
-  </g>
-
-  <!-- decorative dots -->
-  <g fill="#c4b5fd" opacity="0.2">
-    <circle cx="100" cy="120" r="5"/>
-    <circle cx="150" cy="80" r="3"/>
-    <circle cx="1080" cy="100" r="4"/>
-    <circle cx="1120" cy="150" r="3"/>
-    <circle cx="80" cy="500" r="4"/>
-    <circle cx="1100" cy="520" r="3"/>
-  </g>
-
-  <!-- title accent -->
-  <line x1="60" y1="600" x2="280" y2="600" stroke="#7c3aed" stroke-width="2" opacity="0.2"/>
-  <line x1="920" y1="600" x2="1140" y2="600" stroke="#7c3aed" stroke-width="2" opacity="0.2"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#ddd6fe" opacity="0.15"/>
+  <circle cx="1120" cy="550" r="190" fill="#ddd6fe" opacity="0.12"/>
+  <!-- Pendulum (欲望の振り子) -->
+  <!-- pivot mount at top center -->
+  <rect x="560" y="95" width="80" height="22" rx="6" fill="#6b21a8" opacity="0.60"/>
+  <circle cx="600" cy="107" r="16" fill="#8b5cf6" opacity="0.75"/>
+  <!-- left swing arc (dotted) -->
+  <path d="M 600,107 L 350,490" stroke="#a78bfa" stroke-width="6" stroke-dasharray="14,8" stroke-linecap="round" opacity="0.50"/>
+  <!-- right swing arc (dotted) -->
+  <path d="M 600,107 L 850,490" stroke="#a78bfa" stroke-width="6" stroke-dasharray="14,8" stroke-linecap="round" opacity="0.50"/>
+  <!-- rest/center line -->
+  <line x1="600" y1="107" x2="600" y2="490" stroke="#7c3aed" stroke-width="8" stroke-linecap="round" opacity="0.55"/>
+  <!-- swing arc (showing motion path) -->
+  <path d="M 350,490 Q 600,370 850,490" fill="none" stroke="#8b5cf6" stroke-width="8" stroke-dasharray="16,10" opacity="0.45"/>
+  <!-- ball at left position (joy peak) -->
+  <circle cx="350" cy="492" r="38" fill="#8b5cf6" opacity="0.55"/>
+  <circle cx="350" cy="492" r="22" fill="#ddd6fe" opacity="0.70"/>
+  <!-- ball at right position (boredom peak) -->
+  <circle cx="850" cy="492" r="38" fill="#8b5cf6" opacity="0.55"/>
+  <circle cx="850" cy="492" r="22" fill="#ddd6fe" opacity="0.70"/>
+  <!-- ball at center position (transition) -->
+  <circle cx="600" cy="492" r="30" fill="#6b21a8" opacity="0.72"/>
+  <circle cx="600" cy="492" r="16" fill="#a78bfa" opacity="0.80"/>
 </svg>

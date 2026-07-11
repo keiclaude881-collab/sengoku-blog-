@@ -1,81 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#1e1b4b"/>
-      <stop offset="100%" stop-color="#2e1065"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
     </linearGradient>
-    <linearGradient id="lightSide" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#f3e8ff"/>
-      <stop offset="100%" stop-color="#a855f7"/>
-    </linearGradient>
-    <linearGradient id="darkSide" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#1e1b4b"/>
-      <stop offset="100%" stop-color="#0c0a09"/>
-    </linearGradient>
-    <clipPath id="leftHalf">
-      <rect x="0" y="0" width="600" height="630"/>
-    </clipPath>
-    <clipPath id="rightHalf">
-      <rect x="600" y="0" width="600" height="630"/>
-    </clipPath>
   </defs>
-
-  <!-- dark background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- yin-yang style split: light (persona) left, dark (shadow) right -->
-  <!-- light half -->
-  <ellipse cx="600" cy="315" rx="260" ry="260" fill="#f3e8ff" opacity="0.12" clip-path="url(#leftHalf)"/>
-  <path d="M 600 55 Q 470 315 600 575 Q 470 575 340 315 Q 470 55 600 55 Z" fill="#c4b5fd" opacity="0.1"/>
-
-  <!-- central dividing line (vertical, soft) -->
-  <line x1="600" y1="55" x2="600" y2="575" stroke="#a855f7" stroke-width="2" stroke-dasharray="8,6" opacity="0.35"/>
-
-  <!-- large circle (self) -->
-  <circle cx="600" cy="315" r="240" fill="none" stroke="#7c3aed" stroke-width="2" opacity="0.25"/>
-
-  <!-- PERSONA side (left, light) -->
-  <!-- figure in light -->
-  <g transform="translate(340, 230)" opacity="0.85">
-    <circle cx="0" cy="0" r="28" fill="#c4b5fd"/>
-    <path d="M -28 28 C -28 -8 28 -8 28 28 L 34 110 L -34 110 Z" fill="#c4b5fd"/>
-    <!-- mask/persona overlay -->
-    <ellipse cx="0" cy="0" rx="34" ry="30" fill="none" stroke="#a855f7" stroke-width="3" opacity="0.7"/>
-  </g>
-
-  <!-- persona label -->
-
-  <!-- SHADOW side (right, dark) -->
-  <!-- figure in shadow -->
-  <g transform="translate(860, 230)" opacity="0.5">
-    <circle cx="0" cy="0" r="28" fill="#4c1d95"/>
-    <path d="M -28 28 C -28 -8 28 -8 28 28 L 34 110 L -34 110 Z" fill="#4c1d95"/>
-  </g>
-  <!-- shadow cast behind -->
-  <ellipse cx="900" cy="370" rx="60" ry="18" fill="#1e1b4b" opacity="0.7"/>
-
-  <!-- shadow label -->
-
-  <!-- integration arrows (center, merging) -->
-  <g stroke="#a855f7" stroke-width="3" fill="none" opacity="0.5">
-    <path d="M 420 315 Q 510 280 600 315" stroke-dasharray="6,4"/>
-    <path d="M 780 315 Q 690 280 600 315" stroke-dasharray="6,4"/>
-  </g>
-  <circle cx="600" cy="315" r="18" fill="#7c3aed" opacity="0.7"/>
-  <circle cx="600" cy="315" r="8" fill="#c4b5fd" opacity="0.9"/>
-
-  <!-- integration label -->
-
-  <!-- stars / dots decoration -->
-  <g fill="#c4b5fd" opacity="0.3">
-    <circle cx="120" cy="100" r="3"/>
-    <circle cx="200" cy="60" r="2"/>
-    <circle cx="1000" cy="80" r="3"/>
-    <circle cx="1100" cy="140" r="2"/>
-    <circle cx="100" cy="500" r="2"/>
-    <circle cx="1080" cy="520" r="3"/>
-  </g>
-
-  <!-- decorative outer glow -->
-  <circle cx="600" cy="315" r="290" fill="none" stroke="#7c3aed" stroke-width="1" opacity="0.1"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#ddd6fe" opacity="0.15"/>
+  <circle cx="1120" cy="550" r="190" fill="#ddd6fe" opacity="0.12"/>
+  <!-- Split circle: light (persona) vs dark (shadow) -->
+  <!-- full circle base -->
+  <circle cx="600" cy="315" r="240" fill="#f3e8ff" opacity="0.90"/>
+  <!-- dark half (shadow, right side) -->
+  <path d="M 600,75 A 240,240 0 0,1 600,555 L 600,75 Z" fill="#3b0764" opacity="0.80"/>
+  <!-- dividing line -->
+  <line x1="600" y1="72" x2="600" y2="558" stroke="#ddd6fe" stroke-width="6" opacity="0.60"/>
+  <!-- circle border -->
+  <circle cx="600" cy="315" r="240" fill="none" stroke="#8b5cf6" stroke-width="10" opacity="0.55"/>
+  <!-- light side: small sun/circle (consciousness) -->
+  <circle cx="490" cy="280" r="48" fill="#8b5cf6" opacity="0.25"/>
+  <circle cx="490" cy="280" r="28" fill="#8b5cf6" opacity="0.45"/>
+  <!-- dark side: small moon (unconscious shadow) -->
+  <path d="M 705,355 A 35,35 0 1,0 705,286 A 24,24 0 1,1 705,355 Z" fill="#ddd6fe" opacity="0.50"/>
 </svg>

@@ -1,103 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#fffbeb"/>
       <stop offset="100%" stop-color="#fef3c7"/>
     </linearGradient>
-    <linearGradient id="castleGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#92400e"/>
-      <stop offset="100%" stop-color="#78350f"/>
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#d97706"/>
-      <stop offset="100%" stop-color="#b45309"/>
-    </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- moat (water, defensive ring) -->
-  <ellipse cx="600" cy="450" rx="360" ry="60" fill="#bfdbfe" opacity="0.35"/>
-  <ellipse cx="600" cy="450" rx="280" ry="44" fill="#93c5fd" opacity="0.2"/>
-
-  <!-- castle base (stone walls) -->
-  <rect x="380" y="380" width="440" height="80" rx="4" fill="#78350f" opacity="0.75"/>
-  <!-- stone texture hint -->
-  <g stroke="#92400e" stroke-width="1" opacity="0.3">
-    <line x1="420" y1="380" x2="420" y2="460"/>
-    <line x1="480" y1="380" x2="480" y2="460"/>
-    <line x1="540" y1="380" x2="540" y2="460"/>
-    <line x1="600" y1="380" x2="600" y2="460"/>
-    <line x1="660" y1="380" x2="660" y2="460"/>
-    <line x1="720" y1="380" x2="720" y2="460"/>
-    <line x1="780" y1="380" x2="780" y2="460"/>
-  </g>
-
-  <!-- castle main tower (tenshu) -->
-  <!-- level 3 (top) -->
-  <polygon points="530,140 670,140 700,200 500,200" fill="url(#castleGrad)" opacity="0.9"/>
-  <!-- roof overhang 3 -->
-  <polygon points="510,200 690,200 720,225 480,225" fill="#92400e" opacity="0.7"/>
-
-  <!-- level 2 -->
-  <rect x="490" y="225" width="220" height="80" fill="url(#castleGrad)" opacity="0.85"/>
-  <!-- roof overhang 2 -->
-  <polygon points="460,225 740,225 780,260 420,260" fill="#92400e" opacity="0.65"/>
-
-  <!-- level 1 (main) -->
-  <rect x="440" y="260" width="320" height="120" fill="url(#castleGrad)" opacity="0.9"/>
-  <!-- roof overhang 1 -->
-  <polygon points="400,260 800,260 840,300 360,300" fill="#92400e" opacity="0.6"/>
-
-  <!-- windows (shoji) -->
-  <g fill="#fef9c3" opacity="0.4">
-    <rect x="550" y="165" width="30" height="24" rx="2"/>
-    <rect x="620" y="165" width="30" height="24" rx="2"/>
-    <rect x="510" y="240" width="28" height="22" rx="2"/>
-    <rect x="560" y="240" width="28" height="22" rx="2"/>
-    <rect x="612" y="240" width="28" height="22" rx="2"/>
-    <rect x="662" y="240" width="28" height="22" rx="2"/>
-    <rect x="475" y="278" width="26" height="20" rx="2"/>
-    <rect x="560" y="278" width="26" height="20" rx="2"/>
-    <rect x="614" y="278" width="26" height="20" rx="2"/>
-    <rect x="700" y="278" width="26" height="20" rx="2"/>
-  </g>
-
-  <!-- flagpole on top -->
-  <line x1="600" y1="70" x2="600" y2="140" stroke="#78350f" stroke-width="5" stroke-linecap="round"/>
-  <polygon points="600,75 650,95 600,115" fill="#d97706" opacity="0.8"/>
-
-  <!-- shield icon (defense concept, left side) -->
-  <g transform="translate(160, 280)">
-    <path d="M 0 -80 L 70 -50 L 70 20 Q 70 70 0 90 Q -70 70 -70 20 L -70 -50 Z"
-          fill="url(#shieldGrad)" opacity="0.8"/>
-    <path d="M 0 -60 L 52 -36 L 52 18 Q 52 54 0 70 Q -52 54 -52 18 L -52 -36 Z"
-          fill="#fde68a" opacity="0.3"/>
-    <!-- yen mark on shield -->
-  </g>
-
-  <!-- defense rings / concentric arcs (fortress layers) -->
-  <g fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="10,6" opacity="0.2">
-    <ellipse cx="600" cy="380" rx="420" ry="120"/>
-    <ellipse cx="600" cy="360" rx="340" ry="90"/>
-  </g>
-
-  <!-- coins/reserves stacked (right side) -->
-  <g transform="translate(1000, 350)">
-    <!-- coin stack -->
-    <ellipse cx="0" cy="0" rx="50" ry="14" fill="#d97706" opacity="0.8"/>
-    <rect x="-50" y="-50" width="100" height="50" fill="#d97706" opacity="0.7"/>
-    <ellipse cx="0" cy="-50" rx="50" ry="14" fill="#fbbf24" opacity="0.9"/>
-    <ellipse cx="0" cy="-70" rx="50" ry="14" fill="#d97706" opacity="0.8"/>
-    <rect x="-50" y="-120" width="100" height="50" fill="#d97706" opacity="0.7"/>
-    <ellipse cx="0" cy="-120" rx="50" ry="14" fill="#fbbf24" opacity="0.9"/>
-    <!-- "備え" label -->
-  </g>
-
-  <!-- decorative clouds / background elements -->
-  <g fill="#fde68a" opacity="0.2">
-    <circle cx="100" cy="100" r="50"/>
-    <circle cx="160" cy="90" r="40"/>
-    <circle cx="1100" cy="120" r="45"/>
-    <circle cx="1040" cy="110" r="35"/>
-  </g>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#fde68a" opacity="0.12"/>
+  <circle cx="1120" cy="550" r="190" fill="#fde68a" opacity="0.10"/>
+  <!-- Turtle (defense) + coin stacks -->
+  <!-- turtle body (oval shell) -->
+  <ellipse cx="540" cy="320" rx="200" ry="165" fill="#d97706" opacity="0.70"/>
+  <!-- shell hexagonal segments -->
+  <!-- center hex -->
+  <polygon points="540,255 590,285 590,345 540,375 490,345 490,285"
+           fill="none" stroke="#fde68a" stroke-width="4" opacity="0.6"/>
+  <!-- top hex -->
+  <polygon points="540,195 590,225 590,255 540,255 490,255 490,225"
+           fill="none" stroke="#fde68a" stroke-width="3" opacity="0.4"/>
+  <!-- bottom hex -->
+  <polygon points="540,375 590,375 590,405 540,435 490,405 490,375"
+           fill="none" stroke="#fde68a" stroke-width="3" opacity="0.4"/>
+  <!-- left hex -->
+  <polygon points="390,285 440,255 490,285 490,345 440,375 390,345"
+           fill="none" stroke="#fde68a" stroke-width="3" opacity="0.4"/>
+  <!-- right hex -->
+  <polygon points="590,285 640,255 690,285 690,345 640,375 590,345"
+           fill="none" stroke="#fde68a" stroke-width="3" opacity="0.4"/>
+  <!-- head -->
+  <ellipse cx="540" cy="132" rx="52" ry="44" fill="#d97706" opacity="0.72"/>
+  <!-- 4 legs -->
+  <ellipse cx="350" cy="250" rx="42" ry="28" fill="#d97706" opacity="0.60" transform="rotate(-30 350 250)"/>
+  <ellipse cx="730" cy="250" rx="42" ry="28" fill="#d97706" opacity="0.60" transform="rotate(30 730 250)"/>
+  <ellipse cx="350" cy="390" rx="42" ry="28" fill="#d97706" opacity="0.60" transform="rotate(30 350 390)"/>
+  <ellipse cx="730" cy="390" rx="42" ry="28" fill="#d97706" opacity="0.60" transform="rotate(-30 730 390)"/>
+  <!-- coin stacks (right side) -->
+  <ellipse cx="870" cy="410" rx="65" ry="12" fill="#fbbf24" opacity="0.65"/>
+  <ellipse cx="870" cy="397" rx="65" ry="12" fill="#fbbf24" opacity="0.75"/>
+  <ellipse cx="870" cy="384" rx="65" ry="12" fill="#fbbf24" opacity="0.82"/>
+  <ellipse cx="870" cy="371" rx="65" ry="12" fill="#fde68a" opacity="0.88"/>
+  <ellipse cx="870" cy="355" rx="62" ry="11" fill="#fde68a" opacity="0.90"/>
+  <rect x="808" y="355" width="124" height="55" fill="#fbbf24" opacity="0.50"/>
 </svg>

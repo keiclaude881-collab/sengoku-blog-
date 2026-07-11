@@ -1,80 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#faf5ff"/>
       <stop offset="100%" stop-color="#ede9fe"/>
     </linearGradient>
-    <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.35"/>
-      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.55"/>
-    </linearGradient>
-    <linearGradient id="iceAbove" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f3e8ff"/>
-      <stop offset="100%" stop-color="#ddd6fe"/>
-    </linearGradient>
-    <linearGradient id="iceBelow" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#a78bfa"/>
-      <stop offset="100%" stop-color="#5b21b6"/>
-    </linearGradient>
   </defs>
-
-  <!-- background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- water surface region -->
-  <rect x="0" y="270" width="1200" height="360" fill="url(#waterGrad)"/>
-
-  <!-- water surface ripple lines -->
-  <g stroke="#a78bfa" stroke-width="1.5" opacity="0.3" fill="none">
-    <path d="M 60 272 Q 200 260 340 272 Q 480 284 620 272 Q 760 260 900 272 Q 1040 284 1140 272"/>
-    <path d="M 60 282 Q 200 270 340 282 Q 480 294 620 282 Q 760 270 900 282 Q 1040 294 1140 282"/>
-  </g>
-
-  <!-- ICEBERG above water (tip, ~10%) -->
-  <polygon points="600,80 680,270 520,270" fill="url(#iceAbove)" opacity="0.9"/>
-  <!-- highlight -->
-  <polygon points="600,90 645,260 600,230" fill="#f5f3ff" opacity="0.4"/>
-
-  <!-- ICEBERG below water (bulk, ~90%) -->
-  <polygon points="520,270 680,270 780,480 740,580 600,620 460,580 420,480" fill="url(#iceBelow)" opacity="0.8"/>
-  <!-- inner highlight -->
-  <polygon points="540,280 660,280 730,440 600,480 470,440" fill="#7c3aed" opacity="0.2"/>
-
-  <!-- "意識 10%" label above water -->
-  <!-- connector line -->
-
-  <!-- "無意識 90%" label below water -->
-  <!-- connector line -->
-
-  <!-- id/ego/superego labels inside iceberg below -->
-
-  <!-- "前意識" small band near surface -->
-
-  <!-- left: small human silhouette above water -->
-  <g transform="translate(200, 180)" opacity="0.7">
-    <circle cx="0" cy="0" r="22" fill="#c4b5fd"/>
-    <path d="M -22 22 C -22 -6 22 -6 22 22 L 26 80 L -26 80 Z" fill="#c4b5fd"/>
-    <!-- thought bubble -->
-    <circle cx="30" cy="-15" r="8" fill="#f3e8ff" opacity="0.5"/>
-    <circle cx="42" cy="-28" r="6" fill="#f3e8ff" opacity="0.4"/>
-    <circle cx="52" cy="-38" r="4" fill="#f3e8ff" opacity="0.3"/>
-  </g>
-
-  <!-- decorative circles (bubbles in water) -->
-  <g fill="#a78bfa" opacity="0.15">
-    <circle cx="150" cy="380" r="18"/>
-    <circle cx="320" cy="460" r="12"/>
-    <circle cx="1050" cy="350" r="14"/>
-    <circle cx="980" cy="500" r="20"/>
-    <circle cx="400" cy="540" r="10"/>
-  </g>
-
-  <!-- top-right decorative dots -->
-  <g fill="#c4b5fd" opacity="0.25">
-    <circle cx="1050" cy="80" r="4"/>
-    <circle cx="1100" cy="60" r="3"/>
-    <circle cx="1080" cy="110" r="2"/>
-    <circle cx="120" cy="70" r="3"/>
-    <circle cx="90" cy="100" r="2"/>
-  </g>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#ddd6fe" opacity="0.15"/>
+  <circle cx="1120" cy="550" r="190" fill="#ddd6fe" opacity="0.12"/>
+  <!-- Iceberg (consciousness vs unconscious) -->
+  <!-- ocean / deep water -->
+  <rect x="0" y="290" width="1200" height="340" fill="#4c1d95" opacity="0.35"/>
+  <!-- waterline ripples -->
+  <path d="M 0,292 Q 150,280 300,292 Q 450,304 600,292 Q 750,280 900,292 Q 1050,304 1200,292"
+        fill="none" stroke="#a78bfa" stroke-width="3" opacity="0.45"/>
+  <path d="M 0,304 Q 150,292 300,304 Q 450,316 600,304 Q 750,292 900,304 Q 1050,316 1200,304"
+        fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.30"/>
+  <!-- iceberg tip above water (small triangle ~10%) -->
+  <polygon points="600,95 700,290 500,290" fill="#f3e8ff" opacity="0.90"/>
+  <!-- highlight on tip -->
+  <polygon points="600,108 640,270 600,240" fill="#ffffff" opacity="0.35"/>
+  <!-- iceberg mass below water (large ~90%) -->
+  <polygon points="500,290 700,290 810,460 770,565 600,600 430,565 390,460" fill="#7c3aed" opacity="0.65"/>
+  <!-- inner glow of submerged mass -->
+  <polygon points="530,300 670,300 740,430 600,480 460,430" fill="#a78bfa" opacity="0.20"/>
+  <!-- bubbles in deep -->
+  <circle cx="300" cy="400" r="14" fill="#a78bfa" opacity="0.20"/>
+  <circle cx="900" cy="460" r="10" fill="#a78bfa" opacity="0.18"/>
+  <circle cx="450" cy="530" r="8"  fill="#a78bfa" opacity="0.15"/>
 </svg>

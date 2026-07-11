@@ -1,96 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#fffbeb"/>
       <stop offset="100%" stop-color="#fef3c7"/>
     </linearGradient>
-    <linearGradient id="chartGrad" x1="0" y1="1" x2="0" y2="0">
-      <stop offset="0%" stop-color="#d97706" stop-opacity="0.05"/>
-      <stop offset="100%" stop-color="#d97706" stop-opacity="0.25"/>
-    </linearGradient>
-    <linearGradient id="basketGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#b45309"/>
-      <stop offset="100%" stop-color="#92400e"/>
-    </linearGradient>
   </defs>
-
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <!-- stock chart area (right side) -->
-  <rect x="600" y="120" width="520" height="320" rx="10" fill="white" opacity="0.5"/>
-
-  <!-- chart grid lines -->
-  <g stroke="#fde68a" stroke-width="1" opacity="0.5">
-    <line x1="620" y1="200" x2="1100" y2="200"/>
-    <line x1="620" y1="260" x2="1100" y2="260"/>
-    <line x1="620" y1="320" x2="1100" y2="320"/>
-    <line x1="620" y1="380" x2="1100" y2="380"/>
-    <line x1="700" y1="140" x2="700" y2="420"/>
-    <line x1="800" y1="140" x2="800" y2="420"/>
-    <line x1="900" y1="140" x2="900" y2="420"/>
-    <line x1="1000" y1="140" x2="1000" y2="420"/>
-  </g>
-
-  <!-- rising stock line (10-bagger trajectory) -->
-  <polyline
-    points="630,400 700,385 750,375 800,355 830,340 870,310 900,280 930,245 970,200 1010,170 1060,148 1100,130"
-    fill="none" stroke="#d97706" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
-
-  <!-- area under chart line -->
-  <polygon
-    points="630,400 700,385 750,375 800,355 830,340 870,310 900,280 930,245 970,200 1010,170 1060,148 1100,130 1100,420 630,420"
-    fill="url(#chartGrad)"/>
-
-  <!-- 10x annotation -->
-  <line x1="630" y1="400" x2="1100" y2="400" stroke="#92400e" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.35"/>
-  <line x1="1100" y1="130" x2="1100" y2="400" stroke="#92400e" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.35"/>
-
-  <!-- chart label -->
-
-  <!-- shopping basket (left, center) -->
-  <g transform="translate(220, 220)">
-    <!-- basket body -->
-    <path d="M -90 0 Q -90 90 0 100 Q 90 90 90 0 Z" fill="url(#basketGrad)" opacity="0.8"/>
-    <!-- basket weave hint -->
-    <g stroke="#fde68a" stroke-width="1" opacity="0.2">
-      <line x1="-80" y1="20" x2="80" y2="20"/>
-      <line x1="-85" y1="45" x2="85" y2="45"/>
-      <line x1="-80" y1="70" x2="80" y2="70"/>
-      <line x1="-40" y1="0" x2="-50" y2="100"/>
-      <line x1="0" y1="0" x2="0" y2="100"/>
-      <line x1="40" y1="0" x2="50" y2="100"/>
-    </g>
-    <!-- basket handle -->
-    <path d="M -70 -10 Q -70 -80 0 -80 Q 70 -80 70 -10" fill="none" stroke="url(#basketGrad)" stroke-width="8" stroke-linecap="round" opacity="0.75"/>
-
-    <!-- items in basket (product icons) -->
-    <!-- donut (Dunkin) -->
-    <circle cx="-35" cy="-10" r="20" fill="#fbbf24" opacity="0.85"/>
-    <circle cx="-35" cy="-10" r="9" fill="#92400e" opacity="0.7"/>
-    <!-- stocking egg shape (L'eggs) -->
-    <ellipse cx="20" cy="-15" rx="14" ry="20" fill="#fde68a" opacity="0.85"/>
-    <!-- small box -->
-    <rect cx="55" cy="-15" x="45" y="-25" width="24" height="20" rx="3" fill="#d97706" opacity="0.7"/>
-
-    <!-- stock tag hanging off basket -->
-    <line x1="60" y1="-5" x2="90" y2="-30" stroke="#92400e" stroke-width="1.5" opacity="0.5"/>
-  </g>
-
-  <!-- magnifying glass (discovery metaphor) -->
-  <g transform="translate(430, 195)" opacity="0.55">
-    <circle cx="0" cy="0" r="38" fill="none" stroke="#d97706" stroke-width="5"/>
-    <circle cx="0" cy="0" r="30" fill="#fef3c7" opacity="0.4"/>
-    <line x1="27" y1="27" x2="55" y2="55" stroke="#b45309" stroke-width="6" stroke-linecap="round"/>
-    <!-- $ symbol inside lens -->
-  </g>
-
-  <!-- "個人優位" badge (left bottom) -->
-
-  <!-- Magellan fund stats (top left) -->
-
-  <!-- decorative bg elements -->
-  <g fill="#fde68a" opacity="0.2">
-    <circle cx="1120" cy="540" r="55"/>
-    <circle cx="80" cy="580" r="40"/>
-  </g>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#fde68a" opacity="0.12"/>
+  <circle cx="1120" cy="550" r="190" fill="#fde68a" opacity="0.10"/>
+  <!-- Shopping bag with upward arrow inside -->
+  <!-- bag body -->
+  <rect x="370" y="220" width="460" height="340" rx="20" fill="none" stroke="#d97706" stroke-width="18" opacity="0.85"/>
+  <!-- bag fill -->
+  <rect x="379" y="229" width="442" height="322" rx="14" fill="#fde68a" opacity="0.25"/>
+  <!-- handle left -->
+  <path d="M460,220 Q460,140 540,130 Q600,125 600,130" fill="none" stroke="#d97706" stroke-width="16" stroke-linecap="round"/>
+  <!-- handle right -->
+  <path d="M740,220 Q740,140 660,130 Q600,125 600,130" fill="none" stroke="#d97706" stroke-width="16" stroke-linecap="round"/>
+  <!-- upward arrow inside bag -->
+  <!-- arrow shaft -->
+  <rect x="588" y="295" width="24" height="200" rx="5" fill="#d97706" opacity="0.85"/>
+  <!-- arrow head -->
+  <polygon points="600,240 548,310 652,310" fill="#d97706" opacity="0.90"/>
 </svg>
