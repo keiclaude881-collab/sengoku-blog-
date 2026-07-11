@@ -41,25 +41,14 @@
   <polygon points="540,280 660,280 730,440 600,480 470,440" fill="#7c3aed" opacity="0.2"/>
 
   <!-- "意識 10%" label above water -->
-  <rect x="720" y="130" width="200" height="52" rx="8" fill="#f3e8ff" opacity="0.85"/>
-  <text x="820" y="153" text-anchor="middle" font-size="15" fill="#6b21a8" font-weight="bold">意識</text>
-  <text x="820" y="173" text-anchor="middle" font-size="13" fill="#7c3aed" opacity="0.8">（海面上 10%）</text>
   <!-- connector line -->
-  <line x1="720" y1="156" x2="660" y2="175" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
 
   <!-- "無意識 90%" label below water -->
-  <rect x="780" y="400" width="230" height="52" rx="8" fill="#4c1d95" opacity="0.7"/>
-  <text x="895" y="423" text-anchor="middle" font-size="15" fill="#ede9fe" font-weight="bold">無意識</text>
-  <text x="895" y="443" text-anchor="middle" font-size="13" fill="#c4b5fd" opacity="0.85">（海中 90%）</text>
   <!-- connector line -->
-  <line x1="780" y1="426" x2="740" y2="420" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
 
   <!-- id/ego/superego labels inside iceberg below -->
-  <text x="600" y="360" text-anchor="middle" font-size="14" fill="#ede9fe" opacity="0.6">イド・自我・超自我</text>
-  <text x="600" y="420" text-anchor="middle" font-size="12" fill="#ddd6fe" opacity="0.5">抑圧された感情・記憶・欲求</text>
 
   <!-- "前意識" small band near surface -->
-  <text x="430" y="300" text-anchor="middle" font-size="12" fill="#c4b5fd" opacity="0.5">前意識</text>
 
   <!-- left: small human silhouette above water -->
   <g transform="translate(200, 180)" opacity="0.7">

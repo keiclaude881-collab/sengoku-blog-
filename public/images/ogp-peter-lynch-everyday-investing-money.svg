@@ -44,12 +44,8 @@
   <!-- 10x annotation -->
   <line x1="630" y1="400" x2="1100" y2="400" stroke="#92400e" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.35"/>
   <line x1="1100" y1="130" x2="1100" y2="400" stroke="#92400e" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.35"/>
-  <rect x="1048" y="252" width="80" height="36" rx="6" fill="#d97706" opacity="0.85"/>
-  <text x="1088" y="270" text-anchor="middle" font-size="13" fill="#fffbeb" font-weight="bold">10倍</text>
-  <text x="1088" y="283" text-anchor="middle" font-size="10" fill="#fef3c7">10バガー</text>
 
   <!-- chart label -->
-  <text x="860" y="450" text-anchor="middle" font-size="12" fill="#92400e" opacity="0.55">日常の発見 → 株価上昇</text>
 
   <!-- shopping basket (left, center) -->
   <g transform="translate(220, 220)">
@@ -78,8 +74,6 @@
 
     <!-- stock tag hanging off basket -->
     <line x1="60" y1="-5" x2="90" y2="-30" stroke="#92400e" stroke-width="1.5" opacity="0.5"/>
-    <rect x="88" y="-50" width="55" height="28" rx="4" fill="#92400e" opacity="0.65"/>
-    <text x="115" y="-31" text-anchor="middle" font-size="10" fill="#fef3c7" font-weight="bold">株候補</text>
   </g>
 
   <!-- magnifying glass (discovery metaphor) -->
@@ -88,19 +82,11 @@
     <circle cx="0" cy="0" r="30" fill="#fef3c7" opacity="0.4"/>
     <line x1="27" y1="27" x2="55" y2="55" stroke="#b45309" stroke-width="6" stroke-linecap="round"/>
     <!-- $ symbol inside lens -->
-    <text x="0" y="8" text-anchor="middle" font-size="26" fill="#92400e" font-weight="bold" opacity="0.7">$</text>
   </g>
 
   <!-- "個人優位" badge (left bottom) -->
-  <rect x="60" y="450" width="460" height="72" rx="12" fill="#d97706" opacity="0.1"/>
-  <text x="290" y="477" text-anchor="middle" font-size="14" fill="#92400e" opacity="0.6">機関投資家は「説明できる大型株」しか買えない</text>
-  <text x="290" y="503" text-anchor="middle" font-size="18" fill="#92400e" font-weight="bold" opacity="0.75">個人は「日常の実感」で先行できる</text>
 
   <!-- Magellan fund stats (top left) -->
-  <rect x="60" y="100" width="340" height="80" rx="10" fill="#92400e" opacity="0.08"/>
-  <text x="230" y="126" text-anchor="middle" font-size="13" fill="#92400e" opacity="0.55">マゼランファンド 1977-1990</text>
-  <text x="230" y="152" text-anchor="middle" font-size="22" fill="#92400e" font-weight="bold" opacity="0.75">$1,800万 → $140億</text>
-  <text x="230" y="170" text-anchor="middle" font-size="12" fill="#b45309" opacity="0.6">年平均リターン 29%</text>
 
   <!-- decorative bg elements -->
   <g fill="#fde68a" opacity="0.2">

@@ -74,7 +74,6 @@
 
   <!-- label dots inside nodes -->
   <g fill="#0f172a" font-family="serif" text-anchor="middle" opacity="0.9">
-    <text x="680" y="320" font-size="16" font-weight="bold">MM</text>
   </g>
 
   <!-- decorative small dots -->

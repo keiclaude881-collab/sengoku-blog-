@@ -73,7 +73,6 @@
     <path d="M 0 -60 L 52 -36 L 52 18 Q 52 54 0 70 Q -52 54 -52 18 L -52 -36 Z"
           fill="#fde68a" opacity="0.3"/>
     <!-- yen mark on shield -->
-    <text x="0" y="12" text-anchor="middle" font-size="36" fill="#78350f" font-weight="bold" opacity="0.7">¥</text>
   </g>
 
   <!-- defense rings / concentric arcs (fortress layers) -->
@@ -92,7 +91,6 @@
     <rect x="-50" y="-120" width="100" height="50" fill="#d97706" opacity="0.7"/>
     <ellipse cx="0" cy="-120" rx="50" ry="14" fill="#fbbf24" opacity="0.9"/>
     <!-- "備え" label -->
-    <text x="0" y="-145" text-anchor="middle" font-size="18" fill="#92400e" font-weight="bold" opacity="0.7">備え</text>
   </g>
 
   <!-- decorative clouds / background elements -->

@@ -53,10 +53,8 @@
   <circle cx="1060" cy="260" r="10" fill="#7c3aed" opacity="0.8"/>
 
   <!-- label: 原因 (past) -->
-  <text x="300" y="210" text-anchor="middle" font-size="22" fill="#6b21a8" opacity="0.4" font-family="serif">過去・原因</text>
 
   <!-- label: 目的 (future) -->
-  <text x="850" y="220" text-anchor="middle" font-size="24" fill="#7c3aed" opacity="0.8" font-family="serif">目的・未来</text>
 
   <!-- radiating lines from figure (energy/change) -->
   <g stroke="#c4b5fd" stroke-width="2" stroke-linecap="round" opacity="0.4">

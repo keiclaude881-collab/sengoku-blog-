@@ -60,11 +60,6 @@
 
   <!-- bar labels (small) -->
   <g fill="#1e40af" font-size="13" text-anchor="middle" opacity="0.55">
-    <text x="240" y="512">全体</text>
-    <text x="380" y="512">集中</text>
-    <text x="520" y="512">強み</text>
-    <text x="660" y="512">貢献</text>
-    <text x="800" y="512">成果</text>
   </g>
 
   <!-- subtle grid -->

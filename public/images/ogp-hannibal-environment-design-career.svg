@@ -44,24 +44,13 @@
     <polygon points="600,440 592,460 608,460"/>
   </g>
   <!-- "ローマ軍" label -->
-  <text x="600" y="364" text-anchor="middle" font-size="14" fill="#dc2626" font-weight="bold" opacity="0.7">ローマ軍</text>
-  <text x="600" y="382" text-anchor="middle" font-size="11" fill="#dc2626" opacity="0.5">8万</text>
 
   <!-- Hannibal force labels -->
   <!-- Left cavalry -->
-  <rect x="140" y="285" width="110" height="44" rx="6" fill="#1e40af" opacity="0.75"/>
-  <text x="195" y="304" text-anchor="middle" font-size="12" fill="#eff6ff" font-weight="bold">騎兵（左翼）</text>
-  <text x="195" y="320" text-anchor="middle" font-size="11" fill="#bfdbfe">カルタゴ精鋭</text>
 
   <!-- Right cavalry -->
-  <rect x="950" y="285" width="110" height="44" rx="6" fill="#1e40af" opacity="0.75"/>
-  <text x="1005" y="304" text-anchor="middle" font-size="12" fill="#eff6ff" font-weight="bold">騎兵（右翼）</text>
-  <text x="1005" y="320" text-anchor="middle" font-size="11" fill="#bfdbfe">ヌミディア</text>
 
   <!-- Center (weak, convex label) -->
-  <rect x="490" y="128" width="220" height="44" rx="6" fill="#1e40af" opacity="0.65"/>
-  <text x="600" y="147" text-anchor="middle" font-size="12" fill="#eff6ff" font-weight="bold">中央（意図的に弱く）</text>
-  <text x="600" y="163" text-anchor="middle" font-size="11" fill="#bfdbfe">ガリア・スペイン歩兵</text>
 
   <!-- encirclement arrows closing in at bottom -->
   <g stroke="#1e40af" stroke-width="3" fill="#1e40af" opacity="0.5">
@@ -74,14 +63,9 @@
   </g>
 
   <!-- "包囲完了" label bottom center -->
-  <rect x="490" y="498" width="220" height="44" rx="6" fill="#0369a1" opacity="0.55"/>
-  <text x="600" y="517" text-anchor="middle" font-size="13" fill="#eff6ff" font-weight="bold">包囲完了</text>
-  <text x="600" y="533" text-anchor="middle" font-size="11" fill="#bfdbfe">カンナエの戦い BC 216年</text>
 
   <!-- "4万 vs 8万" badge -->
   <rect x="460" y="560" width="280" height="48" rx="10" fill="#1e40af" opacity="0.12"/>
-  <text x="600" y="582" text-anchor="middle" font-size="14" fill="#1e40af" opacity="0.55">兵力</text>
-  <text x="600" y="600" text-anchor="middle" font-size="19" fill="#1e40af" font-weight="bold" opacity="0.7">4万 → 8万を包囲</text>
 
   <!-- elephant silhouettes (left background) -->
   <g transform="translate(88, 168)" opacity="0.18" fill="#1e40af">
