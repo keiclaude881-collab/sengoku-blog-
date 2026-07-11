@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+    <linearGradient id="pendulumGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#4c1d95"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- pendulum pivot bar -->
+  <rect x="460" y="80" width="280" height="10" rx="5" fill="#6d28d9" opacity="0.5"/>
+
+  <!-- pendulum string -->
+  <line x1="600" y1="90" x2="600" y2="310" stroke="#7c3aed" stroke-width="3" opacity="0.6"/>
+
+  <!-- pendulum bob (sphere) -->
+  <circle cx="600" cy="340" r="42" fill="url(#pendulumGrad)" opacity="0.85"/>
+  <circle cx="583" cy="324" r="12" fill="#c4b5fd" opacity="0.35"/>
+
+  <!-- left arc: 苦しみ side -->
+  <path d="M 340 340 Q 460 180 600 340" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="10,6" opacity="0.3"/>
+  <!-- right arc: 退屈 side -->
+  <path d="M 600 340 Q 740 180 860 340" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-dasharray="10,6" opacity="0.3"/>
+
+  <!-- left label: 苦しみ -->
+  <rect x="190" y="300" width="140" height="52" rx="8" fill="#4c1d95" opacity="0.7"/>
+  <text x="260" y="322" text-anchor="middle" font-size="16" fill="#e9d5ff" font-weight="bold">苦しみ</text>
+  <text x="260" y="342" text-anchor="middle" font-size="12" fill="#c4b5fd" opacity="0.8">欲望未充足</text>
+
+  <!-- right label: 退屈 -->
+  <rect x="870" y="300" width="140" height="52" rx="8" fill="#6d28d9" opacity="0.6"/>
+  <text x="940" y="322" text-anchor="middle" font-size="16" fill="#e9d5ff" font-weight="bold">退屈</text>
+  <text x="940" y="342" text-anchor="middle" font-size="12" fill="#c4b5fd" opacity="0.8">欲望の不在</text>
+
+  <!-- center top: 欲望 label on bob -->
+  <text x="600" y="346" text-anchor="middle" font-size="15" fill="#f5f3ff" font-weight="bold">欲望</text>
+
+  <!-- cycle arrows below bob -->
+  <!-- left arrow -->
+  <path d="M 540 420 Q 430 470 360 430" fill="none" stroke="#7c3aed" stroke-width="2.5" opacity="0.45" stroke-linecap="round"/>
+  <polygon points="360,430 380,415 375,440" fill="#7c3aed" opacity="0.45"/>
+  <!-- right arrow -->
+  <path d="M 660 420 Q 770 470 840 430" fill="none" stroke="#a78bfa" stroke-width="2.5" opacity="0.45" stroke-linecap="round"/>
+  <polygon points="840,430 820,415 825,440" fill="#a78bfa" opacity="0.45"/>
+
+  <!-- "満足" text -->
+  <text x="600" y="415" text-anchor="middle" font-size="13" fill="#7c3aed" opacity="0.6">→ 満足 → 次の欲望</text>
+
+  <!-- desire chain (small circles below) -->
+  <g opacity="0.3">
+    <circle cx="440" cy="500" r="16" fill="#7c3aed"/>
+    <line x1="458" y1="500" x2="488" y2="500" stroke="#7c3aed" stroke-width="2"/>
+    <circle cx="504" cy="500" r="20" fill="#7c3aed"/>
+    <line x1="526" y1="500" x2="556" y2="500" stroke="#7c3aed" stroke-width="2"/>
+    <circle cx="576" cy="500" r="24" fill="#6d28d9"/>
+    <line x1="602" y1="500" x2="634" y2="500" stroke="#6d28d9" stroke-width="2"/>
+    <circle cx="654" cy="500" r="28" fill="#4c1d95"/>
+    <line x1="684" y1="500" x2="716" y2="500" stroke="#4c1d95" stroke-width="2"/>
+    <circle cx="736" cy="500" r="32" fill="#3b0764"/>
+  </g>
+  <text x="600" y="556" text-anchor="middle" font-size="12" fill="#6d28d9" opacity="0.45">欲望は満たされた瞬間、次の欲望として生まれ変わる</text>
+
+  <!-- decorative dots -->
+  <g fill="#c4b5fd" opacity="0.2">
+    <circle cx="100" cy="120" r="5"/>
+    <circle cx="150" cy="80" r="3"/>
+    <circle cx="1080" cy="100" r="4"/>
+    <circle cx="1120" cy="150" r="3"/>
+    <circle cx="80" cy="500" r="4"/>
+    <circle cx="1100" cy="520" r="3"/>
+  </g>
+
+  <!-- title accent -->
+  <line x1="60" y1="600" x2="280" y2="600" stroke="#7c3aed" stroke-width="2" opacity="0.2"/>
+  <line x1="920" y1="600" x2="1140" y2="600" stroke="#7c3aed" stroke-width="2" opacity="0.2"/>
+</svg>
