@@ -378,4 +378,18 @@ export const NEXT_DOORS: Record<string, NextDoor[]> = {
     { slug: "hetty-green-cash-strategy", hook: "同じ時代に同じ原則を生きた女性がいる——現金を最大の武器にしたヘティ・グリーンがいる。" },
     { slug: "buffett-investment-philosophy", hook: "危機に動ける準備を整えた先には、暴落をチャンスと言い続けた20世紀最大の投資家バフェットがいる。" },
   ],
+
+  // ── バッチ6 ──
+  "schopenhauer-desire-mindset": [
+    { slug: "nietzsche-amor-fati-suffering", hook: "ショーペンハウアーから強い影響を受け、その悲観主義を「運命愛」で乗り越えた哲学者がいる——ニーチェがいる。" },
+    { slug: "epictetus-freedom-mindset", hook: "欲望の構造を理解した先には、「制御できないものを気にしない」技術で自由を手に入れた哲学者がいる。" },
+  ],
+  "hannibal-environment-design-career": [
+    { slug: "alexander-strategic-learning-career", hook: "戦場を設計したハンニバルの先には、学びを戦場で即実践し続けた征服者アレクサンダー大王がいる。" },
+    { slug: "kuroda-kanbei-win-without-fighting", hook: "環境を先に設計したハンニバルの答えの続きは、そもそも戦いが起きる前に勝負を決めた黒田官兵衛が知っている。" },
+  ],
+  "peter-lynch-everyday-investing-money": [
+    { slug: "buffett-investment-philosophy", hook: "「日常の実感」で株を選んだリンチの先には、「素晴らしいビジネスを長期保有」という別の答えを出したバフェットがいる。" },
+    { slug: "graham-margin-of-safety", hook: "候補を見つけた後に「いくらで買うか」を決める基準——割安の定義を体系化したグラハムの安全マージンがいる。" },
+  ],
 };
