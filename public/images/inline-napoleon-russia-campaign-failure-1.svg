@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- "Why Russia?" map with question mark over Russia territory -->
+  <polygon points="500,88 700,138 800,248 750,358 580,398 380,358 260,248 340,138"
+           fill="#ddd6fe" opacity="0.35"/>
+  <polygon points="500,88 700,138 800,248 750,358 580,398 380,358 260,248 340,138"
+           fill="none" stroke="#c4b5fd" stroke-width="4" opacity="0.6"/>
+  <!-- Question mark over territory -->
+  <path d="M 488 200 C 488 165 528 148 528 188 C 528 210 502 218 502 240"
+        fill="none" stroke="#7c3aed" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="502" cy="262" r="8" fill="#7c3aed"/>
+  <!-- Arrow pointing to territory (Napoleon's march) -->
+  <line x1="100" y1="248" x2="248" y2="248" stroke="#6b21a8" stroke-width="6" stroke-linecap="round"/>
+  <polyline points="234,234 250,248 234,262" fill="none" stroke="#6b21a8" stroke-width="5"/>
+
+</svg>

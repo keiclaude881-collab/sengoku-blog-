@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Stanford podium/stage: speaker at podium with audience lines -->
+  <!-- Podium -->
+  <rect x="418" y="228" width="164" height="140" rx="6" fill="#1e40af" opacity="0.7"/>
+  <polygon points="340,228 660,228 600,180 400,180" fill="#1e40af" opacity="0.5"/>
+  <!-- Speaker silhouette -->
+  <circle cx="500" cy="165" r="22" fill="#1d4ed8" opacity="0.85"/>
+  <rect x="480" y="187" width="40" height="42" rx="5" fill="#1d4ed8" opacity="0.85"/>
+  <!-- Audience rows (dashes) -->
+  <line x1="120" y1="340" x2="370" y2="310" stroke="#93c5fd" stroke-width="3" opacity="0.5"/>
+  <line x1="120" y1="360" x2="370" y2="330" stroke="#93c5fd" stroke-width="3" opacity="0.4"/>
+  <line x1="120" y1="380" x2="370" y2="350" stroke="#93c5fd" stroke-width="3" opacity="0.35"/>
+  <line x1="630" y1="310" x2="880" y2="340" stroke="#93c5fd" stroke-width="3" opacity="0.5"/>
+  <line x1="630" y1="330" x2="880" y2="360" stroke="#93c5fd" stroke-width="3" opacity="0.4"/>
+  <line x1="630" y1="350" x2="880" y2="380" stroke="#93c5fd" stroke-width="3" opacity="0.35"/>
+
+</svg>

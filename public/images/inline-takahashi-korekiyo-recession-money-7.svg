@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+  <defs>
+    <linearGradient id="g7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fffbeb"/>
+      <stop offset="100%" style="stop-color:#fef3c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#g7)"/>
+  <circle cx="920" cy="60" r="120" fill="#fde68a" opacity="0.4"/>
+  <circle cx="80" cy="360" r="90" fill="#fbbf24" opacity="0.3"/>
+  
+  <!-- open book -->
+  <path d="M 400 150 Q 500 135 600 150 L 600 320 Q 500 305 400 320 Z" fill="#d97706" opacity="0.18"/>
+  <rect x="496" y="145" width="8" height="180" rx="3" fill="#92400e" opacity="0.5"/>
+  <!-- left page lines -->
+  <line x1="425" y1="190" x2="488" y2="188" stroke="#d97706" stroke-width="3" opacity="0.4"/>
+  <line x1="425" y1="215" x2="488" y2="213" stroke="#d97706" stroke-width="3" opacity="0.4"/>
+  <line x1="425" y1="240" x2="488" y2="238" stroke="#d97706" stroke-width="3" opacity="0.4"/>
+  <line x1="425" y1="265" x2="488" y2="263" stroke="#d97706" stroke-width="3" opacity="0.4"/>
+  <!-- right page lines -->
+  <line x1="512" y1="188" x2="575" y2="190" stroke="#d97706" stroke-width="3" opacity="0.4"/>
+  <line x1="512" y1="213" x2="575" y2="215" stroke="#d97706" stroke-width="3" opacity="0.4"/>
+  <line x1="512" y1="238" x2="575" y2="240" stroke="#d97706" stroke-width="3" opacity="0.4"/>
+  <line x1="512" y1="263" x2="575" y2="265" stroke="#d97706" stroke-width="3" opacity="0.4"/>
+  <!-- stars ascending right side -->
+  <polygon points="720,300 728,320 750,320 733,333 740,353 720,340 700,353 707,333 690,320 712,320" fill="#fbbf24" opacity="0.7"/>
+  <polygon points="760,240 766,258 786,258 771,268 777,286 760,276 743,286 749,268 734,258 754,258" fill="#d97706" opacity="0.6"/>
+  <polygon points="800,175 806,193 826,193 811,203 817,221 800,211 783,221 789,203 774,193 794,193" fill="#92400e" opacity="0.65"/>
+  <!-- checkmark circle top left -->
+  <circle cx="260" cy="215" r="55" fill="#d97706" opacity="0.18"/>
+  <circle cx="260" cy="215" r="55" fill="none" stroke="#d97706" stroke-width="5" opacity="0.4"/>
+  <polyline points="238,215 255,232 285,198" fill="none" stroke="#d97706" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+</svg>

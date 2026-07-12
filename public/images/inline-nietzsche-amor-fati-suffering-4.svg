@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- Übermensch: person ascending mountain, small below, large at top -->
+  <!-- Mountain -->
+  <polygon points="150,380 500,88 850,380" fill="#ddd6fe" opacity="0.35"/>
+  <!-- Small figure at base -->
+  <circle cx="220" cy="345" r="14" fill="#c4b5fd" opacity="0.5"/>
+  <rect x="208" y="359" width="24" height="28" rx="4" fill="#c4b5fd" opacity="0.45"/>
+  <!-- Mid-mountain figure (medium) -->
+  <circle cx="410" cy="240" r="18" fill="#c4b5fd" opacity="0.65"/>
+  <rect x="395" y="258" width="30" height="38" rx="5" fill="#c4b5fd" opacity="0.55"/>
+  <!-- Summit figure (large, glowing) -->
+  <circle cx="500" cy="78" r="26" fill="#6b21a8" opacity="0.85"/>
+  <rect x="480" y="104" width="40" height="55" rx="8" fill="#6b21a8" opacity="0.75"/>
+  <!-- Glow around summit figure -->
+  <circle cx="500" cy="88" r="48" fill="none" stroke="#c4b5fd" stroke-width="4" opacity="0.4"/>
+  <!-- Path going up -->
+  <path d="M 220 345 C 290 310 370 270 410 240 C 450 210 476 165 498 118"
+        fill="none" stroke="#c4b5fd" stroke-width="4" stroke-dasharray="8,5" opacity="0.5"/>
+
+</svg>

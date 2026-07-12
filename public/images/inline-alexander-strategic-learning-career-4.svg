@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Multicultural integration: multiple cultural circles merging into one -->
+  <circle cx="280" cy="218" r="90" fill="#bfdbfe" opacity="0.4"/>
+  <circle cx="280" cy="218" r="90" fill="none" stroke="#1e40af" stroke-width="5"/>
+  <circle cx="500" cy="218" r="90" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="500" cy="218" r="90" fill="none" stroke="#1e40af" stroke-width="5"/>
+  <circle cx="720" cy="218" r="90" fill="#bfdbfe" opacity="0.4"/>
+  <circle cx="720" cy="218" r="90" fill="none" stroke="#1e40af" stroke-width="5"/>
+  <!-- Center merging area -->
+  <ellipse cx="500" cy="218" rx="48" ry="60" fill="#1e40af" opacity="0.35"/>
+  <!-- Cultural symbols (simplified) -->
+  <polygon points="280,188 265,218 295,218" fill="#93c5fd" opacity="0.7"/>
+  <circle cx="500" cy="218" r="22" fill="#93c5fd" opacity="0.7"/>
+  <line x1="695" y1="193" x2="745" y2="243" stroke="#93c5fd" stroke-width="6" opacity="0.7" stroke-linecap="round"/>
+  <line x1="745" y1="193" x2="695" y2="243" stroke="#93c5fd" stroke-width="6" opacity="0.7" stroke-linecap="round"/>
+
+</svg>

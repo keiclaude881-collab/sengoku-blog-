@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+  <defs>
+    <linearGradient id="bg_5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#faf5ff"/>
+      <stop offset="100%" style="stop-color:#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg_5)"/>
+  <circle cx="920" cy="60" r="120" fill="#ddd6fe" opacity="0.4"/>
+  <circle cx="80" cy="360" r="90" fill="#c4b5fd" opacity="0.3"/>
+  
+  <!-- diamond decision shape -->
+  <polygon points="500,130 620,215 500,300 380,215" fill="#7c3aed" opacity="0.2"/>
+  <polygon points="500,130 620,215 500,300 380,215" fill="none" stroke="#7c3aed" stroke-width="6" opacity="0.5"/>
+  <!-- yes branch right -->
+  <line x1="620" y1="215" x2="760" y2="215" stroke="#7c3aed" stroke-width="5" opacity="0.5"/>
+  <rect x="760" y="183" width="70" height="64" rx="10" fill="#7c3aed" opacity="0.35"/>
+  <!-- no branch down -->
+  <line x1="500" y1="300" x2="500" y2="370" stroke="#6b21a8" stroke-width="5" opacity="0.5"/>
+  <rect x="465" y="370" width="70" height="40" rx="10" fill="#6b21a8" opacity="0.4"/>
+  <!-- start oval above -->
+  <ellipse cx="500" cy="90" rx="70" ry="32" fill="#6b21a8" opacity="0.4"/>
+  <line x1="500" y1="122" x2="500" y2="130" stroke="#6b21a8" stroke-width="5" opacity="0.5"/>
+
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- 4 overconfidence patterns: ascending bars with last one collapsed -->
+  <rect x="148" y="298" width="90" height="80" rx="4" fill="#c4b5fd" opacity="0.6"/>
+  <rect x="278" y="248" width="90" height="130" rx="4" fill="#c4b5fd" opacity="0.65"/>
+  <rect x="408" y="188" width="90" height="190" rx="4" fill="#7c3aed" opacity="0.65"/>
+  <rect x="538" y="128" width="90" height="250" rx="4" fill="#6b21a8" opacity="0.7"/>
+  <!-- Last bar: collapsed/fallen -->
+  <rect x="668" y="370" width="170" height="24" rx="4" fill="#6b21a8" opacity="0.5" transform="rotate(-8, 753, 382)"/>
+  <!-- Cracks at fallen bar base -->
+  <line x1="668" y1="370" x2="650" y2="390" stroke="#6b21a8" stroke-width="4" opacity="0.5"/>
+  <line x1="700" y1="368" x2="685" y2="392" stroke="#6b21a8" stroke-width="3" opacity="0.4"/>
+  <!-- Downward crash arrow -->
+  <line x1="753" y1="128" x2="753" y2="365" stroke="#6b21a8" stroke-width="6" stroke-dasharray="10,6" opacity="0.6"/>
+  <polyline points="737,348 753,368 769,348" fill="none" stroke="#6b21a8" stroke-width="5" opacity="0.6"/>
+
+</svg>

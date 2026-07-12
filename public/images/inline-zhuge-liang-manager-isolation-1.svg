@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Manager carrying everyone: person with heavy load/group on back -->
+  <circle cx="500" cy="195" r="38" fill="#1e40af" opacity="0.7"/>
+  <rect x="465" y="233" width="70" height="100" rx="8" fill="#1e40af" opacity="0.6"/>
+  <!-- Heavy pile on back -->
+  <circle cx="410" cy="180" r="22" fill="#93c5fd" opacity="0.7"/>
+  <circle cx="440" cy="158" r="18" fill="#93c5fd" opacity="0.6"/>
+  <circle cx="474" cy="172" r="20" fill="#93c5fd" opacity="0.65"/>
+  <!-- Additional people piling on -->
+  <circle cx="555" cy="178" r="18" fill="#93c5fd" opacity="0.6"/>
+  <circle cx="530" cy="160" r="15" fill="#93c5fd" opacity="0.55"/>
+  <!-- Weight/burden lines (downward pressure) -->
+  <line x1="500" y1="233" x2="500" y2="258" stroke="#1d4ed8" stroke-width="6" stroke-linecap="round"/>
+  <line x1="476" y1="252" x2="476" y2="276" stroke="#1d4ed8" stroke-width="5" stroke-linecap="round" opacity="0.7"/>
+  <line x1="524" y1="252" x2="524" y2="276" stroke="#1d4ed8" stroke-width="5" stroke-linecap="round" opacity="0.7"/>
+  <!-- Sweat lines -->
+  <line x1="540" y1="180" x2="560" y2="168" stroke="#93c5fd" stroke-width="3" opacity="0.5"/>
+  <line x1="548" y1="195" x2="570" y2="190" stroke="#93c5fd" stroke-width="3" opacity="0.4"/>
+
+</svg>

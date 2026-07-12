@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Career focus Venn: 3 circles, optimal zone at intersection -->
+  <circle cx="380" cy="198" r="125" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="380" cy="198" r="125" fill="none" stroke="#1e40af" stroke-width="5"/>
+  <circle cx="620" cy="198" r="125" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="620" cy="198" r="125" fill="none" stroke="#1e40af" stroke-width="5"/>
+  <circle cx="500" cy="330" r="125" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="500" cy="330" r="125" fill="none" stroke="#1e40af" stroke-width="5"/>
+  <!-- Center highlight (sweet spot) -->
+  <circle cx="500" cy="245" r="38" fill="#1d4ed8" opacity="0.65"/>
+  <circle cx="500" cy="245" r="38" fill="none" stroke="#1d4ed8" stroke-width="4"/>
+
+</svg>

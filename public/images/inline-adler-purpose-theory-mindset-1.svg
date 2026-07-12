@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- Freud + Adler splitting ways: two paths diverging from one point -->
+  <circle cx="500" cy="210" r="28" fill="#7c3aed" opacity="0.7"/>
+  <!-- Common origin path -->
+  <line x1="500" y1="238" x2="500" y2="318" stroke="#c4b5fd" stroke-width="6" stroke-linecap="round"/>
+  <!-- Splitting -->
+  <path d="M 500 210 C 450 175 300 155 200 135" fill="none" stroke="#c4b5fd" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="185" cy="128" r="22" fill="#c4b5fd" opacity="0.7"/>
+  <path d="M 500 210 C 550 155 720 135 850 105" fill="none" stroke="#7c3aed" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="865" cy="98" r="22" fill="#7c3aed" opacity="0.8"/>
+  <!-- Labels: F (Freud) and A (Adler) -->
+  <polygon points="185,100 178,120 192,120" fill="#c4b5fd" opacity="0.7"/>
+  <polygon points="865,70 858,90 872,90" fill="#6b21a8" opacity="0.8"/>
+
+</svg>

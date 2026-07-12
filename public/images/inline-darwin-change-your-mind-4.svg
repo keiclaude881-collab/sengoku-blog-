@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- Darwin rewriting: pages of manuscript with revision marks -->
+  <!-- Stack of papers (original) -->
+  <rect x="150" y="138" width="240" height="280" rx="8" fill="#ddd6fe" opacity="0.4"/>
+  <rect x="158" y="130" width="240" height="280" rx="8" fill="#ddd6fe" opacity="0.35"/>
+  <rect x="166" y="122" width="240" height="280" rx="8" fill="#ddd6fe" opacity="0.3"/>
+  <!-- Lines of text with cross-outs -->
+  <line x1="190" y1="200" x2="370" y2="200" stroke="#c4b5fd" stroke-width="3"/>
+  <line x1="190" y1="200" x2="370" y2="200" stroke="#7c3aed" stroke-width="3"/>
+  <line x1="190" y1="225" x2="340" y2="225" stroke="#c4b5fd" stroke-width="3"/>
+  <line x1="200" y1="248" x2="360" y2="248" stroke="#c4b5fd" stroke-width="3"/>
+  <line x1="200" y1="248" x2="360" y2="248" stroke="#7c3aed" stroke-width="3"/>
+  <!-- Revised pages (right, cleaner) -->
+  <rect x="610" y="138" width="240" height="280" rx="8" fill="#faf5ff" opacity="0.7"/>
+  <rect x="610" y="138" width="240" height="280" rx="8" fill="none" stroke="#7c3aed" stroke-width="5"/>
+  <line x1="640" y1="200" x2="820" y2="200" stroke="#c4b5fd" stroke-width="3" opacity="0.6"/>
+  <line x1="640" y1="225" x2="790" y2="225" stroke="#c4b5fd" stroke-width="3" opacity="0.5"/>
+  <line x1="640" y1="250" x2="810" y2="250" stroke="#c4b5fd" stroke-width="3" opacity="0.5"/>
+  <!-- Check marks on revised paper -->
+  <polyline points="655,272 668,290 700,258" fill="none" stroke="#6b21a8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Arrow from old to new -->
+  <line x1="408" y1="280" x2="600" y2="280" stroke="#6b21a8" stroke-width="6"/>
+  <polyline points="587,267 603,280 587,293" fill="none" stroke="#6b21a8" stroke-width="5"/>
+
+</svg>

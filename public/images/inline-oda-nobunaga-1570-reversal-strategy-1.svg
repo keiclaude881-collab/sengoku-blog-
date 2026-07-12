@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Small Nobunaga before he was conqueror: small figure in large landscape -->
+  <!-- Large mountains/terrain (landscape) -->
+  <polygon points="100,380 300,160 500,380" fill="#bfdbfe" opacity="0.35"/>
+  <polygon points="380,380 580,120 780,380" fill="#bfdbfe" opacity="0.4"/>
+  <polygon points="680,380 880,180 1000,380" fill="#bfdbfe" opacity="0.35"/>
+  <!-- Small figure (Nobunaga small, not yet dominant) -->
+  <circle cx="280" cy="335" r="16" fill="#1e40af" opacity="0.8"/>
+  <rect x="264" y="351" width="32" height="42" rx="5" fill="#1e40af" opacity="0.7"/>
+  <!-- Sun above (future potential) -->
+  <circle cx="500" cy="90" r="35" fill="#93c5fd" opacity="0.6"/>
+  <line x1="500" y1="45" x2="500" y2="30" stroke="#93c5fd" stroke-width="4" opacity="0.5"/>
+  <line x1="550" y1="60" x2="565" y2="45" stroke="#93c5fd" stroke-width="4" opacity="0.5"/>
+  <line x1="565" y1="110" x2="580" y2="115" stroke="#93c5fd" stroke-width="4" opacity="0.5"/>
+  <line x1="450" y1="60" x2="435" y2="45" stroke="#93c5fd" stroke-width="4" opacity="0.5"/>
+
+</svg>

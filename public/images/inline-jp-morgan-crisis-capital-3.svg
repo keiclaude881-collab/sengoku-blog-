@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#fde68a" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#fde68a" opacity="0.35"/>
+  
+  <rect x="210" y="155" width="210" height="220" rx="10" fill="#d97706" opacity="0.7"/>
+  <rect x="580" y="155" width="210" height="220" rx="10" fill="#d97706" opacity="0.7"/>
+  <rect x="188" y="138" width="254" height="24" rx="5" fill="#92400e"/>
+  <rect x="558" y="138" width="254" height="24" rx="5" fill="#92400e"/>
+  <rect x="188" y="370" width="254" height="18" rx="5" fill="#92400e" opacity="0.6"/>
+  <rect x="558" y="370" width="254" height="18" rx="5" fill="#92400e" opacity="0.6"/>
+  <circle cx="315" cy="250" r="44" fill="#fffbeb" opacity="0.7"/>
+  <circle cx="315" cy="250" r="25" fill="#fbbf24" opacity="0.8"/>
+  <circle cx="315" cy="236" r="25" fill="#fbbf24" opacity="0.6"/>
+  <circle cx="685" cy="250" r="15" fill="#fffbeb"/>
+  <circle cx="645" cy="288" r="12" fill="#fbbf24" opacity="0.8"/>
+  <circle cx="725" cy="288" r="12" fill="#fbbf24" opacity="0.8"/>
+  <line x1="658" y1="260" x2="645" y2="278" stroke="#92400e" stroke-width="3"/>
+  <line x1="712" y1="260" x2="725" y2="278" stroke="#92400e" stroke-width="3"/>
+  <line x1="650" y1="288" x2="720" y2="288" stroke="#92400e" stroke-width="3"/>
+
+</svg>

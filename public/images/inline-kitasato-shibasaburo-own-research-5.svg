@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Three perspectives: magnifying glass, compass, telescope (ways to see differently) -->
+  <circle cx="220" cy="220" r="90" fill="none" stroke="#1e40af" stroke-width="6" opacity="0.7"/>
+  <circle cx="220" cy="220" r="90" fill="#bfdbfe" opacity="0.3"/>
+  <!-- Magnifying glass handle -->
+  <line x1="288" y1="288" x2="348" y2="348" stroke="#1e40af" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+  <!-- Compass inside center -->
+  <circle cx="500" cy="220" r="90" fill="#bfdbfe" opacity="0.3"/>
+  <circle cx="500" cy="220" r="90" fill="none" stroke="#1e40af" stroke-width="6"/>
+  <polygon points="500,178 492,220 500,208 508,220" fill="#1d4ed8"/>
+  <polygon points="500,262 492,220 500,232 508,220" fill="#93c5fd" opacity="0.7"/>
+  <line x1="500" y1="182" x2="500" y2="165" stroke="#1d4ed8" stroke-width="3"/>
+  <line x1="500" y1="258" x2="500" y2="275" stroke="#1d4ed8" stroke-width="3"/>
+  <line x1="542" y1="220" x2="560" y2="220" stroke="#1d4ed8" stroke-width="3"/>
+  <line x1="458" y1="220" x2="440" y2="220" stroke="#1d4ed8" stroke-width="3"/>
+  <!-- Telescope -->
+  <circle cx="780" cy="220" r="90" fill="#bfdbfe" opacity="0.3"/>
+  <circle cx="780" cy="220" r="90" fill="none" stroke="#1e40af" stroke-width="6"/>
+  <path d="M 720 208 L 840 200 L 840 240 L 720 232 Z" fill="#1e40af" opacity="0.5"/>
+  <circle cx="720" cy="220" r="14" fill="#1d4ed8" opacity="0.7"/>
+  <line x1="758" y1="200" x2="748" y2="240" stroke="#93c5fd" stroke-width="3" opacity="0.5"/>
+  <line x1="798" y1="200" x2="788" y2="240" stroke="#93c5fd" stroke-width="3" opacity="0.5"/>
+
+</svg>

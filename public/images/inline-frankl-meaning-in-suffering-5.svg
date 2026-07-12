@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+  <defs>
+    <linearGradient id="bg_5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#faf5ff"/>
+      <stop offset="100%" style="stop-color:#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg_5)"/>
+  <circle cx="920" cy="60" r="120" fill="#ddd6fe" opacity="0.4"/>
+  <circle cx="80" cy="360" r="90" fill="#c4b5fd" opacity="0.3"/>
+  
+  <!-- compass circle -->
+  <circle cx="500" cy="215" r="140" fill="#7c3aed" opacity="0.1"/>
+  <circle cx="500" cy="215" r="140" fill="none" stroke="#7c3aed" stroke-width="6" opacity="0.45"/>
+  <circle cx="500" cy="215" r="100" fill="none" stroke="#7c3aed" stroke-width="3" opacity="0.3"/>
+  <!-- compass needle pointing UP (north = meaning) -->
+  <polygon points="500,100 514,220 500,230 486,220" fill="#6b21a8" opacity="0.75"/>
+  <polygon points="500,330 514,215 500,205 486,215" fill="#7c3aed" opacity="0.4"/>
+  <!-- tick marks -->
+  <line x1="500" y1="82" x2="500" y2="95" stroke="#7c3aed" stroke-width="5" opacity="0.6"/>
+  <line x1="640" y1="215" x2="627" y2="215" stroke="#7c3aed" stroke-width="5" opacity="0.6"/>
+  <line x1="360" y1="215" x2="373" y2="215" stroke="#7c3aed" stroke-width="5" opacity="0.6"/>
+  <line x1="500" y1="348" x2="500" y2="335" stroke="#7c3aed" stroke-width="5" opacity="0.6"/>
+  <!-- center -->
+  <circle cx="500" cy="215" r="14" fill="#6b21a8" opacity="0.8"/>
+
+</svg>

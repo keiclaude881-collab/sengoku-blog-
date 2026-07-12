@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+  <defs>
+    <linearGradient id="g7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#eff6ff"/>
+      <stop offset="100%" style="stop-color:#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#g7)"/>
+  <circle cx="920" cy="60" r="120" fill="#bfdbfe" opacity="0.4"/>
+  <circle cx="80" cy="360" r="90" fill="#93c5fd" opacity="0.3"/>
+  
+  <!-- briefcase -->
+  <rect x="330" y="185" width="340" height="220" rx="15" fill="#1e40af" opacity="0.18"/>
+  <rect x="330" y="185" width="340" height="220" rx="15" fill="none" stroke="#1e40af" stroke-width="6" opacity="0.45"/>
+  <rect x="420" y="160" width="160" height="38" rx="12" fill="none" stroke="#1e40af" stroke-width="5" opacity="0.4"/>
+  <line x1="330" y1="270" x2="670" y2="270" stroke="#1e40af" stroke-width="4" opacity="0.3"/>
+  <!-- heart inside briefcase -->
+  <path d="M 500 240 C 500 225 480 215 470 228 C 460 215 440 225 440 240 C 440 258 500 288 500 288 C 500 288 560 258 560 240 C 560 225 540 215 530 228 C 520 215 500 225 500 240 Z" fill="#1d4ed8" opacity="0.65"/>
+
+</svg>

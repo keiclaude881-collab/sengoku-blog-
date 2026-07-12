@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- 3 habits to prevent overconfidence: balance scale + mirror + advisor icon -->
+  <circle cx="220" cy="210" r="80" fill="#ddd6fe" opacity="0.4"/>
+  <circle cx="220" cy="210" r="80" fill="none" stroke="#7c3aed" stroke-width="5"/>
+  <!-- Balance scale (habit 1: weigh risks) -->
+  <line x1="220" y1="180" x2="220" y2="250" stroke="#6b21a8" stroke-width="5" stroke-linecap="round"/>
+  <line x1="180" y1="195" x2="260" y2="195" stroke="#6b21a8" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="182" cy="215" r="14" fill="none" stroke="#6b21a8" stroke-width="3"/>
+  <circle cx="258" cy="215" r="14" fill="none" stroke="#6b21a8" stroke-width="3"/>
+  
+  <circle cx="500" cy="210" r="80" fill="#ddd6fe" opacity="0.4"/>
+  <circle cx="500" cy="210" r="80" fill="none" stroke="#7c3aed" stroke-width="5"/>
+  <!-- Mirror (habit 2: self-reflection) -->
+  <rect x="462" y="168" width="76" height="102" rx="8" fill="none" stroke="#6b21a8" stroke-width="5"/>
+  <circle cx="500" cy="200" r="20" fill="#c4b5fd" opacity="0.5"/>
+  
+  <circle cx="780" cy="210" r="80" fill="#ddd6fe" opacity="0.4"/>
+  <circle cx="780" cy="210" r="80" fill="none" stroke="#7c3aed" stroke-width="5"/>
+  <!-- Advisor icon (habit 3: seek dissent): person with speech bubble) -->
+  <circle cx="762" cy="190" r="18" fill="#c4b5fd" opacity="0.7"/>
+  <path d="M 745 218 Q 745 205 762 205 Q 779 205 779 218" fill="#c4b5fd" opacity="0.7"/>
+  <rect x="780" y="168" width="60" height="42" rx="8" fill="#c4b5fd" opacity="0.5"/>
+  <polygon points="778,200 772,212 788,208" fill="#c4b5fd" opacity="0.5"/>
+  <line x1="790" y1="180" x2="825" y2="180" stroke="#c4b5fd" stroke-width="3" opacity="0.5"/>
+  <line x1="790" y1="192" x2="818" y2="192" stroke="#c4b5fd" stroke-width="3" opacity="0.4"/>
+
+</svg>

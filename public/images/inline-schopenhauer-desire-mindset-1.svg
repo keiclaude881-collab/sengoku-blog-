@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- Desire pendulum: swinging between suffering and boredom -->
+  <!-- Pendulum support -->
+  <line x1="500" y1="88" x2="500" y2="115" stroke="#6b21a8" stroke-width="6" stroke-linecap="round"/>
+  <line x1="280" y1="88" x2="720" y2="88" stroke="#6b21a8" stroke-width="6" stroke-linecap="round"/>
+  <!-- Pendulum arc path -->
+  <path d="M 250 380 C 250 260 500 180 500 115 C 500 180 750 260 750 380"
+        fill="none" stroke="#ddd6fe" stroke-width="3" stroke-dasharray="8,5" opacity="0.5"/>
+  <!-- Pendulum bob (current position swinging right to "suffering") -->
+  <line x1="500" y1="115" x2="660" y2="320" stroke="#7c3aed" stroke-width="5"/>
+  <circle cx="660" cy="338" r="32" fill="#6b21a8" opacity="0.7"/>
+  <!-- Suffering icon (right) -->
+  <path d="M 640 330 C 642 322 652 318 660 322 C 668 318 678 322 680 330" fill="none" stroke="#faf5ff" stroke-width="3"/>
+  <!-- Boredom position (left) - small circle -->
+  <circle cx="340" cy="338" r="28" fill="#c4b5fd" opacity="0.45"/>
+  <line x1="326" y1="338" x2="354" y2="338" stroke="#c4b5fd" stroke-width="4" opacity="0.5"/>
+
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Three thought frameworks from Aristotle: 3 overlapping circles -->
+  <circle cx="380" cy="228" r="110" fill="#1e40af" opacity="0.25"/>
+  <circle cx="380" cy="228" r="110" fill="none" stroke="#1e40af" stroke-width="5"/>
+  <circle cx="500" cy="150" r="110" fill="#1e40af" opacity="0.25"/>
+  <circle cx="500" cy="150" r="110" fill="none" stroke="#1e40af" stroke-width="5"/>
+  <circle cx="620" cy="228" r="110" fill="#1e40af" opacity="0.25"/>
+  <circle cx="620" cy="228" r="110" fill="none" stroke="#1e40af" stroke-width="5"/>
+  <!-- Center intersection -->
+  <circle cx="500" cy="200" r="28" fill="#1d4ed8" opacity="0.7"/>
+
+</svg>

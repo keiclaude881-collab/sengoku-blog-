@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- Modern caves: SNS phone + workplace box + home box, breaking free -->
+  <!-- Phone cave -->
+  <rect x="108" y="148" width="148" height="248" rx="12" fill="none" stroke="#7c3aed" stroke-width="5"/>
+  <rect x="120" y="168" width="124" height="206" rx="6" fill="#ddd6fe" opacity="0.35"/>
+  <!-- Scroll bars on phone -->
+  <line x1="148" y1="200" x2="220" y2="200" stroke="#c4b5fd" stroke-width="4" opacity="0.6"/>
+  <line x1="148" y1="222" x2="210" y2="222" stroke="#c4b5fd" stroke-width="3" opacity="0.5"/>
+  <line x1="148" y1="244" x2="220" y2="244" stroke="#c4b5fd" stroke-width="4" opacity="0.6"/>
+  <!-- Work box -->
+  <rect x="426" y="148" width="148" height="248" rx="8" fill="none" stroke="#7c3aed" stroke-width="5"/>
+  <rect x="440" y="168" width="120" height="206" rx="4" fill="#ddd6fe" opacity="0.35"/>
+  <!-- Desk/cube work lines -->
+  <line x1="455" y1="220" x2="545" y2="220" stroke="#c4b5fd" stroke-width="3" opacity="0.5"/>
+  <line x1="455" y1="260" x2="545" y2="260" stroke="#c4b5fd" stroke-width="3" opacity="0.5"/>
+  <rect x="462" y="295" width="76" height="48" rx="5" fill="#c4b5fd" opacity="0.3"/>
+  <!-- Home box -->
+  <rect x="744" y="148" width="148" height="248" rx="8" fill="none" stroke="#7c3aed" stroke-width="5"/>
+  <polygon points="744,218 892,218 818,148" fill="#7c3aed" opacity="0.3"/>
+  <rect x="762" y="295" width="56" height="100" rx="5" fill="#c4b5fd" opacity="0.3"/>
+  <!-- Breaking arrows (awakening from cave) -->
+  <line x1="182" y1="108" x2="182" y2="75" stroke="#6b21a8" stroke-width="5"/>
+  <polyline points="169,88 182,70 195,88" fill="none" stroke="#6b21a8" stroke-width="5"/>
+  <line x1="500" y1="108" x2="500" y2="75" stroke="#6b21a8" stroke-width="5"/>
+  <polyline points="487,88 500,70 513,88" fill="none" stroke="#6b21a8" stroke-width="5"/>
+  <line x1="818" y1="108" x2="818" y2="75" stroke="#6b21a8" stroke-width="5"/>
+  <polyline points="805,88 818,70 831,88" fill="none" stroke="#6b21a8" stroke-width="5"/>
+
+</svg>

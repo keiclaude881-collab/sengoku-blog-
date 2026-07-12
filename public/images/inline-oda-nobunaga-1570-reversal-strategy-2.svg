@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Four crises surrounding: 4 threatening arrows from all sides -->
+  <circle cx="500" cy="210" r="55" fill="#1e40af" opacity="0.7"/>
+  <circle cx="500" cy="170" r="28" fill="#1e40af" opacity="0.85"/>
+  <!-- Four threat arrows from cardinal directions -->
+  <line x1="500" y1="80" x2="500" y2="148" stroke="#1d4ed8" stroke-width="7"/>
+  <polyline points="485,138 500,155 515,138" fill="none" stroke="#1d4ed8" stroke-width="6"/>
+  <circle cx="500" cy="62" r="22" fill="#93c5fd" opacity="0.7"/>
+  
+  <line x1="920" y1="210" x2="752" y2="210" stroke="#1d4ed8" stroke-width="7"/>
+  <polyline points="762,196 748,210 762,224" fill="none" stroke="#1d4ed8" stroke-width="6"/>
+  <circle cx="938" cy="210" r="22" fill="#93c5fd" opacity="0.7"/>
+  
+  <line x1="500" y1="340" x2="500" y2="272" stroke="#1d4ed8" stroke-width="7"/>
+  <polyline points="485,282 500,268 515,282" fill="none" stroke="#1d4ed8" stroke-width="6"/>
+  <circle cx="500" cy="358" r="22" fill="#93c5fd" opacity="0.7"/>
+  
+  <line x1="80" y1="210" x2="248" y2="210" stroke="#1d4ed8" stroke-width="7"/>
+  <polyline points="238,196 252,210 238,224" fill="none" stroke="#1d4ed8" stroke-width="6"/>
+  <circle cx="62" cy="210" r="22" fill="#93c5fd" opacity="0.7"/>
+
+</svg>

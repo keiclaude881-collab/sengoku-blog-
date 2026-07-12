@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- 1959 prediction: crystal ball / magnifying glass on future -->
+  <circle cx="500" cy="220" r="140" fill="#bfdbfe" opacity="0.3"/>
+  <circle cx="500" cy="220" r="140" fill="none" stroke="#1e40af" stroke-width="6"/>
+  <!-- Future scenes inside ball -->
+  <!-- Office/knowledge worker icon -->
+  <rect x="400" y="175" width="200" height="100" rx="6" fill="#1e40af" opacity="0.2"/>
+  <circle cx="500" cy="195" r="18" fill="#1e40af" opacity="0.5"/>
+  <path d="M 478 218 Q 478 200 500 200 Q 522 200 522 218" fill="#1e40af" opacity="0.5"/>
+  <!-- Lines suggesting future trends -->
+  <path d="M 420 245 L 448 230 L 476 240 L 524 210 L 552 220 L 580 195"
+        fill="none" stroke="#1d4ed8" stroke-width="4" opacity="0.6"/>
+  <!-- Handle (magnifying glass) -->
+  <line x1="612" y1="320" x2="680" y2="388" stroke="#1e40af" stroke-width="10" stroke-linecap="round" opacity="0.6"/>
+
+</svg>

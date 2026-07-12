@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Career reversal: U-turn arrow for career comeback -->
+  <!-- Downward spiral on left -->
+  <path d="M 200 120 L 200 280" stroke="#93c5fd" stroke-width="6" stroke-linecap="round"/>
+  <polyline points="186,264 200,282 214,264" fill="none" stroke="#93c5fd" stroke-width="5"/>
+  <!-- U-turn at bottom -->
+  <path d="M 200 280 C 200 340 360 340 360 280"
+        fill="none" stroke="#1d4ed8" stroke-width="8" stroke-linecap="round"/>
+  <!-- Rising trajectory on right -->
+  <path d="M 360 280 L 360 120" stroke="#1e40af" stroke-width="7" stroke-linecap="round"/>
+  <polyline points="346,136 360,118 374,136" fill="none" stroke="#1e40af" stroke-width="6"/>
+  <!-- Before/after comparison -->
+  <circle cx="200" cy="108" r="20" fill="#93c5fd" opacity="0.6"/>
+  <circle cx="360" cy="108" r="20" fill="#1d4ed8" opacity="0.8"/>
+  <!-- Stars at top of recovery -->
+  <circle cx="500" cy="118" r="12" fill="#93c5fd"/>
+  <circle cx="540" cy="98" r="16" fill="#93c5fd"/>
+  <circle cx="580" cy="118" r="12" fill="#93c5fd"/>
+
+</svg>

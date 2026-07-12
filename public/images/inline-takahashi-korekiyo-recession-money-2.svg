@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+  <defs>
+    <linearGradient id="bg_2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fffbeb"/>
+      <stop offset="100%" style="stop-color:#fef3c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg_2)"/>
+  <circle cx="920" cy="60" r="120" fill="#fde68a" opacity="0.4"/>
+  <circle cx="80" cy="360" r="90" fill="#fbbf24" opacity="0.3"/>
+  
+  <!-- portrait oval frame -->
+  <ellipse cx="500" cy="210" rx="130" ry="150" fill="#d97706" opacity="0.2"/>
+  <ellipse cx="500" cy="210" rx="130" ry="150" fill="none" stroke="#d97706" stroke-width="6" opacity="0.5"/>
+  <!-- head -->
+  <circle cx="500" cy="165" r="55" fill="#d97706" opacity="0.35"/>
+  <!-- body suggestion -->
+  <rect x="455" y="218" width="90" height="120" rx="12" fill="#d97706" opacity="0.3"/>
+  <!-- coin badge -->
+  <circle cx="620" cy="130" r="35" fill="#fbbf24" opacity="0.7"/>
+  <circle cx="620" cy="130" r="24" fill="white" opacity="0.5"/>
+
+</svg>

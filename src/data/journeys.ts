@@ -22,6 +22,8 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
         title: "今の自分を知る",
         lead: "自分の強み・立ち位置・本当にやりたいことを把握する段階。",
         slugs: [
+          "jobs-connecting-the-dots",
+          "drucker-self-management-career",
           "date-masamune-personal-branding",
           "coco-chanel-be-different",
           "cleopatra-language-career",
@@ -40,6 +42,7 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
           "katsu-kaishu-career-change-timing",
           "edison-reskilling-too-late",
           "oda-nobunaga-1570-reversal-strategy",
+          "hannibal-environment-design-career",
         ],
       },
       {
@@ -56,6 +59,8 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
           "ninomiya-sontoku-side-business-balance",
           "davinci-multiple-income-streams",
           "toyotomi-hideyoshi-career-strategy",
+          "ford-model-t-focus-strategy",
+          "alexander-strategic-learning-career",
         ],
       },
       {
@@ -81,6 +86,8 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
         title: "お金と向き合う",
         lead: "罪悪感や思い込みを外し、今の自分の家計と向き合う段階。",
         slugs: [
+          "adam-smith-wealth-of-nations",
+          "oda-nobunaga-rakuichi-money",
           "shibusawa-money-mindset",
           "rome-fiscal-collapse",
           "madam-cj-walker-self-investment",
@@ -96,6 +103,7 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
           "babylon-pay-yourself-first",
           "franklin-money-habits",
           "honda-seiroku-money-allocation",
+          "tokugawa-ieyasu-money-defense",
           "matsushita-konosuke-furusato-nozei",
           "uesugi-yozan-household-rebuild",
           "hirooka-asako-protect-vs-grow",
@@ -106,6 +114,9 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
         title: "増やす・リスクを管理する",
         lead: "貯めたお金を投資に回し、リスクと向き合いながら増やす段階。",
         slugs: [
+          "buffett-investment-philosophy",
+          "peter-lynch-everyday-investing-money",
+          "jp-morgan-crisis-capital",
           "mori-motonari-diversification",
           "sunzi-investment-principles",
           "graham-margin-of-safety",
@@ -138,6 +149,7 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
         title: "自分を知る・受け入れる",
         lead: "自分の現在地と可能性を、ありのまま認める段階。",
         slugs: [
+          "adler-purpose-theory-mindset",
           "aristotle-habit-character",
           "confucius-self-investment",
           "eleanor-roosevelt-inferiority-consent",
@@ -151,6 +163,8 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
         lead: "怒り・不安・人間関係のストレスに振り回されなくなる段階。",
         slugs: [
           "dale-carnegie-workplace-relationships",
+          "freud-unconscious-mindset",
+          "jung-shadow-introvert-mindset",
           "dogen-present-moment",
           "epictetus-freedom-mindset",
           "marcus-aurelius-morning-rehearsal",
@@ -164,6 +178,8 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
         title: "判断力・行動力を鍛える",
         lead: "迷わず決め、変化に適応し、淡々と動き続ける段階。",
         slugs: [
+          "munger-mental-models",
+          "plato-cave-allegory-thinking",
           "caesar-speed-decision",
           "nightingale-data-thinking",
           "darwin-change-your-mind",
@@ -179,6 +195,8 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
         title: "生き方の軸を持つ",
         lead: "何を大事にして生きるか、自分なりの哲学を持つ段階。",
         slugs: [
+          "nietzsche-amor-fati-suffering",
+          "schopenhauer-desire-mindset",
           "fukuzawa-independence-mindset",
           "kamo-no-chomei-dont-want-promotion",
           "laozi-water-philosophy",

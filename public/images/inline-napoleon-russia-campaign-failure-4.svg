@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- Genius failing: eagle with clipped wing (or sun at peak then falling) -->
+  <!-- Parabolic trajectory: rise then fall -->
+  <path d="M 100 360 C 200 280 350 148 500 118 C 650 148 800 280 900 360"
+        fill="none" stroke="#c4b5fd" stroke-width="6" stroke-linecap="round"/>
+  <!-- Peak (top) highlight -->
+  <circle cx="500" cy="108" r="30" fill="#c4b5fd" opacity="0.7"/>
+  <!-- Star at peak (genius) -->
+  <polygon points="500,88 506,103 522,103 509,112 514,128 500,118 486,128 491,112 478,103 494,103"
+           fill="#6b21a8" opacity="0.85"/>
+  <!-- Rising dots (success) -->
+  <circle cx="200" cy="312" r="10" fill="#c4b5fd" opacity="0.6"/>
+  <circle cx="320" cy="215" r="10" fill="#c4b5fd" opacity="0.65"/>
+  <circle cx="440" cy="148" r="10" fill="#c4b5fd" opacity="0.7"/>
+  <!-- Falling dots (failure) -->
+  <circle cx="560" cy="148" r="10" fill="#7c3aed" opacity="0.65"/>
+  <circle cx="680" cy="215" r="10" fill="#7c3aed" opacity="0.6"/>
+  <circle cx="800" cy="312" r="10" fill="#7c3aed" opacity="0.55"/>
+  <!-- Impact at end -->
+  <line x1="870" y1="342" x2="920" y2="388" stroke="#6b21a8" stroke-width="5" opacity="0.5"/>
+  <line x1="920" y1="342" x2="870" y2="388" stroke="#6b21a8" stroke-width="5" opacity="0.5"/>
+
+</svg>

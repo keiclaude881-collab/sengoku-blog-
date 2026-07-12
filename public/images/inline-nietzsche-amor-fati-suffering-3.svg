@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- Nihilism → Amor Fati path: dark hole transforms into glowing star -->
+  <!-- Dark spiral (nihilism) on left -->
+  <path d="M 230 210 C 230 180 246 164 262 168 C 278 172 280 192 268 202 C 256 212 244 208 244 196"
+        fill="none" stroke="#ddd6fe" stroke-width="5" opacity="0.6"/>
+  <circle cx="230" cy="210" r="55" fill="#6b21a8" opacity="0.2"/>
+  <circle cx="230" cy="210" r="55" fill="none" stroke="#c4b5fd" stroke-width="4"/>
+  <!-- Transformation arrow -->
+  <line x1="310" y1="210" x2="480" y2="210" stroke="#6b21a8" stroke-width="7"/>
+  <polyline points="466,197 483,210 466,223" fill="none" stroke="#6b21a8" stroke-width="6"/>
+  <!-- Heart/flame (amor fati) in center transition -->
+  <path d="M 395 210 C 395 197 411 190 411 205 C 411 190 427 197 427 210 C 427 225 411 240 411 240 C 411 240 395 225 395 210 Z"
+        fill="#c4b5fd" opacity="0.7"/>
+  <!-- Radiant star (Amor Fati) on right -->
+  <circle cx="720" cy="210" r="55" fill="#c4b5fd" opacity="0.3"/>
+  <polygon points="720,152 730,185 765,185 736,206 746,240 720,220 694,240 704,206 675,185 710,185"
+           fill="#c4b5fd" opacity="0.85"/>
+  <circle cx="720" cy="210" r="20" fill="#6b21a8" opacity="0.7"/>
+  <!-- Glow rings -->
+  <circle cx="720" cy="210" r="78" fill="none" stroke="#c4b5fd" stroke-width="3" opacity="0.35"/>
+  <circle cx="720" cy="210" r="100" fill="none" stroke="#c4b5fd" stroke-width="2" opacity="0.2"/>
+
+</svg>

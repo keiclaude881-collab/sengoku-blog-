@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Car vs. horse-drawn carriage: left is horse, right is car (transition) -->
+  <!-- Horse silhouette (left, faded) -->
+  <path d="M 100 280 C 120 260 160 250 200 255 C 230 258 250 270 270 270 L 270 300 L 100 300 Z"
+        fill="#bfdbfe" opacity="0.5"/>
+  <circle cx="125" cy="268" r="20" fill="#bfdbfe" opacity="0.5"/>
+  <!-- Wheels of carriage -->
+  <circle cx="140" cy="300" r="20" fill="none" stroke="#93c5fd" stroke-width="4" opacity="0.6"/>
+  <circle cx="240" cy="300" r="20" fill="none" stroke="#93c5fd" stroke-width="4" opacity="0.6"/>
+  
+  <!-- Arrow of transition -->
+  <line x1="340" y1="275" x2="460" y2="275" stroke="#1d4ed8" stroke-width="7"/>
+  <polyline points="447,261 463,275 447,289" fill="none" stroke="#1d4ed8" stroke-width="6"/>
+  
+  <!-- Model T car (right) -->
+  <rect x="520" y="255" width="340" height="70" rx="12" fill="#1e40af" opacity="0.75"/>
+  <rect x="575" y="215" width="220" height="50" rx="8" fill="#1e40af" opacity="0.65"/>
+  <circle cx="600" cy="325" r="30" fill="#1d4ed8" opacity="0.8"/>
+  <circle cx="600" cy="325" r="18" fill="#bfdbfe" opacity="0.6"/>
+  <circle cx="790" cy="325" r="30" fill="#1d4ed8" opacity="0.8"/>
+  <circle cx="790" cy="325" r="18" fill="#bfdbfe" opacity="0.6"/>
+
+</svg>

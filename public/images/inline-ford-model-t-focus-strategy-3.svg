@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Assembly line: sequential flow of car parts becoming complete car -->
+  <rect x="50" y="250" width="900" height="12" rx="4" fill="#bfdbfe" opacity="0.5"/>
+  <!-- Station 1: raw block -->
+  <rect x="90" y="198" width="120" height="60" rx="6" fill="#93c5fd" opacity="0.6"/>
+  <!-- Station 2: frame -->
+  <rect x="308" y="210" width="120" height="48" rx="6" fill="#93c5fd" opacity="0.65"/>
+  <circle cx="330" cy="260" r="15" fill="#93c5fd" opacity="0.5"/>
+  <circle cx="408" cy="260" r="15" fill="#93c5fd" opacity="0.5"/>
+  <!-- Station 3: body + wheels -->
+  <rect x="520" y="205" width="120" height="52" rx="8" fill="#1e40af" opacity="0.6"/>
+  <rect x="535" y="180" width="80" height="30" rx="5" fill="#1e40af" opacity="0.5"/>
+  <circle cx="545" cy="258" r="18" fill="#1d4ed8" opacity="0.7"/>
+  <circle cx="625" cy="258" r="18" fill="#1d4ed8" opacity="0.7"/>
+  <!-- Station 4: complete car -->
+  <rect x="730" y="200" width="150" height="60" rx="12" fill="#1e40af" opacity="0.85"/>
+  <rect x="760" y="175" width="90" height="32" rx="6" fill="#1e40af" opacity="0.75"/>
+  <circle cx="760" cy="262" r="22" fill="#1d4ed8" opacity="0.8"/>
+  <circle cx="855" cy="262" r="22" fill="#1d4ed8" opacity="0.8"/>
+  <!-- Conveyor arrows -->
+  <polyline points="218,238 298,238" fill="none" stroke="#93c5fd" stroke-width="5"/>
+  <polyline points="285,226 300,238 285,250" fill="none" stroke="#93c5fd" stroke-width="4"/>
+  <polyline points="435,238 508,238" fill="none" stroke="#93c5fd" stroke-width="5"/>
+  <polyline points="495,226 510,238 495,250" fill="none" stroke="#93c5fd" stroke-width="4"/>
+  <polyline points="645,238 720,238" fill="none" stroke="#93c5fd" stroke-width="5"/>
+  <polyline points="707,226 722,238 707,250" fill="none" stroke="#93c5fd" stroke-width="4"/>
+
+</svg>

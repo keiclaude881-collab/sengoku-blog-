@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+  <defs>
+    <linearGradient id="bg_1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fffbeb"/>
+      <stop offset="100%" style="stop-color:#fef3c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg_1)"/>
+  <circle cx="920" cy="60" r="120" fill="#fde68a" opacity="0.4"/>
+  <circle cx="80" cy="360" r="90" fill="#fbbf24" opacity="0.3"/>
+  
+  <circle cx="500" cy="210" r="130" fill="#fbbf24" opacity="0.25"/>
+  <!-- globe -->
+  <circle cx="500" cy="210" r="110" fill="none" stroke="#d97706" stroke-width="5" opacity="0.6"/>
+  <ellipse cx="500" cy="210" rx="60" ry="110" fill="none" stroke="#d97706" stroke-width="3" opacity="0.5"/>
+  <line x1="390" y1="210" x2="610" y2="210" stroke="#d97706" stroke-width="3" opacity="0.5"/>
+  <!-- hand releasing coins -->
+  <rect x="460" y="130" width="80" height="40" rx="20" fill="#d97706"/>
+  <circle cx="490" cy="95" r="18" fill="#92400e"/>
+  <circle cx="520" cy="88" r="18" fill="#92400e"/>
+  <circle cx="550" cy="95" r="18" fill="#92400e"/>
+  <!-- coins falling -->
+  <circle cx="485" cy="290" r="14" fill="#fbbf24" opacity="0.8"/>
+  <circle cx="510" cy="310" r="14" fill="#fbbf24" opacity="0.8"/>
+  <circle cx="535" cy="290" r="14" fill="#fbbf24" opacity="0.8"/>
+
+</svg>

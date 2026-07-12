@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Environment-first design: 3 concentric environment layers -->
+  <circle cx="500" cy="210" r="175" fill="none" stroke="#1e40af" stroke-width="5" opacity="0.4"/>
+  <circle cx="500" cy="210" r="120" fill="none" stroke="#1e40af" stroke-width="5" opacity="0.55"/>
+  <circle cx="500" cy="210" r="65" fill="#1e40af" opacity="0.5"/>
+  <circle cx="500" cy="210" r="65" fill="none" stroke="#1e40af" stroke-width="5" opacity="0.8"/>
+  <!-- Person at center -->
+  <circle cx="500" cy="194" r="20" fill="#1d4ed8" opacity="0.85"/>
+  <rect x="478" y="214" width="44" height="42" rx="5" fill="#1d4ed8" opacity="0.85"/>
+  <!-- Environment labels (dots) at each ring -->
+  <circle cx="500" cy="92" r="10" fill="#93c5fd"/>
+  <circle cx="500" cy="148" r="8" fill="#93c5fd" opacity="0.8"/>
+  <!-- Design arrows radiating out -->
+  <line x1="500" y1="146" x2="500" y2="100" stroke="#93c5fd" stroke-width="4" stroke-dasharray="6,4"/>
+  <line x1="550" y1="150" x2="590" y2="116" stroke="#93c5fd" stroke-width="3" stroke-dasharray="5,4" opacity="0.6"/>
+  <line x1="450" y1="150" x2="410" y2="116" stroke="#93c5fd" stroke-width="3" stroke-dasharray="5,4" opacity="0.6"/>
+
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- Task separation: two circles with dividing line (your task vs. others task) -->
+  <circle cx="340" cy="210" r="150" fill="#ddd6fe" opacity="0.4"/>
+  <circle cx="340" cy="210" r="150" fill="none" stroke="#7c3aed" stroke-width="6"/>
+  <circle cx="660" cy="210" r="150" fill="#ddd6fe" opacity="0.3"/>
+  <circle cx="660" cy="210" r="150" fill="none" stroke="#7c3aed" stroke-width="5" opacity="0.6"/>
+  <!-- Person icon in left circle (self) -->
+  <circle cx="315" cy="178" r="24" fill="#7c3aed" opacity="0.8"/>
+  <rect x="295" y="202" width="40" height="60" rx="6" fill="#7c3aed" opacity="0.7"/>
+  <!-- Abstract shape in right circle (other) -->
+  <circle cx="660" cy="195" r="24" fill="#c4b5fd" opacity="0.6"/>
+  <rect x="640" y="219" width="40" height="55" rx="6" fill="#c4b5fd" opacity="0.5"/>
+  <!-- Dividing line between circles -->
+  <line x1="500" y1="70" x2="500" y2="360" stroke="#6b21a8" stroke-width="4" stroke-dasharray="12,6"/>
+
+</svg>

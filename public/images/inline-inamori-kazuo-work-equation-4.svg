@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Negative mindset = entire product goes negative -->
+  <!-- Positive equation going well -->
+  <circle cx="160" cy="210" r="55" fill="#93c5fd" opacity="0.5"/>
+  <line x1="215" y1="210" x2="255" y2="210" stroke="#1d4ed8" stroke-width="5"/>
+  <line x1="235" y1="195" x2="235" y2="225" stroke="#1d4ed8" stroke-width="5"/>
+  <circle cx="310" cy="210" r="55" fill="#93c5fd" opacity="0.5"/>
+  <line x1="365" y1="210" x2="405" y2="210" stroke="#1d4ed8" stroke-width="5"/>
+  <line x1="385" y1="195" x2="385" y2="225" stroke="#1d4ed8" stroke-width="5"/>
+  <!-- Mindset = negative (down arrow in red-ish) -->
+  <circle cx="460" cy="210" r="55" fill="#93c5fd" opacity="0.5"/>
+  <line x1="460" y1="175" x2="460" y2="245" stroke="#dc2626" stroke-width="6"/>
+  <polyline points="444,228 460,248 476,228" fill="none" stroke="#dc2626" stroke-width="6"/>
+  <!-- = sign -->
+  <line x1="520" y1="200" x2="555" y2="200" stroke="#1d4ed8" stroke-width="5"/>
+  <line x1="520" y1="220" x2="555" y2="220" stroke="#1d4ed8" stroke-width="5"/>
+  <!-- NEGATIVE result (down arrow) -->
+  <rect x="580" y="155" width="340" height="110" rx="8" fill="#fee2e2" opacity="0.3"/>
+  <rect x="580" y="155" width="340" height="110" rx="8" fill="none" stroke="#dc2626" stroke-width="5"/>
+  <line x1="750" y1="175" x2="750" y2="245" stroke="#dc2626" stroke-width="7"/>
+  <polyline points="733,228 750,248 767,228" fill="none" stroke="#dc2626" stroke-width="7"/>
+
+</svg>

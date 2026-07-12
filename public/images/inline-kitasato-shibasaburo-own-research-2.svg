@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Nobel Prize medal with X mark (not awarded) -->
+  <circle cx="500" cy="210" r="140" fill="#bfdbfe" opacity="0.3"/>
+  <circle cx="500" cy="210" r="140" fill="none" stroke="#93c5fd" stroke-width="6"/>
+  <circle cx="500" cy="210" r="100" fill="#93c5fd" opacity="0.4"/>
+  <!-- Medal inner design -->
+  <circle cx="500" cy="210" r="60" fill="#93c5fd" opacity="0.6"/>
+  <polygon points="500,170 510,195 540,195 516,212 524,238 500,222 476,238 484,212 460,195 490,195"
+           fill="#eff6ff" opacity="0.8"/>
+  <!-- Ribbon top -->
+  <rect x="482" y="68" width="36" height="60" rx="5" fill="#93c5fd" opacity="0.5"/>
+  <!-- BIG X over medal (denied) -->
+  <line x1="330" y1="70" x2="670" y2="350" stroke="#1e40af" stroke-width="10" stroke-linecap="round" opacity="0.8"/>
+  <line x1="670" y1="70" x2="330" y2="350" stroke="#1e40af" stroke-width="10" stroke-linecap="round" opacity="0.8"/>
+
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- Person emerging from cave (going up toward light) -->
+  <!-- Cave entrance (dark) at bottom left -->
+  <path d="M 100 398 C 100 248 200 178 300 148" fill="none" stroke="#c4b5fd" stroke-width="6" opacity="0.5"/>
+  <path d="M 100 398 C 150 248 250 198 350 188" fill="none" stroke="#c4b5fd" stroke-width="5" opacity="0.4"/>
+  <!-- Path leading up and out -->
+  <path d="M 280 250 C 360 200 460 148 580 118" fill="none" stroke="#6b21a8" stroke-width="7" stroke-linecap="round" stroke-dasharray="12,6"/>
+  <polyline points="566,106 582,118 566,130" fill="none" stroke="#6b21a8" stroke-width="6"/>
+  <!-- Person emerging (ascending) -->
+  <circle cx="420" cy="220" r="26" fill="#7c3aed" opacity="0.85"/>
+  <rect x="396" y="246" width="48" height="65" rx="7" fill="#7c3aed" opacity="0.75"/>
+  <!-- Bright light at top right (outside) -->
+  <circle cx="820" cy="110" r="90" fill="#c4b5fd" opacity="0.25"/>
+  <circle cx="820" cy="110" r="55" fill="#c4b5fd" opacity="0.35"/>
+  <circle cx="820" cy="110" r="28" fill="#c4b5fd" opacity="0.55"/>
+  <!-- Sun rays -->
+  <line x1="820" y1="48" x2="820" y2="30" stroke="#c4b5fd" stroke-width="4" opacity="0.5"/>
+  <line x1="870" y1="60" x2="885" y2="45" stroke="#c4b5fd" stroke-width="4" opacity="0.5"/>
+  <line x1="900" y1="110" x2="920" y2="110" stroke="#c4b5fd" stroke-width="4" opacity="0.5"/>
+  <line x1="870" y1="160" x2="885" y2="175" stroke="#c4b5fd" stroke-width="4" opacity="0.5"/>
+
+</svg>

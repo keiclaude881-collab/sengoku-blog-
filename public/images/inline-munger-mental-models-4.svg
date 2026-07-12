@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- Single lens vs. multiple lenses: 1 narrow vs. 5 wide perspectives -->
+  <!-- Single lens (left) - narrow view, missing things -->
+  <ellipse cx="240" cy="210" rx="42" ry="78" fill="#ddd6fe" opacity="0.4"/>
+  <ellipse cx="240" cy="210" rx="42" ry="78" fill="none" stroke="#7c3aed" stroke-width="5"/>
+  <!-- Narrow slit / blinder -->
+  <rect x="218" y="80" width="44" height="260" rx="4" fill="#6b21a8" opacity="0.15"/>
+  <line x1="240" y1="88" x2="240" y2="140" stroke="#6b21a8" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
+  <line x1="240" y1="280" x2="240" y2="332" stroke="#6b21a8" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
+  <!-- Things missed: grey shapes at edges -->
+  <circle cx="140" cy="148" r="20" fill="#ddd6fe" opacity="0.4"/>
+  <circle cx="140" cy="268" r="20" fill="#ddd6fe" opacity="0.4"/>
+  <circle cx="340" cy="168" r="20" fill="#ddd6fe" opacity="0.4"/>
+  <circle cx="340" cy="248" r="20" fill="#ddd6fe" opacity="0.4"/>
+  
+  <!-- Arrow -->
+  <line x1="380" y1="210" x2="470" y2="210" stroke="#6b21a8" stroke-width="6"/>
+  <polyline points="456,197 473,210 456,223" fill="none" stroke="#6b21a8" stroke-width="5"/>
+  
+  <!-- Multiple lenses (right) - wide view, seeing everything -->
+  <ellipse cx="700" cy="210" rx="200" ry="140" fill="#ddd6fe" opacity="0.25"/>
+  <ellipse cx="700" cy="210" rx="200" ry="140" fill="none" stroke="#7c3aed" stroke-width="5"/>
+  <!-- Multiple lens circles inside -->
+  <ellipse cx="620" cy="195" rx="45" ry="55" fill="none" stroke="#c4b5fd" stroke-width="3" opacity="0.6"/>
+  <ellipse cx="700" cy="225" rx="45" ry="55" fill="none" stroke="#c4b5fd" stroke-width="3" opacity="0.6"/>
+  <ellipse cx="780" cy="195" rx="45" ry="55" fill="none" stroke="#c4b5fd" stroke-width="3" opacity="0.6"/>
+  <!-- Seeing things clearly (bright dots) -->
+  <circle cx="595" cy="175" r="10" fill="#6b21a8" opacity="0.7"/>
+  <circle cx="700" cy="200" r="10" fill="#6b21a8" opacity="0.7"/>
+  <circle cx="815" cy="175" r="10" fill="#6b21a8" opacity="0.7"/>
+
+</svg>

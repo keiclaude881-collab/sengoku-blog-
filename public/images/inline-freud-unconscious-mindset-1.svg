@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- Iceberg: 10% above water, 90% below -->
+  <!-- Water line -->
+  <line x1="100" y1="235" x2="900" y2="235" stroke="#c4b5fd" stroke-width="4"/>
+  <!-- Above water (10%) -->
+  <polygon points="420,235 500,105 580,235" fill="#7c3aed" opacity="0.7"/>
+  <!-- Below water (90%) -->
+  <polygon points="340,235 400,380 600,380 660,235" fill="#7c3aed" opacity="0.4"/>
+  <rect x="340" y="235" width="320" height="145" fill="#7c3aed" opacity="0.4"/>
+  <!-- Water layer -->
+  <path d="M 100 235 C 200 225 300 242 400 235 C 500 228 600 240 700 234 C 800 228 900 238 1000 235"
+        fill="none" stroke="#c4b5fd" stroke-width="3" opacity="0.6"/>
+  <!-- Depth marks showing 10% vs 90% -->
+  <line x1="680" y1="170" x2="740" y2="170" stroke="#c4b5fd" stroke-width="3" opacity="0.6"/>
+  <line x1="680" y1="310" x2="740" y2="310" stroke="#c4b5fd" stroke-width="3" opacity="0.5"/>
+  <line x1="740" y1="235" x2="740" y2="380" stroke="#c4b5fd" stroke-width="3" stroke-dasharray="6,4" opacity="0.5"/>
+
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Institute being taken away: building with arrow being pulled right -->
+  <rect x="248" y="168" width="304" height="220" fill="none" stroke="#1e40af" stroke-width="6"/>
+  <polygon points="178,168 622,168 400,78" fill="#1e40af" opacity="0.55"/>
+  <rect x="268" y="174" width="28" height="214" fill="#1e40af" opacity="0.3"/>
+  <rect x="368" y="174" width="28" height="214" fill="#1e40af" opacity="0.3"/>
+  <rect x="468" y="174" width="28" height="214" fill="#1e40af" opacity="0.3"/>
+  <rect x="568" y="174" width="28" height="214" fill="#1e40af" opacity="0.3"/>
+  <!-- Arrow pulling building to right (taken away) -->
+  <line x1="618" y1="268" x2="820" y2="268" stroke="#1d4ed8" stroke-width="8"/>
+  <polyline points="806,252 824,268 806,284" fill="none" stroke="#1d4ed8" stroke-width="7"/>
+  <!-- Building fading to right -->
+  <rect x="760" y="218" width="180" height="160" fill="none" stroke="#93c5fd" stroke-width="4" opacity="0.4" stroke-dasharray="10,7"/>
+  <polygon points="718,218 980,218 848,158" fill="#bfdbfe" opacity="0.3"/>
+
+</svg>

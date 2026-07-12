@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Calligraphy dots connecting to Mac screen -->
+  <!-- Calligraphy curves (left) -->
+  <path d="M 120 200 C 160 160 200 240 240 200 C 280 160 300 220 340 190"
+        fill="none" stroke="#1e40af" stroke-width="5" stroke-linecap="round"/>
+  <path d="M 120 260 C 160 300 210 240 250 270 C 290 300 320 250 360 270"
+        fill="none" stroke="#1e40af" stroke-width="5" stroke-linecap="round"/>
+  <!-- Dots being connected -->
+  <circle cx="120" cy="170" r="10" fill="#1d4ed8"/>
+  <circle cx="270" cy="148" r="10" fill="#1d4ed8"/>
+  <circle cx="400" cy="190" r="10" fill="#1d4ed8"/>
+  <circle cx="500" cy="150" r="10" fill="#1d4ed8"/>
+  <!-- Lines connecting dots to Mac -->
+  <line x1="270" y1="148" x2="420" y2="220" stroke="#93c5fd" stroke-width="4" stroke-dasharray="8,5" opacity="0.7"/>
+  <line x1="400" y1="190" x2="460" y2="235" stroke="#93c5fd" stroke-width="4" stroke-dasharray="8,5" opacity="0.7"/>
+  <!-- Mac screen -->
+  <rect x="480" y="148" width="380" height="248" rx="12" fill="none" stroke="#1e40af" stroke-width="7"/>
+  <rect x="498" y="165" width="344" height="196" rx="6" fill="#bfdbfe" opacity="0.5"/>
+  <rect x="590" y="396" width="160" height="16" rx="5" fill="#1e40af" opacity="0.5"/>
+  <!-- Font/typography on screen -->
+  <line x1="540" y1="218" x2="780" y2="218" stroke="#1e40af" stroke-width="5" opacity="0.6"/>
+  <line x1="540" y1="250" x2="720" y2="250" stroke="#1e40af" stroke-width="4" opacity="0.5"/>
+  <line x1="540" y1="280" x2="760" y2="280" stroke="#1e40af" stroke-width="4" opacity="0.4"/>
+
+</svg>

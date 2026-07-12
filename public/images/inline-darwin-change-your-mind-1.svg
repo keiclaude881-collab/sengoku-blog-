@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- Saying "I was wrong": person with speech bubble and correcting arrow -->
+  <circle cx="280" cy="200" r="38" fill="#7c3aed" opacity="0.75"/>
+  <rect x="244" y="238" width="72" height="100" rx="8" fill="#7c3aed" opacity="0.65"/>
+  <!-- Speech bubble (saying I was wrong) -->
+  <rect x="360" y="138" width="260" height="128" rx="18" fill="#ddd6fe" opacity="0.5"/>
+  <rect x="360" y="138" width="260" height="128" rx="18" fill="none" stroke="#7c3aed" stroke-width="5"/>
+  <!-- Bubble tail -->
+  <polygon points="358,218 328,248 388,238" fill="#ddd6fe" opacity="0.5"/>
+  <polygon points="358,218 328,248 388,238" fill="none" stroke="#7c3aed" stroke-width="2" opacity="0.5"/>
+  <!-- X (wrong) turning into check (corrected) inside bubble -->
+  <line x1="420" y1="175" x2="460" y2="225" stroke="#7c3aed" stroke-width="7" stroke-linecap="round" opacity="0.5"/>
+  <line x1="460" y1="175" x2="420" y2="225" stroke="#7c3aed" stroke-width="7" stroke-linecap="round" opacity="0.5"/>
+  <line x1="540" y1="212" x2="540" y2="212" stroke="#6b21a8" stroke-width="5"/>
+  <polyline points="510,215 530,240 582,178" fill="none" stroke="#6b21a8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Right-pointing arrow (correction) -->
+  <line x1="640" y1="200" x2="750" y2="200" stroke="#6b21a8" stroke-width="6"/>
+  <polyline points="737,187 753,200 737,213" fill="none" stroke="#6b21a8" stroke-width="5"/>
+
+</svg>

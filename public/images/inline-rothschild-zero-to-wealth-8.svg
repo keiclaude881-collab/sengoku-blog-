@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+  <defs>
+    <linearGradient id="g8" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fffbeb"/>
+      <stop offset="100%" style="stop-color:#fef3c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#g8)"/>
+  <circle cx="920" cy="60" r="120" fill="#fde68a" opacity="0.4"/>
+  <circle cx="80" cy="360" r="90" fill="#fbbf24" opacity="0.3"/>
+  
+  <!-- compressed spring on left -->
+  <rect x="230" y="180" width="200" height="20" rx="6" fill="#92400e" opacity="0.4"/>
+  <rect x="240" y="210" width="180" height="18" rx="6" fill="#92400e" opacity="0.35"/>
+  <rect x="250" y="238" width="160" height="18" rx="6" fill="#92400e" opacity="0.3"/>
+  <rect x="255" y="264" width="150" height="18" rx="6" fill="#92400e" opacity="0.25"/>
+  <!-- wall/constraint on left -->
+  <rect x="180" y="155" width="55" height="160" rx="5" fill="#d97706" opacity="0.5"/>
+  <!-- arrow of force pointing right -->
+  <line x1="430" y1="235" x2="630" y2="235" stroke="#d97706" stroke-width="8" opacity="0.6"/>
+  <polygon points="630,235 605,222 605,248" fill="#d97706" opacity="0.7"/>
+  <!-- star burst at end -->
+  <circle cx="720" cy="235" r="55" fill="#fbbf24" opacity="0.4"/>
+  <circle cx="720" cy="235" r="35" fill="#d97706" opacity="0.5"/>
+
+</svg>

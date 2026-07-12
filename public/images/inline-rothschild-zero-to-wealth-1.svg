@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#fde68a" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#fde68a" opacity="0.35"/>
+  
+  <rect x="352" y="98" width="296" height="262" fill="none" stroke="#d97706" stroke-width="7" rx="5"/>
+  <line x1="500" y1="98" x2="500" y2="360" stroke="#d97706" stroke-width="4" opacity="0.5"/>
+  <line x1="352" y1="178" x2="648" y2="178" stroke="#d97706" stroke-width="4"/>
+  <line x1="352" y1="278" x2="648" y2="278" stroke="#d97706" stroke-width="4"/>
+  <line x1="200" y1="368" x2="340" y2="368" stroke="#fbbf24" stroke-width="5"/>
+  <path d="M 340 368 C 380 368 380 58 500 58 C 620 58 620 368 660 368"
+        fill="none" stroke="#92400e" stroke-width="6" stroke-dasharray="12,6"/>
+  <line x1="660" y1="368" x2="820" y2="368" stroke="#92400e" stroke-width="6"/>
+  <polyline points="805,355 822,368 805,381" fill="none" stroke="#92400e" stroke-width="5"/>
+  <circle cx="860" cy="368" r="26" fill="#d97706" opacity="0.8"/>
+
+</svg>
