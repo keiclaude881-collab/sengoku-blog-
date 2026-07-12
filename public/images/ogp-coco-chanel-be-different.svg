@@ -1,46 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f0f7ff"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
       <stop offset="100%" stop-color="#dbeafe"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#bfdbfe" opacity="0.15"/>
+  <circle cx="1120" cy="550" r="190" fill="#bfdbfe" opacity="0.12"/>
 
-  <!-- Rows of identical, uniform dress silhouettes (the crowd of "sameness") -->
-  <g fill="#bfdbfe">
-    <g transform="translate(180,200)"><path d="M 0 0 C -22 0 -30 18 -28 40 L -34 130 L 34 130 L 28 40 C 30 18 22 0 0 0 Z"/><circle cx="0" cy="-16" r="16"/></g>
-    <g transform="translate(300,210)"><path d="M 0 0 C -22 0 -30 18 -28 40 L -34 130 L 34 130 L 28 40 C 30 18 22 0 0 0 Z"/><circle cx="0" cy="-16" r="16"/></g>
-    <g transform="translate(180,360)"><path d="M 0 0 C -22 0 -30 18 -28 40 L -34 130 L 34 130 L 28 40 C 30 18 22 0 0 0 Z"/><circle cx="0" cy="-16" r="16"/></g>
-    <g transform="translate(300,370)"><path d="M 0 0 C -22 0 -30 18 -28 40 L -34 130 L 34 130 L 28 40 C 30 18 22 0 0 0 Z"/><circle cx="0" cy="-16" r="16"/></g>
-    <g transform="translate(420,200)"><path d="M 0 0 C -22 0 -30 18 -28 40 L -34 130 L 34 130 L 28 40 C 30 18 22 0 0 0 Z"/><circle cx="0" cy="-16" r="16"/></g>
-    <g transform="translate(420,360)"><path d="M 0 0 C -22 0 -30 18 -28 40 L -34 130 L 34 130 L 28 40 C 30 18 22 0 0 0 Z"/><circle cx="0" cy="-16" r="16"/></g>
-  </g>
-
-  <!-- Constricting corset lines on the uniform silhouettes, hinting at the old restrictive norm -->
-  <g stroke="#93c5fd" stroke-width="2" opacity="0.7">
-    <line x1="150" y1="225" x2="210" y2="225"/>
-    <line x1="150" y1="245" x2="210" y2="245"/>
-    <line x1="270" y1="235" x2="330" y2="235"/>
-    <line x1="270" y1="255" x2="330" y2="255"/>
-  </g>
-
-  <!-- One bold, distinct, dark silhouette standing apart on the right: the "different" one -->
-  <g transform="translate(880,300)">
-    <!-- simple, fluid, looser silhouette (liberated form) -->
-    <circle cx="0" cy="-150" r="34" fill="#1e3a8a"/>
-    <path d="M -50 -100 C -60 -20 -50 90 -40 180 L -10 180 L -16 -20 L 16 -20 L 10 180 L 40 180 C 50 90 60 -20 50 -100 C 35 -130 -35 -130 -50 -100 Z" fill="#1e40af"/>
-  </g>
-
-  <!-- Soft spotlight glow behind the distinct figure -->
-  <circle cx="880" cy="270" r="220" fill="#3b82f6" opacity="0.12"/>
-  <circle cx="880" cy="270" r="150" fill="#3b82f6" opacity="0.10"/>
-
-  <!-- A simple pair of scissors silhouette near the figure, nodding to her craft of tailoring -->
-  <g transform="translate(1040,480) rotate(35)" fill="#1e40af" opacity="0.8">
-    <circle cx="-14" cy="0" r="11" fill="none" stroke="#1e40af" stroke-width="4"/>
-    <circle cx="14" cy="10" r="11" fill="none" stroke="#1e40af" stroke-width="4"/>
-    <line x1="-6" y1="-6" x2="60" y2="-60" stroke="#1e40af" stroke-width="5"/>
-    <line x1="6" y1="4" x2="60" y2="-30" stroke="#1e40af" stroke-width="5"/>
-  </g>
+  <!-- Large scissors (being different, cutting your own path) -->
+  <!-- blade 1 (upper-left to lower-right) -->
+  <ellipse cx="448" cy="448" rx="30" ry="30" fill="none" stroke="#3b82f6" stroke-width="14" opacity="0.82"/>
+  <line x1="470" y1="430" x2="840" y2="200" stroke="#3b82f6" stroke-width="14" stroke-linecap="round" opacity="0.82"/>
+  <!-- blade 2 (lower-left to upper-right) -->
+  <ellipse cx="448" cy="182" rx="30" ry="30" fill="none" stroke="#1e40af" stroke-width="14" opacity="0.82"/>
+  <line x1="470" y1="200" x2="840" y2="430" stroke="#1e40af" stroke-width="14" stroke-linecap="round" opacity="0.82"/>
+  <!-- pivot screw at crossing -->
+  <circle cx="640" cy="315" r="22" fill="#3b82f6" opacity="0.90"/>
+  <circle cx="640" cy="315" r="11" fill="#bfdbfe" opacity="0.85"/>
+  <!-- cutting line (dashed, going right) -->
+  <line x1="850" y1="315" x2="1050" y2="315" stroke="#60a5fa" stroke-width="6" stroke-dasharray="14,10" opacity="0.55"/>
 </svg>

@@ -1,56 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f0f7ff"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
       <stop offset="100%" stop-color="#dbeafe"/>
     </linearGradient>
-    <linearGradient id="sunGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#bfdbfe"/>
-      <stop offset="100%" stop-color="#3b82f6"/>
-    </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#bfdbfe" opacity="0.15"/>
+  <circle cx="1120" cy="550" r="190" fill="#bfdbfe" opacity="0.12"/>
 
-  <!-- Storm clouds on the left, calm sunrise on the right: adversity giving way to triumph -->
-  <g fill="#93c5fd" opacity="0.6">
-    <ellipse cx="220" cy="160" rx="120" ry="55"/>
-    <ellipse cx="320" cy="140" rx="90" ry="48"/>
-    <ellipse cx="130" cy="190" rx="80" ry="40"/>
-  </g>
-  <g stroke="#1e40af" stroke-width="4" opacity="0.5" stroke-linecap="round">
-    <line x1="180" y1="230" x2="160" y2="270"/>
-    <line x1="240" y1="235" x2="220" y2="280"/>
-    <line x1="300" y1="230" x2="285" y2="270"/>
-  </g>
-
-  <!-- Rising sun on the right -->
-  <circle cx="990" cy="430" r="110" fill="url(#sunGrad)" opacity="0.85"/>
-  <path d="M 880 430 A 110 110 0 0 0 1100 430 Z" fill="#dbeafe" opacity="0.0"/>
-  <rect x="860" y="430" width="260" height="200" fill="#dbeafe"/>
-  <g stroke="#1e40af" stroke-width="4" opacity="0.5">
-    <line x1="990" y1="290" x2="990" y2="260"/>
-    <line x1="1080" y1="320" x2="1100" y2="300"/>
-    <line x1="1120" y1="400" x2="1145" y2="395"/>
-  </g>
-
-  <!-- A line graph rising from a dip on the left up through to a peak on the right, crossing the cloud-to-sun divide -->
-  <path d="M 130 360
-           C 220 420 300 470 400 460
-           C 480 452 520 410 460 380
-           C 410 355 340 400 380 440
-           C 460 510 620 520 720 470
-           C 850 405 880 300 990 230"
-        fill="none" stroke="#1e3a8a" stroke-width="8" stroke-linecap="round"/>
-
-  <!-- Dip markers along the way (failures) -->
-  <circle cx="400" cy="460" r="9" fill="#3b82f6"/>
-  <circle cx="460" cy="380" r="9" fill="#3b82f6"/>
-  <circle cx="720" cy="470" r="9" fill="#3b82f6"/>
-
-  <!-- Peak marker (the eventual triumph) -->
-  <circle cx="990" cy="230" r="16" fill="#1e3a8a" stroke="#bfdbfe" stroke-width="4"/>
-
-  <!-- Simple flag at the peak -->
-  <line x1="990" y1="230" x2="990" y2="150" stroke="#1e3a8a" stroke-width="5"/>
-  <path d="M 990 150 L 1050 168 L 990 186 Z" fill="#3b82f6"/>
+  <!-- V for Victory sign -->
+  <!-- left finger -->
+  <path d="M 500,510 L 490,260 Q 488,220 510,210 Q 532,200 538,240 L 545,380" fill="#3b82f6" opacity="0.82"/>
+  <!-- index finger -->
+  <path d="M 545,380 L 555,180 Q 555,140 578,135 Q 602,130 606,170 L 610,360" fill="#3b82f6" opacity="0.82"/>
+  <!-- middle segment joining -->
+  <path d="M 610,360 L 618,200 Q 620,160 644,158 Q 668,156 670,196 L 672,360" fill="#3b82f6" opacity="0.82"/>
+  <!-- palm -->
+  <path d="M 490,510 Q 490,540 530,548 Q 580,555 660,548 Q 700,542 700,510 L 672,360 L 610,360 L 545,380 L 500,510 Z" fill="#3b82f6" opacity="0.78"/>
+  <!-- glow -->
+  <ellipse cx="590" cy="290" rx="130" ry="220" fill="#dbeafe" opacity="0.20"/>
 </svg>

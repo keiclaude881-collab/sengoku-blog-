@@ -1,59 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad4" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f0f7ff"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
       <stop offset="100%" stop-color="#dbeafe"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bgGrad4)"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#bfdbfe" opacity="0.15"/>
+  <circle cx="1120" cy="550" r="190" fill="#bfdbfe" opacity="0.12"/>
 
-  <!-- large army (many small triangles, right side) vs small focused force (left) -->
-  <g opacity="0.55" fill="#93c5fd">
-    <path d="M 760 470 L 780 420 L 800 470 Z"/>
-    <path d="M 800 470 L 820 420 L 840 470 Z"/>
-    <path d="M 840 470 L 860 420 L 880 470 Z"/>
-    <path d="M 880 470 L 900 420 L 920 470 Z"/>
-    <path d="M 920 470 L 940 420 L 960 470 Z"/>
-    <path d="M 960 470 L 980 420 L 1000 470 Z"/>
-    <path d="M 1000 470 L 1020 420 L 1040 470 Z"/>
-    <path d="M 1040 470 L 1060 420 L 1080 470 Z"/>
-    <path d="M 780 510 L 800 460 L 820 510 Z"/>
-    <path d="M 820 510 L 840 460 L 860 510 Z"/>
-    <path d="M 860 510 L 880 460 L 900 510 Z"/>
-    <path d="M 900 510 L 920 460 L 940 510 Z"/>
-    <path d="M 940 510 L 960 460 L 980 510 Z"/>
-    <path d="M 980 510 L 1000 460 L 1020 510 Z"/>
-    <path d="M 1020 510 L 1040 460 L 1060 510 Z"/>
-    <path d="M 840 550 L 860 500 L 880 550 Z"/>
-    <path d="M 880 550 L 900 500 L 920 550 Z"/>
-    <path d="M 920 550 L 940 500 L 960 550 Z"/>
-    <path d="M 960 550 L 980 500 L 1000 550 Z"/>
-  </g>
-
-  <!-- single focused spear / point breaking through, from left -->
-  <g transform="translate(330,430)">
-    <path d="M -260 60 L 220 -10 L 240 0 L 220 10 L -260 80 Z" fill="#1e3a8a"/>
-    <path d="M 220 -10 L 300 0 L 220 10 Z" fill="#1e40af"/>
-    <circle cx="-260" cy="70" r="34" fill="#3b82f6"/>
-    <circle cx="-200" cy="55" r="22" fill="#3b82f6" opacity="0.85"/>
-    <circle cx="-150" cy="42" r="16" fill="#3b82f6" opacity="0.7"/>
-  </g>
-
-  <!-- impact burst where the point meets the mass -->
-  <g transform="translate(640,415)" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round" opacity="0.8">
-    <path d="M 0 0 L 30 -30"/>
-    <path d="M 0 0 L 40 0"/>
-    <path d="M 0 0 L 30 30"/>
-    <path d="M 0 0 L -10 -40"/>
-    <path d="M 0 0 L -10 40"/>
-  </g>
-
-  <!-- compass motif top-left, choosing direction -->
-  <g transform="translate(190,150)">
-    <circle r="80" fill="none" stroke="#1e40af" stroke-width="4" opacity="0.7"/>
-    <circle r="56" fill="#bfdbfe" opacity="0.6"/>
-    <path d="M 0 -60 L 14 0 L 0 60 L -14 0 Z" fill="#1e3a8a"/>
-    <path d="M -60 0 L 0 12 L 60 0 L 0 -12 Z" fill="#3b82f6" opacity="0.7"/>
-    <circle r="8" fill="#1e3a8a"/>
+  <!-- Small triangle vs large mountain (underdog strategy) -->
+  <!-- large mountain (giant / Tokugawa) -->
+  <polygon points="750,500 1100,500 925,140" fill="#1e40af" opacity="0.50"/>
+  <polygon points="780,500 1070,500 925,190" fill="#3b82f6" opacity="0.30"/>
+  <!-- small hero triangle (Sanada / underdog) -->
+  <polygon points="280,480 420,480 350,300" fill="#1e40af" opacity="0.85"/>
+  <!-- bold arrow from small to large (attacking upward) -->
+  <path d="M 420,390 Q 580,300 720,310" fill="none" stroke="#60a5fa" stroke-width="10" opacity="0.75"/>
+  <polygon points="732,310 698,292 698,328" fill="#60a5fa" opacity="0.80"/>
+  <!-- local concentration lines (局所的優位) -->
+  <g stroke="#bfdbfe" stroke-width="5" opacity="0.40">
+    <line x1="340" y1="390" x2="280" y2="430"/>
+    <line x1="340" y1="390" x2="380" y2="440"/>
   </g>
 </svg>

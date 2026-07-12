@@ -1,60 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f0f7ff"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
       <stop offset="100%" stop-color="#dbeafe"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#bfdbfe" opacity="0.15"/>
+  <circle cx="1120" cy="550" r="190" fill="#bfdbfe" opacity="0.12"/>
 
-  <!-- many arrows approaching from left (enemy forces) -->
-  <g stroke="#93c5fd" stroke-width="6" stroke-linecap="round" opacity="0.6">
-    <line x1="80" y1="200" x2="380" y2="270"/>
-    <line x1="80" y1="280" x2="380" y2="310"/>
-    <line x1="80" y1="360" x2="380" y2="350"/>
-    <line x1="80" y1="440" x2="380" y2="390"/>
-    <line x1="80" y1="520" x2="380" y2="430"/>
-  </g>
-  <g fill="#93c5fd" opacity="0.6">
-    <polygon points="380,270 342,252 348,278"/>
-    <polygon points="380,310 342,292 348,318"/>
-    <polygon points="380,350 342,332 348,358"/>
-    <polygon points="380,390 342,372 348,398"/>
-    <polygon points="380,430 342,412 348,438"/>
-  </g>
-
-  <!-- reversal formation: arrows turning and striking back -->
-  <g stroke="#1e40af" stroke-width="10" stroke-linecap="round" opacity="0.85">
-    <!-- main reversal arrows fanning out from center to right -->
-    <line x1="500" y1="315" x2="900" y2="180"/>
-    <line x1="500" y1="315" x2="900" y2="270"/>
-    <line x1="500" y1="315" x2="900" y2="360"/>
-    <line x1="500" y1="315" x2="900" y2="450"/>
-    <line x1="500" y1="315" x2="760" y2="130"/>
-    <line x1="500" y1="315" x2="760" y2="500"/>
-  </g>
-  <g fill="#1e40af" opacity="0.85">
-    <polygon points="900,180 858,172 866,200"/>
-    <polygon points="900,270 858,260 862,290"/>
-    <polygon points="900,360 858,348 862,378"/>
-    <polygon points="900,450 858,440 862,470"/>
-    <polygon points="760,130 726,134 740,160"/>
-    <polygon points="760,500 730,492 738,520"/>
-  </g>
-
-  <!-- command figure at center pivot point -->
-  <g transform="translate(500,315)">
-    <circle cx="0" cy="-32" r="24" fill="#1e40af"/>
-    <path d="M -32 80 C -32 10 -22 -8 0 -8 C 22 -8 32 10 32 80 Z" fill="#1e40af"/>
-    <!-- sword upward -->
-    <line x1="0" y1="-8" x2="0" y2="-100" stroke="#93c5fd" stroke-width="6" stroke-linecap="round"/>
-    <polygon points="0,-100 -8,-80 8,-80" fill="#93c5fd"/>
-  </g>
-
-  <!-- arc showing the reversal sweep -->
-  <path d="M 380 270 C 420 290 460 305 500 315 C 540 325 560 330 580 340" fill="none" stroke="#2563eb" stroke-width="4" stroke-dasharray="10 6" opacity="0.5"/>
-
-  <!-- decorative background -->
-  <circle cx="1050" cy="150" r="80" fill="none" stroke="#bfdbfe" stroke-width="2" opacity="0.5"/>
-  <circle cx="150" cy="530" r="60" fill="none" stroke="#bfdbfe" stroke-width="2" opacity="0.4"/>
+  <!-- Bold U-turn / reversal arrow -->
+  <!-- first direction (going right, then reversing) -->
+  <path d="M 200,315 L 600,315 Q 760,315 760,220 Q 760,120 600,120 L 200,120"
+        fill="none" stroke="#3b82f6" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" opacity="0.80"/>
+  <!-- arrowhead at reversal end (pointing left on the top path) -->
+  <polygon points="200,120 240,98 240,142" fill="#3b82f6" opacity="0.85"/>
+  <!-- starting arrow (going right) -->
+  <polygon points="600,337 562,313 600,290" fill="none"/>
+  <!-- starting point circle -->
+  <circle cx="200" cy="315" r="22" fill="#1e40af" opacity="0.70"/>
+  <!-- reversal indicator dot -->
+  <circle cx="760" cy="220" r="30" fill="#60a5fa" opacity="0.40"/>
+  <!-- "before" faint arrow (direction before reversal) -->
+  <path d="M 200,400 L 860,400" fill="none" stroke="#bfdbfe" stroke-width="8" stroke-dasharray="16,10" opacity="0.40"/>
+  <polygon points="875,400 843,384 843,416" fill="#bfdbfe" opacity="0.40"/>
 </svg>

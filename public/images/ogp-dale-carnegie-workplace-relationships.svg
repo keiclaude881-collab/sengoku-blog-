@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgG" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgG)"/>
+  <circle cx="120" cy="540" r="80" fill="#ddd6fe" opacity="0.45"/>
+  <circle cx="1080" cy="100" r="60" fill="#ddd6fe" opacity="0.45"/>
+  
+  <!-- Interconnected people/nodes representing relationships -->
+  <!-- Central person -->
+  <circle cx="600" cy="315" r="44" fill="none" stroke="#7c3aed" stroke-width="7"/>
+  <circle cx="600" cy="268" r="22" fill="#7c3aed"/>
+  <path d="M 557 360 Q 557 330 600 330 Q 643 330 643 360" fill="#7c3aed"/>
+  
+  <!-- Left person -->
+  <circle cx="340" cy="230" r="32" fill="none" stroke="#7c3aed" stroke-width="5" opacity="0.7"/>
+  <circle cx="340" cy="198" r="16" fill="#7c3aed" opacity="0.7"/>
+  <path d="M 318 262 Q 318 242 340 242 Q 362 242 362 262" fill="#7c3aed" opacity="0.7"/>
+
+  <!-- Right person -->
+  <circle cx="860" cy="230" r="32" fill="none" stroke="#7c3aed" stroke-width="5" opacity="0.7"/>
+  <circle cx="860" cy="198" r="16" fill="#7c3aed" opacity="0.7"/>
+  <path d="M 838 262 Q 838 242 860 242 Q 882 242 882 262" fill="#7c3aed" opacity="0.7"/>
+
+  <!-- Bottom-left person -->
+  <circle cx="370" cy="440" r="28" fill="none" stroke="#9333ea" stroke-width="4" opacity="0.6"/>
+  <circle cx="370" cy="413" r="14" fill="#9333ea" opacity="0.6"/>
+  <path d="M 351 466 Q 351 449 370 449 Q 389 449 389 466" fill="#9333ea" opacity="0.6"/>
+
+  <!-- Bottom-right person -->
+  <circle cx="830" cy="440" r="28" fill="none" stroke="#9333ea" stroke-width="4" opacity="0.6"/>
+  <circle cx="830" cy="413" r="14" fill="#9333ea" opacity="0.6"/>
+  <path d="M 811 466 Q 811 449 830 449 Q 849 449 849 466" fill="#9333ea" opacity="0.6"/>
+
+  <!-- Connection lines (spider web of connections) -->
+  <line x1="600" y1="315" x2="340" y2="230" stroke="#7c3aed" stroke-width="3" opacity="0.4"/>
+  <line x1="600" y1="315" x2="860" y2="230" stroke="#7c3aed" stroke-width="3" opacity="0.4"/>
+  <line x1="600" y1="315" x2="370" y2="440" stroke="#7c3aed" stroke-width="3" opacity="0.4"/>
+  <line x1="600" y1="315" x2="830" y2="440" stroke="#7c3aed" stroke-width="3" opacity="0.4"/>
+  <line x1="340" y1="230" x2="370" y2="440" stroke="#9333ea" stroke-width="2" opacity="0.3"/>
+  <line x1="860" y1="230" x2="830" y2="440" stroke="#9333ea" stroke-width="2" opacity="0.3"/>
+  <line x1="340" y1="230" x2="860" y2="230" stroke="#9333ea" stroke-width="2" opacity="0.3"/>
+  <line x1="370" y1="440" x2="830" y2="440" stroke="#9333ea" stroke-width="2" opacity="0.25"/>
+  
+  <!-- Handshake at center -->
+  <path d="M 560 320 C 570 308 585 305 600 310 C 615 305 630 308 640 320" 
+        fill="none" stroke="#6b21a8" stroke-width="6" stroke-linecap="round"/>
+
+</svg>

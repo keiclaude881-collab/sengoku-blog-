@@ -1,56 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f0f7ff"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
       <stop offset="100%" stop-color="#dbeafe"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#bfdbfe" opacity="0.15"/>
+  <circle cx="1120" cy="550" r="190" fill="#bfdbfe" opacity="0.12"/>
 
-  <!-- Nile river ribbon flowing through the scene -->
-  <path d="M -50 500 C 250 460 350 560 650 520 C 900 488 1000 540 1250 500 L 1250 600 C 1000 640 900 590 650 620 C 350 660 250 580 -50 600 Z" fill="#93c5fd" opacity="0.4"/>
-
-  <!-- A queen silhouette with crown at the center -->
-  <g transform="translate(600,330)">
-    <circle cx="0" cy="-90" r="38" fill="#1e3a8a"/>
-    <!-- crown -->
-    <path d="M -30 -132 L -18 -160 L -6 -136 L 0 -166 L 6 -136 L 18 -160 L 30 -132 Z" fill="#3b82f6"/>
-    <path d="M -34 -118 C -34 -50 -22 0 0 0 C 22 0 34 -50 34 -118 Z" fill="#1e40af"/>
-  </g>
-
-  <!-- Speech bubbles in many different abstract shapes radiating outward, representing 9 languages, no text, just varied bubble forms -->
-  <g fill="#3b82f6" opacity="0.85">
-    <ellipse cx="360" cy="180" rx="60" ry="40"/>
-    <polygon points="360,210 340,240 380,225"/>
-  </g>
-  <g fill="#60a5fa" opacity="0.85">
-    <rect x="800" y="140" width="120" height="70" rx="20"/>
-    <polygon points="830,205 815,235 850,212"/>
-  </g>
-  <g fill="#1e40af" opacity="0.85">
-    <ellipse cx="930" cy="330" rx="55" ry="55"/>
-    <polygon points="900,370 885,400 920,378"/>
-  </g>
-  <g fill="#93c5fd" opacity="0.9">
-    <path d="M 260 380 q 60 -40 120 0 q 0 50 -60 50 q -60 0 -60 -50 Z"/>
-    <polygon points="300,425 285,455 325,432"/>
-  </g>
-  <g fill="#bfdbfe" opacity="0.95">
-    <rect x="820" y="420" width="100" height="60" rx="30"/>
-    <polygon points="850,478 838,505 870,482"/>
-  </g>
-  <g fill="#3b82f6" opacity="0.6">
-    <ellipse cx="450" cy="120" rx="44" ry="30"/>
-    <polygon points="440,148 428,170 460,152"/>
-  </g>
-
-  <!-- Connecting lines from the queen to each bubble, like a hub of voices -->
-  <g stroke="#1e40af" stroke-width="2" opacity="0.35" fill="none">
-    <line x1="600" y1="280" x2="380" y2="200"/>
-    <line x1="600" y1="280" x2="840" y2="170"/>
-    <line x1="600" y1="280" x2="900" y2="330"/>
-    <line x1="600" y1="280" x2="320" y2="400"/>
-    <line x1="600" y1="280" x2="850" y2="440"/>
-    <line x1="600" y1="280" x2="460" y2="140"/>
-  </g>
+  <!-- Eye of Horus (Egyptian eye) -->
+  <!-- outer almond eye shape -->
+  <path d="M 270,315 Q 430,220 600,315 Q 430,410 270,315 Z" fill="#1e40af" opacity="0.75"/>
+  <path d="M 270,315 Q 430,220 600,315 Q 430,410 270,315 Z" fill="none" stroke="#3b82f6" stroke-width="8" opacity="0.60"/>
+  <!-- right extension lines -->
+  <path d="M 600,315 Q 750,240 930,315" fill="none" stroke="#3b82f6" stroke-width="8" stroke-linecap="round" opacity="0.65"/>
+  <path d="M 600,315 Q 750,390 930,315" fill="none" stroke="#1e40af" stroke-width="6" stroke-linecap="round" opacity="0.55"/>
+  <!-- iris -->
+  <circle cx="435" cy="315" r="65" fill="#1e40af" opacity="0.85"/>
+  <circle cx="435" cy="315" r="38" fill="#3b82f6" opacity="0.70"/>
+  <circle cx="435" cy="315" r="16" fill="#bfdbfe" opacity="0.90"/>
+  <!-- lower tear drop -->
+  <path d="M 435,380 Q 390,440 400,480 Q 435,510 470,480 Q 480,440 435,380 Z" fill="#3b82f6" opacity="0.55"/>
+  <!-- highlight dot on iris -->
+  <circle cx="450" cy="302" r="10" fill="#ffffff" opacity="0.40"/>
 </svg>

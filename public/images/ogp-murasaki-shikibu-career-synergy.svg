@@ -1,41 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f0f7ff"/>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#bfdbfe" opacity="0.15"/>
+  <circle cx="1120" cy="550" r="190" fill="#bfdbfe" opacity="0.12"/>
 
-  <!-- two overlapping circles symbolizing synergy between work and lifework -->
-  <circle cx="500" cy="315" r="200" fill="#bfdbfe" opacity="0.55"/>
-  <circle cx="740" cy="315" r="200" fill="#93c5fd" opacity="0.55"/>
-
-  <!-- left circle content: scroll / writing -->
-  <g transform="translate(440,315)">
-    <path d="M -90 -40 L 70 -40 Q 90 -40 90 -20 L 90 40 Q 90 60 70 60 L -90 60 Q -70 60 -70 40 L -70 -20 Q -70 -40 -90 -40 Z" fill="#f0f7ff" stroke="#1e40af" stroke-width="4" stroke-linejoin="round"/>
-    <circle cx="-90" cy="10" r="20" fill="#dbeafe" stroke="#1e40af" stroke-width="4"/>
-    <circle cx="90" cy="10" r="20" fill="#dbeafe" stroke="#1e40af" stroke-width="4"/>
-    <line x1="-50" y1="-12" x2="50" y2="-12" stroke="#3b82f6" stroke-width="5" stroke-linecap="round"/>
-    <line x1="-50" y1="6" x2="50" y2="6" stroke="#3b82f6" stroke-width="5" stroke-linecap="round"/>
-    <line x1="-50" y1="24" x2="30" y2="24" stroke="#3b82f6" stroke-width="5" stroke-linecap="round"/>
+  <!-- Open scroll/book (Genji Monogatari - world oldest novel) -->
+  <!-- scroll body -->
+  <rect x="320" y="180" width="560" height="280" rx="8" fill="#dbeafe" opacity="0.75"/>
+  <!-- top roller -->
+  <ellipse cx="600" cy="180" rx="280" ry="28" fill="#3b82f6" opacity="0.82"/>
+  <!-- bottom roller -->
+  <ellipse cx="600" cy="460" rx="280" ry="28" fill="#3b82f6" opacity="0.82"/>
+  <!-- writing lines on scroll -->
+  <g stroke="#1e40af" stroke-width="2.5" opacity="0.30">
+    <!-- vertical lines (traditional Japanese writing) -->
+    <line x1="740" y1="210" x2="740" y2="450"/>
+    <line x1="700" y1="210" x2="700" y2="450"/>
+    <line x1="660" y1="210" x2="660" y2="450"/>
+    <line x1="620" y1="210" x2="620" y2="450"/>
+    <line x1="580" y1="210" x2="580" y2="450"/>
+    <line x1="540" y1="210" x2="540" y2="450"/>
+    <line x1="500" y1="210" x2="500" y2="450"/>
+    <line x1="460" y1="210" x2="460" y2="450"/>
+    <line x1="420" y1="210" x2="420" y2="450"/>
+    <line x1="380" y1="210" x2="380" y2="450"/>
   </g>
-
-  <!-- right circle content: court building / work -->
-  <g transform="translate(800,315)">
-    <path d="M -90 60 L -90 -10 L 0 -60 L 90 -10 L 90 60 Z" fill="#f0f7ff" stroke="#1e3a8a" stroke-width="4" stroke-linejoin="round"/>
-    <line x1="-100" y1="60" x2="100" y2="60" stroke="#1e3a8a" stroke-width="5" stroke-linecap="round"/>
-    <rect x="-22" y="0" width="44" height="60" fill="#dbeafe" stroke="#1e3a8a" stroke-width="3"/>
-    <line x1="-60" y1="10" x2="-60" y2="55" stroke="#1e3a8a" stroke-width="4"/>
-    <line x1="60" y1="10" x2="60" y2="55" stroke="#1e3a8a" stroke-width="4"/>
+  <!-- decorative brush stroke (calligraphy) -->
+  <path d="M 760,230 Q 740,300 745,380 Q 748,420 750,445" fill="none" stroke="#3b82f6" stroke-width="8" stroke-linecap="round" opacity="0.55"/>
+  <!-- cherry blossom accent (平安時代) -->
+  <g fill="#60a5fa" opacity="0.40">
+    <circle cx="900" cy="250" r="18"/>
+    <circle cx="925" cy="235" r="14"/>
+    <circle cx="875" cy="235" r="14"/>
+    <circle cx="930" cy="265" r="14"/>
+    <circle cx="870" cy="265" r="14"/>
+    <circle cx="900" cy="250" r="8" fill="#bfdbfe" opacity="0.70"/>
   </g>
-
-  <!-- connecting arrows in overlap zone showing bidirectional flow -->
-  <g transform="translate(620,315)">
-    <path d="M -35 -30 Q 0 -55 35 -30" fill="none" stroke="#1e40af" stroke-width="4" stroke-linecap="round"/>
-    <path d="M 35 -30 L 20 -38 M 35 -30 L 28 -14" stroke="#1e40af" stroke-width="4" fill="none" stroke-linecap="round"/>
-    <path d="M 35 30 Q 0 55 -35 30" fill="none" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round"/>
-    <path d="M -35 30 L -20 38 M -35 30 L -28 14" stroke="#1e3a8a" stroke-width="4" fill="none" stroke-linecap="round"/>
-  </g>
-
-  <!-- soft glow particles -->
-  <circle cx="240" cy="180" r="6" fill="#93c5fd" opacity="0.6"/>
-  <circle cx="280" cy="450" r="5" fill="#93c5fd" opacity="0.5"/>
-  <circle cx="960" cy="180" r="6" fill="#93c5fd" opacity="0.6"/>
-  <circle cx="980" cy="460" r="5" fill="#93c5fd" opacity="0.5"/>
-  <circle cx="600" cy="100" r="5" fill="#bfdbfe" opacity="0.7"/>
 </svg>

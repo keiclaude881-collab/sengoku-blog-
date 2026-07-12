@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgG" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgG)"/>
+  <circle cx="120" cy="540" r="80" fill="#bfdbfe" opacity="0.45"/>
+  <circle cx="1080" cy="100" r="60" fill="#bfdbfe" opacity="0.45"/>
+  
+  <!-- Fork in road (two diverging paths) -->
+  <!-- Main road coming from bottom -->
+  <path d="M 600 530 L 600 340" stroke="#93c5fd" stroke-width="40" stroke-linecap="round" opacity="0.5"/>
+  <!-- Left fork -->
+  <path d="M 600 340 C 580 290 490 230 380 180" stroke="#3b82f6" stroke-width="14" stroke-linecap="round" fill="none" opacity="0.7"/>
+  <!-- Right fork (highlighted - the chosen path) -->
+  <path d="M 600 340 C 620 290 710 230 820 180" stroke="#1e40af" stroke-width="14" stroke-linecap="round" fill="none"/>
+  
+  <!-- Arrow on right fork (the decision) -->
+  <polygon points="820,180 800,205 840,205" fill="#1e40af" transform="rotate(-45,820,180)"/>
+  
+  <!-- Compass rose in center -->
+  <circle cx="600" cy="340" r="52" fill="white" opacity="0.85"/>
+  <circle cx="600" cy="340" r="52" fill="none" stroke="#1e40af" stroke-width="5"/>
+  <!-- Compass needle -->
+  <polygon points="600,297 590,340 600,320 610,340" fill="#1e40af"/>
+  <polygon points="600,383 590,340 600,360 610,340" fill="#93c5fd"/>
+  <!-- Cardinal marks -->
+  <line x1="600" y1="295" x2="600" y2="305" stroke="#1e40af" stroke-width="3"/>
+  <line x1="600" y1="375" x2="600" y2="385" stroke="#1e40af" stroke-width="3"/>
+  <line x1="549" y1="340" x2="559" y2="340" stroke="#1e40af" stroke-width="3"/>
+  <line x1="641" y1="340" x2="651" y2="340" stroke="#1e40af" stroke-width="3"/>
+
+</svg>
