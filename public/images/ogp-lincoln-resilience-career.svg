@@ -1,46 +1,45 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="lrBg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f0f7ff"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
       <stop offset="100%" stop-color="#dbeafe"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#lrBg)"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#bfdbfe" opacity="0.15"/>
+  <circle cx="1120" cy="550" r="190" fill="#bfdbfe" opacity="0.12"/>
 
-  <!-- faint horizon grid lines -->
-  <line x1="0" y1="180" x2="1200" y2="180" stroke="#bfdbfe" stroke-width="1.5" opacity="0.5"/>
-  <line x1="0" y1="320" x2="1200" y2="320" stroke="#bfdbfe" stroke-width="1.5" opacity="0.5"/>
-  <line x1="0" y1="460" x2="1200" y2="460" stroke="#bfdbfe" stroke-width="1.5" opacity="0.5"/>
-
-  <!-- a jagged path representing repeated falls and rises, ultimately climbing to a peak -->
-  <path d="M 60 300 C 130 360, 170 430, 230 470 C 290 510, 330 440, 380 480
-           C 430 520, 470 460, 520 500 C 570 540, 610 470, 660 440
-           C 710 410, 740 480, 790 450 C 840 420, 860 350, 920 300
-           C 980 250, 1010 180, 1080 110"
-        fill="none" stroke="#1e40af" stroke-width="9" stroke-linecap="round"/>
-
-  <!-- shaded area under the rising final stretch -->
-  <path d="M 920 300 C 980 250, 1010 180, 1080 110 L 1080 470 L 920 470 Z" fill="#3b82f6" opacity="0.12"/>
-
-  <!-- fall points marked as small dots along the dips -->
-  <circle cx="230" cy="470" r="10" fill="#1e40af"/>
-  <circle cx="380" cy="480" r="10" fill="#1e40af"/>
-  <circle cx="520" cy="500" r="10" fill="#1e40af"/>
-  <circle cx="660" cy="440" r="10" fill="#1e40af"/>
-  <circle cx="790" cy="450" r="10" fill="#1e40af"/>
-
-  <!-- final peak marked with a radiant star, the eventual triumph -->
-  <g transform="translate(1080,110)">
-    <circle r="46" fill="#bfdbfe" opacity="0.6"/>
-    <polygon points="0,-30 9,-9 32,-9 13,5 20,28 0,14 -20,28 -13,5 -32,-9 -9,-9"
-             fill="#1e3a8a"/>
+  <!-- Log cabin → Capitol dome (rise from humble origins) -->
+  <!-- Log cabin (left) -->
+  <!-- cabin body -->
+  <rect x="160" y="340" width="200" height="140" rx="4" fill="#3b82f6" opacity="0.65"/>
+  <!-- cabin roof -->
+  <polygon points="150,340 360,340 255,240" fill="#1e40af" opacity="0.72"/>
+  <!-- cabin door -->
+  <rect x="230" y="400" width="50" height="80" rx="4" fill="#bfdbfe" opacity="0.70"/>
+  <!-- log lines on cabin -->
+  <g stroke="#bfdbfe" stroke-width="4" opacity="0.40">
+    <line x1="160" y1="365" x2="360" y2="365"/>
+    <line x1="160" y1="390" x2="360" y2="390"/>
+    <line x1="160" y1="415" x2="360" y2="415"/>
+    <line x1="160" y1="440" x2="360" y2="440"/>
   </g>
-
-  <!-- small capitol-dome silhouette near the peak, hinting at the presidency -->
-  <g transform="translate(1080,470)" opacity="0.5">
-    <rect x="-70" y="0" width="140" height="60" fill="#1e40af"/>
-    <rect x="-90" y="60" width="180" height="16" fill="#1e3a8a"/>
-    <circle cx="0" cy="-30" r="34" fill="#1e40af"/>
-    <rect x="-6" y="-78" width="12" height="40" fill="#1e3a8a"/>
+  <!-- rising path arrow -->
+  <path d="M 360,420 Q 600,300 840,300" fill="none" stroke="#60a5fa" stroke-width="10" stroke-dasharray="18,10" opacity="0.60"/>
+  <polygon points="855,300 822,283 822,317" fill="#60a5fa" opacity="0.70"/>
+  <!-- Capitol dome (right) -->
+  <rect x="840" y="350" width="180" height="130" rx="4" fill="#3b82f6" opacity="0.70"/>
+  <!-- dome -->
+  <ellipse cx="930" cy="355" rx="90" ry="75" fill="#1e40af" opacity="0.75"/>
+  <!-- drum of dome -->
+  <rect x="880" y="330" width="100" height="30" rx="4" fill="#3b82f6" opacity="0.75"/>
+  <!-- lantern on top -->
+  <rect x="922" y="282" width="16" height="55" rx="3" fill="#1e40af" opacity="0.80"/>
+  <!-- columns on capitol -->
+  <g fill="#bfdbfe" opacity="0.50">
+    <rect x="858" y="350" width="12" height="130"/>
+    <rect x="878" y="350" width="12" height="130"/>
+    <rect x="980" y="350" width="12" height="130"/>
+    <rect x="1000" y="350" width="12" height="130"/>
   </g>
 </svg>

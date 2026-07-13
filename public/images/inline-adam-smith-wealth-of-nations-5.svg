@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#fde68a" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#fde68a" opacity="0.35"/>
+  
+  <circle cx="500" cy="200" r="65" fill="#d97706" opacity="0.85"/>
+  <circle cx="500" cy="200" r="52" fill="#fffbeb"/>
+  <line x1="500" y1="235" x2="500" y2="172" stroke="#92400e" stroke-width="7" stroke-linecap="round"/>
+  <line x1="476" y1="206" x2="524" y2="206" stroke="#92400e" stroke-width="5" stroke-linecap="round"/>
+  <line x1="476" y1="190" x2="524" y2="190" stroke="#92400e" stroke-width="5" stroke-linecap="round"/>
+  <line x1="478" y1="170" x2="500" y2="196" stroke="#92400e" stroke-width="7" stroke-linecap="round"/>
+  <line x1="522" y1="170" x2="500" y2="196" stroke="#92400e" stroke-width="7" stroke-linecap="round"/>
+  <path d="M 180 100 L 440 170" stroke="#fbbf24" stroke-width="5" stroke-linecap="round"/>
+  <polyline points="428,158 445,172 426,180" fill="none" stroke="#fbbf24" stroke-width="4"/>
+  <path d="M 120 240 L 430 215" stroke="#fbbf24" stroke-width="5" stroke-linecap="round"/>
+  <polyline points="418,204 435,215 418,228" fill="none" stroke="#fbbf24" stroke-width="4"/>
+  <path d="M 160 345 L 438 248" stroke="#fbbf24" stroke-width="5" stroke-linecap="round"/>
+  <path d="M 820 100 L 560 170" stroke="#fbbf24" stroke-width="5" stroke-linecap="round"/>
+  <path d="M 880 240 L 570 215" stroke="#fbbf24" stroke-width="5" stroke-linecap="round"/>
+  <path d="M 840 345 L 562 248" stroke="#fbbf24" stroke-width="5" stroke-linecap="round"/>
+
+</svg>

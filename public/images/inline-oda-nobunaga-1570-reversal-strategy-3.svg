@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Five reversal strategies: 5 directional arrows breaking through walls -->
+  <!-- Wall in center -->
+  <rect x="440" y="80" width="120" height="300" rx="5" fill="#bfdbfe" opacity="0.5"/>
+  <!-- Breaking arrows (5 directions) -->
+  <line x1="150" y1="210" x2="438" y2="210" stroke="#1d4ed8" stroke-width="7"/>
+  <polyline points="424,197 440,210 424,223" fill="none" stroke="#1d4ed8" stroke-width="6"/>
+  <line x1="200" y1="148" x2="432" y2="175" stroke="#1e40af" stroke-width="6"/>
+  <polyline points="418,163 434,177 418,188" fill="none" stroke="#1e40af" stroke-width="5"/>
+  <line x1="200" y1="272" x2="432" y2="245" stroke="#1e40af" stroke-width="6"/>
+  <polyline points="418,232 434,243 418,258" fill="none" stroke="#1e40af" stroke-width="5"/>
+  <line x1="560" y1="210" x2="820" y2="210" stroke="#1d4ed8" stroke-width="7"/>
+  <polyline points="806,197 822,210 806,223" fill="none" stroke="#1d4ed8" stroke-width="6"/>
+  <!-- Stars (success) on far right -->
+  <circle cx="870" cy="210" r="28" fill="#93c5fd" opacity="0.8"/>
+
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+  <defs>
+    <linearGradient id="bg_6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fffbeb"/>
+      <stop offset="100%" style="stop-color:#fef3c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg_6)"/>
+  <circle cx="920" cy="60" r="120" fill="#fde68a" opacity="0.4"/>
+  <circle cx="80" cy="360" r="90" fill="#fbbf24" opacity="0.3"/>
+  
+  <!-- ancient sun -->
+  <circle cx="360" cy="200" r="70" fill="#fbbf24" opacity="0.4"/>
+  <circle cx="360" cy="200" r="50" fill="#fbbf24" opacity="0.5"/>
+  <!-- sun rays -->
+  <line x1="360" y1="110" x2="360" y2="85" stroke="#fbbf24" stroke-width="5" opacity="0.6"/>
+  <line x1="410" y1="128" x2="428" y2="108" stroke="#fbbf24" stroke-width="5" opacity="0.6"/>
+  <line x1="430" y1="200" x2="460" y2="200" stroke="#fbbf24" stroke-width="5" opacity="0.6"/>
+  <line x1="410" y1="272" x2="428" y2="292" stroke="#fbbf24" stroke-width="5" opacity="0.6"/>
+  <line x1="310" y1="128" x2="292" y2="108" stroke="#fbbf24" stroke-width="5" opacity="0.6"/>
+  <!-- water waves modern -->
+  <path d="M 500 185 Q 560 165 620 185 Q 680 205 740 185" fill="none" stroke="#d97706" stroke-width="6" opacity="0.5"/>
+  <path d="M 500 215 Q 560 195 620 215 Q 680 235 740 215" fill="none" stroke="#d97706" stroke-width="5" opacity="0.4"/>
+  <path d="M 500 245 Q 560 225 620 245 Q 680 265 740 245" fill="none" stroke="#d97706" stroke-width="4" opacity="0.3"/>
+  <!-- infinity symbol linking them -->
+  <path d="M 430 210 Q 450 175 500 210 Q 550 245 600 210 Q 650 175 670 210 Q 650 245 600 210 Q 550 175 500 210 Q 450 245 430 210 Z" fill="none" stroke="#92400e" stroke-width="5" opacity="0.5"/>
+
+</svg>

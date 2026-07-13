@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- Three ways to use mental models: apply/combine/rotate (3 icons) -->
+  <circle cx="220" cy="210" r="80" fill="#ddd6fe" opacity="0.4"/>
+  <circle cx="220" cy="210" r="80" fill="none" stroke="#7c3aed" stroke-width="5"/>
+  <!-- Apply icon: arrow hitting target -->
+  <circle cx="220" cy="210" r="30" fill="none" stroke="#6b21a8" stroke-width="4"/>
+  <circle cx="220" cy="210" r="14" fill="none" stroke="#6b21a8" stroke-width="3"/>
+  <circle cx="220" cy="210" r="5" fill="#6b21a8"/>
+  <line x1="140" y1="210" x2="188" y2="210" stroke="#6b21a8" stroke-width="5" stroke-linecap="round"/>
+  <polyline points="178,200 190,210 178,220" fill="none" stroke="#6b21a8" stroke-width="4"/>
+  
+  <circle cx="500" cy="210" r="80" fill="#ddd6fe" opacity="0.4"/>
+  <circle cx="500" cy="210" r="80" fill="none" stroke="#7c3aed" stroke-width="5"/>
+  <!-- Combine icon: two shapes merging -->
+  <circle cx="477" cy="200" r="25" fill="#7c3aed" opacity="0.5"/>
+  <circle cx="523" cy="200" r="25" fill="#6b21a8" opacity="0.4"/>
+  <!-- Intersection bright -->
+  <ellipse cx="500" cy="200" rx="12" ry="18" fill="#6b21a8" opacity="0.6"/>
+  
+  <circle cx="780" cy="210" r="80" fill="#ddd6fe" opacity="0.4"/>
+  <circle cx="780" cy="210" r="80" fill="none" stroke="#7c3aed" stroke-width="5"/>
+  <!-- Rotate/change perspective: curved rotation arrow -->
+  <path d="M 740 198 A 40 40 0 1 1 780 250" fill="none" stroke="#6b21a8" stroke-width="6"/>
+  <polyline points="768,252 780,252 780,240" fill="none" stroke="#6b21a8" stroke-width="6"/>
+
+</svg>

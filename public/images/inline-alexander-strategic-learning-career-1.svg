@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Father (king) + Teacher (Aristotle) → Son (Alexander): triangular learning -->
+  <circle cx="500" cy="328" r="36" fill="#1e40af" opacity="0.9"/>
+  <circle cx="500" cy="290" r="18" fill="#1e40af" opacity="0.9"/>
+  <circle cx="250" cy="178" r="30" fill="#93c5fd" opacity="0.7"/>
+  <circle cx="250" cy="150" r="16" fill="#93c5fd" opacity="0.7"/>
+  <circle cx="750" cy="178" r="30" fill="#93c5fd" opacity="0.7"/>
+  <circle cx="750" cy="150" r="16" fill="#93c5fd" opacity="0.7"/>
+  <line x1="278" y1="178" x2="470" y2="300" stroke="#93c5fd" stroke-width="6"/>
+  <polyline points="459,290 473,305 457,310" fill="none" stroke="#93c5fd" stroke-width="5"/>
+  <line x1="722" y1="178" x2="530" y2="300" stroke="#93c5fd" stroke-width="6"/>
+  <polyline points="541,290 527,305 543,310" fill="none" stroke="#93c5fd" stroke-width="5"/>
+  <!-- Crown on Alexander -->
+  <polygon points="500,268 484,255 490,240 500,248 510,240 516,255" fill="#1d4ed8"/>
+
+</svg>

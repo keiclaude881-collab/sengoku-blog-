@@ -1,45 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f0f7ff"/>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#bfdbfe" opacity="0.15"/>
+  <circle cx="1120" cy="550" r="190" fill="#bfdbfe" opacity="0.12"/>
 
-  <!-- scattered faint targets, representing too many scattered efforts -->
-  <g opacity="0.25">
-    <circle cx="180" cy="160" r="36" fill="none" stroke="#93c5fd" stroke-width="4"/>
-    <circle cx="180" cy="160" r="18" fill="none" stroke="#93c5fd" stroke-width="4"/>
-    <circle cx="250" cy="480" r="30" fill="none" stroke="#93c5fd" stroke-width="4"/>
-    <circle cx="250" cy="480" r="14" fill="none" stroke="#93c5fd" stroke-width="4"/>
-    <circle cx="120" cy="350" r="24" fill="none" stroke="#93c5fd" stroke-width="4"/>
+  <!-- Chess king on empty board (focus on what matters) -->
+  <!-- chessboard -->
+  <rect x="240" y="340" width="720" height="200" rx="6" fill="#1e40af" opacity="0.20"/>
+  <!-- board squares (simplified grid) -->
+  <g fill="#3b82f6" opacity="0.15">
+    <rect x="240" y="340" width="90" height="50"/><rect x="420" y="340" width="90" height="50"/>
+    <rect x="600" y="340" width="90" height="50"/><rect x="780" y="340" width="90" height="50"/>
+    <rect x="330" y="390" width="90" height="50"/><rect x="510" y="390" width="90" height="50"/>
+    <rect x="690" y="390" width="90" height="50"/><rect x="870" y="390" width="90" height="50"/>
+    <rect x="240" y="440" width="90" height="50"/><rect x="420" y="440" width="90" height="50"/>
+    <rect x="600" y="440" width="90" height="50"/><rect x="780" y="440" width="90" height="50"/>
   </g>
-
-  <!-- bicorne hat silhouette, simplified, large left -->
-  <g transform="translate(330,300)">
-    <path d="M -190 30
-             C -190 -40 -110 -90 0 -90
-             C 110 -90 190 -40 190 30
-             C 130 -10 60 10 0 18
-             C -60 10 -130 -10 -190 30 Z"
-          fill="#1e3a8a"/>
-    <ellipse cx="0" cy="32" rx="190" ry="20" fill="#1e3a8a" opacity="0.7"/>
-    <circle cx="0" cy="-46" r="9" fill="#bfdbfe"/>
-    <path d="M -20 -50 Q 0 -66 20 -50" stroke="#bfdbfe" stroke-width="4" fill="none"/>
-  </g>
-
-  <!-- single large precise target on the right, with arrow striking center -->
-  <g transform="translate(880,330)">
-    <circle r="160" fill="none" stroke="#1e40af" stroke-width="5" opacity="0.5"/>
-    <circle r="115" fill="none" stroke="#1e40af" stroke-width="5" opacity="0.65"/>
-    <circle r="70" fill="none" stroke="#1e40af" stroke-width="5" opacity="0.8"/>
-    <circle r="26" fill="#1e40af"/>
-    <circle r="10" fill="#bfdbfe"/>
-  </g>
-
-  <!-- single arrow flying straight and true into the bullseye -->
-  <line x1="500" y1="450" x2="858" y2="346" stroke="#1c1917" stroke-width="6" stroke-linecap="round"/>
-  <path d="M 858 346 L 832 338 L 840 364 Z" fill="#1c1917"/>
-  <path d="M 500 450 L 522 440 L 514 462 Z" fill="#1c1917" opacity="0.7"/>
-
-  <!-- straight focused motion lines -->
-  <line x1="440" y1="500" x2="560" y2="470" stroke="#93c5fd" stroke-width="3" stroke-dasharray="6,8" opacity="0.6"/>
-  <line x1="420" y1="540" x2="540" y2="510" stroke="#93c5fd" stroke-width="3" stroke-dasharray="6,8" opacity="0.4"/>
-
-  <ellipse cx="330" cy="500" rx="150" ry="16" fill="#bfdbfe" opacity="0.4"/>
+  <!-- King piece (large, centered) -->
+  <!-- base -->
+  <rect x="545" y="320" width="110" height="22" rx="6" fill="#1e40af" opacity="0.85"/>
+  <!-- body -->
+  <rect x="558" y="240" width="84" height="85" rx="8" fill="#1e40af" opacity="0.82"/>
+  <!-- neck collar -->
+  <rect x="562" y="225" width="76" height="20" rx="5" fill="#3b82f6" opacity="0.80"/>
+  <!-- head -->
+  <ellipse cx="600" cy="200" rx="42" ry="32" fill="#3b82f6" opacity="0.78"/>
+  <!-- crown cross -->
+  <rect x="595" y="155" width="10" height="50" rx="3" fill="#1e40af" opacity="0.85"/>
+  <rect x="575" y="168" width="50" height="10" rx="3" fill="#1e40af" opacity="0.85"/>
+  <!-- focus spotlight -->
+  <circle cx="600" cy="280" r="180" fill="#bfdbfe" opacity="0.12"/>
 </svg>

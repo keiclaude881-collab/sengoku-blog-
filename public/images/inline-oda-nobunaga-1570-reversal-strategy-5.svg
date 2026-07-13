@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- 12-year timeline 1570-1582: winding path with key victories -->
+  <path d="M 100 360 C 200 360 280 200 380 200 C 480 200 560 320 660 300 C 760 280 820 150 920 120"
+        fill="none" stroke="#93c5fd" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="100" cy="360" r="14" fill="#93c5fd" opacity="0.7"/>
+  <circle cx="380" cy="200" r="14" fill="#1e40af" opacity="0.8"/>
+  <circle cx="660" cy="300" r="14" fill="#1e40af" opacity="0.8"/>
+  <circle cx="920" cy="120" r="18" fill="#1d4ed8"/>
+  <!-- Year markers -->
+  <line x1="100" y1="360" x2="100" y2="392" stroke="#93c5fd" stroke-width="3" opacity="0.5"/>
+  <line x1="380" y1="200" x2="380" y2="232" stroke="#93c5fd" stroke-width="3" opacity="0.5"/>
+  <line x1="660" y1="300" x2="660" y2="332" stroke="#93c5fd" stroke-width="3" opacity="0.5"/>
+  <line x1="920" y1="120" x2="920" y2="152" stroke="#93c5fd" stroke-width="3" opacity="0.5"/>
+
+</svg>

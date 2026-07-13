@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+  <defs>
+    <linearGradient id="bg_4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#faf5ff"/>
+      <stop offset="100%" style="stop-color:#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg_4)"/>
+  <circle cx="920" cy="60" r="120" fill="#ddd6fe" opacity="0.4"/>
+  <circle cx="80" cy="360" r="90" fill="#c4b5fd" opacity="0.3"/>
+  
+  <!-- chess-like grid -->
+  <rect x="310" y="140" width="380" height="240" rx="8" fill="#7c3aed" opacity="0.1"/>
+  <rect x="310" y="140" width="380" height="240" rx="8" fill="none" stroke="#7c3aed" stroke-width="5" opacity="0.4"/>
+  <!-- grid lines -->
+  <line x1="406" y1="140" x2="406" y2="380" stroke="#7c3aed" stroke-width="2" opacity="0.3"/>
+  <line x1="500" y1="140" x2="500" y2="380" stroke="#7c3aed" stroke-width="2" opacity="0.3"/>
+  <line x1="594" y1="140" x2="594" y2="380" stroke="#7c3aed" stroke-width="2" opacity="0.3"/>
+  <line x1="310" y1="220" x2="690" y2="220" stroke="#7c3aed" stroke-width="2" opacity="0.3"/>
+  <line x1="310" y1="300" x2="690" y2="300" stroke="#7c3aed" stroke-width="2" opacity="0.3"/>
+  <!-- key pieces -->
+  <circle cx="358" cy="180" r="22" fill="#6b21a8" opacity="0.65"/>
+  <circle cx="548" cy="260" r="28" fill="#7c3aed" opacity="0.7"/>
+  <rect x="576" cy="320" x="576" y="316" width="36" height="44" rx="6" fill="#6b21a8" opacity="0.5"/>
+
+</svg>

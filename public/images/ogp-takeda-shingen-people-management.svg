@@ -1,81 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f0f7ff"/>
-      <stop offset="1" stop-color="#dbeafe"/>
-    </linearGradient>
-    <linearGradient id="personGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#3b82f6"/>
-      <stop offset="1" stop-color="#1e40af"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
     </linearGradient>
   </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#bfdbfe" opacity="0.15"/>
+  <circle cx="1120" cy="550" r="190" fill="#bfdbfe" opacity="0.12"/>
 
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-
-  <circle cx="150" cy="120" r="90" fill="#bfdbfe" opacity="0.35"/>
-  <circle cx="1080" cy="520" r="130" fill="#bfdbfe" opacity="0.3"/>
-
-  <rect x="0" y="500" width="1200" height="130" fill="#1e3a8a" opacity="0.08"/>
-
-  <!-- People forming a human wall / fortress: 人は城、人は石垣、人は堀 -->
-  <g opacity="0.9">
-    <g transform="translate(330,430)">
-      <circle cx="0" cy="-58" r="26" fill="url(#personGrad)"/>
-      <path d="M -38 30 Q 0 -34 38 30 L 38 78 L -38 78 Z" fill="#1e40af"/>
-    </g>
-    <g transform="translate(450,420)">
-      <circle cx="0" cy="-58" r="26" fill="url(#personGrad)"/>
-      <path d="M -38 30 Q 0 -34 38 30 L 38 78 L -38 78 Z" fill="#1e3a8a"/>
-    </g>
-    <g transform="translate(570,430)">
-      <circle cx="0" cy="-58" r="26" fill="url(#personGrad)"/>
-      <path d="M -38 30 Q 0 -34 38 30 L 38 78 L -38 78 Z" fill="#1e40af"/>
-    </g>
-    <g transform="translate(690,420)">
-      <circle cx="0" cy="-58" r="26" fill="url(#personGrad)"/>
-      <path d="M -38 30 Q 0 -34 38 30 L 38 78 L -38 78 Z" fill="#1e3a8a"/>
-    </g>
-    <g transform="translate(810,430)">
-      <circle cx="0" cy="-58" r="26" fill="url(#personGrad)"/>
-      <path d="M -38 30 Q 0 -34 38 30 L 38 78 L -38 78 Z" fill="#1e40af"/>
-    </g>
-  </g>
-
-  <g opacity="0.95">
-    <g transform="translate(390,470)">
-      <circle cx="0" cy="-50" r="22" fill="#60a5fa"/>
-      <path d="M -32 26 Q 0 -28 32 26 L 32 66 L -32 66 Z" fill="#3b82f6"/>
-    </g>
-    <g transform="translate(510,478)">
-      <circle cx="0" cy="-50" r="22" fill="#60a5fa"/>
-      <path d="M -32 26 Q 0 -28 32 26 L 32 66 L -32 66 Z" fill="#3b82f6"/>
-    </g>
-    <g transform="translate(630,470)">
-      <circle cx="0" cy="-50" r="22" fill="#60a5fa"/>
-      <path d="M -32 26 Q 0 -28 32 26 L 32 66 L -32 66 Z" fill="#3b82f6"/>
-    </g>
-    <g transform="translate(750,478)">
-      <circle cx="0" cy="-50" r="22" fill="#60a5fa"/>
-      <path d="M -32 26 Q 0 -28 32 26 L 32 66 L -32 66 Z" fill="#3b82f6"/>
-    </g>
-  </g>
-
-  <!-- central raised figure, helmet silhouette -->
-  <g transform="translate(600,330)">
-    <path d="M -30 -64 Q 0 -90 30 -64 L 30 -50 L -30 -50 Z" fill="#1e3a8a"/>
-    <circle cx="0" cy="-30" r="30" fill="#1e40af"/>
-    <path d="M -44 38 Q 0 -22 44 38 L 44 96 L -44 96 Z" fill="#1e3a8a"/>
-    <path d="M -50 -8 L -68 -40 M 50 -8 L 68 -40" stroke="#1e3a8a" stroke-width="8" stroke-linecap="round"/>
-  </g>
-
-  <g transform="translate(1040,200)" opacity="0.8">
-    <rect x="-14" y="-90" width="22" height="180" rx="6" fill="#1e40af"/>
-    <rect x="16" y="-90" width="22" height="180" rx="6" fill="#3b82f6"/>
-    <rect x="46" y="-90" width="22" height="180" rx="6" fill="#93c5fd"/>
-  </g>
-
-  <g transform="translate(600,330)" fill="none" stroke="#3b82f6" opacity="0.25" stroke-width="3">
-    <circle r="180"/>
-    <circle r="230"/>
-  </g>
+  <!-- Three figures in a row (人は城 - people are the castle) -->
+  <!-- center figure (larger = leader) -->
+  <circle cx="600" cy="230" r="58" fill="#3b82f6" opacity="0.82"/>
+  <path d="M 548,286 Q 530,310 525,380 L 675,380 Q 670,310 652,286 Q 630,265 600,263 Q 570,265 548,286 Z" fill="#3b82f6" opacity="0.78"/>
+  <!-- left figure -->
+  <circle cx="380" cy="255" r="46" fill="#1e40af" opacity="0.70"/>
+  <path d="M 338,297 Q 322,318 318,380 L 442,380 Q 438,318 422,297 Q 406,278 380,276 Q 354,278 338,297 Z" fill="#1e40af" opacity="0.65"/>
+  <!-- right figure -->
+  <circle cx="820" cy="255" r="46" fill="#1e40af" opacity="0.70"/>
+  <path d="M 778,297 Q 762,318 758,380 L 882,380 Q 878,318 862,297 Q 846,278 820,276 Q 794,278 778,297 Z" fill="#1e40af" opacity="0.65"/>
+  <!-- connecting line (unity) -->
+  <line x1="425" y1="340" x2="548" y2="320" stroke="#bfdbfe" stroke-width="8" opacity="0.50"/>
+  <line x1="652" y1="320" x2="775" y2="340" stroke="#bfdbfe" stroke-width="8" opacity="0.50"/>
+  <!-- castle silhouette above (but people = castle) -->
+  <path d="M 400,180 L 400,130 L 420,130 L 420,100 L 440,100 L 440,130 L 460,130 L 460,180 Z" fill="#bfdbfe" opacity="0.25"/>
+  <path d="M 740,180 L 740,130 L 760,130 L 760,100 L 780,100 L 780,130 L 800,130 L 800,180 Z" fill="#bfdbfe" opacity="0.25"/>
 </svg>

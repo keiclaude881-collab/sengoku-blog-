@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- 3 questions in adversity: 3 thought clouds with tools -->
+  <path d="M 168 238 C 168 168 258 138 288 138 C 308 118 348 108 388 128 C 408 108 448 108 468 130 C 498 120 536 138 528 168 C 556 170 568 208 543 230 C 546 258 518 272 488 262 L 488 288 L 456 262 C 248 268 168 238 168 238 Z"
+        fill="#ddd6fe" opacity="0.4"/>
+  <path d="M 168 238 C 168 168 258 138 288 138 C 308 118 348 108 388 128 C 408 108 448 108 468 130 C 498 120 536 138 528 168 C 556 170 568 208 543 230 C 546 258 518 272 488 262 L 488 288 L 456 262 C 248 268 168 238 168 238 Z"
+        fill="none" stroke="#7c3aed" stroke-width="4"/>
+  <!-- Heart in thought cloud 1 (love it) -->
+  <path d="M 328 185 C 328 172 344 165 344 180 C 344 165 360 172 360 185 C 360 200 344 215 344 215 C 344 215 328 200 328 185 Z"
+        fill="#6b21a8" opacity="0.7"/>
+  
+  <!-- Cloud 2 -->
+  <path d="M 440 268 C 440 208 520 175 560 175 C 590 155 640 155 658 178 C 690 165 730 180 720 208 C 748 210 752 248 732 262 C 730 285 702 295 675 282 L 675 308 L 648 282 C 465 290 440 268 440 268 Z"
+        fill="#ddd6fe" opacity="0.4"/>
+  <path d="M 440 268 C 440 208 520 175 560 175 C 590 155 640 155 658 178 C 690 165 730 180 720 208 C 748 210 752 248 732 262 C 730 285 702 295 675 282 L 675 308 L 648 282 C 465 290 440 268 440 268 Z"
+        fill="none" stroke="#7c3aed" stroke-width="4"/>
+  <!-- Upward arrow in cloud 2 (use it, grow) -->
+  <line x1="580" y1="248" x2="580" y2="195" stroke="#6b21a8" stroke-width="6" stroke-linecap="round"/>
+  <polyline points="566,210 580,192 594,210" fill="none" stroke="#6b21a8" stroke-width="5"/>
+  
+  <!-- Cloud 3 minimal -->
+  <path d="M 720 178 C 720 140 790 125 815 140 C 832 125 865 130 858 152 C 878 148 882 175 862 182 C 860 200 835 208 818 195 L 818 215 L 798 195 C 726 200 720 178 720 178 Z"
+        fill="#ddd6fe" opacity="0.35"/>
+  <path d="M 720 178 C 720 140 790 125 815 140 C 832 125 865 130 858 152 C 878 148 882 175 862 182 C 860 200 835 208 818 195 L 818 215 L 798 195 C 726 200 720 178 720 178 Z"
+        fill="none" stroke="#7c3aed" stroke-width="3" opacity="0.7"/>
+  <path d="M 796 162 A 20 20 0 1 1 796 162.1" fill="none" stroke="#6b21a8" stroke-width="4"/>
+  <polyline points="786,165 796,165 796,155" fill="none" stroke="#6b21a8" stroke-width="4"/>
+
+</svg>

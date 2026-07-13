@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- Defense mechanisms: 4 shield-like deflectors -->
+  <!-- Central threat arrow -->
+  <line x1="500" y1="80" x2="500" y2="240" stroke="#6b21a8" stroke-width="7"/>
+  <polyline points="484,222 500,244 516,222" fill="none" stroke="#6b21a8" stroke-width="6"/>
+  <!-- Four shields redirecting the threat -->
+  <!-- Suppression (top left) -->
+  <path d="M 280 182 L 390 195 L 390 268 C 390 295 280 308 280 308 C 280 308 170 295 170 268 L 170 195 Z"
+        fill="#ddd6fe" opacity="0.4"/>
+  <path d="M 280 182 L 390 195 L 390 268 C 390 295 280 308 280 308 C 280 308 170 295 170 268 L 170 195 Z"
+        fill="none" stroke="#7c3aed" stroke-width="4"/>
+  <!-- Projection (top right) -->
+  <path d="M 720 182 L 830 195 L 830 268 C 830 295 720 308 720 308 C 720 308 610 295 610 268 L 610 195 Z"
+        fill="#ddd6fe" opacity="0.4"/>
+  <path d="M 720 182 L 830 195 L 830 268 C 830 295 720 308 720 308 C 720 308 610 295 610 268 L 610 195 Z"
+        fill="none" stroke="#7c3aed" stroke-width="4"/>
+  <!-- Deflect arrows from center to each shield -->
+  <line x1="475" y1="165" x2="400" y2="215" stroke="#c4b5fd" stroke-width="4" stroke-dasharray="6,4" opacity="0.7"/>
+  <line x1="525" y1="165" x2="600" y2="215" stroke="#c4b5fd" stroke-width="4" stroke-dasharray="6,4" opacity="0.7"/>
+
+</svg>

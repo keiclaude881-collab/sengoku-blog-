@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+  <defs>
+    <linearGradient id="bg_2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fffbeb"/>
+      <stop offset="100%" style="stop-color:#fef3c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg_2)"/>
+  <circle cx="920" cy="60" r="120" fill="#fde68a" opacity="0.4"/>
+  <circle cx="80" cy="360" r="90" fill="#fbbf24" opacity="0.3"/>
+  
+  <rect x="330" y="130" width="340" height="220" rx="12" fill="#d97706" opacity="0.15"/>
+  <rect x="340" y="140" width="320" height="200" rx="10" fill="white" opacity="0.6"/>
+  <!-- scroll lines -->
+  <line x1="370" y1="175" x2="630" y2="175" stroke="#d97706" stroke-width="4" opacity="0.5"/>
+  <line x1="370" y1="200" x2="630" y2="200" stroke="#d97706" stroke-width="3" opacity="0.4"/>
+  <line x1="370" y1="225" x2="580" y2="225" stroke="#d97706" stroke-width="3" opacity="0.4"/>
+  <line x1="370" y1="250" x2="610" y2="250" stroke="#d97706" stroke-width="3" opacity="0.4"/>
+  <!-- coin icons at bottom of scroll -->
+  <circle cx="420" cy="300" r="20" fill="#92400e" opacity="0.7"/>
+  <circle cx="500" cy="300" r="20" fill="#92400e" opacity="0.7"/>
+  <circle cx="580" cy="300" r="20" fill="#92400e" opacity="0.7"/>
+  <!-- calendar: 100 years -->
+  <rect x="680" y="160" width="80" height="70" rx="8" fill="#d97706" opacity="0.3"/>
+  <line x1="680" y1="183" x2="760" y2="183" stroke="#d97706" stroke-width="3" opacity="0.5"/>
+
+</svg>

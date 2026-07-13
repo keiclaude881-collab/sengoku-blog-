@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Zhuge Liang's heavy burden: feather fan + heavy load symbol -->
+  <!-- Feather fan (Zhuge Liang symbol) -->
+  <path d="M 500 350 C 490 320 475 290 460 260 C 448 235 430 220 410 215 C 420 230 428 248 432 268 C 436 288 434 312 500 350 Z"
+        fill="#1e40af" opacity="0.6"/>
+  <path d="M 500 350 C 510 320 525 290 540 260 C 552 235 570 220 590 215 C 580 230 572 248 568 268 C 564 288 566 312 500 350 Z"
+        fill="#1e40af" opacity="0.6"/>
+  <path d="M 500 350 C 500 318 500 280 500 252 C 500 228 495 210 490 198 C 498 215 500 240 500 252 Z"
+        fill="#1d4ed8" opacity="0.6"/>
+  <!-- Weight/burden symbol above -->
+  <circle cx="500" cy="140" r="68" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="500" cy="140" r="68" fill="none" stroke="#93c5fd" stroke-width="5"/>
+  <!-- Down arrow in circle = burden -->
+  <line x1="500" y1="112" x2="500" y2="168" stroke="#1d4ed8" stroke-width="7" stroke-linecap="round"/>
+  <polyline points="480,152 500,172 520,152" fill="none" stroke="#1d4ed8" stroke-width="7"/>
+
+</svg>

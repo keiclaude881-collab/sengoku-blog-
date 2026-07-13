@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Cannae formation: strong flanks, weak center drawing enemy in -->
+  <!-- Enemy (red) rushing center -->
+  <line x1="500" y1="80" x2="500" y2="240" stroke="#93c5fd" stroke-width="8" stroke-linecap="round"/>
+  <polyline points="480,222 500,244 520,222" fill="none" stroke="#93c5fd" stroke-width="7"/>
+  <!-- Hannibal's weak center (thin line) -->
+  <path d="M 350 240 C 400 268 450 272 500 275 C 550 272 600 268 650 240"
+        fill="none" stroke="#1e40af" stroke-width="6" stroke-dasharray="10,6"/>
+  <!-- Strong left flank curving around -->
+  <path d="M 350 240 C 300 270 240 310 220 370"
+        fill="none" stroke="#1d4ed8" stroke-width="8" stroke-linecap="round"/>
+  <!-- Strong right flank curving around -->
+  <path d="M 650 240 C 700 270 760 310 780 370"
+        fill="none" stroke="#1d4ed8" stroke-width="8" stroke-linecap="round"/>
+  <!-- Encirclement closing arrows -->
+  <polyline points="232,352 225,374 248,370" fill="none" stroke="#1d4ed8" stroke-width="6"/>
+  <polyline points="768,352 775,374 752,370" fill="none" stroke="#1d4ed8" stroke-width="6"/>
+  <!-- Enemy surrounded (center) -->
+  <circle cx="500" cy="320" r="35" fill="#93c5fd" opacity="0.5"/>
+  <circle cx="500" cy="320" r="35" fill="none" stroke="#93c5fd" stroke-width="5"/>
+
+</svg>

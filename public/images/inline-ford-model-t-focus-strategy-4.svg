@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Over-focus risk: funnel getting too narrow, blocked -->
+  <!-- Wide funnel (left) -->
+  <path d="M 100 120 L 450 120 L 350 250 L 200 250 Z" fill="#bfdbfe" opacity="0.4"/>
+  <path d="M 100 120 L 450 120 L 350 250 L 200 250 Z" fill="none" stroke="#1e40af" stroke-width="5"/>
+  <!-- Too narrow (right side of funnel) -->
+  <path d="M 200 250 L 350 250 L 290 380 L 260 380 Z" fill="#1e40af" opacity="0.6"/>
+  <!-- Blocked! X at exit -->
+  <line x1="215" y1="342" x2="340" y2="400" stroke="#1d4ed8" stroke-width="7" stroke-linecap="round"/>
+  <line x1="340" y1="342" x2="215" y2="400" stroke="#1d4ed8" stroke-width="7" stroke-linecap="round"/>
+  <!-- Overflow items stuck outside funnel -->
+  <circle cx="600" cy="180" r="25" fill="#93c5fd" opacity="0.6"/>
+  <circle cx="680" cy="220" r="20" fill="#93c5fd" opacity="0.5"/>
+  <circle cx="760" cy="165" r="22" fill="#93c5fd" opacity="0.55"/>
+  <circle cx="840" cy="210" r="18" fill="#93c5fd" opacity="0.45"/>
+  <!-- Bouncing arrows (rejected) -->
+  <path d="M 595 160 L 570 130 L 545 155" fill="none" stroke="#93c5fd" stroke-width="4" opacity="0.6"/>
+
+</svg>

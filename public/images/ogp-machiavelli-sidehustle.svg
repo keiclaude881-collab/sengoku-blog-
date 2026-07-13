@@ -1,44 +1,43 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="msBg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f0f7ff"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
       <stop offset="100%" stop-color="#dbeafe"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#msBg)"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#bfdbfe" opacity="0.15"/>
+  <circle cx="1120" cy="550" r="190" fill="#bfdbfe" opacity="0.12"/>
 
-  <!-- main road (the main job) running straight across -->
-  <rect x="0" y="460" width="1200" height="50" fill="#1e40af" opacity="0.85"/>
-  <line x1="0" y1="485" x2="1200" y2="485" stroke="#dbeafe" stroke-width="4" stroke-dasharray="26 22"/>
-
-  <!-- a smaller side path branching off, narrower and careful (the side hustle) -->
-  <path d="M 700 480 C 820 470, 920 380, 1040 280 C 1090 240, 1130 210, 1160 170"
-        fill="none" stroke="#3b82f6" stroke-width="20" stroke-linecap="round" opacity="0.85"/>
-  <path d="M 700 480 C 820 470, 920 380, 1040 280 C 1090 240, 1130 210, 1160 170"
-        fill="none" stroke="#93c5fd" stroke-width="6" stroke-linecap="round"/>
-
-  <!-- a large protective shield placed at the fork, symbolizing risk management before the branch -->
-  <g transform="translate(700,330)">
-    <path d="M 0 -90 C 50 -75, 95 -70, 95 -70 C 95 0, 60 70, 0 100 C -60 70, -95 0, -95 -70 C -95 -70, -50 -75, 0 -90 Z"
-          fill="#1e3a8a"/>
-    <path d="M 0 -65 C 35 -55, 65 -50, 65 -50 C 65 5, 40 55, 0 78 C -40 55, -65 5, -65 -50 C -65 -50, -35 -55, 0 -65 Z"
-          fill="#3b82f6" opacity="0.6"/>
+  <!-- Open book with quill (The Prince - writing secret knowledge) -->
+  <!-- open book body -->
+  <path d="M 250,220 Q 250,200 280,195 L 595,195 L 595,480 Q 350,480 250,480 Z" fill="#dbeafe" opacity="0.75"/>
+  <path d="M 950,220 Q 950,200 920,195 L 605,195 L 605,480 Q 850,480 950,480 Z" fill="#bfdbfe" opacity="0.70"/>
+  <!-- spine -->
+  <rect x="590" y="193" width="20" height="290" rx="4" fill="#1e40af" opacity="0.65"/>
+  <!-- page lines left -->
+  <g stroke="#3b82f6" stroke-width="2.5" opacity="0.35">
+    <line x1="300" y1="250" x2="560" y2="250"/>
+    <line x1="300" y1="275" x2="560" y2="275"/>
+    <line x1="300" y1="300" x2="560" y2="300"/>
+    <line x1="300" y1="325" x2="560" y2="325"/>
+    <line x1="300" y1="350" x2="560" y2="350"/>
+    <line x1="300" y1="375" x2="560" y2="375"/>
+    <line x1="300" y1="400" x2="560" y2="400"/>
+    <line x1="300" y1="425" x2="560" y2="425"/>
   </g>
-
-  <!-- balance scale floating above the shield, the calculation of what could be lost vs gained -->
-  <g transform="translate(700,150)">
-    <line x1="0" y1="-20" x2="0" y2="30" stroke="#1e3a8a" stroke-width="6"/>
-    <line x1="-90" y1="-20" x2="90" y2="-20" stroke="#1e3a8a" stroke-width="6"/>
-    <circle cx="0" cy="-20" r="8" fill="#1e3a8a"/>
-    <line x1="-90" y1="-20" x2="-90" y2="10" stroke="#1e3a8a" stroke-width="3"/>
-    <line x1="90" y1="-20" x2="90" y2="14" stroke="#1e3a8a" stroke-width="3"/>
-    <path d="M -120 10 A 30 22 0 0 0 -60 10 Z" fill="#bfdbfe" stroke="#1e3a8a" stroke-width="3"/>
-    <path d="M 60 14 A 30 22 0 0 0 120 14 Z" fill="#93c5fd" stroke="#1e3a8a" stroke-width="3"/>
-    <rect x="-10" y="30" width="20" height="48" fill="#1e3a8a"/>
+  <!-- page lines right -->
+  <g stroke="#3b82f6" stroke-width="2.5" opacity="0.30">
+    <line x1="640" y1="250" x2="900" y2="250"/>
+    <line x1="640" y1="275" x2="900" y2="275"/>
+    <line x1="640" y1="300" x2="900" y2="300"/>
+    <line x1="640" y1="325" x2="900" y2="325"/>
+    <line x1="640" y1="350" x2="900" y2="350"/>
   </g>
-
-  <!-- small milestone markers along the side path, the gradual cautious steps -->
-  <circle cx="900" cy="350" r="11" fill="#1e40af"/>
-  <circle cx="1040" cy="280" r="11" fill="#1e40af"/>
-  <circle cx="1160" cy="170" r="14" fill="#1e3a8a" stroke="#bfdbfe" stroke-width="3"/>
+  <!-- quill pen (crossing the book diagonally) -->
+  <path d="M 750,150 Q 580,280 450,450" fill="none" stroke="#1e40af" stroke-width="8" stroke-linecap="round" opacity="0.80"/>
+  <!-- quill feather top -->
+  <path d="M 750,150 Q 800,120 840,90 Q 780,140 760,160 Q 800,110 830,100 Q 770,145 750,150 Z" fill="#3b82f6" opacity="0.70"/>
+  <!-- ink nib -->
+  <ellipse cx="455" cy="455" rx="12" ry="6" fill="#1e40af" opacity="0.80"/>
 </svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#fde68a" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#fde68a" opacity="0.35"/>
+  
+  <rect x="250" y="118" width="500" height="245" fill="none" stroke="#d97706" stroke-width="5" opacity="0.6" rx="6"/>
+  <line x1="350" y1="118" x2="350" y2="363" stroke="#fbbf24" stroke-width="3" opacity="0.5"/>
+  <line x1="500" y1="118" x2="500" y2="363" stroke="#fbbf24" stroke-width="3" opacity="0.5"/>
+  <line x1="650" y1="118" x2="650" y2="363" stroke="#fbbf24" stroke-width="3" opacity="0.5"/>
+  <line x1="250" y1="200" x2="750" y2="200" stroke="#fbbf24" stroke-width="3" opacity="0.5"/>
+  <line x1="250" y1="280" x2="750" y2="280" stroke="#fbbf24" stroke-width="3" opacity="0.5"/>
+  <line x1="80" y1="240" x2="238" y2="240" stroke="#d97706" stroke-width="7" stroke-linecap="round"/>
+  <polyline points="225,226 242,240 225,254" fill="none" stroke="#d97706" stroke-width="6"/>
+  <line x1="500" y1="118" x2="500" y2="60" stroke="#92400e" stroke-width="5"/>
+  <polygon points="500,60 558,74 500,88" fill="#92400e"/>
+
+</svg>

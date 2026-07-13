@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- Hegel vs Schopenhauer: packed lecture hall vs empty one -->
+  <!-- Hegel's full hall (left) -->
+  <rect x="100" y="148" width="340" height="238" rx="6" fill="none" stroke="#7c3aed" stroke-width="5"/>
+  <!-- Many people inside (dots) -->
+  <circle cx="168" cy="210" r="10" fill="#c4b5fd" opacity="0.7"/>
+  <circle cx="208" cy="210" r="10" fill="#c4b5fd" opacity="0.7"/>
+  <circle cx="248" cy="210" r="10" fill="#c4b5fd" opacity="0.7"/>
+  <circle cx="288" cy="210" r="10" fill="#c4b5fd" opacity="0.7"/>
+  <circle cx="328" cy="210" r="10" fill="#c4b5fd" opacity="0.7"/>
+  <circle cx="188" cy="248" r="10" fill="#c4b5fd" opacity="0.65"/>
+  <circle cx="228" cy="248" r="10" fill="#c4b5fd" opacity="0.65"/>
+  <circle cx="268" cy="248" r="10" fill="#c4b5fd" opacity="0.65"/>
+  <circle cx="308" cy="248" r="10" fill="#c4b5fd" opacity="0.65"/>
+  <circle cx="208" cy="286" r="10" fill="#c4b5fd" opacity="0.6"/>
+  <circle cx="248" cy="286" r="10" fill="#c4b5fd" opacity="0.6"/>
+  <circle cx="288" cy="286" r="10" fill="#c4b5fd" opacity="0.6"/>
+  <!-- Lecturer (H) -->
+  <circle cx="270" cy="348" r="14" fill="#c4b5fd" opacity="0.8"/>
+  <rect x="258" y="362" width="24" height="18" rx="3" fill="#c4b5fd" opacity="0.7"/>
+  
+  <!-- vs divider -->
+  <line x1="500" y1="148" x2="500" y2="388" stroke="#ddd6fe" stroke-width="3" stroke-dasharray="8,5"/>
+  
+  <!-- Schopenhauer's empty hall (right) -->
+  <rect x="560" y="148" width="340" height="238" rx="6" fill="none" stroke="#7c3aed" stroke-width="5"/>
+  <!-- Empty chairs (just dashes) -->
+  <line x1="618" y1="235" x2="668" y2="235" stroke="#ddd6fe" stroke-width="4" opacity="0.4"/>
+  <line x1="698" y1="235" x2="748" y2="235" stroke="#ddd6fe" stroke-width="4" opacity="0.4"/>
+  <line x1="778" y1="235" x2="828" y2="235" stroke="#ddd6fe" stroke-width="4" opacity="0.4"/>
+  <line x1="618" y1="290" x2="668" y2="290" stroke="#ddd6fe" stroke-width="4" opacity="0.35"/>
+  <!-- Single lonely Schopenhauer (S) at front -->
+  <circle cx="730" cy="355" r="14" fill="#7c3aed" opacity="0.7"/>
+  <rect x="718" y="369" width="24" height="18" rx="3" fill="#7c3aed" opacity="0.6"/>
+
+</svg>

@@ -1,57 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="itBg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f0f7ff"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
       <stop offset="100%" stop-color="#dbeafe"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#itBg)"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#bfdbfe" opacity="0.15"/>
+  <circle cx="1120" cy="550" r="190" fill="#bfdbfe" opacity="0.12"/>
 
-  <!-- distant rolling hills, suggesting the long walking journey across the land -->
-  <path d="M -20 460 C 200 400, 380 440, 600 410 C 820 380, 1000 420, 1220 390 L 1220 630 L -20 630 Z" fill="#bfdbfe" opacity="0.6"/>
-  <path d="M -20 510 C 250 470, 460 500, 700 480 C 900 462, 1050 490, 1220 470 L 1220 630 L -20 630 Z" fill="#93c5fd" opacity="0.5"/>
-
-  <!-- dotted footpath winding across the whole scene, the 40,000km survey route -->
-  <path d="M 160 470 C 260 430, 320 380, 420 360 C 520 340, 560 280, 660 260
-           C 760 240, 820 300, 920 280 C 1000 264, 1040 320, 1120 300"
-        fill="none" stroke="#1e40af" stroke-width="4" stroke-dasharray="3 14" stroke-linecap="round" opacity="0.85"/>
-
-  <!-- footprints along the early part of the path -->
-  <circle cx="200" cy="458" r="5" fill="#1e3a8a" opacity="0.6"/>
-  <circle cx="240" cy="442" r="5" fill="#1e3a8a" opacity="0.6"/>
-  <circle cx="290" cy="412" r="5" fill="#1e3a8a" opacity="0.6"/>
-  <circle cx="340" cy="388" r="5" fill="#1e3a8a" opacity="0.6"/>
-
-  <!-- starting point: a modest merchant house silhouette (first career) -->
-  <g transform="translate(160,470)" opacity="0.9">
-    <polygon points="-50,0 0,-46 50,0" fill="#1e40af"/>
-    <rect x="-42" y="0" width="84" height="48" fill="#1e40af"/>
-    <rect x="-12" y="14" width="24" height="34" fill="#dbeafe"/>
-  </g>
-
-  <!-- midpoint marker: an astronomical quadrant / measuring instrument (the turning point of learning) -->
-  <g transform="translate(660,260)" opacity="0.95">
-    <circle cx="0" cy="0" r="46" fill="none" stroke="#1e40af" stroke-width="6"/>
-    <line x1="0" y1="0" x2="0" y2="-46" stroke="#1e40af" stroke-width="4"/>
-    <line x1="0" y1="0" x2="38" y2="22" stroke="#1e40af" stroke-width="4"/>
-    <circle cx="0" cy="0" r="6" fill="#1e3a8a"/>
-  </g>
-
-  <!-- endpoint: a completed map/compass rose (the finished national map) -->
-  <g transform="translate(1120,300)">
-    <circle cx="0" cy="0" r="88" fill="#1e3a8a"/>
-    <circle cx="0" cy="0" r="88" fill="none" stroke="#bfdbfe" stroke-width="3"/>
-    <polygon points="0,-70 14,0 0,70 -14,0" fill="#dbeafe"/>
-    <polygon points="-70,0 0,14 70,0 0,-14" fill="#93c5fd"/>
-    <polygon points="0,-44 8,0 0,44 -8,0" fill="#f0f7ff"/>
-    <circle cx="0" cy="0" r="8" fill="#1e40af" stroke="#f0f7ff" stroke-width="2"/>
-  </g>
-
-  <!-- stars above the quadrant, since the survey relied on celestial observation -->
-  <g fill="#1e40af" opacity="0.7">
-    <circle cx="600" cy="120" r="4"/>
-    <circle cx="650" cy="90" r="3"/>
-    <circle cx="710" cy="110" r="4"/>
-    <circle cx="760" cy="150" r="3"/>
-  </g>
+  <!-- Compass rose (Ino Tadataka made Japan first accurate map) -->
+  <!-- outer circle -->
+  <circle cx="600" cy="315" r="230" fill="none" stroke="#3b82f6" stroke-width="6" opacity="0.35"/>
+  <circle cx="600" cy="315" r="180" fill="none" stroke="#3b82f6" stroke-width="3" opacity="0.25"/>
+  <!-- 8-point star (compass rose) -->
+  <!-- cardinal points (large) -->
+  <polygon points="600,100 622,270 578,270" fill="#1e40af" opacity="0.85"/>
+  <polygon points="600,530 622,360 578,360" fill="#1e40af" opacity="0.85"/>
+  <polygon points="370,315 540,293 540,337" fill="#1e40af" opacity="0.85"/>
+  <polygon points="830,315 660,293 660,337" fill="#1e40af" opacity="0.85"/>
+  <!-- intercardinal (smaller) -->
+  <polygon points="459,174 580,288 548,320" fill="#3b82f6" opacity="0.65"/>
+  <polygon points="741,174 620,288 652,320" fill="#3b82f6" opacity="0.65"/>
+  <polygon points="459,456 580,342 548,310" fill="#3b82f6" opacity="0.65"/>
+  <polygon points="741,456 620,342 652,310" fill="#3b82f6" opacity="0.65"/>
+  <!-- center -->
+  <circle cx="600" cy="315" r="40" fill="#1e40af" opacity="0.80"/>
+  <circle cx="600" cy="315" r="20" fill="#bfdbfe" opacity="0.85"/>
 </svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#fde68a" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#fde68a" opacity="0.35"/>
+  
+  <path d="M 200 238 L 378 238" stroke="#d97706" stroke-width="8" stroke-dasharray="20,12"/>
+  <path d="M 622 238 L 800 238" stroke="#d97706" stroke-width="8" stroke-dasharray="20,12"/>
+  <rect x="418" y="208" width="164" height="92" rx="10" fill="none" stroke="#d97706" stroke-width="6"/>
+  <path d="M 458 208 C 458 172 542 172 542 208" fill="none" stroke="#d97706" stroke-width="6"/>
+  <line x1="488" y1="232" x2="488" y2="270" stroke="#92400e" stroke-width="5"/>
+  <circle cx="488" cy="228" r="10" fill="#92400e"/>
+  <line x1="720" y1="160" x2="620" y2="235" stroke="#fbbf24" stroke-width="8" stroke-linecap="round"/>
+  <line x1="680" y1="120" x2="700" y2="165" stroke="#fbbf24" stroke-width="12" stroke-linecap="round"/>
+  <rect x="655" y="115" width="86" height="30" rx="6" fill="#fbbf24" opacity="0.9"/>
+
+</svg>

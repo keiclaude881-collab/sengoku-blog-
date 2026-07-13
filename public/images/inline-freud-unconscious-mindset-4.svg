@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- Three Freudian daily questions: 3 thought clouds with question arrows -->
+  <path d="M 180 248 C 180 178 270 148 300 148 C 320 128 360 118 400 138 C 420 118 460 118 480 140 C 510 130 548 148 540 178 C 568 180 580 218 555 240 C 558 268 530 282 500 272 L 500 298 L 468 272 C 260 278 180 248 180 248 Z"
+        fill="#ddd6fe" opacity="0.4"/>
+  <path d="M 180 248 C 180 178 270 148 300 148 C 320 128 360 118 400 138 C 420 118 460 118 480 140 C 510 130 548 148 540 178 C 568 180 580 218 555 240 C 558 268 530 282 500 272 L 500 298 L 468 272 C 260 278 180 248 180 248 Z"
+        fill="none" stroke="#7c3aed" stroke-width="4"/>
+  <!-- Question mark inside cloud 1 -->
+  <path d="M 348 188 C 348 168 378 158 378 184 C 378 196 362 200 362 212"
+        fill="none" stroke="#6b21a8" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="362" cy="226" r="5" fill="#6b21a8"/>
+  <!-- Cloud 2 -->
+  <path d="M 540 268 C 540 208 620 175 660 175 C 690 155 740 155 758 178 C 790 165 830 180 820 208 C 848 210 852 248 832 262 C 830 285 802 295 775 282 L 775 308 L 748 282 C 565 290 540 268 540 268 Z"
+        fill="#ddd6fe" opacity="0.4"/>
+  <path d="M 540 268 C 540 208 620 175 660 175 C 690 155 740 155 758 178 C 790 165 830 180 820 208 C 848 210 852 248 832 262 C 830 285 802 295 775 282 L 775 308 L 748 282 C 565 290 540 268 540 268 Z"
+        fill="none" stroke="#7c3aed" stroke-width="4"/>
+  <path d="M 668 218 C 668 198 698 188 698 214 C 698 226 682 230 682 242"
+        fill="none" stroke="#6b21a8" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="682" cy="256" r="5" fill="#6b21a8"/>
+
+</svg>

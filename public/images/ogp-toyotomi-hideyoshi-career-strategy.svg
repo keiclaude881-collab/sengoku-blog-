@@ -1,56 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGradH" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f0f7ff"/>
-      <stop offset="1" stop-color="#dbeafe"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
     </linearGradient>
   </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#bfdbfe" opacity="0.15"/>
+  <circle cx="1120" cy="550" r="190" fill="#bfdbfe" opacity="0.12"/>
 
-  <rect width="1200" height="630" fill="url(#bgGradH)"/>
-
-  <circle cx="180" cy="160" r="100" fill="#bfdbfe" opacity="0.35"/>
-  <circle cx="1060" cy="500" r="90" fill="#bfdbfe" opacity="0.3"/>
-
-  <!-- ascending staircase from bottom-left to top-right -->
-  <g fill="#1e40af">
-    <rect x="120" y="500" width="130" height="40" opacity="0.4"/>
-    <rect x="250" y="440" width="130" height="100" opacity="0.5"/>
-    <rect x="380" y="370" width="130" height="170" opacity="0.6"/>
-    <rect x="510" y="290" width="130" height="250" opacity="0.7"/>
-    <rect x="640" y="200" width="130" height="340" opacity="0.8"/>
-    <rect x="770" y="100" width="130" height="440" opacity="0.92"/>
+  <!-- Staircase going upward (from sandal carrier to ruler) -->
+  <!-- steps (going up left to right) -->
+  <g fill="#3b82f6">
+    <rect x="180" y="490" width="140" height="50" rx="5" opacity="0.55"/>
+    <rect x="320" y="440" width="140" height="100" rx="5" opacity="0.60"/>
+    <rect x="460" y="380" width="140" height="160" rx="5" opacity="0.65"/>
+    <rect x="600" y="310" width="140" height="230" rx="5" opacity="0.72"/>
+    <rect x="740" y="230" width="140" height="310" rx="5" opacity="0.80"/>
+    <rect x="880" y="140" width="140" height="400" rx="5" opacity="0.88"/>
   </g>
-
-  <!-- single figure climbing, small at base growing into a crowned silhouette at top -->
-  <g transform="translate(185,486)" opacity="0.85">
-    <circle cx="0" cy="-22" r="11" fill="#1e3a8a"/>
-    <path d="M -14 0 Q 0 -22 14 0 L 14 26 L -14 26 Z" fill="#1e3a8a"/>
+  <!-- step tops (highlighted) -->
+  <g fill="#bfdbfe" opacity="0.50">
+    <rect x="180" y="486" width="140" height="10" rx="3"/>
+    <rect x="320" y="436" width="140" height="10" rx="3"/>
+    <rect x="460" y="376" width="140" height="10" rx="3"/>
+    <rect x="600" y="306" width="140" height="10" rx="3"/>
+    <rect x="740" y="226" width="140" height="10" rx="3"/>
+    <rect x="880" y="136" width="140" height="10" rx="3"/>
   </g>
-
-  <!-- figure at the top of the staircase, larger, with a simple crown/triumph shape -->
-  <g transform="translate(835,76)">
-    <path d="M -22 -8 L -14 -28 L -6 -10 L 0 -32 L 6 -10 L 14 -28 L 22 -8 Z" fill="#f59e0b" opacity="0.9"/>
-    <circle cx="0" cy="22" r="26" fill="#1e3a8a"/>
-    <path d="M -34 80 Q 0 14 34 80 L 34 130 L -34 130 Z" fill="#1e3a8a"/>
-  </g>
-
-  <!-- radiating sun behind the summit figure, symbolizing reaching the top -->
-  <g transform="translate(835,76)" stroke="#f59e0b" stroke-width="4" stroke-linecap="round" opacity="0.45">
-    <line x1="0" y1="-70" x2="0" y2="-92"/>
-    <line x1="50" y1="-50" x2="66" y2="-66"/>
-    <line x1="-50" y1="-50" x2="-66" y2="-66"/>
-    <line x1="70" y1="0" x2="94" y2="0"/>
-    <line x1="-70" y1="0" x2="-94" y2="0"/>
-  </g>
-
-  <!-- dotted ascending path tracing the climb -->
-  <path d="M 185 486 Q 400 430 510 360 Q 650 280 835 130" stroke="#3b82f6" stroke-width="3" fill="none" stroke-dasharray="3 12" opacity="0.5" stroke-linecap="round"/>
-
-  <!-- small footholds / dots marking the steps of the journey -->
-  <g fill="#3b82f6" opacity="0.6">
-    <circle cx="315" cy="410" r="7"/>
-    <circle cx="445" cy="340" r="7"/>
-    <circle cx="575" cy="270" r="7"/>
-    <circle cx="705" cy="180" r="7"/>
-  </g>
+  <!-- ascending arrow following staircase -->
+  <polyline points="250,485 390,435 530,375 670,305 810,225 950,140"
+            fill="none" stroke="#1e40af" stroke-width="8" stroke-dasharray="14,8" opacity="0.55"/>
+  <!-- figure at top -->
+  <circle cx="950" cy="110" r="24" fill="#1e40af" opacity="0.80"/>
 </svg>

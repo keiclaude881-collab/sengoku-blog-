@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#fde68a" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#fde68a" opacity="0.35"/>
+  
+  <path d="M 100 360 C 250 358 290 200 420 200 C 540 200 570 300 700 280 C 820 262 860 150 960 130"
+        fill="none" stroke="#fbbf24" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="200" cy="360" r="10" fill="#d97706"/>
+  <circle cx="460" cy="200" r="10" fill="#d97706"/>
+  <circle cx="700" cy="280" r="10" fill="#d97706"/>
+  <circle cx="930" cy="130" r="14" fill="#92400e"/>
+  <circle cx="100" cy="322" r="20" fill="#d97706" opacity="0.8"/>
+  <path d="M 80 352 Q 80 332 100 332 Q 120 332 120 352" fill="#d97706" opacity="0.8"/>
+  <polygon points="930,112 938,128 958,128 942,140 948,160 930,148 912,160 918,140 902,128 922,128" fill="#92400e" opacity="0.9"/>
+
+</svg>

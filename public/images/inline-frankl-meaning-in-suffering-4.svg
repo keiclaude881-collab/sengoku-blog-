@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+  <defs>
+    <linearGradient id="bg_4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#faf5ff"/>
+      <stop offset="100%" style="stop-color:#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg_4)"/>
+  <circle cx="920" cy="60" r="120" fill="#ddd6fe" opacity="0.4"/>
+  <circle cx="80" cy="360" r="90" fill="#c4b5fd" opacity="0.3"/>
+  
+  <!-- three illuminated orbs -->
+  <circle cx="280" cy="210" r="80" fill="#7c3aed" opacity="0.15"/>
+  <circle cx="280" cy="210" r="55" fill="#7c3aed" opacity="0.25"/>
+  <circle cx="280" cy="210" r="32" fill="#7c3aed" opacity="0.55"/>
+  <circle cx="500" cy="190" r="90" fill="#7c3aed" opacity="0.15"/>
+  <circle cx="500" cy="190" r="62" fill="#7c3aed" opacity="0.28"/>
+  <circle cx="500" cy="190" r="38" fill="#6b21a8" opacity="0.6"/>
+  <circle cx="720" cy="210" r="80" fill="#7c3aed" opacity="0.15"/>
+  <circle cx="720" cy="210" r="55" fill="#7c3aed" opacity="0.25"/>
+  <circle cx="720" cy="210" r="32" fill="#7c3aed" opacity="0.55"/>
+  <!-- connecting arcs -->
+  <path d="M 312 210 Q 390 170 468 192" fill="none" stroke="#7c3aed" stroke-width="4" opacity="0.35"/>
+  <path d="M 538 192 Q 616 170 688 210" fill="none" stroke="#7c3aed" stroke-width="4" opacity="0.35"/>
+
+</svg>

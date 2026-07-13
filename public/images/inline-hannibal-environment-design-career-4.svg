@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- City NOT attacked: Rome silhouette with barrier/decision NOT to go there -->
+  <!-- Rome on left (distant, faded) -->
+  <rect x="70" y="180" width="280" height="200" fill="#bfdbfe" opacity="0.25"/>
+  <polygon points="70,180 210,80 350,180" fill="#bfdbfe" opacity="0.25"/>
+  <!-- Columns -->
+  <rect x="110" y="185" width="30" height="195" fill="#bfdbfe" opacity="0.3"/>
+  <rect x="180" y="185" width="30" height="195" fill="#bfdbfe" opacity="0.3"/>
+  <rect x="250" y="185" width="30" height="195" fill="#bfdbfe" opacity="0.3"/>
+  <rect x="310" y="185" width="30" height="195" fill="#bfdbfe" opacity="0.3"/>
+  <!-- Decision arrow bending AWAY from Rome -->
+  <path d="M 600 250 C 580 250 520 250 460 250 C 420 250 400 220 380 200"
+        fill="none" stroke="#1e40af" stroke-width="7" stroke-linecap="round"/>
+  <!-- Arrowhead pointing away (turned right, not toward Rome) -->
+  <line x1="600" y1="250" x2="780" y2="250" stroke="#1d4ed8" stroke-width="7" stroke-linecap="round"/>
+  <polyline points="767,237 783,250 767,263" fill="none" stroke="#1d4ed8" stroke-width="6"/>
+  <!-- Slash over Rome path -->
+  <line x1="390" y1="185" x2="430" y2="218" stroke="#1e40af" stroke-width="7" stroke-linecap="round" opacity="0.6"/>
+
+</svg>

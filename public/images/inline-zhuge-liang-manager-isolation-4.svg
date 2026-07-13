@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Five perspectives to overcome: 5 viewpoint icons in pentagon -->
+  <polygon points="500,82 736,248 650,378 350,378 264,248"
+           fill="none" stroke="#1e40af" stroke-width="5" opacity="0.5"/>
+  <!-- Five circle nodes at vertices -->
+  <circle cx="500" cy="82" r="38" fill="#bfdbfe" opacity="0.5"/>
+  <circle cx="500" cy="82" r="38" fill="none" stroke="#1e40af" stroke-width="4"/>
+  <circle cx="736" cy="248" r="38" fill="#bfdbfe" opacity="0.5"/>
+  <circle cx="736" cy="248" r="38" fill="none" stroke="#1e40af" stroke-width="4"/>
+  <circle cx="650" cy="378" r="38" fill="#bfdbfe" opacity="0.5"/>
+  <circle cx="650" cy="378" r="38" fill="none" stroke="#1e40af" stroke-width="4"/>
+  <circle cx="350" cy="378" r="38" fill="#bfdbfe" opacity="0.5"/>
+  <circle cx="350" cy="378" r="38" fill="none" stroke="#1e40af" stroke-width="4"/>
+  <circle cx="264" cy="248" r="38" fill="#bfdbfe" opacity="0.5"/>
+  <circle cx="264" cy="248" r="38" fill="none" stroke="#1e40af" stroke-width="4"/>
+  <!-- Center icon -->
+  <circle cx="500" cy="230" r="40" fill="#1e40af" opacity="0.55"/>
+  <circle cx="500" cy="214" r="18" fill="#eff6ff" opacity="0.8"/>
+
+</svg>

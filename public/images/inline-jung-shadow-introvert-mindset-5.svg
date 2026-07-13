@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- Individuation: shadow integration → complete circle -->
+  <!-- Before: split half-circle (shadow rejected) -->
+  <path d="M 250 210 A 130 130 0 0 1 510 210" fill="#7c3aed" opacity="0.6"/>
+  <path d="M 250 210 A 130 130 0 0 1 510 210" fill="none" stroke="#7c3aed" stroke-width="6"/>
+  <path d="M 250 210 A 130 130 0 0 0 510 210" fill="#ddd6fe" opacity="0.3"/>
+  <path d="M 250 210 A 130 130 0 0 0 510 210" fill="none" stroke="#6b21a8" stroke-width="4" stroke-dasharray="8,5"/>
+  <!-- Arrow (integration) -->
+  <line x1="540" y1="210" x2="640" y2="210" stroke="#6b21a8" stroke-width="6"/>
+  <polyline points="626,197 642,210 626,223" fill="none" stroke="#6b21a8" stroke-width="5"/>
+  <!-- After: full circle (integrated) -->
+  <circle cx="800" cy="210" r="130" fill="#7c3aed" opacity="0.4"/>
+  <circle cx="800" cy="210" r="130" fill="none" stroke="#7c3aed" stroke-width="6"/>
+  <!-- Yin-yang style (light/dark integrated) -->
+  <path d="M 800 80 A 130 130 0 0 1 800 340" fill="#7c3aed" opacity="0.3"/>
+  <circle cx="800" cy="145" r="65" fill="#7c3aed" opacity="0.4"/>
+  <circle cx="800" cy="275" r="65" fill="#6b21a8" opacity="0.3"/>
+  <circle cx="800" cy="145" r="22" fill="#6b21a8" opacity="0.5"/>
+  <circle cx="800" cy="275" r="22" fill="#7c3aed" opacity="0.4"/>
+
+</svg>

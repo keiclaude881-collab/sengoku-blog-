@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Mirror: person asking "Is today a good day to die/live?" -->
+  <!-- Mirror frame -->
+  <rect x="340" y="80" width="320" height="290" rx="16" fill="none" stroke="#1e40af" stroke-width="8"/>
+  <rect x="355" y="95" width="290" height="260" rx="10" fill="#bfdbfe" opacity="0.3"/>
+  <!-- Reflection (person in mirror) -->
+  <circle cx="500" cy="188" r="38" fill="#93c5fd" opacity="0.55"/>
+  <rect x="462" y="226" width="76" height="100" rx="10" fill="#93c5fd" opacity="0.45"/>
+  <!-- Person looking at mirror (outside) -->
+  <circle cx="200" cy="230" r="38" fill="#1e40af" opacity="0.7"/>
+  <rect x="162" y="268" width="76" height="100" rx="10" fill="#1e40af" opacity="0.6"/>
+  <!-- Looking arrow (gaze direction) -->
+  <line x1="242" y1="248" x2="330" y2="240" stroke="#1d4ed8" stroke-width="5" stroke-dasharray="6,4"/>
+  <!-- Heart/life symbol in mirror -->
+  <path d="M 490 185 C 490 172 506 165 506 180 C 506 165 522 172 522 185 C 522 200 506 215 506 215 C 506 215 490 200 490 185 Z"
+        fill="#1d4ed8" opacity="0.7"/>
+
+</svg>

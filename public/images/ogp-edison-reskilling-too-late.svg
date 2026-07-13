@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgG" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgG)"/>
+  <circle cx="120" cy="540" r="80" fill="#bfdbfe" opacity="0.45"/>
+  <circle cx="1080" cy="100" r="60" fill="#bfdbfe" opacity="0.45"/>
+  
+  <!-- Lightbulb shape -->
+  <path d="M 600 165 
+           C 545 165 500 210 500 265 
+           C 500 305 522 338 555 358 
+           L 555 395 L 645 395 L 645 358 
+           C 678 338 700 305 700 265 
+           C 700 210 655 165 600 165 Z"
+        fill="none" stroke="#1e40af" stroke-width="8" stroke-linejoin="round"/>
+  <!-- Base of bulb -->
+  <rect x="558" y="395" width="84" height="18" rx="5" fill="none" stroke="#1e40af" stroke-width="6"/>
+  <rect x="564" y="413" width="72" height="18" rx="5" fill="none" stroke="#1e40af" stroke-width="6"/>
+  <!-- Filament/glow inside -->
+  <circle cx="600" cy="265" r="50" fill="#bfdbfe" opacity="0.5"/>
+  <path d="M 578 290 L 590 265 L 578 240" fill="none" stroke="#1e40af" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 622 290 L 610 265 L 622 240" fill="none" stroke="#1e40af" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Upward arrow to the right — "never too late" -->
+  <line x1="780" y1="430" x2="780" y2="170" stroke="#1e40af" stroke-width="7" stroke-linecap="round"/>
+  <polyline points="755,200 780,165 805,200" fill="none" stroke="#1e40af" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Clock (time) small symbol to left — "too late?" -->
+  <circle cx="420" cy="315" r="65" fill="none" stroke="#3b82f6" stroke-width="5" opacity="0.7"/>
+  <line x1="420" y1="315" x2="420" y2="270" stroke="#3b82f6" stroke-width="5" stroke-linecap="round" opacity="0.7"/>
+  <line x1="420" y1="315" x2="448" y2="315" stroke="#3b82f6" stroke-width="5" stroke-linecap="round" opacity="0.7"/>
+  <!-- X over clock → "never too late" -->
+  <line x1="375" y1="270" x2="465" y2="360" stroke="#1e40af" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
+  <line x1="465" y1="270" x2="375" y2="360" stroke="#1e40af" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
+
+</svg>

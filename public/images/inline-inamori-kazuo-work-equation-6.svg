@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+  <defs>
+    <linearGradient id="g6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#eff6ff"/>
+      <stop offset="100%" style="stop-color:#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#g6)"/>
+  <circle cx="920" cy="60" r="120" fill="#bfdbfe" opacity="0.4"/>
+  <circle cx="80" cy="360" r="90" fill="#93c5fd" opacity="0.3"/>
+  
+  <!-- desk silhouette -->
+  <rect x="250" y="300" width="500" height="22" rx="6" fill="#1e40af" opacity="0.4"/>
+  <rect x="280" y="322" width="20" height="70" rx="5" fill="#1e40af" opacity="0.35"/>
+  <rect x="700" y="322" width="20" height="70" rx="5" fill="#1e40af" opacity="0.35"/>
+  <!-- monitor on desk -->
+  <rect x="390" y="200" width="220" height="100" rx="10" fill="#1e40af" opacity="0.2"/>
+  <rect x="390" y="200" width="220" height="100" rx="10" fill="none" stroke="#1e40af" stroke-width="5" opacity="0.45"/>
+  <rect x="480" y="300" width="40" height="20" rx="3" fill="#1e40af" opacity="0.3"/>
+  <!-- gear icon -->
+  <circle cx="720" cy="230" r="50" fill="none" stroke="#1d4ed8" stroke-width="10" opacity="0.4"/>
+  <circle cx="720" cy="230" r="25" fill="#1d4ed8" opacity="0.3"/>
+  <!-- gear teeth -->
+  <rect x="712" y="170" width="16" height="22" rx="4" fill="#1d4ed8" opacity="0.4"/>
+  <rect x="712" y="268" width="16" height="22" rx="4" fill="#1d4ed8" opacity="0.4"/>
+  <rect x="660" y="222" width="22" height="16" rx="4" fill="#1d4ed8" opacity="0.4"/>
+  <rect x="758" y="222" width="22" height="16" rx="4" fill="#1d4ed8" opacity="0.4"/>
+
+</svg>

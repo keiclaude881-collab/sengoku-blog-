@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+  <defs>
+    <linearGradient id="bg_3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fffbeb"/>
+      <stop offset="100%" style="stop-color:#fef3c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg_3)"/>
+  <circle cx="920" cy="60" r="120" fill="#fde68a" opacity="0.4"/>
+  <circle cx="80" cy="360" r="90" fill="#fbbf24" opacity="0.3"/>
+  
+  <!-- two hands meeting in center -->
+  <!-- left hand -->
+  <rect x="240" y="185" width="220" height="60" rx="30" fill="#d97706" opacity="0.5"/>
+  <rect x="200" y="175" width="80" height="80" rx="40" fill="#d97706" opacity="0.4"/>
+  <!-- right hand -->
+  <rect x="540" y="185" width="220" height="60" rx="30" fill="#92400e" opacity="0.5"/>
+  <rect x="720" y="175" width="80" height="80" rx="40" fill="#92400e" opacity="0.4"/>
+  <!-- center connection -->
+  <circle cx="500" cy="215" r="30" fill="#fbbf24" opacity="0.8"/>
+  <circle cx="500" cy="215" r="18" fill="white" opacity="0.7"/>
+  <!-- pledge arc above -->
+  <path d="M 350 160 Q 500 100 650 160" fill="none" stroke="#d97706" stroke-width="5" opacity="0.5"/>
+  <!-- stars -->
+  <polygon points="500,90 508,112 532,112 513,126 520,149 500,135 480,149 487,126 468,112 492,112" fill="#fbbf24" opacity="0.7"/>
+
+</svg>

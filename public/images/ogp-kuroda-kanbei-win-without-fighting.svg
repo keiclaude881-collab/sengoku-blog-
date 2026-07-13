@@ -1,47 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="kkBg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f0f7ff"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
       <stop offset="100%" stop-color="#dbeafe"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#kkBg)"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80" cy="80" r="220" fill="#bfdbfe" opacity="0.15"/>
+  <circle cx="1120" cy="550" r="190" fill="#bfdbfe" opacity="0.12"/>
 
-  <!-- open war fan (gunbai), the strategist's tool, centered as the dominant motif -->
-  <g transform="translate(600,330)">
-    <path d="M 0 0 L -260 -150 A 290 290 0 0 1 260 -150 Z" fill="#bfdbfe" opacity="0.8"/>
-    <path d="M -260 -150 A 290 290 0 0 1 260 -150" fill="none" stroke="#1e40af" stroke-width="5"/>
-    <path d="M 0 0 L -195 -170" stroke="#1e40af" stroke-width="2.5" opacity="0.55"/>
-    <path d="M 0 0 L -110 -210" stroke="#1e40af" stroke-width="2.5" opacity="0.55"/>
-    <path d="M 0 0 L 0 -225" stroke="#1e40af" stroke-width="2.5" opacity="0.55"/>
-    <path d="M 0 0 L 110 -210" stroke="#1e40af" stroke-width="2.5" opacity="0.55"/>
-    <path d="M 0 0 L 195 -170" stroke="#1e40af" stroke-width="2.5" opacity="0.55"/>
-    <rect x="-12" y="0" width="24" height="160" rx="6" fill="#1e3a8a"/>
-    <circle cx="0" cy="-78" r="20" fill="#3b82f6"/>
-  </g>
-
-  <!-- two opposing circular formations (armies) on either side, separated by calm space rather than clashing -->
-  <g opacity="0.85">
-    <circle cx="190" cy="470" r="70" fill="#1e40af"/>
-    <circle cx="160" cy="430" r="14" fill="#93c5fd"/>
-    <circle cx="210" cy="420" r="14" fill="#93c5fd"/>
-    <circle cx="170" cy="500" r="14" fill="#93c5fd"/>
-    <circle cx="220" cy="495" r="14" fill="#93c5fd"/>
-  </g>
-  <g opacity="0.6">
-    <circle cx="1010" cy="470" r="70" fill="#3b82f6"/>
-    <circle cx="980" cy="430" r="14" fill="#dbeafe"/>
-    <circle cx="1030" cy="420" r="14" fill="#dbeafe"/>
-    <circle cx="990" cy="500" r="14" fill="#dbeafe"/>
-    <circle cx="1040" cy="495" r="14" fill="#dbeafe"/>
-  </g>
-
-  <!-- a calm gap between the two forces, with a single dashed line meeting peacefully in the middle (negotiation, not battle) -->
-  <path d="M 280 480 C 400 475, 480 480, 600 480" fill="none" stroke="#1e40af" stroke-width="3" stroke-dasharray="4 10" opacity="0.6"/>
-  <path d="M 600 480 C 720 480, 800 475, 920 480" fill="none" stroke="#1e40af" stroke-width="3" stroke-dasharray="4 10" opacity="0.6"/>
-  <circle cx="600" cy="480" r="12" fill="#1e40af"/>
-
-  <!-- soft radiating rings from the fan, suggesting influence/persuasion spreading outward without conflict -->
-  <circle cx="600" cy="330" r="230" fill="none" stroke="#93c5fd" stroke-width="2" opacity="0.4"/>
-  <circle cx="600" cy="330" r="290" fill="none" stroke="#93c5fd" stroke-width="2" opacity="0.3"/>
+  <!-- Empty battlefield + open gate (win without fighting) -->
+  <!-- ground plane -->
+  <ellipse cx="600" cy="480" rx="480" ry="60" fill="#bfdbfe" opacity="0.25"/>
+  <!-- castle gate (open) -->
+  <!-- left tower -->
+  <rect x="300" y="200" width="80" height="240" rx="6" fill="#3b82f6" opacity="0.70"/>
+  <!-- right tower -->
+  <rect x="820" y="200" width="80" height="240" rx="6" fill="#3b82f6" opacity="0.70"/>
+  <!-- gate arch -->
+  <path d="M 380,280 Q 600,180 820,280" fill="none" stroke="#1e40af" stroke-width="16" opacity="0.75"/>
+  <!-- open gate doors (swung open = no resistance) -->
+  <rect x="380" y="280" width="80" height="160" rx="4" fill="#1e40af" opacity="0.50" transform="rotate(-35 380 280)"/>
+  <rect x="820" y="280" width="80" height="160" rx="4" fill="#1e40af" opacity="0.50" transform="rotate(35 820 280)"/>
+  <!-- victory path through empty gate -->
+  <line x1="600" y1="310" x2="600" y2="490" stroke="#60a5fa" stroke-width="10" stroke-dasharray="18,10" opacity="0.55"/>
 </svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- 3 Adlerian questions: 3 question marks in thought bubbles -->
+  <circle cx="220" cy="210" r="80" fill="#ddd6fe" opacity="0.4"/>
+  <circle cx="220" cy="210" r="80" fill="none" stroke="#7c3aed" stroke-width="5"/>
+  <!-- Thought bubble tail -->
+  <circle cx="264" cy="270" r="12" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="290" cy="295" r="8" fill="#ddd6fe" opacity="0.3"/>
+  <!-- Question mark 1 -->
+  <path d="M 208 192 C 208 172 238 165 238 192 C 238 208 218 215 218 230"
+        fill="none" stroke="#6b21a8" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="218" cy="246" r="6" fill="#6b21a8"/>
+  
+  <circle cx="500" cy="210" r="80" fill="#ddd6fe" opacity="0.4"/>
+  <circle cx="500" cy="210" r="80" fill="none" stroke="#7c3aed" stroke-width="5"/>
+  <path d="M 488 192 C 488 172 518 165 518 192 C 518 208 498 215 498 230"
+        fill="none" stroke="#6b21a8" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="498" cy="246" r="6" fill="#6b21a8"/>
+  
+  <circle cx="780" cy="210" r="80" fill="#ddd6fe" opacity="0.4"/>
+  <circle cx="780" cy="210" r="80" fill="none" stroke="#7c3aed" stroke-width="5"/>
+  <path d="M 768 192 C 768 172 798 165 798 192 C 798 208 778 215 778 230"
+        fill="none" stroke="#6b21a8" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="778" cy="246" r="6" fill="#6b21a8"/>
+
+</svg>

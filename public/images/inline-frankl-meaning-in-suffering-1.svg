@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+  <defs>
+    <linearGradient id="bg_1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#faf5ff"/>
+      <stop offset="100%" style="stop-color:#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg_1)"/>
+  <circle cx="920" cy="60" r="120" fill="#ddd6fe" opacity="0.4"/>
+  <circle cx="80" cy="360" r="90" fill="#c4b5fd" opacity="0.3"/>
+  
+  <!-- torch handle -->
+  <rect x="480" y="280" width="40" height="100" rx="10" fill="#6b21a8" opacity="0.6"/>
+  <!-- flame -->
+  <ellipse cx="500" cy="200" rx="50" ry="90" fill="#7c3aed" opacity="0.5"/>
+  <ellipse cx="500" cy="220" rx="35" ry="70" fill="#c4b5fd" opacity="0.6"/>
+  <ellipse cx="500" cy="245" rx="22" ry="45" fill="white" opacity="0.6"/>
+  <!-- rays from flame -->
+  <line x1="420" y1="180" x2="395" y2="155" stroke="#c4b5fd" stroke-width="4" opacity="0.5"/>
+  <line x1="580" y1="180" x2="605" y2="155" stroke="#c4b5fd" stroke-width="4" opacity="0.5"/>
+  <line x1="440" y1="130" x2="425" y2="100" stroke="#c4b5fd" stroke-width="4" opacity="0.5"/>
+  <line x1="560" y1="130" x2="575" y2="100" stroke="#c4b5fd" stroke-width="4" opacity="0.5"/>
+
+</svg>

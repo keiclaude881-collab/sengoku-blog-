@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- Nietzsche's miserable 10 years: descending staircase in darkness -->
+  <!-- Dark descending stairs -->
+  <path d="M 200 128 L 340 128 L 340 188 L 480 188 L 480 248 L 620 248 L 620 308 L 760 308 L 760 368" 
+        fill="none" stroke="#c4b5fd" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Person descending (small, faded) -->
+  <circle cx="220" cy="112" r="16" fill="#c4b5fd" opacity="0.6"/>
+  <rect x="208" y="128" width="24" height="35" rx="5" fill="#c4b5fd" opacity="0.5"/>
+  <!-- Dark clouds / suffering motif -->
+  <path d="M 520 78 C 520 42 580 28 600 48 C 618 32 650 38 642 62 C 662 58 668 88 642 94 C 640 112 598 115 580 98 C 558 106 520 95 520 78 Z"
+        fill="#6b21a8" opacity="0.3"/>
+  <path d="M 700 88 C 700 60 750 50 766 68 C 780 54 808 60 802 82 C 820 78 824 104 802 108 C 800 124 762 127 748 112 C 728 120 700 108 700 88 Z"
+        fill="#6b21a8" opacity="0.25"/>
+
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- SNS comparison trap: phone screens showing perfect lives, person looking down -->
+  <!-- Multiple phone screens (other people's lives, bright) -->
+  <rect x="88" y="138" width="108" height="188" rx="8" fill="none" stroke="#c4b5fd" stroke-width="4"/>
+  <rect x="98" y="152" width="88" height="162" rx="4" fill="#c4b5fd" opacity="0.4"/>
+  <circle cx="142" cy="212" r="28" fill="#c4b5fd" opacity="0.5"/>
+  <line x1="108" y1="260" x2="178" y2="260" stroke="#c4b5fd" stroke-width="4" opacity="0.4"/>
+  
+  <rect x="220" y="108" width="108" height="218" rx="8" fill="none" stroke="#c4b5fd" stroke-width="4"/>
+  <rect x="230" y="122" width="88" height="192" rx="4" fill="#c4b5fd" opacity="0.4"/>
+  <circle cx="274" cy="198" r="32" fill="#c4b5fd" opacity="0.5"/>
+  
+  <rect x="352" y="128" width="108" height="198" rx="8" fill="none" stroke="#c4b5fd" stroke-width="4"/>
+  <rect x="362" y="142" width="88" height="172" rx="4" fill="#c4b5fd" opacity="0.4"/>
+  <circle cx="406" cy="208" r="30" fill="#c4b5fd" opacity="0.5"/>
+  
+  <!-- Viewer (faded, looking at screens) -->
+  <circle cx="750" cy="230" r="42" fill="#7c3aed" opacity="0.5"/>
+  <circle cx="750" cy="190" r="21" fill="#7c3aed" opacity="0.6"/>
+  <!-- Eyes looking at screens (gaze arrows) -->
+  <line x1="710" y1="210" x2="470" y2="200" stroke="#c4b5fd" stroke-width="4" stroke-dasharray="8,5" opacity="0.5"/>
+  <!-- Downward emotion arrow on viewer -->
+  <line x1="750" y1="275" x2="750" y2="330" stroke="#6b21a8" stroke-width="5" stroke-linecap="round"/>
+  <polyline points="736,315 750,333 764,315" fill="none" stroke="#6b21a8" stroke-width="5"/>
+
+</svg>

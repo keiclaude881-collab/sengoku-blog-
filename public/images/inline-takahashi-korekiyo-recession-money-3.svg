@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+  <defs>
+    <linearGradient id="bg_3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fffbeb"/>
+      <stop offset="100%" style="stop-color:#fef3c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg_3)"/>
+  <circle cx="920" cy="60" r="120" fill="#fde68a" opacity="0.4"/>
+  <circle cx="80" cy="360" r="90" fill="#fbbf24" opacity="0.3"/>
+  
+  <!-- large lightbulb -->
+  <ellipse cx="500" cy="185" rx="90" ry="95" fill="#fbbf24" opacity="0.35"/>
+  <rect x="465" y="265" width="70" height="25" rx="5" fill="#d97706" opacity="0.4"/>
+  <rect x="472" y="290" width="56" height="18" rx="5" fill="#d97706" opacity="0.4"/>
+  <!-- rays -->
+  <line x1="500" y1="75" x2="500" y2="45" stroke="#fbbf24" stroke-width="5" opacity="0.6"/>
+  <line x1="390" y1="100" x2="368" y2="80" stroke="#fbbf24" stroke-width="5" opacity="0.6"/>
+  <line x1="610" y1="100" x2="632" y2="80" stroke="#fbbf24" stroke-width="5" opacity="0.6"/>
+  <line x1="350" y1="185" x2="320" y2="185" stroke="#fbbf24" stroke-width="5" opacity="0.6"/>
+  <line x1="650" y1="185" x2="680" y2="185" stroke="#fbbf24" stroke-width="5" opacity="0.6"/>
+  <!-- coin inside bulb -->
+  <circle cx="500" cy="185" r="38" fill="#92400e" opacity="0.4"/>
+  <circle cx="500" cy="185" r="25" fill="white" opacity="0.5"/>
+
+</svg>

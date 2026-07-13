@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Contribution question: arrows from person to organization/world -->
+  <circle cx="200" cy="210" r="40" fill="#1e40af" opacity="0.8"/>
+  <circle cx="200" cy="170" r="20" fill="#1e40af" opacity="0.8"/>
+  <!-- Big question mark (contribution) -->
+  <path d="M 478 148 C 478 108 548 92 548 148 C 548 172 522 185 522 208"
+        fill="none" stroke="#1d4ed8" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="522" cy="232" r="8" fill="#1d4ed8"/>
+  <!-- Arrows from person to the world (contribution targets) -->
+  <line x1="246" y1="193" x2="445" y2="168" stroke="#93c5fd" stroke-width="5"/>
+  <polyline points="432,156 448,168 432,180" fill="none" stroke="#93c5fd" stroke-width="4"/>
+  <line x1="246" y1="210" x2="445" y2="220" stroke="#93c5fd" stroke-width="5"/>
+  <line x1="246" y1="228" x2="445" y2="255" stroke="#93c5fd" stroke-width="5"/>
+  <!-- Target circles on right -->
+  <circle cx="720" cy="168" r="32" fill="none" stroke="#1e40af" stroke-width="4"/>
+  <circle cx="720" cy="168" r="18" fill="none" stroke="#1e40af" stroke-width="3"/>
+  <circle cx="720" cy="168" r="6" fill="#1d4ed8"/>
+  <circle cx="780" cy="250" r="30" fill="none" stroke="#1e40af" stroke-width="4"/>
+  <circle cx="780" cy="250" r="16" fill="none" stroke="#1e40af" stroke-width="3"/>
+  <circle cx="780" cy="250" r="5" fill="#1d4ed8"/>
+
+</svg>

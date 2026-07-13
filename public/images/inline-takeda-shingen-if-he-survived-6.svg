@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+  <defs>
+    <linearGradient id="bg_6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#faf5ff"/>
+      <stop offset="100%" style="stop-color:#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg_6)"/>
+  <circle cx="920" cy="60" r="120" fill="#ddd6fe" opacity="0.4"/>
+  <circle cx="80" cy="360" r="90" fill="#c4b5fd" opacity="0.3"/>
+  
+  <!-- hourglass -->
+  <path d="M 390 110 L 610 110 L 510 240 L 610 370 L 390 370 L 490 240 Z" fill="#7c3aed" opacity="0.2"/>
+  <path d="M 390 110 L 610 110 L 510 240 L 610 370 L 390 370 L 490 240 Z" fill="none" stroke="#7c3aed" stroke-width="6" opacity="0.5"/>
+  <!-- top sand -->
+  <ellipse cx="500" cy="160" rx="85" ry="28" fill="#6b21a8" opacity="0.35"/>
+  <!-- bottom sand pile -->
+  <ellipse cx="500" cy="330" rx="95" ry="30" fill="#6b21a8" opacity="0.45"/>
+  <!-- falling grain -->
+  <line x1="500" y1="195" x2="500" y2="240" stroke="#6b21a8" stroke-width="5" opacity="0.5" stroke-linecap="round"/>
+  <!-- side decorative brackets -->
+  <rect x="360" y="100" width="28" height="280" rx="8" fill="#7c3aed" opacity="0.25"/>
+  <rect x="612" y="100" width="28" height="280" rx="8" fill="#7c3aed" opacity="0.25"/>
+  <!-- reflection star -->
+  <polygon points="820,160 830,188 858,188 836,205 844,232 820,215 796,232 804,205 782,188 810,188" fill="#c4b5fd" opacity="0.6"/>
+
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#bfdbfe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#bfdbfe" opacity="0.35"/>
+  
+  <!-- Not strength but design: chess board with piece positioning -->
+  <!-- Chess board (partial) -->
+  <rect x="200" y="120" width="600" height="260" fill="#bfdbfe" opacity="0.3"/>
+  <rect x="200" y="120" width="600" height="260" fill="none" stroke="#1e40af" stroke-width="5"/>
+  <!-- Alternating squares -->
+  <rect x="200" y="120" width="75" height="65" fill="#93c5fd" opacity="0.25"/>
+  <rect x="350" y="120" width="75" height="65" fill="#93c5fd" opacity="0.25"/>
+  <rect x="500" y="120" width="75" height="65" fill="#93c5fd" opacity="0.25"/>
+  <rect x="650" y="120" width="75" height="65" fill="#93c5fd" opacity="0.25"/>
+  <rect x="275" y="185" width="75" height="65" fill="#93c5fd" opacity="0.25"/>
+  <rect x="425" y="185" width="75" height="65" fill="#93c5fd" opacity="0.25"/>
+  <rect x="575" y="185" width="75" height="65" fill="#93c5fd" opacity="0.25"/>
+  <rect x="725" y="185" width="75" height="65" fill="#93c5fd" opacity="0.25"/>
+  <rect x="200" y="250" width="75" height="65" fill="#93c5fd" opacity="0.25"/>
+  <rect x="350" y="250" width="75" height="65" fill="#93c5fd" opacity="0.25"/>
+  <rect x="500" y="250" width="75" height="65" fill="#93c5fd" opacity="0.25"/>
+  <rect x="650" y="250" width="75" height="65" fill="#93c5fd" opacity="0.25"/>
+  <!-- Key piece positioned strategically (bright) -->
+  <circle cx="500" cy="250" r="30" fill="#1d4ed8" opacity="0.9"/>
+  <line x1="500" y1="232" x2="500" y2="220" stroke="white" stroke-width="4"/>
+  <polygon points="500,220 488,230 512,230" fill="white"/>
+
+</svg>

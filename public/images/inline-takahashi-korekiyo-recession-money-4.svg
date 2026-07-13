@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+  <defs>
+    <linearGradient id="bg_4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fffbeb"/>
+      <stop offset="100%" style="stop-color:#fef3c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg_4)"/>
+  <circle cx="920" cy="60" r="120" fill="#fde68a" opacity="0.4"/>
+  <circle cx="80" cy="360" r="90" fill="#fbbf24" opacity="0.3"/>
+  
+  <!-- shield -->
+  <path d="M 500 110 L 640 155 L 640 265 Q 640 330 500 370 Q 360 330 360 265 L 360 155 Z" fill="#d97706" opacity="0.2"/>
+  <path d="M 500 110 L 640 155 L 640 265 Q 640 330 500 370 Q 360 330 360 265 L 360 155 Z" fill="none" stroke="#d97706" stroke-width="6" opacity="0.5"/>
+  <!-- 3 horizontal bands inside shield -->
+  <rect x="380" y="185" width="240" height="28" rx="5" fill="#92400e" opacity="0.35"/>
+  <rect x="385" y="225" width="230" height="28" rx="5" fill="#92400e" opacity="0.35"/>
+  <rect x="395" y="265" width="210" height="28" rx="5" fill="#92400e" opacity="0.35"/>
+  <!-- coin top of shield -->
+  <circle cx="500" cy="145" r="28" fill="#fbbf24" opacity="0.7"/>
+
+</svg>

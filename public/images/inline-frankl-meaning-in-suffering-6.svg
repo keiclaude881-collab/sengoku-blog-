@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+  <defs>
+    <linearGradient id="bg_6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#faf5ff"/>
+      <stop offset="100%" style="stop-color:#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg_6)"/>
+  <circle cx="920" cy="60" r="120" fill="#ddd6fe" opacity="0.4"/>
+  <circle cx="80" cy="360" r="90" fill="#c4b5fd" opacity="0.3"/>
+  
+  <!-- storm lines (wind) -->
+  <line x1="150" y1="130" x2="400" y2="130" stroke="#c4b5fd" stroke-width="4" opacity="0.35"/>
+  <line x1="130" y1="165" x2="420" y2="155" stroke="#c4b5fd" stroke-width="4" opacity="0.35"/>
+  <line x1="160" y1="200" x2="380" y2="190" stroke="#c4b5fd" stroke-width="3" opacity="0.3"/>
+  <!-- tree trunk (centered) -->
+  <rect x="475" y="240" width="50" height="140" rx="10" fill="#6b21a8" opacity="0.5"/>
+  <!-- roots spreading -->
+  <path d="M 490 380 Q 430 390 370 370" fill="none" stroke="#6b21a8" stroke-width="6" opacity="0.4"/>
+  <path d="M 510" />
+  <path d="M 510 380 Q 570 390 630 370" fill="none" stroke="#6b21a8" stroke-width="6" opacity="0.4"/>
+  <path d="M 500 380 Q 490 410 480 430" fill="none" stroke="#6b21a8" stroke-width="5" opacity="0.35"/>
+  <!-- canopy bending in wind but standing -->
+  <ellipse cx="480" cy="190" rx="120" ry="75" fill="#7c3aed" opacity="0.3"/>
+  <ellipse cx="460" cy="185" rx="90" ry="60" fill="#7c3aed" opacity="0.3"/>
+  <ellipse cx="490" cy="175" rx="70" ry="50" fill="#7c3aed" opacity="0.3"/>
+
+</svg>

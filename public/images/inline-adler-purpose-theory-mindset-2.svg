@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#ddd6fe" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#ddd6fe" opacity="0.35"/>
+  
+  <!-- Cause vs. purpose fork: past-oriented vs. future-oriented -->
+  <!-- Timeline arrow -->
+  <line x1="100" y1="210" x2="900" y2="210" stroke="#ddd6fe" stroke-width="4"/>
+  <polyline points="885,197 901,210 885,223" fill="none" stroke="#ddd6fe" stroke-width="4"/>
+  <!-- Central point -->
+  <circle cx="500" cy="210" r="16" fill="#7c3aed" opacity="0.8"/>
+  <!-- Past-oriented arrow (backward, looking back) -->
+  <path d="M 500 210 C 420 170 280 158 160 165" fill="none" stroke="#c4b5fd" stroke-width="6" stroke-linecap="round"/>
+  <polyline points="172,152 158,165 172,178" fill="none" stroke="#c4b5fd" stroke-width="5"/>
+  <!-- Future-oriented arrow (forward, looking ahead) -->
+  <path d="M 500 210 C 580 158 720 128 860 118" fill="none" stroke="#6b21a8" stroke-width="7" stroke-linecap="round"/>
+  <polyline points="845,105 862,118 845,131" fill="none" stroke="#6b21a8" stroke-width="6"/>
+  <!-- Star at future end -->
+  <polygon points="862,92 869,108 887,108 873,118 878,136 862,126 846,136 851,118 837,108 855,108"
+           fill="#c4b5fd" opacity="0.8"/>
+
+</svg>

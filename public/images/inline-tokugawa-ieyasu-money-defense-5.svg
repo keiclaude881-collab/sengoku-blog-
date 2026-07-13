@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bg)"/>
+  <circle cx="80" cy="360" r="50" fill="#fde68a" opacity="0.35"/>
+  <circle cx="940" cy="60" r="40" fill="#fde68a" opacity="0.35"/>
+  
+  <polygon points="500,78 682,198 318,198" fill="#d97706" opacity="0.7"/>
+  <rect x="348" y="198" width="304" height="162" fill="none" stroke="#92400e" stroke-width="6"/>
+  <rect x="348" y="198" width="304" height="162" fill="#d97706" opacity="0.2"/>
+  <rect x="458" y="223" width="84" height="77" rx="4" fill="none" stroke="#92400e" stroke-width="4"/>
+  <path d="M 278 368 C 278 352 348 348 500 348 C 652 348 722 352 722 368"
+        fill="none" stroke="#fbbf24" stroke-width="6"/>
+  <path d="M 218 218 L 278 238 L 278 308 C 278 342 218 358 218 358 C 218 358 158 342 158 308 L 158 238 Z"
+        fill="none" stroke="#fbbf24" stroke-width="5" opacity="0.7"/>
+  <polyline points="742,348 782,298 822,308 862,238"
+            fill="none" stroke="#fbbf24" stroke-width="6" stroke-linecap="round"/>
+
+</svg>
