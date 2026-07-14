@@ -392,4 +392,8 @@ export const NEXT_DOORS: Record<string, NextDoor[]> = {
     { slug: "buffett-investment-philosophy", hook: "「日常の実感」で株を選んだリンチの先には、「素晴らしいビジネスを長期保有」という別の答えを出したバフェットがいる。" },
     { slug: "graham-margin-of-safety", hook: "候補を見つけた後に「いくらで買うか」を決める基準——割安の定義を体系化したグラハムの安全マージンがいる。" },
   ],
+  "inamori-kazuo-pure-motive": [
+    { slug: "inamori-kazuo-work-equation", hook: "「動機善なりや」という自問の先には、熱意・能力・考え方の掛け算で人生を設計した稲盛の方程式がある。" },
+    { slug: "marcus-aurelius-morning-rehearsal", hook: "私心を排した判断を積み重ねた稲盛の先には、毎朝の自己点検で感情を制御し続けた哲人皇帝マルクス・アウレリウスがいる。" },
+  ],
 };
