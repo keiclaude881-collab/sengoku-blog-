@@ -188,6 +188,7 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
           "socrates-questioning-thinking",
           "tokugawa-ieyasu-power-of-patience",
           "takeda-shingen-if-he-survived",
+          "inamori-kazuo-pure-motive",
         ],
       },
       {
