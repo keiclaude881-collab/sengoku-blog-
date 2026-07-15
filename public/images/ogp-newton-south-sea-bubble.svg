@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+    <linearGradient id="chartUp" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#d97706" stop-opacity="0.6"/>
+    </linearGradient>
+    <linearGradient id="chartDown" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#fde68a" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#f87171" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="bubbleGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fde68a" stop-opacity="0.7"/>
+      <stop offset="70%" stop-color="#fbbf24" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#d97706" stop-opacity="0.1"/>
+    </radialGradient>
+    <radialGradient id="glowOrb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softBlur">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+    <clipPath id="chartClip">
+      <rect x="80" y="100" width="700" height="430"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Decorative corner accents -->
+  <circle cx="0" cy="0" r="200" fill="#fde68a" opacity="0.25"/>
+  <circle cx="1200" cy="630" r="180" fill="#fbbf24" opacity="0.15"/>
+  <circle cx="1150" cy="80" r="120" fill="#fde68a" opacity="0.2"/>
+
+  <!-- Grid lines (subtle) -->
+  <g stroke="#fbbf24" stroke-opacity="0.15" stroke-width="1">
+    <line x1="80" y1="180" x2="780" y2="180"/>
+    <line x1="80" y1="260" x2="780" y2="260"/>
+    <line x1="80" y1="340" x2="780" y2="340"/>
+    <line x1="80" y1="420" x2="780" y2="420"/>
+    <line x1="80" y1="500" x2="780" y2="500"/>
+    <line x1="200" y1="120" x2="200" y2="520"/>
+    <line x1="320" y1="120" x2="320" y2="520"/>
+    <line x1="440" y1="120" x2="440" y2="520"/>
+    <line x1="560" y1="120" x2="560" y2="520"/>
+    <line x1="680" y1="120" x2="680" y2="520"/>
+  </g>
+
+  <!-- Chart area fill — rising phase -->
+  <polygon
+    points="80,480 140,460 200,430 260,390 320,330 380,250 440,170 480,140 500,130"
+    fill="url(#chartUp)"
+    clip-path="url(#chartClip)"
+  />
+
+  <!-- Chart area fill — crash phase -->
+  <polygon
+    points="500,130 520,150 540,200 560,300 580,420 600,480 640,500 700,510 780,515"
+    fill="url(#chartDown)"
+    clip-path="url(#chartClip)"
+  />
+
+  <!-- Rising chart line -->
+  <polyline
+    points="80,480 140,460 200,430 260,390 320,330 380,250 440,170 480,140 500,130"
+    fill="none"
+    stroke="#d97706"
+    stroke-width="4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    clip-path="url(#chartClip)"
+    filter="url(#glow)"
+  />
+
+  <!-- Crash chart line -->
+  <polyline
+    points="500,130 520,150 540,200 560,300 580,420 600,480 640,500 700,510 780,515"
+    fill="none"
+    stroke="#f87171"
+    stroke-width="4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    clip-path="url(#chartClip)"
+  />
+
+  <!-- Peak dot -->
+  <circle cx="500" cy="130" r="10" fill="#d97706" opacity="0.9" filter="url(#glow)"/>
+  <circle cx="500" cy="130" r="18" fill="none" stroke="#d97706" stroke-width="2" opacity="0.5"/>
+
+  <!-- Bubble at peak -->
+  <circle cx="500" cy="130" r="60" fill="url(#bubbleGrad)" opacity="0.6"/>
+  <circle cx="500" cy="130" r="60" fill="none" stroke="#fbbf24" stroke-width="1.5" opacity="0.7"/>
+
+  <!-- Bubble burst shards -->
+  <g stroke="#d97706" stroke-width="2" opacity="0.7" stroke-linecap="round">
+    <line x1="500" y1="68" x2="500" y2="55"/>
+    <line x1="540" y1="90" x2="552" y2="80"/>
+    <line x1="558" y1="130" x2="572" y2="130"/>
+    <line x1="540" y1="168" x2="552" y2="178"/>
+    <line x1="500" y1="192" x2="500" y2="205"/>
+    <line x1="460" y1="168" x2="448" y2="178"/>
+    <line x1="442" y1="130" x2="428" y2="130"/>
+    <line x1="460" y1="90" x2="448" y2="80"/>
+  </g>
+
+  <!-- Downward arrow indicating crash -->
+  <g opacity="0.7">
+    <line x1="660" y1="380" x2="660" y2="460" stroke="#f87171" stroke-width="4" stroke-linecap="round"/>
+    <polygon points="645,450 675,450 660,475" fill="#f87171"/>
+  </g>
+
+  <!-- X axis -->
+  <line x1="80" y1="520" x2="780" y2="520" stroke="#92400e" stroke-width="2" opacity="0.4"/>
+  <!-- Y axis -->
+  <line x1="80" y1="100" x2="80" y2="520" stroke="#92400e" stroke-width="2" opacity="0.4"/>
+
+  <!-- Right panel: decorative telescope / gravity orbit design -->
+  <g transform="translate(920, 315)">
+    <!-- Orbital ellipse — gravity metaphor -->
+    <ellipse cx="0" cy="0" rx="120" ry="60" fill="none" stroke="#fbbf24" stroke-width="2" stroke-dasharray="8 5" opacity="0.5"/>
+    <ellipse cx="0" cy="0" rx="80" ry="40" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="5 4" opacity="0.4"/>
+
+    <!-- Central "sun" / reference body -->
+    <circle cx="0" cy="0" r="28" fill="url(#glowOrb)"/>
+    <circle cx="0" cy="0" r="22" fill="#fbbf24" opacity="0.8"/>
+    <circle cx="0" cy="0" r="14" fill="#d97706" opacity="0.9"/>
+    <circle cx="-4" cy="-4" r="5" fill="#fef3c7" opacity="0.6"/>
+
+    <!-- Orbiting body -->
+    <circle cx="120" cy="0" r="9" fill="#fbbf24" opacity="0.8"/>
+    <circle cx="-80" cy="0" r="7" fill="#fde68a" opacity="0.7"/>
+
+    <!-- Telescope shape -->
+    <g transform="translate(0, -105)">
+      <rect x="-8" y="-30" width="16" height="28" rx="3" fill="#d97706" opacity="0.7"/>
+      <rect x="-14" y="-36" width="28" height="10" rx="2" fill="#92400e" opacity="0.6"/>
+      <line x1="0" y1="-2" x2="0" y2="20" stroke="#d97706" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+      <!-- Lens circles -->
+      <circle cx="0" cy="-50" r="12" fill="none" stroke="#fbbf24" stroke-width="2" opacity="0.6"/>
+      <circle cx="0" cy="-50" r="7" fill="#fde68a" opacity="0.3"/>
+    </g>
+
+    <!-- Stars scattered around -->
+    <g fill="#fbbf24" opacity="0.6">
+      <polygon points="-140,-80 -136,-70 -126,-70 -134,-63 -131,-53 -140,-60 -149,-53 -146,-63 -154,-70 -144,-70" transform="scale(0.5)"/>
+      <polygon points="140,80 144,90 154,90 146,97 149,107 140,100 131,107 134,97 126,90 136,90" transform="scale(0.5)"/>
+      <circle cx="-100" cy="80" r="3"/>
+      <circle cx="110" cy="-70" r="2"/>
+      <circle cx="-130" cy="-20" r="2.5"/>
+      <circle cx="90" cy="60" r="2"/>
+      <circle cx="-60" cy="-90" r="1.5"/>
+      <circle cx="140" cy="30" r="2"/>
+    </g>
+  </g>
+
+  <!-- Small decorative elements — floating coins/circles -->
+  <g opacity="0.3">
+    <circle cx="820" cy="150" r="15" fill="#fbbf24" stroke="#d97706" stroke-width="1.5"/>
+    <circle cx="850" cy="190" r="10" fill="#fde68a" stroke="#d97706" stroke-width="1"/>
+    <circle cx="800" cy="200" r="8" fill="#fbbf24" stroke="#d97706" stroke-width="1"/>
+  </g>
+
+  <!-- Decorative lines at bottom -->
+  <line x1="60" y1="580" x2="1140" y2="580" stroke="#fbbf24" stroke-width="1" opacity="0.3"/>
+  <line x1="60" y1="590" x2="1140" y2="590" stroke="#d97706" stroke-width="0.5" opacity="0.2"/>
+</svg>
