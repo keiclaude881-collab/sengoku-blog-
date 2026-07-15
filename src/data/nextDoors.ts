@@ -396,4 +396,8 @@ export const NEXT_DOORS: Record<string, NextDoor[]> = {
     { slug: "inamori-kazuo-work-equation", hook: "「動機善なりや」という自問の先には、熱意・能力・考え方の掛け算で人生を設計した稲盛の方程式がある。" },
     { slug: "marcus-aurelius-morning-rehearsal", hook: "私心を排した判断を積み重ねた稲盛の先には、毎朝の自己点検で感情を制御し続けた哲人皇帝マルクス・アウレリウスがいる。" },
   ],
+  "newton-south-sea-bubble": [
+    { slug: "graham-margin-of-safety", hook: "感情で動いたニュートンの失敗の先には、熱狂が高まるほど冷静に「安全マージン」を要求したグラハムがいる。" },
+    { slug: "napoleon-russia-campaign-failure", hook: "天才が過信で大損した構造は同じだ——ロシア遠征で撤退できなかったナポレオンの失敗がここにある。" },
+  ],
 };

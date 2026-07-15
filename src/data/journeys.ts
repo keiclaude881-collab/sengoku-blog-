@@ -125,6 +125,7 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
           "sakamoto-ryoma-risk-management",
           "iwasaki-yataro-concentration-strategy",
           "rothschild-zero-to-wealth",
+          "newton-south-sea-bubble",
         ],
       },
       {
