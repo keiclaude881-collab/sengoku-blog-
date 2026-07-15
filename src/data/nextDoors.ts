@@ -400,4 +400,8 @@ export const NEXT_DOORS: Record<string, NextDoor[]> = {
     { slug: "graham-margin-of-safety", hook: "感情で動いたニュートンの失敗の先には、熱狂が高まるほど冷静に「安全マージン」を要求したグラハムがいる。" },
     { slug: "napoleon-russia-campaign-failure", hook: "天才が過信で大損した構造は同じだ——ロシア遠征で撤退できなかったナポレオンの失敗がここにある。" },
   ],
+  "matsushita-konosuke-three-blessings": [
+    { slug: "hokusai-growth-no-limit", hook: "弱みを恩恵に変えた松下の先には、72歳から絵を学び直し「まだ成長できる」と言い続けた北斎がいる。" },
+    { slug: "eleanor-roosevelt-inferiority-consent", hook: "ハンデキャップを強みに読み替えた松下の答えの続きは、「あなたの同意なしに誰もあなたを傷つけられない」と説いたエレノア・ルーズベルトが知っている。" },
+  ],
 };

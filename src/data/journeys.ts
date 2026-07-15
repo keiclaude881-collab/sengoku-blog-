@@ -156,6 +156,7 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
           "eleanor-roosevelt-inferiority-consent",
           "hokusai-growth-no-limit",
           "miyamoto-musashi-own-path",
+          "matsushita-konosuke-three-blessings",
         ],
       },
       {
