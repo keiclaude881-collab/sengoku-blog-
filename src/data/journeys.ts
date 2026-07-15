@@ -93,6 +93,7 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
           "madam-cj-walker-self-investment",
           "shibusawa-eiichi-morals-money",
           "rockefeller-money-discipline",
+          "tesla-money-mismanagement",
         ],
       },
       {

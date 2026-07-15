@@ -404,4 +404,8 @@ export const NEXT_DOORS: Record<string, NextDoor[]> = {
     { slug: "hokusai-growth-no-limit", hook: "弱みを恩恵に変えた松下の先には、72歳から絵を学び直し「まだ成長できる」と言い続けた北斎がいる。" },
     { slug: "eleanor-roosevelt-inferiority-consent", hook: "ハンデキャップを強みに読み替えた松下の答えの続きは、「あなたの同意なしに誰もあなたを傷つけられない」と説いたエレノア・ルーズベルトが知っている。" },
   ],
+  "tesla-money-mismanagement": [
+    { slug: "newton-south-sea-bubble", hook: "テスラと同じ構造がある——天才ニュートンも、知性とは別の「感情」に負けて莫大な資産を失った。" },
+    { slug: "honda-seiroku-money-allocation", hook: "稼いだお金を守る仕組みが必要だと気づいた先には、4分の1貯蓄法で資産を自動的に守り続けた本多静六がいる。" },
+  ],
 };
