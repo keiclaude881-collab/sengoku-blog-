@@ -174,6 +174,7 @@ export const JOURNEYS: Record<"money" | "career" | "mindset", Journey> = {
           "marie-curie-understanding-fear",
           "stoicism-index-investing",
           "napoleon-russia-campaign-failure",
+          "saigo-takamori-seinan-war",
         ],
       },
       {

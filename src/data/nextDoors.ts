@@ -408,4 +408,8 @@ export const NEXT_DOORS: Record<string, NextDoor[]> = {
     { slug: "newton-south-sea-bubble", hook: "テスラと同じ構造がある——天才ニュートンも、知性とは別の「感情」に負けて莫大な資産を失った。" },
     { slug: "honda-seiroku-money-allocation", hook: "稼いだお金を守る仕組みが必要だと気づいた先には、4分の1貯蓄法で資産を自動的に守り続けた本多静六がいる。" },
   ],
+  "saigo-takamori-seinan-war": [
+    { slug: "napoleon-russia-campaign-failure", hook: "義理と感情で引き際を見誤った西郷と同じ失敗が、19世紀ヨーロッパにもある——ロシア遠征で撤退できなかったナポレオンがいる。" },
+    { slug: "tokugawa-ieyasu-power-of-patience", hook: "引くべき時に引けなかった西郷の対極には、何度でも引いて待ち、最後に天下を取った家康がいる。" },
+  ],
 };
