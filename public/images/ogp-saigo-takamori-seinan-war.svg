@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+    <linearGradient id="scaleBeam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#6b21a8"/>
+    </linearGradient>
+    <linearGradient id="flameGrad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="60%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+    <radialGradient id="panGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ddd6fe"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </radialGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#c4b5fd" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="12" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Background decorative orbs -->
+  <circle cx="180" cy="180" r="250" fill="#ddd6fe" opacity="0.2"/>
+  <circle cx="1020" cy="450" r="200" fill="#c4b5fd" opacity="0.15"/>
+  <circle cx="600" cy="315" r="350" fill="url(#centerGlow)" opacity="0.3"/>
+
+  <!-- Japanese mon circle (decorative background) -->
+  <circle cx="600" cy="300" r="230" fill="none" stroke="#c4b5fd" stroke-width="2" opacity="0.3"/>
+  <circle cx="600" cy="300" r="210" fill="none" stroke="#a78bfa" stroke-width="1" opacity="0.2"/>
+  <!-- Inner mon pattern - 4 petal / cross -->
+  <g stroke="#c4b5fd" stroke-width="1" opacity="0.2">
+    <line x1="600" y1="70" x2="600" y2="530"/>
+    <line x1="370" y1="300" x2="830" y2="300"/>
+    <line x1="437" y1="137" x2="763" y2="463"/>
+    <line x1="763" y1="137" x2="437" y2="463"/>
+  </g>
+
+  <!-- Scale fulcrum / pivot -->
+  <polygon points="600,360 580,410 620,410" fill="#7c3aed" opacity="0.8"/>
+  <rect x="570" y="408" width="60" height="8" rx="4" fill="#6b21a8" opacity="0.7"/>
+
+  <!-- Scale beam — tilted (emotion side heavier / lower) -->
+  <!-- Beam tilted: left side down (emotion/loyalty), right side up (reason/retreat) -->
+  <line x1="310" y1="340" x2="890" y2="260" stroke="url(#scaleBeam)" stroke-width="6" stroke-linecap="round" filter="url(#glow)"/>
+
+  <!-- Left chain (emotion side, lower) -->
+  <line x1="360" y1="342" x2="360" y2="395" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="5 3" opacity="0.6"/>
+  <!-- Right chain (reason side, higher) -->
+  <line x1="840" y1="264" x2="840" y2="215" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="5 3" opacity="0.6"/>
+
+  <!-- Left pan — emotion/loyalty (lower, heavier) -->
+  <ellipse cx="360" cy="420" rx="70" ry="18" fill="url(#panGrad)" opacity="0.7"/>
+  <path d="M 292 420 Q 295 445 360 450 Q 425 445 428 420" fill="#ddd6fe" stroke="#7c3aed" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Flame in left pan (emotion / loyalty) -->
+  <g transform="translate(360, 415)" filter="url(#glow)">
+    <path d="M 0,-45 C -10,-30 -20,-10 -12,5 C -5,18 5,18 12,5 C 20,-10 10,-30 0,-45 Z" fill="url(#flameGrad)" opacity="0.9"/>
+    <path d="M 0,-28 C -5,-18 -10,-5 -6,5 C -2,12 2,12 6,5 C 10,-5 5,-18 0,-28 Z" fill="#fef3c7" opacity="0.6"/>
+    <!-- Inner flicker -->
+    <path d="M 0,-18 C -3,-10 -5,0 0,6 C 5,0 3,-10 0,-18 Z" fill="white" opacity="0.4"/>
+  </g>
+
+  <!-- Right pan — reason/strategy (higher, lighter) -->
+  <ellipse cx="840" cy="238" rx="70" ry="18" fill="url(#panGrad)" opacity="0.6"/>
+  <path d="M 772 238 Q 775 263 840 268 Q 905 263 908 238" fill="#ddd6fe" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Compass in right pan (strategy / rational thinking) -->
+  <g transform="translate(840, 215)" filter="url(#glow)">
+    <!-- Compass circle -->
+    <circle cx="0" cy="-18" r="28" fill="none" stroke="#7c3aed" stroke-width="2" opacity="0.8"/>
+    <circle cx="0" cy="-18" r="4" fill="#7c3aed" opacity="0.9"/>
+    <!-- Compass needle (N pointing up) -->
+    <polygon points="0,-42 -5,-20 5,-20" fill="#6b21a8" opacity="0.9"/>
+    <polygon points="0,6 -5,-16 5,-16" fill="#c4b5fd" opacity="0.7"/>
+    <!-- Cardinal marks -->
+    <circle cx="0" cy="-44" r="2.5" fill="#7c3aed" opacity="0.6"/>
+    <circle cx="0" cy="8" r="2" fill="#a78bfa" opacity="0.5"/>
+    <circle cx="-26" cy="-18" r="2" fill="#a78bfa" opacity="0.5"/>
+    <circle cx="26" cy="-18" r="2" fill="#a78bfa" opacity="0.5"/>
+  </g>
+
+  <!-- Pivot dot at center of beam -->
+  <circle cx="600" cy="302" r="10" fill="#7c3aed" opacity="0.9" filter="url(#glow)"/>
+  <circle cx="600" cy="302" r="5" fill="#ddd6fe" opacity="0.8"/>
+
+  <!-- Crossroads paths at bottom — two paths diverging -->
+  <g opacity="0.3">
+    <!-- Path going down-left (war / emotion choice) -->
+    <path d="M 580 530 Q 460 560 320 590" fill="none" stroke="#6b21a8" stroke-width="3" stroke-linecap="round"/>
+    <!-- Path going down-right (retreat / wisdom choice) -->
+    <path d="M 620 530 Q 740 555 880 575" fill="none" stroke="#a78bfa" stroke-width="3" stroke-linecap="round" stroke-dasharray="10 6"/>
+    <!-- Small arrows at end -->
+    <polygon points="318,586 328,598 324,582" fill="#6b21a8"/>
+    <polygon points="882,571 892,583 888,567" fill="#a78bfa"/>
+  </g>
+
+  <!-- Decorative stars / dots -->
+  <g fill="#7c3aed" opacity="0.3">
+    <circle cx="120" cy="420" r="3"/>
+    <circle cx="150" cy="300" r="2"/>
+    <circle cx="100" cy="200" r="2.5"/>
+    <circle cx="1080" cy="180" r="3"/>
+    <circle cx="1050" cy="320" r="2"/>
+    <circle cx="1090" cy="400" r="2.5"/>
+    <circle cx="480" cy="100" r="2"/>
+    <circle cx="720" cy="95" r="2.5"/>
+    <circle cx="600" cy="80" r="3"/>
+  </g>
+
+  <!-- Subtle Japanese wave pattern at bottom -->
+  <g opacity="0.12" stroke="#7c3aed" stroke-width="2" fill="none">
+    <path d="M 0 590 Q 60 575 120 590 Q 180 605 240 590 Q 300 575 360 590 Q 420 605 480 590 Q 540 575 600 590 Q 660 605 720 590 Q 780 575 840 590 Q 900 605 960 590 Q 1020 575 1080 590 Q 1140 605 1200 590"/>
+    <path d="M 0 608 Q 60 593 120 608 Q 180 623 240 608 Q 300 593 360 608 Q 420 623 480 608 Q 540 593 600 608 Q 660 623 720 608 Q 780 593 840 608 Q 900 623 960 608 Q 1020 593 1080 608 Q 1140 623 1200 608"/>
+  </g>
+
+  <!-- Bottom line -->
+  <line x1="60" y1="618" x2="1140" y2="618" stroke="#c4b5fd" stroke-width="1" opacity="0.3"/>
+</svg>
